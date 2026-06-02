@@ -8,7 +8,7 @@ This scan supports repository stewardship only. It does not create active OFARM 
 
 ## Summary
 
-- Files scanned: 4332
+- Files scanned: 4333
 - JSON parse errors: 0
 - Markdown targets checked: 199
 - Actionable broken markdown links: 0
