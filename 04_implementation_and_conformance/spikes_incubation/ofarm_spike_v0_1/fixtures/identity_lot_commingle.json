@@ -1,0 +1,13 @@
+{
+  "fixtureId": "identity_lot_commingle",
+  "classification": "EXECUTABLE_FIXTURE",
+  "facts": {
+    "objectType": "Lot",
+    "commingled": true,
+    "cohortContinuityOneToOne": false
+  },
+  "expectedOutcome": {
+    "decision": "NEW_IDENTITY",
+    "lifecycleRelation": "mergedFrom"
+  }
+}

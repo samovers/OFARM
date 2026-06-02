@@ -1,0 +1,13 @@
+{
+  "fixtureId": "regret_budget_does_not_authorise_experimentation",
+  "description": "RegretBudget does not authorise experimentation.",
+  "schemaValidations": [],
+  "records": [
+    {
+      "type": "RegretBudget",
+      "doesNotAuthorizeExperimentation": false,
+      "doesNotAuthorizeExecution": true,
+      "doesNotAuthorizeRobotMission": true
+    }
+  ]
+}
