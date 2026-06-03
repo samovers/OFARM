@@ -4613,7 +4613,161 @@
       "finalVerdict": "ACCEPT_AS_CLEAN_BASELINE",
       "canProceedToFinalPackaging": true,
       "stopConditionResult": "STOP_AFTER_PHASE_8_DO_NOT_PACKAGE"
+    },
+    {
+      "phaseId": "github_state_reconciliation_repair",
+      "phaseName": "GitHub State Reconciliation Repair",
+      "status": "COMPLETE",
+      "generatedOrCuratedAt": "2026-06-03T12:37:52Z",
+      "semanticLawChanged": false,
+      "activeAuthorityContentModified": false,
+      "canonicalActiveAuthorityFilesMoved": false,
+      "rootDocsRewritten": true,
+      "generatedIndexesRebuilt": true,
+      "releaseArtifactPolicyApplied": true,
+      "currentnessSignalsFixed": true,
+      "filesCreated": [
+        ".gitignore",
+        "CLEAN_BASELINE_GITHUB_STATE_RECONCILIATION_REPAIR_REPORT.md",
+        "CLEAN_BASELINE_GITHUB_STATE_RECONCILIATION_REPAIR_REPORT.json",
+        "package_meta/release/final_clean_baseline/README.md"
+      ],
+      "filesModified": [
+        "CURRENT_ACTIVE_ENTRYPOINT.json",
+        "CURRENT_ACTIVE_ENTRYPOINT.md",
+        "README.md",
+        "CLEAN_BASELINE_CURRENTNESS_STRING_AUDIT.json",
+        "CLEAN_BASELINE_COMPLETION_LEDGER.json",
+        "MANIFEST.csv",
+        "MATERIAL_STATUS.json",
+        "MATERIAL_STATUS.csv",
+        "package_meta/PACKAGE_META_INDEX.json",
+        "package_meta/PACKAGE_META_INDEX.md",
+        "package_meta/release.manifest.json",
+        "package_meta/generated/materials.index.json",
+        "package_meta/generated/handover_gate.json",
+        "REPOSITORY_CROSS_REFERENCE_SCAN.json",
+        "REPOSITORY_CROSS_REFERENCE_SCAN.md",
+        "package_meta/tools/check_repository_cross_references.py"
+      ],
+      "filesMoved": [
+        {
+          "oldPath": "FINAL_CLEAN_BASELINE_PACKAGE_README_FOR_RECIPIENT.md",
+          "newPath": "package_meta/release/final_clean_baseline/FINAL_CLEAN_BASELINE_PACKAGE_README_FOR_RECIPIENT.md",
+          "sizeBytes": 822,
+          "sha256": "68bb22665c073cdfcfa0c51dba4b3fd4ad2aeb2c135d95b6c8f01219c7d3160a"
+        },
+        {
+          "oldPath": "FINAL_CLEAN_BASELINE_PACKAGE_SUMMARY.md",
+          "newPath": "package_meta/release/final_clean_baseline/FINAL_CLEAN_BASELINE_PACKAGE_SUMMARY.md",
+          "sizeBytes": 2891,
+          "sha256": "522d6e8293882c9cfe0169a2214bd4ff16c32c7813f9df791bf29e0490ed2f31"
+        },
+        {
+          "oldPath": "FINAL_CLEAN_BASELINE_PACKAGE_VALIDATION_LOG.txt",
+          "newPath": "package_meta/release/final_clean_baseline/FINAL_CLEAN_BASELINE_PACKAGE_VALIDATION_LOG.txt",
+          "sizeBytes": 1558,
+          "sha256": "92302f9d5567a043558df4e694c0b745839e9007584e2217d4189510417123e8"
+        },
+        {
+          "oldPath": "OFARM2_2026-05-30_cp15_materialized_development_baseline_v0_2_final.zip.sha256",
+          "newPath": "package_meta/release/final_clean_baseline/OFARM2_2026-05-30_cp15_materialized_development_baseline_v0_2_final.zip.sha256",
+          "sizeBytes": 138,
+          "sha256": "74ef11050dc44c79ebd8bcfa0bbca24abd1fec22b44bff80814ca8223d449717"
+        },
+        {
+          "oldPath": "OFARM2_2026-05-30_cp15_materialized_development_baseline_v0_2_final_zip_contents.txt",
+          "newPath": "package_meta/release/final_clean_baseline/OFARM2_2026-05-30_cp15_materialized_development_baseline_v0_2_final_zip_contents.txt",
+          "sizeBytes": 1435411,
+          "sha256": "b6d631d19916f823236821df91114e8aba3e472b3a6b356e670240275041d130"
+        }
+      ],
+      "filesDeleted": [
+        {
+          "path": "OFARM2_2026-05-30_cp15_materialized_development_baseline_v0_2_final.zip",
+          "sizeBytes": 27826344,
+          "sha256": "9e5913545bc10a93c09170bc5f82f035e076960c1fe8ff49fbcb84d2ca3398aa",
+          "distributionPolicy": "external_release_asset_not_source_tree_content"
+        },
+        {
+          "path": "OFARM2_FINAL_PACKAGE_REPORT_PACKAGE_20260603_1249.zip",
+          "sizeBytes": 259777,
+          "sha256": "7f82f31b282f6febaee9a89f610689f1083e4da70c62ab04657460ae9a9d2df6",
+          "distributionPolicy": "external_release_asset_not_source_tree_content"
+        },
+        {
+          "path": "OFARM2_FINAL_PACKAGE_REPORT_PACKAGE_20260603_1307.zip",
+          "sizeBytes": 260011,
+          "sha256": "76be3cddbe5779095a86d00c0139d6512ff7dbb1c8e62ceab0df06f97e05fa20",
+          "distributionPolicy": "external_release_asset_not_source_tree_content"
+        },
+        {
+          "path": "CLEAN_BASELINE_PHASE8_FINAL_VALIDATION_COMPLETION_AUDIT_REPORT_PACKAGE_20260603_1138.zip",
+          "sizeBytes": 1729364,
+          "sha256": "438c0ac6a99586de5bac6f0ddeea755b43c8d57cdba004d7b954d354f86f8380",
+          "distributionPolicy": "external_release_asset_not_source_tree_content"
+        },
+        {
+          "path": "CLEAN_BASELINE_PHASE7B_MATERIAL_STATUS_METADATA_AUTHORITY_REPAIR_REPORT_PACKAGE_20260603_1046.zip",
+          "sizeBytes": 1551105,
+          "sha256": "c9aa8504fa95c9d28bd589f36a4a81fbd6bc958b082723d7b92cfd0837ffb9e5",
+          "distributionPolicy": "external_release_asset_not_source_tree_content"
+        },
+        {
+          "path": "CLEAN_BASELINE_PHASE7_GENERATED_INDEX_VALIDATOR_REBUILD_REPORT_PACKAGE_20260603_1003.zip",
+          "sizeBytes": 3166119,
+          "sha256": "fb056b6129d98dc9a03e4a35572a5e40bca605a84f3fe840bd79b88f912a4a8f",
+          "distributionPolicy": "external_release_asset_not_source_tree_content"
+        },
+        {
+          "path": "CLEAN_BASELINE_GITHUB_STATE_RECONCILIATION_REPORT_PACKAGE_20260603_1404.zip",
+          "sizeBytes": 69490,
+          "sha256": "a7fd3f25ad9c81abc0e293768e409219d2bc9274f99ce33cbb324c47a3796b66",
+          "distributionPolicy": "external_release_asset_not_source_tree_content"
+        },
+        {
+          "path": "CLEAN_BASELINE_PHASE0_PHASE3_CREATED_MODIFIED_2026-06-02.zip",
+          "sizeBytes": 158588,
+          "sha256": "37d529fcf89784b028a12450fe478c051c233673c4872e1a1884b3c7216c7eaf",
+          "distributionPolicy": "external_release_asset_not_source_tree_content",
+          "reason": "root-level old reviewer/upload ZIP artifact"
+        },
+        {
+          "path": "CLEAN_BASELINE_PHASE0_PHASE4_CREATED_MODIFIED_2026-06-02.zip",
+          "sizeBytes": 2639488,
+          "sha256": "94acb5fca650292be0360b8ab224521aea1bbc8dccac86a7b5265d35d8c56963",
+          "distributionPolicy": "external_release_asset_not_source_tree_content",
+          "reason": "root-level old reviewer/upload ZIP artifact"
+        },
+        {
+          "path": "CLEAN_BASELINE_PHASE5_REVIEWER_2026-06-02.zip",
+          "sizeBytes": 79942,
+          "sha256": "0eac0fff629302abb8d76a4e401dcf944b754a2f1e9cd7a55a7312a136d39bc5",
+          "distributionPolicy": "external_release_asset_not_source_tree_content",
+          "reason": "root-level old reviewer/upload ZIP artifact"
+        }
+      ],
+      "validationRun": [
+        {
+          "command": "git status --short",
+          "stage": "start_check",
+          "status": "PASSED_WITH_EXPECTED_LOCAL_ARTIFACTS"
+        },
+        {
+          "command": "python3 package_meta/tools/run_repository_validation_suite.py",
+          "stage": "after_artifact_policy_repair_before_currentness_fix",
+          "status": "PASSED"
+        },
+        {
+          "command": "post-currentness repair validation command set including python3 package_meta/tools/run_repository_validation_suite.py",
+          "stage": "after_currentness_fix_and_index_refresh",
+          "status": "PASSED",
+          "validationLog": "clean_baseline_phase_reports/GITHUB_STATE_RECONCILIATION_REPAIR_report/GITHUB_STATE_RECONCILIATION_REPAIR_VALIDATION_LOG.txt"
+        }
+      ],
+      "canProceed": "REPO_CURRENTNESS_RECONCILED",
+      "unresolvedDebt": []
     }
   ],
-  "lastUpdatedOrCuratedAt": "2026-06-03T09:33:17Z"
+  "lastUpdatedOrCuratedAt": "2026-06-03T12:37:52Z"
 }

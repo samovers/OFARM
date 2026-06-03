@@ -1,6 +1,6 @@
 {
   "schemaVersion": "ofarm.releaseManifest.v0.2",
-  "generatedAt": "2026-06-03T09:33:17Z",
+  "generatedAt": "2026-06-03T12:34:20Z",
   "package": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "previousPackage": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_1_steward_remediated",
   "controlledPromotionPhase": "CP15",
@@ -54,6 +54,39 @@
   "finalValidationPassed": true,
   "finalVerdict": "ACCEPT_AS_CLEAN_BASELINE",
   "canProceedToFinalPackaging": true,
-  "finalPackagingPerformed": false,
-  "finalPackagingPromptNeeded": true
+  "finalPackagingPerformed": true,
+  "finalPackagingPromptNeeded": true,
+  "finalPackageDistributionPolicy": "external_release_asset_not_source_tree_content",
+  "finalCleanBaselineReleaseMetadataLane": "package_meta/release/final_clean_baseline/",
+  "finalPackageReleaseAssetsRemovedFromSourceTree": [
+    {
+      "externalReleaseAssetProvenance": "OFARM2_2026-05-30_cp15_materialized_development_baseline_v0_2_final.zip",
+      "sourceTreePolicy": "removed_from_source_tree_distributed_as_external_release_asset"
+    },
+    {
+      "externalReleaseAssetProvenance": "OFARM2_FINAL_PACKAGE_REPORT_PACKAGE_20260603_1249.zip",
+      "sourceTreePolicy": "removed_from_source_tree_distributed_as_external_release_asset"
+    },
+    {
+      "externalReleaseAssetProvenance": "OFARM2_FINAL_PACKAGE_REPORT_PACKAGE_20260603_1307.zip",
+      "sourceTreePolicy": "removed_from_source_tree_distributed_as_external_release_asset"
+    },
+    {
+      "externalReleaseAssetProvenance": "CLEAN_BASELINE_PHASE8_FINAL_VALIDATION_COMPLETION_AUDIT_REPORT_PACKAGE_20260603_1138.zip",
+      "sourceTreePolicy": "removed_from_source_tree_distributed_as_external_release_asset"
+    },
+    {
+      "externalReleaseAssetProvenance": "CLEAN_BASELINE_PHASE7B_MATERIAL_STATUS_METADATA_AUTHORITY_REPAIR_REPORT_PACKAGE_20260603_1046.zip",
+      "sourceTreePolicy": "removed_from_source_tree_distributed_as_external_release_asset"
+    },
+    {
+      "externalReleaseAssetProvenance": "CLEAN_BASELINE_PHASE7_GENERATED_INDEX_VALIDATOR_REBUILD_REPORT_PACKAGE_20260603_1003.zip",
+      "sourceTreePolicy": "removed_from_source_tree_distributed_as_external_release_asset"
+    },
+    {
+      "externalReleaseAssetProvenance": "CLEAN_BASELINE_GITHUB_STATE_RECONCILIATION_REPORT_PACKAGE_20260603_1404.zip",
+      "sourceTreePolicy": "removed_from_source_tree_distributed_as_external_release_asset"
+    }
+  ],
+  "semanticLawChanged": false
 }

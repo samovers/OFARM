@@ -52,8 +52,13 @@ The CP15 merge evidence pointer is repaired to existing evidence:
 
 No new CP15 merge decision file was created.
 
-## Remaining clean-baseline phases
+## Clean-baseline completion
 
-- Phase 6: support context hardening.
-- Phase 7: generated-index and validator rebuild.
-- Phase 8: final validation and unresolved-debt register.
+- Clean-baseline status: complete.
+- Final verdict: `ACCEPT_AS_CLEAN_BASELINE`.
+- Final package readiness: `READY_FOR_FINAL_PACKAGE`.
+- Remaining clean-baseline phases: none.
+- Final validation ledger: `CLEAN_BASELINE_FINAL_VALIDATION_LEDGER.json`.
+- Final package readiness file: `CLEAN_BASELINE_FINAL_PACKAGE_READINESS.json`.
+- Final unresolved debt register: `CLEAN_BASELINE_UNRESOLVED_DEBT_REGISTER.json`.
+- Final audit prompt: `FINAL_CLEAN_BASELINE_AUDIT_PROMPT.md`.

@@ -71,4 +71,6 @@ CP15 does not claim production software-delivery readiness, production model-dep
 
 ## Validation posture
 
-Full repository validation remains required in Phase 8. Phase 5 rewrites root currentness/navigation only and does not rebuild generated indexes or validators.
+Full repository validation completed in Phase 8. Final verdict: `ACCEPT_AS_CLEAN_BASELINE`. Final package readiness: `READY_FOR_FINAL_PACKAGE`.
+
+Bulky final ZIP and report ZIP artifacts are release assets outside the source-tree content. Final clean-baseline package metadata and validation logs live in `package_meta/release/final_clean_baseline/`.

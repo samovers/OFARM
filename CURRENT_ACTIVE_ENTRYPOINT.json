@@ -1,6 +1,6 @@
 {
   "schemaVersion": "ofarm.currentActiveEntrypoint.v1",
-  "generatedOrCuratedAt": "2026-06-02T21:13:23.122413Z",
+  "generatedOrCuratedAt": "2026-06-03T12:35:43Z",
   "currentPackageIdentity": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "currentPackage": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "latestControlledAmendment": "CP15",
@@ -81,20 +81,6 @@
       "status": "NON_DEFAULT_ACTIVE_SUPPORTING_CONTEXT"
     }
   },
-  "remainingCleanBaselinePhases": [
-    {
-      "phaseId": "phase_6",
-      "name": "Support Context Hardening"
-    },
-    {
-      "phaseId": "phase_7",
-      "name": "Generated Index and Validator Rebuild"
-    },
-    {
-      "phaseId": "phase_8",
-      "name": "Final Validation and Unresolved-Debt Register"
-    }
-  ],
   "nonClaims": [
     "no production software-delivery readiness claim",
     "no production model-deployment readiness claim",
@@ -107,5 +93,34 @@
     "no legal/security/compliance advice claim",
     "no automatic current/default schema promotion"
   ],
-  "historicalPackageIdentityPolicy": "Old package identity strings are not default-current declarations. Historical overlays preserve them under package_meta/history/currentness_overlays/."
+  "historicalPackageIdentityPolicy": "Old package identity strings are not default-current declarations. Historical overlays preserve them under package_meta/history/currentness_overlays/.",
+  "cleanBaselineCompletionStatus": "COMPLETE",
+  "cleanBaselineFinalVerdict": "ACCEPT_AS_CLEAN_BASELINE",
+  "finalPackageReadiness": "READY_FOR_FINAL_PACKAGE",
+  "finalValidationLedger": "CLEAN_BASELINE_FINAL_VALIDATION_LEDGER.json",
+  "finalPackageReadinessFile": "CLEAN_BASELINE_FINAL_PACKAGE_READINESS.json",
+  "unresolvedDebtRegister": "CLEAN_BASELINE_UNRESOLVED_DEBT_REGISTER.json",
+  "finalCompletionAudit": "CLEAN_BASELINE_FINAL_COMPLETION_AUDIT.json",
+  "finalAuditPrompt": "FINAL_CLEAN_BASELINE_AUDIT_PROMPT.md",
+  "cleanBaselinePhasesCompleted": [
+    "phase_0",
+    "phase_1",
+    "phase_1a",
+    "phase_1b",
+    "phase_2",
+    "phase_3",
+    "phase_4",
+    "phase_5",
+    "phase_5_evidence_closure",
+    "phase_6",
+    "phase_7",
+    "phase_7b",
+    "phase_8"
+  ],
+  "releaseArtifactPolicy": {
+    "sourceTreeBulkyZipArtifacts": "removed_from_source_tree_distributed_as_external_release_assets",
+    "releaseMetadataLane": "package_meta/release/final_clean_baseline/",
+    "semanticLawChanged": false,
+    "activeAuthorityContentModified": false
+  }
 }

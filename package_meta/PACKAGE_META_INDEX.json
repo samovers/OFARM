@@ -1,20 +1,20 @@
 {
   "schemaVersion": "ofarm.packageMetaIndex.v0.4.cleanBaselinePhase8",
-  "generatedAt": "2026-06-03T09:33:17Z",
+  "generatedAt": "2026-06-03T12:34:20Z",
   "currentPackageIdentity": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "package": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "latestControlledPromotion": "CP15",
   "latestControlledAmendment": "CP15",
   "activeLaw": false,
   "doesNotOverrideActiveBaseline": true,
-  "authorityNote": "package_meta indexes and history lanes do not override active OFARM 2 authority.",
+  "authorityNote": "Package metadata, generated views, release metadata, and history lanes do not override active OFARM authority.",
   "historyLanes": [
     "package_meta/history/controlled_amendments/",
     "package_meta/history/currentness_overlays/"
   ],
   "generatedViewPolicy": {
-    "generatedViewsAreDerived": true,
-    "doNotCiteAsIndependentSource": true
+    "doNotCiteAsIndependentSource": true,
+    "doNotOverrideCanonicalAuthority": true
   },
   "materialStatusArtifactLevelActiveLawClarified": true,
   "records": [
@@ -310,30 +310,30 @@
       "path": "package_meta/generated/README.md",
       "bytes": 462,
       "sha256": "8248bc646f0294929c44d18a60260d1df274c6a46f7c1df800648ccd903b58c4",
-      "status": "NAVIGATION_METADATA"
+      "status": "GENERATED_DERIVED_VIEW"
     },
     {
       "path": "package_meta/generated/authority.index.json",
-      "bytes": 695085,
-      "sha256": "5a2359e0e2386afa47fe3b84d4dd3861f32ac79860f09d3234ec773bb3a34814",
+      "bytes": 695940,
+      "sha256": "a6ab06ecf2e8cd33cfac9a7b09bdefe7c9ab5f02d9f2dd864285547efeb24725",
       "status": "GENERATED_DERIVED_VIEW"
     },
     {
       "path": "package_meta/generated/contracts.index.json",
       "bytes": 195627,
-      "sha256": "a33e1ff4e48d96d7bed9aca577ee0e484abdc39e293e989ab18c07dd544ba145",
+      "sha256": "81d60698ef1da1eb205a05f15322dd8d511e934a4a0cbad3d0718c8a8a1c88a4",
       "status": "GENERATED_DERIVED_VIEW"
     },
     {
       "path": "package_meta/generated/folder.status.json",
       "bytes": 2091,
       "sha256": "acca4a3e08b5559dc8c8dfdbcdc820f56347be45e9f7571150cb08c13677bf35",
-      "status": "FOLDER_STATUS_METADATA"
+      "status": "GENERATED_DERIVED_VIEW"
     },
     {
       "path": "package_meta/generated/handover_gate.json",
-      "bytes": 1127,
-      "sha256": "609b4805ba354d950195cedca0e1cacc2bb94560ee142988e719f505fe6b0d07",
+      "bytes": 4553,
+      "sha256": "3ca8872f405df5af867ecb386e623f15992455f4c85760560d6658dd377703a1",
       "status": "GENERATED_DERIVED_VIEW"
     },
     {
@@ -344,8 +344,8 @@
     },
     {
       "path": "package_meta/generated/materials.index.json",
-      "bytes": 2522,
-      "sha256": "ef2323f5a2ce60e8c1b39dce761f6d470260b66639a3e1de9edd4ea23a173bbc",
+      "bytes": 2530,
+      "sha256": "37e98fdf7628da9ca091a2803f3c0f1f8034ba338befbd6bca52d797b76c6905",
       "status": "GENERATED_DERIVED_VIEW"
     },
     {
@@ -357,19 +357,19 @@
     {
       "path": "package_meta/generated/schema_example_map.json",
       "bytes": 276097,
-      "sha256": "1914d17c6190c76855accef4816592f7da461035754c9f7f612dc084e0ef6c86",
+      "sha256": "6ab906de89b769a02ba5cfb5a68c119bb24096af3964191794e0b71942024022",
       "status": "GENERATED_DERIVED_VIEW"
     },
     {
       "path": "package_meta/generated/source_inputs.lock.json",
       "bytes": 4363,
-      "sha256": "1f05f0fe09f057e5cc63bdbbb8b6db251a5cf2060f57fbb1d533caedbf1d4275",
+      "sha256": "606869eaa6ee381ef2ed154764949429dbf7045bdacb9ac88ef0d6d033b93f45",
       "status": "GENERATED_DERIVED_VIEW"
     },
     {
       "path": "package_meta/generated/traceability.index.json",
       "bytes": 47414,
-      "sha256": "4d9a4d270ca55c208f4bfa9983930757a2a065fb3226ebe5f4cf7a02458d7954",
+      "sha256": "9d341cc57b353f72493467d1570bf678c2fc4ccdd0aeff0d32da2ef4d1498ab1",
       "status": "GENERATED_DERIVED_VIEW"
     },
     {
@@ -2114,9 +2114,45 @@
     },
     {
       "path": "package_meta/release.manifest.json",
-      "bytes": 2931,
-      "sha256": "abef09c80acabe31c391e5ca1eba0868d084a6af8dcc65a96a49d65d3983837a",
+      "bytes": 4755,
+      "sha256": "4fbed438023b6012d13831630b64f1be0e6ede6990b9fecf4f3875996ff8f78b",
       "status": "PACKAGE_METADATA"
+    },
+    {
+      "path": "package_meta/release/final_clean_baseline/FINAL_CLEAN_BASELINE_PACKAGE_README_FOR_RECIPIENT.md",
+      "bytes": 822,
+      "sha256": "68bb22665c073cdfcfa0c51dba4b3fd4ad2aeb2c135d95b6c8f01219c7d3160a",
+      "status": "PACKAGE_RELEASE_METADATA"
+    },
+    {
+      "path": "package_meta/release/final_clean_baseline/FINAL_CLEAN_BASELINE_PACKAGE_SUMMARY.md",
+      "bytes": 2891,
+      "sha256": "522d6e8293882c9cfe0169a2214bd4ff16c32c7813f9df791bf29e0490ed2f31",
+      "status": "PACKAGE_RELEASE_METADATA"
+    },
+    {
+      "path": "package_meta/release/final_clean_baseline/FINAL_CLEAN_BASELINE_PACKAGE_VALIDATION_LOG.txt",
+      "bytes": 1558,
+      "sha256": "92302f9d5567a043558df4e694c0b745839e9007584e2217d4189510417123e8",
+      "status": "PACKAGE_RELEASE_METADATA"
+    },
+    {
+      "path": "package_meta/release/final_clean_baseline/OFARM2_2026-05-30_cp15_materialized_development_baseline_v0_2_final.zip.sha256",
+      "bytes": 138,
+      "sha256": "74ef11050dc44c79ebd8bcfa0bbca24abd1fec22b44bff80814ca8223d449717",
+      "status": "PACKAGE_RELEASE_METADATA"
+    },
+    {
+      "path": "package_meta/release/final_clean_baseline/OFARM2_2026-05-30_cp15_materialized_development_baseline_v0_2_final_zip_contents.txt",
+      "bytes": 1435411,
+      "sha256": "b6d631d19916f823236821df91114e8aba3e472b3a6b356e670240275041d130",
+      "status": "PACKAGE_RELEASE_METADATA"
+    },
+    {
+      "path": "package_meta/release/final_clean_baseline/README.md",
+      "bytes": 601,
+      "sha256": "6bf28abcec6a12ae1cb374b0b81dc66f051cb322c8f2f793172487fb9ebed371",
+      "status": "PACKAGE_RELEASE_METADATA"
     },
     {
       "path": "package_meta/repository_cleanup_2026_05_15/README.md",
@@ -2456,8 +2492,8 @@
     },
     {
       "path": "package_meta/tools/check_repository_cross_references.py",
-      "bytes": 10483,
-      "sha256": "fe11328e468a2e8829b0890cedea4f1839a24ca51280874de8e81198fa89b4c1",
+      "bytes": 10601,
+      "sha256": "4b5737da0263d1980dcc34f84f56afb3b21410f26d8950f82a59ec68ff5758fd",
       "status": "PACKAGE_METADATA"
     },
     {
@@ -2500,7 +2536,7 @@
   "directoryRecords": [
     {
       "path": "package_meta/",
-      "fileCount": 13
+      "fileCount": 419
     },
     {
       "path": "package_meta/agentic_ai_world_model_consolidation_2026_05_15/",
@@ -2520,15 +2556,15 @@
     },
     {
       "path": "package_meta/history/",
-      "fileCount": 8
+      "fileCount": 265
     },
     {
       "path": "package_meta/history/controlled_amendments/",
-      "fileCount": 2
+      "fileCount": 234
     },
     {
       "path": "package_meta/history/controlled_amendments/cp11_merge_2026_05_28/",
-      "fileCount": 7
+      "fileCount": 9
     },
     {
       "path": "package_meta/history/controlled_amendments/cp11_merge_2026_05_28/root_overlay_archive/",
@@ -2536,7 +2572,7 @@
     },
     {
       "path": "package_meta/history/controlled_amendments/cp12_merge_2026_05_28/",
-      "fileCount": 26
+      "fileCount": 28
     },
     {
       "path": "package_meta/history/controlled_amendments/cp12_merge_2026_05_28/root_overlay_archive/",
@@ -2548,7 +2584,7 @@
     },
     {
       "path": "package_meta/history/controlled_amendments/cp12_steward_remediation_2026_05_28/",
-      "fileCount": 4
+      "fileCount": 48
     },
     {
       "path": "package_meta/history/controlled_amendments/cp12_steward_remediation_2026_05_28/relocated_root_overlays/",
@@ -2572,7 +2608,7 @@
     },
     {
       "path": "package_meta/history/controlled_amendments/cp14_phase7_2026_05_30/",
-      "fileCount": 20
+      "fileCount": 26
     },
     {
       "path": "package_meta/history/controlled_amendments/cp14_phase7_2026_05_30/sources/",
@@ -2592,7 +2628,7 @@
     },
     {
       "path": "package_meta/history/controlled_amendments/cp15_phase7_2026_05_30/",
-      "fileCount": 21
+      "fileCount": 26
     },
     {
       "path": "package_meta/history/controlled_amendments/cp15_phase7_2026_05_30/source_cp15_phase7_inputs/",
@@ -2600,7 +2636,7 @@
     },
     {
       "path": "package_meta/history/currentness_overlays/",
-      "fileCount": 1
+      "fileCount": 12
     },
     {
       "path": "package_meta/history/currentness_overlays/phase5_pre_rewrite/",
@@ -2629,6 +2665,10 @@
     {
       "path": "package_meta/preimplementation_final_consolidation_2026-05-14/",
       "fileCount": 11
+    },
+    {
+      "path": "package_meta/release/final_clean_baseline/",
+      "fileCount": 6
     },
     {
       "path": "package_meta/repository_cleanup_2026_05_15/",
@@ -2666,5 +2706,6 @@
       "path": "package_meta/validators/",
       "fileCount": 2
     }
-  ]
+  ],
+  "releaseMetadataLane": "package_meta/release/final_clean_baseline/"
 }

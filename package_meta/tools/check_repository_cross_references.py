@@ -50,6 +50,7 @@ def history_or_provenance(path: str, line: str) -> bool:
     lowered = line.lower()
     return (
         path.startswith("package_meta/history/")
+        or path.startswith("package_meta/release/final_clean_baseline/")
         or path.startswith("package_meta/final_validation_")
         or path.startswith("package_meta/consolidation_")
         or path.startswith("package_meta/preimplementation_final_consolidation_")
@@ -82,6 +83,7 @@ def history_or_provenance(path: str, line: str) -> bool:
         or "sourcepackage" in lowered
         or "historical" in lowered
         or "provenance" in lowered
+        or "final_clean_baseline" in lowered
         or "missing" in lowered
         or "not create" in lowered
         or "not point" in lowered
