@@ -1,14 +1,12 @@
+# legacy_reference
 
-> **OFARM 2 legacy currentness note**  
-> This file is preserved inside `legacy_reference/` as read-only historical context. It does not define active OFARM 2 law, active schema authority, current package status, or implementation direction. Read the active authority set and `legacy_reference/LEGACY_REFERENCE_INDEX.json` before using this material.
+Current package: `OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized`.
 
-# Legacy reference
+Latest controlled amendment: **CP15**.
 
-Status: `LEGACY_REFERENCE`  
-Authority: read-only contextual reference only  
-Latest active OFARM endpoint: `AAI-CP10`
+Status: root-visible contextual-only reference. This folder is not active OFARM 2 law, is non-default for development reading, and never overrides active authority.
 
-This folder is historical FA_RM / FARM_RM / Farm-RM material retained for comparison, source mining, and lineage review. It is **not** active OFARM 2 law.
+## Authority Boundary
 
 Use active authority first:
 
@@ -17,20 +15,17 @@ Use active authority first:
 3. `01_companion_artifacts/`
 4. `03_machine_contracts/`
 
-Then use this folder only when historical context is explicitly needed.
+Then use `legacy_reference/` only when historical context, comparison, source mining, or lineage review is explicitly needed.
 
-Repository index: `legacy_reference/LEGACY_REFERENCE_INDEX.json` and `legacy_reference/LEGACY_REFERENCE_INDEX.md`.
+Legacy FA_RM, FARM_RM, Farm-RM, and old runtime or product terminology must not silently re-enter active OFARM 2 law.
 
-## Direct files
+## Navigation
 
-- `AGENTS.override.md`
+- `LEGACY_REFERENCE_INDEX.json`
+- `LEGACY_REFERENCE_INDEX.md`
 - `README_READ_ONLY.md`
-- `folder.status.json`
-
-## Subfolders
-
 - `fa_rm_v1/`
 
-## Guardrail
+Older package strings inside this folder are historical/provenance references. They are not current package identity.
 
-If any legacy file conflicts with the active baseline, accepted RFCs, companion artifacts, or machine contracts, the active authority set wins. Legacy terms such as FA_RM, FARM_RM, Farm-RM, or old product/runtime names must not silently re-enter OFARM 2 active law.
+`searchDefault: false`.

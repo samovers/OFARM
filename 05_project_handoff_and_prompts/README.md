@@ -1,33 +1,32 @@
 # 05_project_handoff_and_prompts
 
-Status: supporting handoff, prompt, reviewer-workflow, output-schema, and evaluation material only. This folder does not create active OFARM law.
+Current package: `OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized`.
 
-Current package context: `OFARM2_2026-05-17_agentic_ai_controlled_promotion_cp10_v0_1`. Latest controlled-promotion endpoint: **AAI-CP10**.
+Latest controlled amendment: **CP15**.
 
-Use this lane for reproducible prompting, handoff, reviewer output validation, and historical review maps. Before relying on any prompt here, read the active package entrypoints:
+Status: supporting handoff, prompt, reviewer-workflow, output-schema, and evaluation material. This folder is not active law and does not override active OFARM authority.
 
-1. `CURRENT_ACTIVE_ENTRYPOINT.md`
-2. `PROJECT_AUTHORITY.md`
-3. `ACTIVE_SUBSTANCE_README.md`
+## Current Read Path
 
-Current structure:
+Agents and humans must follow the current root entrypoints before relying on prompts or handoff material:
 
-- `prompts/` — reusable project, deep-research, handoff, and reviewer prompts.
-- `output_schemas/` — JSON schemas for structured reviewer outputs.
-- `eval_datasets/` — reserved lane for reviewer/evaluator datasets.
-- `review_runs/` — reserved lane for reproducible review-run records.
-- `reports_and_maps/` — historical handoff reports, slotting maps, and consistency notes.
+1. `PROJECT_AUTHORITY.md`
+2. `ACTIVE_SUBSTANCE_README.md`
+3. `CURRENT_ACTIVE_ENTRYPOINT.md`
+4. `CURRENT_ACTIVE_ENTRYPOINT.json`
+5. `README.md`
+6. `00_active_baseline/current/CURRENT_BASELINE_VIEW.md`
 
-Navigation:
+Prompt text is a workflow aid. It cannot change active baseline law, accepted RFC law, companion-artifact posture, or machine-contract currentness.
 
-- `HANDOFF_PROMPT_INDEX.json` — machine-readable index for this entire lane.
-- `HANDOFF_PROMPT_INDEX.md` — human-readable index for this entire lane.
-- `prompts/REVIEWER_PROMPT_INDEX.json` — reviewer/prompt and output-schema index.
-- `prompts/REVIEWER_PROMPT_INDEX.md` — human-readable reviewer/prompt index.
+## Contents
 
-Authority boundary:
+- `prompts/` contains reusable project, deep-research, handoff, and reviewer prompts.
+- `output_schemas/` contains structured reviewer-output schemas.
+- `eval_datasets/` is reserved for reviewer/evaluator datasets.
+- `review_runs/` is reserved for reproducible review-run records.
+- `reports_and_maps/` preserves handoff reports, slotting maps, and consistency notes.
 
-- prompt text is a workflow aid, not active law;
-- old prompt starting points may be historical and must be checked against `CURRENT_ACTIVE_ENTRYPOINT.md`;
-- review outputs do not become governance decisions unless later promoted through the active decision process;
-- this folder does not override CP10 claim limits.
+## Authority Boundary
+
+Agent instructions must follow `PROJECT_AUTHORITY.md` and `CURRENT_ACTIVE_ENTRYPOINT.*`. Old prompt starting points may be useful historical support, but they must be checked against the current CP15 read path. Review outputs do not become governance decisions unless later accepted through the active decision process.

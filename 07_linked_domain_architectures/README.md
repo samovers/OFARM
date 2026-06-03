@@ -1,32 +1,30 @@
-# 07_linked_domain_architectures — package map
+# 07_linked_domain_architectures
 
-Date: 2026-04-21  
-Status: navigational package map  
-Scope: linked-domain architectural framing for sister platforms and adjacent systems that are intentionally compatible with OFARM but do not form part of the active OFARM authority set
+Current package: `OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized`.
 
----
+Latest controlled amendment: **CP15**.
 
-## Purpose
+Status: root-visible, non-default active supporting context. This folder is not active OFARM 2 law and does not override the active authority set.
 
-This folder exists so the high-level picture around OFARM-adjacent systems is explicit in the repository.
+## When To Read This Folder
 
-Use this folder to understand:
-- the initial sister-platform family picture
-- what OFARM Exchange and OFARM Social are meant to be at a high level
-- how those platforms relate to OFARM without being mistaken for active OFARM law
+Read this folder only for domain-architecture comparison, linked architecture review, explicit cross-domain alignment work, or sister-platform framing. It is not part of ordinary development reading.
 
-Do **not** treat these documents as constitutional or runtime law for OFARM itself.
-OFARM-side law remains in the active authority set.
-
-## Current contents
+## Contents
 
 - `OFARM_Linked_Domain_Family_Map_v0_1.md`
 - `OFARM_Exchange_Constitutional_Tenets_v0_1.md`
 - `OFARM_Social_Constitutional_Tenets_v0_1.md`
 
-## Currentness note
+## Authority Boundary
 
-The current folder posture is intentionally light:
-- family map first
-- tenets second
-- full linked-domain constitutions only when a real implementation or charter trigger exists
+OFARM-side law remains in:
+
+1. `00_active_baseline/`
+2. `02_accepted_rfcs/`
+3. `01_companion_artifacts/`
+4. `03_machine_contracts/`
+
+Linked-domain material is supporting context. It must not be cited as current OFARM law unless an active authority file explicitly incorporates it.
+
+`searchDefault: false`.

@@ -1,41 +1,48 @@
 # 04_implementation_and_conformance
 
-Status: active supporting implementation and conformance material. This folder does not create or override OFARM law.
+Current package: `OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized`.
 
-This folder contains examples, fixtures, conformance suites, implementation notes, pilots, runtime/support material, draft/review snapshots, spikes, SDK/reference-platform candidates, and controlled-promotion evidence. It also contains machine-contract examples and fixtures moved out of `03_machine_contracts/`:
+Latest controlled amendment: **CP15**.
 
-- `examples/machine_contracts/`
-- `fixtures/machine_contracts/`
+Status: active supporting implementation and conformance material. This folder is not active law and does not override `00_active_baseline/`, accepted RFCs, companion artifacts, or machine contracts.
 
-## Current navigation
+## What This Folder Contains
 
-Use these indexes in order:
+This folder contains implementation support, examples, fixtures, conformance runners, evidence, pilots, historical archive material, spikes, service and SDK candidates, and implementation notes.
 
-1. `IMPLEMENTATION_SUBFOLDER_INDEX.json` for top-level subfolder status, class, and README coverage.
-2. `IMPLEMENTATION_LANE_INDEX.json` for file-level path, byte-size, and SHA-256 navigation.
-3. `NON_ACTIVE_SCHEMA_COPY_INDEX.json` for implementation/support JSON files that share basenames with active machine-contract schemas.
-4. `examples_and_fixtures/examples/EXAMPLE_INDEX.json` and `examples_and_fixtures/fixtures/FIXTURE_INDEX.json` for Phase 8 example/fixture validation and coverage.
-5. `package_meta/generated/schema_example_map.json` or `03_machine_contracts/EXAMPLE_SCHEMA_MAP.json` to connect examples back to source schemas.
+Examples and fixtures are support/evidence for development and conformance work, not normative law. Conformance runners test claims against active authority; they do not create OFARM semantic law. Implementation notes help developers apply current authority, but active baseline law wins if there is a conflict.
 
-For the agentic-AI controlled-promotion lifecycle, start here:
+## Default Reading
 
-- `controlled_promotion_evidence/agentic_ai_world_model_amendment_v0_1/controlled_promotion/README.md`
-- `controlled_promotion_evidence/agentic_ai_world_model_amendment_v0_1/controlled_promotion/PROMOTION_INDEX.json`
+Use the current CP15 read path first:
 
-Current controlled-promotion endpoint: `AAI-CP10`. CP10 updates only active baseline readiness/hostile-review memo posture and adds no accepted RFCs, companion artifacts, or machine-contract schemas.
+1. `PROJECT_AUTHORITY.md`
+2. `ACTIVE_SUBSTANCE_README.md`
+3. `CURRENT_ACTIVE_ENTRYPOINT.md`
+4. `00_active_baseline/current/CURRENT_BASELINE_VIEW.md`
+5. `02_accepted_rfcs/current/CURRENT_ACCEPTED_RFC_VIEW.md`
+6. `01_companion_artifacts/current/CURRENT_COMPANION_ARTIFACTS_VIEW.md`
+7. `03_machine_contracts/currentness/CURRENT_MACHINE_CONTRACTS_VIEW.md`
 
-## Selection rules
+Then use this folder for implementation and conformance support.
 
-- Use active machine-contract schemas only from `03_machine_contracts/` and its currentness maps.
-- Treat `draft_machine_contracts/`, `review_copies_not_active/`, `experimental_machine_contracts/`, examples, fixtures, and spike folders as non-default support unless an active authority file explicitly promotes them.
-- Treat `historical/`, `historical_outputs/`, and `historical_patches/` as audit/context material, not current implementation guidance.
-- Do not infer production readiness, full runtime AI-agent readiness, world-model readiness, farmer UX readiness, live pilot validation, legal advice, or external-standard readiness from this folder.
+## Navigation
 
-## Default-search posture
+- `IMPLEMENTATION_SUBFOLDER_INDEX.json` indexes top-level implementation and conformance subfolder posture.
+- `IMPLEMENTATION_LANE_INDEX.json` indexes implementation-lane files.
+- `examples_and_fixtures/` contains example and fixture support.
+- `conformance_runners/` contains runnable conformance checks and preserved runner history.
+- `controlled_promotion_evidence/` preserves controlled-promotion evidence.
+- `pilot_material/` contains pilot and evidence-intake support.
+- `historical_archive/` is non-default historical context.
+- `spikes_incubation/` is non-default exploratory support.
 
-Historical, spike, draft, review-copy, and non-active schema-copy material is excluded from default search. Use `04_implementation_and_conformance/IMPLEMENTATION_SUBFOLDER_INDEX.json` and `package_meta/repository_steward_completion_batch2_1_2026_05_20/DEFAULT_SEARCH_PROFILE.json` for lane/search-default status.
+## Search Posture
 
+`searchDefault: true` for the top-level implementation and conformance support lane.
 
-## CP14 conformance currentness note — 2026-05-30
+Historical archive material, spike/incubation material, draft/review copies, and non-active schema copies remain non-default. Use them only when the task calls for historical evidence, exploratory review, or migration analysis.
 
-The current CP14 farm-to-farm intelligence boundary conformance runner is `04_implementation_and_conformance/conformance_runners/farm_to_farm_intelligence_boundary_conformance/ofarm_cp14_phase7_2_conformance_runner.py`. Earlier CP14 runners are superseded/non-current.
+## Phase 7 Note
+
+Phase 6 does not rebuild generated indexes or validators. Generated-index and validator currentness rebuild belongs to Phase 7.

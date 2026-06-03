@@ -1,63 +1,44 @@
-## CP15 currentness note — 2026-05-30
+# Development Handover
 
 Current package: `OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized`.
 
 Latest controlled amendment: **CP15 — Agentic Software Delivery and Model Deployment Governance**.
 
-CP11, CP12, CP13, and CP14 remain active where merged. CP15 does not promote CP11, CP12, CP13, CP14, or CP15 machine contracts to current/default. CP15 does not claim production software-delivery readiness, production model-deployment readiness, generated-adapter production readiness, cybersecurity certification, autonomous release readiness, full CI/CD product readiness, generic MLOps platform readiness, cloud/vendor deployment architecture readiness, legal/security/compliance advice, or automatic current/default schema promotion.
+CP11, CP12, CP13, and CP14 remain active where merged. CP15 is the current controlled-amendment endpoint. CP15 does not promote CP11, CP12, CP13, CP14, or CP15 machine contracts to current/default.
 
-Older CP10, CP11, CP12, CP13, and CP14 currentness sections below are historical prior endpoint notes unless explicitly referenced by this CP15 currentness note.
+This handover is package metadata. It does not create active OFARM law.
 
-# Development handover — CP15 current package note
+## Start here
 
-# DEVELOPMENT_HANDOVER — CP14 currentness overlay
+1. `PROJECT_AUTHORITY.md`
+2. `ACTIVE_SUBSTANCE_README.md`
+3. `CURRENT_ACTIVE_ENTRYPOINT.md`
+4. `CURRENT_ACTIVE_ENTRYPOINT.json`
+5. `README.md`
+6. `00_active_baseline/current/CURRENT_BASELINE_VIEW.md`
+7. `00_active_baseline/current/CURRENT_BASELINE_VIEW.json`
+8. `00_active_baseline/OFARM_Reference_Model_and_Artifact_Constitution_RC2_1.md`
+9. `00_active_baseline/OFARM_Platform_Runtime_and_Product_Architecture_RC2_1.md`
+10. `00_active_baseline/OFARM_Alignment_Register_v0_13.md`
+11. `00_active_baseline/OFARM_post_gap_closure_readiness_gate_memo_v0_1.md`
+12. `00_active_baseline/OFARM_final_hostile_review_after_gap_closure_v0_1.md`
+13. `02_accepted_rfcs/current/CURRENT_ACCEPTED_RFC_VIEW.md`
+14. `01_companion_artifacts/current/CURRENT_COMPANION_ARTIFACTS_VIEW.md`
+15. `03_machine_contracts/currentness/CURRENT_MACHINE_CONTRACTS_VIEW.md`
+16. `04_implementation_and_conformance/README.md`
+17. `package_meta/history/controlled_amendments/README.md`
+18. `package_meta/history/currentness_overlays/README.md`
 
-## CP14 currentness note — 2026-05-30
+## Implementation posture
 
-Current package: `OFARM2_2026-05-30_cp14_farm_to_farm_intelligence_boundary_merged_v0_1_steward_remediated`.
+Implementation should begin from the current reader views and the canonical authority files they reference. Do not manually merge CP11 through CP15 package-meta evidence from history into development work.
 
-Latest controlled amendment: **CP14 — Farm-to-Farm Intelligence Boundary**.
+CP11 through CP15 package-meta evidence is preserved at `package_meta/history/controlled_amendments/`. Pre-Phase 5 currentness overlays are preserved at `package_meta/history/currentness_overlays/`.
 
-CP11, CP12, and CP13 remain active where merged. CP14 does not promote CP11, CP12, CP13, or CP14 machine contracts to current/default. CP14 does not claim production farm-to-farm intelligence readiness, production federated-learning readiness, anonymisation guarantee, legal/privacy/certification/insurance/advisory readiness, OFARM Social constitution, OFARM Exchange constitution, public benchmark product law, generic reputation law, model/software deployment governance, CP15 readiness, or current/default CP14 machine-contract promotion.
+## Remaining clean-baseline work
 
-Older CP10, CP11, CP12, and CP13 currentness sections below are historical prior endpoint notes unless explicitly referenced by this CP14 currentness note.
+- Phase 6 hardens supporting context.
+- Phase 7 rebuilds generated indexes and validators.
+- Phase 8 runs final validation and records unresolved debt.
 
-## CP13 currentness note — 2026-05-29
-
-Current package: `OFARM2_2026-05-29_cp13_learning_experimentation_farm_memory_merged_v0_2_steward_remediated`.
-
-Latest controlled amendment: **CP13 — Learning, Experimentation, and Farm Memory**.
-
-CP11 and CP12 remain active where merged. CP13 does not promote CP11, CP12, or CP13 machine contracts to current/default. CP13 does not claim farm-to-farm intelligence readiness, federated learning readiness, cross-farm benchmark readiness, regional-alert readiness, generated-software delivery readiness, model/software deployment governance readiness, livestock-specific learning law, production autonomous self-improvement readiness, or production agronomic advice certification.
-
-
-# Development handover
-
-Current package: `OFARM2_2026-05-28_cp12_cyber_physical_mission_envelope_merged_v0_2_steward_remediated`.
-
-Latest controlled amendment: **CP12 — Cyber-Physical Mission Envelope**.
-
-This handover is package metadata and does not create active OFARM law.
-
-Before implementation or further amendment work, read:
-
-1. `CURRENT_ACTIVE_ENTRYPOINT.md`
-2. `PROJECT_AUTHORITY.md`
-3. `ACTIVE_SUBSTANCE_README.md`
-4. `00_active_baseline/`
-5. `02_accepted_rfcs/`
-6. `01_companion_artifacts/`
-7. `03_machine_contracts/`
-
-CP12 merged cyber-physical mission-envelope law while keeping CP12 machine contracts draft/non-default. Do not treat CP12 draft schemas as current/default machine contracts.
-
-Non-claims preserved: no production robot/machine readiness, no autonomous field-operation readiness, no legal/safety certification, no fleet optimisation law, no vendor protocol conformance, no livestock-specific mission law, and no CP13/CP14/CP15 readiness.
-
-Repository validation:
-
-```bash
-python3 package_meta/tools/run_repository_validation_suite.py
-```
-
-
-Repository steward Batch 2.1 currentness control surface remains available at `package_meta/repository_steward_completion_batch2_1_2026_05_20`. CP12 steward remediation updates package currentness without removing that steward control surface.
+The full repository validation suite remains required later. Do not claim final repository cleanliness from Phase 5 alone.

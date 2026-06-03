@@ -1,59 +1,48 @@
-## CP15 currentness note — 2026-05-30
+# Agents
 
 Current package: `OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized`.
 
 Latest controlled amendment: **CP15 — Agentic Software Delivery and Model Deployment Governance**.
 
-CP11, CP12, CP13, and CP14 remain active where merged. CP15 does not promote CP11, CP12, CP13, CP14, or CP15 machine contracts to current/default. CP15 does not claim production software-delivery readiness, production model-deployment readiness, generated-adapter production readiness, cybersecurity certification, autonomous release readiness, full CI/CD product readiness, generic MLOps platform readiness, cloud/vendor deployment architecture readiness, legal/security/compliance advice, or automatic current/default schema promotion.
+CP11, CP12, CP13, and CP14 remain active where merged. CP15 is the current controlled-amendment endpoint. CP15 does not promote CP11, CP12, CP13, CP14, or CP15 machine contracts to current/default.
 
-Older CP10, CP11, CP12, CP13, and CP14 currentness sections below are historical prior endpoint notes unless explicitly referenced by this CP15 currentness note.
+This file is navigation guidance for agents and humans. It does not create OFARM law.
 
-# Agent instructions — CP15 current package note
+## Required read path
 
-# AGENTS — CP14 currentness overlay
+1. `PROJECT_AUTHORITY.md`
+2. `ACTIVE_SUBSTANCE_README.md`
+3. `CURRENT_ACTIVE_ENTRYPOINT.md`
+4. `CURRENT_ACTIVE_ENTRYPOINT.json`
+5. `README.md`
+6. `00_active_baseline/current/CURRENT_BASELINE_VIEW.md`
+7. `00_active_baseline/current/CURRENT_BASELINE_VIEW.json`
+8. `00_active_baseline/OFARM_Reference_Model_and_Artifact_Constitution_RC2_1.md`
+9. `00_active_baseline/OFARM_Platform_Runtime_and_Product_Architecture_RC2_1.md`
+10. `00_active_baseline/OFARM_Alignment_Register_v0_13.md`
+11. `00_active_baseline/OFARM_post_gap_closure_readiness_gate_memo_v0_1.md`
+12. `00_active_baseline/OFARM_final_hostile_review_after_gap_closure_v0_1.md`
+13. `02_accepted_rfcs/current/CURRENT_ACCEPTED_RFC_VIEW.md`
+14. `01_companion_artifacts/current/CURRENT_COMPANION_ARTIFACTS_VIEW.md`
+15. `03_machine_contracts/currentness/CURRENT_MACHINE_CONTRACTS_VIEW.md`
+16. `04_implementation_and_conformance/README.md`
+17. `package_meta/history/controlled_amendments/README.md`
+18. `package_meta/history/currentness_overlays/README.md`
 
-## CP14 currentness note — 2026-05-30
+## Authority reminders
 
-Current package: `OFARM2_2026-05-30_cp14_farm_to_farm_intelligence_boundary_merged_v0_1_steward_remediated`.
+- Current reader views are derived or curated reader/control views, not new authority.
+- `00_active_baseline/` outranks accepted RFCs, companion artifacts, and machine contracts.
+- `03_machine_contracts/schemas/` remains the current/default schema lane.
+- `03_machine_contracts/drafts_non_default/` remains draft/non-default.
+- CP11 through CP15 draft/non-default contracts are not promoted.
+- `legacy_reference/` is contextual only and never overrides active OFARM 2 law.
+- `07_linked_domain_architectures/` is non-default active supporting context.
 
-Latest controlled amendment: **CP14 — Farm-to-Farm Intelligence Boundary**.
+## Lineage
 
-CP11, CP12, and CP13 remain active where merged. CP14 does not promote CP11, CP12, CP13, or CP14 machine contracts to current/default. CP14 does not claim production farm-to-farm intelligence readiness, production federated-learning readiness, anonymisation guarantee, legal/privacy/certification/insurance/advisory readiness, OFARM Social constitution, OFARM Exchange constitution, public benchmark product law, generic reputation law, model/software deployment governance, CP15 readiness, or current/default CP14 machine-contract promotion.
+Use `package_meta/history/controlled_amendments/` for CP11 through CP15 package-meta evidence and `package_meta/history/currentness_overlays/` for pre-Phase 5 root currentness prose.
 
-Older CP10, CP11, CP12, and CP13 currentness sections below are historical prior endpoint notes unless explicitly referenced by this CP14 currentness note.
+## Do not claim
 
-## CP13 currentness note — 2026-05-29
-
-Current package: `OFARM2_2026-05-29_cp13_learning_experimentation_farm_memory_merged_v0_2_steward_remediated`.
-
-Latest controlled amendment: **CP13 — Learning, Experimentation, and Farm Memory**.
-
-CP11 and CP12 remain active where merged. CP13 does not promote CP11, CP12, or CP13 machine contracts to current/default. CP13 does not claim farm-to-farm intelligence readiness, federated learning readiness, cross-farm benchmark readiness, regional-alert readiness, generated-software delivery readiness, model/software deployment governance readiness, livestock-specific learning law, production autonomous self-improvement readiness, or production agronomic advice certification.
-
-
-# Agent instructions
-
-Current package: `OFARM2_2026-05-28_cp12_cyber_physical_mission_envelope_merged_v0_2_steward_remediated`.
-
-Latest controlled amendment: **CP12 — Cyber-Physical Mission Envelope**.
-
-Start with `CURRENT_ACTIVE_ENTRYPOINT.md`, `PROJECT_AUTHORITY.md`, and `ACTIVE_SUBSTANCE_README.md`.
-
-Use active authority in this order: `00_active_baseline/`, then `02_accepted_rfcs/`, then `01_companion_artifacts/`, then `03_machine_contracts/`.
-
-CP12 machine contracts are draft/non-default only. Do not cite CP12 draft schemas as current/default machine contracts.
-
-Do not claim production robot/machine readiness, autonomous field-operation readiness, legal/safety certification, fleet optimisation law, vendor protocol conformance, livestock-specific mission law, or CP13/CP14/CP15 readiness.
-
-Review-held, legacy, historical, spike, draft, and non-active schema-copy material is non-default context. Do not promote it, cite it as current law, or let it override active authority without explicit accepted promotion.
-
-Before claiming repository readiness, run:
-
-```bash
-python3 package_meta/tools/run_repository_validation_suite.py
-```
-
-Repository steward remediation for the CP12 merge lives under `package_meta/cp12_steward_remediation_2026_05_28/`.
-
-
-Repository steward Batch 2.1 currentness control surface remains available at `package_meta/repository_steward_completion_batch2_1_2026_05_20`. CP12 steward remediation updates package currentness without removing that steward control surface.
+Do not claim production software-delivery readiness, production model-deployment readiness, generated-adapter production readiness, cybersecurity certification, autonomous release readiness, full CI/CD product readiness, generic MLOps platform readiness, cloud/vendor deployment architecture readiness, legal/security/compliance advice, or automatic current/default schema promotion.

@@ -1,63 +1,48 @@
-## CP15 currentness note — 2026-05-30
+# Agent Navigation
 
 Current package: `OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized`.
 
 Latest controlled amendment: **CP15 — Agentic Software Delivery and Model Deployment Governance**.
 
-CP11, CP12, CP13, and CP14 remain active where merged. CP15 does not promote CP11, CP12, CP13, CP14, or CP15 machine contracts to current/default. CP15 does not claim production software-delivery readiness, production model-deployment readiness, generated-adapter production readiness, cybersecurity certification, autonomous release readiness, full CI/CD product readiness, generic MLOps platform readiness, cloud/vendor deployment architecture readiness, legal/security/compliance advice, or automatic current/default schema promotion.
+CP11, CP12, CP13, and CP14 remain active where merged. CP15 is the current controlled-amendment endpoint. CP15 does not promote CP11, CP12, CP13, CP14, or CP15 machine contracts to current/default.
 
-Older CP10, CP11, CP12, CP13, and CP14 currentness sections below are historical prior endpoint notes unless explicitly referenced by this CP15 currentness note.
+This file is navigation guidance for agents and humans. It does not create OFARM law.
 
-# Agent navigation — CP15 current package note
-
-# AGENT_NAVIGATION — CP14 currentness overlay
-
-## CP14 currentness note — 2026-05-30
-
-Current package: `OFARM2_2026-05-30_cp14_farm_to_farm_intelligence_boundary_merged_v0_1_steward_remediated`.
-
-Latest controlled amendment: **CP14 — Farm-to-Farm Intelligence Boundary**.
-
-CP11, CP12, and CP13 remain active where merged. CP14 does not promote CP11, CP12, CP13, or CP14 machine contracts to current/default. CP14 does not claim production farm-to-farm intelligence readiness, production federated-learning readiness, anonymisation guarantee, legal/privacy/certification/insurance/advisory readiness, OFARM Social constitution, OFARM Exchange constitution, public benchmark product law, generic reputation law, model/software deployment governance, CP15 readiness, or current/default CP14 machine-contract promotion.
-
-Older CP10, CP11, CP12, and CP13 currentness sections below are historical prior endpoint notes unless explicitly referenced by this CP14 currentness note.
-
-## CP13 currentness note — 2026-05-29
-
-Current package: `OFARM2_2026-05-29_cp13_learning_experimentation_farm_memory_merged_v0_2_steward_remediated`.
-
-Latest controlled amendment: **CP13 — Learning, Experimentation, and Farm Memory**.
-
-CP11 and CP12 remain active where merged. CP13 does not promote CP11, CP12, or CP13 machine contracts to current/default. CP13 does not claim farm-to-farm intelligence readiness, federated learning readiness, cross-farm benchmark readiness, regional-alert readiness, generated-software delivery readiness, model/software deployment governance readiness, livestock-specific learning law, production autonomous self-improvement readiness, or production agronomic advice certification.
-
-
-# OFARM agent navigation
-
-Status: PACKAGE_METADATA
-Updated: 2026-05-28T19:30:00+02:00
-
-This file is a navigation guardrail for humans and AI agents. It does not create OFARM law.
-
-Current package: `OFARM2_2026-05-28_cp12_cyber_physical_mission_envelope_merged_v0_2_steward_remediated`.
-
-Latest controlled-amendment endpoint: **CP12 Cyber-Physical Mission Envelope merge**.
-
-## Read order
+## Required read path
 
 1. `PROJECT_AUTHORITY.md`
-2. `CURRENT_ACTIVE_ENTRYPOINT.md`
-3. `ACTIVE_SUBSTANCE_README.md`
-4. `00_active_baseline/README.md`
-5. `02_accepted_rfcs/README.md`
-6. `01_companion_artifacts/README.md`
-7. `03_machine_contracts/README.md`
-8. `04_implementation_and_conformance/README.md`
-9. `DEVELOPMENT_HANDOVER.md`
+2. `ACTIVE_SUBSTANCE_README.md`
+3. `CURRENT_ACTIVE_ENTRYPOINT.md`
+4. `CURRENT_ACTIVE_ENTRYPOINT.json`
+5. `README.md`
+6. `00_active_baseline/current/CURRENT_BASELINE_VIEW.md`
+7. `00_active_baseline/current/CURRENT_BASELINE_VIEW.json`
+8. `00_active_baseline/OFARM_Reference_Model_and_Artifact_Constitution_RC2_1.md`
+9. `00_active_baseline/OFARM_Platform_Runtime_and_Product_Architecture_RC2_1.md`
+10. `00_active_baseline/OFARM_Alignment_Register_v0_13.md`
+11. `00_active_baseline/OFARM_post_gap_closure_readiness_gate_memo_v0_1.md`
+12. `00_active_baseline/OFARM_final_hostile_review_after_gap_closure_v0_1.md`
+13. `02_accepted_rfcs/current/CURRENT_ACCEPTED_RFC_VIEW.md`
+14. `01_companion_artifacts/current/CURRENT_COMPANION_ARTIFACTS_VIEW.md`
+15. `03_machine_contracts/currentness/CURRENT_MACHINE_CONTRACTS_VIEW.md`
+16. `04_implementation_and_conformance/README.md`
+17. `package_meta/history/controlled_amendments/README.md`
+18. `package_meta/history/currentness_overlays/README.md`
 
-## Non-claims
+## Authority reminders
 
-CP12 does not claim production robot/machine readiness, autonomous field-operation readiness, legal/safety certification, fleet optimisation law, vendor protocol conformance, livestock-specific mission law, or CP13/CP14/CP15 readiness.
+- Current reader views are derived or curated reader/control views, not new authority.
+- `00_active_baseline/` outranks accepted RFCs, companion artifacts, and machine contracts.
+- `03_machine_contracts/schemas/` remains the current/default schema lane.
+- `03_machine_contracts/drafts_non_default/` remains draft/non-default.
+- CP11 through CP15 draft/non-default contracts are not promoted.
+- `legacy_reference/` is contextual only and never overrides active OFARM 2 law.
+- `07_linked_domain_architectures/` is non-default active supporting context.
 
-## Currentness
+## Lineage
 
-CP10 and CP11 are historical prior endpoints. CP11 remains merged active law where accepted; CP12 is the latest controlled amendment. CP12 machine contracts remain draft/non-default.
+Use `package_meta/history/controlled_amendments/` for CP11 through CP15 package-meta evidence and `package_meta/history/currentness_overlays/` for pre-Phase 5 root currentness prose.
+
+## Do not claim
+
+Do not claim production software-delivery readiness, production model-deployment readiness, generated-adapter production readiness, cybersecurity certification, autonomous release readiness, full CI/CD product readiness, generic MLOps platform readiness, cloud/vendor deployment architecture readiness, legal/security/compliance advice, or automatic current/default schema promotion.

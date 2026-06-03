@@ -1855,6 +1855,8 @@ A `SustainabilityConstraint` is a non-tradeable or rule-bound charter condition 
 
 A `SustainabilityObjective` is an optimisation target used to compare, rank, recommend, simulate, plan, or explain candidate actions. An optimisation objective does not create authority, does not create truth, does not satisfy evidence sufficiency, and does not override a hard constraint.
 
+Report-only posture is not a constraint strength. A report-only sustainability indicator, metric posture, objective note, or priority annotation may require disclosure, monitoring, evidence request, or review, but it must not be represented as a `SustainabilityConstraint` or used as a hard-constraint pass/fail condition unless separate active charter law classifies it as a hard constraint. Report-only posture belongs to objective, metric, or priority surfaces and remains subordinate to hard constraints, evidence sufficiency, claim-basis, authority, and output-qualification gates.
+
 A `TradeoffPolicy` must distinguish, at minimum, allowed trade-offs, review-required trade-offs, human-approval-required trade-offs, prohibited trade-offs, emergency-exception-only trade-offs, and insufficient-basis outcomes.
 
 ### CP11-C.4 Sustainability evidence, metrics, and claim basis

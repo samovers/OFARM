@@ -2,6 +2,12 @@
 
 CP15 agentic software delivery and model deployment governance schemas are staged under `03_machine_contracts/drafts_non_default/agentic_software_delivery_model_deployment/`. They are not current/default schemas until a separate currentness-promotion decision.
 
+## Phase 3 currentness reader view — 2026-06-02
+
+Use `03_machine_contracts/currentness/CURRENT_MACHINE_CONTRACTS_VIEW.md` for the clean development-reader view of current/default schemas, draft/non-default schemas, currentness/control maps, examples/schema-example mappings, migration aids, and generated mirror policy.
+
+The currentness reader view is an index only. It does not move `schemas/`, does not move `drafts_non_default/`, does not promote draft/non-default contracts, and does not demote currentness/control maps to generated-only status.
+
 # 03_machine_contracts
 
 Status: active machine-contract source lane, subordinate to the active baseline/RFC authority order.

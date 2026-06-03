@@ -1,32 +1,25 @@
 # 06_active_supporting_research
 
-Status: active supporting research. These files inform follow-on RFCs, implementation planning, conformance expansion, DX/AI-agent ergonomics, scenario stress testing, and standard-readiness work. They do **not** override the active baseline, accepted RFCs, companion artifacts, or machine contracts.
+Current package: `OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized`.
 
-Current package: `OFARM2_2026-05-17_agentic_ai_controlled_promotion_cp10_v0_1`  
-Latest controlled-promotion endpoint: `AAI-CP10`
+Latest controlled amendment: **CP15**.
 
-## Current local entrypoints
+Status: supporting research and source-input context. Research informs development, follow-on RFCs, conformance expansion, stress testing, and planning, but it is not active law.
 
-- `CURRENT_SOURCE_INPUTS.md` — small current-source-input summary for human navigation.
+## Authority Boundary
 
-- `RESEARCH_INDEX.json` — machine-readable Phase 9 research-lane index.
-- `RESEARCH_INDEX.md` — human-readable Phase 9 research-lane index.
-- `source_inputs/README.md` — preserved source-input map.
-- `syntheses/README.md` — synthesis and stress-test output map.
-- `incubation_and_candidate_decisions/README.md` — candidate follow-on decision map.
+Research informs; active law governs. If research conflicts with `00_active_baseline/`, `02_accepted_rfcs/`, `01_companion_artifacts/`, or `03_machine_contracts/`, the active baseline wins until an accepted authority change says otherwise.
 
-## Authority rule
+## Current Entry Points
 
-Research informs; active law governs. If a research recommendation conflicts with `00_active_baseline/`, `02_accepted_rfcs/`, `01_companion_artifacts/`, or `03_machine_contracts/`, the active authority set wins until an explicit accepted patch changes it.
+- `CURRENT_SOURCE_INPUTS.md` summarizes current source-input material for human navigation.
+- `RESEARCH_INDEX.json` and `RESEARCH_INDEX.md` index the research lane.
+- `source_inputs/README.md` maps retained source inputs.
+- `syntheses/README.md` maps synthesis and stress-test material.
+- `incubation_and_candidate_decisions/README.md` maps candidate follow-on decisions and incubation notes.
 
-## Current structure
+## Source And Archive Posture
 
-- `source_inputs/` — retained source inputs and source-input manifest/working-extract areas.
-- `syntheses/` — research reports, plans, stress-test matrices, and synthesis material.
-- `incubation_and_candidate_decisions/` — candidate follow-on decisions and incubation notes.
+`source_inputs/` preserves source material and working extracts. `syntheses/` and `incubation_and_candidate_decisions/` are supporting analysis and planning lanes. Older package strings in retained research artifacts are provenance/history, not current package identity.
 
-## Currentness notes
-
-- The repository cleanup and handover readiness source report is retained at `source_inputs/deep-research-report-repository-cleanup-and-handover-readiness-2026-05-15.md` and summarized in `package_meta/repository_handover_publication_layer_2026_05_15/research_analysis.md`.
-- The agentic-AI controlled-promotion research source appears in two preserved same-checksum filenames under `source_inputs/`; both are supporting source context, not active law.
-- CP10 claim limits remain authoritative over any broader readiness language in older research.
+`searchDefault: true` applies to current supporting research entrypoints. Source-only, archived, or historical material should be read only when the task calls for research provenance or source review.
