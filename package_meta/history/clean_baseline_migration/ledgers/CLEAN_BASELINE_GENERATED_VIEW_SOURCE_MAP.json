@@ -1,6 +1,6 @@
 {
   "schemaVersion": "ofarm.cleanBaselineGeneratedViewSourceMap.v0.1",
-  "generatedOrCuratedAt": "2026-06-03T07:58:33Z",
+  "generatedOrCuratedAt": "2026-06-04T07:05:14Z",
   "generatedViewRecords": [
     {
       "generatedPath": "package_meta/generated/authority.index.json",
@@ -87,13 +87,15 @@
       "generatedPath": "package_meta/generated/handover_gate.json",
       "derivedFrom": [
         "CURRENT_ACTIVE_ENTRYPOINT.json",
-        "CLEAN_BASELINE_COMPLETION_LEDGER.json",
-        "CLEAN_BASELINE_GENERATED_INDEX_REBUILD_LEDGER.json",
-        "CLEAN_BASELINE_VALIDATOR_UPDATE_LEDGER.json"
+        "package_meta/history/clean_baseline_migration/ledgers/CLEAN_BASELINE_COMPLETION_LEDGER.json",
+        "package_meta/history/clean_baseline_migration/ledgers/CLEAN_BASELINE_GENERATED_INDEX_REBUILD_LEDGER.json",
+        "package_meta/history/clean_baseline_migration/ledgers/CLEAN_BASELINE_VALIDATOR_UPDATE_LEDGER.json",
+        "package_meta/release/final_clean_baseline/CLEAN_BASELINE_FINAL_VALIDATION_LEDGER.json",
+        "package_meta/release/final_clean_baseline/CLEAN_BASELINE_FINAL_PACKAGE_READINESS.json"
       ],
       "doNotCiteAsIndependentSource": true,
       "doNotOverrideCanonicalAuthority": true,
-      "generationBasis": "Derived handover gate status for Phase 7; Phase 8 full validation still required.",
+      "generationBasis": "Derived handover gate status after final clean-baseline validation and canonical source-tree organization.",
       "currentPackageIdentity": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
       "latestControlledAmendment": "CP15",
       "sourcePathsExist": true,

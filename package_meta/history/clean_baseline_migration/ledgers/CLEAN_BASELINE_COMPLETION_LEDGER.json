@@ -4849,7 +4849,31 @@
       ],
       "unresolvedDebt": [],
       "canProceed": "DEV_AUDIT_RELEASE_PROFILES_READY"
+    },
+    {
+      "phaseId": "canonical_organization",
+      "phaseName": "Canonical Source-Tree Organization",
+      "status": "COMPLETE",
+      "semanticLawChanged": false,
+      "activeAuthorityContentModified": false,
+      "canonicalActiveAuthorityFilesMoved": false,
+      "machineContractSchemasMoved": false,
+      "draftNonDefaultLaneMoved": false,
+      "draftContractsPromoted": false,
+      "cp16Started": false,
+      "rootCleanBaselineClutterRemoved": true,
+      "cleanBaselineMigrationHistoryLane": "package_meta/history/clean_baseline_migration/",
+      "finalReleaseProofLane": "package_meta/release/final_clean_baseline/",
+      "phaseReportsHistoricalOnly": true,
+      "generatedIndexesRebuilt": true,
+      "sourceRepoValidationPassed": true,
+      "devPackageBuiltExternally": true,
+      "auditPackageBuiltExternally": true,
+      "generatedPackagesCommittedToRepo": false,
+      "canProceed": "CANONICAL_SOURCE_TREE_ORGANIZED"
     }
   ],
-  "lastUpdatedOrCuratedAt": "2026-06-03T13:40:59Z"
+  "lastUpdatedOrCuratedAt": "2026-06-03T13:40:59Z",
+  "latestOrganizationPhase": "canonical_organization",
+  "canonicalOrganizationApplied": true
 }
