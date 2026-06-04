@@ -1,5 +1,13 @@
 # OFARM 2 current development baseline
 
+## What is OFARM?
+
+OFARM is an open semantic reference model and governance framework for crop-farming operations. It defines how farm operational facts, evidence, authority, events, current state, queries, outputs, packs, and machine-readable contracts should be represented so that systems can remain traceable, interoperable, and auditable.
+
+OFARM is assertion/history-first: the authoritative record is the governed history of assertions, events, evidence, and review decisions; current state is a controlled materialization derived from that history, not a hidden truth store. OFARM also separates compliance-grade truth from advisory reasoning while keeping both grounded in one shared semantic substrate.
+
+OFARM is meant to help developers, researchers, standards workers, and AI-assisted platform builders create farming systems that can explain what they know, where it came from, who had authority, and what can safely be done with it. It is not itself a production farm-management product, robotics runtime, certification service, legal-advice system, or autonomous farming system. For canonical authority and current read order, continue with `PROJECT_AUTHORITY.md` and `CURRENT_ACTIVE_ENTRYPOINT.md`.
+
 Current package: `OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized`.
 
 Latest controlled amendment: **CP15 — Agentic Software Delivery and Model Deployment Governance**.
