@@ -1,6 +1,6 @@
 {
   "schemaVersion": "ofarm.contractFamilyCurrentness.v0.1",
-  "generatedAt": "2026-06-11T22:10:00Z",
+  "generatedAt": "2026-06-11T22:27:51Z",
   "package": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "purpose": "Records active/current-default machine-contract families and keeps draft or non-default contracts from being treated as current by accident.",
   "families": [
@@ -1975,6 +1975,28 @@
       "examples": [],
       "status": "draft_non_default_only",
       "note": "Post-CP15 accepted RFC draft/non-default; not current/default."
+    },
+    {
+      "family": "QueryPlanIRPerformanceEnvelopeExtension",
+      "currentDefaultSchema": null,
+      "draftNonDefaultCount": 1,
+      "draftNonDefaultSchemas": [
+        "03_machine_contracts/drafts_non_default/query_capability_performance_envelope/OFARM_QueryPlanIR_PerformanceEnvelopeExtension_schema_v0_1.json"
+      ],
+      "examples": [],
+      "status": "draft_non_default_only",
+      "note": "Post-CP15 accepted RFC draft/non-default extension; not current/default."
+    },
+    {
+      "family": "CapabilityManifestExplainableCurrentStatePerformanceEnvelopeExtension",
+      "currentDefaultSchema": null,
+      "draftNonDefaultCount": 1,
+      "draftNonDefaultSchemas": [
+        "03_machine_contracts/drafts_non_default/query_capability_performance_envelope/OFARM_CapabilityManifest_ExplainableCurrentStatePerformanceEnvelopeExtension_schema_v0_1.json"
+      ],
+      "examples": [],
+      "status": "draft_non_default_only",
+      "note": "Post-CP15 accepted RFC draft/non-default extension; not current/default."
     }
   ],
   "nonClaims": {
@@ -2029,9 +2051,18 @@
       "currentDefaultPromoted": false,
       "draftContractsPromoted": false,
       "note": "Explainable Current-State Evidence draft contracts only; no current/default promotion."
+    },
+    {
+      "controlledAmendment": "post-CP15 accepted RFC",
+      "status": "draft_non_default_only",
+      "acceptedRfc": "02_accepted_rfcs/OFARM_Performance_and_Explainable_Current_State_Evidence_RFC_v0_1.md",
+      "directory": "03_machine_contracts/drafts_non_default/query_capability_performance_envelope/",
+      "currentDefaultPromoted": false,
+      "draftContractsPromoted": false,
+      "note": "QueryPlanIR and Capability Manifest performance-envelope extension drafts only; no current/default promotion."
     }
   ],
-  "generatedOrCuratedAt": "2026-06-11T22:10:00Z",
+  "generatedOrCuratedAt": "2026-06-11T22:27:51Z",
   "currentPackageIdentity": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "schemasMoved": false,
   "draftsMoved": false,
