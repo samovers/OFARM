@@ -1,6 +1,6 @@
 {
   "schemaVersion": "ofarm.contractFamilyCurrentness.v0.1",
-  "generatedAt": "2026-06-03T07:39:42Z",
+  "generatedAt": "2026-06-11T22:10:00Z",
   "package": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "purpose": "Records active/current-default machine-contract families and keeps draft or non-default contracts from being treated as current by accident.",
   "families": [
@@ -1843,6 +1843,138 @@
       "examples": [],
       "status": "draft_non_default_only",
       "note": "CP15 draft/non-default; not current/default."
+    },
+    {
+      "family": "MaterializationKey",
+      "currentDefaultSchema": null,
+      "draftNonDefaultCount": 1,
+      "draftNonDefaultSchemas": [
+        "03_machine_contracts/drafts_non_default/explainable_current_state_evidence/OFARM_MaterializationKey_schema_v0_1.json"
+      ],
+      "examples": [],
+      "status": "draft_non_default_only",
+      "note": "Post-CP15 accepted RFC draft/non-default; not current/default."
+    },
+    {
+      "family": "MaterializationDependencyIndex",
+      "currentDefaultSchema": null,
+      "draftNonDefaultCount": 1,
+      "draftNonDefaultSchemas": [
+        "03_machine_contracts/drafts_non_default/explainable_current_state_evidence/OFARM_MaterializationDependencyIndex_schema_v0_1.json"
+      ],
+      "examples": [],
+      "status": "draft_non_default_only",
+      "note": "Post-CP15 accepted RFC draft/non-default; not current/default."
+    },
+    {
+      "family": "MaterializationFreshnessVector",
+      "currentDefaultSchema": null,
+      "draftNonDefaultCount": 1,
+      "draftNonDefaultSchemas": [
+        "03_machine_contracts/drafts_non_default/explainable_current_state_evidence/OFARM_MaterializationFreshnessVector_schema_v0_1.json"
+      ],
+      "examples": [],
+      "status": "draft_non_default_only",
+      "note": "Post-CP15 accepted RFC draft/non-default; not current/default."
+    },
+    {
+      "family": "InvalidationEvaluationTrace",
+      "currentDefaultSchema": null,
+      "draftNonDefaultCount": 1,
+      "draftNonDefaultSchemas": [
+        "03_machine_contracts/drafts_non_default/explainable_current_state_evidence/OFARM_InvalidationEvaluationTrace_schema_v0_1.json"
+      ],
+      "examples": [],
+      "status": "draft_non_default_only",
+      "note": "Post-CP15 accepted RFC draft/non-default; not current/default."
+    },
+    {
+      "family": "TraceExpansionPolicy",
+      "currentDefaultSchema": null,
+      "draftNonDefaultCount": 1,
+      "draftNonDefaultSchemas": [
+        "03_machine_contracts/drafts_non_default/explainable_current_state_evidence/OFARM_TraceExpansionPolicy_schema_v0_1.json"
+      ],
+      "examples": [],
+      "status": "draft_non_default_only",
+      "note": "Post-CP15 accepted RFC draft/non-default; not current/default."
+    },
+    {
+      "family": "TraceExpansionRequest",
+      "currentDefaultSchema": null,
+      "draftNonDefaultCount": 1,
+      "draftNonDefaultSchemas": [
+        "03_machine_contracts/drafts_non_default/explainable_current_state_evidence/OFARM_TraceExpansionRequest_schema_v0_1.json"
+      ],
+      "examples": [],
+      "status": "draft_non_default_only",
+      "note": "Post-CP15 accepted RFC draft/non-default; not current/default."
+    },
+    {
+      "family": "TraceExpansionResult",
+      "currentDefaultSchema": null,
+      "draftNonDefaultCount": 1,
+      "draftNonDefaultSchemas": [
+        "03_machine_contracts/drafts_non_default/explainable_current_state_evidence/OFARM_TraceExpansionResult_schema_v0_1.json"
+      ],
+      "examples": [],
+      "status": "draft_non_default_only",
+      "note": "Post-CP15 accepted RFC draft/non-default; not current/default."
+    },
+    {
+      "family": "MaterializationCostProfile",
+      "currentDefaultSchema": null,
+      "draftNonDefaultCount": 1,
+      "draftNonDefaultSchemas": [
+        "03_machine_contracts/drafts_non_default/explainable_current_state_evidence/OFARM_MaterializationCostProfile_schema_v0_1.json"
+      ],
+      "examples": [],
+      "status": "draft_non_default_only",
+      "note": "Post-CP15 accepted RFC draft/non-default; not current/default."
+    },
+    {
+      "family": "RuntimeQueryMixProfile",
+      "currentDefaultSchema": null,
+      "draftNonDefaultCount": 1,
+      "draftNonDefaultSchemas": [
+        "03_machine_contracts/drafts_non_default/explainable_current_state_evidence/OFARM_RuntimeQueryMixProfile_schema_v0_1.json"
+      ],
+      "examples": [],
+      "status": "draft_non_default_only",
+      "note": "Post-CP15 accepted RFC draft/non-default; not current/default."
+    },
+    {
+      "family": "RuntimeMaterializationBenchmarkRun",
+      "currentDefaultSchema": null,
+      "draftNonDefaultCount": 1,
+      "draftNonDefaultSchemas": [
+        "03_machine_contracts/drafts_non_default/explainable_current_state_evidence/OFARM_RuntimeMaterializationBenchmarkRun_schema_v0_1.json"
+      ],
+      "examples": [],
+      "status": "draft_non_default_only",
+      "note": "Post-CP15 accepted RFC draft/non-default; not current/default."
+    },
+    {
+      "family": "RuntimeStorageAmplificationReport",
+      "currentDefaultSchema": null,
+      "draftNonDefaultCount": 1,
+      "draftNonDefaultSchemas": [
+        "03_machine_contracts/drafts_non_default/explainable_current_state_evidence/OFARM_RuntimeStorageAmplificationReport_schema_v0_1.json"
+      ],
+      "examples": [],
+      "status": "draft_non_default_only",
+      "note": "Post-CP15 accepted RFC draft/non-default; not current/default."
+    },
+    {
+      "family": "ExplainableCurrentStateCapabilityClaim",
+      "currentDefaultSchema": null,
+      "draftNonDefaultCount": 1,
+      "draftNonDefaultSchemas": [
+        "03_machine_contracts/drafts_non_default/explainable_current_state_evidence/OFARM_ExplainableCurrentStateCapabilityClaim_schema_v0_1.json"
+      ],
+      "examples": [],
+      "status": "draft_non_default_only",
+      "note": "Post-CP15 accepted RFC draft/non-default; not current/default."
     }
   ],
   "nonClaims": {
@@ -1888,9 +2020,18 @@
       "directory": "03_machine_contracts/drafts_non_default/learning_experimentation_farm_memory/",
       "currentDefaultPromoted": false,
       "addendum": "03_machine_contracts/CP13_CONTRACT_FAMILY_CURRENTNESS_FINAL_DRAFT_ADDENDUM.json"
+    },
+    {
+      "controlledAmendment": "post-CP15 accepted RFC",
+      "status": "draft_non_default_only",
+      "acceptedRfc": "02_accepted_rfcs/OFARM_Performance_and_Explainable_Current_State_Evidence_RFC_v0_1.md",
+      "directory": "03_machine_contracts/drafts_non_default/explainable_current_state_evidence/",
+      "currentDefaultPromoted": false,
+      "draftContractsPromoted": false,
+      "note": "Explainable Current-State Evidence draft contracts only; no current/default promotion."
     }
   ],
-  "generatedOrCuratedAt": "2026-06-03T07:39:42Z",
+  "generatedOrCuratedAt": "2026-06-11T22:10:00Z",
   "currentPackageIdentity": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "schemasMoved": false,
   "draftsMoved": false,
