@@ -1,9 +1,9 @@
 # OFARM Agentic Software Delivery and Model Deployment Governance RFC v0.1
 
 Date: 2026-05-30  
-Status: accepted/merged CP15 amendment; not merged active law until architect acceptance and repository integration  
+Status: accepted/merged CP15 amendment; active accepted RFC authority below 00_active_baseline/ under PROJECT_AUTHORITY.md.  
 Target path: `02_accepted_rfcs/OFARM_Agentic_Software_Delivery_and_Model_Deployment_Governance_RFC_v0_1.md`  
-Authority tier if accepted: accepted RFC; subordinate to `00_active_baseline/` and above companion artifacts under `PROJECT_AUTHORITY.md`  
+Authority tier: accepted RFC; subordinate to 00_active_baseline/ and above companion artifacts.  
 Scope: introduce a bounded agentic software delivery, generated artifact, model deployment, runtime-surface release, canary/rollback, software-supply-chain, and deployment-governance contract layer without reopening OFARM truth, current-state, pack, authority, output, agent, CP11 sustainability-charter, CP12 cyber-physical mission, CP13 learning/farm-memory, or CP14 farm-to-farm intelligence law.
 
 ---
