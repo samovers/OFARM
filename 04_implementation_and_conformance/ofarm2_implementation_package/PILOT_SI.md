@@ -12,10 +12,10 @@ The pilot does **not** claim current-compliance against the authorisation regist
 
 ## Regulatory anchors (verify in M0 before building the capture form)
 
-- Commission Implementing Regulation (EU) 2023/564: professional users keep plant-protection application records **electronically from 1 January 2026**; the Annex defines the required record fields. **M0 verifies the exact field list.**
-- Slovenian national record-keeping rules layered on top (UVHVVR guidance). **M0 verifies.**
-- Identifiers: KMG-MID (holding), GERK (parcel) — bound via the SI profile, with farmer-provided exports as the fallback data path.
-- Product register: FITO-INFO / the official Slovenian FFS register. **M0 establishes machine access** (including the national open-data portal as a route); fallback is scripted/manual snapshots at the declared cadence.
+- Commission Implementing Regulation (EU) 2023/564: professional users keep plant-protection application records **electronically (machine-readable) from 1 January 2026**; recording without undue delay, electronic transfer within 30 days. 2026 record content: product name **and registration number**, time, dose, **crop per EPPO code**, **spatial data of the treated area**, **type of use**. Regulation (EU) 2025/2203 grants a transition: pre-2027 records need not be converted until 1 Jan 2027, and member states may postpone the electronic obligation to 2027. **M0 verifies the verbatim Annex list and Slovenia's transition choice.**
+- Slovenian layer (ZFfS-1/ZFfS-1A): UVHVVR runs a **central electronic FFS-use registry (IS Evidenca FFS)** — established by **1 Dec 2026**, first mandatory farmer data entry **by 31 Jan 2027 for the 2026 year**; record content = EU Annex **plus national additions (M0 verifies)**. The pilot's frozen register export is positioned to become that submission.
+- Identifiers: KMG-MID (holding), GERK (parcel). The **national GERK layer is open data** (shapefile + WMS); onboarding = farmer's KMG-MID + confirmed GERK list against the open layer.
+- Product register: **UVHVVR "Seznam registriranih FFS"** (FITO-INFO is shut down — see `profile_si_ffs/M0_DESK_RESEARCH.md`). **M0 verifies export mechanics**; fallback is scripted/manual snapshots at the declared cadence. Sprayer-inspection data has its own download surface (equipment evidence).
 
 ## Review policy (the one-person-farm answer)
 
