@@ -137,6 +137,8 @@ INSTANCE_BINDINGS = {
         "contracts/core/OFARM_AgronomicCodeBindingProfile_schema_v0_1.json",
     "profile_si_ffs/OFARM_ReferenceSnapshot_example_si_uvhvvr_ffs_reg_2026-06-11.json":
         "contracts/core/OFARM_ReferenceSnapshot_schema_v0_1.json",
+    "profile_si_ffs/OFARM_ReferenceSnapshot_example_si_gerk_layer_2025-06-30.json":
+        "contracts/core/OFARM_ReferenceSnapshot_schema_v0_1.json",
 }
 
 
