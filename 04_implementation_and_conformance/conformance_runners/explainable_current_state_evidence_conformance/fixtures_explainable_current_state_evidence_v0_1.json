@@ -1,0 +1,400 @@
+{
+  "schemaVersion": "ofarm.explainableCurrentStateEvidence.conformanceFixtures.v0.1",
+  "rfcRef": "02_accepted_rfcs/OFARM_Performance_and_Explainable_Current_State_Evidence_RFC_v0_1.md",
+  "fixturePackId": "explainable-current-state-evidence-fixtures-v0-1",
+  "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+  "benchmarkClaimed": false,
+  "productionReadinessClaimed": false,
+  "fleetReadinessClaimed": false,
+  "benchmarkArtifactsAreEvidenceNotTruth": true,
+  "doesNotOverrideActiveBaseline": true,
+  "syntheticFixturePassIsNotFleetReadinessEvidence": true,
+  "fixtures": [
+    {
+      "fixtureId": "ecse-001-scoped-assertion-invalidation",
+      "purpose": "Accepted assertion change invalidates only materializations whose materialization keys depend on the affected field or crop-cycle scope.",
+      "requiredInputFamilies": [
+        "MaterializationKey",
+        "MaterializationDependencyIndex",
+        "MaterializationFreshnessVector",
+        "InvalidationEvaluationTrace"
+      ],
+      "expectedStatuses": [
+        "STALE",
+        "RECOMPUTE_REQUIRED"
+      ],
+      "expectedTraceTier": "TIER_2_RECONSTRUCTION",
+      "expectedBehavior": {
+        "recompute": "required for affected high-consequence outputs before publication",
+        "refuse": "allowed when recomputation cannot prove freshness",
+        "review": "allowed when dependency scope is broader than policy tolerance",
+        "discloseLimitation": "required for affected low-consequence display"
+      },
+      "passFailCriteria": [
+        "Affected materialization keys are marked STALE or RECOMPUTE_REQUIRED.",
+        "Unrelated tenant and farm scopes are not silently recomputed unless broad strategy is declared.",
+        "Invalidation trace records fanout and scope reasoning."
+      ],
+      "requiredMetricsIfBenchmarked": [
+        "invalidationFanoutDistribution",
+        "freshnessCheckLatency",
+        "falseFreshDefectCount"
+      ],
+      "syntheticFixturePassIsNotFleetReadinessEvidence": true
+    },
+    {
+      "fixtureId": "ecse-002-review-decision-supersession",
+      "purpose": "ReviewDecision supersession prevents a prior Compliance Twin materialization from remaining demonstrably fresh.",
+      "requiredInputFamilies": [
+        "ReviewDecision",
+        "MaterializationKey",
+        "MaterializationFreshnessVector",
+        "InvalidationEvaluationTrace"
+      ],
+      "expectedStatuses": [
+        "STALE",
+        "INVALID",
+        "RECOMPUTE_REQUIRED"
+      ],
+      "expectedTraceTier": "TIER_2_RECONSTRUCTION",
+      "expectedBehavior": {
+        "recompute": "required before PassportView or formal submission generation can proceed",
+        "refuse": "required if the superseded basis cannot be replaced",
+        "review": "allowed when policy permits explicit review routing",
+        "discloseLimitation": "required for any non-final preview"
+      },
+      "passFailCriteria": [
+        "Prior high-consequence materialization is not considered FRESH.",
+        "Generated output recomputes, refuses, or routes to review.",
+        "Invalidation trace names the ReviewDecision basis."
+      ],
+      "requiredMetricsIfBenchmarked": [
+        "freshnessCheckLatency",
+        "recomputeLatency",
+        "refusalReviewRequiredRate"
+      ],
+      "syntheticFixturePassIsNotFleetReadinessEvidence": true
+    },
+    {
+      "fixtureId": "ecse-003-pack-profile-activation-change",
+      "purpose": "PackActivationSet or profile activation changes invalidate materializations under affected context while preserving unaffected context only with dependency proof.",
+      "requiredInputFamilies": [
+        "PackActivationSet",
+        "MaterializationKey",
+        "MaterializationDependencyIndex",
+        "MaterializationFreshnessVector"
+      ],
+      "expectedStatuses": [
+        "STALE",
+        "INVALID",
+        "RECOMPUTE_REQUIRED",
+        "FRESH"
+      ],
+      "expectedTraceTier": "TIER_2_RECONSTRUCTION",
+      "expectedBehavior": {
+        "recompute": "required for affected governed outputs",
+        "refuse": "allowed when activation context cannot be reconstructed",
+        "review": "allowed for disputed activation or profile scope",
+        "discloseLimitation": "required for preview of stale activation context"
+      },
+      "passFailCriteria": [
+        "Affected-context materializations are not treated as FRESH.",
+        "Unaffected-context materializations remain FRESH only with dependency evidence.",
+        "Trace identifies pack/profile activation version."
+      ],
+      "requiredMetricsIfBenchmarked": [
+        "packProfileChurnRate",
+        "invalidationFanoutDistribution",
+        "projectionLagDistribution"
+      ],
+      "syntheticFixturePassIsNotFleetReadinessEvidence": true
+    },
+    {
+      "fixtureId": "ecse-004-identity-lifecycle-revision",
+      "purpose": "Identity or lifecycle revision invalidates lineage-sensitive materializations and traces the revised identity basis.",
+      "requiredInputFamilies": [
+        "IdentityLifecycleRecord",
+        "MaterializationKey",
+        "MaterializationFreshnessVector",
+        "InvalidationEvaluationTrace"
+      ],
+      "expectedStatuses": [
+        "INVALID",
+        "RECOMPUTE_REQUIRED"
+      ],
+      "expectedTraceTier": "TIER_2_RECONSTRUCTION",
+      "expectedBehavior": {
+        "recompute": "required for affected scope and lineage-sensitive outputs",
+        "refuse": "required when old and new identities cannot be disambiguated",
+        "review": "allowed for boundary interpretation disputes",
+        "discloseLimitation": "required for any retained exploratory view"
+      },
+      "passFailCriteria": [
+        "Affected materialization keys are invalidated according to identity policy.",
+        "Lineage-sensitive traces identify revision or new identity basis.",
+        "No output silently bridges old and new identity state."
+      ],
+      "requiredMetricsIfBenchmarked": [
+        "identityLifecycleChurnRate",
+        "recomputeLatency",
+        "traceExpansionLatencyByTier"
+      ],
+      "syntheticFixturePassIsNotFleetReadinessEvidence": true
+    },
+    {
+      "fixtureId": "ecse-005-reference-snapshot-update",
+      "purpose": "Reference snapshot advancement is detected for high-consequence outputs that depend on external currentness.",
+      "requiredInputFamilies": [
+        "ReferenceSnapshot",
+        "MaterializationKey",
+        "MaterializationFreshnessVector",
+        "InvalidationEvaluationTrace"
+      ],
+      "expectedStatuses": [
+        "STALE",
+        "RECOMPUTE_REQUIRED"
+      ],
+      "expectedTraceTier": "TIER_2_RECONSTRUCTION",
+      "expectedBehavior": {
+        "recompute": "required before high-consequence use",
+        "refuse": "required if new snapshot cannot be resolved",
+        "review": "allowed when external reference advancement creates ambiguity",
+        "discloseLimitation": "required for stale low-consequence display"
+      },
+      "passFailCriteria": [
+        "Affected materializations are not silently treated as current.",
+        "Freshness vector discloses snapshot advancement.",
+        "Invalidation trace records reference snapshot version."
+      ],
+      "requiredMetricsIfBenchmarked": [
+        "referenceSnapshotChurnRate",
+        "freshnessCheckLatency",
+        "falseFreshDefectCount"
+      ],
+      "syntheticFixturePassIsNotFleetReadinessEvidence": true
+    },
+    {
+      "fixtureId": "ecse-006-advisory-twin-stale-display",
+      "purpose": "Advisory Twin exploratory stale display remains qualified and cannot bridge to Compliance Twin without stricter freshness evaluation.",
+      "requiredInputFamilies": [
+        "MaterializationKey",
+        "MaterializationFreshnessVector",
+        "TraceExpansionResult",
+        "ResultQualificationEnvelope"
+      ],
+      "expectedStatuses": [
+        "STALE"
+      ],
+      "expectedTraceTier": "TIER_1_QUALIFICATION",
+      "expectedBehavior": {
+        "recompute": "optional for advisory exploratory display unless policy escalates",
+        "refuse": "allowed if qualification cannot be disclosed",
+        "review": "required before Compliance Twin bridging when freshness is stale",
+        "discloseLimitation": "required on every stale advisory display"
+      },
+      "passFailCriteria": [
+        "Advisory display is clearly qualified as stale.",
+        "Compliance Twin bridge forces stricter freshness evaluation.",
+        "Stale advisory output is not emitted as canonical farm truth."
+      ],
+      "requiredMetricsIfBenchmarked": [
+        "queryLatencyByUseClass",
+        "projectionLagDistribution",
+        "limitationDisclosureRate"
+      ],
+      "syntheticFixturePassIsNotFleetReadinessEvidence": true
+    },
+    {
+      "fixtureId": "ecse-007-compliance-twin-high-consequence-block",
+      "purpose": "Compliance Twin high-consequence output cannot rely on stale current state as if it were fresh.",
+      "requiredInputFamilies": [
+        "MaterializationKey",
+        "MaterializationFreshnessVector",
+        "TraceExpansionPolicy",
+        "TraceExpansionResult"
+      ],
+      "expectedStatuses": [
+        "STALE",
+        "RECOMPUTE_REQUIRED"
+      ],
+      "expectedTraceTier": "TIER_2_RECONSTRUCTION",
+      "expectedBehavior": {
+        "recompute": "required before external relied-upon output",
+        "refuse": "required when recomputation cannot establish freshness",
+        "review": "allowed only under explicit review policy",
+        "discloseLimitation": "required for any blocked or preview response"
+      },
+      "passFailCriteria": [
+        "No external relied-upon claim is emitted as FRESH from stale basis.",
+        "Output recomputes, refuses, or routes to explicit review.",
+        "Trace records the high-consequence freshness gate."
+      ],
+      "requiredMetricsIfBenchmarked": [
+        "recomputeLatency",
+        "refusalReviewRequiredRate",
+        "traceRetrievalLatencyByTier"
+      ],
+      "syntheticFixturePassIsNotFleetReadinessEvidence": true
+    },
+    {
+      "fixtureId": "ecse-008-trace-tier-enforcement",
+      "purpose": "The same query receives different trace obligations under low-consequence, high-consequence, and forensic replay use classes.",
+      "requiredInputFamilies": [
+        "TraceExpansionPolicy",
+        "TraceExpansionRequest",
+        "TraceExpansionResult",
+        "QueryPlanIR"
+      ],
+      "expectedStatuses": [
+        "FRESH"
+      ],
+      "expectedTraceTier": "TIER_3_FORENSIC_REPLAY",
+      "expectedBehavior": {
+        "recompute": "required if high-consequence trace basis cannot be reconstructed",
+        "refuse": "required if required trace tier cannot be produced before completion",
+        "review": "allowed only under explicit waiver or audit policy",
+        "discloseLimitation": "required when lower trace tier is returned"
+      },
+      "passFailCriteria": [
+        "Low-consequence path emits Tier 1 qualification trace.",
+        "High-consequence path requires Tier 2 reconstruction before completion.",
+        "Forensic replay path can produce Tier 3 evidence under audit policy."
+      ],
+      "requiredMetricsIfBenchmarked": [
+        "traceExpansionLatencyByTier",
+        "traceRetrievalLatencyByTier",
+        "snapshotRetentionOverhead"
+      ],
+      "syntheticFixturePassIsNotFleetReadinessEvidence": true
+    },
+    {
+      "fixtureId": "ecse-009-projection-corruption-detection",
+      "purpose": "Projection or read-model corruption is detected and cannot become governed truth when canonical substrate remains valid.",
+      "requiredInputFamilies": [
+        "QueryPlanIR",
+        "MaterializationBasis",
+        "TraceExpansionResult",
+        "InvalidationEvaluationTrace"
+      ],
+      "expectedStatuses": [
+        "INVALID",
+        "RECOMPUTE_REQUIRED"
+      ],
+      "expectedTraceTier": "TIER_3_FORENSIC_REPLAY",
+      "expectedBehavior": {
+        "recompute": "required from canonical substrate or governed basis",
+        "refuse": "required if equivalence cannot be demonstrated",
+        "review": "allowed for corruption incident triage",
+        "discloseLimitation": "required for any affected output surface"
+      },
+      "passFailCriteria": [
+        "High-consequence equivalence check fails or recomputes from canonical basis.",
+        "Projection-only answer is not accepted as governed truth.",
+        "Trace identifies projection corruption and canonical basis comparison."
+      ],
+      "requiredMetricsIfBenchmarked": [
+        "falseFreshDefectCount",
+        "recomputeLatency",
+        "projectionIndexStorageOverhead"
+      ],
+      "syntheticFixturePassIsNotFleetReadinessEvidence": true
+    },
+    {
+      "fixtureId": "ecse-010-dependency-index-failure",
+      "purpose": "Missing, stale, or inconsistent dependency index partitions prevent affected high-consequence materializations from being demonstrably fresh.",
+      "requiredInputFamilies": [
+        "MaterializationDependencyIndex",
+        "MaterializationFreshnessVector",
+        "InvalidationEvaluationTrace",
+        "TraceExpansionResult"
+      ],
+      "expectedStatuses": [
+        "RECOMPUTE_REQUIRED",
+        "INVALID"
+      ],
+      "expectedTraceTier": "TIER_2_RECONSTRUCTION",
+      "expectedBehavior": {
+        "recompute": "required when dependency proof is unavailable",
+        "refuse": "required if recompute cannot prove freshness",
+        "review": "allowed for dependency-index repair or broad invalidation decision",
+        "discloseLimitation": "required for low-consequence displays affected by index uncertainty"
+      },
+      "passFailCriteria": [
+        "Affected high-consequence materializations are not considered FRESH.",
+        "Fallback follows recompute/refuse/review policy.",
+        "Trace records missing, stale, or inconsistent dependency partition."
+      ],
+      "requiredMetricsIfBenchmarked": [
+        "dependencyIndexStorageOverhead",
+        "invalidationFanoutDistribution",
+        "falseStaleOrOverBroadInvalidationRate"
+      ],
+      "syntheticFixturePassIsNotFleetReadinessEvidence": true
+    },
+    {
+      "fixtureId": "ecse-011-permission-redaction-boundary",
+      "purpose": "Trace retrieval respects authority and data-sovereignty policy while disclosing redaction and preserving freshness limits.",
+      "requiredInputFamilies": [
+        "TraceExpansionRequest",
+        "TraceExpansionResult",
+        "AuthorityDecisionTrace",
+        "DataSovereigntyPolicy"
+      ],
+      "expectedStatuses": [
+        "FRESH",
+        "STALE",
+        "RECOMPUTE_REQUIRED"
+      ],
+      "expectedTraceTier": "TIER_2_RECONSTRUCTION",
+      "expectedBehavior": {
+        "recompute": "allowed when redacted basis cannot prove freshness to requester",
+        "refuse": "required for unauthorized basis disclosure",
+        "review": "allowed for authorized dispute or regulator path",
+        "discloseLimitation": "required whenever trace content is redacted"
+      },
+      "passFailCriteria": [
+        "Trace retrieval respects authority and sovereignty policy.",
+        "Redaction is disclosed.",
+        "Redaction does not upgrade freshness or evidence sufficiency."
+      ],
+      "requiredMetricsIfBenchmarked": [
+        "traceRetrievalLatencyByTier",
+        "redactionDisclosureRate",
+        "refusalReviewRequiredRate"
+      ],
+      "syntheticFixturePassIsNotFleetReadinessEvidence": true
+    },
+    {
+      "fixtureId": "ecse-012-cold-rebuild-equivalence",
+      "purpose": "Runtime rebuilds materializations and dependency indexes from canonical substrate and governed context rather than hidden projection state.",
+      "requiredInputFamilies": [
+        "RuntimeMaterializationBenchmarkRun",
+        "RuntimeStorageAmplificationReport",
+        "MaterializationDependencyIndex",
+        "TraceExpansionResult"
+      ],
+      "expectedStatuses": [
+        "FRESH",
+        "RECOMPUTE_REQUIRED"
+      ],
+      "expectedTraceTier": "TIER_3_FORENSIC_REPLAY",
+      "expectedBehavior": {
+        "recompute": "required from canonical substrate and governed context",
+        "refuse": "required when rebuilt output cannot match declared equivalence policy",
+        "review": "required for mismatch disposition",
+        "discloseLimitation": "required for any retained snapshot mismatch"
+      },
+      "passFailCriteria": [
+        "Rebuilt results match retained snapshots under declared equivalence policy.",
+        "Dependency indexes are regenerated from governed basis.",
+        "Mismatches surface as conformance failures or review-required conditions."
+      ],
+      "requiredMetricsIfBenchmarked": [
+        "coldRebuildTime",
+        "storageAmplification",
+        "traceExpansionLatencyByTier"
+      ],
+      "syntheticFixturePassIsNotFleetReadinessEvidence": true
+    }
+  ]
+}
