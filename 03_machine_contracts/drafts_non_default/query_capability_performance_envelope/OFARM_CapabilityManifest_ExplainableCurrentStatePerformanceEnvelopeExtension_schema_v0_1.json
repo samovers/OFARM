@@ -1,0 +1,483 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/query-capability-performance-envelope/capability-manifest-explainable-current-state-performance-envelope-extension/v0.1",
+  "title": "OFARM CapabilityManifestExplainableCurrentStatePerformanceEnvelopeExtension schema v0.1 draft/non-default",
+  "description": "Draft/non-default extension object for Capability Manifest explainable current-state runtime evidence and performance-envelope claims. It does not replace the current/default Capability Manifest schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "properties": {
+        "explainableCurrentStateSupportClaim": {
+          "properties": {
+            "supportClaimed": {
+              "const": true
+            },
+            "claimRefs": {
+              "minItems": 1
+            }
+          }
+        },
+        "implementedContractSupport": {
+          "properties": {
+            "implemented": {
+              "const": true
+            },
+            "supportedContractRefs": {
+              "minItems": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "runtimeEvidenceLevel": {
+            "const": "IMPLEMENTED_NO_BENCHMARK_EVIDENCE"
+          }
+        },
+        "required": [
+          "runtimeEvidenceLevel"
+        ]
+      },
+      "then": {
+        "properties": {
+          "benchmarkedRuntimeEnvelope": {
+            "properties": {
+              "benchmarkAvailable": {
+                "const": false
+              }
+            }
+          },
+          "productionObservedEvidenceRefs": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "runtimeEvidenceLevel": {
+            "enum": [
+              "CONFORMANCE_FIXTURE_PASSING",
+              "SINGLE_TENANT_PILOT_BENCHMARKED",
+              "MULTI_TENANT_PILOT_BENCHMARKED",
+              "FLEET_SCALE_SYNTHETIC_BENCHMARKED",
+              "PRODUCTION_OBSERVED_WITH_TELEMETRY"
+            ]
+          }
+        },
+        "required": [
+          "runtimeEvidenceLevel"
+        ]
+      },
+      "then": {
+        "properties": {
+          "conformanceFixtureSupport": {
+            "properties": {
+              "fixtureSupportLevel": {
+                "const": "PASSING"
+              },
+              "conformanceRunRefs": {
+                "minItems": 1
+              },
+              "fixtureCoverageRefs": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "runtimeEvidenceLevel": {
+            "enum": [
+              "SINGLE_TENANT_PILOT_BENCHMARKED",
+              "MULTI_TENANT_PILOT_BENCHMARKED",
+              "FLEET_SCALE_SYNTHETIC_BENCHMARKED",
+              "PRODUCTION_OBSERVED_WITH_TELEMETRY"
+            ]
+          }
+        },
+        "required": [
+          "runtimeEvidenceLevel"
+        ]
+      },
+      "then": {
+        "properties": {
+          "benchmarkedRuntimeEnvelope": {
+            "required": [
+              "declaredEnvelopeRef",
+              "runtimeQueryMixProfileRefs",
+              "benchmarkRunRefs",
+              "performanceEnvelopeMetrics",
+              "storageAmplificationReportRefs",
+              "coldRebuildEvidenceRefs",
+              "knownLimitations"
+            ],
+            "properties": {
+              "benchmarkAvailable": {
+                "const": true
+              },
+              "runtimeQueryMixProfileRefs": {
+                "minItems": 1
+              },
+              "benchmarkRunRefs": {
+                "minItems": 1
+              },
+              "storageAmplificationReportRefs": {
+                "minItems": 1
+              },
+              "coldRebuildEvidenceRefs": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "runtimeEvidenceLevel": {
+            "const": "PRODUCTION_OBSERVED_WITH_TELEMETRY"
+          }
+        },
+        "required": [
+          "runtimeEvidenceLevel"
+        ]
+      },
+      "then": {
+        "properties": {
+          "productionObservedEvidenceRefs": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "schemaVersion",
+    "artifactType",
+    "contractStatus",
+    "draftNonDefault",
+    "promotedToCurrentDefault",
+    "extensionId",
+    "baseCapabilityManifestRef",
+    "explainableCurrentStateSupportClaim",
+    "implementedContractSupport",
+    "conformanceFixtureSupport",
+    "runtimeEvidenceLevel",
+    "benchmarkedRuntimeEnvelope",
+    "productionObservedEvidenceRefs",
+    "benchmarkArtifactsAreEvidenceOnly",
+    "doesNotClaimProductionReadiness",
+    "doesNotOverrideActiveBaseline"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.capabilityManifestExplainableCurrentStatePerformanceEnvelopeExtension.v0.1-draft"
+    },
+    "artifactType": {
+      "const": "CapabilityManifestExplainableCurrentStatePerformanceEnvelopeExtension"
+    },
+    "contractStatus": {
+      "const": "DRAFT_NON_DEFAULT"
+    },
+    "draftNonDefault": {
+      "const": true
+    },
+    "promotedToCurrentDefault": {
+      "const": false
+    },
+    "extensionId": {
+      "$ref": "#/$defs/ref"
+    },
+    "baseCapabilityManifestRef": {
+      "$ref": "#/$defs/ref"
+    },
+    "explainableCurrentStateSupportClaim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "supportClaimed",
+        "claimScope",
+        "claimRefs"
+      ],
+      "properties": {
+        "supportClaimed": {
+          "type": "boolean"
+        },
+        "claimScope": {
+          "enum": [
+            "DEPLOYMENT",
+            "TENANT",
+            "PROFILE",
+            "WORKLOAD_ENVELOPE"
+          ]
+        },
+        "claimRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "implementedContractSupport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "implemented",
+        "supportedContractRefs"
+      ],
+      "properties": {
+        "implemented": {
+          "type": "boolean"
+        },
+        "supportedContractRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "conformanceFixtureSupport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fixtureSupportLevel",
+        "conformanceRunRefs",
+        "fixtureCoverageRefs"
+      ],
+      "properties": {
+        "fixtureSupportLevel": {
+          "enum": [
+            "NONE_DECLARED",
+            "PARTIAL",
+            "PASSING"
+          ]
+        },
+        "conformanceRunRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "fixtureCoverageRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "runtimeEvidenceLevel": {
+      "$ref": "#/$defs/runtimeEvidenceLevel"
+    },
+    "benchmarkedRuntimeEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "benchmarkAvailable",
+        "knownLimitations"
+      ],
+      "properties": {
+        "benchmarkAvailable": {
+          "type": "boolean"
+        },
+        "declaredEnvelopeRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "runtimeQueryMixProfileRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "benchmarkRunRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "performanceEnvelopeMetrics": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "freshnessCheckLatency",
+            "recomputeLatency",
+            "traceLatencyByTier",
+            "invalidationFanoutDistribution",
+            "projectionLagDistribution",
+            "coldRebuildTimeSeconds"
+          ],
+          "properties": {
+            "freshnessCheckLatency": {
+              "$ref": "#/$defs/latencyDistribution"
+            },
+            "recomputeLatency": {
+              "$ref": "#/$defs/latencyDistribution"
+            },
+            "traceLatencyByTier": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "traceTier",
+                  "expansionLatency",
+                  "retrievalLatency"
+                ],
+                "properties": {
+                  "traceTier": {
+                    "$ref": "#/$defs/traceTier"
+                  },
+                  "expansionLatency": {
+                    "$ref": "#/$defs/latencyDistribution"
+                  },
+                  "retrievalLatency": {
+                    "$ref": "#/$defs/latencyDistribution"
+                  }
+                }
+              }
+            },
+            "invalidationFanoutDistribution": {
+              "$ref": "#/$defs/fanoutDistribution"
+            },
+            "projectionLagDistribution": {
+              "$ref": "#/$defs/latencyDistribution"
+            },
+            "coldRebuildTimeSeconds": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "storageAmplificationReportRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "coldRebuildEvidenceRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "uniqueItems": true
+        },
+        "knownLimitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productionObservedEvidenceRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ref"
+      },
+      "uniqueItems": true
+    },
+    "benchmarkArtifactsAreEvidenceOnly": {
+      "const": true
+    },
+    "doesNotClaimProductionReadiness": {
+      "const": true
+    },
+    "doesNotOverrideActiveBaseline": {
+      "const": true
+    }
+  },
+  "$defs": {
+    "ref": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:/#-]+$"
+    },
+    "runtimeEvidenceLevel": {
+      "enum": [
+        "IMPLEMENTED_NO_BENCHMARK_EVIDENCE",
+        "CONFORMANCE_FIXTURE_PASSING",
+        "SINGLE_TENANT_PILOT_BENCHMARKED",
+        "MULTI_TENANT_PILOT_BENCHMARKED",
+        "FLEET_SCALE_SYNTHETIC_BENCHMARKED",
+        "PRODUCTION_OBSERVED_WITH_TELEMETRY"
+      ]
+    },
+    "traceTier": {
+      "enum": [
+        "TIER_1_QUALIFICATION",
+        "TIER_2_RECONSTRUCTION",
+        "TIER_3_FORENSIC_REPLAY"
+      ]
+    },
+    "latencyDistribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "p50Ms",
+        "p95Ms",
+        "p99Ms"
+      ],
+      "properties": {
+        "p50Ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "p95Ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "p99Ms": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "fanoutDistribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "p50Keys",
+        "p95Keys",
+        "p99Keys",
+        "maximumKeys"
+      ],
+      "properties": {
+        "p50Keys": {
+          "type": "number",
+          "minimum": 0
+        },
+        "p95Keys": {
+          "type": "number",
+          "minimum": 0
+        },
+        "p99Keys": {
+          "type": "number",
+          "minimum": 0
+        },
+        "maximumKeys": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

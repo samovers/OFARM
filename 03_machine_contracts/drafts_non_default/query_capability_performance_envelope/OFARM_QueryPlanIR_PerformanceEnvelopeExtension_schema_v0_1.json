@@ -1,0 +1,360 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/query-capability-performance-envelope/query-plan-ir-performance-envelope-extension/v0.1",
+  "title": "OFARM QueryPlanIRPerformanceEnvelopeExtension schema v0.1 draft/non-default",
+  "description": "Draft/non-default extension object for QueryPlanIR explainable current-state planning evidence. It does not replace the current/default QueryPlanIR schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "highConsequenceFlag": {
+            "const": true
+          }
+        },
+        "required": [
+          "highConsequenceFlag"
+        ]
+      },
+      "then": {
+        "properties": {
+          "requiredFreshnessStatus": {
+            "const": "FRESH"
+          },
+          "requiredTraceTier": {
+            "enum": [
+              "TIER_2_RECONSTRUCTION",
+              "TIER_3_FORENSIC_REPLAY"
+            ]
+          },
+          "traceRetentionRequirement": {
+            "properties": {
+              "retentionMode": {
+                "enum": [
+                  "RETAIN_EXPANDED_TRACE",
+                  "RETAIN_COMPACT_RECONSTRUCTIBLE_BASIS",
+                  "REGENERATE_FROM_GOVERNED_BASIS"
+                ]
+              },
+              "reconstructibilityRequired": {
+                "const": true
+              }
+            }
+          },
+          "fallbackBehaviors": {
+            "contains": {
+              "enum": [
+                "RECOMPUTE",
+                "REFUSE",
+                "REVIEW"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "schemaVersion",
+    "artifactType",
+    "contractStatus",
+    "draftNonDefault",
+    "promotedToCurrentDefault",
+    "extensionId",
+    "baseQueryPlanIRRef",
+    "materializationKeyBinding",
+    "requiredFreshnessStatus",
+    "requiredTraceTier",
+    "highConsequenceFlag",
+    "materializationPolicyRef",
+    "dependencyIndexStrategy",
+    "freshnessVectorDimensionsRequired",
+    "traceRetentionRequirement",
+    "fallbackBehaviors",
+    "projectionEquivalenceDeclaration",
+    "costAwarePlanning",
+    "benchmarkArtifactsAreEvidenceOnly",
+    "doesNotOverrideActiveBaseline"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.queryPlanIRPerformanceEnvelopeExtension.v0.1-draft"
+    },
+    "artifactType": {
+      "const": "QueryPlanIRPerformanceEnvelopeExtension"
+    },
+    "contractStatus": {
+      "const": "DRAFT_NON_DEFAULT"
+    },
+    "draftNonDefault": {
+      "const": true
+    },
+    "promotedToCurrentDefault": {
+      "const": false
+    },
+    "extensionId": {
+      "$ref": "#/$defs/ref"
+    },
+    "baseQueryPlanIRRef": {
+      "$ref": "#/$defs/ref"
+    },
+    "sourceQuerySpecificationRef": {
+      "$ref": "#/$defs/ref"
+    },
+    "materializationKeyBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": [
+            "materializationKeyRef"
+          ]
+        },
+        {
+          "required": [
+            "keyDerivationRule"
+          ]
+        }
+      ],
+      "properties": {
+        "materializationKeyRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "keyDerivationRule": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ruleId",
+            "derivesFromQueryPlanIR",
+            "inputs",
+            "materiallyDifferentKeysMustNotCollapse"
+          ],
+          "properties": {
+            "ruleId": {
+              "$ref": "#/$defs/ref"
+            },
+            "derivesFromQueryPlanIR": {
+              "const": true
+            },
+            "inputs": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "enum": [
+                  "NORMALIZED_TARGET",
+                  "ANCHOR_SCOPES",
+                  "EVALUATION_TIME_POLICY",
+                  "CONTEXT_SNAPSHOT",
+                  "MATERIALIZATION_POLICY",
+                  "QUERY_VIEW_OUTPUT_PROFILE",
+                  "USE_CLASS",
+                  "RESULT_SHAPE",
+                  "POLICY_VERSION",
+                  "AUTHORITY_CONTEXT"
+                ]
+              },
+              "uniqueItems": true
+            },
+            "materiallyDifferentKeysMustNotCollapse": {
+              "const": true
+            }
+          }
+        }
+      }
+    },
+    "requiredFreshnessStatus": {
+      "$ref": "#/$defs/freshnessStatus"
+    },
+    "requiredTraceTier": {
+      "$ref": "#/$defs/traceTier"
+    },
+    "highConsequenceFlag": {
+      "type": "boolean"
+    },
+    "materializationPolicyRef": {
+      "$ref": "#/$defs/ref"
+    },
+    "dependencyIndexStrategy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "strategyMode",
+        "broadensRatherThanNarrowsOnUncertainty"
+      ],
+      "properties": {
+        "strategyMode": {
+          "enum": [
+            "MAINTAINED_DEPENDENCY_INDEX",
+            "DERIVE_FROM_QUERY_PLAN_IR",
+            "BROAD_INVALIDATION_ON_UNCERTAINTY",
+            "RECOMPUTE_ON_UNCERTAINTY",
+            "REFUSE_OR_REVIEW_ON_UNCERTAINTY"
+          ]
+        },
+        "dependencyIndexRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "broadensRatherThanNarrowsOnUncertainty": {
+          "const": true
+        }
+      }
+    },
+    "freshnessVectorDimensionsRequired": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/freshnessDimension"
+      },
+      "uniqueItems": true
+    },
+    "traceRetentionRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "retentionMode",
+        "reconstructibilityRequired",
+        "redactionMustBeDisclosed",
+        "redactionDoesNotUpgradeFreshness"
+      ],
+      "properties": {
+        "retentionMode": {
+          "enum": [
+            "RETAIN_EXPANDED_TRACE",
+            "RETAIN_COMPACT_RECONSTRUCTIBLE_BASIS",
+            "REGENERATE_FROM_GOVERNED_BASIS",
+            "DISCARD_LOW_CONSEQUENCE_RECOMPUTABLE_TRACE"
+          ]
+        },
+        "retentionPolicyRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "reconstructibilityRequired": {
+          "type": "boolean"
+        },
+        "redactionMustBeDisclosed": {
+          "const": true
+        },
+        "redactionDoesNotUpgradeFreshness": {
+          "const": true
+        }
+      }
+    },
+    "fallbackBehaviors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": [
+          "RECOMPUTE",
+          "REFUSE",
+          "REVIEW",
+          "DISCLOSE_LIMITATION"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "projectionEquivalenceDeclaration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "projectionUsed",
+        "semanticEquivalenceRequired",
+        "projectionTraceBackRequired",
+        "projectionOnlyResultAcceptedForGovernedOutput",
+        "equivalencePolicyRef"
+      ],
+      "properties": {
+        "projectionUsed": {
+          "type": "boolean"
+        },
+        "semanticEquivalenceRequired": {
+          "const": true
+        },
+        "projectionTraceBackRequired": {
+          "const": true
+        },
+        "projectionOnlyResultAcceptedForGovernedOutput": {
+          "const": false
+        },
+        "equivalencePolicyRef": {
+          "$ref": "#/$defs/ref"
+        }
+      }
+    },
+    "costAwarePlanning": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "cannotDowngradeGovernanceRequirements"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "costProfileRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "allowedOptimizationFamilies": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "INDEX_SELECTION",
+              "CACHE_REUSE",
+              "TRACE_LAZY_EXPANSION_WHEN_POLICY_ALLOWS",
+              "BATCH_RECOMPUTE",
+              "BROAD_INVALIDATION_TO_AVOID_UNSAFE_PRECISION"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "cannotDowngradeGovernanceRequirements": {
+          "const": true
+        }
+      }
+    },
+    "benchmarkArtifactsAreEvidenceOnly": {
+      "const": true
+    },
+    "doesNotOverrideActiveBaseline": {
+      "const": true
+    }
+  },
+  "$defs": {
+    "ref": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:/#-]+$"
+    },
+    "freshnessStatus": {
+      "enum": [
+        "FRESH",
+        "STALE",
+        "INVALID",
+        "RECOMPUTE_REQUIRED"
+      ]
+    },
+    "traceTier": {
+      "enum": [
+        "TIER_1_QUALIFICATION",
+        "TIER_2_RECONSTRUCTION",
+        "TIER_3_FORENSIC_REPLAY"
+      ]
+    },
+    "freshnessDimension": {
+      "enum": [
+        "CANONICAL_ASSERTION_HISTORY",
+        "ACCEPTED_EVENT_CONSEQUENCE",
+        "REVIEW_DECISION",
+        "IDENTITY_LIFECYCLE",
+        "PACK_ACTIVATION_SET",
+        "RULE_EVIDENCE_POLICY",
+        "CONTEXT_SNAPSHOT",
+        "REFERENCE_SNAPSHOT",
+        "AUTHORITY_POLICY",
+        "ADVISORY_MODEL_OUTPUT",
+        "EVALUATION_TIME_BOUNDARY",
+        "QUERY_PLAN_OR_MATERIALIZATION_POLICY"
+      ]
+    }
+  }
+}

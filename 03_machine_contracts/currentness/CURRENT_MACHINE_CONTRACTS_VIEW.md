@@ -3,7 +3,7 @@
 Metadata:
 
 - viewType: MACHINE_CONTRACT_CURRENTNESS_READER_VIEW
-- generatedOrCuratedAt: `2026-06-11T22:10:00Z`
+- generatedOrCuratedAt: `2026-06-11T22:27:51Z`
 - currentPackageIdentity: `OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized`
 - latestControlledAmendment: CP15
 - doNotOverrideCanonicalAuthority: true
@@ -35,6 +35,14 @@ CP11, CP12, CP13, CP14, and CP15 draft/non-default contracts remain draft/non-de
 ## Post-CP15 accepted-RFC draft/non-default additions
 
 - Explainable Current-State Evidence draft schemas: `03_machine_contracts/drafts_non_default/explainable_current_state_evidence/`
+- Governing accepted RFC: `02_accepted_rfcs/OFARM_Performance_and_Explainable_Current_State_Evidence_RFC_v0_1.md`
+- current/default promotion changed: false
+- draft contracts promoted: false
+
+
+## Post-CP15 query/capability performance-envelope draft additions
+
+- QueryPlanIR and Capability Manifest performance-envelope draft extension schemas: `03_machine_contracts/drafts_non_default/query_capability_performance_envelope/`
 - Governing accepted RFC: `02_accepted_rfcs/OFARM_Performance_and_Explainable_Current_State_Evidence_RFC_v0_1.md`
 - current/default promotion changed: false
 - draft contracts promoted: false
