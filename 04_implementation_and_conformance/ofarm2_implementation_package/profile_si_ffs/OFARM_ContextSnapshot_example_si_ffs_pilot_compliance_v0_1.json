@@ -1,7 +1,7 @@
 {
   "schemaVersion": "ofarm.contextsnapshot.v0.1",
   "contextSnapshotId": "contextsnapshot:si.ffs.pilot.compliance.demo.v0_1",
-  "generatedAt": "2026-06-11T12:00:00Z",
+  "generatedAt": "2026-06-12T00:00:00Z",
   "targetTwin": "COMPLIANCE",
   "anchorScopes": [
     {
@@ -25,5 +25,11 @@
   "relevantPrecedenceClasses": [
     "JURISDICTION_LAW_SAFETY"
   ],
-  "notes": "Demo-tenant example of the Compliance-twin context spine. Runtime generates per-farm snapshots referencing the same activation set and artifact set, adding referenceSnapshotRefs for the FITO-INFO snapshot in force and evidencePolicyRefs for policy:si.ffs.evidence-review.v0_1."
+  "notes": "Demo-tenant example of the Compliance-twin context spine. Runtime generates per-farm snapshots referencing the same activation set and artifact set, adding referenceSnapshotRefs for the FITO-INFO snapshot in force and evidencePolicyRefs for policy:si.ffs.evidence-review.v0_1.",
+  "referenceSnapshotRefs": [
+    "referencesnapshot:si.uvhvvr.ffs-reg.2026-06-11"
+  ],
+  "evidencePolicyRefs": [
+    "policy:si.ffs.evidence-review.v0_1"
+  ]
 }

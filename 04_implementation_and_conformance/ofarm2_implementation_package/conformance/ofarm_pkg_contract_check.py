@@ -27,7 +27,7 @@ SUPPORTED = {
     "$schema", "$id", "title", "$comment", "type", "const", "enum",
     "required", "properties", "additionalProperties", "pattern", "items",
     "minItems", "maxItems", "minLength", "oneOf", "format", "description",
-    "minimum", "maximum",
+    "minimum", "maximum", "$ref", "$defs",
 }
 
 TYPES = {
@@ -45,7 +45,7 @@ def check_keywords(schema, path="#"):
         for key, val in schema.items():
             if key not in SUPPORTED:
                 raise SubsetError(f"unsupported schema keyword {key!r} at {path}")
-            if key in ("properties",):
+            if key in ("properties", "$defs"):
                 for name, sub in val.items():
                     check_keywords(sub, f"{path}/{key}/{name}")
             elif key in ("items",):
@@ -55,12 +55,24 @@ def check_keywords(schema, path="#"):
                     check_keywords(sub, f"{path}/oneOf[{i}]")
 
 
-def validate(instance, schema, path="$"):
+def resolve_ref(ref: str, root):
+    if not ref.startswith("#/"):
+        raise SubsetError(f"only local $refs supported, got {ref!r}")
+    node = root
+    for part in ref[2:].split("/"):
+        node = node[part.replace("~1", "/").replace("~0", "~")]
+    return node
+
+
+def validate(instance, schema, path="$", root=None):
+    root = root if root is not None else schema
+    while "$ref" in schema:
+        schema = resolve_ref(schema["$ref"], root)
     errors = []
     if "oneOf" in schema:
         passes = []
         for i, sub in enumerate(schema["oneOf"]):
-            sub_errors = validate(instance, sub, path)
+            sub_errors = validate(instance, sub, path, root)
             if not sub_errors:
                 passes.append(i)
         if len(passes) != 1:
@@ -92,7 +104,7 @@ def validate(instance, schema, path="$"):
                     errors.append(f"{path}: additional property {key!r} not allowed")
         for key, val in instance.items():
             if key in props:
-                errors.extend(validate(val, props[key], f"{path}.{key}"))
+                errors.extend(validate(val, props[key], f"{path}.{key}", root))
     if isinstance(instance, list):
         if "minItems" in schema and len(instance) < schema["minItems"]:
             errors.append(f"{path}: has {len(instance)} items, minItems {schema['minItems']}")
@@ -100,7 +112,7 @@ def validate(instance, schema, path="$"):
             errors.append(f"{path}: has {len(instance)} items, maxItems {schema['maxItems']}")
         if "items" in schema:
             for i, item in enumerate(instance):
-                errors.extend(validate(item, schema["items"], f"{path}[{i}]"))
+                errors.extend(validate(item, schema["items"], f"{path}[{i}]", root))
     if isinstance(instance, str):
         if "pattern" in schema and not re.search(schema["pattern"], instance):
             errors.append(f"{path}: {instance!r} does not match pattern {schema['pattern']!r}")
@@ -121,6 +133,10 @@ INSTANCE_BINDINGS = {
         "contracts/platform/OFARM_ActiveArtifactSet_schema_v0_1.json",
     "profile_si_ffs/OFARM_ContextSnapshot_example_si_ffs_pilot_compliance_v0_1.json":
         "contracts/kernel/OFARM_ContextSnapshot_schema_v0_1.json",
+    "profile_si_ffs/OFARM_AgronomicCodeBindingProfile_si_ffs_v0_1.json":
+        "contracts/core/OFARM_AgronomicCodeBindingProfile_schema_v0_1.json",
+    "profile_si_ffs/OFARM_ReferenceSnapshot_example_si_uvhvvr_ffs_reg_2026-06-11.json":
+        "contracts/core/OFARM_ReferenceSnapshot_schema_v0_1.json",
 }
 
 

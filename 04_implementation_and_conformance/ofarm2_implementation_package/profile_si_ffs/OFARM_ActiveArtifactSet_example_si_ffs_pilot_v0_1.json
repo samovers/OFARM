@@ -1,7 +1,7 @@
 {
   "schemaVersion": "ofarm.activeartifactset.v0.1",
   "activeArtifactSetId": "activeartifactset:si.ffs.pilot.v0_1",
-  "generatedAt": "2026-06-11T12:00:00Z",
+  "generatedAt": "2026-06-12T00:00:00Z",
   "deploymentScope": {
     "scopeType": "TENANT",
     "scopeRef": "tenant:si.ffs.pilot.demo"
@@ -24,10 +24,12 @@
     "contract:ofarm.referencesnapshot.v0.1",
     "view:si.ffs.spray-register.passportview.v0_1",
     "view:si.ffs.inspection-register.documentassembly.v0_1",
-    "policy:si.ffs.evidence-review.v0_1"
+    "policy:si.ffs.evidence-review.v0_1",
+    "codebindingprofile:si.ffs.v0_1",
+    "referencesnapshot:si.uvhvvr.ffs-reg.2026-06-11"
   ],
   "sourcePackActivationSetRefs": [
     "packactivationset:si.ffs.pilot.v0_1"
   ],
-  "notes": "Pilot artifact state. MUST be regenerated at M1 when the SI AgronomicCodeBindingProfile instance and the static view artifacts exist as concrete files; refs here name their reserved identifiers."
+  "notes": "Pilot artifact state incl. the cut SI code-binding profile and the first real register ReferenceSnapshot. Static view artifacts and Capability Manifest remain M1 deliverables; regenerate then."
 }
