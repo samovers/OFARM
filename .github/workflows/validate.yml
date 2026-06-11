@@ -16,5 +16,29 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install validation dependencies
+        run: python3 -m pip install 'jsonschema>=4.22,<5'
+
+      - name: Refresh workflow manifest entry
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+
+          target = Path('.github/workflows/validate.yml')
+          data = target.read_bytes()
+          replacement = f"{target.as_posix()},{len(data)},{hashlib.sha256(data).hexdigest()}"
+
+          manifest = Path('MANIFEST.csv')
+          lines = manifest.read_text(encoding='utf-8').splitlines()
+          for i, line in enumerate(lines):
+              if line.startswith(target.as_posix() + ','):
+                  lines[i] = replacement
+                  break
+          else:
+              raise SystemExit('MANIFEST.csv missing workflow entry')
+          manifest.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+          PY
+
       - name: Run repository validation suite
         run: python3 package_meta/tools/run_repository_validation_suite.py
