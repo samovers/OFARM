@@ -2,7 +2,7 @@
 
 **What this is:** the self-contained working surface for implementing OFARM2 — a Kernel/Core/Platform implementation and conformance packaging profile plus the Slovenia plant-protection record-keeping pilot definition. Designed to be lifted into its own repository unchanged.
 
-**For agents and new contributors:** start with `AGENTS.md` (binding working rules), `DECISIONS.md` (settled decisions), and `M1_BRIEF.md` (the current work order: build the Kernel). M0 — verification and grounding — is CLOSED as of 2026-06-12; see `profile_si_ffs/M0_DESK_RESEARCH.md` for the ledger.
+**For agents and new contributors:** start with `AGENTS.md` (binding working rules), `DECISIONS.md` (settled decisions), and `M1_BRIEF.md` (the current work order: build the Kernel) — ready-made session prompts for every M1 task are in `M1_PROMPTS.md`. M0 — verification and grounding — is CLOSED as of 2026-06-12; see `profile_si_ffs/M0_DESK_RESEARCH.md` for the ledger.
 
 **What this is not:** OFARM law. This package is a derived implementation/conformance artifact under `PROJECT_AUTHORITY.md` (carried verbatim in `reference/law/`). It creates no new authority, overrides nothing, and promotes nothing. New schemas here are **candidate artifacts** (Constitution RC2.1 §6.16) pending post-pilot governance.
 
