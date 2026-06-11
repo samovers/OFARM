@@ -83,6 +83,7 @@
     "resourceEnvelope": {
       "type": "object",
       "additionalProperties": true,
+      "minProperties": 1,
       "description": "Platform-neutral hardware, deployment, tenancy, and resource assumptions."
     },
     "storageBackendClass": {

@@ -168,9 +168,17 @@
     "performanceEnvelope": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "supportedWorkloadProfileRefs",
+        "testedScaleRef",
+        "runtimeQueryMixProfileRefs",
+        "materializationCostProfileRefs",
+        "knownLimitations"
+      ],
       "properties": {
         "supportedWorkloadProfileRefs": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "$ref": "#/$defs/ref"
           }
@@ -180,18 +188,21 @@
         },
         "runtimeQueryMixProfileRefs": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "$ref": "#/$defs/ref"
           }
         },
         "materializationCostProfileRefs": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "$ref": "#/$defs/ref"
           }
         },
         "knownLimitations": {
           "type": "array",
+          "minItems": 1,
           "items": {
             "type": "string"
           }
