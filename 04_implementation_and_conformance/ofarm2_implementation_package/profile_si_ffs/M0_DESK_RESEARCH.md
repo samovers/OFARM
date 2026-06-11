@@ -35,15 +35,29 @@ Status: desk-research findings feeding `PROFILE.md` and `PILOT_SI.md`. Each find
 - **VERIFIED-DESK** Farmers access their own holding data through **eRKG** (official user manual on rkg.gov.si); the KMG↔GERK linkage is personal data, so the farmer supplies their KMG-MID and confirms their GERK list.
 - **Onboarding design consequence:** the app ships/syncs the open GERK layer; onboarding = farmer enters KMG-MID, picks/confirms their GERKs (from their eRKG view or subsidy paperwork), geometry and areas come from the open layer. No per-farmer government export needed. `CAPTURE_MAPPING.md`'s "farmer-provided exports" fallback remains as fallback only.
 
+## 4a. Human-verified findings (2026-06-11, steward browser session + real documents)
+
+**Register (REGSR) — VERIFIED-HUMAN:**
+- **No export endpoint exists.** Checked: main frameset, thematic list pages, full HTML list (`FFS_RegSezn.asp?top=1`), and all linked ASP pages for CSV/Excel/XML/JSON/TXT/MDB/DBF/ODS/izvoz/prenesi variants. Closest machine surface: the **full HTML list page**, parseable into structured rows.
+- **Snapshot method decided:** scripted parse of the official HTML pages on a weekly cadence → `ReferenceSnapshot`. Declared honestly in the profile as an *unofficial surface over official content*: the `ExternalRegistryVerificationTrace.lookupSurface` records the HTML page; discrepancy risk is declared, not hidden. (UVHVVR outreach Q1 may still surface an official feed — if so, the adapter switches.)
+- **Product detail pages are richer than the Belgium research assumed for Slovenia.** Verified field inventory from a live product page: product name; active substance table (name, %, customs group, CAS, **MoA/IRAC code**); formulation; GHS hazard group + signal word; use category (e.g. INSEKTICID); manufacturer; distributor(s); parallel-import field; validity date; **authorized crops as EPPO codes with use context** (e.g. `HORVX` ječmen, *tretiranje zrnja*); **target organisms as EPPO codes**; hazard/precaution phrases (EUH/H/P/SP); **karenca per crop**; linked subpages for **doses per use ("Uporabe in koncentracije"), surface-water buffer zones, and MRLs**; and a decisions table with **Številka odločbe** (e.g. format `U#####-##/##/##`), issue date, validity date.
+- **Binding-key decision:** primary external key = **Številka odločbe** (registration decision number) + validity dates; the app-local page record number (`RecNr`) is a locator only, never identity. The native EPPO coding of crops and targets means the **authorisation-mismatch advisory check can run directly from the snapshot** — no extra mapping layer.
+
+**RKG izpis — VERIFIED-HUMAN:** one real farm extract examined; structure, identifier formats (KMG-MID 9-digit, GERK-PID 7-digit, BLOK-ID), ha.a.m² area format, *domače ime* field names, vrsta-rabe codes, and the family-member/delegation reality are documented (anonymized) in `ONBOARDING_RKG_IZPIS.md`. Personal data excluded from the repository by rule. Legal-basis note: the extract cites **ZKme-2 (Ur. l. RS 100/25)** — the new agriculture act — as RKG's basis.
+
 ## 5. Updated M0 human checklist (what remains after desk research)
 
-1. Read EUR-Lex 2023/564 (+2025/2203) and transcribe the verbatim Annex field list into `PROFILE.md`.
-2. Read ZFfS-1A on PISRS; transcribe national additions and confirm the IS Evidenca FFS articles/dates.
-3. UVHVVR contact (draft in `OUTREACH_DRAFTS.md`): REGSR export + cadence; IS Evidenca FFS third-party submission interface; whether SI postpones user-side electronic format to 2027.
-4. Open `spletni2.furs.gov.si/FFS/REGSR/` and `…/FFS/FFSNaprave/` in a browser; document export options and capture one register snapshot manually (this becomes the first `ReferenceSnapshot` example).
-5. Download the OPSI GERK layer once; round-trip one real farm's KMG-MID + GERK list against it.
-6. KGZS advisor + 3–5 farms recruitment (draft in `OUTREACH_DRAFTS.md`).
-7. Cut the `AgronomicCodeBindingProfile` instance (`codebindingprofile:si.ffs.v0_1`) from the verified facts.
+1. ~~Check REGSR for export~~ **DONE 2026-06-11** — no export; HTML-parse surface chosen; product-page field inventory captured (§4a).
+2. ~~Obtain one real farm's parcel basis~~ **DONE 2026-06-11** — RKG izpis examined; structure + identifiers documented anonymized (`ONBOARDING_RKG_IZPIS.md`).
+3. **OPEN — upload register HTML:** save `FFS_RegSezn.asp?top=1` and one product detail page as HTML files and hand them to the steward agent, so the snapshot parser is built against real markup, not guesses.
+4. **OPEN — UVHVVR email** (draft §1 in `OUTREACH_DRAFTS.md`): official feed? IS Evidenca FFS submission interface? 2025/2203 transition choice? (national extra fields now verbatim-confirmed: Art. 44.b(3)).
+5. ~~Law transcription~~ **DONE 2026-06-12** via source packet (`source_packet_extracts/`, canonical copy in `06_active_supporting_research/source_inputs/working_extracts/`): 2023/564 Annex verbatim, 2025/2203 Art. 1 verbatim, ZFfS-1 Arts. 16/19/42/43/44/44.a/44.b/45 verbatim. Normative field spec: `SI_RECORD_FIELDS.md`. *(Note: 2025/2203 confirms member states **may allow** non-electronic records for pre-2027 uses — Slovenia's choice remains outreach Q3.)*
+6. **OPEN — KGZS advisor + 3–5 farms** (draft §2 + talking points in `OUTREACH_DRAFTS.md`).
+7. **OPEN (partial) — GERK:** viewer assets verified loading (HTTP 200) but interactive parcel lookup not completed (in-app browser attach timed out — packet known-limit); OPSI layer download + round-trip against the obtained real GERK list still pending.
+8. ~~FFSNaprave~~ **DONE 2026-06-12** — official yearly TXT/XLS/XML+XSD downloads verified with field-description PDF; samples + XSD in the packet; adapter = delimited import; equipment matches by sticker number.
+9. Cut the `AgronomicCodeBindingProfile` instance (`codebindingprofile:si.ffs.v0_1`) once 3–4 close.
+
+**Source packet provenance:** `slovenia_ffs_gerk_eu_recordkeeping_packet_2026-06-12` (sha256 manifest included), generated by the steward's local agent 2026-06-11; curated copy (large samples excluded by checksum reference) at `06_active_supporting_research/source_inputs/working_extracts/`; key verbatim extracts mirrored in `profile_si_ffs/source_packet_extracts/`.
 
 ## Sources (search-result evidence; fetches blocked from this environment)
 
