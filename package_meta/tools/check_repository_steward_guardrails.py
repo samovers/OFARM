@@ -22,10 +22,134 @@ CP_ROOT_DIRS = [
     "cp15_phase7_2026_05_30",
     "cp15_final_currentness_normalization_2026_05_30",
 ]
+LOWER_AUTHORITY_LANES = [
+    "02_accepted_rfcs",
+    "01_companion_artifacts",
+    "03_machine_contracts",
+]
+TEXT_SUFFIXES = {".json", ".md", ".txt", ".yaml", ".yml"}
+AUTHORITY_CHANGE_RE = re.compile(
+    r"\b(overrid(?:e|es|den|ing)?|replac(?:e|es|ed|ing)?|supersed(?:e|es|ed|ing)?|"
+    r"redefin(?:e|es|ed|ing)?)\b",
+    re.IGNORECASE,
+)
+BASELINE_AUTHORITY_TERM_RE = re.compile(
+    r"\b(00_active_baseline|active baseline|baseline law|baseline|constitutional law|"
+    r"constitution|model law|runtime law|canonical law|authority law|pack law|truth law|"
+    r"current-state law|accepted RFC law|OFARM law)\b",
+    re.IGNORECASE,
+)
+COMPANION_MACHINE_CLAIM_TERM_RE = re.compile(
+    r"\b(model law|runtime law|canonical law|source[- ]of[- ]truth|canonical truth)\b",
+    re.IGNORECASE,
+)
+COMPANION_MACHINE_CLAIM_RE = re.compile(
+    r"\b(is|are|becomes?|became|constitutes?|creates?|defines?|declares?|serves as|"
+    r"acts as|remains|promotes? to)\b.{0,120}\b(model law|runtime law|canonical law|"
+    r"source[- ]of[- ]truth|canonical truth)\b|"
+    r"\b(model law|runtime law|canonical law|source[- ]of[- ]truth|canonical truth)\b"
+    r".{0,80}\b(store|carrier|layer|source|law|truth)\b",
+    re.IGNORECASE,
+)
+LINE_SAFE_BOUNDARY_RE = re.compile(
+    r"\b(does\s+\W*not|do\s+\W*not|must\s+\W*not|may\s+\W*not|cannot|can not|"
+    r"is\s+\W*not|are\s+\W*not|not a|not an|not the|never|without|unless|"
+    r"separate from|rather than|doesNotOverrideActiveBaseline|doNotOverrideCanonicalAuthority)\b",
+    re.IGNORECASE,
+)
+FILE_SAFE_BOUNDARY_RE = re.compile(
+    r"(subordinate to `00_active_baseline/`|does\s+\W*not\s+override|do\s+\W*not\s+override|"
+    r"must\s+\W*not\s+override|may\s+\W*not\s+override|does\s+\W*not\s+replace|"
+    r"not replacement baseline law|baseline wins|doNotOverrideCanonicalAuthority|"
+    r"doesNotOverrideActiveBaseline|draft/non-default|not current/default|not active law|"
+    r"not canonical truth|not a source-of-truth|currentness)",
+    re.IGNORECASE,
+)
+ACCEPTED_RFC_BOUNDARY_RE = re.compile(
+    r"(Status:\s*accepted|accepted/merged|Authority tier(?: if accepted)?: accepted RFC; "
+    r"subordinate to `00_active_baseline/`|subordinate to `00_active_baseline/`)",
+    re.IGNORECASE,
+)
+
+# Boundary table rows are safe because the file declares itself an interpretive
+# map, not replacement baseline law, and says the active baseline wins on conflict.
+CONTENT_GUARDRAIL_LINE_ALLOWLIST = {
+    ("01_companion_artifacts/OFARM_Concept_Boundary_Map_v0_1.md", 30),
+    ("01_companion_artifacts/OFARM_Concept_Boundary_Map_v0_1.md", 32),
+}
 
 
 def load(rel: str):
     return json.loads((REPO / rel).read_text(encoding="utf-8"))
+
+
+def is_text_file(path: Path) -> bool:
+    return path.suffix.lower() in TEXT_SUFFIXES
+
+
+def line_preview(line: str) -> str:
+    return line.strip().replace("\t", " ")[:220]
+
+
+def has_file_safe_boundary(text: str) -> bool:
+    return FILE_SAFE_BOUNDARY_RE.search(text) is not None
+
+
+def has_accepted_rfc_boundary(rel: str, text: str) -> bool:
+    return rel.startswith("02_accepted_rfcs/") and ACCEPTED_RFC_BOUNDARY_RE.search(text) is not None
+
+
+def is_safe_boundary_line(line: str) -> bool:
+    return LINE_SAFE_BOUNDARY_RE.search(line) is not None
+
+
+def is_baseline_override_claim(line: str) -> bool:
+    return (
+        AUTHORITY_CHANGE_RE.search(line) is not None
+        and BASELINE_AUTHORITY_TERM_RE.search(line) is not None
+    )
+
+
+def is_companion_or_machine_authority_claim(line: str) -> bool:
+    return (
+        COMPANION_MACHINE_CLAIM_TERM_RE.search(line) is not None
+        and COMPANION_MACHINE_CLAIM_RE.search(line) is not None
+    )
+
+
+def scan_authority_order_content(issues: list[str]) -> None:
+    for lane in LOWER_AUTHORITY_LANES:
+        for path in sorted((REPO / lane).rglob("*")):
+            if not path.is_file() or not is_text_file(path):
+                continue
+            rel = path.relative_to(REPO).as_posix()
+            text = path.read_text(encoding="utf-8", errors="replace")
+            file_has_safe_boundary = has_file_safe_boundary(text)
+            accepted_rfc_has_boundary = has_accepted_rfc_boundary(rel, text)
+            for lineno, line in enumerate(text.splitlines(), start=1):
+                if (rel, lineno) in CONTENT_GUARDRAIL_LINE_ALLOWLIST:
+                    continue
+
+                if is_baseline_override_claim(line):
+                    if is_safe_boundary_line(line) and (file_has_safe_boundary or accepted_rfc_has_boundary):
+                        continue
+                    issues.append(
+                        "authority-order content guardrail: "
+                        f"{rel}:{lineno}: lower-authority text appears to change baseline law: "
+                        f"{line_preview(line)}"
+                    )
+
+                if not (rel.startswith("01_companion_artifacts/") or rel.startswith("03_machine_contracts/")):
+                    continue
+                if not is_companion_or_machine_authority_claim(line):
+                    continue
+                if is_safe_boundary_line(line) and file_has_safe_boundary:
+                    continue
+                issues.append(
+                    "authority-order content guardrail: "
+                    f"{rel}:{lineno}: companion/machine-contract text could read as baseline-level law or truth: "
+                    f"{line_preview(line)}"
+                )
 
 
 def main() -> int:
@@ -162,6 +286,8 @@ def main() -> int:
         text = (REPO / rel).read_text(encoding="utf-8")
         if "package_meta/cp15_merge_2026_05_30/CP15_MERGE_DECISION.md" in text:
             issues.append(f"default root/currentness file references missing CP15 merge decision: {rel}")
+
+    scan_authority_order_content(issues)
 
     if issues:
         print("Repository steward guardrail check: FAIL")
