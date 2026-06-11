@@ -4,7 +4,7 @@ Metadata:
 
 - derivedFrom: `02_accepted_rfcs/README.md`
 - sourceAuthorityPaths: `02_accepted_rfcs/`
-- generatedOrCuratedAt: `2026-06-02T21:48:27+02:00`
+- generatedOrCuratedAt: `2026-06-11T21:31:37Z`
 - doNotOverrideCanonicalAuthority: true
 - semanticLawChanged: false
 - activeAuthorityContentModified: false
@@ -26,6 +26,10 @@ Artifact kinds:
 - Accepted matrices: `OFARM_Authority_Action_Matrix_v0_1.md`.
 - Other accepted governance records: none identified in the source README for this phase.
 
+Standalone accepted-RFC promotions:
+
+- Performance and Explainable Current-State Evidence RFC: `02_accepted_rfcs/OFARM_Performance_and_Explainable_Current_State_Evidence_RFC_v0_1.md`.
+
 CP11 through CP15 current accepted material:
 
 - CP11: Sustainable Autonomous Farming Charter RFC, authority-action addendum, pack-merge addendum.
@@ -35,4 +39,3 @@ CP11 through CP15 current accepted material:
 - CP15: Agentic Software Delivery and Model Deployment Governance RFC, authority-action addendum, event-grammar addendum, pack-merge addendum.
 
 Use `CURRENT_ACCEPTED_RFC_VIEW.json` for the full source path list.
-

@@ -47,6 +47,7 @@ This README is a complete local file index for the folder. It does not promote, 
 - `OFARM_Lot_Traceability_and_Claim_Basis_RFC_v0_1.md`
 - `OFARM_Pack_Merge_Semantics_RFC_v0_1.md`
 - `OFARM_Partial_Extent_and_Geometry_Basis_RFC_v0_1.md`
+- `OFARM_Performance_and_Explainable_Current_State_Evidence_RFC_v0_1.md`
 - `OFARM_Preflight_DryRun_and_Explain_Surface_RFC_v0_1.md`
 - `OFARM_Quantity_Bearing_Intervention_and_As_Applied_RFC_v0_1.md`
 - `OFARM_QuerySpecification_Schema_RFC_v0_1.md`
