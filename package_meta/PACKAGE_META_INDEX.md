@@ -1,6 +1,6 @@
 # Package Meta Index
 
-Generated: `2026-06-04T07:05:14Z`.
+Generated: `2026-06-11T21:33:13Z`.
 
 Current package: `OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized`.
 
