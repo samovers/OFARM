@@ -4,6 +4,6 @@ Current package: `OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deploym
 
 Status: **PASS**
 
-Files scanned: 4401
+Files scanned: 4415
 Old CP root path blockers: 0
 CP15 merge-decision reference blockers: 0
