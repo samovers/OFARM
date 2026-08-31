@@ -341,9 +341,9 @@ Existence codes are `E` = `EXISTING_REQUIRED` and `P` = `PROSPECTIVE_TARGET_ALLO
 | `OPERATE_PLAN_INTERVENTION` | `OPERATE_INTERVENE` | `DRAFT_PREPARATION` | D | DA | PC | NR | `RP_SCOPE_ONE` | `INTERVENTION_PLAN` / P |
 | `OPERATE_REPORT_EXECUTION` | `OPERATE_INTERVENE` | `DRAFT_PREPARATION` | D | DA | PC | NR | `RP_SCOPE_ONE` | `EXECUTION_REPORT` / P |
 | `REVIEW_REQUEST` | `REVIEW` | `DRAFT_PREPARATION` | X | DA | PC | NR | `RP_REVIEW_TARGET_ONE` | `REVIEW_REQUEST` / P |
-| `REVIEW_ACCEPT` | `GOVERN_DECIDE` | `PROMOTION` | N | DP | HU | DH | `RP_REVIEW_TARGET_ONE` | `REVIEW_DECISION` / P |
-| `REVIEW_REJECT_OR_CONTEST` | `GOVERN_DECIDE` | `PROMOTION` | N | DP | HU | DH | `RP_REVIEW_TARGET_ONE` | `REVIEW_DECISION` / P |
-| `REVIEW_SUPERSEDE` | `GOVERN_DECIDE` | `PROMOTION` | N | DP | HU | DH | `RP_REVIEW_TARGET_ONE` | `REVIEW_DECISION` / P |
+| `REVIEW_ACCEPT` | `GOVERN_DECIDE` | `PROMOTION` | N | DP | HU | DH | `RP_FINAL_REVIEW_TARGET_ONE` | `REVIEW_DECISION` / P |
+| `REVIEW_REJECT_OR_CONTEST` | `GOVERN_DECIDE` | `PROMOTION` | N | DP | HU | DH | `RP_FINAL_REVIEW_TARGET_ONE` | `REVIEW_DECISION` / P |
+| `REVIEW_SUPERSEDE` | `GOVERN_DECIDE` | `PROMOTION` | N | DP | HU | DH | `RP_FINAL_REVIEW_TARGET_ONE` | `REVIEW_DECISION` / P |
 | `CONTEXT_INSTALL_PACK` | `CONTEXT_GOVERNANCE` | `CONTEXT_ACTIVATION` | N | DP | HU | DH | `RP_PACK_INSTALL` | `PACK_INSTALLATION` / P |
 | `CONTEXT_ACTIVATE_PACK` | `CONTEXT_GOVERNANCE` | `CONTEXT_ACTIVATION` | N | DP | HU | DH | `RP_PACK_ACTIVATE` | `STRUCTURE_EVENT` / P |
 | `CONTEXT_DEACTIVATE_PACK` | `CONTEXT_GOVERNANCE` | `CONTEXT_ACTIVATION` | N | DP | HU | DH | `RP_PACK_DEACTIVATE` | `STRUCTURE_EVENT` / P |
@@ -444,6 +444,7 @@ Closed scope kinds are `FARM`, `SITE`, `FIELD`, `ZONE`, `CROP_CYCLE`, `LOT`, `FA
 | `RP_SCOPE_ONE` | `ALL_OF` | `TARGET_SCOPE` (`AUTHORITY_TARGET`): exactly 1 closed scope kind |
 | `RP_EVIDENCE_TARGET_ONE` | `ALL_OF` | `PRIMARY_RECORD` (`AUTHORITY_TARGET`): exactly 1 of `OBSERVATION`, `STRUCTURE_ASSERTION`, `OPERATION_ASSERTION`, `COMPLIANCE_ASSERTION`, `INTERVENTION_PLAN`, `EXECUTION_REPORT`, `REVIEW_REQUEST`, `REVIEW_DECISION`, `DOCUMENT_ASSEMBLY`, `DOSSIER_ASSEMBLY`, or `SUBMISSION_ASSEMBLY`; `ATTACHED_EVIDENCE` (`EVIDENCE_INPUT`): exactly 1 `EVIDENCE_RECORD` |
 | `RP_REVIEW_TARGET_ONE` | `ALL_OF` | `PRIMARY_RECORD` (`AUTHORITY_TARGET`): exactly 1 of `STRUCTURE_ASSERTION`, `OPERATION_ASSERTION`, `COMPLIANCE_ASSERTION`, `INTERVENTION_PLAN`, `EXECUTION_REPORT`, `REVIEW_REQUEST`, `DOCUMENT_ASSEMBLY`, `DOSSIER_ASSEMBLY`, or `SUBMISSION_ASSEMBLY` |
+| `RP_FINAL_REVIEW_TARGET_ONE` | `ALL_OF` | `PRIMARY_RECORD` (`AUTHORITY_TARGET`): exactly 1 of `STRUCTURE_ASSERTION`, `OPERATION_ASSERTION`, `COMPLIANCE_ASSERTION`, `INTERVENTION_PLAN`, `EXECUTION_REPORT`, `REVIEW_REQUEST`, `DOCUMENT_ASSEMBLY`, `DOSSIER_ASSEMBLY`, `SUBMISSION_ASSEMBLY`, or `ACCEPTED_EVENT_CONSEQUENCE` |
 | `RP_PACK_INSTALL` | `ALL_OF` | `TARGET_SCOPE` (`AUTHORITY_TARGET`): exactly 1 closed scope kind; `PACK_REGISTRY` (`APPLICABILITY_INPUT`): exactly 1 `PACK_REGISTRY`; `PACK_RELEASE_INPUT` (`INTEGRITY_INPUT`): exactly 1 `PACK_RELEASE` or `PACK_ARTIFACT` |
 | `RP_PACK_ACTIVATE` | `ALL_OF` | `TARGET_SCOPE` (`AUTHORITY_TARGET`): exactly 1 closed scope kind; `PACK_REGISTRY` (`APPLICABILITY_INPUT`): exactly 1 `PACK_REGISTRY`; `PACK_RELEASE_INPUTS` (`INTEGRITY_INPUT`): 1 or more `PACK_RELEASE` or `PACK_ARTIFACT`; `CURRENT_ACTIVATION_SET` (`STATE_INPUT`): exactly 1 `PACK_ACTIVATION_SET` |
 | `RP_PACK_DEACTIVATE` | `ALL_OF` | `TARGET_SCOPE` (`AUTHORITY_TARGET`): exactly 1 closed scope kind; `PACK_REGISTRY` (`APPLICABILITY_INPUT`): exactly 1 `PACK_REGISTRY`; `CURRENT_ACTIVATION_SET` (`STATE_INPUT`): exactly 1 `PACK_ACTIVATION_SET` |
@@ -454,6 +455,8 @@ Closed scope kinds are `FARM`, `SITE`, `FIELD`, `ZONE`, `CROP_CYCLE`, `LOT`, `FA
 | `RP_READ_TARGET_ONE` | `ALL_OF` | `READ_TARGET` (`AUTHORITY_TARGET`): exactly 1 closed scope kind or exactly 1 of `OBSERVATION`, `EVIDENCE_RECORD`, `STRUCTURE_ASSERTION`, `OPERATION_ASSERTION`, `COMPLIANCE_ASSERTION`, `INTERVENTION_PLAN`, `EXECUTION_REPORT`, `REVIEW_REQUEST`, `REVIEW_DECISION`, `PACK_INSTALLATION`, `PACK_ACTIVATION_SET`, `DOCUMENT_ASSEMBLY`, `DOSSIER_ASSEMBLY`, `SUBMISSION_ASSEMBLY`, `EVIDENCE_BUNDLE`, `CURRENT_STATE_MATERIALIZATION`, `SHARING_GRANT`, `REVOCATION_DECISION`, `PASSPORT_VIEW`, or `AUTHORIZATION_TRACE`; optional query form requires both `QUERY_SPECIFICATION` and `QUERY_PLAN` (`INTEGRITY_INPUT`), exactly 1 each, while direct-read form requires neither |
 
 Every entry binds posture, role, one concrete kind, logical ref, immutable revision/digest, scope, twin where applicable, tenant, and typed proof. An unrecognized posture/role/kind, missing role, excess cardinality, or `ONE_OF` ambiguity is non-`ALLOW`.
+
+`RP_FINAL_REVIEW_TARGET_ONE` preserves the active `ReviewDecision` scope over assertions and accepted event consequences. Its `ACCEPTED_EVENT_CONSEQUENCE` branch still resolves exactly one concrete authority target with one logical ref and immutable revision ref or content digest. It is selected only by the three final review action classes. `REVIEW_REQUEST` retains `RP_REVIEW_TARGET_ONE`; read, evidence-attachment, and every unrelated action policy remain unchanged.
 
 ### 7.6 Effect-intent schema profiles
 
@@ -471,7 +474,7 @@ The table lists additional operation-specific authorization-relevant content tha
 | `EI_INTERVENTION_PLAN_V0_2` | scope revisions, proposed plan ID/body, intended time, governed inputs |
 | `EI_EXECUTION_REPORT_V0_2` | scope, plan/operation revisions, proposed report ID/body, execution time, evidence revisions, required `performedByPartyRef`, conditional immutable software-agent actorship refs when an agent allegedly performed the work, and optional immutable `performerAuthorityEvidenceRefs` |
 | `EI_REVIEW_REQUEST_V0_2` | governed-record revision, proposed request ID, review scope, reason, evidence revisions |
-| `EI_REVIEW_DECISION_V0_2` | governed-record revision, proposed decision ID, decision kind fixed by action class, rationale, evidence revisions |
+| `EI_REVIEW_DECISION_V0_2` | governed-record revision, proposed decision ID, review action fixed by action class, exact `decisionOutcomeState`, rationale, evidence revisions |
 | `EI_PACK_INSTALL_V0_2` | scope and registry revisions, exact pack-release ref/digest, installation parameters, requested profiles, exclusions |
 | `EI_PACK_ACTIVATE_V0_2` | scope/registry/current-activation-set revisions, every pack-release ref/digest, profiles, exclusions, event kind fixed to `PACK_ACTIVATED`, proposed StructureEvent ID, and complete proposed successor activation-set content |
 | `EI_PACK_DEACTIVATE_V0_2` | scope/registry/current-activation-set revisions, exact deactivation selection, event kind fixed to `PACK_DEACTIVATED`, proposed StructureEvent ID, and complete proposed successor activation-set content |
@@ -481,6 +484,8 @@ The table lists additional operation-specific authorization-relevant content tha
 | `EI_SHARING_GRANT_V0_2` | immutable artifact revision, exact grantee, rights, delivery mode, resulting-grant purpose constraints, validity, scope, sovereignty revisions |
 | `EI_SHARING_REVOKE_V0_2` | proposed RevocationDecision ID; affected family fixed to `SHARING_GRANT`; exact immutable SharingGrant ID/digest and artifact revision; mode fixed to `TERMINATE`; `effectiveFrom`; reason |
 | `EI_DATA_READ_V0_2` | immutable read-target revision or QuerySpecification/plan revisions, projection, redaction-policy revision, purpose, buffered-response mode, snapshot policy, aggregate/metadata/lineage disclosure request |
+
+For `EI_REVIEW_DECISION_V0_2`, the selected rule closes the intent's `decisionOutcomeState`: `REVIEW_ACCEPT` requires `ACCEPTED`, `REVIEW_SUPERSEDE` requires `SUPERSEDED`, and `REVIEW_REJECT_OR_CONTEST` requires exactly one intent-bound closed value, either `REJECTED` or `CONTESTED`. That value is part of the single validated effect intent and its digest; no mirrored caller field may select or override it. A result may carry the contract-required outcome, but it cannot independently choose a different one. This authorization closure does not define the `ReviewDecision` result schema, intent-to-result mapping, event/commit classification, or postconditions; the separately owned protected-effect contract must validate those before commit.
 
 ### 7.7 Action-level evidence policy profiles
 
@@ -513,9 +518,9 @@ Validity `TX` means the exact `TRANSACTION_BOUND_V0_2` policy in sections 7.4 an
 | `OPERATE_PLAN_INTERVENTION` | `EI_INTERVENTION_PLAN_V0_2` | `RP_SCOPE_ONE` | TX | C | N | `EP_NONE` | SU | NA |
 | `OPERATE_REPORT_EXECUTION` | `EI_EXECUTION_REPORT_V0_2` | `RP_SCOPE_ONE` | TX | CR | N | `EP_EXECUTION_REPORT_V0_2` | SU | NA |
 | `REVIEW_REQUEST` | `EI_REVIEW_REQUEST_V0_2` | `RP_REVIEW_TARGET_ONE` | TX | C | N | `EP_NONE` | SU | NA |
-| `REVIEW_ACCEPT` | `EI_REVIEW_DECISION_V0_2` | `RP_REVIEW_TARGET_ONE` | TX | C | N | `EP_NONE` | SU | NA |
-| `REVIEW_REJECT_OR_CONTEST` | `EI_REVIEW_DECISION_V0_2` | `RP_REVIEW_TARGET_ONE` | TX | C | N | `EP_NONE` | SU | NA |
-| `REVIEW_SUPERSEDE` | `EI_REVIEW_DECISION_V0_2` | `RP_REVIEW_TARGET_ONE` | TX | C | N | `EP_NONE` | SU | NA |
+| `REVIEW_ACCEPT` | `EI_REVIEW_DECISION_V0_2` | `RP_FINAL_REVIEW_TARGET_ONE` | TX | C | N | `EP_NONE` | SU | NA |
+| `REVIEW_REJECT_OR_CONTEST` | `EI_REVIEW_DECISION_V0_2` | `RP_FINAL_REVIEW_TARGET_ONE` | TX | C | N | `EP_NONE` | SU | NA |
+| `REVIEW_SUPERSEDE` | `EI_REVIEW_DECISION_V0_2` | `RP_FINAL_REVIEW_TARGET_ONE` | TX | C | N | `EP_NONE` | SU | NA |
 | `CONTEXT_INSTALL_PACK` | `EI_PACK_INSTALL_V0_2` | `RP_PACK_INSTALL` | TX | C | N | `EP_PACK_GOVERNANCE_V0_2` | SU | NA |
 | `CONTEXT_ACTIVATE_PACK` | `EI_PACK_ACTIVATE_V0_2` | `RP_PACK_ACTIVATE` | TX | C | N | `EP_PACK_GOVERNANCE_V0_2` | SU | NA |
 | `CONTEXT_DEACTIVATE_PACK` | `EI_PACK_DEACTIVATE_V0_2` | `RP_PACK_DEACTIVATE` | TX | C | N | `EP_PACK_GOVERNANCE_V0_2` | SU | NA |
@@ -566,7 +571,7 @@ The effect intent contains every authorization-relevant operation input, includi
 - the exact proposed grantee, rights, purpose, and artifact for `SHARE_GRANT_ACCESS`;
 - the exact pack release/content digest, installation parameters, requested profiles, exclusions, and proposed activation-set content for context actions;
 - the exact assertion body, evidence set, subject time, and claimed scope for assertion actions;
-- the exact governed record and proposed decision content for review actions; and
+- the exact governed-record kind/ref/revision or digest, proposed decision content, and rule-constrained `decisionOutcomeState` for review actions; and
 - the exact assembly revision, destination, filing mode, and payload digest for filing.
 
 An operation-specific schema may require more. It may not omit a value that can change the authority result or protected effect.
@@ -1585,6 +1590,7 @@ The accepted design and conformance suite must preserve these invariants:
 49. Current claim/report authority, alleged performer identity, and historical execution authority remain separate; current rows do not evaluate the reporter's path as performer authority at `subjectTime`.
 50. A protected-effect receipt proves intent/result/contract binding only after the separately owned domain contract validates the proposed result; the authorization evaluator does not own domain mappings.
 51. A display or payload digest never claims byte reconstruction without retrievable candidate bytes, and retention/key-custody policy remains separately governed.
+52. Every final review binds exactly one eligible governed-record target, including an exact accepted-event-consequence revision when selected, and one rule-constrained outcome posture; `REVIEW_REQUEST` and unrelated action classes do not inherit that final-review-only target closure.
 
 ---
 
@@ -1640,6 +1646,8 @@ The future executable conformance suite must include at least:
 | Approval covers payload A but the protected operation substitutes payload B | digest mismatch; `DENY` and no effect |
 | Authorized read-only sharing intent produces a SharingGrant with broader rights | protected-effect contract validation failure; transaction aborts without rewriting the authorization result |
 | Authorized assertion body, review-decision kind, destination, or pack successor state differs in the proposed result | protected-effect contract validation failure; transaction aborts |
+| A final review effect intent names one exact `ACCEPTED_EVENT_CONSEQUENCE`, but an evaluator omits that eligible kind or substitutes another kind/ref/revision | omission is a rule/extractor conformance failure and cannot produce `ALLOW`; substitution changes the bound intent/resource view and requires a new authorization decision |
+| `REVIEW_REJECT_OR_CONTEST` intent binds `REJECTED`, but the proposed `ReviewDecision` result says `CONTESTED`, or vice versa | protected-effect contract validation failure; transaction aborts without rewriting the authorization result or intent |
 | Consumed human approval is replayed with the same challenge and payload | `DENY` with `APPROVAL_ALREADY_CONSUMED`; no effect |
 | A single-use decision is consumed twice with the same payload | second consumption is `DENY` |
 | A decision is consumed after `decisionValidUntil` | `DENY` |
@@ -1750,6 +1758,7 @@ Fixtures must enter through production-reachable evaluator and persistence paths
 | Post-commit transport ignores current disclosure revocation | sections 7.3, 8.1, 18.2, 18.6, 21, and 22 preserve the filing act but require a separately governed current release decision |
 | Hash-only display and read evidence overclaims reconstruction | sections 18.3, 18.5, 19.2, 21, and 22 require retained display bytes and explicit retained-versus-digest-only payload proof posture while leaving custody policy separate |
 | Minimum disclosure hides CP2-required authorization and redaction posture | sections 18.7, 20, 21, and 22 reuse CP2 qualification and its registered RuntimeProblem process without exposing sensitive internal reasons |
+| Final review cannot target an accepted event consequence or distinguish reject from contest before result validation | sections 7.2, 7.5, 7.6, 7.8, 8.2, 21, and 22 bind the exact eligible target and intent outcome while leaving result mapping to the protected-effect contract |
 
 This table does not authorize an OFARM2 fix. OFARM2 must wait for accepted semantics, promoted contracts, and byte-identical extraction.
 
@@ -1794,6 +1803,8 @@ Before accepted-law work begins, stewards should record explicit decisions for a
 | Must each rule select a content-addressed declarative extractor and relevant-state projection with exact JSON Pointers? | yes | yes |
 | Must actual schema bytes and their binding manifest exist and be reviewed before accepted-RFC/action-matrix promotion? | yes | yes |
 | Does every current action have exactly one concrete `AUTHORITY_TARGET`, with no executable broad buckets? | yes | yes |
+| Do final review actions alone select `RP_FINAL_REVIEW_TARGET_ONE`, including one exact `ACCEPTED_EVENT_CONSEQUENCE` revision when chosen, while `REVIEW_REQUEST` and unrelated actions remain unchanged? | yes | yes |
+| Does each final-review intent bind the exact outcome posture—`ACCEPTED`, `SUPERSEDED`, or one of `REJECTED`/`CONTESTED`—without a mirrored selector or authorization-owned result mapping? | yes | yes |
 | Are pack registry/release/current-state roles applicability, integrity, or state inputs rather than extra authority targets? | yes; no grant union across them | yes |
 | Are assembly alternatives exact `ONE_OF` authority-target branches? | yes | yes |
 | Is `OUTPUT_FILE_SUBMISSION_ASSEMBLY` fixed to `ATTEST_SIGN`? | yes | yes |
@@ -1859,7 +1870,7 @@ Phase A is complete when:
 - the one-record immutable source-ID decision, issuance-policy binding, complete per-action semantic-closure digest, exact-digest compatibility law, and exact v0.1 `TERMINATE` lookup are explicit;
 - the CP3 compatibility mapping is accepted without changing CP3 semantics, or a separate stacked change is named;
 - the actual-read mapping to policy check, mandatory CP2 qualification, and retained-versus-digest-only payload evidence is explicitly accepted;
-- the action matrix, complete rule fields, rule-selected intent/extractor profiles, protected-effect contract bindings, binding-manifest prerequisite, one-target resource roles, and prospective subject closure are reviewed;
+- the action matrix, complete rule fields, rule-selected intent/extractor profiles, protected-effect contract bindings, binding-manifest prerequisite, one-target resource roles, final-review accepted-consequence target and exact outcome posture, and prospective subject closure are reviewed;
 - transaction-bound validity, single-use consumption, atomic-write, protected-effect validation, buffered-read coverage, filing-outbox finality, separate transport-release eligibility, aggregation, and accurately bounded reconstruction claims are reviewed;
 - the path-specific software-agent authority-subject bases are accepted without sponsor inference;
 - the human challenge/approval, retained exact display representation, independent approver path, relevant-state equality, same/distinct-approver, expiry, and atomic-consumption lifecycle is reviewed;
