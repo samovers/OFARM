@@ -393,7 +393,7 @@ The core row and its extension row form one immutable `ActionAuthorizationRule`.
 - `externalEffectPosture`;
 - exact action-level evidence-policy bindings, including explicit `NONE`;
 - `consumptionMode`; and
-- immutable rule revision and content digest.
+- immutable `ruleRevision` and `ruleDigest` over the complete resolved per-action semantic closure.
 
 `effectIntentSchemaBinding` contains exactly:
 
@@ -412,6 +412,12 @@ The caller submits an effect-intent instance. The selected action rule chooses t
 Phase A names the exact semantic profiles. Before accepted-RFC/action-matrix promotion, the draft-schema stage must materialize their bytes and produce a reviewed binding manifest containing every content-addressed ref and digest. Missing, placeholder, mutable, or mismatched bindings make the action rule invalid and non-executable. Accepted promotion cannot precede that manifest.
 
 The profile IDs in sections 7.5 through 7.8 are review keys, not runtime indirection. The binding manifest maps each action class to exactly one complete resolved rule containing the actual schema/policy refs and digests, and the accepted action-rule bundle digest covers those resolved values. A runtime cannot follow a mutable registry entry or choose among schemas sharing a profile ID.
+
+`ruleDigest` is `sha256:` plus the SHA-256 digest of the JCS representation of the complete resolved per-action semantic closure after removing exactly the top-level `/ruleDigest` member. The closure contains every field of the resolved `ActionAuthorizationRule` and immutable content-addressed bindings for every shared authorization component whose semantics can change eligibility or increase authority for that action. At minimum, it binds authority-family and exact purpose-token comparison, resource-role and authority-target interpretation, role/grant/scope/inheritance/delegation/sharing intersections, trusted-time and revocation application, evidence/sovereignty/proof and tenant interpretation, prohibition on combining partial paths, path sufficiency and selection, and the total outcome aggregation lattice. Imported semantics remain owned by their governing contracts; the resolved rule binds their immutable refs and digests rather than copying their implementations into this RFC.
+
+The semantic closure excludes unrelated action rules and changes that affect only diagnostic wording, logging, diagnostic presentation, or other behavior that cannot alter this action's eligibility or authority. A component cannot be excluded merely because shared policy prose or a shared algorithm defines it rather than the visible matrix row. A missing, mutable, unresolved, or digest-invalid closure binding makes the action rule invalid and non-executable with `ACTION_RULE_BINDING_INVALID` at ingress. When an included component changes and the rule is validly repackaged, `ruleDigest` changes even if every visible row field is unchanged; a source carrying the prior digest then fails exact source-rule comparison with `SOURCE_RULE_BINDING_MISMATCH`.
+
+This closure is a deterministic packaging rule inside the existing binding manifest. It creates no new top-level contract family or mutable semantics registry, does not compare the complete policy-bundle digest for source reuse, and does not introduce cross-digest compatibility or semantic-subset proof.
 
 Every v0.2 row selects `TRANSACTION_BOUND_V0_2`. It requires consumption in the same governed transaction as the protected effect, buffered read-evidence commit, or filing-outbox commit and uses the exact cutoff function in section 18.2. This candidate does not invent a universal wall-clock duration unsupported by an authoritative transaction contract.
 
@@ -975,10 +981,10 @@ Every v0.2 result and trace must identify:
 - `policyId`;
 - `policyVersion`;
 - `policyDigest` in `sha256:<64 lowercase hexadecimal characters>` form; and
-- `selectedRuleId`, immutable rule revision, and rule content digest; and
+- `selectedRuleId`, immutable `ruleRevision`, and per-action semantic-closure `ruleDigest`; and
 - binding-manifest content ref and digest.
 
-The digest covers the exact immutable representation used by the evaluator, including the action matrix and referenced decision rules after deterministic packaging. A mutable URL, branch name, deployment label, or semantic version alone is not enough.
+The `policyDigest` covers the exact immutable representation used by the evaluator, including the action matrix and referenced decision rules after deterministic packaging. A mutable URL, branch name, deployment label, or semantic version alone is not enough. It identifies the complete evaluation context; source reuse compares the selected action's narrower `ruleDigest` from section 7.4 so an unrelated action or diagnostic-only change does not invalidate the source.
 
 If the loaded representation does not match the expected digest, the result is non-`ALLOW` with `POLICY_DIGEST_MISMATCH`.
 
@@ -1057,13 +1063,13 @@ Common v0.2 source behavior:
 - retain closed action, scope, time, and inheritance constraints, and replace mutable-looking family state with immutable `issuanceState` (`DRAFT` or `ACTIVE`); and
 - preserve immutable provenance linking a migrated record to its v0.1 predecessor.
 
-For the requested action, the evaluator requires the source's `actionClass`, `ruleId`, and `ruleDigest` to equal the selected action rule exactly. `issuedUnderPolicyDigest` records the complete issuance context but is not compared to the current bundle digest, because an unrelated rule change must not invalidate a grant whose selected rule bytes are unchanged.
+For the requested action, the evaluator requires the source's `actionClass`, `ruleId`, and `ruleDigest` to equal the selected action rule and its complete resolved per-action semantic closure exactly. `issuedUnderPolicyDigest` records the complete issuance context but is not compared to the current bundle digest, because an unrelated action or diagnostic-only change must not invalidate a grant whose selected semantic closure is unchanged.
 
 `sourceRecordDigest` uses JCS/SHA-256 over the complete source record after removing exactly the top-level `/sourceRecordDigest` field. The draft source schemas must define the provisional/final validation steps and forbid any other exclusion, following the decision-bundle projection discipline in section 18.8. A storage layer must reject a second byte sequence for an existing source ID even if a caller supplies a different digest.
 
 For a SharingGrant, `authorizedRuleBindings` contains exactly the `RECEIVE_READ_DATA` binding; sharing remains ineligible for every other action. AuthorityGrant and DelegationGrant bindings cover exactly their respective `authorityActionClasses`.
 
-V0.2 defines no automatic reuse across different rule digests, even when an implementation believes a new rule is narrower. `SOURCE_RULE_BINDING_MISMATCH` is non-`ALLOW` and requires a new source record with a new ID, an explicit steward-reviewed migration, or governed reapproval. A later extension may define content-addressed compatibility certificates, but no evaluator may invent a semantic-subset proof locally. This exact-match default closes target-kind expansion, extractor changes, weaker evidence, relaxed human posture, wider delegation, and other silent action-class widening without creating a general policy theorem engine.
+V0.2 defines no automatic reuse across different rule digests, even when an implementation believes a new rule is narrower. `SOURCE_RULE_BINDING_MISMATCH` is non-`ALLOW` and requires a new source record with a new ID, an explicit steward-reviewed migration, or governed reapproval. A later extension may define content-addressed compatibility certificates, but no evaluator may invent a semantic-subset proof locally. This exact-match default closes target-kind expansion, extractor changes, weaker evidence, relaxed human posture, wider delegation, and changes to shared purpose, scope, revocation, proof, tenant, or path-composition semantics without creating a general policy theorem engine.
 
 A correction, replacement, renewal, restriction, activation, or other change creates a different source ID and links the predecessor as provenance where applicable. `DRAFT` never grants authority. Current active, expired, or revoked posture is derived from the immutable record, its `issuanceState`, validity interval, applicable policy, and separate RevocationDecision records; v0.2 has no in-place `grantState`, `delegationState`, or `sharingState` mutation. Draft-to-active conversion likewise creates a new governed ID. A v0.1 source can support v0.2 only through the explicit migration in section 19.3.
 
@@ -1573,7 +1579,7 @@ The accepted design and conformance suite must preserve these invariants:
 43. Every reconstructed decision resolves the same immutable basis and policy bytes visible at its recorded snapshot; v0.2 source IDs resolve to exactly one immutable record digest.
 44. v0.1 records never silently claim v0.2 proof strength.
 45. Draft schema presence never changes current/default status.
-46. Every v0.2 authority source records issuance-policy identity and an exact selected-rule binding for each granted action; a different rule digest is non-`ALLOW` until explicit migration or reapproval.
+46. Every v0.2 authority source records issuance-policy identity and an exact selected-rule binding for each granted action; the rule digest covers the complete resolved per-action semantic closure, and any different closure digest is non-`ALLOW` until explicit migration or reapproval.
 47. No runtime invents cross-digest semantic-subset compatibility; v0.2 automatic reuse is exact-digest only.
 48. Every v0.2 AuthorityGrant, DelegationGrant, and SharingGrant ID is a one-record identity; a correction, replacement, renewal, activation, or restriction receives a new ID.
 49. Current claim/report authority, alleged performer identity, and historical execution authority remain separate; current rows do not evaluate the reporter's path as performer authority at `subjectTime`.
@@ -1593,6 +1599,7 @@ The future executable conformance suite must include at least:
 | Caller supplies a weaker effect-intent schema that omits an authorization-relevant field | ingress rejection with `EFFECT_INTENT_SCHEMA_CLAIM_MISMATCH`; rule-selected schema remains authoritative |
 | Bound effect-intent schema bytes differ while ref/version remain unchanged | ingress rejection with `ACTION_RULE_BINDING_INVALID`; no evaluation or effect |
 | An unchanged source record is evaluated after its action rule adds a target kind, changes the extractor, weakens evidence, relaxes human finalization, or widens delegation | `DENY` with `SOURCE_RULE_BINDING_MISMATCH`; no automatic cross-digest reuse |
+| The visible action row is unchanged, but shared purpose comparison, role/grant/scope intersection, revocation application, tenant/proof interpretation, partial-path prohibition, or path aggregation changes | the resolved semantic closure and `ruleDigest` change; the old source is `DENY` with `SOURCE_RULE_BINDING_MISMATCH` |
 | An implementation claims a changed rule is a stricter subset without an accepted compatibility extension | conformance failure; v0.2 requires exact rule-digest equality or a new governed source ID |
 | Caller supplies a mirrored resource, scope, subject, purpose, destination, grantee, rights, or payload fact outside the effect intent | request-schema rejection; no duplicate authority fact is reconciled |
 | Rule-selected extractor pointer is missing, duplicated, type-invalid, or resolves an unknown broad bucket such as `GOVERNED_RECORD` | ingress rejection with `AUTHORIZATION_VIEW_EXTRACTION_INVALID` |
@@ -1736,7 +1743,7 @@ Fixtures must enter through production-reachable evaluator and persistence paths
 | Software-agent authority subject is globally inferred and not derivable from current CP3 | sections 6.2, 9, 10, 13, 15, and 17 |
 | Invalid request cannot truthfully inhabit a validated refusal bundle | sections 15.4, 17.2, 18.1, 18.7, and 20 |
 | Name-based decision-digest exclusion permits nested exclusion injection | sections 18.8, 21, and 22 |
-| Existing grants silently inherit changed action-rule meaning | sections 9, 10, 13, 17.3, 19.3, 19.4, 21, and 22 require exact per-action rule-digest bindings and no automatic cross-digest reuse |
+| Existing grants silently inherit changed action-rule or shared authorization meaning | sections 7.4, 9, 10, 13, 16, 17.3, 19.3, 19.4, 21, and 22 require a digest of the complete resolved per-action semantic closure and no automatic cross-digest reuse |
 | RevocationDecision cannot identify a mutable source revision | sections 14, 16.1, 17.3, 19.3, 21, and 22 make every v0.2 source ID a one-record immutable identity and keep v0.1 `TERMINATE` lookup exact |
 | Intent is bound but the committed result can widen it | sections 7.4, 8.8, 18.4, 21, and 22 require a separately owned protected-effect contract binding and pre-commit validation without moving domain semantics into authorization |
 | Historical authority conflates reporter and performer | sections 7.6, 7.8, 8.1, 17.6, 21, and 22 use current report authority and retain alleged performer identity/authority as separate claim evidence |
@@ -1822,6 +1829,7 @@ Before accepted-law work begins, stewards should record explicit decisions for a
 | Are free-text conditions unsupported and fail-closed? | yes | yes |
 | Must action-rule and all applicable source evidence requirements be cumulative and name immutable active policy revisions? | yes | yes |
 | Must every v0.2 source bind issuance-policy identity and the exact selected-rule ID/digest for every granted action? | yes | yes |
+| Must `ruleDigest` cover the complete resolved per-action semantic closure, including shared eligibility semantics but excluding unrelated actions and diagnostic-only behavior? | yes | yes |
 | Is automatic cross-digest reuse prohibited in v0.2, requiring a new source ID, explicit migration, or governed reapproval? | yes; no generic subset theorem engine | yes |
 | Is every v0.2 grant/delegation/sharing ID a one-record immutable identity so RevocationDecision v0.1 `TERMINATE` targets exactly that ID? | yes; any change receives a new ID | yes |
 | Are role-targeted source paths capped by role anchor scopes? | yes | yes |
@@ -1848,7 +1856,7 @@ Phase A is complete when:
 
 - this candidate is reviewed against issue `samovers/OFARM#10`;
 - every acceptance criterion has a proposed disposition;
-- the one-record immutable source-ID decision, issuance-policy binding, exact per-action rule-digest compatibility law, and exact v0.1 `TERMINATE` lookup are explicit;
+- the one-record immutable source-ID decision, issuance-policy binding, complete per-action semantic-closure digest, exact-digest compatibility law, and exact v0.1 `TERMINATE` lookup are explicit;
 - the CP3 compatibility mapping is accepted without changing CP3 semantics, or a separate stacked change is named;
 - the actual-read mapping to policy check, mandatory CP2 qualification, and retained-versus-digest-only payload evidence is explicitly accepted;
 - the action matrix, complete rule fields, rule-selected intent/extractor profiles, protected-effect contract bindings, binding-manifest prerequisite, one-target resource roles, and prospective subject closure are reviewed;
