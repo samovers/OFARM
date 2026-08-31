@@ -13,13 +13,13 @@ Scope: define reviewable authorization semantics and the exact versioned contrac
 This candidate asks OFARM stewards to approve, reject, or amend one bounded design:
 
 1. authorization-relevant principal resolution comes from a trusted boundary, while software-agent action posture preserves the accepted five-state CP3 model and remains independent from optional AI-assistance metadata;
-2. the action class selects every policy-derived field from one immutable rule, including authority family, stage, inheritance/delegation ceilings, a closed authorization-view extractor, resource roles, effect subject, exact effect-intent schema binding, evidence, validity, historical-authority, external-effect, agent, approval, and consumption posture;
+2. the action class selects every policy-derived field from one immutable rule, including authority family, stage, inheritance/delegation ceilings, a closed authorization-view extractor, resource roles, effect subject, exact effect-intent schema binding, protected-effect contract binding where applicable, evidence, validity, historical-authority, external-effect, agent, approval, and consumption posture;
 3. purpose is a closed, exact-match use constraint in v0.2, not a comparison between unrelated free-text fields;
 4. untyped or unsupported conditions never evaluate to true;
 5. required evidence is usable only under an active evidence-eligibility policy;
-6. authority-target proof, typed input proof, effect-subject proof, scope proof, role scope, grant scope, delegation source, sharing basis, and revocation posture are independently evaluated and durably recorded;
+6. authority-target proof, typed input proof, effect-subject proof, scope proof, role scope, grant scope, delegation source, sharing basis, and revocation posture are independently evaluated and durably recorded, while every v0.2 authority source is bound to the exact action-rule meaning under which it was issued and has one immutable record identity;
 7. the exact effect intent, trusted evaluation time, current authority snapshot, validity window, consumption mode, and challenge-based human approval are cryptographically bound and consumed under one lifecycle;
-8. ingress rejection, request/result/trace evidence, internal writes, buffered governed reads, human-final outbox commitment, and non-`ALLOW` persistence form reconstructible fail-closed protocols with deterministic mixed-path outcomes and an exact digest projection; and
+8. ingress rejection, request/result/trace evidence, internal writes, buffered governed reads, human-final outbox commitment, and non-`ALLOW` persistence have deterministic fail-closed authorization obligations and an exact digest projection, while every display or payload receipt states whether its bytes are retained and reconstructible or only digest-verifiable; and
 9. current v0.1 records remain historical v0.1 records and are not silently treated as v0.2 proof.
 
 This document deliberately precedes accepted-RFC, schema, conformance, and currentness changes. Approval of this candidate does not itself promote any law or contract.
@@ -58,7 +58,7 @@ The Phase A PR adds only this non-authoritative candidate under historical phase
 
 If review requires one of those boundaries to change, that work must be split into a prerequisite, follow-up, or stacked PR.
 
-Sections that define atomic effect and outbox evidence state the conformance condition under which an authorization claim is truthful. They do not implement a transaction manager, dispatcher, or runtime integration in this PR. That later implementation remains a separate OFARM2 trust-boundary change after canonical promotion.
+Sections that define atomic effect and outbox evidence state only the authorization-side conformance condition under which a decision or receipt claim is truthful. They do not define domain result mappings, implement a transaction manager or dispatcher, authorize external byte release, choose retention or encryption policy, or perform runtime integration in this PR. Protected-effect contracts (`samovers/OFARM#12`), transport-release eligibility (`samovers/OFARM#13`), evidence retention/key custody (`samovers/OFARM#14`), and any CP2 machine-contract extension remain separate prerequisite or follow-up trust-boundary changes.
 
 ---
 
@@ -87,6 +87,7 @@ Proposed change classification after approval:
 - active-baseline rewrite: no;
 - accepted RFC extension: yes;
 - accepted CP3 compatibility mapping: yes, preserving the five accepted posture values without changing CP3 semantics;
+- accepted CP2 compatibility mapping: yes, reusing CP2 qualification and registered RuntimeProblem semantics without changing its active contracts in this PR;
 - action-matrix version: yes, from v0.1 to a proposed v0.2;
 - authority-source contract versions: yes, where closed constraints cannot be represented in v0.1;
 - authorization-decision contract versions: yes;
@@ -109,19 +110,25 @@ The machine contracts expose the gap:
 - optional `aiAssistance` can be omitted and cannot prove human authorship or human final action;
 - caller-provided `targetTime` can be confused with the trusted time at which current authority and revocation must be checked;
 - the decision is not bound to a digest of the complete protected effect and has no closed validity or replay posture;
+- v0.2 authority sources are not yet bound to the exact action-rule meaning under which the grantor consented;
+- the candidate's logical source-revision language conflicts with `RevocationDecision v0.1`, which can name only an artifact family and reference;
 - no immutable action rule selects an exact operation-specific effect-intent schema, authorization-view extractor, resource-role policy, evidence profile, historical posture, or external-effect posture;
 - v0.1 actor fields do not separately identify the authenticated principal, represented Party, representation basis, CP3 action posture, and human-finalization requirement;
 - current CP3 does not establish one global software-agent authority subject, because valid grant/delegation subjects can differ by candidate path;
 - fresh human approval has no governed challenge, display, authority-relevant-state comparison, exact approver-eligibility, expiry, or atomic-consumption contract;
 - actual governed reads lack a same-snapshot authorization/retrieval/qualification/result-coverage protocol, while preflight-only cannot truthfully authorize disclosure;
+- operation claims and execution reports can conflate the current reporter with the alleged historical performer;
 - schema-invalid input cannot truthfully become a validated authorization refusal bundle;
 - formal filing does not identify whether the human act or later transport is the authority-bearing linearization point, and decision-bundle digest projection lacks exact JSON Pointer rules;
+- a completed human filing act does not by itself answer whether protected bytes may still be released to the destination under current sovereignty and disclosure law;
 - `AuthorizationDecisionTrace` cannot identify the exact policy version and digest used;
 - the trace cannot record trusted principal resolution, the typed derived resource view, prospective effect subject, generic scope proof, or constraint evidence;
 - `dataSovereigntyBoundaryRefs` is specific to actual `DataSovereigntyBoundary` records and cannot truthfully hold arbitrary proof references;
 - a role-targeted grant can appear to escape the referenced `RoleAssignment.anchorScopes` if only the grant scope is checked;
-- current narrowing revocations name modes but do not carry enough closed operands to evaluate every narrowing deterministically; and
-- v0.1 does not define whether partial constraints from different grant paths may be unioned, how mixed path outcomes aggregate, or which immutable source revisions were visible to the evaluator.
+- current narrowing revocations name modes but do not carry enough closed operands to evaluate every narrowing deterministically;
+- v0.1 does not define whether partial constraints from different grant paths may be unioned, how mixed path outcomes aggregate, or which immutable source record identities/digests were visible to the evaluator;
+- hash-only approval displays and read payloads cannot support a claim of byte reconstruction when the covered representation is not retained; and
+- an authorization-only minimum-disclosure projection can hide permission, review, or redaction posture required by accepted CP2.
 
 Without closure, one runtime can silently normalize a purpose, another can ignore it, a third can treat free-text conditions as descriptive, and all three can claim conformance. That is an authorization trust failure, not merely an interoperability inconvenience.
 
@@ -206,7 +213,7 @@ Every path also records `authoritySubjectPartyRef` and immutable `authoritySubje
 
 `REPRESENTED_PARTY_AUTHORIZED_REPRESENTATION` binds the authenticated natural person, represented Party, immutable representation basis, and source authority.
 
-`AGENT_PARTY_DIRECT_GRANT` binds the recognized agent Party/identity, active CP3 actorship evidence, and immutable direct grant or role-targeted grant revision.
+`AGENT_PARTY_DIRECT_GRANT` binds the recognized agent Party/identity, active CP3 actorship evidence, and immutable direct or role-targeted grant record identity/digest.
 
 `REPRESENTED_PARTY_EXPLICIT_DELEGATION` binds the agent, CP3 actorship evidence, represented Party, immutable DelegationGrant, and immutable source authority. The sponsor is recorded but cannot substitute for the delegation or source grant.
 
@@ -361,7 +368,7 @@ For `CONTEXT_INSTALL_PACK`, the effect intent binds an existing content-addresse
 
 For `ASSERT_COMPLIANCE`, compiled outputs may be immutable evidence or effect-intent inputs, but the effect subject is the prospective compliance assertion. A runtime must not substitute a compiled-output reference for the assertion body covered by `effectIntentDigest`.
 
-`OUTPUT_FILE_SUBMISSION_ASSEMBLY` resolves the v0.1 alternative family to `ATTEST_SIGN` for v0.2. The authenticated human's commit of the exact immutable filing envelope to the governed outbox is the final authority-bearing filing act. A transport worker may retry only those committed bytes and does not perform this action class. A deployment that needs authority-bearing transmission must propose a separate action class rather than reinterpret this one locally.
+`OUTPUT_FILE_SUBMISSION_ASSEMBLY` resolves the v0.1 alternative family to `ATTEST_SIGN` for v0.2. The authenticated human's commit of the exact immutable filing envelope to the governed outbox is the final authority-bearing filing act. It does not authorize disclosure by itself. A transport worker does not perform this action class and may release only the committed bytes after the separate current transport-release gate in section 18.6 passes. A deployment that needs authority-bearing transmission must propose a separate action class rather than reinterpret this one locally.
 
 Unknown action classes, resource kinds, effect-subject kinds, existence postures, stages, or policy rules are non-`ALLOW`.
 
@@ -375,10 +382,11 @@ The core row and its extension row form one immutable `ActionAuthorizationRule`.
 - action class, authority family, and stage;
 - inheritance ceiling and delegation ceiling;
 - exact CP3 agent-action posture and human-finalization requirement;
-- immutable `humanApprovalPolicy` where human approval applies, including display profile, approver eligibility, separation, trusted session/transaction cutoff inputs, and single-use posture;
+- immutable `humanApprovalPolicy` where human approval applies, including display/renderer profile, content-addressed evidence-retention policy, approver eligibility, separation, trusted session/transaction cutoff inputs, and single-use posture;
 - `resourceRequirementPolicy` with named roles, cardinality, and composition;
 - effect-subject kind and existence posture;
 - one closed `effectIntentSchemaBinding`;
+- one immutable `protectedEffectContractBinding` for every state-affecting action, or explicit `NO_STATE_EFFECT` for the governed-read action;
 - one closed `authorizationViewExtraction`, including content-addressed ref/digest and exact JSON Pointer mappings from the validated effect intent to the authority target, typed inputs, effect subject, scope, twin, subject time, and use purpose;
 - `decisionValidityPolicy`, including policy ref/digest, cutoff inputs, and calculation;
 - `historicalAuthorityPosture`;
@@ -394,6 +402,8 @@ The core row and its extension row form one immutable `ActionAuthorizationRule`.
 - `schemaDigest`;
 - `canonicalization`, fixed to `JCS_RFC8785_SHA256`; and
 - one effect-intent profile ID from section 7.6.
+
+For a state-affecting action, `protectedEffectContractBinding` contains a content-addressed contract ref, version, digest, and owning domain-contract family. The referenced contract, not this authorization RFC, owns the result schema, intent-to-result mapping, permitted derived fields, forbidden widening, event/commit classification, and postconditions. The authorization rule merely pins the exact contract that another applicable EnforcementChain gate must validate before commit. Missing, mutable, or digest-invalid effect-contract bindings make the rule non-executable. This Phase A PR neither creates those contracts nor moves their domain semantics into the authorization evaluator.
 
 `authorizationViewExtraction` is declarative data, not caller data or executable plugin code. It lists required source JSON Pointers, destination fields, allowed concrete kinds, and canonical transformations; v0.2 permits identity extraction only. Every required pointer must resolve exactly once. Missing, duplicated, type-invalid, or conflicting extracted facts make the request invalid before path evaluation. A caller-provided mirrored resource, subject, scope, twin, time, purpose, destination, grantee, or rights field is prohibited by the request schema.
 
@@ -450,10 +460,10 @@ The table lists additional operation-specific authorization-relevant content tha
 | `EI_OBSERVATION_CREATE_V0_2` | scope/resource revisions, proposed observation ID, observation type/body, subject time, evidence revision refs |
 | `EI_EVIDENCE_LINK_V0_2` | governed-record revision, evidence revision, relation type, subject time |
 | `EI_STRUCTURE_ASSERTION_V0_2` | scope revision, proposed assertion ID, assertion body, subject time, evidence revisions |
-| `EI_OPERATION_ASSERTION_V0_2` | scope/operation revisions, proposed assertion ID, claim body, subject time, evidence revisions |
+| `EI_OPERATION_ASSERTION_V0_2` | scope/operation revisions, proposed assertion ID, claim body, closed `claimPosture` (`INTENDED` or `PERFORMED`), subject time, evidence revisions, and required `performedByPartyRef` plus conditional immutable software-agent actorship refs and optional immutable `performerAuthorityEvidenceRefs` when posture is `PERFORMED` |
 | `EI_COMPLIANCE_ASSERTION_V0_2` | scope revision, proposed assertion ID, exact claim body, rule/evidence-policy revisions, evidence revisions, subject time |
 | `EI_INTERVENTION_PLAN_V0_2` | scope revisions, proposed plan ID/body, intended time, governed inputs |
-| `EI_EXECUTION_REPORT_V0_2` | scope, plan/operation revisions, proposed report ID/body, execution time, evidence revisions |
+| `EI_EXECUTION_REPORT_V0_2` | scope, plan/operation revisions, proposed report ID/body, execution time, evidence revisions, required `performedByPartyRef`, conditional immutable software-agent actorship refs when an agent allegedly performed the work, and optional immutable `performerAuthorityEvidenceRefs` |
 | `EI_REVIEW_REQUEST_V0_2` | governed-record revision, proposed request ID, review scope, reason, evidence revisions |
 | `EI_REVIEW_DECISION_V0_2` | governed-record revision, proposed decision ID, decision kind fixed by action class, rationale, evidence revisions |
 | `EI_PACK_INSTALL_V0_2` | scope and registry revisions, exact pack-release ref/digest, installation parameters, requested profiles, exclusions |
@@ -463,7 +473,7 @@ The table lists additional operation-specific authorization-relevant content tha
 | `EI_ASSEMBLY_ATTESTATION_V0_2` | assembly/dossier revision, attestation statement, signature policy, evidence revisions |
 | `EI_SUBMISSION_FILING_V0_2` | submission revision, exact destination, filing mode, immutable envelope bytes/ref and digest, idempotency key, external identifiers, evidence revisions |
 | `EI_SHARING_GRANT_V0_2` | immutable artifact revision, exact grantee, rights, delivery mode, resulting-grant purpose constraints, validity, scope, sovereignty revisions |
-| `EI_SHARING_REVOKE_V0_2` | proposed RevocationDecision ID; affected family fixed to `SHARING_GRANT`; immutable SharingGrant and artifact revisions; mode fixed to `TERMINATE`; `effectiveFrom`; reason |
+| `EI_SHARING_REVOKE_V0_2` | proposed RevocationDecision ID; affected family fixed to `SHARING_GRANT`; exact immutable SharingGrant ID/digest and artifact revision; mode fixed to `TERMINATE`; `effectiveFrom`; reason |
 | `EI_DATA_READ_V0_2` | immutable read-target revision or QuerySpecification/plan revisions, projection, redaction-policy revision, purpose, buffered-response mode, snapshot policy, aggregate/metadata/lineage disclosure request |
 
 ### 7.7 Action-level evidence policy profiles
@@ -485,17 +495,17 @@ Every non-`NONE` profile must have a content-addressed policy ref/digest in the 
 
 ### 7.8 Closed rule-extension matrix
 
-Validity `TX` means the exact `TRANSACTION_BOUND_V0_2` policy in sections 7.4 and 18.2. Historical posture `C` means `CURRENT_ONLY`; `CS` means `CURRENT_AND_SUBJECT_TIME`. External posture `N` means `NO_EXTERNAL_DISPATCH`; `OF` means `OUTBOX_COMMIT_IS_FINAL_EFFECT`. Consumption `SU` means `SINGLE_USE`. Approval `SA` means `FRESH_APPROVAL_SAME_ACTION_AUTHORITY_V0_2`; `NA` means `NO_SEPARATE_APPROVAL_POLICY`.
+Validity `TX` means the exact `TRANSACTION_BOUND_V0_2` policy in sections 7.4 and 18.2. Historical posture `C` means `CURRENT_ONLY`; `CR` means `CURRENT_REPORT_AUTHORITY_ONLY`, which authorizes submission now without treating the reporter as the historical performer. No current row performs a historical authority check. External posture `N` means `NO_EXTERNAL_DISPATCH`; `OF` means `OUTBOX_COMMIT_IS_FINAL_FILING_ACT`. Consumption `SU` means `SINGLE_USE`. Approval `SA` means `FRESH_APPROVAL_SAME_ACTION_AUTHORITY_V0_2`; `NA` means `NO_SEPARATE_APPROVAL_POLICY`.
 
 | Action class | Intent profile | Resource policy | Validity | Historical | External | Evidence profile | Consumption | Approval |
 |---|---|---|---|---|---|---|---|---|
 | `OBSERVE_CREATE_OBSERVATION` | `EI_OBSERVATION_CREATE_V0_2` | `RP_SCOPE_ONE` | TX | C | N | `EP_NONE` | SU | NA |
 | `OBSERVE_ATTACH_EVIDENCE` | `EI_EVIDENCE_LINK_V0_2` | `RP_EVIDENCE_TARGET_ONE` | TX | C | N | `EP_EVIDENCE_LINK_ELIGIBILITY_V0_2` | SU | NA |
 | `ASSERT_STRUCTURE` | `EI_STRUCTURE_ASSERTION_V0_2` | `RP_SCOPE_ONE` | TX | C | N | `EP_NONE` | SU | SA |
-| `ASSERT_OPERATION_CLAIM` | `EI_OPERATION_ASSERTION_V0_2` | `RP_SCOPE_ONE` | TX | CS | N | `EP_NONE` | SU | NA |
+| `ASSERT_OPERATION_CLAIM` | `EI_OPERATION_ASSERTION_V0_2` | `RP_SCOPE_ONE` | TX | CR | N | `EP_NONE` | SU | NA |
 | `ASSERT_COMPLIANCE` | `EI_COMPLIANCE_ASSERTION_V0_2` | `RP_SCOPE_ONE` | TX | C | N | `EP_COMPLIANCE_ASSERTION_V0_2` | SU | SA |
 | `OPERATE_PLAN_INTERVENTION` | `EI_INTERVENTION_PLAN_V0_2` | `RP_SCOPE_ONE` | TX | C | N | `EP_NONE` | SU | NA |
-| `OPERATE_REPORT_EXECUTION` | `EI_EXECUTION_REPORT_V0_2` | `RP_SCOPE_ONE` | TX | CS | N | `EP_EXECUTION_REPORT_V0_2` | SU | NA |
+| `OPERATE_REPORT_EXECUTION` | `EI_EXECUTION_REPORT_V0_2` | `RP_SCOPE_ONE` | TX | CR | N | `EP_EXECUTION_REPORT_V0_2` | SU | NA |
 | `REVIEW_REQUEST` | `EI_REVIEW_REQUEST_V0_2` | `RP_REVIEW_TARGET_ONE` | TX | C | N | `EP_NONE` | SU | NA |
 | `REVIEW_ACCEPT` | `EI_REVIEW_DECISION_V0_2` | `RP_REVIEW_TARGET_ONE` | TX | C | N | `EP_NONE` | SU | NA |
 | `REVIEW_REJECT_OR_CONTEST` | `EI_REVIEW_DECISION_V0_2` | `RP_REVIEW_TARGET_ONE` | TX | C | N | `EP_NONE` | SU | NA |
@@ -522,13 +532,15 @@ The v0.2 request and trace preserve these distinct times:
 - `authorizationEvaluatedAt`: a trusted runtime clock value for the authority snapshot used to decide the current request;
 - `decisionValidUntil`: the latest trusted time at which the exact decision may be consumed;
 - `effectCommittedAt`: the transaction time at which an internal governed effect and its decision evidence become committed together; and
-- `effectDispatchedAt`, where applicable, the transport time recorded for an already committed filing envelope.
+- `effectDispatchedAt`, where applicable, the transport time recorded for an already committed filing envelope after a separate release-eligibility decision.
 
 `subjectTime` never substitutes for `authorizationEvaluatedAt`, `effectCommittedAt`, or `effectDispatchedAt`.
 
-Current principal binding, representation, role validity, grant validity, delegation, sharing, policy applicability, and revocation are evaluated at `authorizationEvaluatedAt` and must still hold at the authority-bearing effect boundary. For an internal governed write or buffered read, the transaction defined in section 18 supplies that guarantee. For formal filing, the boundary is the authenticated human's atomic commit of the exact immutable filing envelope and decision evidence to the governed outbox. Later byte-identical transport is mechanical and cannot acquire, widen, or re-exercise filing authority.
+Current principal binding, representation, role validity, grant validity, delegation, sharing, policy applicability, and revocation are evaluated at `authorizationEvaluatedAt` and must still hold at the authority-bearing effect boundary. For an internal governed write or buffered read, the transaction defined in section 18 supplies that guarantee. For formal filing, the boundary is the authenticated human's atomic commit of the exact immutable filing envelope and decision evidence to the governed outbox. Later transport cannot acquire, widen, or re-exercise filing authority, but it still requires the separate current release-eligibility decision in section 18.6 before protected bytes cross an external boundary.
 
-The selected rule's `historicalAuthorityPosture` is mandatory. `CURRENT_ONLY` performs no historical authority claim. `CURRENT_AND_SUBJECT_TIME` performs a second authority check at `subjectTime` with its own snapshot evidence and disposition. It never replaces the current-authority check. The exact posture for every row is fixed in section 7.8.
+The selected rule's `historicalAuthorityPosture` is mandatory. `CURRENT_ONLY` checks only current authority for the action. `CURRENT_REPORT_AUTHORITY_ONLY` also checks only current authority, but additionally states that the effect is a claim/report whose submitter is not presumed to be its alleged performer. The exact posture for every row is fixed in section 7.8.
+
+For `ASSERT_OPERATION_CLAIM` and `OPERATE_REPORT_EXECUTION`, the reporter's current path authorizes only submission of the claim/report. `performedByPartyRef`, alleged software-agent actorship references, and optional immutable `performerAuthorityEvidenceRefs` are claim provenance, not the reporter's authority subject and not proof that execution was authorized. The authorization trace marks performer authority `NOT_EVALUATED_BY_AUTHORIZATION`. Evidence, review, and promotion gates decide whether claimed execution authority is sufficient for an accepted execution consequence. A future action that truly requires historical performer authority must add an explicitly reviewed posture, performer-specific proof contract, and conformance cases; it may not reuse the reporter's current path at `subjectTime`.
 
 A current request made after revocation cannot regain authority by supplying a pre-revocation `subjectTime`.
 
@@ -609,6 +621,14 @@ Authority-target proof, effect-subject proof, and scope proof are not interchang
 
 Every source, proof, policy, and evidence record used by a path must resolve within the authorized deployment or tenant boundary. Cross-tenant equality of an opaque identifier does not establish authority. A cross-tenant reference without an accepted sharing and sovereignty path is non-`ALLOW`.
 
+### 8.8 Protected-effect contract boundary
+
+An authorization decision proves authority for the exact bound effect intent. It does not by itself prove that a later domain record or event faithfully implements that intent.
+
+Before a state-affecting action can execute, another applicable EnforcementChain gate must validate the proposed result against the exact `protectedEffectContractBinding` selected by the action rule. The owning domain contract defines the result schema, exact intent-to-result mappings, allowed derivations, forbidden widening, event/commit classification, and postconditions. Authorization consumes only the binding and validation disposition; it does not interpret or own those domain rules.
+
+The governed-effect receipt records at least the effect-intent digest, resulting immutable record/event ref and digest, protected-effect contract ref/digest, overall contract-validation disposition, and an immutable validation-trace ref/digest carrying the contract owner's field-mapping and postcondition dispositions. A mismatch aborts the transaction and is a domain/runtime conformance failure, not a rewritten authorization outcome. No state-affecting row is executable until its protected-effect contract exists through the separate reviewed contract work tracked by `samovers/OFARM#12`.
+
 ---
 
 ## 9. Role and grant semantics
@@ -617,7 +637,8 @@ Every source, proof, policy, and evidence record used by a path must resolve wit
 
 A Party-targeted `AuthorityGrant` path is eligible only when:
 
-- the immutable grant revision is active at `authorizationEvaluatedAt` and remains valid at the effect boundary;
+- the immutable one-record grant identity/digest is active at `authorizationEvaluatedAt` and remains valid at the effect boundary;
+- its `authorizedRuleBindings` entry for the requested action exactly matches the selected rule ID and digest;
 - the grant target and immutable principal/representation/actorship basis establish one permitted path-specific `authoritySubjectBasis` and `authoritySubjectPartyRef` from section 6.2;
 - the action class is present;
 - the derived authority family is present;
@@ -627,11 +648,11 @@ A Party-targeted `AuthorityGrant` path is eligible only when:
 - no active revocation defeats the path; and
 - principal resolution, CP3 posture where applicable, and the human-finalization rule pass.
 
-If the action rule requires historical authority, the same path is separately evaluated at `subjectTime`; historical success does not repair failure at current evaluation/effect time.
+No current v0.2 row requires historical authority. A future accepted rule may add a performer-specific historical posture, but it must identify the historical authority subject and proof contract explicitly; historical success could never repair failure at current evaluation/effect time.
 
 ### 9.2 Role-targeted AuthorityGrant
 
-A grant whose target kind is `ROLE_ASSIGNMENT` is eligible only when the referenced `RoleAssignment`:
+In addition to section 9.1's source and rule-binding checks, a grant whose target kind is `ROLE_ASSIGNMENT` is eligible only when the referenced `RoleAssignment`:
 
 - has an immutable revision that exists and is valid at `authorizationEvaluatedAt` and the effect boundary;
 - names the path-specific `authoritySubjectPartyRef` and is supported by that path's immutable authority-subject basis;
@@ -679,15 +700,15 @@ No source permission is inferred from role type, notes, historical behavior, or 
 A `DelegationGrant` is not origin authority. A delegated path is eligible only when:
 
 1. the action-rule ceiling permits it;
-2. the immutable source grant revision explicitly permits the action at the required precision;
-3. the delegation itself contains the requested action and family;
+2. the immutable source grant record explicitly permits the action at the required precision and its per-action rule binding exactly matches the selected rule ID/digest;
+3. the delegation itself contains the requested action and family, and its own per-action rule binding exactly matches the selected rule ID/digest;
 4. the delegator held a live, independently sufficient source authority at `authorizationEvaluatedAt` and the effect boundary;
 5. the delegation establishes the path-specific authority-subject basis and satisfies principal, the one authority target, effect-subject, scope, time, purpose, condition, evidence, state, and revocation checks, while all other typed inputs pass their own governing validation;
 6. the delegation does not broaden action, family, resource, subject, effect intent, scope, inheritance, time, purpose, evidence, CP3 posture, or human-finalization requirement;
-7. every `sourceAuthorityGrantRef` resolves to an immutable revision and is recorded; and
+7. every `sourceAuthorityGrantRef` resolves to an immutable one-record identity/digest and is recorded; and
 8. any role-targeted source grant is capped by its referenced `RoleAssignment.anchorScopes` exactly as described in section 9.2.
 
-The effective delegated permission is the intersection of the action-rule ceiling, source grant, source role anchor, and DelegationGrant. The narrowest value wins at every dimension. A prohibition, missing source link, missing explicit permission, or unresolved revision makes the path ineligible.
+The effective delegated permission is the intersection of the action-rule ceiling, source grant, source role anchor, and DelegationGrant. The narrowest value wins at every dimension. A prohibition, missing source link, missing explicit permission, rule-binding mismatch, or unresolved source identity makes the path ineligible.
 
 The evaluator rejects cycles. The v0.2 default maximum delegation depth is one hop unless a later accepted policy introduces an explicit bounded chain contract and conformance suite.
 
@@ -818,7 +839,8 @@ A SharingGrant path is eligible only when:
 - `sharedArtifactFamily` equals the concrete `READ_TARGET` kind;
 - `sharedArtifactRef` and immutable revision exactly equal that target;
 - the requested scope is covered;
-- the immutable grant revision is active at `authorizationEvaluatedAt` and remains valid at the effect boundary;
+- the immutable one-record SharingGrant identity/digest is active at `authorizationEvaluatedAt` and remains valid at the effect boundary;
+- its `authorizedRuleBindings` entry for `RECEIVE_READ_DATA` exactly matches the selected rule ID/digest;
 - its purpose, conditions, and evidence groups are evaluable and pass for the exact effect intent;
 - all actual sovereignty boundaries pass; and
 - no active revocation defeats the sharing right.
@@ -841,7 +863,9 @@ Revocation lookup is mandatory for every source path. A caller cannot disable it
 
 ### 14.1 `TERMINATE`
 
-An effective `TERMINATE` decision for a source record makes that source path ineligible from `effectiveFrom` onward. Current requests compare `effectiveFrom` with trusted `authorizationEvaluatedAt` and the effect boundary, never with caller-provided `subjectTime`. It does not erase historical decisions made before the effective time.
+Every v0.2 AuthorityGrant, DelegationGrant, and SharingGrant identifier names exactly one immutable record, as defined in section 17.3. `RevocationDecision v0.1.revokesArtifactFamily` plus `revokesArtifactRef` therefore identifies one exact source record rather than a mutable logical lineage.
+
+An effective `TERMINATE` decision for that exact source ID makes only that source path ineligible from `effectiveFrom` onward. Current requests compare `effectiveFrom` with trusted `authorizationEvaluatedAt` and the effect boundary, never with caller-provided `subjectTime`. It does not erase historical decisions made before the effective time and does not implicitly terminate a separately issued replacement with a different source ID. Creating a replacement is itself governed and cannot reuse the revoked record's authority or identifier.
 
 ### 14.2 Narrowing modes
 
@@ -853,7 +877,7 @@ This is bounded design debt, not a claim that narrowing is unsupported forever.
 
 ### 14.3 Revocation candidates
 
-Revocations must be found from a trusted complete index keyed by affected artifact family/reference and trusted evaluation/effect time. The trace binds the index watermark and canonical-history position through `authorityEvaluationSnapshotRef`. Caller-supplied candidate lists are never the completeness boundary.
+Revocations must be found from a trusted complete index keyed by affected artifact family, exact immutable source ID, and trusted evaluation/effect time. The trace binds the index watermark and canonical-history position through `authorityEvaluationSnapshotRef`. Caller-supplied candidate lists are never the completeness boundary. A runtime must not apply one source ID's revocation to another ID through an inferred successor relationship, and it must not allow bytes under an already-used source ID to change.
 
 ### 14.4 Prospective administrative effects
 
@@ -871,17 +895,17 @@ The proposed evaluator order is:
 2. canonicalize the effect intent, verify `effectIntentDigest`, and derive the complete authorization view through the rule-selected extractor;
 3. assign trusted `authorizationEvaluatedAt` and load the immutable authority-evaluation snapshot;
 4. load and verify the content-addressed policy bundle and complete action rule;
-5. verify the rule-selected effect-intent schema ref/version/digest and all rule bindings;
+5. verify the rule-selected effect-intent schema ref/version/digest, protected-effect contract binding where applicable, and all other rule bindings;
 6. resolve the authenticated principal, represented Party, and representation basis;
 7. resolve CP3 evidence and exact agent-action posture where the principal is software;
 8. resolve and prove the one authority target, every other typed input, and the effect subject under the row's existence posture;
 9. prove tenant, sovereignty, and scope relationships;
 10. resolve role, direct-grant, delegated, and sharing candidates, deriving an authority subject/basis separately for each path;
-11. evaluate action, family, resources, subject, intent, scope, inheritance, time, state, purpose, conditions, and cumulative evidence requirements per path;
+11. evaluate the source's exact per-action rule binding plus action, family, resources, subject, intent, scope, inheritance, time, state, purpose, conditions, and cumulative evidence requirements per path;
 12. evaluate delegated source paths under the closed delegation intersection;
 13. compose any applicable `RECEIVE_READ_DATA` SharingGrant path;
 14. apply every effective revocation from the completeness-proven snapshot;
-15. apply the rule's exact historical-authority posture at `subjectTime` without replacing the current check;
+15. apply the rule's exact historical-authority posture; current report rows authorize only the submitter now and never reuse that path as historical performer authority;
 16. run or verify the governed human-approval lifecycle for the exact intent where required;
 17. assign one disposition to every path and aggregate them under section 15.3;
 18. build the request, result, and trace records with immutable basis bindings;
@@ -897,8 +921,8 @@ Outcome is computed over all completely evaluated paths, not over the first data
 If one or more paths fully allow, the selected path is the lowest canonical tuple:
 
 1. path type order: direct Party grant, role-targeted grant, delegated grant, SharingGrant access path;
-2. immutable source revision identifier in code-point order; and
-3. immutable delegation/source revision identifiers in code-point order.
+2. immutable source record identifier in code-point order; and
+3. immutable delegation/source record identifiers in code-point order.
 
 All other evaluated paths remain summarized in the trace. Selection order changes which sufficient basis is cited, not whether incomplete authority becomes complete.
 
@@ -982,9 +1006,9 @@ Every selected and rejected basis is represented by a typed binding with:
 - evaluation disposition; and
 - snapshot visibility proof.
 
-A mutable logical identifier alone is insufficient. A later successor revision must not change reconstruction of the earlier decision.
+A mutable logical identifier alone is insufficient for non-source artifacts. For v0.2 AuthorityGrant, DelegationGrant, and SharingGrant records, the binding instead carries the exact source-record ID and content digest because section 17.3 forbids another revision or byte sequence under that ID. Reusing a source ID with changed bytes is a conformance failure, not a successor revision.
 
-For human approval, each full snapshot also produces `authorityRelevantStateDigest`: JCS/SHA-256 over a rule-selected projection containing the authenticated principal/representation basis, selected and eligible authority paths, grants/roles/delegations/sharing records, revocations, authority target and typed input revisions, effect subject, extracted scope/twin/time/purpose, applicable policy/rule/extractor/evidence bindings, relevant evidence eligibility, tenant/sovereignty constraints, CP3 posture where applicable, and approver-separation facts. The projection and its JSON Pointers are content-addressed parts of the action rule.
+For human approval, each full snapshot also produces `authorityRelevantStateDigest`: JCS/SHA-256 over a rule-selected projection containing the authenticated principal/representation basis, selected and eligible authority paths, grants/roles/delegations/sharing records with their issuance/rule bindings, revocations, authority target and typed input revisions, effect subject, extracted scope/twin/time/purpose, applicable policy/rule/extractor/protected-effect/evidence bindings, relevant evidence eligibility, tenant/sovereignty constraints, CP3 posture where applicable, and approver-separation facts. The projection and its JSON Pointers are content-addressed parts of the action rule.
 
 The challenge, approval, and unrelated audit/history records are excluded from that projection merely by existing. Their expiry, consumption, or relationship facts are included only when the rule makes those facts relevant to eligibility or separation.
 
@@ -998,16 +1022,16 @@ Challenge and final full snapshot refs may differ because unrelated canonical hi
 
 Changing only `AuthorizationDecisionRequest`, `AuthorizationDecisionResult`, and `AuthorizationDecisionTrace` would leave executable constraints trapped in ambiguous v0.1 source fields. The smallest honest v0.2 machine surface therefore includes versioned authority sources as well as the decision bundle.
 
-This is an approval point. If stewards reject source-record versioning, they must choose another closed, versioned source of purpose and evidence constraints before the decision schemas can truthfully claim v0.2 proof.
+This is an approval point. If stewards reject the one-record immutable source-ID model, they must choose another closed source-identity and revocation model before the decision schemas can truthfully claim v0.2 proof.
 
 ### 17.2 Proposed versioned schema packages
 
 To avoid multiplying top-level contract families, draft/non-default work in section 24 should use four bounded schema packages:
 
-1. `AuthorizationPolicyBundle v0.2`: resolved `ActionAuthorizationRule` records, effect-intent schemas, declarative authorization-view/relevant-state projections, evidence bindings, and one immutable manifest;
-2. `AuthoritySourceBundle v0.2`: closed v0.2 revisions of `AuthorityGrant`, `DelegationGrant`, and `SharingGrant` only;
+1. `AuthorizationPolicyBundle v0.2`: resolved `ActionAuthorizationRule` records, effect-intent schemas, separately owned protected-effect contract bindings, declarative authorization-view/relevant-state projections, evidence bindings, and one immutable manifest;
+2. `AuthoritySourceBundle v0.2`: closed immutable v0.2 records for `AuthorityGrant`, `DelegationGrant`, and `SharingGrant` only;
 3. `AuthorizationDecisionEvidence v0.2`: tagged request, ingress-rejection, result, and full-internal-trace profiles plus the authority-snapshot binding/projection; and
-4. `AuthorizationFinalizationEvidence v0.2`: tagged challenge, human approval, single-use consumption, governed-effect receipt, filing-outbox receipt, governed-read receipt, and transport receipt profiles.
+4. `AuthorizationFinalizationEvidence v0.2`: tagged challenge with content-addressed display evidence, human approval, single-use consumption, protected-effect-contract validation receipt, filing-outbox receipt, governed-read receipt with an explicit payload proof-strength posture, and references to separately governed transport-release receipts.
 
 The tagged profiles remain separately validateable where their truth claims differ, but they do not become fourteen unrelated registries or new domain families. A standalone `AuthorityEvaluationSnapshot` family is unnecessary unless the later schema PR proves that the existing immutable snapshot reference plus closed projection cannot represent the required evidence.
 
@@ -1015,19 +1039,35 @@ The tagged profiles remain separately validateable where their truth claims diff
 
 When a valid decision/finalization evidence bundle enters OFARM authority, its primary event family is the existing `EvidenceEvent` and its commit class is the existing `evidence record`. Request/rejection telemetry that does not enter OFARM authority has no OFARM event/commit claim; if a governed deployment retains it in authority, it uses the same EvidenceEvent/evidence-record classification with its limited truth claims.
 
-Governed authorization evidence is immutable and append-only. A correction or later failure is a new linked evidence record and never rewrites the earlier request, decision, approval, consumption, effect/read/outbox, or transport claim. These records support reconstruction and audit read models only; they are not eligible to create domain current state, truth, promotion, materialization, publication, pack activation, or filing-delivery truth, and they create no new top-level event family or commit class.
+Governed authorization evidence is immutable and append-only. A correction or later failure is a new linked evidence record and never rewrites the earlier request, decision, approval, consumption, effect/read/outbox, or transport claim. These records support authorization-decision reconstruction and audit read models only; a payload marked `DIGEST_ONLY` remains outside any byte-reconstruction claim. Authorization evidence is not eligible to create domain current state, truth, promotion, materialization, publication, pack activation, or filing-delivery truth, and it creates no new top-level event family or commit class.
 
 ### 17.3 Source-record delta
 
 Common v0.2 source behavior:
 
+- make each family identifier a one-record immutable identity: after issuance, no bytes, fields, state, or meaning may change under the same identifier;
+- require a `sourceRecordDigest` over the complete immutable source record;
+- require `issuedUnderPolicyId`, `issuedUnderPolicyVersion`, and `issuedUnderPolicyDigest` as consent/audit context;
+- require a non-empty `authorizedRuleBindings` array with exactly one `{ actionClass, ruleId, ruleDigest }` entry for every granted action class and no extra entry;
 - make `authorityFamilies` closed and required where the source carries authority families;
 - add optional closed `permittedUsePurposes`;
 - remove free-text `purpose` and `conditions` from the executable v0.2 form;
 - reject unknown fields;
 - add optional narrowing by the authority target, effect-subject kinds/refs/existence postures, rule-selected effect-intent profile IDs, and twins; non-authority inputs cannot widen a source;
-- retain closed action, scope, time, state, and inheritance constraints; and
+- retain closed action, scope, time, and inheritance constraints, and replace mutable-looking family state with immutable `issuanceState` (`DRAFT` or `ACTIVE`); and
 - preserve immutable provenance linking a migrated record to its v0.1 predecessor.
+
+For the requested action, the evaluator requires the source's `actionClass`, `ruleId`, and `ruleDigest` to equal the selected action rule exactly. `issuedUnderPolicyDigest` records the complete issuance context but is not compared to the current bundle digest, because an unrelated rule change must not invalidate a grant whose selected rule bytes are unchanged.
+
+`sourceRecordDigest` uses JCS/SHA-256 over the complete source record after removing exactly the top-level `/sourceRecordDigest` field. The draft source schemas must define the provisional/final validation steps and forbid any other exclusion, following the decision-bundle projection discipline in section 18.8. A storage layer must reject a second byte sequence for an existing source ID even if a caller supplies a different digest.
+
+For a SharingGrant, `authorizedRuleBindings` contains exactly the `RECEIVE_READ_DATA` binding; sharing remains ineligible for every other action. AuthorityGrant and DelegationGrant bindings cover exactly their respective `authorityActionClasses`.
+
+V0.2 defines no automatic reuse across different rule digests, even when an implementation believes a new rule is narrower. `SOURCE_RULE_BINDING_MISMATCH` is non-`ALLOW` and requires a new source record with a new ID, an explicit steward-reviewed migration, or governed reapproval. A later extension may define content-addressed compatibility certificates, but no evaluator may invent a semantic-subset proof locally. This exact-match default closes target-kind expansion, extractor changes, weaker evidence, relaxed human posture, wider delegation, and other silent action-class widening without creating a general policy theorem engine.
+
+A correction, replacement, renewal, restriction, activation, or other change creates a different source ID and links the predecessor as provenance where applicable. `DRAFT` never grants authority. Current active, expired, or revoked posture is derived from the immutable record, its `issuanceState`, validity interval, applicable policy, and separate RevocationDecision records; v0.2 has no in-place `grantState`, `delegationState`, or `sharingState` mutation. Draft-to-active conversion likewise creates a new governed ID. A v0.1 source can support v0.2 only through the explicit migration in section 19.3.
+
+Because source IDs are one-record identities, `RevocationDecision v0.1` remains sufficient for exact `TERMINATE` semantics: its family/ref pair names one immutable source record. It has no lineage reach, and no replacement source ID inherits either authority or revocation. This candidate therefore does not introduce `RevocationDecision v0.2`; any future lineage-wide or narrowing behavior requires its own scope review and contract version.
 
 `AuthorityGrant v0.2` additionally carries required closed `delegationPermission` and conditional `delegableActionClasses` as defined in section 10.
 
@@ -1073,13 +1113,14 @@ The result records:
 - `authorizationEvaluatedAt`, `decisionValidUntil`, and `consumptionMode`;
 - rule-selected effect-intent schema ref/version/digest, intent reference/digest, and canonicalization;
 - rule-selected authorization-view extractor ref/digest and derived-view digest;
+- rule-selected protected-effect contract ref/digest where applicable;
 - requested action class;
 - derived stage and authority family;
 - policy identity, selected immutable rule revision/digest, and binding-manifest ref/digest;
 - resolved-principal kind, selected path-specific authority subject/basis, accepted CP3 posture where applicable, and human-finalization requirement;
 - deterministic outcome and primary reason code;
 - winning per-path disposition and selected immutable basis;
-- authority-target/input dispositions and role, direct grant, delegation, sharing, and revocation basis summaries;
+- authority-target/input dispositions and role, direct grant, delegation, sharing, and revocation basis summaries, including the selected source's exact action-rule binding disposition;
 - inheritance mode applied;
 - human approval and effect-intent binding;
 - stable ordered problems; and
@@ -1090,8 +1131,8 @@ The result records:
 The trace records at least:
 
 - trace, request, and result identifiers;
-- extracted `subjectTime`, trusted `authorizationEvaluatedAt`, `decisionValidUntil`, and later effect/outbox/read/transport receipt refs;
-- rule-selected effect-intent schema ref/version/digest, immutable intent reference/digest, canonicalization, authorization-view extractor ref/digest, and derived-view digest;
+- extracted `subjectTime`, trusted `authorizationEvaluatedAt`, `decisionValidUntil`, and later effect/outbox/read/transport receipt refs with their declared proof-strength posture;
+- rule-selected effect-intent schema ref/version/digest, immutable intent reference/digest, canonicalization, authorization-view extractor ref/digest, derived-view digest, and protected-effect contract ref/digest where applicable;
 - policy ID/version/digest, selected immutable rule revision/digest, and binding-manifest ref/digest;
 - action class, derived stage, and derived family;
 - resolved-principal kind, authenticated principal and immutable resolution revision, represented Party, and representation basis;
@@ -1102,14 +1143,15 @@ The trace records at least:
 - scope proof refs and individual dispositions;
 - `authorityEvaluationSnapshotRef`, canonical-history position, and all relevant index watermarks;
 - role assignments and anchor-scope immutable basis bindings/dispositions;
-- every path's authority-subject Party/basis, direct grant, delegation, source-grant, and sharing immutable basis bindings/dispositions;
+- every path's authority-subject Party/basis plus each direct grant, delegation, source grant, and sharing record's immutable one-record ID/digest, issuance-policy identity, per-action rule binding, and disposition;
 - revocation immutable basis bindings/dispositions;
 - requested purpose, source purpose tokens, and purpose disposition;
 - condition disposition;
 - immutable evidence-policy refs, required evidence refs, constraint evidence refs, and individual evidence dispositions;
 - immutable actual data-sovereignty boundary refs only;
 - inheritance mode and delegation depth;
-- human-finalization evidence refs, challenge/final snapshot refs, authority-relevant-state digests, approver eligibility path, and disposition;
+- alleged performer Party/agent identity, immutable actorship and performer-authority evidence refs for claim/report intents, and the explicit `NOT_EVALUATED_BY_AUTHORIZATION` performer-authority disposition, kept separate from the current reporter's authorization subject;
+- human-finalization evidence refs, content-addressed display representation and renderer/display metadata, challenge/final snapshot refs, authority-relevant-state digests, approver eligibility path, and disposition;
 - every evaluated path's single disposition and ranked reasons, selected path, aggregated outcome, primary reason code, and reason; and
 - a decision-bundle integrity digest.
 
@@ -1159,7 +1201,7 @@ Instants are compared as UTC timeline instants and all ends are exclusive. An ex
 
 Every v0.2 decision records `SINGLE_USE`. Replay is outside v0.2; a future rule must define it explicitly rather than relying on a reserved token.
 
-The consumption evidence records the decision, effect-intent and derived-view digests, consumer principal, consumption time, effect/read/outbox reference, and idempotency key where applicable. A second consumption is non-`ALLOW` even if the payload is identical. For formal filing, expiry constrains the human-final outbox commit; after that commit, mechanical delivery of the already-authorized envelope is not a second decision consumption.
+The consumption evidence records the decision, effect-intent and derived-view digests, consumer principal, consumption time, effect/read/outbox reference, and idempotency key where applicable. A second consumption is non-`ALLOW` even if the payload is identical. For formal filing, expiry constrains the human-final outbox commit; after that commit, a separately eligible transport attempt is not a second filing-decision consumption and does not inherit disclosure permission from the consumed decision.
 
 ### 18.3 Human-approval lifecycle
 
@@ -1173,7 +1215,7 @@ The approval-challenge profile binds:
 - every resource posture/role/revision, effect subject, selected path-specific authority subject/basis, and represented Party;
 - the intended authenticated natural-person approver, representation basis, and preliminary same-action eligibility-path refs;
 - the immutable challenge authority-evaluation snapshot and `authorityRelevantStateDigest`;
-- a digest of the exact human-visible representation of the protected effect;
+- a content-addressed `humanVisibleRepresentationRef`, its exact byte digest and media type, renderer identifier/version/digest, display-policy ref/digest, locale, and timezone;
 - trusted issue time and `challengeExpiresAt`;
 - `approvalSeparationPolicy`; and
 - closed approver-eligibility requirements.
@@ -1183,7 +1225,7 @@ The human-approval profile binds:
 - a unique approval identifier and the exact challenge revision;
 - the authenticated natural-person principal, represented Party, and immutable representation basis;
 - trusted `humanActedAt`;
-- the approved effect-intent, policy, rule, resource, subject, and human-visible representation digests;
+- the approved effect-intent, policy, rule, resource, subject, and human-visible representation ref/digests plus renderer/display metadata;
 - the challenge and final authority-evaluation snapshot refs and their equal `authorityRelevantStateDigest` values;
 - the approver's independent same-action natural-person authority-path evidence;
 - `approvalExpiresAt`, single-use posture, and consumption status; and
@@ -1191,7 +1233,7 @@ The human-approval profile binds:
 
 The lifecycle is exactly:
 
-1. evaluate the requesting path and a specific authenticated natural person's preliminary same-action eligibility path, prepare the exact display for that person, then persist the challenge;
+1. evaluate the requesting path and a specific authenticated natural person's preliminary same-action eligibility path, render and retain the exact immutable display bytes for that person under the bound evidence-retention policy, then persist the challenge;
 2. capture that same authenticated natural person's explicit act on the challenge;
 3. re-evaluate every current authority, representation, revocation, resource, evidence, policy, and separation constraint, including the approver's independent eligibility path;
 4. compute the final rule-selected relevant-state projection; require its digest to equal the challenge `authorityRelevantStateDigest`, while recording both full snapshot refs; if the relevant digest differs, invalidate the act and issue a new challenge, but do not invalidate merely because unrelated canonical history advanced; and
@@ -1201,7 +1243,9 @@ Approver eligibility is exact: run the same action rule for the authenticated na
 
 For a direct natural-person invocation, that person's same explicit act may satisfy fresh approval only through this lifecycle under `SAME_PRINCIPAL_ALLOWED`. `DISTINCT_APPROVER_REQUIRED` additionally requires a different natural-person principal and the profile's exact relationship exclusions. `DIRECT_HUMAN_ACTION_REQUIRED` records the authenticated human act and representation basis as part of the request/effect transaction; it does not require a separate approval record unless another rule independently requires final approval.
 
-An expired challenge, changed display digest, changed intent, changed policy/rule/extractor, changed authority-relevant state, ineligible approver, or replayed/consumed approval is non-`ALLOW`. Approval can never extend `decisionValidUntil`, the trusted interactive session, the protected-effect transaction, or any relevant cutoff. This candidate imposes no unexplained universal wall-clock duration.
+The content-addressed representation must remain retrievable for the approval-evidence retention period. A digest without retrievable candidate bytes cannot support the claim that OFARM can reconstruct what the human saw. Retention duration, encryption, deletion, redaction, and key custody come from a separately governed evidence-retention policy ref/digest tracked by `samovers/OFARM#14`; this authorization RFC binds that policy and proof posture but does not define or implement those controls.
+
+An expired challenge, unavailable or changed display bytes, changed renderer/display metadata or digest, changed intent, changed policy/rule/extractor, changed authority-relevant state, ineligible approver, or replayed/consumed approval is non-`ALLOW`. Approval can never extend `decisionValidUntil`, the trusted interactive session, the protected-effect transaction, or any relevant cutoff. This candidate imposes no unexplained universal wall-clock duration.
 
 ### 18.4 Internal governed writes
 
@@ -1210,13 +1254,13 @@ For an internal governed write, one atomic protected-effect transaction must:
 1. evaluate or revalidate current principal, representation, source authority, revocation, authority-target/input revisions, effect-intent digest, and every other applicable EnforcementChain gate against the transaction snapshot;
 2. build and validate the request/result/trace bundle;
 3. reserve single-use consumption;
-4. apply the exact protected effect;
-5. record the resulting immutable effect revision and governed-effect receipt with trace refs/dispositions for every applicable ingress, authority, validation, pack-applicability, evidence, review/promotion, materialization, and publication/export gate;
+4. validate the proposed domain result against the rule-bound protected-effect contract, then apply only that validated result;
+5. record the resulting immutable effect ref/digest and a governed-effect receipt containing the effect-intent digest, protected-effect contract ref/digest, overall contract-validation disposition, immutable field-mapping/postcondition validation-trace ref/digest, and trace refs/dispositions for every applicable ingress, authority, validation, pack-applicability, evidence, review/promotion, materialization, and publication/export gate;
 6. commit the decision evidence, consumption, receipt, and effect together.
 
 If concurrent relevant state invalidates the snapshot, the transaction must fail and the operation must be re-evaluated. The invariant is: **no governed effect becomes externally visible without its committed decision evidence**. The decision is not committed in an earlier transaction that creates a time-of-check/time-of-use gap.
 
-Authorization `ALLOW` is only the authority-gate result. The transaction may apply the protected effect only after every other applicable active Platform `EnforcementChain` gate succeeds. The effect's domain event family and commit class are supplied by the active Event Grammar and protected-effect contract. Authorization bundles carry only the `EvidenceEvent`/`evidence record` classification in section 17.2; they do not themselves create assertion truth, governance promotion, pack applicability, materialization, publication, or current state. If a required domain event/commit classification cannot be represented by active contracts, that is a stacked Event Grammar/contract prerequisite, not a local authorization invention.
+Authorization `ALLOW` is only the authority-gate result. The transaction may apply the protected effect only after every other applicable active Platform `EnforcementChain` gate succeeds, including validation against the rule-bound protected-effect contract. The effect's mappings, postconditions, domain event family, and commit class are supplied by that separately governed contract and the active Event Grammar. Authorization bundles carry only the `EvidenceEvent`/`evidence record` classification in section 17.2; they do not themselves create assertion truth, governance promotion, pack applicability, materialization, publication, or current state. Missing result contracts or domain classifications are stacked prerequisites, not local authorization inventions.
 
 ### 18.5 Governed reads and protected disclosure
 
@@ -1230,21 +1274,31 @@ One governed read snapshot must cover authorization, retrieval, redaction, quali
 - trace refs/dispositions for every applicable EnforcementChain gate, without claiming inapplicable gates passed;
 - the CP2 qualification envelope, including qualification outcome, stable problems, trace/lineage refs, and prescribed next actions;
 - a result-coverage manifest mapping every returned row, field, aggregate, count, metadata item, lineage item, and payload location to its origin revision and authority/redaction disposition;
-- the exact returned buffered-payload digest; and
+- the exact returned buffered-payload digest, media type, serializer identifier/version/digest, and serialization-policy ref/digest;
+- the selected `payloadEvidencePosture` and immutable evidence-retention policy ref/digest; and
 - whether the read completed or failed before disclosure.
+
+`payloadEvidencePosture` is exactly one of:
+
+- `RETAINED_BYTES`: the receipt also binds a content-addressed payload ref whose bytes remain retrievable for the governed retention period; the disclosure is byte-reconstructible while those bytes are retained; or
+- `DIGEST_ONLY`: no retained payload claim is made; the receipt can verify candidate bytes supplied later against the digest, but OFARM does not claim that it can reconstruct the disclosed bytes from the receipt.
+
+The posture and policy are resolved from a trusted immutable evidence-retention policy at the governed read snapshot; the caller cannot choose or weaken them. If no applicable policy can be resolved, the read cannot claim v0.2 governed-read evidence and no protected bytes are disclosed.
+
+The selected retention policy owns retention duration, encryption, deletion, redaction, and key custody. Those controls are the separate data-governance/security boundary tracked by `samovers/OFARM#14`. Expiry or governed deletion of retained payload bytes never deletes or rewrites the immutable receipt, payload digest, disclosure time, proof-strength posture, or historical fact that disclosure occurred.
 
 Every unredacted result item must be covered by the selected authority path for the exact read target, purpose, scope, tenant, sovereignty boundary, and snapshot and must pass the selected redaction policy. CP2 qualification and lineage describe the result; they do not create missing read authority. If coverage for any item or aggregate-inference risk cannot be proven, that item is withheld or redacted under the bound policy; if the final payload cannot be completely covered, the read is denied.
 
-The runtime stages and hashes the exact buffered payload, then atomically persists decision evidence, single-use consumption, governed-read receipt, coverage manifest, and payload digest before the single disclosure linearization point. If persistence fails, zero protected bytes are released. Protected streaming is unsupported in v0.2; a request for it fails rule-selected intent-schema ingress validation. A later streaming design requires a separate Platform runtime RFC and cannot be inferred from this authorization policy.
+The runtime stages and hashes the exact buffered payload, then atomically persists decision evidence, single-use consumption, governed-read receipt, coverage manifest, payload digest, and the retained payload ref/bytes when `RETAINED_BYTES` applies before the single disclosure linearization point. If persistence fails, zero protected bytes are released. Protected streaming is unsupported in v0.2; a request for it fails rule-selected intent-schema ingress validation. A later streaming design requires a separate Platform runtime RFC and cannot be inferred from this authorization policy.
 
-No cache, secondary endpoint, preflight response, denial body, count, metadata field, trace field, or retry path may release protected information outside that protocol. The full decision trace is internal evidence. A caller-facing result contains only a safe, policy-defined reason/problem projection. Reading the full trace requires a separate `RECEIVE_READ_DATA` decision over the exact `AUTHORIZATION_TRACE` target; CP2 redaction/denial indication applies to that trace read.
+No cache, secondary endpoint, preflight response, denial body, count, metadata field, trace field, or retry path may release protected information outside that protocol. The full decision trace is internal evidence. A caller-facing result uses the CP2-qualified safe projection in section 18.7. Reading the full trace requires a separate `RECEIVE_READ_DATA` decision over the exact `AUTHORIZATION_TRACE` target; CP2 redaction/denial indication applies to that trace read.
 
 ### 18.6 External side effects
 
 Every action rule selects exactly one external-effect posture:
 
 - `NO_EXTERNAL_DISPATCH`: the action cannot create an external dispatch;
-- `OUTBOX_COMMIT_IS_FINAL_EFFECT`: consuming the decision and committing the exact idempotent filing envelope to the governed outbox is the human-final authority-bearing effect; later byte-identical delivery is mechanical.
+- `OUTBOX_COMMIT_IS_FINAL_FILING_ACT`: consuming the decision and committing the exact idempotent filing envelope to the governed outbox is the human-final authority-bearing filing act; that act does not itself authorize later release of protected bytes.
 
 `OUTPUT_FILE_SUBMISSION_ASSEMBLY` is the only current `OF` row. After every applicable EnforcementChain gate succeeds, its authenticated natural-person action atomically commits:
 
@@ -1255,21 +1309,31 @@ Every action rule selects exactly one external-effect posture:
 
 The decision and approval must be unexpired and current through that commit. A later revocation or natural expiry is prospective: it does not retroactively erase the committed human filing act. This RFC defines no cancellation or recall power after commit. Such a power needs a separate action and receiver-supported protocol.
 
-The transport worker may send or retry only the committed bytes to the committed destination under the same idempotency key. It cannot alter the envelope, choose a principal, consume another decision, or make another filing authorization claim. It records delivery, receiver acknowledgement, duplicate acknowledgement, or failure in a transport receipt without rewriting the filing decision/effect receipt.
+Before any first send or retry that may disclose protected bytes, the separate transport-release gate tracked by `samovers/OFARM#13` must establish current release eligibility for the exact envelope, destination, and endpoint. Its content-addressed regime-specific policy must cover current data-sovereignty and disclosure posture, recipient eligibility, current SharingGrant or statutory disclosure basis where applicable, transport custody/endpoint binding, and cancellation/hold status.
 
-Because transport is not the authority-bearing action, expiry of the human's session, grant, approval, or `decisionValidUntil` after the outbox commit does not prohibit byte-identical retry. Transport policy may stop retry for operational reasons, but it must not describe that decision as a new authorization evaluation.
+The release gate neither impersonates the human nor re-exercises the completed filing authority. Expiry of the human's session, grant, approval, or `decisionValidUntil` does not retroactively invalidate the outbox commit, but neither does that historical validity grant current disclosure permission. A sharing, sovereignty, recipient, custody, endpoint, or hold change may stop release while leaving the filing record historically valid.
+
+Only after the release gate passes may the transport worker send or retry the committed bytes to the committed destination under the same idempotency key. It cannot alter the envelope, choose a filing principal, consume another filing decision, or make another filing-authorization claim. It records the exact release-policy ref/digest and disposition plus delivery, receiver acknowledgement, duplicate acknowledgement, or failure in a transport receipt without rewriting the filing decision/effect receipt.
+
+A filing regime may make delivery irrevocable at outbox commitment only through an explicit content-addressed regime policy accepted in the separate transport-release boundary. Irrevocability is never the v0.2 default and cannot be inferred from idempotency or from the fact that the human filing act completed.
 
 The outbox commit does not claim receiver acceptance, delivery, or an external legal consequence that the receiver has not acknowledged. If a filing regime makes receipt or transmission itself a new authority-bearing human act, this row is insufficient. That regime needs a separate action class and governed boundary in a stacked RFC; a dispatcher must not reuse `OUTPUT_FILE_SUBMISSION_ASSEMBLY` to impersonate the required human.
 
 ### 18.7 Non-`ALLOW` responses
 
-For a schema-valid authorization request whose outcome is `DENY`, `REQUIRE_REVIEW`, or `REQUIRE_HUMAN_APPROVAL`, the request/result/full-internal-trace refusal bundle commits atomically with no protected effect. Only after commit may an outer transport boundary return `MINIMUM_DISCLOSURE_V0_2`:
+For a schema-valid authorization request whose outcome is `DENY`, `REQUIRE_REVIEW`, or `REQUIRE_HUMAN_APPROVAL`, the request/result/full-internal-trace refusal bundle commits atomically with no protected effect. The caller-facing surface must then return or link a CP2-compatible `ResultQualificationEnvelope` plus registered `RuntimeProblem` entries. It must preserve a truthful safe category and redaction posture while withholding sensitive basis details.
 
-- `DENY` and `REQUIRE_REVIEW` expose only caller request/correlation identifiers and public code `REQUEST_NOT_COMPLETED`;
-- `REQUIRE_HUMAN_APPROVAL` may additionally expose public code `HUMAN_ACTION_REQUIRED` and the challenge display/ref because the selected path already passed every non-finalization authority constraint; and
-- ingress rejection exposes only caller request/correlation identifiers and public code `REQUEST_INVALID`.
+The proposed public mapping is:
 
-Internal outcomes, reason codes, path dispositions, basis identities, unseen resource existence, grant/revocation details, validation locations, policy internals, and full trace content are not in that projection. Full retrieval requires the separate authorized trace read in section 18.5. A deployment may disclose less, never more, without a versioned replacement policy.
+- `DENY` -> registered public code `AUTHORIZATION_DENIED`;
+- `REQUIRE_REVIEW` -> registered public code `AUTHORIZATION_REVIEW_REQUIRED`;
+- `REQUIRE_HUMAN_APPROVAL` -> registered public code `HUMAN_ACTION_REQUIRED`, plus only the safe challenge display/ref allowed by its display policy;
+- ingress rejection -> registered public code `REQUEST_INVALID`; and
+- withheld or redacted diagnostics/trace -> CP2 permission/redaction posture plus registered public code `DETAILS_REDACTED` when details were suppressed.
+
+These are proposed entries in the active CP2 RuntimeProblem reason-code process, not an authorization-private vocabulary. The CP2 envelope must truthfully carry or link permission/redaction posture, applicable data-absence reason, blocked use classes, trace availability/redaction/denial posture, and safe display hints. The current CP2 schema does not enumerate an authorization-result surface, so a separate CP2-compatible machine-contract change must be accepted before a public runtime claims v0.2 conformance; this candidate does not edit that active contract.
+
+Basis identifiers, unseen resource existence, grant/revocation details, internal reason ranking, validation locations, policy internals, and full trace content remain internal. Full retrieval requires the separate authorized trace read in section 18.5. Minimization may redact sensitive details, but it may not hide whether the result was denied, requires review, requires human action, was invalid, or had details withheld.
 
 If persistence fails, the runtime fails closed with a persistence/runtime error. It must not claim that a durable authorization denial or allowance exists when no trace committed.
 
@@ -1317,6 +1381,7 @@ A v0.1 decision or source record must not be relabeled, wrapped, or served as v0
 In particular:
 
 - missing policy digest cannot be reconstructed from the current deployment without proving it is the same immutable policy;
+- a source without issuance-policy identity and exact per-action rule bindings cannot prove that its grantor consented to the selected rule meaning;
 - a caller-provided schema ref cannot reconstruct the rule-selected effect-intent schema binding or immutable binding manifest;
 - optional AI metadata cannot reconstruct principal resolution, representation, CP3 posture, or human finalization;
 - a sponsor or globally inferred Party cannot reconstruct a path-specific software-agent authority subject or its direct-grant/delegation basis;
@@ -1324,8 +1389,8 @@ In particular:
 - one target reference cannot reconstruct named resource postures/roles or their `ALL_OF`/`ONE_OF` disposition;
 - caller target time cannot reconstruct trusted evaluation/effect time;
 - an unbound payload cannot reconstruct the effect-intent digest;
-- an approval reference or boolean cannot reconstruct the challenge, displayed-effect digest, authenticated human act, challenge/final relevant-state digest equality, approver authority path, separation policy, or single-use consumption;
-- a read response cannot reconstruct same-snapshot query/redaction/qualification/result-coverage evidence, prove safe trace disclosure, or prove that evidence committed before disclosure;
+- an approval reference, boolean, or display digest without retained representation bytes/renderer metadata cannot reconstruct the challenge, what the human saw, the authenticated human act, challenge/final relevant-state digest equality, approver authority path, separation policy, or single-use consumption;
+- a read response cannot reconstruct same-snapshot query/redaction/qualification/result-coverage evidence, prove safe trace disclosure, or prove that evidence committed before disclosure; a digest-only payload receipt can verify candidate bytes but cannot reconstruct them;
 - a scope string cannot reconstruct scope proof;
 - mutable basis references cannot reconstruct the authority-evaluation snapshot;
 - free-text purpose cannot reconstruct a purpose token;
@@ -1337,6 +1402,9 @@ In particular:
 Migration creates a new v0.2 source record and preserves a provenance link to the v0.1 record. A steward must explicitly decide:
 
 - the exact authority-family tokens;
+- a new immutable source ID and complete source-record digest;
+- the issuance-policy identity and exact per-action rule ID/digest bindings;
+- immutable `issuanceState`, with any activation represented by a different source ID;
 - closed delegation permission and any delegated action list;
 - the purpose-token set, if any;
 - how each legacy condition is preserved in supported closed constraints;
@@ -1346,7 +1414,13 @@ Migration creates a new v0.2 source record and preserves a provenance link to th
 
 Automated migration may propose a mapping. It may not activate the new authority without steward approval.
 
-### 19.4 Coexistence
+### 19.4 Rule compatibility
+
+Automatic source reuse is permitted only when the selected action's current rule ID and digest exactly equal the source's `authorizedRuleBindings` entry. Any digest change, whether believed to narrow or widen, requires a new source ID through explicit migration or governed reapproval. This conservative v0.2 rule deliberately avoids a generic semantic-subset engine.
+
+A future accepted extension may permit cross-digest reuse through a content-addressed compatibility certificate whose issuer, proof method, covered old/new rule digests, and no-widening result are governed and auditable. No such certificate exists in v0.2, and a runtime cannot synthesize one.
+
+### 19.5 Coexistence
 
 Draft v0.2 contracts remain under `drafts_non_default/` and cannot become current/default by file presence. Runtimes must declare which bundle they evaluate. A deployment may support v0.1 and v0.2 concurrently, but each decision is bound to exactly one policy and schema bundle.
 
@@ -1418,7 +1492,6 @@ These codes may appear only in `AuthorizationRequestRejection` or runtime/securi
 | `SCOPE_NOT_PROVEN` | `DENY` | 1230 |
 | `ACTIVE_REVOCATION` | `DENY` | 1240 |
 | `AUTHORITY_NOT_ACTIVE_AT_AUTHORIZATION_TIME` | `DENY` | 1250 |
-| `HISTORICAL_AUTHORITY_REQUIRED` | `DENY` | 1260 |
 | `ROLE_ASSIGNMENT_NOT_APPLICABLE` | `DENY` | 1270 |
 | `ROLE_ANCHOR_SCOPE_MISMATCH` | `DENY` | 1280 |
 | `DELEGATION_PROHIBITED_BY_ACTION_RULE` | `DENY` | 1290 |
@@ -1428,6 +1501,7 @@ These codes may appear only in `AuthorizationRequestRejection` or runtime/securi
 | `DELEGATION_CYCLE` | `DENY` | 1330 |
 | `DELEGATION_DEPTH_EXCEEDED` | `DENY` | 1340 |
 | `SHARING_BASIS_MISMATCH` | `DENY` | 1350 |
+| `SOURCE_RULE_BINDING_MISMATCH` | `DENY` | 1355 |
 | `ACTION_CLASS_NOT_GRANTED` | `DENY` | 1360 |
 | `AUTHORITY_FAMILY_MISMATCH` | `DENY` | 1370 |
 | `INHERITANCE_NOT_PERMITTED` | `DENY` | 1380 |
@@ -1440,11 +1514,13 @@ These codes may appear only in `AuthorizationRequestRejection` or runtime/securi
 | `TRACE_DISCLOSURE_NOT_AUTHORIZED` | `DENY` | 1450 |
 | `NO_AUTHORITY_BASIS` | `DENY` | 1990 |
 
-`DECISION_BUNDLE_PERSISTENCE_FAILED`, `DECISION_BUNDLE_PROJECTION_INVALID`, `READ_EVIDENCE_PERSISTENCE_FAILED`, transport failures, and failure of a non-authority EnforcementChain gate are runtime/integrity/domain-gate results, not authorization outcomes, and therefore have no reason rank. A runtime must not fabricate or rewrite an authorization result to place them in this table.
+`DECISION_BUNDLE_PERSISTENCE_FAILED`, `DECISION_BUNDLE_PROJECTION_INVALID`, `READ_EVIDENCE_PERSISTENCE_FAILED`, protected-effect contract validation failures, transport-release/transport failures, and failure of another non-authority EnforcementChain gate are runtime/integrity/domain-gate results, not authorization outcomes, and therefore have no reason rank. A runtime must not fabricate or rewrite an authorization result to place them in this table.
 
-Problem severity is fixed by outcome: `ALLOW` is `INFO`, `REQUIRE_HUMAN_APPROVAL` and `REQUIRE_REVIEW` are `WARNING`, and `DENY` is `ERROR`. Diagnostic problems are ordered with the selected path first, then by path-type order, immutable source revision, numeric rank, and related reference. Severity never chooses the primary reason.
+Problem severity is fixed by outcome: `ALLOW` is `INFO`, `REQUIRE_HUMAN_APPROVAL` and `REQUIRE_REVIEW` are `WARNING`, and `DENY` is `ERROR`. Diagnostic problems are ordered with the selected path first, then by path-type order, immutable source record ID, numeric rank, and related reference. Severity never chooses the primary reason.
 
 Additional codes require a versioned policy update. Implementations must not collapse a known authorization failure into an unstructured message or assign local ranks.
+
+The caller-facing CP2 codes proposed in section 18.7 are registered RuntimeProblem categories, not substitutes for these internal authorization reasons. Their registration and any `ResultQualificationEnvelope` surface extension travel in a separate CP2 machine-contract change.
 
 ---
 
@@ -1454,7 +1530,7 @@ The accepted design and conformance suite must preserve these invariants:
 
 1. Omitting or changing optional AI-assistance metadata never increases authority.
 2. The validated effect intent is the only caller-authored source of operation facts; mirrored resource, subject, scope, time, purpose, grantee, destination, rights, or payload fields are prohibited.
-3. Exactly one immutable action rule selects the intent schema, authorization-view/relevant-state projections, resource roles, validity function, historical posture, external-effect posture, evidence policy, approval policy, and consumption mode.
+3. Exactly one immutable action rule selects the intent schema, protected-effect contract binding where applicable, authorization-view/relevant-state projections, resource roles, validity function, historical posture, external-effect posture, evidence policy, approval policy, and consumption mode.
 4. A caller can select neither a weaker schema nor a different extractor.
 5. Every current rule derives exactly one `AUTHORITY_TARGET`; no action unions grants over different resource roles or target branches.
 6. Integrity, applicability, state, and evidence inputs pass their own typed checks and never create authority.
@@ -1465,13 +1541,13 @@ The accepted design and conformance suite must preserve these invariants:
 11. Every candidate path derives its own authority-subject Party and immutable direct-grant, representation, or delegation basis; sponsor identity never supplies authority.
 12. Every software-agent path preserves the accepted CP3 posture and mandatory authority snapshot.
 13. Authorization `ALLOW` is only a successful authority gate; it never bypasses another applicable Platform `EnforcementChain` gate.
-14. Human approval is bound to the exact effect intent, derived view, display, policy/rule/extractor, authority subject, represented Party, and validity window.
+14. Human approval is bound to the exact effect intent, derived view, retrievable content-addressed display bytes and renderer/display metadata, policy/rule/extractor, authority subject, represented Party, and validity window.
 15. Every approver independently satisfies a natural-person path for the same action and effect; sponsorship alone is insufficient.
 16. Challenge and final full snapshot refs may differ, but their rule-selected `authorityRelevantStateDigest` values must be equal; relevant change requires a new challenge and unrelated history does not.
 17. Direct human invocation satisfies fresh approval only through the lifecycle and under `SAME_PRINCIPAL_ALLOWED`; a distinct-approver profile is independently enforced.
 18. Approval and decision are single-use, and their consumption commits atomically with the protected effect, buffered read evidence, or filing-outbox record.
 19. Payload substitution, pre-consumption expiry, and replay are non-`ALLOW`.
-20. `SHARE_REVOKE_ACCESS` creates a prospective `RevocationDecision` and never edits its SharingGrant.
+20. `SHARE_REVOKE_ACCESS` creates a prospective `RevocationDecision` that terminates one exact immutable SharingGrant ID and never edits that SharingGrant.
 21. Pack activation/deactivation creates a prospective `StructureEvent` and successor activation state and never edits its prior activation set.
 22. Pack release, installation, activation set, scope, and registry identities remain distinct; only the target scope is an authority target.
 23. A role-targeted grant never exceeds either its grant scope or its role anchor scope.
@@ -1481,22 +1557,28 @@ The accepted design and conformance suite must preserve these invariants:
 27. Evidence requirements from the action rule and every selected source are cumulative and bind immutable active policy/evidence revisions.
 28. Authority-target, typed-input, effect-subject, scope, constraint-evidence, read-qualification, and sovereignty proofs remain typed and distinct.
 29. A SharingGrant grants read/receive use only for its exact grantee and immutable artifact revision.
-30. Every effective revocation is considered from a completeness-proven snapshot and watermark.
+30. Every effective revocation is considered from a completeness-proven snapshot and watermark and targets one exact immutable source ID; no lineage reach is inferred.
 31. Partial paths or paths with different authority subjects are not unioned; mixed paths aggregate under one total lattice.
 32. The same immutable intent/view, relevant snapshot facts, policy bytes, and basis revisions produce the same authority result and ordered evidence.
-33. An internal domain effect and its authorization evidence commit in one atomic protected-effect transaction; authorization audit records do not create domain truth or event/commit classification.
-34. Every unredacted read row, field, aggregate, count, metadata item, and lineage item has result-coverage proof under one governed snapshot before disclosure.
+33. An internal domain effect passes its separately owned, rule-bound protected-effect contract and commits with its authorization evidence in one atomic transaction; authorization audit records do not create domain truth or event/commit classification.
+34. Every unredacted read row, field, aggregate, count, metadata item, and lineage item has result-coverage proof under one governed snapshot before disclosure, and its receipt states whether payload bytes are retained/reconstructible or digest-only.
 35. CP2 qualification describes a read result but never supplies missing read authority.
 36. Protected streaming is unsupported in v0.2; only a fully evidenced buffered payload may cross the trust boundary.
-37. Full traces are internal; caller-facing denial information is minimized/redacted, and full trace retrieval requires its own authorized `AUTHORIZATION_TRACE` read.
+37. Full traces are internal; caller-facing results use CP2 qualification and registered safe categories, truthfully indicate denial/review/human-action/redaction posture, and require a separate authorized `AUTHORIZATION_TRACE` read for full retrieval.
 38. The authenticated human's atomic filing-outbox commit is the final authority-bearing filing act.
-39. Later transport can send or retry only the committed bytes/destination/idempotency key and cannot perform another authority decision; post-commit expiry or revocation does not retroactively undo the filing act.
+39. Later transport can send or retry only the committed bytes/destination/idempotency key after a separate current release-eligibility gate; post-commit expiry or revocation does not retroactively undo the filing act but may block future disclosure.
 40. A typed authorization refusal never claims a durable trace that did not commit.
 41. Malformed, schema-invalid, or extraction-invalid input creates only ingress rejection evidence and never a validated authorization outcome bundle.
 42. Digest projection removes only `/result/decisionBundleDigest` and `/trace/decisionBundleDigest`; every other occurrence remains hashed, and an absent, malformed, or non-unique expected field fails integrity construction.
-43. Every reconstructed decision resolves the same immutable basis and policy bytes visible at its recorded snapshot.
+43. Every reconstructed decision resolves the same immutable basis and policy bytes visible at its recorded snapshot; v0.2 source IDs resolve to exactly one immutable record digest.
 44. v0.1 records never silently claim v0.2 proof strength.
 45. Draft schema presence never changes current/default status.
+46. Every v0.2 authority source records issuance-policy identity and an exact selected-rule binding for each granted action; a different rule digest is non-`ALLOW` until explicit migration or reapproval.
+47. No runtime invents cross-digest semantic-subset compatibility; v0.2 automatic reuse is exact-digest only.
+48. Every v0.2 AuthorityGrant, DelegationGrant, and SharingGrant ID is a one-record identity; a correction, replacement, renewal, activation, or restriction receives a new ID.
+49. Current claim/report authority, alleged performer identity, and historical execution authority remain separate; current rows do not evaluate the reporter's path as performer authority at `subjectTime`.
+50. A protected-effect receipt proves intent/result/contract binding only after the separately owned domain contract validates the proposed result; the authorization evaluator does not own domain mappings.
+51. A display or payload digest never claims byte reconstruction without retrievable candidate bytes, and retention/key-custody policy remains separately governed.
 
 ---
 
@@ -1510,9 +1592,14 @@ The future executable conformance suite must include at least:
 | Caller changes `nonHumanActor` or derived family/stage hint | hint ignored or schema-rejected; policy result unchanged |
 | Caller supplies a weaker effect-intent schema that omits an authorization-relevant field | ingress rejection with `EFFECT_INTENT_SCHEMA_CLAIM_MISMATCH`; rule-selected schema remains authoritative |
 | Bound effect-intent schema bytes differ while ref/version remain unchanged | ingress rejection with `ACTION_RULE_BINDING_INVALID`; no evaluation or effect |
+| An unchanged source record is evaluated after its action rule adds a target kind, changes the extractor, weakens evidence, relaxes human finalization, or widens delegation | `DENY` with `SOURCE_RULE_BINDING_MISMATCH`; no automatic cross-digest reuse |
+| An implementation claims a changed rule is a stricter subset without an accepted compatibility extension | conformance failure; v0.2 requires exact rule-digest equality or a new governed source ID |
 | Caller supplies a mirrored resource, scope, subject, purpose, destination, grantee, rights, or payload fact outside the effect intent | request-schema rejection; no duplicate authority fact is reconciled |
 | Rule-selected extractor pointer is missing, duplicated, type-invalid, or resolves an unknown broad bucket such as `GOVERNED_RECORD` | ingress rejection with `AUTHORIZATION_VIEW_EXTRACTION_INVALID` |
 | Authority is revoked, then a current request supplies a pre-revocation `subjectTime` | current effect is `DENY`; subject time never replaces trusted current time |
+| A farmer with current report authority reports work allegedly performed by a contractor | submission authority is evaluated against the farmer now; contractor identity/evidence remains claim provenance for later review/promotion |
+| A successor operator submits a retrospective correction | current correction/report authority is evaluated now; the predecessor's historical path is not required merely because the subject time is earlier |
+| An authorized reporter describes work allegedly performed without execution authority | the report may enter only as a qualified claim when the current submission path passes; it cannot become an accepted execution consequence until evidence/review/promotion closes performer authority |
 | Natural person acts for an organization without a valid immutable representation basis | `DENY` |
 | Organization-held grant is evaluated against the authenticated natural person rather than `authoritySubjectPartyRef` | conformance failure |
 | Agent has a direct grant for Party A and explicit delegation for Party B | two independent path-specific authority subjects; no global Party and no cross-path union |
@@ -1526,25 +1613,34 @@ The future executable conformance suite must include at least:
 | Governed read authorization and retrieval observe different snapshots | no disclosure; conformance failure |
 | Governed read decision/read-receipt persistence fails before response | zero protected bytes leave; `READ_EVIDENCE_PERSISTENCE_FAILED` runtime failure |
 | Read response substitutes another resource revision, query/plan, redaction policy, qualification envelope, or payload | digest/binding failure; zero substituted protected bytes leave |
+| A retained read's serializer version or payload bytes change after disclosure | receipt reconstruction/verification fails against the bound serializer and payload digest |
+| A read uses `DIGEST_ONLY` evidence because retention policy forbids payload retention | receipt explicitly says digest-verifiable, not byte-reconstructible; immutable disclosure fact/digest remain |
 | One returned row or field lacks authority coverage although the containing query was authorized | withhold/redact it or `DENY` with `READ_RESULT_COVERAGE_NOT_PROVEN`; never release it |
 | Aggregate, count, metadata, error detail, or lineage leaks an unauthorized record or resource existence | withhold/redact it or `DENY`; CP2 qualification does not create authority |
 | Caller requests protected streaming | ingress rejection because `EI_DATA_READ_V0_2` fixes buffered mode; zero protected bytes leave |
 | Denial response exposes grant IDs, revocation details, or unseen resource existence from the full trace | disclosure conformance failure |
+| Denial or review response hides whether it was denied, requires review, or had details redacted | CP2 conformance failure even when sensitive basis details remain protected |
+| Denial response returns a safe CP2 category and redaction posture without grant IDs, target existence, or revocation details | conforming minimized response |
 | Caller requests a full decision trace without a sufficient `RECEIVE_READ_DATA` path over its exact `AUTHORIZATION_TRACE` | `DENY` or redacted response with CP2 indication; internal trace remains protected |
 | AI-assisted high-risk assertion has no fresh human approval for the exact effect-intent digest | `REQUIRE_HUMAN_APPROVAL` |
 | Unrelated canonical history advances between challenge and final evaluation while the relevant-state digest is unchanged | approval may proceed; both full snapshot refs are recorded |
 | Grant, role, revocation, target/input revision, evidence eligibility, policy, or separation state changes between challenge and final evaluation | relevant-state digest changes; old act is stale and a new challenge/human act is required |
 | Approval challenge or approval expires before effect consumption | `REQUIRE_HUMAN_APPROVAL`; no effect |
+| Approval display bytes, renderer version, locale, timezone, or display-policy revision differ from the challenge evidence | prior act is ineligible; issue a new challenge over newly retained display bytes |
+| Approval records only a display digest but the exact representation bytes are unavailable | reconstructibility conformance failure; no v0.2 approval claim |
 | Natural person directly invokes an `FA` row under `SAME_PRINCIPAL_ALLOWED` | the same explicit act may satisfy approval only through the section 18.3 lifecycle and an independently sufficient same-action path |
 | Same principal attempts an `FA` row under `DISTINCT_APPROVER_REQUIRED` | `REQUIRE_HUMAN_APPROVAL` with separation unsatisfied; no effect |
 | Approval covers payload A but the protected operation substitutes payload B | digest mismatch; `DENY` and no effect |
+| Authorized read-only sharing intent produces a SharingGrant with broader rights | protected-effect contract validation failure; transaction aborts without rewriting the authorization result |
+| Authorized assertion body, review-decision kind, destination, or pack successor state differs in the proposed result | protected-effect contract validation failure; transaction aborts |
 | Consumed human approval is replayed with the same challenge and payload | `DENY` with `APPROVAL_ALREADY_CONSUMED`; no effect |
 | A single-use decision is consumed twice with the same payload | second consumption is `DENY` |
 | A decision is consumed after `decisionValidUntil` | `DENY` |
 | Revocation commits between evaluation and an internal governed write | serialization/revalidation failure; no effect |
 | Revocation or expiry occurs before the human-final filing-outbox commit | transaction fails/re-evaluates; no filing effect |
-| Source grant, approval, session, or decision expires after the filing-outbox commit | exact committed-envelope transport/retry remains permitted; expiry does not retroactively undo the human filing act |
-| Sharing or authority revocation becomes effective after the filing-outbox commit | revocation is prospective; exact transport may continue and both times remain auditable |
+| Source grant, approval, session, or decision expires after the filing-outbox commit | human filing act remains historically valid; current transport-release policy independently decides whether bytes may be released |
+| Sharing, sovereignty, recipient, custody, endpoint, or hold posture changes after outbox commit but before delivery | release gate blocks or holds disclosure while preserving the historical filing act |
+| Regime policy claims delivery became irrevocable at outbox commit | allowed only when an explicit content-addressed transport-release policy established that rule before commitment; never inferred by default |
 | Transport worker changes committed filing bytes, destination, filing mode, or idempotency key | conformance failure; no altered send |
 | Grant purpose is `REGULATORY_FILING` and request purpose is `regulatory_filing` | exact mismatch; non-`ALLOW` |
 | Intent supplies a purpose but source does not authorize it | exact mismatch; caller intent cannot create authority |
@@ -1585,7 +1681,9 @@ The future executable conformance suite must include at least:
 | One path lacks only human approval, one has an unsupported condition, and one is revoked | `REQUIRE_HUMAN_APPROVAL`; selected human path supplies the primary reason |
 | One path allows and another is revoked | `ALLOW`; `AUTHORIZED_BY_SELECTED_PATH` is primary and revocation remains diagnostic |
 | No path allows; one requires review and all others deny | `REQUIRE_REVIEW` with the selected review path's lowest rank |
-| Logical grant ID resolves to a successor after the decision | reconstruction still resolves the recorded immutable predecessor revision |
+| A writer attempts to store changed source bytes under an existing v0.2 grant/delegation/sharing ID | schema/storage conformance failure; the changed source must receive a new governed ID |
+| A terminated source is replaced under a new ID | replacement has no inherited authority or revocation posture; it must independently pass issuance, exact rule binding, and current evaluation |
+| A revocation lookup applies one source ID's decision to a different replacement ID through inferred lineage | conformance failure; v0.1 `TERMINATE` lookup is exact family plus immutable source ID |
 | Revocation index contents change after the decision | reconstruction uses the recorded snapshot/watermark |
 | Policy digest is recorded but the exact bytes are unavailable | reconstructibility conformance failure |
 | Refusal trace insert is rolled back with a thrown transport error | conformance failure |
@@ -1628,7 +1726,7 @@ Fixtures must enter through production-reachable evaluator and persistence paths
 | Action rule is incomplete and caller can select a weaker intent schema | sections 7.4 through 7.8, 8.2, 17, and 18.1 |
 | Composite pack resources have ambiguous singular/alternative semantics | sections 7.5, 7.8, 8.3, and 22 distinguish the one authority target from typed non-authority inputs |
 | Governed reads lack same-snapshot authorization/disclosure evidence and preflight-only is reinterpreted | sections 6.3, 7.2, 7.8, 13, and 18.5 |
-| Human-only filing conflicts with software dispatch under the same action | sections 7.3, 7.8, and 18.6 make the authenticated human's outbox commit final and later exact transport mechanical |
+| Human-only filing conflicts with software dispatch under the same action | sections 7.3, 7.8, and 18.6 make the authenticated human's outbox commit the final filing act while a separate current release gate controls disclosure |
 | Share revocation and pack deactivation mutate the wrong effect subject | sections 7.2, 7.5, 7.6, 8.5, 13, and 14 make RevocationDecision and StructureEvent/successor state prospective effects |
 | Authorization bypasses EnforcementChain and audit records lack domain classification | sections 5.1, 14.4, 17.2, and 18.4 limit `ALLOW` to the authority gate and leave event/commit truth to active domain contracts |
 | Human approval has no exact approver eligibility and full snapshot equality rejects unrelated history | sections 6.4, 16.1, and 18.3 require an independent same-action natural-person path plus relevant-state digest equality |
@@ -1638,6 +1736,13 @@ Fixtures must enter through production-reachable evaluator and persistence paths
 | Software-agent authority subject is globally inferred and not derivable from current CP3 | sections 6.2, 9, 10, 13, 15, and 17 |
 | Invalid request cannot truthfully inhabit a validated refusal bundle | sections 15.4, 17.2, 18.1, 18.7, and 20 |
 | Name-based decision-digest exclusion permits nested exclusion injection | sections 18.8, 21, and 22 |
+| Existing grants silently inherit changed action-rule meaning | sections 9, 10, 13, 17.3, 19.3, 19.4, 21, and 22 require exact per-action rule-digest bindings and no automatic cross-digest reuse |
+| RevocationDecision cannot identify a mutable source revision | sections 14, 16.1, 17.3, 19.3, 21, and 22 make every v0.2 source ID a one-record immutable identity and keep v0.1 `TERMINATE` lookup exact |
+| Intent is bound but the committed result can widen it | sections 7.4, 8.8, 18.4, 21, and 22 require a separately owned protected-effect contract binding and pre-commit validation without moving domain semantics into authorization |
+| Historical authority conflates reporter and performer | sections 7.6, 7.8, 8.1, 17.6, 21, and 22 use current report authority and retain alleged performer identity/authority as separate claim evidence |
+| Post-commit transport ignores current disclosure revocation | sections 7.3, 8.1, 18.2, 18.6, 21, and 22 preserve the filing act but require a separately governed current release decision |
+| Hash-only display and read evidence overclaims reconstruction | sections 18.3, 18.5, 19.2, 21, and 22 require retained display bytes and explicit retained-versus-digest-only payload proof posture while leaving custody policy separate |
+| Minimum disclosure hides CP2-required authorization and redaction posture | sections 18.7, 20, 21, and 22 reuse CP2 qualification and its registered RuntimeProblem process without exposing sensitive internal reasons |
 
 This table does not authorize an OFARM2 fix. OFARM2 must wait for accepted semantics, promoted contracts, and byte-identical extraction.
 
@@ -1649,15 +1754,15 @@ The required sequence is:
 
 1. **Phase A candidate:** this document only; no authority or currentness effect.
 2. **Semantic-profile approval:** stewards approve or amend the closed rule fields, concrete kinds, one-target resource policies, prospective effects, lifecycle semantics, and approval card in section 25; no RFC is accepted yet.
-3. **Domain-classification prerequisite, only if needed:** if active Event Grammar/contracts cannot encode the required StructureEvent, GovernanceEvent, or commit class, a separate companion/domain-contract PR closes that boundary before authorization schema promotion. It does not ride in an authorization PR.
-4. **Policy-bundle draft:** a separate non-default authorization-law PR materializes `AuthorizationPolicyBundle v0.2`, every effect-intent schema, both declarative projections, evidence bindings, trusted approval-cutoff mappings, and the immutable manifest with real content-addressed refs/digests.
-5. **Source-bundle draft:** a separate authorization-source PR materializes only the closed `AuthorityGrant`, `DelegationGrant`, and `SharingGrant` v0.2 revisions. `RevocationDecision v0.1` remains unchanged for the fixed `TERMINATE` share-revocation effect.
+3. **Adjacent contract prerequisites:** separate PRs provide every content-addressed protected-effect contract required by a state-affecting rule (`samovers/OFARM#12`), any missing Event Grammar classification, the CP2 authorization-result surface/registered public reason codes, and the evidence-retention proof postures referenced by display/read evidence (`samovers/OFARM#14`). Domain mappings, public-surface contract changes, retention, encryption, and key custody do not ride in an authorization-law PR. Transport-release semantics remain a separate downstream boundary (`samovers/OFARM#13`).
+4. **Policy-bundle draft:** a separate non-default authorization-law PR materializes `AuthorizationPolicyBundle v0.2`, every effect-intent schema, bindings to already reviewed protected-effect contracts, both declarative projections, evidence bindings, trusted approval-cutoff mappings, and the immutable manifest with real content-addressed refs/digests.
+5. **Source-bundle draft:** a separate authorization-source PR materializes only the closed, one-record immutable `AuthorityGrant`, `DelegationGrant`, and `SharingGrant` v0.2 contracts with issuance-policy and per-action rule bindings. `RevocationDecision v0.1` remains unchanged and its fixed `TERMINATE` lookup targets the exact source family/ID.
 6. **Decision-evidence drafts:** separate bounded PRs materialize `AuthorizationDecisionEvidence v0.2` and `AuthorizationFinalizationEvidence v0.2`. They add tagged audit profiles, examples, and validation without inventing new domain event families or changing currentness.
 7. **Binding review and accepted law:** stewards review the exact schema/manifest bytes; a later governed PR promotes the approved RFC and exact matrix while pinning those digests. Any semantic change returns to step 2.
 8. **Hostile conformance:** a separate PR adds the production-reachable cases in section 22 and publishes the result.
 9. **Explicit promotion:** after hostile review and steward approval, a separate PR changes current/default indexes and generated navigation.
 10. **OFARM2 extraction:** promoted canonical assets are copied byte-for-byte and verified by digest.
-11. **OFARM2 runtime work:** only then may `OFARM2#359` resume. Authority evaluation, EnforcementChain integration, buffered disclosure, and filing-outbox/transport integration remain separately reviewable runtime trust boundaries rather than one catch-all implementation PR.
+11. **OFARM2 runtime work:** only then may `OFARM2#359` resume. Authority evaluation, protected-effect validation, buffered disclosure, filing-outbox commitment, and transport-release enforcement remain separately reviewable runtime trust boundaries rather than one catch-all implementation PR. No dispatcher may infer release eligibility from an authorization decision or outbox row.
 
 No step is implied by completion of the prior step. Each PR retains one primary trust boundary and names any dependency on the prior step. CP15 human governance applies to current/default promotion.
 
@@ -1677,6 +1782,7 @@ Before accepted-law work begins, stewards should record explicit decisions for a
 | Is the exact matrix in section 7 the v0.2 closure, including delegation, CP3 posture, resources, subjects, and existence postures? | yes | yes, row-by-row amendments allowed |
 | Must the immutable action rule select every policy-derived field in section 7.4? | yes | yes |
 | Must each rule select an exact effect-intent schema ref/version/digest from a reviewed binding manifest rather than accept a caller-selected schema? | yes | yes |
+| Must every state-affecting rule bind an exact separately owned protected-effect contract ref/digest before it becomes executable? | yes; domain mappings remain outside authorization | yes |
 | Is the validated effect intent the sole caller-authored source for resources, subject, scope, time, purpose, destination, grantee, rights, and payload facts? | yes; mirrored fields are schema-invalid | yes |
 | Must each rule select a content-addressed declarative extractor and relevant-state projection with exact JSON Pointers? | yes | yes |
 | Must actual schema bytes and their binding manifest exist and be reviewed before accepted-RFC/action-matrix promotion? | yes | yes |
@@ -1685,16 +1791,18 @@ Before accepted-law work begins, stewards should record explicit decisions for a
 | Are assembly alternatives exact `ONE_OF` authority-target branches? | yes | yes |
 | Is `OUTPUT_FILE_SUBMISSION_ASSEMBLY` fixed to `ATTEST_SIGN`? | yes | yes |
 | Is the authenticated human's immutable filing-outbox commit the final authority-bearing act? | yes | yes |
-| Is later byte-identical transport mechanical, retryable after post-commit expiry/revocation, and forbidden from changing bytes/destination/idempotency? | yes | yes |
+| Does that completed filing act remain distinct from current permission to release protected bytes? | yes; every release attempt needs the separate transport-release gate unless an explicit regime policy made delivery irrevocable | yes |
+| Is transport forbidden from changing bytes/destination/idempotency after release eligibility passes? | yes | yes |
 | Would an authority-bearing receipt/transmission regime require a separate action class? | yes | yes |
 | Does `SHARE_REVOKE_ACCESS` create a prospective `RevocationDecision` and leave the SharingGrant immutable? | yes; `TERMINATE` only in this row | yes |
 | Do pack activate/deactivate create prospective StructureEvents and immutable successor state? | yes | yes |
 | Are no existing actions granted lineage inheritance? | yes | yes |
-| Is current authority always checked at trusted evaluation/effect time, with historical subject-time authority only as a second rule? | yes | yes |
+| Is current authority always checked at trusted evaluation/effect time, while claim/report rows authorize the current reporter and keep alleged performer/historical execution authority separate? | yes; no current row reuses the reporter path at subject time | yes |
 | Must every decision and human approval bind the exact JCS/SHA-256 effect-intent digest? | yes | yes |
 | Do all current rows use `TRANSACTION_BOUND_V0_2`, bounded by the trusted effect transaction and relevant cutoffs rather than an invented universal duration? | yes | yes |
 | Are all v0.2 decisions single-use with no reserved replay mode? | yes | yes |
 | Must internal effects and authorization evidence commit in one atomic protected-effect transaction? | yes | yes |
+| Must the proposed domain result pass the rule-bound protected-effect contract before that transaction commits, with intent/result/contract digests in the receipt? | yes | yes |
 | Is authorization `ALLOW` only the authority-gate result, never a bypass for another EnforcementChain gate? | yes | yes |
 | Do Event Grammar/protected-effect contracts, not authorization audit records, determine domain event family and commit class? | yes | yes |
 | Are governed authorization bundles append-only `EvidenceEvent`/`evidence record` artifacts with no domain-current-state eligibility? | yes | yes |
@@ -1702,15 +1810,20 @@ Before accepted-law work begins, stewards should record explicit decisions for a
 | Must every returned row, field, aggregate, count, metadata item, and lineage item have authority/redaction coverage under one snapshot? | yes | yes |
 | Is protected streaming outside v0.2, leaving a later Platform runtime RFC to define it? | yes | yes |
 | Is the full trace internal, with safe caller results and separate authorized/redacted `AUTHORIZATION_TRACE` retrieval? | yes | yes |
-| Is `MINIMUM_DISCLOSURE_V0_2` the maximum caller-facing non-`ALLOW` projection? | yes | yes |
+| Must caller-facing non-`ALLOW` responses reuse CP2 qualification and registered RuntimeProblem categories while still hiding sensitive basis details? | yes; denial/review/human-action/invalid/redacted posture cannot be hidden | yes |
 | Are approval challenge and approval profiles required for fresh approval, with relevant-state digest equality and atomic single-use consumption? | yes | yes |
 | Must every approver independently satisfy a natural-person path for the same action and effect, never sponsorship alone? | yes | yes |
 | May a direct natural person satisfy `FA` only through that lifecycle under `SAME_PRINCIPAL_ALLOWED`, while `DISTINCT_APPROVER_REQUIRED` needs another eligible principal? | yes | yes |
 | Are challenge/approval lifetimes bounded exactly by the trusted interactive session, relevant state cutoffs, and final protected-effect transaction rather than one global duration? | yes | yes |
+| Must approval evidence retain the exact content-addressed human-visible bytes plus renderer, display-policy, media, locale, and timezone metadata? | yes | yes |
+| Must read receipts distinguish retained/reconstructible payload bytes from digest-only evidence, without defining retention encryption or key custody here? | yes | yes |
 | Are purpose tokens exact-match and optional only when the source is unrestricted? | yes | yes |
 | Must legacy free-text purpose be explicitly migrated? | yes | yes |
 | Are free-text conditions unsupported and fail-closed? | yes | yes |
 | Must action-rule and all applicable source evidence requirements be cumulative and name immutable active policy revisions? | yes | yes |
+| Must every v0.2 source bind issuance-policy identity and the exact selected-rule ID/digest for every granted action? | yes | yes |
+| Is automatic cross-digest reuse prohibited in v0.2, requiring a new source ID, explicit migration, or governed reapproval? | yes; no generic subset theorem engine | yes |
+| Is every v0.2 grant/delegation/sharing ID a one-record immutable identity so RevocationDecision v0.1 `TERMINATE` targets exactly that ID? | yes; any change receives a new ID | yes |
 | Are role-targeted source paths capped by role anchor scopes? | yes | yes |
 | Are delegation ceilings and source permissions closed tokens whose intersection controls every delegated path? | yes | yes |
 | Is default delegation depth one hop? | yes | yes |
@@ -1735,17 +1848,17 @@ Phase A is complete when:
 
 - this candidate is reviewed against issue `samovers/OFARM#10`;
 - every acceptance criterion has a proposed disposition;
-- the source-record versioning decision is explicit;
+- the one-record immutable source-ID decision, issuance-policy binding, exact per-action rule-digest compatibility law, and exact v0.1 `TERMINATE` lookup are explicit;
 - the CP3 compatibility mapping is accepted without changing CP3 semantics, or a separate stacked change is named;
-- the actual-read mapping to policy check plus mandatory CP2 qualification is explicitly accepted;
-- the action matrix, complete rule fields, rule-selected intent/extractor profiles, binding-manifest prerequisite, one-target resource roles, and prospective subject closure are reviewed;
-- transaction-bound validity, single-use consumption, atomic-write, buffered-read coverage, filing-outbox finality, aggregation, and reconstruction are reviewed;
+- the actual-read mapping to policy check, mandatory CP2 qualification, and retained-versus-digest-only payload evidence is explicitly accepted;
+- the action matrix, complete rule fields, rule-selected intent/extractor profiles, protected-effect contract bindings, binding-manifest prerequisite, one-target resource roles, and prospective subject closure are reviewed;
+- transaction-bound validity, single-use consumption, atomic-write, protected-effect validation, buffered-read coverage, filing-outbox finality, separate transport-release eligibility, aggregation, and accurately bounded reconstruction claims are reviewed;
 - the path-specific software-agent authority-subject bases are accepted without sponsor inference;
-- the human challenge/approval, independent approver path, relevant-state equality, same/distinct-approver, expiry, and atomic-consumption lifecycle is reviewed;
+- the human challenge/approval, retained exact display representation, independent approver path, relevant-state equality, same/distinct-approver, expiry, and atomic-consumption lifecycle is reviewed;
 - authorization `ALLOW` is confirmed as only the authority gate, and Event Grammar/Platform/runtime dependencies are explicitly stacked rather than absorbed;
 - ingress rejection is kept outside the authorization outcome lattice and the exact digest projection is reviewed;
 - migration and currentness rules are accepted or amended;
-- hostile cases are judged sufficient to detect weaker-schema/extractor substitution, mirrored facts, resource-role union, prospective-effect mutation, read/trace leakage, altered filing transport, approval rollover/replay, ambiguous agent authority, malformed input, nested digest-field injection, and other fail-open behavior;
+- hostile cases are judged sufficient to detect silent rule-upgrade widening, source-ID mutation, wrong-source revocation, reporter/performer conflation, intent/result widening, weaker-schema/extractor substitution, mirrored facts, resource-role union, prospective-effect mutation, read/trace leakage, overclaimed reconstruction, post-commit release after disclosure revocation, CP2 over-redaction, approval rollover/replay, ambiguous agent authority, malformed input, nested digest-field injection, and other fail-open behavior;
 - the trust boundary remains authorization law and machine-contract governance; and
 - no active authority or schema was changed by the candidate PR.
 
