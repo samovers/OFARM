@@ -419,15 +419,17 @@ Draft schema or contract presence changes no currentness. Later promotion must p
 
 This PR does not create or edit the policy bundle.
 
-After renewed PR #11 approval and separate materialization of real domain-contract, result-schema, and shared-trace bytes, the bundle PR must:
+After renewed PR #11 approval and materialization of real content-addressed protected-effect contract bytes, the bundle PR must:
 
 1. bind the exact contract ID/version/ref/digest and owning family;
-2. bind the exact result-schema ref/version/digest;
-3. bind the exact intent/result selector pointers for every `RD_*` mapping;
-4. bind the reviewed contract to the three final-review action rules;
-5. preserve the action-specific case-target policy split from PR #11;
-6. exclude `REVIEW_REQUEST` from this final-decision contract; and
-7. include every binding in the affected complete per-action `ruleDigest` closure.
+2. bind the reviewed contract to the three final-review action rules;
+3. preserve the action-specific case-target policy split from PR #11;
+4. exclude `REVIEW_REQUEST` from this final-decision contract; and
+5. include that protected-effect contract binding in each affected complete per-action `ruleDigest` closure.
+
+The result-schema binding, `RD_*` selectors, derivations, forbidden-widening rules, classification, postconditions, and trace requirements remain solely inside the content-addressed protected-effect contract. Changing any of them changes `contractDigest`, which changes each affected action-rule digest. The bundle must not copy them or become a second source of domain semantics.
+
+A later runtime index may expose digest-checked contract metadata for lookup only when it is explicitly derived and non-authoritative. Such an index is not a Phase A semantic requirement.
 
 The bundle cannot point at this prose file as an executable contract.
 
@@ -448,7 +450,7 @@ The bundle cannot point at this prose file as an executable contract.
 | immutable mapping/postcondition trace with required digests | section 12.2 |
 | validate before atomic commit without rewriting authorization | section 13 |
 | production-reachable hostile cases | section 14 |
-| later bundle registration without creating it here | section 16 |
+| later whole-contract bundle registration without duplicating domain semantics or creating the bundle here | section 16 |
 
 ---
 
@@ -473,7 +475,7 @@ The bundle cannot point at this prose file as an executable contract.
 | Is the act `GovernanceEvent` while the record class is `governance decision`? | yes | yes |
 | Must every `RD_*` and `PC_*` item have an explicit trace disposition? | yes | yes |
 | Does protected-effect failure leave authorization evidence unchanged? | yes | yes |
-| Do schema, shared evidence, bundle binding, conformance, acceptance, and promotion remain separate PRs? | yes | yes |
+| Does the later bundle bind the protected-effect contract as one unit while schema, mappings, shared evidence, conformance, acceptance, and promotion remain separately owned? | yes | yes |
 
 Any requested authorization, consequence-contract, generic composition, shared-evidence, runtime, or currentness change must remain in its own trust-boundary PR.
 
@@ -486,7 +488,7 @@ Any requested authorization, consequence-contract, generic composition, shared-e
 3. **Domain materialization:** separately create the non-default machine contract, exact selectors, and `ReviewDecision v0.2` schema.
 4. **Shared evidence materialization:** separately create the finalization-evidence, validation-trace envelope, and governed-effect receipt profiles.
 5. **Optional composition closure:** if accepted-branch companion consequences are implemented, separately review their exact governing authority basis, derived-result rule, consequence contract, and composition binding without inventing a new action locally.
-6. **Bundle binding:** separately bind exact reviewed bytes into `AuthorizationPolicyBundle v0.2`.
+6. **Bundle binding:** separately bind the exact reviewed protected-effect contract identity/ref/digest as one unit into `AuthorizationPolicyBundle v0.2`.
 7. **Hostile conformance:** exercise section 14 through production-reachable paths.
 8. **Acceptance and promotion:** accept exact bytes and change current/default status only through separate governed steps.
 9. **OFARM2 extraction:** consume only promoted, digest-verified canonical bytes.
