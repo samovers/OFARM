@@ -2,8 +2,8 @@
 
 Date: 2026-09-01
 Status: Phase A candidate for `samovers/OFARM#15`; non-authoritative, not accepted law, and not a current/default machine contract
-Depends on: protected-effect inventory `samovers/OFARM#12` and renewed semantic review of the authorization amendment on issue #16 / PR #11 at `5974bb916ac8a2c5a6230facbb9836f639c754c3`
-Blocking prerequisite: the amended PR #11 head must receive renewed semantic approval before machine-readable materialization
+Depends on: protected-effect inventory `samovers/OFARM#12` and the approved authorization amendment on issue #16 / PR #11 at `5974bb916ac8a2c5a6230facbb9836f639c754c3`
+Blocking prerequisite: satisfied by renewed semantic approval of that exact PR #11 head; any later semantic change invalidates the dependency pin before machine-readable materialization
 Scope: define the ReviewDecision-specific mapping from an authorized final-review intent to one immutable ReviewDecision record
 
 ---
@@ -14,7 +14,7 @@ Stewards are asked to approve, reject, or amend these bounded decisions:
 
 1. this contract validates exactly one `ReviewDecision` record for `REVIEW_ACCEPT`, `REVIEW_REJECT_OR_CONTEST`, or `REVIEW_SUPERSEDE`;
 2. it does not itself authorize or validate an `AcceptedEventConsequence`, current-state materialization, target mutation, or other companion effect;
-3. it does not prohibit an independently authorized and independently validated companion consequence that is bound by a separately reviewed atomic composition before commit;
+3. only `REVIEW_ACCEPT` / `ACCEPTED` may carry companion accepted-consequence bindings, and only when a separately reviewed atomic composition binds their exact governing authority basis, contract-defined derivation, validation, and result digests before commit;
 4. the governed final-review act has primary event family `GovernanceEvent`, while the `ReviewDecision` record has commit class `governance decision`;
 5. the result preserves the exact authorized target, action, outcome, scopes, accountable deciding Party, authenticated human actor, finalization evidence, decision time, rationale, evidence, and optional lineage;
 6. a future `ReviewDecision v0.2` carrier is required because v0.1 cannot carry that proof without a competing sidecar description; and
@@ -60,11 +60,11 @@ This candidate is constrained by:
 - the accepted Authority Action Matrix v0.1;
 - the Event Grammar and Commit Matrix v0.1;
 - the accepted Event Ingress and Promotion Boundary Closure RFC v0.1;
-- current `ReviewDecision v0.1`, `SemanticEventEnvelope v0.1`, `AcceptedEventConsequence v0.1`, and `EvidenceSufficiencyCase v0.2`;
+- current `ReviewDecision v0.1`, `SemanticEventEnvelope v0.1`, and `AcceptedEventConsequence v0.1`, plus current/default `EvidenceSufficiencyCase v0.2` and valid compatibility `EvidenceSufficiencyCase v0.1`;
 - the protected-effect inventory on issue #12; and
-- the amended `EI_REVIEW_DECISION_V0_2` resource and outcome semantics on PR #11 at `5974bb9`, subject to renewed approval.
+- the approved amended `EI_REVIEW_DECISION_V0_2` resource and outcome semantics on PR #11 at `5974bb9`.
 
-Active law permits case-scope review for `REVIEW_ACCEPT` and `REVIEW_REJECT_OR_CONTEST`. PR #11 now proposes a separate exact resource policy for those two actions and leaves `REVIEW_SUPERSEDE` on its prior narrower policy. Until that amendment is re-approved, this candidate may be reviewed as a domain proposal but no schema or executable contract may be materialized from it.
+Active law permits case-scope review for `REVIEW_ACCEPT` and `REVIEW_REJECT_OR_CONTEST`. The approved PR #11 head uses a separate exact resource policy for those two actions and leaves `REVIEW_SUPERSEDE` on its prior narrower policy. This candidate consumes that exact approved boundary without reopening it; any semantic change to that head requires a new dependency decision before schema or executable-contract materialization.
 
 ---
 
@@ -77,7 +77,7 @@ Active law permits case-scope review for `REVIEW_ACCEPT` and `REVIEW_REJECT_OR_C
 | `schemaVersion` | identifies `ofarm.reviewdecision.v0.1` | future carrier needs a distinct `ofarm.reviewdecision.v0.2` branch |
 | `reviewDecisionId` | stable logical decision ID | retain and bind exactly to the intent and result digest |
 | `reviewedArtifactFamily` | six broad families, including `EVIDENCE_SUFFICIENCY_CASE` | cannot preserve exact authorization target kind or immutable carrier posture; add exact kind and closed family resolution |
-| `reviewedArtifactRef` | one logical target ref | add exactly one immutable revision or digest binding |
+| `reviewedArtifactRef` | one logical target ref | retain as the sole logical target identity and add exactly one separate immutable revision-ref or digest selector |
 | `reviewAction` | three final actions plus `REVIEW_REQUEST` | close only the three final branches here |
 | `decisionOutcomeState` | five independent outcomes | enforce the exact action/outcome matrix in section 9 |
 | `anchorScopes` | one or more scope pairs | require complete equality with the intent under its declared array/set posture |
@@ -119,7 +119,8 @@ The future carrier is a versioned extension. Existing v0.1 records remain valid 
 | `reviewedArtifactKind` | exact action-rule-authorized target kind |
 | `reviewedArtifactFamily` | exact domain family derived only by section 6 |
 | `reviewedArtifactRef` | exact logical target ref |
-| `reviewedArtifactBinding` | exactly one immutable revision ref or content digest |
+| `reviewedArtifactRevisionRef` | conditional immutable target revision ref; exactly one of this field or `reviewedArtifactDigest` is required |
+| `reviewedArtifactDigest` | conditional `sha256:` target content digest; exactly one of this field or `reviewedArtifactRevisionRef` is required |
 | `reviewAction` | exact selected final-review action |
 | `decisionOutcomeState` | exact intent-bound outcome |
 | `anchorScopes` | complete intent-bound scopes |
@@ -130,9 +131,11 @@ The future carrier is a versioned extension. Existing v0.1 records remain valid 
 | `rationale` | exact non-empty intent-bound rationale |
 | `evidenceBindings` | required, possibly empty, array of exact immutable evidence bindings |
 | `supersedesReviewDecisionBinding` | optional exact immutable decision-lineage binding |
-| `resultingAcceptedConsequenceBindings` | optional exact immutable companion bindings allowed only by section 7 |
+| `resultingAcceptedConsequenceBindings` | conditional exact immutable companion bindings allowed only for `REVIEW_ACCEPT` / `ACCEPTED` by section 7 |
 
-Every binding is a tagged value containing a logical ref and exactly one immutable revision ref or `sha256:` content digest. Neither zero nor two immutable selectors is valid. Unknown properties are rejected.
+`reviewedArtifactRef` is the sole logical identity of the reviewed target. Exactly one of `reviewedArtifactRevisionRef` or `reviewedArtifactDigest` selects its immutable bytes; neither field contains or repeats a logical ref, and neither zero nor two selectors is valid.
+
+Every other field named `*Binding`, and each element of a `*Bindings` array, is a tagged value containing one logical ref and exactly one immutable revision ref or `sha256:` content digest. Unknown properties are rejected.
 
 ### 5.2 Deciding Party, human actor, and representation
 
@@ -171,9 +174,11 @@ The domain record does not duplicate grants, roles, representation-basis interna
 | `DOSSIER_ASSEMBLY` | `DOSSIER_ASSEMBLY` | exact dossier-assembly carrier |
 | `SUBMISSION_ASSEMBLY` | `SUBMISSION_ASSEMBLY` | exact submission-assembly carrier |
 | `ACCEPTED_EVENT_CONSEQUENCE` | `ACCEPTED_EVENT_CONSEQUENCE` | exact accepted-consequence carrier |
-| `EVIDENCE_SUFFICIENCY_CASE` | `EVIDENCE_SUFFICIENCY_CASE` | exact current/default `EvidenceSufficiencyCase v0.2` carrier; eligible only for the first two actions |
+| `EVIDENCE_SUFFICIENCY_CASE` | `EVIDENCE_SUFFICIENCY_CASE` | exact active governed carrier version selected by the immutable target selector; v0.2 is current/default for new cases and v0.1 remains valid for compatibility; eligible only for the first two actions |
 
 The coarse v0.1 token `ASSERTION_RECORD` is a result family, not an intent alias for one of the three exact assertion kinds. A target kind without a governed content-addressed carrier or resolution profile is unavailable at the domain gate even if authorization returned `ALLOW`. The runtime cannot invent a carrier, use a mutable latest lookup, or coerce another family.
+
+Case-target resolution binds the exact schema ref, version, digest, and immutable case bytes. Valid v0.1 cases are not upgraded to v0.2 proof strength and are not rejected solely because v0.2 is the default for new work. The superseded `v0.2-draft`, unknown versions, and mutable or unresolved case records fail target resolution.
 
 ---
 
@@ -181,15 +186,25 @@ The coarse v0.1 token `ASSERTION_RECORD` is a result family, not an intent alias
 
 This contract's own result cardinality is exactly one `ReviewDecision`. That is not a transaction-wide prohibition on every other governed record.
 
-`resultingAcceptedConsequenceBindings` is absent for standalone validation. It may be present only when:
+The companion field is closed by review branch:
+
+| Review branch | `resultingAcceptedConsequenceBindings` rule |
+|---|---|
+| `REVIEW_ACCEPT` / `ACCEPTED` | absent for standalone validation; may be present and non-empty only under the separately reviewed composition below |
+| `REVIEW_REJECT_OR_CONTEST` / `REJECTED` | absent |
+| `REVIEW_REJECT_OR_CONTEST` / `CONTESTED` | absent |
+| `REVIEW_SUPERSEDE` / `SUPERSEDED` | absent; no accepted correction-composition rule currently authorizes a replacement consequence |
+
+For the accepted branch, a non-empty companion field is valid only when:
 
 1. a separate accepted-consequence contract owns and validates each companion consequence;
-2. each companion effect has its own valid authority and intent binding;
-3. a separately reviewed enclosing composition binding pins both contracts, intents, and result digests before commit;
-4. `resultingAcceptedConsequenceBindings` is an exact copy of the companion results selected by that binding; and
-5. failure of either contract aborts the composed commit.
+2. a separately reviewed enclosing composition identifies the exact governing authority basis for the decision and every companion result;
+3. when active promotion law permits the consequence as a contract-defined derived companion of the authorized review intent, the composition binds that derivation and does not invent a second action class or require a nonexistent second effect intent;
+4. the composition pins the ReviewDecision contract, intent, and result digest plus each companion contract, derivation rule, and result digest before commit;
+5. `resultingAcceptedConsequenceBindings` is an exact copy of the companion results selected by that binding; and
+6. failure of either contract or the composition aborts the composed commit.
 
-This candidate defines only the ReviewDecision side of that interface. It does not create a generic composition contract or authorize a consequence. Without the separate binding, a non-empty companion list or inserted consequence is an unbound effect and fails.
+This candidate defines only the ReviewDecision side of that interface. It recognizes no separate consequence action and does not define accepted-consequence construction or create a generic composition contract. Requiring a new consequence action would first need a separate authorization amendment and renewed review of this boundary. Without the exact governing authority, contract, derivation, and composition bindings, a non-empty companion list or inserted consequence is an unbound effect and fails. Any future proposal to attach a replacement consequence to `REVIEW_SUPERSEDE` requires a separately reviewed amendment rather than inference from the accepted branch.
 
 Current-state materialization is always downstream and is never a companion effect of this contract.
 
@@ -219,9 +234,9 @@ The materialized contract must bind its exact intent-schema and result-schema re
 | `RD_EFFECT_SUBJECT` | intent effect-subject kind | constant `REVIEW_DECISION`; any other kind fails |
 | `RD_ID` | intent proposed decision ID | exact copy to `reviewDecisionId` |
 | `RD_TARGET_KIND` | intent `PRIMARY_RECORD.resourceKind` | exact copy to `reviewedArtifactKind`; no aliasing |
-| `RD_TARGET_FAMILY` | target kind plus immutable resolved bytes | closed section 6 derivation to `reviewedArtifactFamily` |
+| `RD_TARGET_FAMILY` | target kind plus exact schema ref/version/digest and immutable resolved bytes | closed section 6 derivation to `reviewedArtifactFamily` |
 | `RD_TARGET_REF` | intent `PRIMARY_RECORD.resourceRef` | exact copy to `reviewedArtifactRef` |
-| `RD_TARGET_BINDING` | intent target revision/digest | exact tagged copy to `reviewedArtifactBinding` |
+| `RD_TARGET_BINDING` | intent target revision/digest | exact copy to one and only one of `reviewedArtifactRevisionRef` or `reviewedArtifactDigest`; no second logical ref exists |
 | `RD_SCOPES` | intent scopes | complete equality under the intent schema's declared array/set posture |
 | `RD_ACTION` | selected action rule and intent action | both must agree; exact copy to `reviewAction` |
 | `RD_OUTCOME` | intent outcome | exact section 9 branch value |
@@ -232,7 +247,7 @@ The materialized contract must bind its exact intent-schema and result-schema re
 | `RD_RATIONALE` | intent rationale | exact Unicode value; no normalization or summarization |
 | `RD_EVIDENCE` | intent evidence bindings | complete exact array; no addition, omission, or ref-only downgrade |
 | `RD_PRIOR_DECISION` | optional intent lineage binding | exact copy or required absence |
-| `RD_COMPANION_CONSEQUENCES` | separately reviewed composition binding | exact companion array under section 7 or required absence |
+| `RD_COMPANION_CONSEQUENCES` | section 7 branch plus separately reviewed composition binding | exact accepted-branch companion array or required absence |
 
 Every mapping receives one explicit disposition. A missing, duplicated, ambiguous, type-invalid, or conflicting authoritative source fails the contract.
 
@@ -289,8 +304,8 @@ The validation trace, authorization/finalization evidence, and governed-effect r
 | `PC_ACTION_OUTCOME` | action and outcome satisfy section 9 |
 | `PC_ACTOR_BINDING` | deciding Party, human principal, finalization evidence, and decision time satisfy sections 5 and 8 |
 | `PC_CLASSIFICATION` | associated act is `GovernanceEvent` and the decision record's commit class is `governance decision` |
-| `PC_NO_UNBOUND_EFFECT` | no target rewrite, consequence, event envelope, materialization, promotion record, or other governed effect is inserted or changed without its own reviewed binding |
-| `PC_COMPANION_BINDING` | every optional consequence link exactly matches a separately validated composed result under section 7 |
+| `PC_NO_UNBOUND_EFFECT` | no target rewrite, consequence, event envelope, materialization, promotion record, or other governed effect is inserted or changed without the exact governing authority, contract, and composition bindings required by its applicable boundary |
+| `PC_COMPANION_BINDING` | the companion field is absent except for the section 7 accepted branch; every permitted link exactly matches a separately validated composed result |
 | `PC_NO_CURRENT_STATE` | this contract writes no current-state materialization |
 | `PC_ATOMIC_EVIDENCE` | the shared transaction gate reports atomic commit of the decision, any bound composed results, passing evidence, and single-use consumption |
 | `PC_UNIQUE_ID` | a duplicate decision ID with different bytes is rejected |
@@ -299,10 +314,10 @@ The validation trace, authorization/finalization evidence, and governed-effect r
 
 | Postcondition ID | Branch-specific meaning |
 |---|---|
-| `PC_ACCEPT` | acceptance is recorded for the exact target; any consequence remains separately bound and governed |
-| `PC_REJECT` | rejection is recorded without deleting the target or creating a contrary accepted state |
-| `PC_CONTEST` | contested posture is explicit and is not treated as accepted, rejected, or resolved |
-| `PC_SUPERSEDE` | supersession is recorded without rewriting prior history; downstream freshness is re-evaluated separately |
+| `PC_ACCEPT` | acceptance is recorded for the exact target; companion bindings are absent unless the exact section 7 accepted-branch composition passes |
+| `PC_REJECT` | rejection is recorded without deleting the target or creating a contrary accepted state; companion bindings are absent |
+| `PC_CONTEST` | contested posture is explicit and is not treated as accepted, rejected, or resolved; companion bindings are absent |
+| `PC_SUPERSEDE` | supersession is recorded without rewriting prior history; companion bindings are absent and downstream freshness is re-evaluated separately |
 
 ---
 
@@ -358,10 +373,13 @@ This candidate states only those ReviewDecision-specific preconditions and effec
 | any invalid action/outcome pair | branch mapping fails; no decision commits |
 | intent binds `REJECTED` but result says `CONTESTED`, or vice versa | `RD_OUTCOME` fails without changing intent or authorization result |
 | target kind/ref/revision/digest is substituted | target mapping fails |
+| zero or both target immutable selectors are present, or a second logical target ref is introduced | `RD_TARGET_REF` / `RD_TARGET_BINDING` fails |
 | caller uses coarse `ASSERTION_RECORD` as an intent alias | `RD_TARGET_KIND` fails |
 | target carrier is unsupported, unresolved, mutable, or inconsistent with its kind | `RD_TARGET_FAMILY` or binding fails |
-| `EVIDENCE_SUFFICIENCY_CASE` is used by `REVIEW_SUPERSEDE` or before the PR #11 prerequisite is approved | action-rule/target eligibility fails |
+| `EVIDENCE_SUFFICIENCY_CASE` is used by `REVIEW_SUPERSEDE` or while the exact PR #11 dependency pin is absent or invalidated | action-rule/target eligibility fails |
 | a case target for accept/reject is omitted or substituted by the evaluator | authorization extractor conformance fails; no domain result commits |
+| a valid immutable `EvidenceSufficiencyCase v0.1` is rejected solely because v0.2 is current/default, or is silently upgraded to v0.2 | `RD_TARGET_FAMILY` fails |
+| a case target uses superseded `v0.2-draft`, an unknown version, or mutable/unresolved bytes | `RD_TARGET_FAMILY` / `RD_TARGET_BINDING` fails |
 | one scope is added, dropped, or changed outside declared schema posture | `RD_SCOPES` fails |
 | deciding Party is replaced by the human principal for represented action | `RD_DECIDING_PARTY` fails |
 | human principal is replaced by an organization, sponsor, or agent | `RD_HUMAN` fails |
@@ -370,7 +388,8 @@ This candidate states only those ReviewDecision-specific preconditions and effec
 | rationale differs by whitespace, case, translation, or summarization | `RD_RATIONALE` fails |
 | evidence binding is changed, omitted, added, or reordered contrary to schema posture | `RD_EVIDENCE` fails |
 | prior-decision lineage is added, removed, or replaced | `RD_PRIOR_DECISION` fails |
-| consequence is created without separate authority, contract validation, and composition binding | `PC_NO_UNBOUND_EFFECT` fails |
+| accepted-branch consequence is created without the exact governing authority basis, contract-defined derivation, validation, and composition binding | `PC_NO_UNBOUND_EFFECT` fails |
+| `REJECTED`, `CONTESTED`, or `SUPERSEDED` carries any companion consequence binding | `RD_COMPANION_CONSEQUENCES` / branch postcondition fails |
 | companion list differs from the composed result digests | `RD_COMPANION_CONSEQUENCES` / `PC_COMPANION_BINDING` fails |
 | target or prior decision is mutated or deleted | `PC_INPUTS_IMMUTABLE` fails |
 | contract writes current state or treats acceptance as automatic promotion | `PC_NO_CURRENT_STATE` fails |
@@ -440,15 +459,17 @@ The bundle cannot point at this prose file as an executable contract.
 | Is a future `ReviewDecision v0.2` carrier required? | yes | yes |
 | Does this contract cover exactly the three final review actions? | yes | yes |
 | Does it validate exactly one ReviewDecision while allowing only separately bound companion effects? | yes | yes |
-| Must the PR #11 case-target amendment receive renewed approval first? | yes | yes |
+| Has the exact PR #11 case-target amendment received the required renewed approval? | yes, at `5974bb9` | yes |
 | Are case targets eligible only for accept and reject-or-contest under the proposed action split? | yes | yes |
-| Are target kind/ref/binding and domain-family resolution exact? | yes | yes |
+| Does case resolution preserve valid v0.1 compatibility while rejecting superseded, unknown, mutable, or unresolved carriers? | yes | yes |
+| Are target kind, sole logical ref, one immutable selector, and domain-family resolution exact? | yes | yes |
 | Are action/outcome pairs fixed exactly by section 9? | yes | yes |
 | Must reject versus contest be intent-bound? | yes | yes |
 | Are deciding Party, authenticated human, and immutable finalization evidence separate fields? | yes | yes |
 | Is `decidedAt` the trusted human-act time? | yes | yes |
 | Are rationale, scopes, evidence, and lineage exact rather than defaulted? | yes | yes |
-| May consequence links exist only under the separately governed composition in section 7? | yes | yes |
+| May consequence links exist only for accept/accepted under the separately governed composition in section 7? | yes; reject, contest, and supersede require absence | yes |
+| Does that composition bind the exact governing authority basis without inventing a consequence action? | yes | yes |
 | Is the act `GovernanceEvent` while the record class is `governance decision`? | yes | yes |
 | Must every `RD_*` and `PC_*` item have an explicit trace disposition? | yes | yes |
 | Does protected-effect failure leave authorization evidence unchanged? | yes | yes |
@@ -460,16 +481,16 @@ Any requested authorization, consequence-contract, generic composition, shared-e
 
 ## 19. Staged delivery and completion
 
-1. **Authorization prerequisite:** obtain renewed semantic approval for PR #11 head `5974bb9`.
+1. **Authorization prerequisite:** satisfied by renewed semantic approval for exact PR #11 head `5974bb9`; re-open this gate if that head's semantics change.
 2. **Phase A domain approval:** approve or amend this one-file ReviewDecision candidate.
 3. **Domain materialization:** separately create the non-default machine contract, exact selectors, and `ReviewDecision v0.2` schema.
 4. **Shared evidence materialization:** separately create the finalization-evidence, validation-trace envelope, and governed-effect receipt profiles.
-5. **Optional composition closure:** if atomic companion consequences are implemented, separately review their authorization, contract, and composition binding.
+5. **Optional composition closure:** if accepted-branch companion consequences are implemented, separately review their exact governing authority basis, derived-result rule, consequence contract, and composition binding without inventing a new action locally.
 6. **Bundle binding:** separately bind exact reviewed bytes into `AuthorizationPolicyBundle v0.2`.
 7. **Hostile conformance:** exercise section 14 through production-reachable paths.
 8. **Acceptance and promotion:** accept exact bytes and change current/default status only through separate governed steps.
 9. **OFARM2 extraction:** consume only promoted, digest-verified canonical bytes.
 
-Phase A is complete when issue #15's criteria are reviewed, the PR #11 prerequisite is approved, and this PR still changes only this non-authoritative candidate file.
+Phase A is complete when issue #15's criteria are reviewed, the exact PR #11 dependency remains approved, and this PR still changes only this non-authoritative candidate file.
 
-What is next: renewed authorization review on PR #11 and steward re-review of this bounded ReviewDecision candidate before any schema or executable-contract work.
+What is next: steward re-review of this bounded ReviewDecision candidate before any schema or executable-contract work.
