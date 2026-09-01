@@ -355,10 +355,12 @@ This section owns the ReviewDecision-specific validation payload. It does not re
 
 Before commit, the protected-effect gate must:
 
-1. verify the selected action rule's exact intent, result-schema, and contract bindings;
-2. validate the proposed result against the selected future v0.2 schema;
-3. evaluate every applicable `RD_*` mapping and `PC_*` postcondition; and
-4. supply an overall passing immutable trace to the shared atomic transaction gate.
+1. verify the selected action rule's exact effect-intent-schema and protected-effect-contract bindings;
+2. load and digest-verify the referenced protected-effect contract;
+3. verify the result-schema ref, version, and digest owned by that contract;
+4. validate the proposed result against that result schema;
+5. evaluate every applicable `RD_*` mapping and `PC_*` postcondition; and
+6. supply an overall passing immutable trace to the shared atomic transaction gate.
 
 If any item fails, no ReviewDecision or companion effect commits and single-use consumption does not commit. The existing authorization result remains its authority-gate result; `ALLOW` is not rewritten to `DENY` or treated as proof that the domain gate passed.
 
