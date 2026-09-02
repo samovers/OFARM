@@ -465,14 +465,14 @@ Every entry binds posture, role, one concrete kind, logical ref, immutable revis
 
 #### 7.5.1 Explicit v0.1-to-v0.2 target delta ledger
 
-The accepted v0.1 matrix labels its target column "Typical target scopes" rather than defining an exhaustive executable set. That wording is not authority to widen or narrow a row silently. The following ledger exposes the direction of every proposed v0.2 target change for steward approval; it is governance evidence, not a cross-version compatibility rule.
+The accepted v0.1 matrix labels its target column "Typical target scopes" rather than defining an exhaustive executable set. That wording is not authority to widen or narrow a row silently. The following ledger exposes the nature and, where the target axes are comparable, direction of every proposed v0.2 target change for steward approval; it is governance evidence, not a cross-version compatibility rule.
 
-`WIDENING` adds target kinds without removing an explicitly listed v0.1 kind. `NARROWING` removes an explicit kind or replaces an open-ended v0.1 phrase with a closed set. `MIXED_DELTA` both adds and removes/retypes target families. `CLOSED_EQUIVALENT` closes an apparent v0.1 target without an intended breadth change. These classifications assume the named mappings in the final column; rejecting a mapping requires a row amendment and a new rule digest.
+`WIDENING` adds target kinds without removing an explicitly listed v0.1 kind. `NARROWING` removes an explicit kind or replaces an open-ended v0.1 phrase with a closed set. `MIXED_DELTA` both adds and removes kinds within a comparable target family. `RETYPED` replaces a contextual-scope axis with a record/artifact axis for which no directional set comparison is claimed. `CLOSED_EQUIVALENT` closes an apparent v0.1 target without an intended breadth change. These classifications assume the named mappings in the final column; rejecting a mapping requires a row amendment and a new rule digest.
 
 | Action class | v0.1 typical target | Proposed v0.2 authority target | Direction and explicit delta |
 |---|---|---|---|
 | `OBSERVE_CREATE_OBSERVATION` | farm, site, field, zone, crop cycle, lot, facility | any of 10 closed scope kinds | `WIDENING`: adds `OPERATION`, `DEPLOYMENT`, and `TENANT` |
-| `OBSERVE_ATTACH_EVIDENCE` | observation targets plus operation and submission context | one of 11 named governed-record or assembly kinds | `MIXED_DELTA`: retypes contextual scope into an exact record target; no scope-to-record equivalence is inferred |
+| `OBSERVE_ATTACH_EVIDENCE` | observation targets plus operation and submission context | one of 11 named governed-record or assembly kinds | `RETYPED`: replaces contextual-scope targeting with the closed `RP_EVIDENCE_TARGET_ONE` record/artifact axis; no widening, narrowing, or scope-to-record equivalence is inferred |
 | `ASSERT_STRUCTURE` | farm, site, field, zone, facility | any of 10 closed scope kinds | `WIDENING`: adds `CROP_CYCLE`, `LOT`, `OPERATION`, `DEPLOYMENT`, and `TENANT` |
 | `ASSERT_OPERATION_CLAIM` | field, zone, crop cycle, operation | any of 10 closed scope kinds | `WIDENING`: adds `FARM`, `SITE`, `LOT`, `FACILITY`, `DEPLOYMENT`, and `TENANT` |
 | `ASSERT_COMPLIANCE` | field, crop cycle, lot, submission scope | any of 10 closed scope kinds | `MIXED_DELTA`: adds `FARM`, `SITE`, `ZONE`, `FACILITY`, `OPERATION`, `DEPLOYMENT`, and `TENANT`; removes submission scope as an authority-target branch |
@@ -993,7 +993,13 @@ A path with both a closed denial and an unsupported semantic is `PATH_DENY`; a k
 
 Effect-intent/derived-view digest validity, loaded policy identity, trusted principal resolution, authority-target/effect-subject proof, tenant isolation, and authority-snapshot availability are authorization global preconditions. Parse, request-schema, action lookup, rule/binding-manifest, caller-schema-claim, action-specific intent-schema, and authorization-view-extraction failures never enter this lattice; section 18.1 records them as ingress rejections.
 
-Global checks are attempted in the section 15.1 order. A check whose trusted prerequisites are unavailable is recorded as `NOT_EVALUATED`, not fabricated as a pass or a second failure. The evaluator collects every global failure it can truthfully establish, then selects the global result deterministically:
+Global checks are attempted in the section 15.1 order under this explicit dependency relation:
+
+- effect-intent/derived-view digest validity and trusted principal resolution use only their own independently trusted inputs;
+- authority-snapshot availability and loaded policy identity must both pass before authority-target/effect-subject proof or tenant isolation is evaluated; and
+- tenant isolation also requires every target/effect-subject identity on which that check depends to have been proven.
+
+If a prerequisite in that relation fails, each dependent check is recorded as `NOT_EVALUATED`. `NOT_EVALUATED` is a trace disposition meaning that no pass or failure conclusion was made because a named prerequisite failed. It is not an authorization outcome or reason code, has no rank, and does not participate in aggregation. The evaluator collects every independent global failure it can truthfully establish, then selects the global result deterministically:
 
 1. if one or more established global failures have default outcome `DENY`, the result is `DENY` and the lowest numeric deny rank among those failures is primary;
 2. otherwise, if one or more established global failures have default outcome `REQUIRE_REVIEW`, the result is `REQUIRE_REVIEW` and the lowest numeric review rank among those failures is primary; and
@@ -1041,7 +1047,7 @@ Every v0.2 result and trace must identify:
 
 The `policyDigest` covers the exact immutable representation used by the evaluator, including the action matrix and referenced decision rules after deterministic packaging. A mutable URL, branch name, deployment label, or semantic version alone is not enough. It identifies the complete evaluation context; source reuse compares the selected action's narrower `ruleDigest` from section 7.4 so an unrelated action or diagnostic-only change does not invalidate the source.
 
-If the loaded representation does not match the expected digest, the result is non-`ALLOW` with `POLICY_DIGEST_MISMATCH`.
+If the loaded representation does not match the expected digest, the evaluator establishes the global failure `POLICY_DIGEST_MISMATCH`. It does not evaluate policy-dependent authority-target/effect-subject or tenant conclusions. Section 15.4 selects the overall outcome and primary reason from this and any other independently established global failure; absent another failure that precedes it under that rule, the result is `REQUIRE_REVIEW` with `POLICY_DIGEST_MISMATCH` primary.
 
 The exact bytes covered by `policyDigest` must remain retrievable through a durable content-addressed reference for at least the decision-evidence retention period. A runtime that records a digest but cannot retrieve or independently verify the covered bytes cannot claim reconstructible v0.2 decisions.
 
@@ -1752,8 +1758,8 @@ The future executable conformance suite must include at least:
 | One path lacks only human approval, one has an unsupported evidence policy, and one is revoked | `REQUIRE_HUMAN_APPROVAL`; selected human path supplies `HUMAN_FINAL_ACTION_REQUIRED` as primary |
 | One path allows and another is revoked | `ALLOW`; `AUTHORIZED_BY_SELECTED_PATH` is primary and revocation remains diagnostic |
 | No path allows; one requires review and all others deny | `REQUIRE_REVIEW` with the selected review path's lowest rank |
-| Policy-digest mismatch and tenant-boundary mismatch are both established as global failures | `DENY` with `TENANT_BOUNDARY_MISMATCH` primary; policy mismatch remains an ordered diagnostic; no path aggregation |
-| Authority snapshot is unavailable and dependent path facts cannot be evaluated truthfully | `REQUIRE_REVIEW` with `AUTHORIZATION_SNAPSHOT_UNAVAILABLE`; dependent checks are `NOT_EVALUATED`, not fabricated failures |
+| Policy digest mismatches and untrusted bytes would otherwise imply a tenant-boundary mismatch | `REQUIRE_REVIEW` with `POLICY_DIGEST_MISMATCH`; target/effect-subject proof and tenant isolation are `NOT_EVALUATED`; no path aggregation |
+| Authority snapshot is unavailable and dependent target/effect-subject or tenant facts cannot be evaluated truthfully | `REQUIRE_REVIEW` with `AUTHORIZATION_SNAPSHOT_UNAVAILABLE`; dependent global checks are `NOT_EVALUATED`, not fabricated failures |
 | A writer attempts to store changed source bytes under an existing v0.2 grant/delegation/sharing ID | schema/storage conformance failure; the changed source must receive a new governed ID |
 | A terminated source is replaced under a new ID | replacement has no inherited authority or revocation posture; it must independently pass issuance, exact rule binding, and current evaluation |
 | A revocation lookup applies one source ID's decision to a different replacement ID through inferred lineage | conformance failure; v0.1 `TERMINATE` lookup is exact family plus immutable source ID |
@@ -1830,8 +1836,10 @@ The following examples document preserved closed vocabulary but are not producti
 | Human-approval primary reasons conflict with approval-specific hostile outcomes | sections 15.6, 20, and 22 make `HUMAN_FINAL_ACTION_REQUIRED` primary and approval-lifecycle codes ordered diagnostics only |
 | v0.1 legacy-purpose/condition/evidence review outcomes are unreachable under exact v0.2 rule binding | sections 11, 12, 19, 20, and 22 keep v0.1 under v0.1, require explicit migration, and use `SOURCE_RULE_BINDING_MISMATCH` if a v0.1 source is offered to v0.2 |
 | `RECEIVE_READ_DATA` is described as a partial-path exception | sections 5.4, 13, and 22 require every direct, delegated, or SharingGrant access basis to be independently sufficient |
-| Simultaneous authorization-global failures have no deterministic result or primary reason | sections 15.4, 15.6, 20, and 22 give global `DENY` precedence over global `REQUIRE_REVIEW`, then select the lowest rank within that outcome |
+| Simultaneous authorization-global failures have no deterministic result, dependency rule, or primary reason | sections 15.4, 15.6, 16, 20, and 22 evaluate only independently trusted facts, mark policy/snapshot-dependent checks `NOT_EVALUATED`, give an independently established global `DENY` precedence over global `REQUIRE_REVIEW`, then select the lowest rank within that outcome |
 | v0.1-to-v0.2 target widening/narrowing is hidden behind shared resource policies | sections 7.5.1 and 25 expose every row and require separate directional approval |
+| Evidence attachment changes from contextual scopes to a record/artifact target axis that cannot be honestly labeled as a directional set delta | sections 7.5.1 and 25 classify it separately as `RETYPED` and prohibit inferred cross-axis equivalence |
+| Filing evidence could require a prior approval/attestation action that cannot target `SUBMISSION_ASSEMBLY` | sections 7.5.1, 7.7, 7.8, 24, and 25 require the binding review to reject or amend an unsatisfiable filing rule before promotion |
 | Interactive approval appears to require a long-open transaction | sections 7.4, 18.2, 24, and 25 stop machine materialization on the separately governed transaction protocol in `samovers/OFARM#19` |
 | Preflight-only and distinct-approver semantics appear production-reachable although no current row selects them | sections 6.4, 7.2, 20, and 22.1 mark them reserved future semantics |
 
@@ -1846,7 +1854,7 @@ The required sequence is:
 1. **Phase A candidate:** this document only; no authority or currentness effect.
 2. **Semantic-profile approval:** stewards approve or amend the closed rule fields, concrete kinds, one-target resource policies, prospective effects, lifecycle semantics, and approval card in section 25; no RFC is accepted yet.
 3. **Adjacent contract prerequisites:** separate PRs provide every content-addressed protected-effect contract required by a state-affecting rule (`samovers/OFARM#12`), including the final `ReviewDecision` contract (`samovers/OFARM#15`), any missing Event Grammar classification, the CP2 authorization-result surface/registered public reason codes, and the evidence-retention proof postures referenced by display/read evidence (`samovers/OFARM#14`). The governed interactive-approval transaction and consumption protocol must be closed separately under `samovers/OFARM#19` before an approval machine profile or runtime implementation can claim `TRANSACTION_BOUND_V0_2`. Domain mappings, public-surface contract changes, transaction coordination, retention, encryption, and key custody do not ride in an authorization-law PR. Transport-release semantics remain a separate downstream boundary (`samovers/OFARM#13`).
-4. **Policy-bundle draft:** a separate non-default authorization-law PR materializes `AuthorizationPolicyBundle v0.2`, every effect-intent schema, bindings to already reviewed protected-effect contracts, both declarative projections, evidence bindings, trusted approval-cutoff mappings, and the immutable manifest with real content-addressed refs/digests.
+4. **Policy-bundle draft:** a separate non-default authorization-law PR materializes `AuthorizationPolicyBundle v0.2`, every effect-intent schema, bindings to already reviewed protected-effect contracts, both declarative projections, evidence bindings, trusted approval-cutoff mappings, and the immutable manifest with real content-addressed refs/digests. Before that manifest can pass review, stewards must verify that `EP_FORMAL_FILING_V0_2` does not require prior approval or attestation that is impossible for `SUBMISSION_ASSEMBLY` under `RP_ASSEMBLY_ONE`; any such contradiction requires a semantic row or evidence-policy amendment before promotion rather than an unsatisfiable filing rule.
 5. **Source-bundle draft:** a separate authorization-source PR materializes only the closed, one-record immutable `AuthorityGrant`, `DelegationGrant`, and `SharingGrant` v0.2 contracts with issuance-policy and per-action rule bindings. `RevocationDecision v0.1` remains unchanged and its fixed `TERMINATE` lookup targets the exact source family/ID.
 6. **Decision-evidence drafts:** separate bounded PRs materialize `AuthorizationDecisionEvidence v0.2` and `AuthorizationFinalizationEvidence v0.2`. They add tagged audit profiles, examples, and validation without inventing new domain event families or changing currentness.
 7. **Binding review and accepted law:** stewards review the exact schema/manifest bytes; a later governed PR promotes the approved RFC and exact matrix while pinning those digests. Any semantic change returns to step 2.
@@ -1875,6 +1883,7 @@ Before accepted-law work begins, stewards should record explicit decisions for a
 | Are the `WIDENING` target rows in section 7.5.1 accepted exactly as itemized? | yes | yes, each listed row |
 | Are the `NARROWING` target rows in section 7.5.1 accepted exactly as itemized? | yes | yes, each listed row |
 | Are the `MIXED_DELTA` target rows and their named mappings in section 7.5.1 accepted exactly as itemized? | yes | yes, each listed row and mapping |
+| Is the `RETYPED` evidence-attachment target axis in section 7.5.1 accepted without inferring cross-axis widening or narrowing? | yes | yes |
 | Is the `CLOSED_EQUIVALENT` filing target mapping in section 7.5.1 accepted? | yes | yes |
 | Must the immutable action rule select every policy-derived field in section 7.4? | yes | yes |
 | Must each rule select an exact effect-intent schema ref/version/digest from a reviewed binding manifest rather than accept a caller-selected schema? | yes | yes |
@@ -1890,6 +1899,7 @@ Before accepted-law work begins, stewards should record explicit decisions for a
 | Are assembly alternatives exact `ONE_OF` authority-target branches? | yes | yes |
 | Is `OUTPUT_FILE_SUBMISSION_ASSEMBLY` fixed to `ATTEST_SIGN`? | yes | yes |
 | Is the authenticated human's immutable filing-outbox commit the final authority-bearing act? | yes | yes |
+| Must policy-bundle review reject or amend `EP_FORMAL_FILING_V0_2` if it requires prior approval/attestation that `RP_ASSEMBLY_ONE` cannot perform for `SUBMISSION_ASSEMBLY`? | yes; no unsatisfiable filing rule may be promoted | yes |
 | Does that completed filing act remain distinct from current permission to release protected bytes? | yes; every release attempt needs the separate transport-release gate unless an explicit regime policy made delivery irrevocable | yes |
 | Is transport forbidden from changing bytes/destination/idempotency after release eligibility passes? | yes | yes |
 | Would an authority-bearing receipt/transmission regime require a separate action class? | yes | yes |
