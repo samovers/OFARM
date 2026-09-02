@@ -2,8 +2,8 @@
 
 Date: 2026-09-01<br>
 Status: Phase A candidate for `samovers/OFARM#15`; non-authoritative, not accepted law, and not a current/default machine contract<br>
-Depends on: protected-effect inventory `samovers/OFARM#12` and the approved authorization candidate on issues #16 and #18 / PR #11 at `03a21f669ee04f96d444e14f00ae7212cab04803`<br>
-Blocking prerequisite: satisfied by renewed semantic approval of that exact PR #11 head; any later semantic change invalidates the dependency pin before machine-readable materialization<br>
+Depends on: protected-effect inventory `samovers/OFARM#12`, governed-transaction protocol `samovers/OFARM#19`, and the approved authorization candidate on issues #16 and #18 / PR #11 at `03a21f669ee04f96d444e14f00ae7212cab04803`<br>
+Blocking prerequisites: PR #11 semantic approval is satisfied; `samovers/OFARM#19` must close before machine materialization, hostile conformance, or runtime implementation claims the shared atomic transaction gate<br>
 Scope: define the ReviewDecision-specific mapping from an authorized final-review intent to one immutable ReviewDecision record
 
 ---
@@ -19,8 +19,8 @@ Stewards are asked to approve, reject, or amend these bounded decisions:
 5. the result preserves the exact authorized target, action, outcome, scopes, accountable deciding Party, authenticated human actor, finalization evidence, decision time, rationale, evidence, and optional lineage;
 6. `anchorScopes` comes only from the complete rule-selected common authorization-envelope scope binding in the validated intent; no profile-local or result-only scope can add authority;
 7. optional prior-decision lineage is a governed ReviewDecision-domain field inside the validated, digest-bound intent and cannot affect authorization eligibility under this candidate;
-8. the future result-family enum widens from six v0.1 values to nine by adding `PLANNED_INTERVENTION`, `EXECUTION_REPORT`, and `REVIEW_REQUEST`;
-9. within the retained `ASSERTION_RECORD` family, exact target resolution narrows from six v0.1 assertion subtypes to `STRUCTURE_ASSERTION`, `OPERATION_CLAIM_ASSERTION`, and `COMPLIANCE_ASSERTION` only;
+8. `WIDENING`: the future result-family enum grows from six v0.1 values to nine by adding `PLANNED_INTERVENTION`, `EXECUTION_REPORT`, and `REVIEW_REQUEST`;
+9. `NARROWING`: within the retained `ASSERTION_RECORD` family, exact target resolution contracts from six v0.1 assertion subtypes to `STRUCTURE_ASSERTION`, `OPERATION_CLAIM_ASSERTION`, and `COMPLIANCE_ASSERTION` only;
 10. a future `ReviewDecision v0.2` carrier is required because v0.1 cannot carry that proof without a competing sidecar description; and
 11. a mapping or postcondition failure aborts the ReviewDecision effect without rewriting the prior authorization result.
 
@@ -65,7 +65,8 @@ This candidate is constrained by:
 - the Event Grammar and Commit Matrix v0.1;
 - the accepted Event Ingress and Promotion Boundary Closure RFC v0.1;
 - current `ReviewDecision v0.1`, `SemanticEventEnvelope v0.1`, and `AcceptedEventConsequence v0.1`, plus current/default `EvidenceSufficiencyCase v0.2` and valid compatibility `EvidenceSufficiencyCase v0.1`;
-- the protected-effect inventory on issue #12; and
+- the protected-effect inventory on issue #12;
+- the separately governed atomic transaction and consumption protocol on issue #19 as a downstream materialization and conformance prerequisite; and
 - the approved amended `EI_REVIEW_DECISION_V0_2` resource, scope-envelope, outcome, and deterministic-evaluation semantics on PR #11 at `03a21f6`.
 
 Active law permits case-scope review for `REVIEW_ACCEPT` and `REVIEW_REJECT_OR_CONTEST`. The approved PR #11 head uses a separate exact resource policy for those two actions and leaves `REVIEW_SUPERSEDE` on its prior narrower policy. This candidate consumes that exact approved boundary without reopening it; any semantic change to that head requires a new dependency decision before schema or executable-contract materialization.
@@ -80,8 +81,8 @@ Active law permits case-scope review for `REVIEW_ACCEPT` and `REVIEW_REJECT_OR_C
 |---|---|---|
 | `schemaVersion` | identifies `ofarm.reviewdecision.v0.1` | future carrier needs a distinct `ofarm.reviewdecision.v0.2` branch |
 | `reviewDecisionId` | stable logical decision ID | retain and bind exactly to the intent and result digest |
-| `reviewedArtifactFamily` | six broad families, including `EVIDENCE_SUFFICIENCY_CASE` | add exact kind and closed family resolution; explicitly widen the future family enum with `PLANNED_INTERVENTION`, `EXECUTION_REPORT`, and `REVIEW_REQUEST` |
-| assertion subtype coverage | coarse `ASSERTION_RECORD` permits all six current `AssertionRecord.assertionType` values | admit only structure, operation-claim, and compliance assertions; observation, lot, and other assertions remain outside the approved exact target closure |
+| `reviewedArtifactFamily` | six broad families, including `EVIDENCE_SUFFICIENCY_CASE` | `WIDENING`: add exact kind and closed family resolution and add `PLANNED_INTERVENTION`, `EXECUTION_REPORT`, and `REVIEW_REQUEST` to the future family enum |
+| assertion subtype coverage | coarse `ASSERTION_RECORD` permits all six current `AssertionRecord.assertionType` values | `NARROWING`: admit only structure, operation-claim, and compliance assertions; observation, lot, and other assertions remain outside the approved exact target closure |
 | `reviewedArtifactRef` | one logical target ref | retain as the sole logical target identity and add exactly one separate immutable revision-ref or digest selector |
 | `reviewAction` | three final actions plus `REVIEW_REQUEST` | close only the three final branches here |
 | `decisionOutcomeState` | five independent outcomes | enforce the exact action/outcome matrix in section 9 |
@@ -189,9 +190,11 @@ The materialized intent schema and protected-effect contract must bind the exact
 | `ACCEPTED_EVENT_CONSEQUENCE` | `ACCEPTED_EVENT_CONSEQUENCE` | exact accepted-consequence carrier |
 | `EVIDENCE_SUFFICIENCY_CASE` | `EVIDENCE_SUFFICIENCY_CASE` | exact active governed carrier version selected by the immutable target selector; v0.2 is current/default for new cases and v0.1 remains valid for compatibility; eligible only for the first two actions |
 
-Compared with the six-value v0.1 `reviewedArtifactFamily` enum, this exact map retains all six values and adds three: `PLANNED_INTERVENTION`, `EXECUTION_REPORT`, and `REVIEW_REQUEST`. That is an explicit result-carrier enum widening for new v0.2 decisions, not a rename or an inferred compatibility rule.
+The following directional labels reuse PR #11 section 7.5.1 vocabulary so the disclosures are comparable, but they classify this result-carrier resolution axis rather than reclassifying the separate authorization-target axis.
 
-Within the retained `ASSERTION_RECORD` family, the map deliberately narrows exact review eligibility from all six current `AssertionRecord.assertionType` values to three. `STRUCTURE_ASSERTION`, `OPERATION_CLAIM_ASSERTION` through the exact `OPERATION_ASSERTION` target kind, and `COMPLIANCE_ASSERTION` are included. `OBSERVATION_ASSERTION`, `LOT_ASSERTION`, and `OTHER_ASSERTION` are excluded. No current example breaks, but a new v0.2 final decision cannot review an excluded assertion subtype. Re-enabling one requires a separate PR #11 authorization amendment followed by a matching amendment to this domain contract.
+`WIDENING`: compared with the six-value v0.1 `reviewedArtifactFamily` enum, this exact map retains all six values and adds three: `PLANNED_INTERVENTION`, `EXECUTION_REPORT`, and `REVIEW_REQUEST`. This applies only to new v0.2 decisions and is not a rename or inferred compatibility rule.
+
+`NARROWING`: within the retained `ASSERTION_RECORD` family, the map deliberately contracts exact review eligibility from all six current `AssertionRecord.assertionType` values to three. `STRUCTURE_ASSERTION`, `OPERATION_CLAIM_ASSERTION` through the exact `OPERATION_ASSERTION` target kind, and `COMPLIANCE_ASSERTION` are included. `OBSERVATION_ASSERTION`, `LOT_ASSERTION`, and `OTHER_ASSERTION` are excluded. No current example breaks, but a new v0.2 final decision cannot review an excluded assertion subtype. Re-enabling one requires a separate PR #11 authorization amendment followed by a matching amendment to this domain contract.
 
 The coarse v0.1 token `ASSERTION_RECORD` is a result family, not an intent alias for one of the three exact assertion kinds. A target kind without a governed content-addressed carrier or resolution profile is unavailable at the domain gate even if authorization returned `ALLOW`. The runtime cannot invent a carrier, use a mutable latest lookup, or coerce another family.
 
@@ -356,13 +359,13 @@ The immutable protected-effect validation trace must bind:
 - result ID/ref/digest and result-schema ref/version/digest;
 - contract ID/version/ref/digest;
 - exact target and every resolved immutable input digest;
-- one `PASS`, `FAIL`, or legitimate `NOT_APPLICABLE` disposition for every `RD_*` mapping;
+- one `PASS`, `FAIL`, legitimate `NOT_APPLICABLE`, or dependency-bound `NOT_EVALUATED` disposition for every `RD_*` mapping;
 - one such disposition for every `PC_*` postcondition;
 - source/destination selectors or pointers and compared digests;
 - associated act family and record commit class; and
 - an overall `PASS` or `FAIL` disposition.
 
-A required item cannot be `NOT_APPLICABLE`. Overall `PASS` requires every required mapping and postcondition to pass. The trace itself is immutable and content-addressed under the separately reviewed shared evidence envelope; until that envelope exists with a real ref/digest, no executable binding exists.
+`NOT_APPLICABLE` means that an item's contract-declared condition does not apply; a required item cannot use it. `NOT_EVALUATED` means no pass-or-fail conclusion was reached because a named prerequisite did not pass. A required dependent item may be `NOT_EVALUATED`, but that disposition prevents overall `PASS`. The materialized contract must enumerate the prerequisite IDs for every dependency that can produce `NOT_EVALUATED`; a runtime cannot use it to suppress an independent failure or omit an evaluation arbitrarily. Overall `PASS` requires every required mapping and postcondition to pass. The trace itself is immutable and content-addressed under the separately reviewed shared evidence envelope; until that envelope exists with a real ref/digest, no executable binding exists.
 
 This section owns the ReviewDecision-specific validation payload. It does not restate generic challenge, receipt, retention, transaction sequencing, or persistence machinery.
 
@@ -377,7 +380,7 @@ Before commit, the protected-effect gate must:
 3. verify the result-schema ref, version, and digest owned by that contract;
 4. validate the proposed result against that result schema;
 5. evaluate every applicable `RD_*` mapping and `PC_*` postcondition; and
-6. supply an overall passing immutable trace to the shared atomic transaction gate.
+6. supply an overall passing immutable trace to the shared atomic transaction gate whose protocol remains separately owned by `samovers/OFARM#19`.
 
 If any item fails, no ReviewDecision or companion effect commits and single-use consumption does not commit. The existing authorization result remains its authority-gate result; `ALLOW` is not rewritten to `DENY` or treated as proof that the domain gate passed.
 
@@ -417,6 +420,7 @@ This candidate states only those ReviewDecision-specific preconditions and effec
 | ReviewDecision is retyped as an event envelope or assigned an event family field | `PC_CLASSIFICATION` fails |
 | associated act is not `GovernanceEvent` or record class is not `governance decision` | `PC_CLASSIFICATION` fails |
 | contract, schema, intent, result, or resolved-input digest changes | binding or mapping fails |
+| `RD_TARGET_KIND` fails but dependent `RD_TARGET_FAMILY` is reported as `PASS`, `FAIL`, or `NOT_APPLICABLE` instead of dependency-bound `NOT_EVALUATED` | trace conformance fails; no domain result commits |
 | one required mapping/postcondition disposition is missing | overall trace cannot pass |
 | duplicate decision ID resolves to different bytes | `PC_UNIQUE_ID` fails |
 | relevant state changes between validation and atomic commit | shared transaction gate fails and requires re-evaluation |
@@ -472,7 +476,7 @@ The bundle cannot point at this prose file as an executable contract.
 | forbid substitution, unbound consequence creation, mutation, and promotion shortcuts | sections 7, 11, 13, and 14 |
 | separate `GovernanceEvent` act from `governance decision` record | section 10 |
 | content-address contract and deterministic digest projection | sections 8.1 and 12.1 |
-| immutable mapping/postcondition trace with required digests | section 12.2 |
+| immutable dependency-aware mapping/postcondition trace with required digests | sections 12.2 and 14 |
 | validate before atomic commit without rewriting authorization | section 13 |
 | production-reachable hostile cases | section 14 |
 | later whole-contract bundle registration without duplicating domain semantics or creating the bundle here | section 16 |
@@ -490,8 +494,8 @@ The bundle cannot point at this prose file as an executable contract.
 | Are case targets eligible only for accept and reject-or-contest under the proposed action split? | yes | yes |
 | Does case resolution preserve valid v0.1 compatibility while rejecting superseded, unknown, mutable, or unresolved carriers? | yes | yes |
 | Are target kind, sole logical ref, one immutable selector, and domain-family resolution exact? | yes | yes |
-| Is the future `reviewedArtifactFamily` enum widened from six values to nine by adding `PLANNED_INTERVENTION`, `EXECUTION_REPORT`, and `REVIEW_REQUEST`? | yes | yes |
-| Is exact `ASSERTION_RECORD` target coverage narrowed from six current subtypes to structure, operation-claim, and compliance, excluding observation, lot, and other assertions? | yes; re-enabling an excluded subtype requires separate authorization and domain amendments | yes |
+| Is the future `reviewedArtifactFamily` enum change classified `WIDENING`, from six values to nine by adding `PLANNED_INTERVENTION`, `EXECUTION_REPORT`, and `REVIEW_REQUEST`? | yes | yes |
+| Is exact `ASSERTION_RECORD` target coverage classified `NARROWING`, from six current subtypes to structure, operation-claim, and compliance, excluding observation, lot, and other assertions? | yes; re-enabling an excluded subtype requires separate authorization and domain amendments | yes |
 | Are action/outcome pairs fixed exactly by section 9? | yes | yes |
 | Must reject versus contest be intent-bound? | yes | yes |
 | Are deciding Party, authenticated human, and immutable finalization evidence separate fields? | yes | yes |
@@ -502,8 +506,9 @@ The bundle cannot point at this prose file as an executable contract.
 | May consequence links exist only for accept/accepted under the separately governed composition in section 7? | yes; reject, contest, and supersede require absence | yes |
 | Does that composition bind the exact governing authority basis without inventing a consequence action? | yes | yes |
 | Is the act `GovernanceEvent` while the record class is `governance decision`? | yes | yes |
-| Must every `RD_*` and `PC_*` item have an explicit trace disposition? | yes | yes |
+| Must every `RD_*` and `PC_*` item have an explicit `PASS`, `FAIL`, legitimate `NOT_APPLICABLE`, or dependency-bound `NOT_EVALUATED` trace disposition, with overall `PASS` requiring every required item to pass? | yes | yes |
 | Does protected-effect failure leave authorization evidence unchanged? | yes | yes |
+| Must `samovers/OFARM#19` close the shared atomic transaction and consumption protocol before machine materialization, hostile conformance, or runtime implementation relies on that gate? | yes | yes |
 | Does the later bundle bind the protected-effect contract as one unit while schema, mappings, shared evidence, conformance, acceptance, and promotion remain separately owned? | yes | yes |
 
 Any requested authorization, consequence-contract, generic composition, shared-evidence, runtime, or currentness change must remain in its own trust-boundary PR.
@@ -514,12 +519,13 @@ Any requested authorization, consequence-contract, generic composition, shared-e
 
 1. **Authorization prerequisite:** satisfied by renewed semantic approval for exact PR #11 head `03a21f669ee04f96d444e14f00ae7212cab04803`; re-open this gate if that head's semantics change.
 2. **Phase A domain approval:** approve or amend this one-file ReviewDecision candidate.
-3. **Domain materialization:** separately create the non-default machine contract, exact selectors, and `ReviewDecision v0.2` schema; stop and return to the authorization prerequisite if the common-envelope scope cannot map completely and unambiguously to `anchorScopes`.
-4. **Shared evidence materialization:** separately create the finalization-evidence, validation-trace envelope, and governed-effect receipt profiles.
-5. **Optional composition closure:** if accepted-branch companion consequences are implemented, separately review their exact governing authority basis, derived-result rule, consequence contract, and composition binding without inventing a new action locally.
-6. **Bundle binding:** separately bind the exact reviewed protected-effect contract identity/ref/digest as one unit into `AuthorizationPolicyBundle v0.2`.
-7. **Hostile conformance:** exercise section 14 through production-reachable paths.
-8. **Acceptance and promotion:** accept exact bytes and change current/default status only through separate governed steps.
-9. **OFARM2 extraction:** consume only promoted, digest-verified canonical bytes.
+3. **Governed transaction prerequisite:** close `samovers/OFARM#19` as its own trust-boundary PR before machine materialization, hostile conformance, or runtime implementation claims the shared atomic transaction and consumption gate used by this contract.
+4. **Domain materialization:** separately create the non-default machine contract, exact selectors, and `ReviewDecision v0.2` schema; stop and return to the authorization prerequisite if the common-envelope scope cannot map completely and unambiguously to `anchorScopes`.
+5. **Shared evidence materialization:** separately create the finalization-evidence, validation-trace envelope, and governed-effect receipt profiles.
+6. **Optional composition closure:** if accepted-branch companion consequences are implemented, separately review their exact governing authority basis, derived-result rule, consequence contract, and composition binding without inventing a new action locally.
+7. **Bundle binding:** separately bind the exact reviewed protected-effect contract identity/ref/digest as one unit into `AuthorizationPolicyBundle v0.2`.
+8. **Hostile conformance:** exercise section 14 through production-reachable paths.
+9. **Acceptance and promotion:** accept exact bytes and change current/default status only through separate governed steps.
+10. **OFARM2 extraction:** consume only promoted, digest-verified canonical bytes.
 
 Phase A is complete when issue #15's criteria are reviewed, the exact PR #11 dependency remains approved, and this PR still changes only this non-authoritative candidate file.
