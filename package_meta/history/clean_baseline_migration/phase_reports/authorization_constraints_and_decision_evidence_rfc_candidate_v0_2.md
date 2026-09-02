@@ -969,13 +969,15 @@ No later step may repair missing proof from an earlier step by trusting a caller
 
 Outcome is computed over all completely evaluated paths, not over the first database row returned.
 
-If one or more paths fully allow, the selected path is the lowest canonical tuple:
+After global preconditions pass and section 15.5 determines a winning path disposition, the selected path is the path having that disposition with the lowest canonical tuple:
 
 1. path type order: direct Party grant, role-targeted grant, delegated grant, SharingGrant access path;
 2. immutable source record identifier in code-point order; and
 3. immutable delegation/source record identifiers in code-point order.
 
-All other evaluated paths remain summarized in the trace. Selection order changes which sufficient basis is cited, not whether incomplete authority becomes complete.
+This rule applies unchanged when the winning disposition is `PATH_ALLOW`, `PATH_REQUIRE_HUMAN_APPROVAL`, `PATH_REQUIRE_REVIEW`, or `PATH_DENY`. `PATH_INAPPLICABLE` never wins and is never selected. If no applicable path exists, including when no candidate path exists or every evaluated path is `PATH_INAPPLICABLE`, no winning path disposition exists and no path is selected; sections 15.5 and 15.6 define the resulting denial.
+
+All other evaluated paths remain summarized in the trace. Selection order changes which basis and path-local primary reason are cited, not whether incomplete authority becomes complete.
 
 ### 15.3 Per-path dispositions
 
@@ -1011,27 +1013,30 @@ Global failures never produce `ALLOW` or `REQUIRE_HUMAN_APPROVAL`. When any glob
 
 After global preconditions pass, path outcomes aggregate in this exact order:
 
-1. if any path is `PATH_ALLOW`, outcome is `ALLOW`;
-2. otherwise, if any path is `PATH_REQUIRE_HUMAN_APPROVAL`, outcome is `REQUIRE_HUMAN_APPROVAL`;
-3. otherwise, if any path is `PATH_REQUIRE_REVIEW`, outcome is `REQUIRE_REVIEW`;
-4. otherwise, outcome is `DENY`.
+1. if any path is `PATH_ALLOW`, the winning path disposition is `PATH_ALLOW` and outcome is `ALLOW`;
+2. otherwise, if any path is `PATH_REQUIRE_HUMAN_APPROVAL`, the winning path disposition is `PATH_REQUIRE_HUMAN_APPROVAL` and outcome is `REQUIRE_HUMAN_APPROVAL`;
+3. otherwise, if any path is `PATH_REQUIRE_REVIEW`, the winning path disposition is `PATH_REQUIRE_REVIEW` and outcome is `REQUIRE_REVIEW`;
+4. otherwise, if any path is `PATH_DENY`, the winning path disposition is `PATH_DENY` and outcome is `DENY`; and
+5. otherwise, no applicable path exists, no winning path disposition or selected path exists, outcome is `DENY`, and primary reason is `NO_AUTHORITY_BASIS`.
 
 Therefore, a complete path that lacks only fresh human approval outranks an unrelated path with unsupported revocation-narrowing semantics. A complete `PATH_ALLOW` also outranks an unrelated revoked path. Revocation of the source actually selected or a global revocation/tenant blocker still prevents `ALLOW`.
 
-The selected path is chosen by section 15.2 from paths with the winning disposition.
+When a winning path disposition exists, the selected path is chosen by section 15.2 from paths having that disposition.
 
 ### 15.6 Primary reason selection
 
-When global preconditions pass, primary reason is outcome-specific over the selected path:
+When global preconditions pass and a winning path disposition exists, primary reason is outcome-specific over the path selected by section 15.2:
 
 - `ALLOW` uses `AUTHORIZED_BY_SELECTED_PATH`;
 - `REQUIRE_HUMAN_APPROVAL` uses `HUMAN_FINAL_ACTION_REQUIRED` from the selected path;
 - `REQUIRE_REVIEW` uses the lowest numeric review rank from the selected path; and
-- `DENY` uses the lowest numeric deny rank from the selected path, or `NO_AUTHORITY_BASIS` when no applicable path exists.
+- `DENY` uses the lowest numeric deny rank from the selected path.
+
+When no applicable path exists, no path is selected, outcome is `DENY`, and primary reason is `NO_AUTHORITY_BASIS`.
 
 `APPROVAL_CHALLENGE_STALE`, `APPROVAL_EXPIRED`, `APPROVAL_SEPARATION_UNSATISFIED`, and `APPROVER_AUTHORITY_INSUFFICIENT` are approval-lifecycle diagnostics. They explain why the selected otherwise-sufficient path still lacks consumable approval; none may replace `HUMAN_FINAL_ACTION_REQUIRED` as the primary reason. `APPROVAL_SEPARATION_UNSATISFIED` remains reserved until a current action rule selects `DISTINCT_APPROVER_REQUIRED`.
 
-Problems from non-selected paths remain ordered diagnostics and can never become the primary reason for an `ALLOW` or human-approval result. A global result uses the primary-reason rule in section 15.4 and has no selected path. Numeric reason ranks are fixed in section 20; free-form severity does not select the primary reason.
+Problems from non-selected paths remain ordered diagnostics and can never become the primary reason for an `ALLOW` or human-approval result. A global result uses the primary-reason rule in section 15.4 and has no selected path. Numeric reason ranks are fixed in section 20 and select a primary reason only within the already-selected path; neither reason rank nor free-form severity selects the path.
 
 ---
 
@@ -1630,7 +1635,7 @@ The accepted design and conformance suite must preserve these invariants:
 29. A SharingGrant grants read/receive use only for its exact grantee and immutable artifact revision.
 30. Every effective revocation is considered from a completeness-proven snapshot and watermark and targets one exact immutable source ID; no lineage reach is inferred.
 31. Partial paths or paths with different authority subjects are not unioned; mixed paths aggregate under one total lattice.
-32. The same immutable intent/view, relevant snapshot facts, policy bytes, and basis revisions produce the same authority result and ordered evidence.
+32. The same immutable intent/view, relevant snapshot facts, policy bytes, and basis revisions produce the same selected path, authority result, primary reason, and ordered evidence.
 33. An internal domain effect passes its separately owned, rule-bound protected-effect contract and commits with its authorization evidence in one atomic transaction; authorization audit records do not create domain truth or event/commit classification.
 34. Every unredacted read row, field, aggregate, count, metadata item, and lineage item has result-coverage proof under one governed snapshot before disclosure, and its receipt states whether payload bytes are retained/reconstructible or digest-only.
 35. CP2 qualification describes a read result but never supplies missing read authority.
@@ -1758,6 +1763,9 @@ The future executable conformance suite must include at least:
 | One path lacks only human approval, one has an unsupported evidence policy, and one is revoked | `REQUIRE_HUMAN_APPROVAL`; selected human path supplies `HUMAN_FINAL_ACTION_REQUIRED` as primary |
 | One path allows and another is revoked | `ALLOW`; `AUTHORIZED_BY_SELECTED_PATH` is primary and revocation remains diagnostic |
 | No path allows; one requires review and all others deny | `REQUIRE_REVIEW` with the selected review path's lowest rank |
+| Two `PATH_REQUIRE_REVIEW` paths have different path types, source IDs, and review reasons, and their input enumeration is reversed | both enumerations produce `REQUIRE_REVIEW`, select the same lowest section 15.2 canonical tuple among the review paths, and then use that path's lowest review rank as primary |
+| Two `PATH_DENY` paths have different path types, source IDs, and denial reasons, no higher disposition exists, and their input enumeration is reversed | both enumerations produce `DENY`, select the same lowest section 15.2 canonical tuple among the denial paths, and then use that path's lowest deny rank as primary |
+| No candidate path exists or every evaluated path is `PATH_INAPPLICABLE` | `DENY` with `NO_AUTHORITY_BASIS`; no winning path disposition or selected path |
 | Policy digest mismatches and untrusted bytes would otherwise imply a tenant-boundary mismatch | `REQUIRE_REVIEW` with `POLICY_DIGEST_MISMATCH`; target/effect-subject proof and tenant isolation are `NOT_EVALUATED`; no path aggregation |
 | Authority snapshot is unavailable and dependent target/effect-subject or tenant facts cannot be evaluated truthfully | `REQUIRE_REVIEW` with `AUTHORIZATION_SNAPSHOT_UNAVAILABLE`; dependent global checks are `NOT_EVALUATED`, not fabricated failures |
 | A writer attempts to store changed source bytes under an existing v0.2 grant/delegation/sharing ID | schema/storage conformance failure; the changed source must receive a new governed ID |
@@ -1809,7 +1817,7 @@ The following examples document preserved closed vocabulary but are not producti
 | Actor posture is overloaded and conflicts with CP3 | sections 6 and 7 preserve separate axes and exact CP3 values |
 | Delegation and evidence constraints are not encodable | sections 10, 12, and 17.3 |
 | Target model cannot represent prospective creation/installation | sections 7 and 8 separate resource, subject, and existence posture |
-| Mixed-path outcome and reason selection is incomplete | sections 15 and 20 |
+| Mixed-path outcome, selected-path, and reason selection is incomplete | sections 15, 20, and 22 |
 | Logical refs and one policy digest do not guarantee reconstruction | sections 16, 17, and 18.8 |
 | Header reverses dependency direction | header now says `Triggered by` and explicitly `Blocks` OFARM2 work |
 | Action rule is incomplete and caller can select a weaker intent schema | sections 7.4 through 7.8, 8.2, 17, and 18.1 |
@@ -1943,7 +1951,7 @@ Before accepted-law work begins, stewards should record explicit decisions for a
 | Is SharingGrant an exact-artifact access basis only for `RECEIVE_READ_DATA`? | yes | yes |
 | Must authority-target, other typed inputs, effect-subject, scope, evidence, and sovereignty proof use separate typed fields? | yes | yes |
 | Must every result bind retrievable immutable policy bytes and an authority-evaluation snapshot? | yes | yes |
-| Is the total path aggregation lattice and numeric reason table in sections 15 and 20 accepted? | yes | yes |
+| Is the total path aggregation lattice, canonical selected-path tuple for every winning disposition, no-authority-basis exception, and numeric reason table in sections 15 and 20 accepted? | yes | yes |
 | Is `HUMAN_FINAL_ACTION_REQUIRED` the only primary reason for `REQUIRE_HUMAN_APPROVAL`, with approval-lifecycle codes diagnostic only? | yes | yes |
 | Do simultaneous authorization-global failures choose `DENY` before `REQUIRE_REVIEW`, then the lowest rank within that outcome, without evaluating dependent facts from unavailable prerequisites? | yes | yes |
 | Are malformed/base-schema/intent-schema failures ingress rejections outside the authorization outcome lattice? | yes | yes |
