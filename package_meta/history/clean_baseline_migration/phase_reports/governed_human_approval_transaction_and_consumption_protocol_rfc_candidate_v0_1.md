@@ -13,9 +13,9 @@ Stewards are asked to approve, reject, or amend these bounded decisions:
 
 1. the protocol preserves the two human-finalization modes selected by PR #11: `FRESH_HUMAN_APPROVAL_REQUIRED` uses a **two-stage reservation/challenge and finalization protocol**, while `DIRECT_HUMAN_ACTION_REQUIRED` uses one short direct-human finalization transaction and no separate approval challenge;
 2. the fresh-approval reservation stage durably binds one logical operation, challenge, intended approver, exact effect intent, display evidence, preliminary authority-relevant state, and expiry, but grants no authority, consumes no decision, creates no protected effect, and reserves no domain truth;
-3. after the applicable explicit human act, the shared short finalization transaction re-resolves the principal and session, re-evaluates all current authority and other relevant state, validates the proposed domain effect, and commits the effect, decision evidence, finalization evidence, single-use consumption, and governed-effect receipt atomically;
+3. after the applicable explicit human act, the shared short finalization transaction re-resolves the principal and session, revalidates current state, constructs uncommitted mode-correct finalization evidence for the final authorization evaluation, validates the proposed domain effect, and atomically commits that evidence with the effect, decision evidence, single-use consumption, and governed-effect receipt;
 4. for fresh approval, challenge and final `authorityRelevantStateDigest` values must match exactly; for both modes, a separate transaction guard prevents any relevant authority, policy, evidence, resource, or protected-effect state used by finalization from changing before commit;
-5. one operation-boundary-, requester-, representation-, action-, and human-finalization-scoped idempotency key identifies one logical operation digest, permits safe retrieval and retry of that same operation, and can never be reused for different intent bytes or a second protected effect;
+5. one operation-boundary-, requester-, representation-, and action-scoped idempotency key identifies one logical operation digest; the digest still binds the rule-selected human-finalization requirement, so a mode change is a conflicting replay rather than a new idempotency namespace;
 6. every authorization decision is single-use, and every separate human approval is single-use where that mode applies; concurrent finalizers are serialized by durable uniqueness and commit guards rather than by an authority lease;
 7. known rollback, state drift, expiry, cancellation, protected-effect failure, persistence failure, and uncertain commit remain distinct protocol outcomes and never fabricate or rewrite an authorization outcome;
 8. an uncertain commit is reconciled by authoritative receipt and consumption lookup before any retry; the runtime must not blindly reapply an effect whose commit status is unknown;
@@ -180,11 +180,10 @@ The authoritative idempotency scope is the tuple:
 
 ```text
 (operationBoundaryKind, operationBoundaryRef, authenticatedRequestingPrincipalRef,
- representedPartyRef-or-null, actionClass, humanFinalizationRequirement,
- operationIdempotencyKey)
+ representedPartyRef-or-null, actionClass, operationIdempotencyKey)
 ```
 
-That tuple maps to exactly one `operationBindingDigest` and is never rebound under v0.1. A retry with the same tuple and digest retrieves the existing lifecycle state or committed receipt. The same tuple with a different digest is a conflicting replay and can never create another reservation or effect. Evidence-retention policy may govern bulky challenge or display bytes, but it must preserve enough immutable binding or tombstone evidence to prevent unsafe tuple reuse while the operation can be replayed or its committed result/outbox remains part of history.
+That tuple maps to exactly one `operationBindingDigest` and is never rebound under v0.1. A retry with the same tuple and digest retrieves or reconciles the existing lifecycle state or committed receipt. The same tuple with a different digest, including a digest changed by a newly rule-selected human-finalization requirement, is a conflicting replay and can never create another reservation or effect. An intentionally new operation requires a new `operationIdempotencyKey`. Evidence-retention policy may govern bulky challenge or display bytes, but it must preserve enough immutable binding or tombstone evidence to prevent unsafe tuple reuse while the operation can be replayed or its committed result/outbox remains part of history.
 
 For fresh approval, policy, rule, challenge, snapshot, and display bindings belong to a reservation generation, not the logical operation digest. If one reservation becomes terminal without an effect because its policy, challenge, display, or relevant state became stale, the same logical operation may receive a new sequential reservation generation under current bindings. Generations cannot overlap, and the logical operation can still commit at most once. Direct-human finalization has no reservation generation; an exact retry is resolved through the logical operation and final transaction attempt.
 
@@ -217,23 +216,26 @@ One reservation generation has exactly one derived state:
 | State | Meaning |
 |---|---|
 | `OPEN` | challenge is committed, unexpired, uncancelled, and no terminal finalization exists |
-| `FINALIZED` | the logical operation committed successfully and the receipt is authoritative |
+| `FINALIZED` | the successful receipt and reservation-success terminal record bind this exact reservation generation |
 | `INVALIDATED` | a human act or finalization attempt established that the challenge can no longer be used, including relevant-state drift |
 | `CANCELLED` | an allowed cancellation terminalized the reservation before commit |
 | `EXPIRED` | trusted time reached the exclusive reservation or challenge cutoff before successful commit |
 
-`FINALIZING` is not a durable semantic state. It may be a short-lived operational lock while a final transaction is active. A crash cannot leave an authoritative reservation permanently finalizing.
+`FINALIZING` is not a durable semantic state. It may be a short-lived operational lock while a final transaction is active. A crash cannot leave an authoritative reservation permanently finalizing. `FINALIZED`, `INVALIDATED`, `CANCELLED`, and `EXPIRED` are permanent terminal states of the exact generation they name; later operation history cannot rewrite them.
 
-An unresolved `OUTCOME_UNKNOWN` attempt blocks any new finalization, cancellation, expiry terminalization, or replacement generation until reconciliation establishes whether the operation is `FINALIZED` or no effect committed.
+An unresolved `OUTCOME_UNKNOWN` attempt blocks any new finalization, cancellation, expiry terminalization, or replacement generation until reconciliation establishes whether that exact generation finalized or no effect committed.
 
 ### 7.2 Reservation generation rules
 
 - At most one generation for a logical operation is `OPEN`.
-- `FINALIZED` is terminal for the logical operation, not only the generation.
+- `FINALIZED` applies only to the generation named by the successful receipt and reservation-success terminal record.
+- The unique successful receipt separately makes the logical operation committed and prevents every later generation.
 - `INVALIDATED`, `CANCELLED`, or `EXPIRED` permits a later generation only for the same `operationBindingDigest` and only after the prior terminal record is durable.
 - A replacement generation gets a new reservation and challenge identity and re-renders current display bytes under current policy.
 - A human act is valid only for the exact challenge and generation it names.
 - No transition deletes or rewrites an earlier reservation, challenge, act, attempt, or outcome.
+
+Therefore, if generation 1 expires and generation 2 later commits, generation 1 remains `EXPIRED`, generation 2 is `FINALIZED`, and the logical operation is committed because the unique receipt binds generation 2.
 
 ### 7.3 Expiry
 
@@ -252,7 +254,7 @@ One short reservation transaction must perform this sequence:
 1. validate the request and the rule-selected effect-intent schema, then compute and verify `effectIntentDigest` and `operationBindingDigest`;
 2. resolve the tenant/deployment scope and the authenticated requesting principal through the trusted principal boundary;
 3. resolve the exact intended authenticated natural-person approver and preliminary representation binding;
-4. verify the complete operation-boundary/requester/representation/action/human-finalization-scoped idempotency tuple, returning an existing matching lifecycle or rejecting a conflicting replay;
+4. verify the complete operation-boundary/requester/representation/action-scoped idempotency tuple, returning or reconciling an existing matching lifecycle and rejecting any changed operation digest, including a changed rule-selected human-finalization mode, as a conflicting replay;
 5. resolve and digest-verify the exact governed transaction policy selected by the governed runtime-surface binding and bind it to this reservation generation;
 6. evaluate the requesting path and the intended approver's preliminary same-action natural-person path under the exact PR #11 rule without treating either preliminary result as a consumable final decision;
 7. construct the rule-owned challenge authority snapshot and exact `authorityRelevantStateDigest` projection;
@@ -294,6 +296,8 @@ Direct-human finalization instead requires the authenticated natural person to b
 The human-act submission is not authority by itself. A bare boolean, UI event, client timestamp, sponsor reference, agent assertion, copied approval ID, or signature over different bytes cannot enter finalization.
 
 One `humanActSubmissionId` maps to one complete act digest within the logical operation and, for fresh approval, its reservation generation. An exact retry reuses it. The same ID with different bytes, or a different affirmative act after one has been durably admitted for the applicable operation/generation, is a conflict. A fresh-approval mode creates a consumable human-approval/finalization profile only from that exact act inside a finalization transaction. A direct-human mode records direct-human finalization evidence instead. In neither mode does the raw act become portable authority.
+
+Inside the finalization transaction, the runtime constructs the applicable immutable finalization-evidence candidate with a deterministic identity and digest before final authorization evaluation. For fresh approval, that candidate is the PR #11 human-approval profile bound to the final snapshot, equal authority-relevant-state digest, independently eligible approver path, exact challenge, display, effect intent, policy/rule, and `approvalExpiresAt`. For direct-human action, it is the exact direct-principal act and representation evidence required as part of the request/effect transaction. The candidate remains transaction-local and non-consumable until the complete success set commits; rollback leaves no durable approval or portable finalization authority.
 
 Trusted `humanActedAt` is the server-observed act time under the authenticated boundary. For fresh approval it must precede the exclusive challenge and reservation cutoffs. For direct-human finalization it must fall within the authenticated session and final transaction cutoffs selected by PR #11 and this protocol. Client time may be retained as non-authoritative telemetry but cannot establish timeliness.
 
@@ -440,26 +444,26 @@ One successful finalization transaction performs this exact order:
 1. admit and guard the exact logical operation and human act plus, for fresh approval, the open reservation and challenge under section 9;
 2. establish trusted time, deadline, snapshot, policy, and complete currentness guards under section 10;
 3. perform every post-act revalidation plus the challenge/final relevant-state comparison when fresh approval applies under section 11;
-4. create the final authorization request/result/trace bundle under the approved PR #11 semantics;
-5. require the final authority outcome and human-finalization disposition needed for the protected action;
+4. construct the prospective immutable mode-correct finalization-evidence object with its deterministic identity and digest; for fresh approval, bind every final snapshot, relevant-state, approver-path, challenge, display, effect-intent, policy/rule, and `approvalExpiresAt` field required by PR #11, but do not expose or durably commit it;
+5. supply that prospective evidence to the PR #11 evaluator, create the final authorization request/result/trace bundle, and require the final authority outcome and human-finalization disposition needed for the protected action;
 6. build the proposed result and evaluate every applicable non-authorization `EnforcementChain` gate;
 7. validate the complete protected-effect handoff under section 12;
-8. construct mode-correct finalization evidence, single-use decision consumption, fresh-approval consumption and reservation terminalization where applicable, and the governed-effect receipt;
+8. construct single-use decision consumption, fresh-approval consumption and the exact-generation reservation-success terminal record where applicable, and the governed-effect receipt, all bound to the prospective finalization evidence;
 9. recheck the transaction deadline, `decisionValidUntil`, complete commit guard, and every uniqueness constraint; and
-10. commit the complete success set atomically, then expose the receipt.
+10. commit the complete success set, including the previously prospective finalization evidence, atomically, then expose the receipt.
 
-No successful component is durably visible before step 10.
+No successful component is durably visible before step 10. If authorization, another gate, commit, or the transaction fails, the prospective evidence is discarded with the transaction and cannot be consumed or presented as an approval. Durable failure-attempt evidence may bind its candidate identity/digest and rejection disposition, but cannot materialize that candidate as successful finalization evidence or portable authority.
 
 ### 13.2 Required atomic success set
 
 The success commit contains, as applicable:
 
 - final authorization request, result, and full internal trace evidence plus their `decisionBundleDigest`;
-- finalization evidence bound to the exact act and final snapshot, plus exact challenge, display, approver, and approval bindings only for fresh approval;
+- the mode-correct finalization evidence admitted prospectively before authorization and bound to the exact act and final snapshot, plus exact challenge, display, approver, and approval bindings only for fresh approval;
 - exactly one decision consumption record and, for fresh approval, exactly one approval consumption binding;
 - exactly the protected result set admitted by the protected-effect contract and any separately approved composition;
 - protected-effect and other applicable gate validation traces;
-- exactly one reservation-success terminal record when fresh approval applies;
+- exactly one reservation-success terminal record bound to the finalized generation when fresh approval applies;
 - exactly one governed-effect receipt; and
 - for an approved outbox posture, the exact immutable outbox entry rather than an external send.
 
@@ -648,8 +652,8 @@ This candidate adds no machine schema. Later materialization must keep record ow
 | Evidence or record | Semantic owner | Transaction obligation |
 |---|---|---|
 | authorization request/result/full trace | approved PR #11 authorization boundary | create under final snapshot; bind and commit according to success or truthful no-effect posture |
-| approval challenge and human approval evidence | approved PR #11 authorization/finalization-evidence boundary | fresh approval only: stage-one challenge is immutable and final approval binds the exact act and final state |
-| direct-human finalization evidence | approved PR #11 authorization/finalization-evidence boundary | direct-human only: bind the direct authenticated natural person, exact act, final state, and rule-selected posture without a challenge or separate approval |
+| approval challenge and human approval evidence | approved PR #11 authorization/finalization-evidence boundary | fresh approval only: stage-one challenge is immutable; construct the final approval candidate from the exact act and final state before authorization evaluation, then commit it only with successful effect/outbox |
+| direct-human finalization evidence | approved PR #11 authorization/finalization-evidence boundary | direct-human only: construct the finalization-evidence candidate before authorization evaluation and bind the direct authenticated natural person, exact act, final state, and rule-selected posture without a challenge or separate approval; commit it only with successful effect/outbox |
 | reservation generation | issue #19 transaction boundary | fresh approval only: record identity, lifecycle transition, and non-authority posture |
 | finalization attempt | issue #19 transaction boundary | record the mode, logical operation, transaction attempt, and truthful outcome for either mode |
 | decision consumption and conditional approval consumption | PR #11 finalization-evidence package with issue #19 atomicity and uniqueness rules | commit decision consumption exactly once only with successful effect/outbox; add approval consumption only for fresh approval |
@@ -710,8 +714,10 @@ It does not supply their missing result carriers, mappings, derivations, event/c
 | fresh-approval runtime leaves a database transaction or row lock open while the human considers the challenge | protocol conformance failure; no v0.1 lifecycle claim |
 | fresh-approval reservation is treated as authority, approval, a domain-state lock, or proof finalization will pass | conformance failure; reservation has no such effect |
 | same idempotency tuple is replayed with different intent, principal binding, Party binding, schema, or action | conflicting replay; no new reservation or effect |
+| the rule-selected human-finalization mode changes between first attempt and retry under the same tuple and caller key | retrieve or reconcile the earlier lifecycle, then reject the changed `operationBindingDigest` as a conflicting replay; never create a second logical operation |
 | exact fresh-approval stage-one retry occurs after commit but before challenge response | return the existing challenge and open generation |
 | two fresh-approval reservation generations are open for one logical operation | uniqueness failure; neither may silently supersede the other |
+| fresh-approval generation 1 expires and generation 2 later commits successfully | generation 1 remains `EXPIRED`; generation 2 is `FINALIZED`; the unique receipt makes the logical operation committed and prevents another generation |
 | wrong principal, sponsor, organization, agent, session, or representation submits the act | finalization admission fails; no effect or consumption |
 | direct-human action is routed through a sponsor, intended approver, separate approval, or synthetic challenge | rule-mode binding failure; no effect or consumption |
 | fresh-approval human acknowledges display bytes or renderer metadata different from the challenge | act binding fails; no effect or consumption |
@@ -719,6 +725,7 @@ It does not supply their missing result carriers, mappings, derivations, event/c
 | caller time is used instead of trusted `humanActedAt` | protocol conformance failure |
 | fresh-approval challenge and final authority-relevant digests differ but current evaluation would still allow | invalidate the generation and issue a new challenge; no effect |
 | fresh-approval unrelated history advances outside the exact relevant-state projection and all guards remain valid | challenge is not invalidated solely for that unrelated change |
+| fresh-approval final authorization reaches `ALLOW` from the raw human act without a prospective immutable approval/finalization-evidence candidate bound to the final snapshot | protocol conformance failure; no effect, consumption, approval record, or success receipt |
 | active revocation is inserted after final read but before commit and negative lookup is not predicate/watermark guarded | commit-guard conformance failure |
 | role, representation, grant, delegation, resource, evidence, policy, or approval state changes after act | final current-state revalidation or commit guard blocks the effect |
 | transaction-policy ref/digest or rule-selected human-finalization mode is substituted after operation binding | binding failure; no effect or consumption |
@@ -773,17 +780,20 @@ Fixtures must enter through the production mode-correct admission, authorization
 | Is a fresh-approval reservation non-exclusive and incapable of granting authority or reserving domain truth? | yes | yes |
 | Is successful finalization the sole protected-effect linearization point? | yes | yes |
 | Does the outbox posture stop the internal transaction before external release? | yes; issue #13 remains separate | yes |
-| Does one operation-boundary/requester/representation/action/human-finalization/idempotency tuple bind one logical operation digest? | yes | yes |
+| Does one operation-boundary/requester/representation/action/idempotency tuple bind one logical operation digest? | yes | yes |
+| Does the operation digest still bind the rule-selected human-finalization requirement so a mode change under that tuple is a conflict? | yes | yes |
 | Can only the same logical operation reuse that tuple, with different bytes treated as conflict? | yes | yes |
 | May a terminal non-success fresh-approval generation be replaced sequentially while the logical operation still commits at most once? | yes | yes |
 | Are fresh-approval reservation records immutable while mutable coordination rows remain derived? | yes | yes |
 | Are `OPEN`, `FINALIZED`, `INVALIDATED`, `CANCELLED`, and `EXPIRED` the complete fresh-approval reservation states? | yes | yes |
+| Does `FINALIZED` bind only the exact successful reservation generation while the unique receipt separately makes the logical operation committed? | yes | yes |
 | Is fresh-approval `FINALIZING` operational rather than a durable semantic state? | yes | yes |
 | Must the same intended natural person act on the exact fresh-approval challenge and display bytes before exclusive expiry? | yes | yes |
 | Does trusted server-side act time control timeliness? | yes | yes |
 | Does a content-addressed transaction policy own deadline, atomic-boundary, guard, and status-lookup semantics? | yes | yes |
 | Does PR #11 remain owner of authorization cutoffs, `decisionValidUntil`, relevant-state projection, and approver eligibility? | yes | yes |
 | Must fresh-approval challenge and final authority-relevant digests match exactly? | yes | yes |
+| Must mode-correct prospective finalization evidence be constructed before final authorization evaluation but remain uncommitted and non-portable until atomic success? | yes | yes |
 | Must the broader complete transaction guard also remain stable through commit? | yes | yes |
 | Must negative facts and set membership use completeness watermarks or predicate guards? | yes | yes |
 | Does every human-finalized state-affecting action entering this protocol require an exact rule-bound protected-effect handoff? | yes | yes |
