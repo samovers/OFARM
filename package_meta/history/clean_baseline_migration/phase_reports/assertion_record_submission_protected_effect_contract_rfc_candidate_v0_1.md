@@ -21,7 +21,7 @@ Stewards are asked to approve, reject, or amend these bounded decisions:
 6. for an operation claim, the current reporter remains separate from the alleged performer and performer authority remains `NOT_EVALUATED_BY_AUTHORIZATION`;
 7. the result records have commit classes `STRUCTURE_ASSERTION`, `OPERATION_CLAIM`, and `COMPLIANCE_ASSERTION`; assertion action or subtype never derives a primary event family;
 8. when an ingress path associates a governed semantic event, the contract consumes its exact immutable `SemanticEventEnvelope` binding and separately validated primary family, checks assertion-specific subject/scope/time compatibility, and records the association only in the protected-effect trace; without such a binding this contract makes no event-family claim;
-9. a correction is a new pending-review assertion carrying one optional exact immutable `supersedesAssertionRecordBinding`; it never edits, deactivates, accepts, or replaces the prior assertion by itself;
+9. a correction is a new pending-review assertion carrying one optional exact immutable `supersedesAssertionRecordBinding` to a prior assertion that passes the closed same-context predicate in section 5.5; it never edits, deactivates, accepts, or replaces the prior assertion by itself;
 10. this contract creates no accepted structural state, accepted executed intervention consequence, compliance fact, ReviewDecision, SemanticEventEnvelope, current-state materialization, or mutation of prior history;
 11. a narrow future `AssertionRecord v0.2` carrier is required because v0.1 cannot carry immutable subject, scope, evidence, body, temporal, lineage, and branch-specific bindings without relying on a competing sidecar description; and
 12. a mapping or postcondition failure aborts the assertion effect without rewriting the prior authorization result.
@@ -154,7 +154,7 @@ The future carrier is a versioned extension. Existing v0.1 records remain valid 
 | `assertionActPosture` | exactly `TRUSTED_ONLINE_SUBMISSION` or `VERIFIED_OFFLINE_SUBMISSION` |
 | `assertionActEvidenceBinding` | required only for verified offline submission and absent for trusted online submission |
 | `subjectTime` | exact closed tagged domain-time value from section 6.4 |
-| `assertionBody` | exact action-typed body copied from the validated intent; includes `assertionPosture` exactly `INITIAL` or `CORRECTION` |
+| `assertionBody` | exact action-typed body copied from the validated intent; its absolute `/assertionBody/assertionPosture` child is exactly `INITIAL` or `CORRECTION` |
 | `evidenceBindings` | non-empty array of exact immutable evidence bindings copied from the validated intent |
 | `subjectScopeProofBindings` | exact immutable relationship-proof bindings when subject-to-anchor equality alone does not establish the relationship; otherwise required absent |
 | `claimState` | exactly `PENDING_REVIEW` |
@@ -164,7 +164,7 @@ The future carrier is a versioned extension. Existing v0.1 records remain valid 
 
 Every object and branch rejects unknown properties. A field not admitted by its branch is absent, not `null`, empty, or populated with a placeholder.
 
-The materialized contract binds one exact body-schema ref/version/digest for each assertion subtype. The review keys are `STRUCTURE_ASSERTION_BODY_V0_2`, `OPERATION_CLAIM_BODY_V0_2`, and `COMPLIANCE_ASSERTION_BODY_V0_2`; they are not mutable runtime registry entries and this candidate does not create their bytes. Every branch closes the common `/assertionPosture` discriminator before adding branch-specific content.
+The materialized contract binds one exact body-schema ref/version/digest for each assertion subtype. The review keys are `STRUCTURE_ASSERTION_BODY_V0_2`, `OPERATION_CLAIM_BODY_V0_2`, and `COMPLIANCE_ASSERTION_BODY_V0_2`; they are not mutable runtime registry entries and this candidate does not create their bytes. Every branch closes the common absolute `/assertionBody/assertionPosture` discriminator before adding branch-specific content. Within a schema whose root is the body object, `/assertionPosture` is explicitly a body-root-relative pointer to that same field, never a second top-level field.
 
 ### 5.2 Immutable binding and subject rules
 
@@ -222,18 +222,31 @@ Compiled outputs may be immutable evidence or intent inputs. They cannot replace
 
 ### 5.5 Correction lineage
 
-Every selected body schema requires `/assertionPosture` with one of two values:
+Every selected body schema requires absolute intent and result pointer `/assertionBody/assertionPosture` with one of two values. In body-schema-relative notation only, the same field is `/assertionPosture`:
 
 | Posture | Lineage rule |
 |---|---|
 | `INITIAL` | `supersedesAssertionRecordBinding` is absent |
 | `CORRECTION` | exactly one `supersedesAssertionRecordBinding` is required |
 
-The correction binding contains one logical prior-assertion ref and exactly one immutable revision ref or `sha256:` content digest under section 5.2. It is present in the validated intent, covered by `effectIntentDigest`, resolved as an actual supported `AssertionRecord`, and copied exactly to the result.
+The correction binding at absolute intent and result pointer `/supersedesAssertionRecordBinding` contains one logical prior-assertion ref and exactly one immutable revision ref or `sha256:` content digest under section 5.2. It is present in the validated intent, covered by `effectIntentDigest`, resolved as an actual supported `AssertionRecord`, and copied exactly to the result.
+
+For `CORRECTION`, `AR_CORRECTION_LINEAGE` applies one closed correction-target compatibility predicate. Every condition below must pass:
+
+1. **Existing distinct prior record:** the authoritative transaction-start snapshot and its history watermark prove that the exact bound prior record was already committed at a canonical-history position included in that snapshot. The prior and proposed assertion IDs differ. A self-reference, unresolved or merely prospective reference, concurrent record absent from that starting snapshot, or timestamp-only claim of prior existence fails.
+2. **Same subtype:** the prior and new records have exactly the same `assertionType`.
+3. **Same governance boundary:** the current intent's rule-selected authorization view and the prior record's immutable creation or ingress evidence resolve to the same typed tenant or deployment boundary, including exact boundary kind and logical ref, and to the same applicable twin. Twin presence and value must match; absence is permitted only when the governing action profile makes twin context inapplicable to both records.
+4. **Same authority anchor:** for a prior v0.2 record created under this profile, the new sole anchor equals the prior sole authority-bearing anchor in kind, logical ref, and immutable selector. For a prior v0.1 record, the new anchor's kind and logical ref equal one recorded prior `anchorScopes` entry directly; ancestor, descendant, alias, inferred-equivalence, or cross-scope matching is prohibited.
+5. **Same logical subject:** prior and new `subjectType` and `subjectRef` are equal. Subject revision may change as claim content, but correction posture cannot change the logical subject identity.
+6. **Claim-lineage semantics only:** the edge states that the new assertion corrects the bound prior assertion. It creates no acceptance, rejection, deactivation, claim-state transition, review result, in-force change, or current-state replacement.
+
+The prior record does not self-attest its governance context. For a v0.2 record created under this profile, the resolver uses the exact governed-effect receipt, its bound `effectIntentDigest`, and the rule-selected extracted governance view. A legacy v0.1 target requires equivalent immutable creation or ingress evidence binding its exact record digest, commit position, governance boundary, twin posture, and recorded anchor context. A current mutable storage location, caller-supplied tenant/twin label, opaque-ID convention, or inferred scope ancestry is not proof. Missing, ambiguous, mutable, or digest-invalid context evidence fails the correction rather than being guessed.
+
+A submission that changes subtype, logical subject, authority anchor, tenant/deployment boundary, or twin is a new `INITIAL` assertion under this candidate, even when its body discusses earlier history. A broader correction-relation profile requires a separately reviewed contract revision; body-schema authors cannot widen this predicate independently.
 
 A correction creates a new immutable `PENDING_REVIEW` assertion. Its lineage edge does not edit, delete, relabel, accept, reject, contest, deactivate, or replace the prior assertion in current state. `supersededByReviewDecisionRef` remains absent because it describes a later review effect, not a fact available at assertion submission. The legacy ref-only `supersedesAssertionRecordRef` is also absent from v0.2.
 
-Correction posture and lineage are governed AssertionRecord-domain fields. They cannot change authorization eligibility, the sole authority target, or the selected authority subject under this candidate. If a future authorization rule needs to inspect correction lineage, PR #11 must be separately amended and approved before that rule or this contract is materialized.
+Correction posture, lineage, and target compatibility are governed AssertionRecord-domain facts. The compatibility check consumes the already selected authorization view and immutable prior-creation evidence as integrity inputs; it does not grant authority over the prior record or change authorization eligibility, the sole authority target, or the selected authority subject. If a future authorization rule needs to inspect correction lineage, PR #11 must be separately amended and approved before that rule or this contract is materialized.
 
 ### 5.6 Fields deliberately not copied
 
@@ -421,7 +434,7 @@ Every mapping receives one explicit disposition. A missing, duplicated, ambiguou
 | `AR_OPERATION_PAYLOADS` | operation only | any admitted intent/execution payload bindings remain exact inside the typed body; otherwise required absence |
 | `AR_COMPLIANCE_RULES` | compliance only | exact complete non-empty rule-revision array to `complianceBasis.ruleRevisionBindings` |
 | `AR_COMPLIANCE_EVIDENCE_POLICY` | compliance only | exact complete non-empty evidence-policy-revision array to `complianceBasis.evidencePolicyRevisionBindings` |
-| `AR_CORRECTION_LINEAGE` | every subtype | exact section 5.5 binding copy when body `/assertionPosture` is `CORRECTION`; required absence for `INITIAL` |
+| `AR_CORRECTION_LINEAGE` | every subtype | when absolute `/assertionBody/assertionPosture` is `CORRECTION`, copy `/supersedesAssertionRecordBinding` exactly and require every section 5.5 compatibility condition to pass; require the binding absent for `INITIAL` |
 | `AR_STRUCTURE_BRANCH_ABSENCE` | structure only | `operationClaimContext` and `complianceBasis` are absent |
 | `AR_OPERATION_BRANCH_ABSENCE` | operation only | `complianceBasis` is absent |
 | `AR_COMPLIANCE_BRANCH_ABSENCE` | compliance only | `operationClaimContext` is absent |
@@ -472,7 +485,7 @@ If another governed result is needed, an enclosing composition must separately i
 |---|---|
 | `PC_ONE_ASSERTION` | exactly one new assertion ID resolves to one schema-valid immutable result |
 | `PC_VALIDATED_BYTES` | committed AssertionRecord bytes equal the bytes validated by this contract |
-| `PC_INPUTS_IMMUTABLE` | assertion-act evidence, subject, scope, proof, semantic event, evidence, payload, prior assertion, rule, and evidence-policy inputs remain byte-identical |
+| `PC_INPUTS_IMMUTABLE` | assertion-act evidence, subject, scope, proof, semantic event, evidence, payload, prior assertion and its creation/ingress evidence, rule, and evidence-policy inputs remain byte-identical |
 | `PC_ACTION_TYPE` | action, intent profile, effect subject, assertion subtype, and commit class match one section 7.2 row; no event family is inferred |
 | `PC_PENDING_REVIEW` | result `claimState` is `PENDING_REVIEW`; no accepted or in-force result is emitted |
 | `PC_SUBJECT_SCOPE` | subject posture is truthful and the subject is exactly equal to, or proven within the governed relation to, the sole anchor scope |
@@ -481,7 +494,7 @@ If another governed result is needed, an enclosing composition must separately i
 | `PC_SUBJECT_TIME` | the exact branch/posture profile, members, canonical timestamps, endpoint order, source selectors, and conditional payload equality satisfy sections 6.3 and 6.4 |
 | `PC_TEMPORAL_SEPARATION` | assertion, subject, evidence/capture, ingress, approval, authorization, and commit times retain their distinct meanings under section 6.5 |
 | `PC_EVENT_ASSOCIATION` | section 7.3 association passes when bound and is `NOT_APPLICABLE` when absent; AssertionRecord subtype never selects a family |
-| `PC_CORRECTION_LINEAGE` | section 5.5 initial/correction posture and exact immutable prior-assertion binding agree without mutating or deactivating the prior assertion |
+| `PC_CORRECTION_LINEAGE` | section 5.5 posture, exact immutable prior binding, prior-commit proof, subtype, governance boundary/twin, authority anchor, and logical subject all agree without mutating or deactivating the prior assertion |
 | `PC_NO_UNBOUND_EFFECT` | no prior record mutation, event envelope, review, consequence, materialization, or other governed result is inserted or changed without its own applicable authority and contract |
 | `PC_NO_CURRENT_STATE` | this contract neither writes current state nor marks the assertion accepted solely because submission passed |
 | `PC_TRANSACTION_HANDOFF` | the applicable transaction gate binds the exact passing result/trace and commits the effect, authorization/finalization evidence, receipt, and single-use consumption atomically |
@@ -518,6 +531,7 @@ The immutable protected-effect validation trace must bind:
 - result ID/ref/digest and result-schema ref/version/digest;
 - contract ID/version/ref/digest and selected action/body-schema binding;
 - assertion-act posture and conditional evidence, sole authority-target scope, closed subject-time profile/selectors, and every resolved subject, relationship-proof, assertion evidence, payload, prior assertion, rule, and evidence-policy digest;
+- for a correction, the prior assertion's immutable creation/ingress evidence ref/digest, committed canonical-history position and transaction-start snapshot/watermark, resolved governance boundary and twin posture, plus exact subtype, anchor, subject, and ID comparisons;
 - one `PASS`, `FAIL`, legitimate `NOT_APPLICABLE`, or dependency-bound `NOT_EVALUATED` disposition for every `AR_*` mapping;
 - one such disposition for every `PC_*` postcondition;
 - source/destination selectors or pointers and compared digests;
@@ -590,9 +604,15 @@ This candidate states only AssertionRecord-specific preconditions and effects. I
 | compliance rule or evidence-policy revision is missing, changed, mutable, or substituted | `AR_COMPLIANCE_RULES` / `AR_COMPLIANCE_EVIDENCE_POLICY` fails |
 | compiled output replaces the exact compliance body | `AR_BODY` fails |
 | branch-inapplicable operation or compliance fields are present as `null`, empty, or populated | applicable branch-absence mapping / `PC_BRANCH_ABSENCE` fails |
-| body says `CORRECTION` but prior-assertion binding is absent | `AR_CORRECTION_LINEAGE` / `PC_CORRECTION_LINEAGE` fails |
-| correction binding resolves to the wrong prior assertion, wrong digest, mutable bytes, or a non-AssertionRecord | `AR_CORRECTION_LINEAGE` fails |
-| an `INITIAL` body carries correction lineage | `AR_CORRECTION_LINEAGE` / `PC_CORRECTION_LINEAGE` fails |
+| `/assertionBody/assertionPosture` says `CORRECTION` but `/supersedesAssertionRecordBinding` is absent | `AR_CORRECTION_LINEAGE` / `PC_CORRECTION_LINEAGE` fails |
+| correction binding resolves to the wrong digest, mutable bytes, or a non-AssertionRecord | `AR_CORRECTION_LINEAGE` fails |
+| prior and new assertions have different `assertionType` values | `AR_CORRECTION_LINEAGE` / `PC_CORRECTION_LINEAGE` fails |
+| prior creation context is unproved or resolves to another tenant/deployment boundary or applicable twin | `AR_CORRECTION_LINEAGE` / `PC_CORRECTION_LINEAGE` fails; an opaque ref or current storage location cannot repair it |
+| new anchor differs from the exact prior v0.2 sole anchor or does not directly equal any prior v0.1 anchor kind/ref pair | `AR_CORRECTION_LINEAGE` / `PC_CORRECTION_LINEAGE` fails; scope ancestry or aliasing is not equality |
+| prior and new assertions have different logical `subjectType` or `subjectRef` values | `AR_CORRECTION_LINEAGE` / `PC_CORRECTION_LINEAGE` fails |
+| correction binding self-references the proposed assertion ID | `AR_CORRECTION_LINEAGE` / `PC_CORRECTION_LINEAGE` fails |
+| bound prior assertion was not already committed and visible in the transaction-start snapshot | `AR_CORRECTION_LINEAGE` / `PC_CORRECTION_LINEAGE` fails; a prospective, future, concurrent, or timestamp-only reference is insufficient |
+| `/assertionBody/assertionPosture` is `INITIAL` but correction lineage is present | `AR_CORRECTION_LINEAGE` / `PC_CORRECTION_LINEAGE` fails |
 | correction lineage is treated as acceptance, deletion, deactivation, or current-state replacement | `PC_CORRECTION_LINEAGE` / `PC_NO_CURRENT_STATE` fails |
 | notes, benefiting Party, loose provenance, legacy flat time, payload-ref, legacy `supersedesAssertionRecordRef`, or `supersededByReviewDecisionRef` is inserted | `AR_LEGACY_ABSENCE` fails |
 | structure assertion creates a new field, boundary, role, or activation state | `PC_STRUCTURE` / `PC_NO_UNBOUND_EFFECT` fails |
@@ -624,7 +644,7 @@ Fixtures must enter through the production result builder, protected-effect vali
 
 A v0.1 record cannot claim v0.2 strength unless immutable source evidence establishes every required field and mapping. Missing body schema/posture, subject/scope revision, relationship proof, closed subject-time profile, evidence revision, asserting-party basis, assertion-act posture/evidence, operation provenance, compliance basis, optional event association, or correction lineage cannot be guessed.
 
-Migration never rewrites a v0.1 claim state, notes field, logical evidence/provenance ref, payload ref, assertion time, flat subject-time field, or supersession ref. A new v0.2 correction may bind an old AssertionRecord only through section 5.5's exact immutable `supersedesAssertionRecordBinding`; it does not upgrade or rewrite the old record. A semantic-event association similarly binds exact existing envelope bytes without copying their primary family into the AssertionRecord.
+Migration never rewrites a v0.1 claim state, notes field, logical evidence/provenance ref, payload ref, assertion time, flat subject-time field, or supersession ref. A new v0.2 correction may bind an old AssertionRecord only through section 5.5's exact immutable `supersedesAssertionRecordBinding` and only when immutable creation/ingress evidence proves every legacy target-compatibility fact. Missing legacy governance, twin, anchor-context, or prior-commit proof is not reconstructed from current state; that submission must remain a new `INITIAL` assertion or stop. A compatible correction does not upgrade or rewrite the old record. A semantic-event association similarly binds exact existing envelope bytes without copying their primary family into the AssertionRecord.
 
 Draft schema or contract presence changes no currentness. A v0.2 `PENDING_REVIEW` assertion does not enter an in-force materialization merely because it is schema-valid, authorized, human-approved for submission, or protected-effect-valid. Review and materialization remain downstream governed boundaries.
 
@@ -660,7 +680,7 @@ The bundle cannot point at this prose file as an executable contract. It also ca
 | keep all new assertion submissions pending review | sections 1, 8, 10, and 14 |
 | label and losslessly constrain the one-anchor `NARROWING` | sections 4.1, 5.2, 8.1, 13, and 17 |
 | separate assertion time from record/commit time and close exact temporal profiles | sections 6, 8, 10, 11, 13, and 17 |
-| preserve optional immutable correction lineage without mutating prior history | sections 5.5, 8.2, 9, 10, 13, 14, and 17 |
+| preserve optional immutable correction lineage, close its target-compatibility predicate, and avoid mutating prior history | sections 5.5, 8.2, 9, 10, 11, 13, 14, and 17 |
 | enumerate permitted derivations and required absences | section 8 |
 | forbid mutation, acceptance, current state, and implicit companion effects | sections 9, 10, 12, and 13 |
 | distinguish event classification, assertion submission, and record commit class | section 7.3 |
@@ -693,6 +713,8 @@ The bundle cannot point at this prose file as an executable contract. It also ca
 | Are all timestamps canonical UTC RFC 3339 values with exact endpoint and ordering rules? | yes | yes |
 | Are body and evidence exact, typed, immutable, and free of notes or ref-only side channels? | yes | yes |
 | May `CORRECTION` create one new pending assertion with one exact immutable prior-assertion binding? | yes; `INITIAL` requires absence | yes |
+| Must a correction target already exist and differ from the proposed assertion ID? | yes; authoritative transaction-start history proof is required | yes |
+| Must correction target and new assertion have the same subtype, governance boundary/twin, authority anchor, and logical subject? | yes; all section 5.5 conditions must pass exactly | yes |
 | Does correction lineage leave the prior assertion immutable and avoid acceptance, deactivation, or current-state replacement? | yes | yes |
 | Does the operation branch preserve required performer provenance without claiming historical performer authorization? | yes | yes |
 | Must operation performer authority remain `NOT_EVALUATED_BY_AUTHORIZATION`? | yes | yes |
@@ -718,11 +740,11 @@ Any requested authorization, transaction, review, event-vocabulary, evidence-ret
 2. **Human-finalized transaction prerequisite:** PR #20 at `98f8c4fafbae42c8f7fd931f43f53adcb4733713` supplies the approved fresh-approval protocol selected by structure and compliance; later machine materialization must bind its exact promoted bytes.
 3. **Phase A domain approval:** approve or amend this one-file AssertionRecord candidate.
 4. **Missing transaction-mode closure:** separately define the atomic `NOT_REQUIRED` transaction path selected by `ASSERT_OPERATION_CLAIM`; do not edit PR #20 or this domain contract to simulate approval.
-5. **Domain materialization:** separately create the non-default `AssertionRecord v0.2` schema, three exact body-schema branches, assertion-act fields, nine closed subject-time rows, optional event-association and correction-lineage inputs, protected-effect contract, selectors, and digest fixtures. Stop if exact schema bytes cannot implement this closure without changing another boundary.
-6. **Shared evidence materialization:** separately create or bind the assertion-act evidence/time-trust posture, validation-trace envelope, and governed-effect receipt profiles, together with finalization/consumption profiles owned by their existing boundaries.
+5. **Domain materialization:** separately create the non-default `AssertionRecord v0.2` schema, three exact body-schema branches, assertion-act fields, nine closed subject-time rows, optional event-association and correction-lineage inputs, the closed correction-target predicate and selectors, protected-effect contract, and digest fixtures. Stop if exact schema/contract bytes cannot implement this closure without changing another boundary.
+6. **Shared evidence materialization:** separately create or bind the assertion-act evidence/time-trust posture, validation-trace envelope, governed-effect receipt profiles, and applicable immutable prior-creation/ingress evidence, together with finalization/consumption profiles owned by their existing boundaries. This contract consumes those exact bindings and does not redefine their evidence claims.
 7. **Bundle binding:** separately bind the exact reviewed protected-effect contract identity/ref/digest as one unit into `AuthorizationPolicyBundle v0.2`.
-8. **Hostile conformance:** exercise section 13 through production-reachable paths, including variable event families, delayed assertion/receipt/commit time, subject-time substitution, correction lineage, multi-context single-anchor representation, fresh approval, agent-assisted submission, represented action, reporter/performer separation, and conflicting replay.
+8. **Hostile conformance:** exercise section 13 through production-reachable paths, including variable event families, delayed assertion/receipt/commit time, subject-time substitution, cross-context/self/future correction targets, multi-context single-anchor representation, fresh approval, agent-assisted submission, represented action, reporter/performer separation, and conflicting replay.
 9. **Acceptance and promotion:** accept exact bytes and change current/default status only through separate governed steps in the sequence fixed by PR #11.
 10. **OFARM2 extraction:** consume only promoted, digest-verified canonical bytes.
 
-Phase A is complete when issue #22's criteria are reviewed, the exact PR #11 and PR #20 dependencies remain approved, event-family non-derivation, assertion/subject-time closure, correction lineage, one-anchor narrowing, and the missing transaction-mode dependency are explicit, and this PR still changes only this non-authoritative candidate file.
+Phase A is complete when issue #22's criteria are reviewed, the exact PR #11 and PR #20 dependencies remain approved, event-family non-derivation, assertion/subject-time closure, correction lineage and target compatibility, one-anchor narrowing, and the missing transaction-mode dependency are explicit, and this PR still changes only this non-authoritative candidate file.
