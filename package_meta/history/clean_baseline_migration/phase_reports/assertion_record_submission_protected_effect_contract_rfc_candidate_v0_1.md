@@ -19,7 +19,7 @@ Stewards are asked to approve, reject, or amend these bounded decisions:
 4. fresh approval for structure or compliance authorizes submission of the exact assertion only; it does not accept the claim or make it current truth;
 5. the result preserves the exact proposed ID, typed subject, sole authority-bearing anchor scope, asserting Party, governed assertion-act time/posture, closed subject-time profile, typed body, evidence, optional correction lineage, and branch-specific provenance or compliance basis;
 6. for an operation claim, the current reporter remains separate from the alleged performer and performer authority remains `NOT_EVALUATED_BY_AUTHORIZATION`;
-7. the result records have commit classes `STRUCTURE_ASSERTION`, `OPERATION_CLAIM`, and `COMPLIANCE_ASSERTION`; assertion action or subtype never derives a primary event family;
+7. the result records have constitutional commit classes `structure assertion`, `operation claim`, and `compliance assertion`, serialized by the current Event Ingress schemas as `STRUCTURE_ASSERTION`, `OPERATION_CLAIM`, and `COMPLIANCE_ASSERTION`; assertion action or subtype never derives a primary event family;
 8. when an ingress path associates a governed semantic event, the contract consumes its exact immutable `SemanticEventEnvelope` binding and separately validated primary family, checks assertion-specific subject/scope/time compatibility, and records the association only in the protected-effect trace; without such a binding this contract makes no event-family claim;
 9. a correction is a new pending-review assertion carrying one optional exact immutable `supersedesAssertionRecordBinding` to a prior assertion that passes the closed same-context predicate in section 5.5; it never edits, deactivates, accepts, or replaces the prior assertion by itself;
 10. this contract creates no accepted structural state, accepted executed intervention consequence, compliance fact, ReviewDecision, SemanticEventEnvelope, current-state materialization, or mutation of prior history;
@@ -126,7 +126,15 @@ The repository has ten current `AssertionRecord v0.1` examples:
 - three compliance assertions, two in `PENDING_REVIEW` and one in `IN_FORCE`; and
 - one `LOT_ASSERTION`, in `IN_FORCE`, which is outside this contract.
 
-All ten use `notes` as at least part of the human-readable claim content. All use logical evidence refs, six use logical provenance refs, and one operation claim uses a loose `executionRecordPayloadRefs` entry. That late-sync operation claim also carries both field and crop-cycle anchors. No example carries an immutable subject selector, exact body schema binding, effect-intent digest, or protected-effect trace.
+All ten use `notes` as at least part of the human-readable claim content and all use logical evidence refs. Seven use logical provenance refs. Exactly one, `field_17_contractor_spot_spray_claim_with_execution_payload`, uses a loose `executionRecordPayloadRefs` entry.
+
+Three examples use multiple anchors:
+
+- `field_17_contractor_spot_spray_claim_with_execution_payload` is an in-scope operation claim with `FIELD` and `CROP_CYCLE` anchors;
+- `lot_compliance_field_17_apples_batch_1` is an in-scope compliance assertion with `LOT` and `FIELD` anchors; and
+- `seed_lot` is an out-of-scope `LOT_ASSERTION` with `LOT` and `FIELD` anchors.
+
+The separate `service_provider_field17_delayed_sync_execution_claim` example has one `FIELD` anchor and no payload ref. It supplies the delayed-sync context used in sections 6.5 and 13. No example carries an immutable subject selector, exact body schema binding, effect-intent digest, or protected-effect trace.
 
 The existing `IN_FORCE` examples remain valid v0.1 history. They are not retroactively relabeled, rejected, or used as precedent for direct in-force creation under v0.2.
 
@@ -233,14 +241,14 @@ The correction binding at absolute intent and result pointer `/supersedesAsserti
 
 For `CORRECTION`, `AR_CORRECTION_LINEAGE` applies one closed correction-target compatibility predicate. Every condition below must pass:
 
-1. **Existing distinct prior record:** the authoritative transaction-start snapshot and its history watermark prove that the exact bound prior record was already committed at a canonical-history position included in that snapshot. The prior and proposed assertion IDs differ. A self-reference, unresolved or merely prospective reference, concurrent record absent from that starting snapshot, or timestamp-only claim of prior existence fails.
+1. **Existing distinct prior record:** inside the final transaction, the exact bound prior record resolves as a committed positive record in the immutable snapshot identified by the transaction boundary's trusted `transactionSnapshotRef` and snapshot digest. Visibility in that transaction-start snapshot proves that the prior record existed before the new assertion transaction began; this contract assumes no separate canonical-history position or general history watermark. The prior and proposed assertion IDs differ. A self-reference, unresolved or merely prospective reference, concurrent record absent from that starting snapshot, or timestamp-only claim of prior existence fails.
 2. **Same subtype:** the prior and new records have exactly the same `assertionType`.
 3. **Same governance boundary:** the current intent's rule-selected authorization view and the prior record's immutable creation or ingress evidence resolve to the same typed tenant or deployment boundary, including exact boundary kind and logical ref, and to the same applicable twin. Twin presence and value must match; absence is permitted only when the governing action profile makes twin context inapplicable to both records.
 4. **Same authority anchor:** for a prior v0.2 record created under this profile, the new sole anchor equals the prior sole authority-bearing anchor in kind, logical ref, and immutable selector. For a prior v0.1 record, the new anchor's kind and logical ref equal one recorded prior `anchorScopes` entry directly; ancestor, descendant, alias, inferred-equivalence, or cross-scope matching is prohibited.
 5. **Same logical subject:** prior and new `subjectType` and `subjectRef` are equal. Subject revision may change as claim content, but correction posture cannot change the logical subject identity.
 6. **Claim-lineage semantics only:** the edge states that the new assertion corrects the bound prior assertion. It creates no acceptance, rejection, deactivation, claim-state transition, review result, in-force change, or current-state replacement.
 
-The prior record does not self-attest its governance context. For a v0.2 record created under this profile, the resolver uses the exact governed-effect receipt, its bound `effectIntentDigest`, and the rule-selected extracted governance view. A legacy v0.1 target requires equivalent immutable creation or ingress evidence binding its exact record digest, commit position, governance boundary, twin posture, and recorded anchor context. A current mutable storage location, caller-supplied tenant/twin label, opaque-ID convention, or inferred scope ancestry is not proof. Missing, ambiguous, mutable, or digest-invalid context evidence fails the correction rather than being guessed.
+The prior record does not self-attest its governance context. For a v0.2 record created under this profile, the resolver uses the exact governed-effect receipt, its bound `effectIntentDigest`, and the rule-selected extracted governance view. A legacy v0.1 target requires equivalent immutable creation or ingress evidence binding its exact record digest, governance boundary, twin posture, and recorded anchor context. The trusted transaction-start snapshot, not that contextual evidence, proves positive prior-record existence. A current mutable storage location, caller-supplied tenant/twin label, opaque-ID convention, or inferred scope ancestry is not proof. Missing, ambiguous, mutable, or digest-invalid context evidence fails the correction rather than being guessed.
 
 A submission that changes subtype, logical subject, authority anchor, tenant/deployment boundary, or twin is a new `INITIAL` assertion under this candidate, even when its body discusses earlier history. A broader correction-relation profile requires a separately reviewed contract revision; body-schema authors cannot widen this predicate independently.
 
@@ -362,13 +370,15 @@ The materialized contract must bind the exact intent-schema and result-schema re
 
 ### 7.2 Exact action, effect-subject, result, and commit-class map
 
-| Authorized action | Required intent profile | Required effect-subject kind | Required `assertionType` | Record commit class |
+| Authorized action | Required intent profile | Required effect-subject kind | Required `assertionType` | Record commit class: constitutional label (current ingress token) |
 |---|---|---|---|---|
-| `ASSERT_STRUCTURE` | `EI_STRUCTURE_ASSERTION_V0_2` | `STRUCTURE_ASSERTION` | `STRUCTURE_ASSERTION` | `STRUCTURE_ASSERTION` |
-| `ASSERT_OPERATION_CLAIM` | `EI_OPERATION_ASSERTION_V0_2` | `OPERATION_ASSERTION` | `OPERATION_CLAIM_ASSERTION` | `OPERATION_CLAIM` |
-| `ASSERT_COMPLIANCE` | `EI_COMPLIANCE_ASSERTION_V0_2` | `COMPLIANCE_ASSERTION` | `COMPLIANCE_ASSERTION` | `COMPLIANCE_ASSERTION` |
+| `ASSERT_STRUCTURE` | `EI_STRUCTURE_ASSERTION_V0_2` | `STRUCTURE_ASSERTION` | `STRUCTURE_ASSERTION` | `structure assertion` (`STRUCTURE_ASSERTION`) |
+| `ASSERT_OPERATION_CLAIM` | `EI_OPERATION_ASSERTION_V0_2` | `OPERATION_ASSERTION` | `OPERATION_CLAIM_ASSERTION` | `operation claim` (`OPERATION_CLAIM`) |
+| `ASSERT_COMPLIANCE` | `EI_COMPLIANCE_ASSERTION_V0_2` | `COMPLIANCE_ASSERTION` | `COMPLIANCE_ASSERTION` | `compliance assertion` (`COMPLIANCE_ASSERTION`) |
 
 The `OPERATION_ASSERTION` to `OPERATION_CLAIM_ASSERTION` mapping is deliberate: the first is the approved authorization effect-subject token, while the second is the current AssertionRecord subtype. Neither may be used as a free alias outside this row.
+
+The lowercase commit-class names are the Constitution- and Event-Grammar-owned semantic labels. The parenthesized uppercase values are the exact existing serialization tokens in `CommitIngressRequest`, `CommitIngressResult`, and `PromotionTrace v0.1`. A token does not redefine the constitutional class or make an identically spelled effect-subject or assertion-subtype token the same semantic dimension. Machine materialization binds the label/token pair shown here rather than inventing a contract-local commit class.
 
 Every other action, intent profile, effect-subject kind, subtype, or commit class fails this contract. A primary event family is intentionally absent from this map. `OBSERVATION_ASSERTION`, `LOT_ASSERTION`, and `OTHER_ASSERTION` remain valid v0.1 history but are not new-result branches here.
 
@@ -379,13 +389,13 @@ An AssertionRecord commit class, the world event or governed act described, and 
 The validated effect intent may carry `/associatedSemanticEventBinding`. When present, it contains one logical `SemanticEventEnvelope` ref and exactly one immutable revision ref or content digest. The contract requires:
 
 1. the binding resolves to exact bytes valid under the content-addressed active `SemanticEventEnvelope` schema selected by Event Ingress;
-2. the separate Event Ingress classification gate passes for those bytes under the active dominant-semantic-consequence rule and supplies the primary family; this contract consumes but does not recompute that family;
-3. the assertion's exact logical subject occurs in the envelope's subject set, or the selected body schema supplies an immutable relationship proof that makes the association explicit;
-4. the sole assertion anchor-scope pair occurs in the envelope's anchor-scope set; other envelope scopes remain event context and do not become AssertionRecord authority anchors;
+2. the separate Event Ingress classification gate passes for those bytes under the active dominant-semantic-consequence rule and supplies the authoritative primary family; its value must equal the envelope's `/primaryEventFamily` exactly, and divergence fails Event Ingress rather than creating a local choice for this contract;
+3. the assertion's exact `/subject/subjectRef` occurs in the envelope's `/subjectRefs` array, or the selected body schema supplies an immutable relationship proof that makes the association explicit;
+4. the assertion `/anchorScopes/0/scopeType` and `/anchorScopes/0/scopeRef` pair equals one envelope `/anchorScopes` entry's `/scopeType` and `/scopeRef` pair exactly; the matched envelope index is recorded, and other envelope scopes remain event context rather than AssertionRecord authority anchors;
 5. the body schema supplies exact envelope time selector pointers, each selector resolves once, and the selected values equal the assertion's section 6.4 subject-time values under the selected profile;
 6. the envelope's `eventSubtypeId` and `dominantSemanticConsequence` context are compatible with the exact assertion body under a predicate fixed by the selected body schema; family equality alone is insufficient, and this check cannot recompute or override Event Ingress classification;
 7. the separately passing Event Ingress evidence binds the envelope digest, its dominant-semantic-consequence classification, and this assertion's fixed commit class; and
-8. the protected-effect trace records the envelope ref/digest, consumed primary family, selector comparisons, subject/scope/time/dominant-context compatibility dispositions, and Event Ingress evidence ref/digest.
+8. the protected-effect trace records the envelope ref/digest, envelope `/primaryEventFamily`, authoritative Event Ingress family and equality disposition, matched `/subjectRefs` and `/anchorScopes` indices or proof bindings, time-selector comparisons, subject/scope/time/dominant-context compatibility dispositions, and Event Ingress evidence ref/digest.
 
 For an as-of or instant profile, the body schema selects exactly one compatible pointer from `/timeSemantics/eventTime`, `/timeSemantics/observationTime`, `/timeSemantics/decisionTime`, or `/timeSemantics/effectiveFrom`; the branch schema, not the caller, closes which selectors are semantically allowed. For an effective or performed interval, selectors must resolve to `/timeSemantics/effectiveFrom` and `/timeSemantics/effectiveUntil`. For an effective-from profile, the selector resolves to `/timeSemantics/effectiveFrom`. The current envelope has no intended-window field, so `INTENDED_WINDOW` cannot claim association through `SemanticEventEnvelope v0.1`; its binding is absent unless a separately reviewed envelope revision later supplies an exact intended-window profile.
 
@@ -449,7 +459,7 @@ These are the only permitted derivations:
 | `schemaVersion` | constant from the selected result-schema binding |
 | `assertionType` | section 7.2 action/effect-subject map |
 | `claimState` | contract constant `PENDING_REVIEW` |
-| record commit class | section 7.2 action map, recorded outside result-local choice |
+| record commit-class label/token pair | section 7.2 action map, recorded outside result-local choice |
 | canonical result and resolved-input digests | shared JCS/SHA-256 profile over exact validated or resolved bytes |
 
 Primary event family is not a permitted derivation. When an exact semantic-event binding exists, the trace consumes the family selected by the separately passing Event Ingress boundary; otherwise no family is claimed.
@@ -486,7 +496,7 @@ If another governed result is needed, an enclosing composition must separately i
 | `PC_ONE_ASSERTION` | exactly one new assertion ID resolves to one schema-valid immutable result |
 | `PC_VALIDATED_BYTES` | committed AssertionRecord bytes equal the bytes validated by this contract |
 | `PC_INPUTS_IMMUTABLE` | assertion-act evidence, subject, scope, proof, semantic event, evidence, payload, prior assertion and its creation/ingress evidence, rule, and evidence-policy inputs remain byte-identical |
-| `PC_ACTION_TYPE` | action, intent profile, effect subject, assertion subtype, and commit class match one section 7.2 row; no event family is inferred |
+| `PC_ACTION_TYPE` | action, intent profile, effect subject, assertion subtype, and commit-class semantic-label/serialization-token pair match one section 7.2 row; no event family is inferred |
 | `PC_PENDING_REVIEW` | result `claimState` is `PENDING_REVIEW`; no accepted or in-force result is emitted |
 | `PC_SUBJECT_SCOPE` | subject posture is truthful and the subject is exactly equal to, or proven within the governed relation to, the sole anchor scope |
 | `PC_ASSERTOR` | asserting Party is the canonical selected authority subject and is not substituted by an approver, sponsor, principal, performer, or beneficiary |
@@ -494,7 +504,7 @@ If another governed result is needed, an enclosing composition must separately i
 | `PC_SUBJECT_TIME` | the exact branch/posture profile, members, canonical timestamps, endpoint order, source selectors, and conditional payload equality satisfy sections 6.3 and 6.4 |
 | `PC_TEMPORAL_SEPARATION` | assertion, subject, evidence/capture, ingress, approval, authorization, and commit times retain their distinct meanings under section 6.5 |
 | `PC_EVENT_ASSOCIATION` | section 7.3 association passes when bound and is `NOT_APPLICABLE` when absent; AssertionRecord subtype never selects a family |
-| `PC_CORRECTION_LINEAGE` | section 5.5 posture, exact immutable prior binding, prior-commit proof, subtype, governance boundary/twin, authority anchor, and logical subject all agree without mutating or deactivating the prior assertion |
+| `PC_CORRECTION_LINEAGE` | section 5.5 posture, exact immutable prior binding, positive prior-record visibility in the trusted transaction-start snapshot, subtype, governance boundary/twin, authority anchor, and logical subject all agree without mutating or deactivating the prior assertion |
 | `PC_NO_UNBOUND_EFFECT` | no prior record mutation, event envelope, review, consequence, materialization, or other governed result is inserted or changed without its own applicable authority and contract |
 | `PC_NO_CURRENT_STATE` | this contract neither writes current state nor marks the assertion accepted solely because submission passed |
 | `PC_TRANSACTION_HANDOFF` | the applicable transaction gate binds the exact passing result/trace and commits the effect, authorization/finalization evidence, receipt, and single-use consumption atomically |
@@ -531,12 +541,12 @@ The immutable protected-effect validation trace must bind:
 - result ID/ref/digest and result-schema ref/version/digest;
 - contract ID/version/ref/digest and selected action/body-schema binding;
 - assertion-act posture and conditional evidence, sole authority-target scope, closed subject-time profile/selectors, and every resolved subject, relationship-proof, assertion evidence, payload, prior assertion, rule, and evidence-policy digest;
-- for a correction, the prior assertion's immutable creation/ingress evidence ref/digest, committed canonical-history position and transaction-start snapshot/watermark, resolved governance boundary and twin posture, plus exact subtype, anchor, subject, and ID comparisons;
+- for a correction, the trusted `transactionSnapshotRef` and snapshot digest, exact positive resolution of the bound prior record as committed in that snapshot, the prior assertion's immutable creation/ingress evidence ref/digest, resolved governance boundary and twin posture, plus exact subtype, anchor, subject, and ID comparisons; no separate history-position or general-watermark input;
 - one `PASS`, `FAIL`, legitimate `NOT_APPLICABLE`, or dependency-bound `NOT_EVALUATED` disposition for every `AR_*` mapping;
 - one such disposition for every `PC_*` postcondition;
 - source/destination selectors or pointers and compared digests;
-- record commit class;
-- when a semantic event is bound, its envelope ref/digest, separately consumed primary family, Event Ingress evidence ref/digest, and every subject/scope/time compatibility comparison; otherwise an explicit `NOT_APPLICABLE` event-association disposition and no family value;
+- record commit-class constitutional label and current ingress serialization token;
+- when a semantic event is bound, its envelope ref/digest, envelope `/primaryEventFamily`, separately validated Event Ingress family and exact equality disposition, matched `/subjectRefs` and `/anchorScopes` indices or relationship-proof bindings, Event Ingress evidence ref/digest, and every time/dominant-context compatibility comparison; otherwise an explicit `NOT_APPLICABLE` event-association disposition and no family value;
 - operation performer-authority disposition, exactly `NOT_EVALUATED_BY_AUTHORIZATION` for the operation branch; and
 - an overall `PASS` or `FAIL` disposition.
 
@@ -622,10 +632,10 @@ This candidate states only AssertionRecord-specific preconditions and effects. I
 | contract silently creates a SemanticEventEnvelope, ReviewDecision, consequence, or materialization | `PC_NO_UNBOUND_EFFECT` fails |
 | valid operation claim binds a separately validated `MaterialEvent`, but subtype lookup forces `InterventionEvent` or fails the claim | conformance failure; `AR_EVENT_ASSOCIATION` consumes the Event Ingress family without deriving one |
 | valid compliance assertion binds a separately validated `OccurrenceEvent` or `EvidenceEvent`, but subtype lookup forces `GovernanceEvent` or fails the claim | conformance failure; `AR_EVENT_ASSOCIATION` consumes the Event Ingress family without deriving one |
-| semantic-event family changes without a matching change in dominant event semantics | Event Ingress classification fails; this contract cannot repair or reclassify it through assertion subtype |
+| envelope `/primaryEventFamily` differs from the separately validated Event Ingress family, or the family changes without a matching change in dominant event semantics | Event Ingress classification fails; this contract cannot choose between, repair, or reclassify the values through assertion subtype |
 | associated event is mutable, digest-invalid, lacks a passing Event Ingress disposition, omits the assertion's subject/scope, or has incompatible selected time values | `AR_EVENT_ASSOCIATION` / `PC_EVENT_ASSOCIATION` fails |
 | no semantic event is bound but the trace invents a primary family | `AR_EVENT_ASSOCIATION` / `PC_EVENT_ASSOCIATION` fails; the correct association disposition is `NOT_APPLICABLE` with no family value |
-| record commit class differs from section 7.2 | `PC_ACTION_TYPE` fails |
+| record commit-class constitutional label or current ingress token differs from the paired section 7.2 value | `PC_ACTION_TYPE` fails |
 | AssertionRecord is retyped as an event envelope or given caller-selected classification fields | result schema / `PC_ACTION_TYPE` fails |
 | contract, schema, intent, result, or resolved-input digest changes | binding or mapping fails |
 | one required mapping or postcondition disposition is missing | overall trace cannot pass |
@@ -644,7 +654,7 @@ Fixtures must enter through the production result builder, protected-effect vali
 
 A v0.1 record cannot claim v0.2 strength unless immutable source evidence establishes every required field and mapping. Missing body schema/posture, subject/scope revision, relationship proof, closed subject-time profile, evidence revision, asserting-party basis, assertion-act posture/evidence, operation provenance, compliance basis, optional event association, or correction lineage cannot be guessed.
 
-Migration never rewrites a v0.1 claim state, notes field, logical evidence/provenance ref, payload ref, assertion time, flat subject-time field, or supersession ref. A new v0.2 correction may bind an old AssertionRecord only through section 5.5's exact immutable `supersedesAssertionRecordBinding` and only when immutable creation/ingress evidence proves every legacy target-compatibility fact. Missing legacy governance, twin, anchor-context, or prior-commit proof is not reconstructed from current state; that submission must remain a new `INITIAL` assertion or stop. A compatible correction does not upgrade or rewrite the old record. A semantic-event association similarly binds exact existing envelope bytes without copying their primary family into the AssertionRecord.
+Migration never rewrites a v0.1 claim state, notes field, logical evidence/provenance ref, payload ref, assertion time, flat subject-time field, or supersession ref. A new v0.2 correction may bind an old AssertionRecord only through section 5.5's exact immutable `supersedesAssertionRecordBinding` and only when immutable creation/ingress evidence proves every legacy target-compatibility fact. Missing legacy governance, twin, or anchor-context proof is not reconstructed from current state; positive prior existence must separately resolve in the trusted transaction-start snapshot. That submission must otherwise remain a new `INITIAL` assertion or stop. A compatible correction does not upgrade or rewrite the old record. A semantic-event association similarly binds exact existing envelope bytes without copying their primary family into the AssertionRecord.
 
 Draft schema or contract presence changes no currentness. A v0.2 `PENDING_REVIEW` assertion does not enter an in-force materialization merely because it is schema-valid, authorized, human-approved for submission, or protected-effect-valid. Review and materialization remain downstream governed boundaries.
 
@@ -713,16 +723,16 @@ The bundle cannot point at this prose file as an executable contract. It also ca
 | Are all timestamps canonical UTC RFC 3339 values with exact endpoint and ordering rules? | yes | yes |
 | Are body and evidence exact, typed, immutable, and free of notes or ref-only side channels? | yes | yes |
 | May `CORRECTION` create one new pending assertion with one exact immutable prior-assertion binding? | yes; `INITIAL` requires absence | yes |
-| Must a correction target already exist and differ from the proposed assertion ID? | yes; authoritative transaction-start history proof is required | yes |
+| Must a correction target already exist and differ from the proposed assertion ID? | yes; positive committed-record resolution in the trusted `transactionSnapshotRef` snapshot is required, with no separate history-position or general-watermark assumption | yes |
 | Must correction target and new assertion have the same subtype, governance boundary/twin, authority anchor, and logical subject? | yes; all section 5.5 conditions must pass exactly | yes |
 | Does correction lineage leave the prior assertion immutable and avoid acceptance, deactivation, or current-state replacement? | yes | yes |
 | Does the operation branch preserve required performer provenance without claiming historical performer authorization? | yes | yes |
 | Must operation performer authority remain `NOT_EVALUATED_BY_AUTHORIZATION`? | yes | yes |
 | Does the compliance branch bind exact rule and evidence-policy revisions without creating a compliance fact? | yes | yes |
 | Does assertion action/subtype derive a primary event family? | no | yes |
-| When a semantic event is bound, must its immutable envelope and separate Event Ingress classification pass subject/scope/time compatibility and enter only the trace? | yes | yes |
+| When a semantic event is bound, must its immutable envelope and separate Event Ingress classification pass exact `/primaryEventFamily`, `/subjectRefs`, `/anchorScopes`, time, and dominant-context compatibility and enter only the trace? | yes | yes |
 | When no semantic event is bound, does this contract make no primary-family claim? | yes | yes |
-| Are record commit classes fixed to `STRUCTURE_ASSERTION`, `OPERATION_CLAIM`, and `COMPLIANCE_ASSERTION`? | yes | yes |
+| Are record commit classes fixed to constitutional labels `structure assertion`, `operation claim`, and `compliance assertion`, paired with current ingress tokens `STRUCTURE_ASSERTION`, `OPERATION_CLAIM`, and `COMPLIANCE_ASSERTION`? | yes | yes |
 | Does this contract create no event envelope, review, accepted consequence, current state, current-state supersession, or other companion domain effect? | yes | yes |
 | Must every `AR_*` and `PC_*` item have an explicit allowed trace disposition, with overall `PASS` requiring every required item to pass? | yes | yes |
 | Does protected-effect failure leave authorization evidence unchanged? | yes | yes |
