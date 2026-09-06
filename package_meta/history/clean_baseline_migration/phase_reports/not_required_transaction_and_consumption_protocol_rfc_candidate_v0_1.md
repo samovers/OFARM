@@ -17,7 +17,7 @@ Stewards are asked to approve, reject, or amend these bounded decisions:
 3. one authoritative idempotency tuple identifies one logical operation across transaction handlers and profile revisions, while a separate caller-submission projection determines whether a request is an exact retry;
 4. the complete `operationBindingDigest` is constructed once from the winning first admitted submission and is recovered, never recomputed from newly generated trusted fields on retry;
 5. for `TRUSTED_ONLINE_SUBMISSION`, the runtime-observed `assertedAt` is supplied before full intent validation and hashing, and the timestamp selected by the first durable operation binding remains the assertion-act time for that logical operation;
-6. the durable operation-binding point is the first atomic commit that makes the immutable binding visible as part of either a complete success set or a conclusively recorded no-effect attempt set; staging, locks, caches, and an unacknowledged write are not that point;
+6. the durable operation-binding point is the first atomic commit that makes the immutable binding visible as part of either a complete success set or a conclusively recorded no-effect attempt set; staging, locks, caches, and a write acknowledgement alone cannot prove that point;
 7. one short guarded protected-effect transaction obtains a fresh current authorization decision, validates every applicable gate and the exact domain handoff, and atomically commits the complete success set;
 8. no approval reservation, generation, challenge, intended approver, human-finalization act, approval, approval consumption, reservation terminal record, or direct-human finalization evidence exists in this mode;
 9. the mode-correct evidence records that the rule selected no human finalization; it never claims that a human approval occurred and never replaces AssertionRecord-domain assertion-act provenance;
@@ -132,7 +132,7 @@ PR #20 remains limited to `FRESH_HUMAN_APPROVAL_REQUIRED` and `DIRECT_HUMAN_ACTI
 | successful-effect linearization | adopted | the protected effect becomes visible only at the complete atomic success commit |
 | single-use decision consumption | adopted | exactly one successful decision consumption per logical operation; a failed attempt consumes nothing |
 | `EFFECT_COMMITTED`, `NO_EFFECT`, and `OUTCOME_UNKNOWN` | adopted | they remain transaction outcomes, not authorization outcomes or public problem codes |
-| authoritative reconciliation and partial-set quarantine | adopted | only a verified complete success set or conclusive rollback resolves uncertainty; partial success is quarantined |
+| authoritative reconciliation and partial-set quarantine | adopted with explicit no-effect-commit closure | verified complete success, a verified committed no-effect set, or conclusive protected-effect rollback resolves the corresponding uncertainty under section 10.3; partial success is quarantined; PR #20 is not amended |
 | immutable history with derived coordination | adopted | locks, leases, queues, and indexes may optimize the short transaction but cannot override immutable binding, attempt, consumption, result, or receipt evidence |
 | reservation generation and approval challenge | not applicable | absent; no synthetic or empty values |
 | intended approver, human approval, and approval consumption | not applicable | absent; natural-person assertion provenance is a separate PR #23 domain fact |
@@ -321,9 +321,9 @@ The logical operation first exists authoritatively when one atomic commit makes 
 - the complete successful effect set; or
 - a conclusively `NO_EFFECT` attempt set that contains the operation binding and its truthful attempt evidence.
 
-An in-memory object, staged insert, row lock, lease, queue item, uncommitted uniqueness claim, cache entry, log line, or ambiguous commit response is not a durable operation binding. A lower-level ingress or security record may truthfully record what it observed, but it cannot claim that the logical operation was admitted.
+An in-memory object, staged insert, row lock, lease, queue item, uncommitted uniqueness claim, cache entry, log line, or ambiguous commit response is not proof of a durable operation binding. Loss of the response does not undo an actual commit: section 10.3 may recover either a complete committed success set or a complete committed no-effect set and its original binding. A lower-level ingress or security record may truthfully record what it observed, but it cannot claim that the logical operation was admitted.
 
-On a first attempt that conclusively fails after full ingress validation, a separate failure-evidence commit may create the operation binding only when it atomically verifies authoritative rollback of the protected-effect transaction, verifies that the tuple is still unbound, and commits the exact staged binding together with one no-effect attempt and consequence. If that evidence commit fails or loses the tuple race, it creates no operation consequence. It may never run while the protected-effect commit remains uncertain.
+On a first attempt that conclusively fails after full ingress validation, a separate failure-evidence commit may create the operation binding only when it atomically verifies authoritative rollback of the protected-effect transaction, verifies that the tuple is still unbound, and commits the exact staged binding together with one no-effect attempt and consequence. If that evidence commit conclusively fails or loses the tuple race, it creates no operation consequence. It may never run while the protected-effect commit remains uncertain. Its own transaction identity and commit status are distinct from the rolled-back transaction: a lost failure-evidence response requires reconciliation of that evidence commit before claiming that no binding survived or permitting another attempt.
 
 ### 6.2 Meaning of the online assertion timestamp
 
@@ -356,14 +356,17 @@ The loser must not compare a newly computed full operation digest to the winner 
 
 ### 6.4 Surviving-binding rule after rollback
 
-After conclusive rollback:
+After conclusive rollback of the named protected-effect transaction:
 
 - if a prior operation binding already existed, it and its original caller projection, full intent, trusted fields, and any admitted result binding survive unchanged;
-- if the rolled-back transaction or an authorized failure-evidence commit durably recorded the first binding with a no-effect attempt, those exact facts survive;
-- if neither commit did so, no operation binding or operation-level assertion-act fact survives; and
+- if a separate authorized failure-evidence commit durably recorded the first binding with a no-effect attempt, those exact facts survive; the rolled-back transaction itself committed nothing;
+- if that separate evidence commit remains uncertain, keep the tuple blocked until its own status is reconciled;
+- if authoritative status proves that neither a prior commit nor a separate evidence commit admitted the binding, no operation binding or operation-level assertion-act fact survives; and
 - caller memory, a request retry, a local cache, or a lower-level receipt log cannot reconstruct the missing trusted timestamp or full operation digest.
 
 Every permitted later attempt under an existing operation uses the stored full intent and obtains a fresh current authorization decision. It never reuses the earlier decision.
+
+A transaction that committed a complete no-effect set is not a rollback case. Its binding and recorded consequence survive under sections 10.3 and 11.4, including when its commit response was lost.
 
 ---
 
@@ -523,7 +526,7 @@ One successful short transaction performs this order:
 8. build the proposed domain result and evaluate every applicable non-authorization `EnforcementChain` gate, leaving inapplicable gates truthfully inapplicable rather than passed;
 9. validate the complete rule-bound protected-effect handoff, including result schema, exact result bytes/digest, state inputs, absence guards, mappings, postconditions, and overall `PASS`;
 10. insert or verify the immutable admitted protected-result binding from section 5.6;
-11. construct exactly one decision-consumption record, one transaction-attempt record, all required gate traces, and one governed-effect receipt bound to the complete set;
+11. finish the required gate traces, preallocate the receipt ID, and construct the decision-consumption record, transaction-attempt record, and complete-set receipt in the acyclic digest order in section 12.2;
 12. recheck `transactionDeadline`, `decisionValidUntil`, current rule mode, every complete guard, tuple/result/consumption/receipt uniqueness, and authoritative absence of a prior success or unresolved attempt; and
 13. atomically commit the complete success set, then expose a response allowed by current disclosure policy.
 
@@ -562,10 +565,14 @@ The governed-effect receipt binds at least:
 - exact role-labelled membership of the complete atomic success set; and
 - final outcome `EFFECT_COMMITTED`.
 
+The receipt's immutable identifier is allocated before consumption is hashed. Consumption binds that receipt identifier only, not its digest; the receipt binds the finalized consumption ref/digest. Verification enforces both the identifier back-reference and the digest-bearing forward reference.
+
+The role-labelled membership includes the receipt itself exactly once, by its preallocated identifier and role only. That self-entry has no digest member, including no null or provisional digest. Every other member is bound by its finalized owning digest; the admitted-result subobject is bound through its containing attempt ref/digest and fixed pointer. The receipt's own digest exists only in its top-level self-digest member and is verified using section 12.1. No nested membership entry repeats that digest. Later reconciliation evidence points back to the unchanged receipt; it is never inserted into the original receipt or original success membership.
+
 A receipt row or label alone is not proof of success. A complete matching success set is verified only when:
 
 1. the receipt and every required member resolve to immutable bytes with matching digests;
-2. membership has exactly the required role cardinalities and no conflicting member;
+2. membership has exactly the required role cardinalities, its identifier-only receipt self-entry names this receipt, and there is no conflicting member;
 3. operation, intent, rule, decision, consumption, result, trace, and attempt bindings all agree;
 4. the protected-effect disposition is `PASS` and committed result bytes equal validated bytes;
 5. authoritative atomic-store status proves the named transaction committed; and
@@ -606,7 +613,17 @@ After the operation view is safe to use:
 
 ### 10.3 Reconciliation
 
-Reconciliation queries the authoritative atomic store or commit-status mechanism for:
+Reconciliation distinguishes a database transaction's commit status from the attempt's protected-effect outcome. A database transaction can commit a valid `NO_EFFECT` evidence set. That is neither a protected-effect success nor a database rollback.
+
+Every status proof names the atomic-store boundary, exact transaction-status lookup key, logical operation or provisional tuple, and `transactionAttemptId`. The evidence records the transaction's role:
+
+- **protected-effect transaction:** the transaction that could apply the effect, but may instead commit only truthful no-effect evidence;
+- **first-admission commit:** the transaction that first made the operation binding durable, whether in a success set or a no-effect set; and
+- **separate failure-evidence commit:** a later transaction that records proven failure after the protected-effect transaction rolled back, and may also be the first-admission commit.
+
+Roles name the same transaction only when they are the same actual atomic commit. Distinct transactions have distinct status lookup keys, even when they concern the same attempt. A failure-evidence commit binds the rollback proof for the exact protected-effect transaction it describes. Proof that the latter rolled back says nothing about whether the former committed. A pre-existing operation binding is a guarded historical input, not a new write or partial success by the attempt being reconciled.
+
+Using those identities, reconciliation queries the authoritative atomic store or commit-status mechanism for:
 
 - operation binding and any admission commit;
 - transaction-attempt status and sequence;
@@ -615,11 +632,20 @@ Reconciliation queries the authoritative atomic store or commit-status mechanism
 - admitted and committed protected-result bindings;
 - protected-effect and gate traces;
 - governed-effect receipt; and
-- complete atomic-set membership.
+- complete success or no-effect set membership and the status of every relevant evidence commit.
 
-Only section 9.4 complete success or authoritative proof that the transaction rolled back with none of the success set resolves an uncertain attempt. An absence response from a cache, replica, timed-out lookup, incomplete query, or caller-visible endpoint is not rollback proof.
+The resolutions are:
 
-Resolution appends or exposes new immutable reconciliation evidence; it does not rewrite the original uncertain observation. If success is proven, complete success precedence controls. If rollback is proven, the attempt may be recorded as `NO_EFFECT` only through a truthful durable failure-evidence commit with one section 11 consequence. Until then, no new attempt may apply the effect.
+| Authoritatively verified condition | Exact resolution |
+|---|---|
+| The complete matching protected-effect success set committed under section 9.4 | `EFFECT_COMMITTED`; complete-success precedence controls and the original receipt is resolved, never rebuilt. |
+| A complete matching no-effect set committed under section 11.4, with no protected effect, decision consumption, or success receipt for that attempt | `NO_EFFECT`; preserve that set's immutable binding, original trusted intent facts, and recorded consequence. The database commit succeeded; do not label it rolled back or re-evaluate to recreate its refusal or failure evidence. |
+| The protected-effect transaction conclusively rolled back | Its protected-effect outcome is `NO_EFFECT`. Apply section 6.4 and verify any separate failure-evidence commit independently. A committed no-effect set uses the preceding row; an uncertain evidence commit keeps the operation blocked; conclusive failure to persist evidence creates no new consequence and leaves prior authoritative history controlling. Without any surviving binding, no operation is admitted. |
+| Status or required evidence remains incomplete or contradictory | Keep the operation blocked and name the exact unresolved transaction or fact. A proven partial-success or conflicting-set invariant breach is quarantined for separately governed repair. No missing member, commit, rollback, or consequence is invented. |
+
+Verification is attempt-specific and uses authoritative status plus complete, digest-valid membership. A cache, replica, timed-out lookup, incomplete query, or caller-visible absence response proves neither rollback nor a complete no-effect set. A refusal bundle alone does not prove that an effect transaction cannot still commit.
+
+Resolution appends or exposes immutable reconciliation evidence without rewriting the original observation, attempt, receipt, binding, or consequence. A resolution of success refers to the original receipt ref/digest; the receipt does not refer forward to that later resolution. No new effect-capable attempt may begin while any relevant protected-effect or evidence-commit fact remains unresolved. Once all such facts are settled, section 10.1 selects the surviving authoritative history; reconciliation itself grants no retry or disclosure authority.
 
 ---
 
@@ -633,7 +659,9 @@ The closed transaction outcomes are:
 |---|---|
 | `EFFECT_COMMITTED` | section 9.4 verifies the complete matching success set and authoritative commit status |
 | `NO_EFFECT` | authoritative evidence conclusively proves that no protected result, decision consumption, or success receipt committed for this attempt |
-| `OUTCOME_UNKNOWN` | available authoritative evidence cannot yet distinguish complete success from rollback |
+| `OUTCOME_UNKNOWN` | available authoritative evidence cannot yet establish whether the attempt committed a protected effect or conclusively had no effect |
+
+These outcomes describe the protected effect, not whether every related database transaction committed. `NO_EFFECT` may be established by a complete committed no-effect set or by authoritative protected-effect rollback proof. If the protected-effect rollback is proven but a separate failure-evidence commit is uncertain, the protected-effect fact remains `NO_EFFECT` while the operation is `BLOCKED_PENDING_RECONCILIATION`; no new durable consequence is claimed until that evidence status is settled.
 
 They are not authorization outcomes, public `RuntimeProblem` codes, or domain result states. `DENY`, `REQUIRE_REVIEW`, and any other PR #11 result remain authorization outcomes inside their own evidence.
 
@@ -667,9 +695,11 @@ These values describe one no-effect attempt. `BLOCKED_PENDING_RECONCILIATION` is
 | complete guard, serialization, uniqueness, or exclusive deadline check fails with authoritative rollback and no permanent content conflict | no effect or consumption; any committed attempt evidence is non-consumable | `RETRYABLE_SAME_OPERATION` |
 | transient persistence or infrastructure failure has authoritative rollback proof | `NO_EFFECT`; never infer a decision consumption | `RETRYABLE_SAME_OPERATION` when the no-effect attempt is durably recorded |
 | protected transaction rolls back before a first binding and no failure-evidence commit creates one | lower-level failure evidence may exist, but no operation is admitted | `NO_OPERATION_CONSEQUENCE` |
-| failure-evidence persistence fails after proven rollback | do not claim a refusal, attempt, binding, or consequence that did not commit | `NO_NEW_CONSEQUENCE`; prior authoritative operation evidence controls, or no operation exists |
+| failure-evidence persistence conclusively fails after proven rollback | do not claim a refusal, attempt, binding, or consequence that did not commit | `NO_NEW_CONSEQUENCE`; prior authoritative operation evidence controls, or no operation exists |
+| response is lost after a complete refusal or domain-failure no-effect set committed | reconcile the exact commit and section 11.4 membership; recover `NO_EFFECT`, the original binding, and its already recorded consequence | preserve the original `RETRYABLE_SAME_OPERATION` or `TERMINAL_REQUIRES_NEW_OPERATION_KEY`; do not recalculate it |
+| separate failure-evidence commit is uncertain after protected-effect rollback is proven | `NO_EFFECT` is already proven for the protected-effect transaction, but whether its evidence or first binding committed remains unknown | `BLOCKED_PENDING_RECONCILIATION` naming the evidence transaction; no new durable consequence or permission to replace the binding |
 | caller projection conflicts with an existing tuple | reject the conflicting submission without creating an attempt for the existing operation | `NO_NEW_CONSEQUENCE`; existing operation state controls |
-| commit outcome is ambiguous | `OUTCOME_UNKNOWN`; no no-effect claim or consequence | derived `BLOCKED_PENDING_RECONCILIATION`, naming the exact attempt or unresolved fact |
+| protected-effect transaction outcome is ambiguous and no complete no-effect set is verified | `OUTCOME_UNKNOWN`; no no-effect claim or consequence | derived `BLOCKED_PENDING_RECONCILIATION`, naming the exact attempt or unresolved fact |
 | one attempt is conclusively no-effect while another may have committed | retain the conclusive attempt and its consequence, but do not use it to authorize replay | derived `BLOCKED_PENDING_RECONCILIATION` because unresolved evidence has higher precedence |
 | any success-labelled member is missing, mismatched, duplicated, or not atomically proven | invariant breach; neither success nor rollback is fabricated | `QUARANTINED_PARTIAL_SUCCESS`; separately governed repair only |
 
@@ -690,7 +720,18 @@ A conclusive no-effect evidence commit contains only facts proven for that attem
 
 It contains no decision consumption, successful finalization evidence, protected result, success receipt, approval artifact, or success claim. A failed attempt is immutable and non-consumable. It can never be upgraded in place; later attempts append new evidence.
 
-If failure-evidence persistence fails, the runtime fails closed and reports only the runtime failure it can prove. Audit intent is not durable evidence.
+For a **complete matching no-effect set**, verification requires all of the following, not an arbitrary subset of the facts above:
+
+1. exactly one immutable `NO_EFFECT` attempt record with its ID, authoritative sequence, tuple and operation-binding ref/digest, full-intent digest, reached-stage dispositions, and exactly one section 11.2 consequence;
+2. the complete original operation binding and caller projection, newly committed for first admission or verified as unchanged historical inputs;
+3. every record required by the stages actually reached: mode evidence when constructed, the complete PR #11 bundle when evaluation produced a result, and the exact failure and applicable gate traces supporting the recorded disposition; unperformed stages are explicit and never fabricated;
+4. exact role-labelled membership recorded by the attempt, with finalized refs/digests for the required evidence and an identifier-only self-entry for that attempt; no nested copy of its own digest and no receipt, consumption, or later reconciliation record;
+5. the section 10.3 transaction-role bindings, authoritative proof that this exact no-effect evidence set committed atomically, and matching immutable bytes/digests for all required members; and
+6. authoritative proof that no protected result, consumption, or success receipt committed or can still commit for this attempt. When the set was written in a separate failure-evidence transaction, this includes conclusive rollback proof for the distinct protected-effect transaction.
+
+A committed `DENY` or `REQUIRE_REVIEW` set retains its refusal bundle. A committed `ALLOW` plus domain-gate-failure set retains `ALLOW` and the failure trace; authorization is not rewritten to explain the no-effect outcome. Missing required members or contradictory status cannot be treated as complete failure evidence, and a pre-existing binding alone satisfies none of the attempt-specific outcome proofs.
+
+If failure-evidence persistence conclusively fails, the runtime fails closed and reports only the runtime failure it can prove. If its acknowledgement is lost, it reconciles that evidence transaction before claiming persistence failed. Audit intent is not durable evidence.
 
 ---
 
@@ -704,17 +745,17 @@ This candidate adds no machine schema. Later materialization may add the issue #
 | transaction attempt | issue #25 | `AuthorizationFinalizationEvidence v0.2` / `NOT_REQUIRED_TRANSACTION_ATTEMPT_V0_1` | one ordered attempt used exact trusted transaction inputs and had one truthful outcome | exactly one successful-attempt record | no-effect attempt is non-consumable and has one consequence; uncertain observation has neither and remains subject to reconciliation |
 | mode-correct `NOT_REQUIRED` evidence | issue #25 | `AuthorizationFinalizationEvidence v0.2` / `NOT_REQUIRED_MODE_EVIDENCE_V0_1` | the current rule selected no human-finalization requirement and no human-finalization evidence was supplied | exactly one | may accompany a no-effect attempt; never an approval or authority source |
 | authorization request/result/full internal trace | PR #11 | `AuthorizationDecisionEvidence v0.2` | the complete evaluator input, current result, selected path/basis, cutoffs, and internal reasoning for this attempt | exact final `ALLOW` bundle and digest | truthful refusal bundle may commit without effect; never reused by a later attempt |
-| decision consumption | PR #11 semantics with issue #25 atomicity | `AuthorizationFinalizationEvidence v0.2` / single-use decision-consumption tag | this exact transaction consumed this exact decision once with the committed effect | exactly one | absent for no-effect and uncertain outcomes; provisional uniqueness is not durable consumption |
+| decision consumption | PR #11 semantics with issue #25 atomicity | `AuthorizationFinalizationEvidence v0.2` / single-use decision-consumption tag | this exact transaction consumed this exact decision once with the committed effect; its receipt link is the preallocated immutable ID only, never a receipt digest | exactly one; hashed before the receipt, which binds its ref/digest | absent for no-effect and uncertain outcomes; provisional uniqueness is not durable consumption |
 | AssertionRecord assertion-act fields/evidence | PR #23 | future `AssertionRecord v0.2` and its immutable assertion-act evidence binding | who asserted, exact `assertedAt`, posture, and conditional verified-offline evidence | inside exact protected result or referenced immutable evidence as PR #23 requires | original admitted facts persist across retry; never reclassified as human approval |
 | protected result | PR #23 for the first handoff; each later domain contract for its own family | future `AssertionRecord v0.2` operation branch for the first handoff | exactly one immutable pending-review operation claim whose bytes satisfy the contract | exact contract-owned result set | absent on no effect; an admitted-but-uncommitted result binding is evidence, not the result |
 | admitted protected-result binding | issue #25 transaction boundary, consuming the domain contract's values | `AuthorizationFinalizationEvidence v0.2` / fixed `/admittedProtectedResultBinding` subobject of `NOT_REQUIRED_TRANSACTION_ATTEMPT_V0_1` | the first passing handoff fixed one exact proposed result identity, bytes digest, schema, contract, and trace for this operation | required in the successful attempt or referenced to the lowest prior durable attempt that fixed it | may exist in a no-effect attempt without making the result exist; every later binding must match exactly |
 | protected-effect validation trace | PR #23 for the first handoff | separately reviewed shared trace envelope carrying PR #23 `AR_*` and `PC_*` payload | exact mappings and postconditions were evaluated with overall `PASS` or truthful `FAIL` | one overall passing trace | failing trace may be retained as non-consumable attempt evidence; it cannot become `PASS` later |
 | other applicable gate traces | each active `EnforcementChain` gate owner | each owner's existing or separately reviewed evidence profile | the named gate's exact inputs and truthful disposition | every applicable passing trace; inapplicable gates are not invented | truthful failure may commit without effect; one gate cannot reinterpret another's result |
-| governed-effect receipt | issue #25 transaction boundary | `AuthorizationFinalizationEvidence v0.2` / `NOT_REQUIRED_GOVERNED_EFFECT_RECEIPT_V0_1` | the complete matching success membership committed atomically | exactly one and exposed only after commit | absent for no effect; an uncertain caller copy is not proof; partial membership is quarantined |
+| governed-effect receipt | issue #25 transaction boundary | `AuthorizationFinalizationEvidence v0.2` / `NOT_REQUIRED_GOVERNED_EFFECT_RECEIPT_V0_1` | the complete matching success membership committed atomically; finalized consumption ref/digest and identifier-only receipt self-entry prevent a digest cycle | exactly one, hashed last among the success records and exposed only after commit | absent for no effect; an uncertain caller copy is not proof; partial membership is quarantined |
 | ingress rejection | PR #11 | `AuthorizationDecisionEvidence v0.2` / `AuthorizationRequestRejection v0.2` | only safely established malformed or invalid ingress facts | never a success member | may exist without an operation; persistence failure invents no rejection or operation consequence |
 | authorization refusal evidence | PR #11 | `AuthorizationDecisionEvidence v0.2` request/result/trace refusal branch | one schema-valid current evaluation returned `DENY`, `REQUIRE_REVIEW`, or another truthful non-allow outcome | never a success member | may commit in a no-effect attempt set; non-consumable and never reused as authority |
 | non-consumable failure-attempt evidence | issue #25 plus the failing gate owner | `AuthorizationFinalizationEvidence v0.2` / `NOT_REQUIRED_TRANSACTION_ATTEMPT_V0_1` with bound failure traces | no protected effect or consumption committed and the recorded failure facts were proven | never a success member | one immutable no-effect consequence when conclusive; no consequence when persistence fails or outcome is uncertain |
-| reconciliation observation/resolution | issue #25 transaction boundary | `AuthorizationFinalizationEvidence v0.2` / `NOT_REQUIRED_RECONCILIATION_EVIDENCE_V0_1` | what authoritative status was observed and whether complete success or rollback was proven | referenced by receipt when needed to prove recovered success, otherwise outside original atomic set | append-only; cannot rewrite an uncertain observation or manufacture missing success members |
+| reconciliation observation/resolution | issue #25 transaction boundary | `AuthorizationFinalizationEvidence v0.2` / `NOT_REQUIRED_RECONCILIATION_EVIDENCE_V0_1` | exact transaction roles/status keys and evidence proving complete success, a committed no-effect set, protected-effect rollback, or a still-unresolved fact | outside the original atomic set; a later resolution points back to the existing receipt or attempt ref/digest, never the reverse | append-only; cannot rewrite an uncertain observation, committed receipt, or recorded consequence, or manufacture missing members |
 | retention, encryption, deletion, or key-custody evidence | issue #14 and later custody boundaries | separately owned policy/evidence profiles | how bytes are retained or governedly removed | immutable policy refs only where required | cannot make a tuple reusable or erase the historical binding while obligations remain |
 
 ### 12.1 Integrity closure for issue #25 profiles
@@ -730,9 +771,27 @@ Every later issue #25 machine profile rejects duplicate JSON names and unknown m
 
 Each construction removes exactly its one top-level self-digest member after validating that sentinel, hashes every other member, inserts `sha256:` plus 64 lowercase hexadecimal characters, and validates the final record. No nested member or other top-level member is excluded. The caller projection remains the self-digest-free object defined in section 5.3.
 
+An identifier-only reference under sections 9.4, 11.4, and 12.2 has no digest field in the record's schema branch; it is not a digest excluded from hashing. In particular, consumption has no receipt-digest member, and the receipt self-membership entry has no digest member. Those absent fields cannot be represented by nulls, sentinels, duplicate nested self-digests, or an undocumented projection exception. Final committed records contain no provisional sentinel and undergo no post-hash mutation.
+
 Decision-evidence, decision-consumption, protected-effect-trace, and domain-result digests remain governed by their owning contracts. This integrity rule cannot alter their projections.
 
 All transaction/evidence tags enter OFARM authority, if admitted there, as the existing `EvidenceEvent` / `evidence record` classification described by PR #11. They create no new event family, domain truth, current state, or promotion by themselves.
+
+### 12.2 Acyclic construction and verification order
+
+The proposed evidence profiles must support this exact construction order within the guarded atomic boundary:
+
+1. allocate the unique immutable transaction-evidence identifiers needed for identifier-only forward references, including the governed-effect receipt ID, independently of their eventual digests; this does not replace content-addressed refs owned by other contracts;
+2. finalize the operation binding, mode evidence, authorization bundle, proposed domain result, and applicable validation/guard evidence under their owning contracts, in dependency order; mode evidence names the attempt by ID/sequence, not by its later digest;
+3. construct and hash consumption with those finalized bindings, the exact transaction/attempt identity, and the preallocated receipt ID only;
+4. construct and hash the successful attempt, including its admitted-result subobject or prior binding, finalized evidence/consumption refs and digests, and any receipt back-reference by ID only; it contains no receipt digest and no reference to its own digest inside its admitted-result subobject;
+5. construct and hash the receipt with the finalized consumption and attempt refs/digests, every other required member binding, and the identifier-only receipt self-entry in section 9.4;
+6. independently verify every final digest using its owning projection, verify all role cardinalities and identifier back-references, recheck the complete guards, and commit the unchanged complete success set atomically; and
+7. if later reconciliation is needed, construct append-only resolution evidence pointing back to the original finalized receipt or no-effect attempt. No earlier record gains a forward reference to that later evidence.
+
+Inside this transaction-evidence construction, a reference to a record finalized later may contain only its preallocated immutable ID, never a future digest. A digest-bearing reference must point to already finalized bytes. This does not alter owner-defined bundle projections such as PR #11's joint decision-bundle digest. If an owning contract cannot satisfy the construction without changing its semantics, stop for separate prerequisite review; do not invent an exclusion or modify that contract here.
+
+For a no-effect set, finalize the truthful supporting evidence and any required protected-effect rollback proof first, then hash the no-effect attempt and its section 11.4 membership. There is no consumption or receipt. Its evidence-commit status is verified separately using the preallocated transaction-status key; later status/reconciliation evidence is not inserted into the already hashed attempt. Any historical admission trace remains provenance; a current attempt still supplies its fresh passing validation trace and current authorization/snapshot bindings before success.
 
 ---
 
@@ -775,7 +834,7 @@ No application-level check followed by an unguarded insert satisfies these rules
 
 Decision consumption becomes durable only at the complete successful commit. Reserving a unique row, building a consumption object, obtaining authorization `ALLOW`, validating a result, or starting commit is not consumption.
 
-The consumption record binds the authorization decision bundle, logical operation and operation-binding digest, `NOT_REQUIRED` mode evidence, consuming principal, full effect-intent digest, exact committed result and receipt refs/digests, trusted consumption time, and `SINGLE_USE`. Human approval, reservation, and approval-consumption fields are absent.
+The consumption record binds the authorization decision bundle, logical operation and operation-binding digest, exact transaction/attempt identity, `NOT_REQUIRED` mode evidence, consuming principal, full effect-intent digest, exact committed result refs/digests, the preallocated immutable receipt ID only, trusted consumption time, and `SINGLE_USE`. It contains no receipt digest. The receipt is finalized later and binds this finalized consumption ref/digest; both commit atomically and verification enforces that consumption's receipt ID names that same receipt. Section 12.2 closes the construction order. Human approval, reservation, and approval-consumption fields are absent.
 
 If the transaction conclusively rolls back, the decision remains unconsumed and non-portable. A later attempt obtains another current decision and creates another prospective consumption object. It never consumes the earlier decision.
 
@@ -811,7 +870,7 @@ Retention or governed deletion may remove bulky bytes only under separately appr
 - conflict-detection or audit obligation; or
 - authoritative historical operation binding.
 
-While same-operation retry is possible, the complete runtime-finished intent and every trusted fact needed for fresh evaluation remain retrievable and digest-verifiable. While reconciliation is pending, every status and membership input needed to distinguish success from rollback remains available.
+While same-operation retry is possible, the complete runtime-finished intent and every trusted fact needed for fresh evaluation remain retrievable and digest-verifiable. While reconciliation is pending, every status and membership input needed to distinguish complete success, a committed no-effect set, protected-effect rollback, and any separate evidence-commit outcome remains available.
 
 After policy permits removal of bulky evidence, an immutable binding or tombstone still preserves at least the tuple binding, key-profile identity, operation-binding digest, caller-projection digest, original intent digest, mode/schema/contract/profile bindings, final operation state, admitted or committed result binding, receipt/consumption binding where applicable, and the reason tuple reuse remains prohibited. A tombstone never turns a completed or terminal operation into an unused key.
 
@@ -899,6 +958,9 @@ These are obligations for later executable conformance. This documentation PR do
 | Case | Required disposition |
 |---|---|
 | eligible initial operation claim | one complete atomic success set and exactly one immutable pending-review AssertionRecord |
+| construct a complete success set in section 12.2 order | independently verify every final digest and back-reference; no receipt digest in consumption, nested receipt self-digest, provisional sentinel in final bytes, post-hash mutation, or undocumented exclusion |
+| a receipt self-entry gains a digest, consumption gains a receipt digest, or an earlier record hashes a future record | reject the invalid evidence profile or construction; no protected effect or consumption commits |
+| later reconciliation proves a committed success | append resolution evidence referencing the original receipt ref/digest; original receipt bytes, digest, and atomic membership stay unchanged |
 | exact retry after commit, including lost response | verify and return the original permitted IDs, digests, `assertedAt`, result, and receipt; no second decision consumption or effect |
 | identical online submissions with the same tuple arrive concurrently at different receipt times | one authoritative binding and one success; matching losers recover the winner's `assertedAt`; no artificial timestamp conflict |
 | same tuple carries changed caller effect content | discover the earlier operation, reject the projection conflict, and create no new hidden operation |
@@ -916,6 +978,13 @@ These are obligations for later executable conformance. This documentation PR do
 | result bytes, result schema, contract binding, or validation trace are substituted | handoff/integrity failure; no effect or consumption |
 | authorization is `ALLOW` and a domain gate fails | preserve `ALLOW` as the authority-gate result and record only truthful non-consumable failure evidence |
 | committed `DENY`, then authority changes and exact retry occurs | original refusal remains immutable; fresh current evaluation is required under `RETRYABLE_SAME_OPERATION`; original `assertedAt` remains fixed |
+| complete `DENY` no-effect set commits but its response is lost | verify the exact committed refusal/attempt/binding set and authoritative absence of an effect/consumption/receipt for that attempt; recover `NO_EFFECT` and its original retryable consequence, not a rollback or a newly evaluated refusal |
+| complete `ALLOW` plus domain-gate-failure no-effect set commits but its response is lost | recover `ALLOW`, the exact failure trace, original binding, and recorded retryable or terminal consequence; a successful evidence commit is not a protected-effect success |
+| protected-effect transaction rolls back, then a separate first-admission failure-evidence commit succeeds but its response is lost | verify both distinct transaction identities/statuses; recover the committed binding, original `assertedAt`, and no-effect consequence without claiming that the evidence transaction rolled back |
+| protected-effect rollback is proven but the separate evidence commit remains uncertain | retain the proven no-effect fact, block the tuple on the evidence-transaction key, and create no replacement binding or new durable consequence |
+| protected-effect rollback and conclusive failure of the separate evidence commit are both proven | no new consequence; an earlier binding/history remains unchanged, or no operation exists if no binding ever committed |
+| an earlier binding survives while the current attempt rolls back | verify rollback only for the current attempt's writes; the historical binding alone is not a partial-success breach |
+| purported committed no-effect evidence lacks a required gate trace, names another attempt's status proof, or coexists with consumption for that attempt | do not resolve as `NO_EFFECT`; block incomplete evidence or quarantine a proven invariant breach, without replay or evidence synthesis |
 | committed `REQUIRE_REVIEW`, then exact retry occurs | apply `RETRYABLE_SAME_OPERATION` without fabricating review completion or reusing the earlier decision |
 | current-state-dependent domain failure later clears | later attempt may proceed only under `RETRYABLE_SAME_OPERATION` with complete fresh evaluation and guards |
 | deterministically invalid protected-result bytes are retried unchanged | prior terminal consequence prevents an indefinite same-key loop |
@@ -968,6 +1037,9 @@ Later tests must enter through the real shared lookup, trusted enrichment, autho
 24. Receipt lookup cannot create disclosure authority.
 25. Retention or deletion cannot make an authoritative tuple reusable while its obligations or history remain reachable.
 26. An operation claim remains pending review and never becomes accepted execution or current state through this protocol.
+27. Receipt and consumption linkage is bidirectional by identity but acyclic by digest; finalized records are never mutated to complete a reference cycle.
+28. A committed no-effect evidence transaction is not a rollback, and every proof identifies the exact transaction and attempt it proves.
+29. A separate evidence commit must be settled independently before its binding or consequence can govern another attempt.
 
 ---
 
@@ -996,11 +1068,13 @@ Later tests must enter through the real shared lookup, trusted enrichment, autho
 | immutable transaction policy, trusted inputs, and complete guards | section 8 |
 | ordered current evaluation, gates, handoff, and commit | section 9.2 |
 | complete atomic success set and verified receipt | sections 9.3 and 9.4 |
+| acyclic consumption/receipt digests, self-membership, and append-only reconciliation | sections 9.4, 12.1, 12.2, and 13.3 |
 | deterministic success/partial/unresolved/no-effect precedence | section 10.1 |
 | mode-change terminal without bypassing uncertainty | sections 10.1, 10.2, and 11.3 |
 | `EFFECT_COMMITTED`, `NO_EFFECT`, and `OUTCOME_UNKNOWN` | section 11.1 |
 | exactly two conclusive no-effect consequences | section 11.2 |
 | closed failure lifecycle and evidence-persistence failure | sections 11.3 and 11.4 |
+| committed no-effect recovery and distinct protected-effect/evidence transaction proofs | sections 6, 10.3, 11, and 16 |
 | evidence-profile ownership table | section 12 |
 | one consumption/result/receipt and concurrency behavior | section 13 |
 | receipt disclosure limits | section 14.1 |
@@ -1043,7 +1117,7 @@ The transaction owns the starting snapshot and guard evidence consumed by those 
 
 ### 18.5 Downstream implementation ownership
 
-OFARM2 #173 owns UnitOfWork foundations, OFARM2 #178 owns command-idempotency implementation, and OFARM2 #353 owns authorization-evaluator implementation. They may consume this protocol only after accepted semantic promotion, exact machine-contract materialization, current/default promotion where required, and byte/digest-verified extraction. None may infer canonical meaning from this candidate alone.
+OFARM2 #173 owns UnitOfWork foundations, OFARM2 #178 owns command-idempotency implementation, and OFARM2 #353 owns authorization-evaluator implementation. They may consume this protocol only after exact non-default machine-contract materialization and binding review, accepted semantic promotion, required conformance and current/default promotion, and byte/digest-verified extraction in section 21's governed order. None may infer canonical meaning from this candidate alone.
 
 ---
 
@@ -1069,7 +1143,7 @@ OFARM2 #173 owns UnitOfWork foundations, OFARM2 #178 owns command-idempotency im
 | Is the operation-binding digest fixed once and recovered rather than recomputed on retry? | yes | yes |
 | Does an admitted protected-result binding stop result substitution without becoming another lookup namespace or result existence claim? | yes | yes |
 | Is the first durable binding exactly the first atomic success or conclusive-no-effect commit containing it? | yes | yes |
-| Are locks, staged inserts, caches, and ambiguous writes insufficient to create that binding? | yes | yes |
+| Are locks, staged inserts, caches, and an ambiguous response insufficient to prove that binding, while a verified commit still admits it if its reply was lost? | yes | yes |
 | Does a first-attempt failure-evidence commit require authoritative rollback proof and atomic tuple uniqueness? | yes | yes |
 | Is online `assertedAt` still the runtime-observed pre-validation assertion time, not the binding commit or effect commit time? | yes | yes |
 | Do matching concurrent losers discard their timestamps and recover the winning binding? | yes | yes |
@@ -1086,6 +1160,8 @@ OFARM2 #173 owns UnitOfWork foundations, OFARM2 #178 owns command-idempotency im
 | Does successful commit include exact operation, attempt, decision, mode, consumption, result, trace, and receipt evidence? | yes | yes |
 | If the immutable operation binding predates success, is it guarded and referenced rather than rewritten? | yes | yes |
 | Does a successful receipt count only after complete matching set and atomic-status verification? | yes | yes |
+| Does consumption bind a preallocated receipt ID without its digest, while the later receipt binds finalized consumption and has an identifier-only self-entry? | yes; section 12.2 defines the acyclic order | yes |
+| Must later reconciliation point back to unchanged committed records rather than change their bytes or original membership? | yes | yes |
 | Does operation admission apply complete success, partial breach, unresolved attempt, then latest no-effect consequence in that order? | yes | yes |
 | Does unresolved evidence block a mode-change terminal response and new reapplication? | yes | yes |
 | Are transaction outcomes separate from authorization outcomes and public problem codes? | yes | yes |
@@ -1095,6 +1171,8 @@ OFARM2 #173 owns UnitOfWork foundations, OFARM2 #178 owns command-idempotency im
 | Is a deterministic fixed-content protected-result failure terminal under the old key? | yes | yes |
 | Is a transient failure with authoritative rollback proof retryable under the same immutable operation? | yes | yes |
 | Does failure-evidence persistence failure create no false durable consequence? | yes | yes |
+| Can reconciliation recover a complete committed no-effect set without falsely calling its database commit a rollback? | yes; preserve its original binding and recorded consequence | yes |
+| Are protected-effect, first-admission, and separate failure-evidence transaction roles explicitly identified and independently verified when distinct? | yes; uncertainty about an evidence commit blocks replacement admission | yes |
 | Is a partial success set quarantined without automatic synthesis, deletion, compensation, or replay? | yes | yes |
 | Does consumption become durable only with the successful atomic effect? | yes | yes |
 | Are one operation/one success/one consumption/one result-byte-sequence uniqueness rules mandatory? | yes | yes |
@@ -1105,6 +1183,7 @@ OFARM2 #173 owns UnitOfWork foundations, OFARM2 #178 owns command-idempotency im
 | Does the transaction preserve reporter/performer separation and leave performer authority unevaluated? | yes | yes |
 | Does it create no accepted execution, review, current state, prior-record mutation, event-family derivation, or implicit companion effect? | yes | yes |
 | Does this candidate add no schema, accepted law, currentness, runtime, database, readiness, or OFARM2 change? | yes | yes |
+| Must required non-default profiles, prerequisites, and exact schema/manifest bindings be materialized and reviewed before accepted-law promotion? | yes; semantic approval alone accepts no law | yes |
 
 Any requested change to authorization, human-finalization semantics, AssertionRecord mappings, Event Grammar, disclosure, retention/custody, database authority, repair authority, or runtime implementation must remain in a separate trust-boundary PR.
 
@@ -1140,10 +1219,10 @@ The required sequence is:
 
 1. **Phase A transaction candidate:** review and approve or amend this one non-authoritative issue #25 file.
 2. **Exact-head semantic approval:** record source-verified review and explicit approval of the candidate's exact head; candidate approval changes no active law.
-3. **Accepted semantic promotion:** separately promote the exact approved RFC bytes under repository governance. The eventual accepted-law transaction prerequisite for applicable `NOT_REQUIRED` rows must name issue #25 alongside issue #19; do not edit the historical approved PR #11 candidate in this PR.
-4. **Non-default transaction/evidence materialization:** separately create exact content-addressed operation-binding, caller-projection, mode-evidence, attempt, reconciliation, consumption, and receipt profiles with reviewed refs/digests. Stop for a separate packaging decision if `AuthorizationFinalizationEvidence v0.2` cannot represent the distinct truth claims.
-5. **Domain/shared-evidence prerequisites:** separately materialize the approved PR #23 AssertionRecord result/body schemas, assertion-act evidence, protected-effect contract, trace envelope, and exact bundle bindings.
-6. **Authorization policy-bundle binding:** separately bind the exact promoted issue #25 transaction profile and PR #23 protected-effect contract into the affected complete action rule without duplicating their semantics.
+3. **Non-default transaction/evidence materialization:** separately create exact content-addressed operation-binding, caller-projection, mode-evidence, attempt, reconciliation, consumption, and receipt profiles. Stop for a separate packaging decision if `AuthorizationFinalizationEvidence v0.2` cannot represent the distinct truth claims. This creates no accepted law or current/default selection.
+4. **Domain/shared-evidence prerequisites:** separately materialize the approved PR #23 AssertionRecord result/body schemas, assertion-act evidence, protected-effect contract, trace envelope, and exact bundle bindings. Complete the other applicable prerequisites and separately owned draft profiles required by PR #11 section 24 before accepted-law work.
+5. **Non-default authorization policy-bundle binding:** bind the exact materialized issue #25 transaction profile and PR #23 protected-effect contract into the affected complete action rule and immutable manifest without duplicating their semantics. The referenced bytes and digests must actually exist; they are not yet promoted by this step.
+6. **Exact binding review, then accepted semantic promotion:** stewards review the required schema/profile/manifest bytes and their content-addressed bindings before a separate governed PR performs the applicable accepted-law promotion under PR #11 section 24. Pin the reviewed digests. Any semantic change returns to exact-head semantic review and approval. The eventual accepted-law transaction prerequisite for applicable `NOT_REQUIRED` rows must name issue #25 alongside issue #19; do not edit the historical approved PR #11 candidate in this Phase A PR.
 7. **Hostile conformance:** exercise section 16 through production-reachable lookup, trusted enrichment, authorization, gate, persistence, receipt, and reconciliation paths, and record actual evidence.
 8. **Explicit current/default promotion:** change currentness only through a separate steward-approved step after contract and conformance review.
 9. **OFARM2 extraction:** copy only promoted canonical assets, verify exact bytes and digests, and retain source provenance.
@@ -1162,11 +1241,14 @@ Phase A is complete when:
 - the key grammar, tuple, caller projection, operation binding, digest construction, result binding, durable admission point, concurrent winner, and rollback-survival rules are reviewed;
 - the first-admitted online assertion timestamp remains the runtime-observed pre-validation value rather than a commit time;
 - the transaction sequence, current re-evaluation, complete guards, success membership, verified receipt, and single-use uniqueness are reviewed;
+- the acyclic digest construction, identifier-only receipt links and self-membership, and append-only reconciliation references are reviewed;
 - the exact outcome/consequence separation and deterministic success/partial/unresolved/no-effect precedence are reviewed;
+- recovery covers committed no-effect sets and separately identified protected-effect, first-admission, and failure-evidence commits without conflating commit status with protected-effect outcome;
 - the mode-change terminal rule cannot bypass unresolved evidence;
 - every required failure class and failure-evidence persistence failure has one truthful posture;
 - evidence ownership and shared-package posture are explicit;
 - the operation-claim handoff is exact and creates only one pending-review assertion;
+- non-default materialization and exact binding review precede accepted-law promotion under section 21 and PR #11 section 24;
 - no semantic choice required by this boundary is left to schema or runtime authors;
 - every unresolved cross-boundary need is named as a blocker rather than silently filled; and
 - the PR still changes only this non-authoritative candidate file.
