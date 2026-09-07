@@ -94,7 +94,7 @@ Keep RevocationDecision v0.1 unchanged and constrain its use through one separat
 |---|---|
 | Action | `SHARE_REVOKE_ACCESS` |
 | Authority family / stage | `SHARE_REVOKE` / `PROMOTION` |
-| Inheritance / delegation ceiling | `EXACT_ONLY` / `EXPLICIT_SOURCE_PERMISSION_REQUIRED` |
+| Inheritance / delegation ceiling | `EXACT_ONLY` / `DELEGATION_ALLOWED` |
 | Agent posture | `AGENT_ALLOWED_WITH_HUMAN_APPROVAL` |
 | Human finalization / separation | `FRESH_HUMAN_APPROVAL_REQUIRED` / `SAME_PRINCIPAL_ALLOWED` |
 | Intent / resource policy | `EI_SHARING_REVOKE_V0_2` / `RP_SHARE_REVOKE` |
@@ -103,6 +103,8 @@ Keep RevocationDecision v0.1 unchanged and constrain its use through one separat
 | Action evidence policy | `EP_SHARING_SOVEREIGNTY_V0_2` |
 
 This table does not authorize a caller to supply those values, change their source, or omit any other selected rule field. PR #11 selects the complete immutable rule and extractor. A natural-person request still follows the fresh-approval lifecycle; it is not silently routed through `DIRECT_HUMAN_ACTION_REQUIRED` or `NOT_REQUIRED`.
+
+Every consumed value in this table must match the pinned PR #11 candidate's action row and governing definitions, including the exact code legends in sections 7.2 and 7.8 and the separation rule in section 6.4. For this action, `X / DA` expands to `EXACT_ONLY / DELEGATION_ALLOWED`. A transcription mismatch blocks contract-binding review; it is not a local policy choice. Source permission and delegated-path eligibility remain owned by PR #11 section 10. This domain contract consumes the exact rule binding and authorization result and does not add a second delegation evaluator.
 
 ### 5.2 Inputs and proof ownership
 
@@ -329,6 +331,7 @@ These are design cases for later production-reachable conformance, not implement
 | `SR-T28` | Persistence failure, lost commit acknowledgement or visible partial success set | Atomic rollback or authoritative reconciliation; unknown is not retry permission and partial visibility is not success |
 | `SR-T29` | Another independent source still permits access, or a different replacement ID was separately issued | Do not claim all access ended or extend termination by lineage; actual access remains a separate current authorization decision |
 | `SR-T30` | Later retrieval has only a digest after governed loss/deletion of evidence bytes | Keep immutable historical receipt; qualify reconstruction honestly; no invented bytes or new authority |
+| `SR-T31` | The source `AuthorityGrant` grants `SHARE_REVOKE_ACCESS` and uses `DELEGABLE_GRANTED_ACTIONS` with no narrowing `delegableActionClasses` list; a valid `DelegationGrant`, independently eligible human approval, and every other authorization/domain condition are satisfied | The pinned `DELEGATION_ALLOWED` rule permits the delegated path and normal gates pass. This domain contract must not demand an action-specific source-permission list or reject the result for its absence. Verify every consumed section 5.1 value against the pinned PR #11 definitions; delegation evaluation stays with authorization |
 
 The approval/freshness/concurrency/recovery cases are integration obligations to the existing owners, not authorization to add their implementations to this domain PR.
 
@@ -336,7 +339,7 @@ The approval/freshness/concurrency/recovery cases are integration obligations to
 
 | Issue criterion | Candidate closure | Key cases |
 |---|---|---|
-| 1: exact action/family/mode | Sections 1, 5 and 6 | T01, T06, T13 |
+| 1: exact action/family/mode | Sections 1, 5 and 6 | T01, T06, T13, T31 |
 | 2: authority target versus affected grant | Sections 5.2-5.3 and 9 | T07-T10 |
 | 3: complete result-field mapping | Sections 6-7 | T11-T15 |
 | 4: missing proof outside unchanged v0.1 carrier | Sections 4 and 10 | T19, T30 |
@@ -345,7 +348,7 @@ The approval/freshness/concurrency/recovery cases are integration obligations to
 | 7: event/commit classification | Section 8 | T22 |
 | 8: immutable truthful validation trace | Sections 9-10 | T19-T20, T23 |
 | 9: validation before atomic commit; no outcome rewriting | Section 11 | T16-T18, T24-T28 |
-| 10: positive and hostile specifications | Section 12 | T01-T30 |
+| 10: positive and hostile specifications | Section 12 | T01-T31 |
 | 11: exact future bindings, stages and approval | Sections 2-3, 10 and 14-16 | Binding review and one-file scope test |
 
 `Tnn` in this table abbreviates `SR-Tnn`. Later implementation must add invariant-to-code-to-test evidence in its own PR; this Phase A table is not executable coverage.
@@ -410,7 +413,7 @@ python3 -B package_meta/tools/check_repository_cross_references.py
 python3 -B package_meta/tools/check_repository_steward_guardrails.py
 ```
 
-The name-only diff must contain only this Phase A file. Separately inspect that all twelve schema properties have exactly one mapping, all nine fixed postconditions are required, and case IDs `SR-T01` through `SR-T30` are unique and complete. These static checks cannot prove the proposed semantics or substitute for focused review and later executable hostile conformance.
+The name-only diff must contain only this Phase A file. Separately inspect that all twelve schema properties have exactly one mapping, all nine fixed postconditions are required, and case IDs `SR-T01` through `SR-T31` are unique and complete. Compare every consumed action-binding value with the pinned PR #11 row and definitions as required by section 5.1; `SR-T31` guards the valid blanket-source-permission case without introducing a domain delegation evaluator. These static checks cannot prove the proposed semantics or substitute for focused review and later executable hostile conformance.
 
 Phase A completes only after focused review and semantic approval of the exact candidate head, with no unresolved design blocker hidden as a passing prerequisite and with the one-file trust-boundary scope intact. Later machine materialization must prove exact selectors, field coverage, dispositions and real bindings, then execute the specified positive/hostile cases through separately authorized runtime paths.
 
