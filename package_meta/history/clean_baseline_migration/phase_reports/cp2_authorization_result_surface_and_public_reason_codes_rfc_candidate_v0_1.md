@@ -20,6 +20,7 @@ Approve or amend the following public-response choices, not an implementation:
 4. Publish a committed refusal only from verified, committed owner evidence. Prepared evidence is not a public decision. An invalid request, unavailable result or unconfirmed commit carries no public authorization outcome.
 5. Embed the applicable public registry definitions so retryability and safe handling remain machine-readable. None of these codes permits automatic resubmission. Later retry eligibility remains entirely with the owning transaction contract.
 6. Expose only a safe primary category, disclosure qualification and permitted references. Keep full trace access separate. A receipt, reference or digest never grants read permission or proves present byte availability.
+7. For committed refusal evidence, carry the owner's governed source-history qualification, including material corrections, disputes and supersession. Preserve the original outcome and source time; distinguish unavailable or withheld qualification from a verified absence of such limitations.
 
 These are proposals for review. No code is registered, no contract is promoted, and no authorization, transaction, retention or runtime rule changes merely because this file exists or receives Phase A approval.
 
@@ -33,6 +34,7 @@ The intended PR changes only this file in the historical phase-report lane. It d
 |---|---|---|
 | Public result fields, safe messages and registered code meanings | Existing CP2 process and issue #30 | Define a projection, not another authorization evaluator |
 | Authorization outcome, canonical reason ranking, eligibility and approval path | Active authority law and pinned PR #11 | Consume the selected outcome; do not recompute it from public details |
+| Corrections and qualifications of authorization evidence | Existing evidence governance and pinned PR #11 section 17.2 | Consume the owner's linked-history qualification; create no correction authority, history store or replacement decision |
 | Refusal durability, protected effects, retry, single use and reconciliation | Pinned PR #11, PR #20 and PR #26 as applicable | Report verified facts; do not select a transaction outcome or retry consequence |
 | Trace, target and retained-byte access | Separately authorized governed read | Current authorization is still required for each read; no bearer authority from a reference |
 | Retention, deletion, custody and proof strength | Pinned PR #29 and its governing sources | Preserve distinctions; do not change policy, storage or verification protocols |
@@ -50,7 +52,7 @@ Apply `PROJECT_AUTHORITY.md`: active baseline outranks accepted RFCs, then compa
 | `00_active_baseline/OFARM_Platform_Runtime_and_Product_Architecture_RC2_1.md`, AAI-P.1-P.3 and AAI-P.6-P.6.1 | Governed public surfaces, enforcement before success, no preflight effects, and faithful release qualification |
 | `02_accepted_rfcs/OFARM_AI_Facing_Result_Qualification_and_Trace_Surface_RFC_v0_1.md` | Existing CP2 carrier ownership, applicable result limitations, separately governed trace access and registered public problems |
 | `02_accepted_rfcs/OFARM_RuntimeProblem_Reason_Code_Registry_RFC_v0_1.md` | Governed code meanings and metadata; unregistered codes, missing retryability and unsafe messages fail conformance |
-| [PR #11](https://github.com/samovers/OFARM/pull/11), head `03a21f669ee04f96d444e14f00ae7212cab04803` | Sections 18.5, 18.7 and 24: authorized reads, committed refusal bundles, five public mappings and separate CP2 acceptance |
+| [PR #11](https://github.com/samovers/OFARM/pull/11), head `03a21f669ee04f96d444e14f00ae7212cab04803` | Sections 17.2, 18.5, 18.7 and 24: immutable evidence with new linked corrections/failures, authorized reads, committed refusal bundles, five public mappings and separate CP2 acceptance |
 | [PR #20](https://github.com/samovers/OFARM/pull/20), head `98f8c4fafbae42c8f7fd931f43f53adcb4733713` | Human transaction authority, display rules, single use, retry and reconciliation; no synthetic challenge for direct human action |
 | [PR #26](https://github.com/samovers/OFARM/pull/26), head `e042efa2911b2ef0a61603b8e0adaa6911c03ac0` | Sections 10-12 and 14: independently verified effect/evidence commits, terminal versus retryable consequences and authorized lookup |
 | [PR #29](https://github.com/samovers/OFARM/pull/29), head `8e0994cae5610ac9c0d2652e02c8a8a2dd7b45c5` | Original proof posture versus present availability; missing, denied, corrupt, redacted and digest-only evidence are different facts |
@@ -108,7 +110,7 @@ Required root fields are `schemaVersion`, `qualificationId`, `qualifiedAt`, `asO
 
 `EXPORT_API_PAYLOAD` permits serialization of this qualified reply to its authorized recipient, not export of target data or redistribution to a new audience. Allowed and blocked lists must be disjoint and complete; no empty blocked list or positive-use escape hatch is valid.
 
-The authorization branch does not carry `twinScope`, `authorityLevel`, `candidateStatus`, `disputeStatus`, `stalenessClass`, `evidenceSufficiency`, source/domain result references, or domain promotion fields. They qualify the underlying domain material, not this protocol reply. Filling them with NONE, FRESH, SUFFICIENT or NOT_EVALUATED could invent facts. The selected authorization outcome, source time, response confirmation and disclosure limits below carry the applicable meaning instead. A successful or permission-filtered governed read still carries all qualifications required by its own CP2 surface; it cannot use this branch to omit them.
+The authorization branch does not carry the domain-material fields `twinScope`, `authorityLevel`, `candidateStatus`, `stalenessClass`, `evidenceSufficiency`, source/domain result references, or domain promotion fields. Filling inapplicable fields with FRESH, SUFFICIENT or NOT_EVALUATED could invent facts. This exclusion does not apply to material qualifications of the authorization evidence itself: the conditional `sourceHistoryQualification` below reuses CP2's existing `disputeStatus` meanings for that evidence. The selected authorization outcome, source time, source-history qualification, response confirmation and disclosure limits carry the applicable meaning. A successful or permission-filtered governed read still carries all qualifications required by its own CP2 surface; it cannot use this branch to omit them.
 
 ### 5.2 Closed `authorizationResponse` member
 
@@ -118,6 +120,7 @@ The authorization branch does not carry `twinScope`, `authorityLevel`, `candidat
 | `responseKind` | Required enum: `COMMITTED_REFUSAL`, `INGRESS_REJECTION`, `RESULT_UNAVAILABLE`, `COMMIT_UNCONFIRMED` |
 | `replyMode` | Required enum: `CURRENT_ATTEMPT` or `RECORDED_RESULT`; the latter is legal only for an authorized, verified historical committed-refusal lookup |
 | `authorizationOutcome` | Required: exactly `DENY`, `REQUIRE_REVIEW` or `REQUIRE_HUMAN_APPROVAL` for COMMITTED_REFUSAL; JSON null otherwise. Null means no authoritative outcome is surfaced in this reply, not that no historical record could exist |
+| `sourceHistoryQualification` | Required closed object for COMMITTED_REFUSAL in either replyMode; forbidden for all other response kinds. Section 5.4 defines its availability, observation point and conditional existing CP2 disputeStatus |
 | `registryRef` | Required immutable reference to the governed public registry revision; not an authorization policy/basis identifier |
 | `registrySha256` | Required lowercase 64-hex SHA-256 of that registry's complete raw UTF-8 file bytes, with no normalization or self-digest field. Exact admission provenance is also required; a matching digest alone grants no authority |
 | `reasonCodeDefinitions` | Required ordered array of the existing registry schema's complete reason-code entry objects, one per problem in the same order; exact value matches to the pinned registry, no locally edited messages or metadata |
@@ -130,9 +133,27 @@ The profile imports the exact RuntimeProblem v0.1 definition; it does not copy t
 
 ### 5.3 Source binding without a new evidence record
 
-Before serialization, the trusted projection consumes the owning operation's exact request/attempt or authorized historical-result binding, its verified source outcome or failure observation, relevant commit confirmation, current disclosure decision and admitted profile/registry version. These are internal inputs, not caller-supplied assertions and not a new persistent authority record. The binding uses the existing owner evidence; this candidate does not add a receipt writer or require a second commit of the public explanation.
+Before serialization, the trusted projection consumes the owning operation's exact request/attempt or authorized historical-result binding, its verified source outcome or failure observation, relevant commit confirmation, current disclosure decision and admitted profile/registry version. For committed source evidence, it also consumes the evidence owner's governed linked-history qualification and its observation point, or the trusted reason that qualification is unavailable or withheld. These are internal inputs, not caller-supplied assertions and not a new persistent authority record. The binding uses the existing owner evidence; this candidate does not add a receipt writer or require a second commit of the public explanation.
 
-A conformance harness must show that the emitted outcome, times, mode and permitted references all came from that same source binding. Mixing one tenant's outcome with another request, substituting a cached result, or accepting a fabricated commit flag fails even if the JSON is valid. Public identifiers alone are not the proof. Any later producer unable to obtain the necessary trusted bindings must not claim this profile or repair the gap with placeholders.
+A conformance harness must show that the emitted outcome, times, mode, source-history qualification and permitted references all came from that same source binding. Mixing one tenant's outcome with another request, substituting a cached result or another record's history qualification, or accepting a fabricated commit flag fails even if the JSON is valid. Public identifiers alone are not the proof. Any later producer unable to obtain the necessary trusted bindings must not claim this profile or repair the gap with placeholders. Section 5.4 permits an explicit unavailable history qualification only when the original refusal itself is independently established and its qualified disclosure remains permitted.
+
+### 5.4 Conditional source-history qualification
+
+`sourceHistoryQualification` has exactly three required fields: `availability`, `asOf`, and `disputeStatus`. It qualifies the committed authorization evidence, not the target's domain state or the caller's current permission. It introduces no new authorization outcome or correction process.
+
+| availability | asOf | disputeStatus | Required source and meaning |
+|---|---|---|---|
+| AVAILABLE | Owner-supplied date-time of the governed history observation point | Exactly one existing CP2 value: NONE, OPEN_DISPUTE, DISPUTED_BASIS, CORRECTED, SUPERSEDED or MIXED | The owner has established the applicable qualification for this exact source evidence, valid at the reply's governed observation point, and permits disclosure of the status and time |
+| UNAVAILABLE | JSON null | JSON null | The producer cannot establish the required history qualification from trustworthy owner evidence. This does not mean that the original refusal or correction records are absent |
+| WITHHELD | JSON null | JSON null | Current disclosure policy does not permit returning the qualification or its observation point. It does not disclose whether any correction/dispute/supersession exists |
+
+AVAILABLE reuses the exact enum at `ResultQualificationEnvelope v0.1`'s `properties.disputeStatus`; this candidate does not change that enum for existing surfaces. NONE requires the owner's affirmative, complete determination that no applicable material correction/dispute/supersession limitation is present at the governed observation point. An intact original digest, empty visible search, filtered history, stale cache or incomplete lookup cannot establish NONE. The public projector consumes the owner's classification, including MIXED where applicable; it does not discover corrections, rank competing records, or decide what legally corrects or supersedes evidence.
+
+The nested asOf is the history observation point, not the original decision time or a correction's event time. Root asOf remains the original result time; qualifiedAt remains the outward projection time. Use the owner's valid observation point for this response, not an old checkpoint chosen to omit a known material qualification. If that qualification cannot be established at the required point, use UNAVAILABLE, not an invented time or NONE. The underlying source/history bindings stay internal; no correction IDs, counts, payloads or raw history references are added to this object.
+
+WITHHELD takes precedence when the reader may not receive the history-qualification observation, regardless of whether the producer knows its status or availability. This prevents the field from becoming a correction-existence oracle. If only correction details are restricted but the status/time may be disclosed, keep AVAILABLE with the truthful status and add the existing DETAILS_REDACTED and compatible permission/absence posture. WITHHELD likewise requires DETAILS_REDACTED and compatible withholding posture. UNAVAILABLE alone uses the existing UNAVAILABLE absence qualification without claiming an access denial or missing original bytes; if other diagnostics are suppressed, section 7's suppression precedence still applies. Trace availability remains a separate observation.
+
+Every non-NONE status and every UNAVAILABLE/WITHHELD qualification requires the safe display sentence in section 6. Unknown or restricted qualification cannot silently become unqualified history. A reply may retain the independently verified original refusal with this explicit limitation only if its governing disclosure policy permits both the original category and that limited statement. Otherwise exclude the historical lookup from this narrow profile and use the governing lookup's permitted qualified failure; do not reveal the old outcome, invent a new denial, or manufacture a private fallback code.
 
 ## 6. Result categories, precedence and display
 
@@ -152,7 +173,20 @@ Prepared non-ALLOW evidence is internal only and cannot be published as COMMITTE
 
 A refusal bundle alone does not establish every surrounding operation's no-effect consequence or retry eligibility. RESULT_UNAVAILABLE likewise does not mean rollback, terminal state, absence of older evidence or permission to retry. If the producer cannot truthfully choose a row, it cannot manufacture a durable result. A transport failure may report only the transport's already governed failure; it cannot claim CP2 conformance without a valid registered qualification.
 
-For CURRENT_ATTEMPT, `displayHints.safeLabel` uses the fixed primary label above. For RECORDED_RESULT it is `Recorded authorization result`; the user message begins `Recorded result; not current permission.` followed by the primary safe message. COMMIT_UNCONFIRMED adds the fixed sentence `Commit status is unconfirmed. Do not resubmit while confirmation is pending.` The DETAILS_REDACTED safe message is appended only when that secondary code is present. No internal value is interpolated.
+For CURRENT_ATTEMPT, `displayHints.safeLabel` uses the fixed primary label above. For RECORDED_RESULT it is `Recorded authorization result`; the user message begins `Recorded result; not current permission.` followed by the primary safe message. COMMIT_UNCONFIRMED adds the fixed sentence `Commit status is unconfirmed. Do not resubmit while confirmation is pending.` For COMMITTED_REFUSAL in either mode, append the applicable source-history sentence below after the primary safe message. The DETAILS_REDACTED safe message, when that secondary code is present, comes last. No internal value is interpolated; RuntimeProblem titles, details and registry definitions remain unchanged.
+
+| Source-history qualification | Required displayHints.userMessage sentence |
+|---|---|
+| AVAILABLE / NONE | No additional sentence; do not turn NONE into a current-authorization or complete-evidence claim |
+| AVAILABLE / OPEN_DISPUTE | `The recorded authorization evidence has an open dispute.` |
+| AVAILABLE / DISPUTED_BASIS | `The recorded authorization basis is disputed.` |
+| AVAILABLE / CORRECTED | `The recorded authorization evidence has a linked correction.` |
+| AVAILABLE / SUPERSEDED | `The recorded authorization evidence has been superseded.` |
+| AVAILABLE / MIXED | `The recorded authorization evidence has material history qualifications.` |
+| UNAVAILABLE | `Source-history qualification could not be established.` |
+| WITHHELD | `Source-history qualification is not disclosed.` |
+
+These sentences qualify the evidence without replacing the primary category. They do not recompute the historical outcome, reveal correction content or grant retry authority. They are governed qualification-display templates, not new RuntimeProblem codes or changes to the six existing proposed registry entries.
 
 Every `forbiddenLabels` list includes `Authorized`, `Approved`, `Completed`, `Compliance-ready` and `No records found`. Do not convert review-required into approval, human-action-required into a review ticket, or invalid-ingress into a durable denial. Secondary redaction cannot replace or hide the primary category. English templates are specified here; a future localized template set needs the same governed bindings and hostile checks, not arbitrary runtime translation of internal diagnostics.
 
@@ -169,7 +203,7 @@ Permission and absence fields refer to the public explanation and diagnostics. T
 | All additional diagnostic explanation is withheld by authority | WITHHELD_BY_AUTHORITY / PERMISSION_LIMITED, plus DETAILS_REDACTED; the primary safe category remains visible |
 | A tenant-boundary reason may itself safely be disclosed under the owning policy | TENANT_BOUNDARY_BLOCKED / PERMISSION_LIMITED, plus DETAILS_REDACTED |
 | No such permission evaluation occurred, as with fixed invalid-ingress explanation | NOT_EVALUATED / NOT_APPLICABLE; no target/trace existence claim |
-| An authorized explanation source is unavailable or cannot pass integrity verification, without permission suppression | FULL_DETAIL / UNAVAILABLE, with the distinct applicable trace observation; lack of usable storage evidence is not an access denial |
+| An authorized explanation source or required source-history qualification is unavailable or cannot be established from trustworthy evidence, without permission suppression | FULL_DETAIL / UNAVAILABLE, with the distinct applicable source-history and trace observations; neither a denied read nor missing original bytes may be inferred |
 
 Never select TENANT_BOUNDARY_BLOCKED merely because an internal check found a foreign tenant. If that distinction would disclose a protected fact, use the generic permitted withholding posture and primary category. FULL_DETAIL is complete detail within this public profile, not permission to read the full internal trace. Deliberately withholding otherwise applicable trace/diagnostic detail requires DETAILS_REDACTED, even though the remaining safe explanation is complete as a message.
 
@@ -262,7 +296,9 @@ Optional `displayHints.nextActionLabel` is one of `Review access options`, `Open
 
 ## 9. Historical lookup and retained-proof limits
 
-RECORDED_RESULT reports an exact historical refusal that the current caller may inspect. It preserves the original outcome and asOf time, uses the current projection time and current disclosure limits, and displays that it is not current permission. It is not a replay of old public bytes with stale access checks. It neither re-executes the request nor reconstructs a missing original decision.
+RECORDED_RESULT reports an exact historical refusal that the current caller may inspect. It preserves the original outcome and root asOf time, uses the current projection time and current disclosure limits, and displays that it is not current permission. It must also carry section 5.4's source-history qualification and section 6's safe display sentence where applicable. It is not a replay of old public bytes with stale access or history checks. It neither re-executes the request nor reconstructs a missing original decision.
+
+A later linked correction under PR #11 section 17.2 can materially qualify the original authorization evidence without changing its bytes, digest, original outcome or commit. Those intact historical facts do not justify omitting CORRECTED, disputed or superseded posture supplied by the evidence owner. A later authorization decision under changed permissions is not automatically a correction or supersession of the earlier evidence; only the owner's governed qualification may establish that relationship. This response neither rewrites the old refusal nor adjudicates the correction. Restricted correction details do not erase a safely disclosable status; an unavailable or undisclosable qualification follows section 5.4 instead of falling back to NONE.
 
 Verified historical source/commit evidence does not promise that every original diagnostic byte remains available now. If evidence required to establish the refusal itself is missing or untrustworthy, the producer cannot classify it as COMMITTED_REFUSAL. Conversely, loss of optional diagnostic content does not rewrite an independently established historical refusal into a new denial, ingress error or absence claim.
 
@@ -292,7 +328,7 @@ The following are test specifications, not executed privacy, transaction or runt
 | CP2A-I03 | One truthful primary category, optional secondary withholding, complete exact registered metadata |
 | CP2A-I04 | Honest permission/absence/trace qualification without target-existence or diagnostic leakage |
 | CP2A-I05 | No retry, approval, effect or lookup authority from a public message/reference; uncertainty remains visible |
-| CP2A-I06 | Historical evidence, current access and present proof/availability are distinct |
+| CP2A-I06 | Original historical outcome, governed source-history qualification, current access and present proof/availability are distinct; material corrections/disputes/supersession cannot be silently omitted |
 | CP2A-I07 | No admission/readiness claim from a candidate, example, digest or schema-only pass |
 
 | Case | Entry condition or hostile input | Required observation | Invariants |
@@ -319,7 +355,7 @@ The following are test specifications, not executed privacy, transaction or runt
 | CP2A-C20 | Valid JSON assembled from different tenant/request/receipt bindings or forged commit proof | Trusted binding check rejects before release | I02, I04 |
 | CP2A-C21 | Terminal no-effect consequence followed by a UI retry attempt | No revival or same-key authority from code/remediation; owner rule controls | I05 |
 | CP2A-C22 | Owner later authorizes a same-operation retry after all required facts settle | Public retryable false did not rewrite the owner's consequence; only independently checked owner permission enables submission | I05 |
-| CP2A-C23 | Authorized historical refusal lookup | RECORDED_RESULT, original outcome/asOf, current disclosure checks and recorded-not-current label; no re-execution | I02, I05, I06 |
+| CP2A-C23 | Authorized historical refusal lookup; owner establishes no material history limitation | RECORDED_RESULT, original outcome/root asOf, AVAILABLE / NONE with valid owner observation point, current disclosure checks and recorded-not-current label; no re-execution | I02, I05, I06 |
 | CP2A-C24 | Historical receipt access revoked or wrong tenant; lookup timeout or replica miss | No original result/existence leak, recreated refusal or inferred no-effect proof | I04, I05, I06 |
 | CP2A-C25 | Linked evidence has lost bytes, failed integrity, a redacted derivative or DIGEST_ONLY | Authorized evidence surface preserves each proof limit; this reply does not assert retained original bytes from a receipt/hash | I04, I06 |
 | CP2A-C26 | User supplies a protected receipt/hash and asks for storage/equality probing | No read/comparison credential inferred; separate evidence authorization required | I04, I05, I06 |
@@ -327,6 +363,14 @@ The following are test specifications, not executed privacy, transaction or runt
 | CP2A-C28 | High-consequence true, overlapping/incomplete use lists, FRESH/SUFFICIENT invented to fill legacy fields, or ALLOW through this branch | Reject; successful/domain results retain their owning surfaces | I01, I04, I05 |
 | CP2A-C29 | Registry/example says ACTIVE but lacks governed admission, or profile/source digest is a placeholder | No registered-code or v0.2/runtime readiness claim | I03, I07 |
 | CP2A-C30 | Valid ingress reply and valid committed refusal with no permitted trace link | Both remain truthful with empty traceRefs and their distinct trace/decision postures; emptiness is not absence | I02, I04 |
+| CP2A-C31 | Authorized retrieval of an intact original DENY bundle after a governed linked correction | Keep original DENY/code/root asOf; AVAILABLE / CORRECTED at the valid history observation point and required correction sentence; no rewritten refusal or retry authority | I02, I05, I06 |
+| CP2A-C32 | Same correction, with status/time disclosable but correction details restricted | Preserve CORRECTED and its sentence, add DETAILS_REDACTED and matching permission/absence posture; no correction IDs, content or counts leak | I03, I04, I06 |
+| CP2A-C33 | Original refusal may be read but history qualification itself is not disclosable | WITHHELD with null history status/time and safe withholding sentence, not NONE or an existence signal; exclude lookup if even the limited statement is not permitted | I04, I05, I06 |
+| CP2A-C34 | Required history unavailable, partial, stale or untrustworthy; attacker substitutes an empty filtered result or old checkpoint | Reject the forged NONE; if the trusted owner cannot establish the qualification, show UNAVAILABLE with null history status/time and explicit uncertainty. No false absence, correction-existence signal or retry permission | I02, I04, I05, I06 |
+| CP2A-C35 | Owner supplies OPEN_DISPUTE, DISPUTED_BASIS, SUPERSEDED or MIXED; contrast a new decision caused only by changed permissions | Preserve each governed status and exact safe sentence without changing the original outcome; a new decision alone does not establish correction/supersession | I02, I04, I06 |
+| CP2A-C36 | Missing qualification on either committed reply mode, qualification on invalid ingress, wrong-source history, inconsistent null/status/time or omitted required sentence | Reject the invalid projection; no invented classification, time, private code or silent display downgrade | I01, I02, I03, I04, I06 |
+
+All positive COMMITTED_REFUSAL cases, including CURRENT_ATTEMPT cases C01-C04, require the owner's source-history qualification under section 5.4; a fresh commit does not waive that field. C31-C36 add the corrected, restricted, unavailable and invalid-shape variants. Original outcome, root asOf, registered mappings and retry restrictions remain fixed across those variants.
 
 Invariant references `I01` through `I07` in the case table abbreviate `CP2A-I01` through `CP2A-I07`.
 
@@ -334,11 +378,11 @@ Invariant references `I01` through `I07` in the case table abbreviate `CP2A-I01`
 |---|---|---|
 | 1. Inventory and minimal compatible carrier | Sections 4-5; I01 | C27, C28; both currentness sources and pinned schema hashes |
 | 2. Preserve five mappings | Sections 6 and 8; I02, I03 | C01-C05, C10, C16, C19 |
-| 3. Qualification and persistence distinctions | Sections 5-7 and 9; I02, I04, I06 | C05-C09, C13-C15, C23-C24, C30 |
+| 3. Qualification and persistence distinctions | Sections 5-7 and 9; I02, I04, I06 | C05-C09, C13-C15, C23-C24, C30-C36 |
 | 4. Complete codes and safe retry/human handling | Section 8; I03, I05 | C02-C04, C08-C09, C17, C21-C22 |
-| 5. Safe projection and separate trace access | Section 7; I04, I05 | C10-C12, C15, C18, C20, C26 |
-| 6. Retention/proof limits | Section 9; I06 | C15, C23-C26 |
-| 7. Reachable positive/hostile specifications | This section; I01-I07 | C01-C30; later adapter harness required, not asserted here |
+| 5. Safe projection and separate trace access | Sections 5.4 and 7; I04, I05 | C10-C12, C15, C18, C20, C26, C32-C36 |
+| 6. Retention/proof limits | Sections 5.4 and 9; I06 | C15, C23-C26, C31-C36 |
+| 7. Reachable positive/hostile specifications | This section; I01-I07 | C01-C36; later adapter harness required, not asserted here |
 | 8. Exact later units, bindings and gates | Section 11; I01, I03, I07 | C17, C27, C29; materialization and admission review |
 | 9. One boundary and unchanged owners | Sections 2-3 and 12 | One-file diff; owner/pin review, not a runtime test |
 
@@ -359,7 +403,7 @@ These are proposed exact future destinations, not existing files or authority cr
 
 The registry revision is part of the existing CP2 governed registry process, not a privately authoritative dictionary. Existing unrelated codes and schemas are not renamed or withdrawn. Consumers must have the exact admitted registry bytes and applicable embedded definitions; neither a filename, a registryRef nor an ACTIVE example is enough. Registry metadata must be available with the failure, not depend on an optional network fetch that may hide retryability.
 
-Required cross-binding review covers the exact PR #11 outcome meanings and refusal evidence, PR #20 human display rules, PR #26 independent commit/lookup/retry facts, PR #29 proof limits, the two accepted CP2 RFCs, the unchanged RuntimeProblem and registry schema definitions, and each proposed consumer's version handling. It must check every implication between responseKind, outcome, primary code, registry entry, trace observation, absence/disclosure posture, use lists and safe text. If the real source interface cannot supply one of these facts, resolve that with its owner before runtime work; do not insert placeholder hashes, fabricated times or trusted-looking caller flags.
+Required cross-binding review covers the exact PR #11 outcome meanings, refusal evidence and section 17.2 linked-history qualifications, PR #20 human display rules, PR #26 independent commit/lookup/retry facts, PR #29 proof limits, the two accepted CP2 RFCs, the unchanged RuntimeProblem and registry schema definitions, and each proposed consumer's version handling. It must check every implication between responseKind, outcome, source-history qualification/observation point, primary code, registry entry, trace observation, absence/disclosure posture, use lists and safe text. The future qualification schema/profile/fixtures must enforce section 5.4's conditional object and null rules, reuse the exact existing disputeStatus enum, and cover C31-C36 without creating a correction writer or history store. If the real source interface cannot supply one of these facts, resolve that with its owner before runtime work; do not insert placeholder hashes, fabricated times or trusted-looking caller flags.
 
 The gates remain separate:
 
@@ -377,6 +421,10 @@ Phase A verification checks source pins, both currentness inventories, the three
 
 No active contract, accepted law, authorization evaluator, principal/grant source, domain-effect contract, Event Grammar rule, transaction protocol, receipt writer, provider, retention store, encryption/key operation, trace verifier, API/UI/SDK endpoint, retry worker, deployment, merge or OFARM2 implementation is changed here. Scope is intentionally confined to public qualification and diagnostic disclosure.
 
-Proposed decision ID: `OFARM-ISSUE30-CP2-AUTHORIZATION-RESULT-PUBLIC-REASONS-001`, version `1`. This is a review identifier, not a live approval record. Approval, if later given, must identify the exact reviewed head and the semantic choices in section 1, including the sixth code and the branch-specific applicability rules. It does not supply merge authority, admit bytes, select current/default contracts or approve implementation.
+Proposed decision ID: `OFARM-ISSUE30-CP2-AUTHORIZATION-RESULT-PUBLIC-REASONS-001`, version `1`. This is a review identifier, not a live approval record. Approval, if later given, must identify the exact reviewed head and the semantic choices in section 1, including the sixth code, branch-specific applicability and source-history qualification rules. It does not supply merge authority, admit bytes, select current/default contracts or approve implementation.
 
-What is next: review the one-file Phase A candidate, especially failure-versus-commit qualification, the sixth public code, branch compatibility and non-leaking diagnostics. Obtain explicit semantic approval before the separately governed contract-materialization stage.
+### Revision responding to the first Phase A review
+
+The [review of head 18e426a](https://github.com/samovers/OFARM/pull/31#pullrequestreview-5134303330) identified one P2 gap: a historical refusal could be returned without qualifying a material linked correction to its own authorization evidence. This revision narrows the field exclusion, adds the conditional owner-supplied source-history object and safe display rules, and specifies C31-C36. The original refusal, six public codes, transaction authority and evidence-governance owners are unchanged. This is a proposed resolution for exact-head re-review, not a claim that the reviewer has cleared it or that Phase A is approved.
+
+What is next: re-review the amended one-file Phase A candidate, especially source-history classification, unavailable/withheld qualification and safe display without rewriting the original refusal. Obtain explicit semantic approval before the separately governed contract-materialization stage.
