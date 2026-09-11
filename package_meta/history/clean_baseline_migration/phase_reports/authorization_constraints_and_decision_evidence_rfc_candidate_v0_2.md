@@ -1,10 +1,13 @@
 # OFARM Executable Authorization Constraints and Decision Evidence RFC v0.2
 
 Date: 2026-08-31
-Status: Phase A RFC candidate for issue `samovers/OFARM#10`, amended under `samovers/OFARM#18`; non-authoritative, not accepted law, and not a current/default machine contract
+Amended: 2026-09-11, release-scope amendment revision 1
+Status: Phase A RFC candidate for issue `samovers/OFARM#10`, amended under `samovers/OFARM#18`; release-scope amendment pending review and renewed semantic approval; non-authoritative, not accepted law, and not a current/default machine contract
 Triggered by: review of `samovers/OFARM2#353` and draft `samovers/OFARM2#359`
 Blocks: `samovers/OFARM2#353` and draft `samovers/OFARM2#359` until accepted semantics, promoted contracts, and byte-identical extraction exist
 Scope: define reviewable authorization semantics and the exact versioned contract delta needed before an implementation can claim a durable, fail-closed authorization decision
+
+Approval history: [steward approval](https://github.com/samovers/OFARM/pull/11#issuecomment-5506778575) remains recorded for exact head `03a21f669ee04f96d444e14f00ae7212cab04803`. It does not approve this release-scope amendment or transfer to a new head. Dependent candidates are not automatically repinned or reapproved.
 
 ---
 
@@ -23,6 +26,12 @@ This candidate asks OFARM stewards to approve, reject, or amend one bounded desi
 9. current v0.1 records remain historical v0.1 records and are not silently treated as v0.2 proof.
 
 This document deliberately precedes accepted-RFC, schema, conformance, and currentness changes. Approval of this candidate does not itself promote any law or contract.
+
+### 1.1 Pending release-scope amendment
+
+This revision preserves the twenty action definitions and their complete rule semantics, but proposes separate, explicit executable admission for each release. The initial package would admit exactly `ASSERT_OPERATION_CLAIM` and `RECEIVE_READ_DATA`. Sections 7.2.1, 17.2 and 24 define its closed scope, complete dependency requirement and separately governed promotion. The other eighteen actions remain catalogue obligations, not implemented or passed by this release.
+
+This is a change to proposed package admission and delivery staging, not a permission weakening or approval to implement a local subset. Renewed review and explicit semantic approval must cover the new revision and its affected invariants. A complete two-action dependency closure has not yet been demonstrated: the source-history question in section 24.1 remains open. Approving this scope model would not answer that question or establish production readiness.
 
 ---
 
@@ -55,6 +64,8 @@ The Phase A PR adds only this non-authoritative candidate under historical phase
 - signing, key custody, bootstrap, recovery, or break-glass behavior;
 - OFARM2 runtime code; or
 - any production-readiness claim.
+
+The release-scope amendment stays within that boundary: it defines which complete rules a reviewed canonical package may admit. Only immutable reviewed package bindings may establish that scope; caller input, deployment flags and candidate-file presence cannot supply admission authority. It does not implement a manifest schema, trusted runtime selector or any adjacent contract.
 
 If review requires one of those boundaries to change, that work must be split into a prerequisite, follow-up, or stacked PR.
 
@@ -356,6 +367,22 @@ Existence codes are `E` = `EXISTING_REQUIRED` and `P` = `PROSPECTIVE_TARGET_ALLO
 | `SHARE_REVOKE_ACCESS` | `SHARE_REVOKE` | `PROMOTION` | X | DA | HA | FA | `RP_SHARE_REVOKE` | `REVOCATION_DECISION` / P |
 | `RECEIVE_READ_DATA` | `RECEIVE_USE` | `QUERY_READ` | D | DA | PC | NR | `RP_READ_TARGET_ONE` | `DATA_DISCLOSURE` / P |
 
+### 7.2.1 Closed release scope
+
+The twenty rows in section 7.2 remain the complete proposed action catalogue, with their existing meanings. Catalogue membership is not executable admission. A promoted authorization-policy package has an explicit, immutable admitted-action set in its existing binding manifest. Its policy identity and digest bind that set and exactly one complete resolved rule for each member. Missing, duplicate, extra or invalid members make the package inadmissible; a runtime cannot repair it by selecting a subset.
+
+The initial release scope contains exactly `ASSERT_OPERATION_CLAIM` and `RECEIVE_READ_DATA`. All fields, resource alternatives, source-path rules, declarative projections, evidence requirements, validity and consumption obligations of both selected rules remain unchanged. This scope does not restrict `RP_READ_TARGET_ONE` to operation claims or add a receipt target. A narrower public operation is governed by its own admitted operation binding; it cannot alter authorization-rule meaning or activate unrelated endpoints.
+
+Every selected rule must bind its complete transitive semantic and machine-contract dependencies. Shared source, role, scope, delegation, sharing, revocation, representation, CP3, snapshot, time, evidence, retention, refusal and disclosure requirements cannot be omitted because only two action classes are selected. A dependency may be deferred only when the exact binding review proves that neither selected rule nor its evidence or permitted execution path requires it. No unresolved reference or placeholder digest is executable.
+
+An action outside the admitted set is unavailable through this package. Admission must stop before authorization evaluation, without a fabricated authorization outcome or a protected effect. It cannot fall back to another bundle, an older schema, legacy code, a caller-selected policy or a partial rule. The exact ingress evidence and public mapping must use reviewed owner contracts; this amendment introduces no public reason code. This prohibition concerns fallback within the selected package, not the separately configured version coexistence in section 19.5.
+
+The complete policy digest changes when the admitted set or other bound policy content changes. Source reuse continues to require exact selected `actionClass`, `ruleId` and complete per-action `ruleDigest` equality under sections 7.4 and 17.3. This is not semantic-subset compatibility, cross-rule-digest approval or automatic grant migration. An unrelated policy change preserves source eligibility only when the existing exact-rule comparison and every current authority check pass.
+
+The other eighteen catalogue actions remain unavailable in the initial package, not implemented or verified by it. Adding any action requires a separately reviewed package revision, the added rule's complete dependency closure, required conformance, explicit promotion and trusted runtime selection. A deployment flag, policy nickname or current/default schema pointer cannot expand the admitted set.
+
+Acceptance and currentness records must identify the exact scoped policy and distinguish catalogue semantics from executable admission. A two-action package must never be described as complete twenty-action implementation or full v0.2 capability. Initial scope does not authorize production deployment, source issuance, grant mutation, public endpoint activation or byte disclosure. Section 24.1 records an unresolved dependency that prevents claiming this proposed scope is already deliverable.
+
 ### 7.3 Matrix rules
 
 The inheritance entry is a ceiling, not a grant. A source record may narrow `D` to `X` or `N`, and may narrow `X` to `N`. It may not broaden the row. A row marked `N` must use `NO_INHERIT`.
@@ -411,9 +438,9 @@ For a state-affecting action, `protectedEffectContractBinding` contains a conten
 
 The caller submits an effect-intent instance. The selected action rule chooses the schema. A caller schema claim, if present for diagnostics, is non-authoritative and must exactly equal the rule binding. A mismatch is an ingress rejection; a caller can never select a weaker schema.
 
-Phase A names the exact semantic profiles. Before accepted-RFC/action-matrix promotion, the draft-schema stage must materialize their bytes and produce a reviewed binding manifest containing every content-addressed ref and digest. Missing, placeholder, mutable, or mismatched bindings make the action rule invalid and non-executable. Accepted promotion cannot precede that manifest.
+Phase A names the exact semantic profiles. Before accepted-RFC/action-matrix promotion for a release scope, the draft-schema stage must materialize every profile required by that scope and its complete transitive dependencies, and produce a reviewed binding manifest containing every content-addressed ref and digest. Missing, placeholder, mutable, or mismatched bindings make the action rule invalid and non-executable. Accepted promotion cannot precede that manifest; deferred catalogue profiles remain non-executable and do not count as materialized.
 
-The profile IDs in sections 7.5 through 7.8 are review keys, not runtime indirection. The binding manifest maps each action class to exactly one complete resolved rule containing the actual schema/policy refs and digests, and the accepted action-rule bundle digest covers those resolved values. A runtime cannot follow a mutable registry entry or choose among schemas sharing a profile ID.
+The profile IDs in sections 7.5 through 7.8 are review keys, not runtime indirection. The binding manifest maps each action class in its explicitly admitted release scope to exactly one complete resolved rule containing the actual schema/policy refs and digests, and the accepted action-rule bundle digest covers those resolved values and the admitted set. Its admitted set and resolved-rule set must be exactly equal; catalogue rows outside that set are not implicitly admitted. A runtime cannot follow a mutable registry entry or choose among schemas sharing a profile ID.
 
 `ruleDigest` is `sha256:` plus the SHA-256 digest of the JCS representation of the complete resolved per-action semantic closure after removing exactly the top-level `/ruleDigest` member. The closure contains every field of the resolved `ActionAuthorizationRule` and immutable content-addressed bindings for every shared authorization component whose semantics can change eligibility or increase authority for that action. At minimum, it binds authority-family and exact purpose-token comparison, resource-role and authority-target interpretation, role/grant/scope/inheritance/delegation/sharing intersections, trusted-time and revocation application, evidence/sovereignty/proof and tenant interpretation, prohibition on combining partial paths, path sufficiency and selection, and the total outcome aggregation lattice. Imported semantics remain owned by their governing contracts; the resolved rule binds their immutable refs and digests rather than copying their implementations into this RFC.
 
@@ -421,7 +448,7 @@ The semantic closure excludes unrelated action rules and changes that affect onl
 
 This closure is a deterministic packaging rule inside the existing binding manifest. It creates no new top-level contract family or mutable semantics registry, does not compare the complete policy-bundle digest for source reuse, and does not introduce cross-digest compatibility or semantic-subset proof.
 
-Every v0.2 row selects `TRANSACTION_BOUND_V0_2`. It requires consumption in the same final governed transaction as the protected effect, buffered read-evidence commit, or filing-outbox commit and uses the exact cutoff function in section 18.2. This authorization candidate neither requires an interactive database transaction to remain open while a human considers a challenge nor selects a reservation/finalization protocol. The separately owned governed-transaction contract in `samovers/OFARM#19` must close that runtime protocol before machine materialization or implementation. This candidate does not invent a universal wall-clock duration unsupported by an authoritative transaction contract.
+Every v0.2 row selects `TRANSACTION_BOUND_V0_2`. It requires consumption in the same final governed transaction as the protected effect, buffered read-evidence commit, or filing-outbox commit and uses the exact cutoff function in section 18.2. This authorization candidate neither requires an interactive database transaction to remain open while a human considers a challenge nor selects a reservation/finalization protocol. The separately owned governed-transaction contract in `samovers/OFARM#19` must close the interactive-approval runtime protocol before materialization or implementation of profiles that require it. Section 24 requires a complete separately governed transaction protocol for every selected rule; deferring an unrelated human-approval flow does not waive atomicity, trusted cutoff, consumption or read obligations. This candidate does not invent a universal wall-clock duration unsupported by an authoritative transaction contract.
 
 Every `SA` row selects `FRESH_APPROVAL_SAME_ACTION_AUTHORITY_V0_2`: `SAME_PRINCIPAL_ALLOWED` and `SINGLE_USE`. `challengeExpiresAt` is the earliest trusted interactive-session expiry or relevant authority/policy/resource/evidence cutoff. `approvalExpiresAt` is the earlier of `challengeExpiresAt` and the final protected-effect transaction deadline. The profile does not invent a global duration or assume that an agent sponsor is eligible. The approver must independently satisfy a natural-person authority path for the same action, extracted authorization view, effect subject, and effect intent as defined in section 18.3. `NA` binds explicit `NO_SEPARATE_APPROVAL_POLICY`; it does not weaken a row's independent `DIRECT_HUMAN_ACTION_REQUIRED` posture. A future distinct-approver row must bind a new immutable profile with exact prohibited relationships.
 
@@ -1105,6 +1132,8 @@ To avoid multiplying top-level contract families, draft/non-default work in sect
 3. `AuthorizationDecisionEvidence v0.2`: tagged request, ingress-rejection, result, and full-internal-trace profiles plus the authority-snapshot binding/projection; and
 4. `AuthorizationFinalizationEvidence v0.2`: tagged challenge with content-addressed display evidence, human approval, single-use consumption, protected-effect-contract validation receipt, filing-outbox receipt, governed-read receipt with an explicit payload proof-strength posture, and references to separately governed transport-release receipts.
 
+The four package families remain the packaging boundary. A release-specific package variant has a distinct immutable identity and manifest; it is not a new top-level contract family. It must contain or content-address every profile required by the selected rules and their complete evidence/transaction/disclosure closure. Omission of unrelated profiles is permitted only under the reviewed release-scope closure. In particular, `NOT_REQUIRED` does not remove single-use evidence, governed-read receipts, retention proof, public refusal qualification or source-history obligations. Machine materialization must resolve exact identities and variant/currentness handling before promotion; no invented identifier or digest in this Phase A acts as a live binding.
+
 The tagged profiles remain separately validateable where their truth claims differ, but they do not become fourteen unrelated registries or new domain families. A standalone `AuthorityEvaluationSnapshot` family is unnecessary unless the later schema PR proves that the existing immutable snapshot reference plus closed projection cannot represent the required evidence.
 
 `RoleAssignment v0.1`, `RevocationDecision v0.1`, and `DataSovereigntyBoundary v0.1` remain unchanged by default. If schema changes to those families prove necessary, they require an explicit scope review before editing.
@@ -1239,7 +1268,7 @@ Ingress performs these checks in order, before authorization evaluation:
 
 1. reject malformed bytes and duplicate JSON member names before constructing an object model;
 2. validate the base `AuthorizationDecisionRequest v0.2` shape;
-3. resolve the action class and verify the selected immutable `ActionAuthorizationRule` and binding manifest; and
+3. verify the selected immutable package and binding manifest, require the action class to belong to its exact admitted set, and verify its complete resolved `ActionAuthorizationRule`;
 4. validate the effect intent against the schema ref, version, and content digest selected by that rule;
 5. execute the declarative authorization-view extraction, rejecting missing, duplicate, type-invalid, unknown-kind, or conflicting extracted facts.
 
@@ -1602,7 +1631,7 @@ The caller-facing CP2 codes proposed in section 18.7 are registered RuntimeProbl
 
 ## 21. Invariants
 
-The accepted design and conformance suite must preserve these invariants:
+The accepted design and conformance suite must preserve these invariants. Each claimed release scope must prove every applicable invariant over its complete selected rules and dependencies. Unselected action-specific obligations remain recorded as deferred, not deleted or passed:
 
 1. Omitting or changing optional AI-assistance metadata never increases authority.
 2. The validated effect intent is the only caller-authored source of operation facts; mirrored resource, subject, scope, time, purpose, grantee, destination, rights, or payload fields are prohibited.
@@ -1656,12 +1685,16 @@ The accepted design and conformance suite must preserve these invariants:
 50. A protected-effect receipt proves intent/result/contract binding only after the separately owned domain contract validates the proposed result; the authorization evaluator does not own domain mappings.
 51. A display or payload digest never claims byte reconstruction without retrievable candidate bytes, and retention/key-custody policy remains separately governed.
 52. Every final review binds exactly one eligible governed-record target, including an exact accepted-event-consequence revision when selected, and one rule-constrained outcome posture; only `REVIEW_ACCEPT` and `REVIEW_REJECT_OR_CONTEST` add the exact evidence-sufficiency-case branch, while `REVIEW_SUPERSEDE`, `REVIEW_REQUEST`, and unrelated action classes do not inherit that case-eligible closure.
+53. The immutable policy identity/digest binds an exact admitted-action set and exactly one complete resolved rule per member; missing, duplicate, extra or invalid members cannot be repaired by runtime subsetting or fallback.
+54. A selected action retains every resource alternative, authority path and transitive dependency of its unchanged rule; a narrow public feature neither narrows that rule nor verifies the unselected catalogue actions.
+55. A package's admitted scope can expand only through separately reviewed binding, conformance, promotion and trusted selection; family-level current/default pointers or deployment flags cannot silently admit additional actions or profiles.
+56. Approval of release scope is not proof of dependency completeness. An inactive qualifying-record writer, an empty lookup or a valid individual record does not establish complete source history or historical-admission verification; unresolved required closure blocks executable binding and promotion.
 
 ---
 
 ## 22. Production-reachable hostile cases
 
-The future executable conformance suite must include at least:
+The future executable conformance suite must include at least the cases applicable to the exact claimed scope and its complete dependency closure below. Cases for unselected actions remain explicit later obligations, not passing results. These are specifications; this Phase A revision has not executed them or established runtime conformance.
 
 | Case | Required disposition |
 |---|---|
@@ -1784,6 +1817,16 @@ The future executable conformance suite must include at least:
 | Authority gate returns `ALLOW` but validation, pack applicability, evidence, review/promotion, materialization, or publication/export gate fails | no protected effect; authority result remains an authority-gate result only |
 | Authorization result/trace/receipt is promoted as domain truth or current state | conformance failure; it is append-only EvidenceEvent/evidence-record audit support only |
 | Draft v0.2 files exist but currentness still names v0.1 | v0.1 remains current/default |
+| An otherwise eligible claim write or governed read enters a complete admitted two-action package | the unchanged selected rule can reach authority-gate `ALLOW`; the separately owned transaction/disclosure gates must also pass before an effect or release; blanket refusal is not completion |
+| An admitted rule is missing, duplicated, extra or invalid in the resolved rule set | package is inadmissible; no runtime subset repair, authorization result or protected effect |
+| The admitted set is altered while retaining the old policy digest | binding/integrity rejection before evaluation; no effect or disclosure |
+| A request names an excluded action and asks for a full, older or caller-selected fallback policy | unavailable through this selected package; ingress rejection, no fabricated authorization result and no fallback effect |
+| A two-action manifest omits a required sharing, revocation, representation, history, retention or read-receipt dependency | closure review fails; no accepted binding or executable promotion |
+| A claim-only `RP_READ_TARGET_ONE` implementation is presented as complete `RECEIVE_READ_DATA` coverage | conformance failure; all unchanged selected resource alternatives and authority paths remain required |
+| A reduced package changes shared eligibility semantics but reuses an old source's rule digest | changed complete closure must change `ruleDigest`; exact source comparison fails with `SOURCE_RULE_BINDING_MISMATCH`, not a subset-compatibility exception |
+| A source issued under another policy context has the same complete selected action/rule binding | reuse is possible only under the unchanged exact-rule comparison and all current authority checks; equal binding is not independent authority or automatic migration |
+| Family-level current/default promotion accidentally selects the other eighteen actions or omitted profiles | scope/promotion conformance failure; only the exact reviewed package variant may be selected |
+| An inactive qualifying-record writer, empty history lookup or valid individual qualifier is treated as complete history | closure/conformance failure; completeness and historical admission need the separately owned proof in section 24.1, not a synthetic all-clear result |
 
 Fixtures must enter through production-reachable evaluator and persistence paths. Unit-only helper tests are not enough for a conformance claim.
 
@@ -1848,36 +1891,60 @@ The following examples document preserved closed vocabulary but are not producti
 | v0.1-to-v0.2 target widening/narrowing is hidden behind shared resource policies | sections 7.5.1 and 25 expose every row and require separate directional approval |
 | Evidence attachment changes from contextual scopes to a record/artifact target axis that cannot be honestly labeled as a directional set delta | sections 7.5.1 and 25 classify it separately as `RETYPED` and prohibit inferred cross-axis equivalence |
 | Filing evidence could require a prior approval/attestation action that cannot target `SUBMISSION_ASSEMBLY` | sections 7.5.1, 7.7, 7.8, 24, and 25 require the binding review to reject or amend an unsatisfiable filing rule before promotion |
-| Interactive approval appears to require a long-open transaction | sections 7.4, 18.2, 24, and 25 stop machine materialization on the separately governed transaction protocol in `samovers/OFARM#19` |
+| Interactive approval appears to require a long-open transaction | sections 7.4, 18.2, 24, and 25 stop materialization of that lifecycle on the separately governed transaction protocol in `samovers/OFARM#19`; selected non-interactive write/read protocols remain mandatory under scoped binding review |
 | Preflight-only and distinct-approver semantics appear production-reachable although no current row selects them | sections 6.4, 7.2, 20, and 22.1 mark them reserved future semantics |
 
 This table does not authorize an OFARM2 fix. OFARM2 must wait for accepted semantics, promoted contracts, and byte-identical extraction.
+
+### 23.1 Release-scope amendment traceability
+
+| Review concern | Required disposition |
+|---|---|
+| The complete twenty-action programme is confused with the first executable package | sections 1.1, 7.2.1 and 24 preserve the catalogue and require a separately approved exact admitted set |
+| A two-action label could conceal reduced read branches, missing shared dependencies or weakened source consent | sections 7.2.1, 7.4, 17.2 and 21 preserve full selected-rule semantics, complete closure and exact per-rule source comparison |
+| Scoped schema/currentness work could accidentally activate omitted rules through a family pointer | sections 7.2.1, 22 and 24 require exact variant selection and negative admission coverage |
+| Unresolved source-history governance could be dismissed because its authoring action is not selected | section 24.1 keeps completeness and historical-admission verification open and blocks binding/promotion until demonstrated |
+| Previous semantic approval could be mistaken for approval of the amended scope | the status, approval history and sections 25–26 require renewed exact-head review and approval; dependent pins do not move automatically |
 
 ---
 
 ## 24. Staged delivery and currentness
 
+Apply this sequence to one explicitly approved closed release scope. “Every” or “all” action, effect-intent, protected-effect and finalization binding in these stages means the complete selected set and every transitive dependency required by that set, not an optional implementation sample. All stages remain required. An unselected action's independent protected effect or human-finalization flow may be deferred only with an explicit closure-review disposition; a shared prerequisite may not. The full twenty-action programme remains open under `samovers/OFARM#10` until its complete package is separately delivered.
+
 The required sequence is:
 
 1. **Phase A candidate:** this document only; no authority or currentness effect.
-2. **Semantic-profile approval:** stewards approve or amend the closed rule fields, concrete kinds, one-target resource policies, prospective effects, lifecycle semantics, and approval card in section 25; no RFC is accepted yet.
-3. **Adjacent contract prerequisites:** separate PRs provide every content-addressed protected-effect contract required by a state-affecting rule (`samovers/OFARM#12`), including the final `ReviewDecision` contract (`samovers/OFARM#15`), any missing Event Grammar classification, the CP2 authorization-result surface/registered public reason codes, and the evidence-retention proof postures referenced by display/read evidence (`samovers/OFARM#14`). The governed interactive-approval transaction and consumption protocol must be closed separately under `samovers/OFARM#19` before an approval machine profile or runtime implementation can claim `TRANSACTION_BOUND_V0_2`. Domain mappings, public-surface contract changes, transaction coordination, retention, encryption, and key custody do not ride in an authorization-law PR. Transport-release semantics remain a separate downstream boundary (`samovers/OFARM#13`).
-4. **Policy-bundle draft:** a separate non-default authorization-law PR materializes `AuthorizationPolicyBundle v0.2`, every effect-intent schema, bindings to already reviewed protected-effect contracts, both declarative projections, evidence bindings, trusted approval-cutoff mappings, and the immutable manifest with real content-addressed refs/digests. Before that manifest can pass review, stewards must verify that `EP_FORMAL_FILING_V0_2` does not require prior approval or attestation that is impossible for `SUBMISSION_ASSEMBLY` under `RP_ASSEMBLY_ONE`; any such contradiction requires a semantic row or evidence-policy amendment before promotion rather than an unsatisfiable filing rule.
+2. **Semantic-profile and release-scope approval:** stewards approve or amend the closed rule fields, concrete kinds, one-target resource policies, prospective effects, lifecycle semantics, exact admitted set and approval card in section 25; no RFC is accepted yet. The renewed approval identifies the exact revision rather than inheriting the historical approved head's disposition.
+3. **Adjacent contract prerequisites:** separate PRs provide every content-addressed protected-effect contract required by a selected state-affecting rule (`samovers/OFARM#12`), including the final `ReviewDecision` contract (`samovers/OFARM#15`) when required by the selected closure, any missing Event Grammar classification, the CP2 authorization-result surface/registered public reason codes and required source-history proof, and the evidence-retention proof postures referenced by display/read evidence (`samovers/OFARM#14`). The governed interactive-approval transaction and consumption protocol must be closed separately under `samovers/OFARM#19` before an approval machine profile or its runtime implementation can claim `TRANSACTION_BOUND_V0_2`. Every selected write/read rule still requires its own complete, separately governed transaction protocol; `NOT_REQUIRED` is not permission to reuse an interactive or write-only contract for an uncovered read. Domain mappings, public-surface contract changes, transaction coordination, retention, encryption, and key custody do not ride in an authorization-law PR. Transport-release semantics remain a separate downstream boundary (`samovers/OFARM#13`).
+4. **Policy-bundle draft:** a separate non-default authorization-law PR materializes `AuthorizationPolicyBundle v0.2` for the exact admitted set, every required effect-intent schema, bindings to already reviewed protected-effect contracts, both declarative projections, evidence bindings, applicable trusted approval-cutoff mappings, and the immutable manifest with real content-addressed refs/digests. For any scope containing the filing rule, stewards must verify before that manifest can pass review that `EP_FORMAL_FILING_V0_2` does not require prior approval or attestation that is impossible for `SUBMISSION_ASSEMBLY` under `RP_ASSEMBLY_ONE`; any such contradiction requires a semantic row or evidence-policy amendment before promotion rather than an unsatisfiable filing rule. Deferring that action does not resolve or pass its satisfiability obligation.
 5. **Source-bundle draft:** a separate authorization-source PR materializes only the closed, one-record immutable `AuthorityGrant`, `DelegationGrant`, and `SharingGrant` v0.2 contracts with issuance-policy and per-action rule bindings. `RevocationDecision v0.1` remains unchanged and its fixed `TERMINATE` lookup targets the exact source family/ID.
-6. **Decision-evidence drafts:** separate bounded PRs materialize `AuthorizationDecisionEvidence v0.2` and `AuthorizationFinalizationEvidence v0.2`. They add tagged audit profiles, examples, and validation without inventing new domain event families or changing currentness.
-7. **Binding review and accepted law:** stewards review the exact schema/manifest bytes; a later governed PR promotes the approved RFC and exact matrix while pinning those digests. Any semantic change returns to step 2.
-8. **Hostile conformance:** a separate PR adds the production-reachable cases in section 22 and publishes the result.
-9. **Explicit promotion:** after hostile review and steward approval, a separate PR changes current/default indexes and generated navigation.
+6. **Decision-evidence drafts:** separate bounded PRs materialize the complete selected-scope profiles of `AuthorizationDecisionEvidence v0.2` and `AuthorizationFinalizationEvidence v0.2` under section 17.2. They add tagged audit profiles, examples, and validation without inventing new domain event families or changing currentness. Deferred profiles and their closure-review justification are explicit, never success stubs.
+7. **Binding review and scoped accepted law:** stewards review the exact selected manifest, schema bytes, complete dependency closure and deferred-obligation ledger. A later governed PR promotes the approved semantics and exact release scope while pinning those digests and expressly retaining unselected catalogue rows as non-executable for that package. No full-matrix activation or later-profile approval is implied. Any semantic change returns to step 2.
+8. **Hostile conformance:** a separate PR adds the production-reachable cases in section 22 for the complete selected scope, including positive coverage and excluded-action admission failures, and publishes the result. Unselected action-specific cases remain deferred, not passed.
+9. **Explicit scoped promotion:** after hostile review and steward approval, a separate PR updates current/default indexes and generated navigation for the exact reviewed package variant. It must prove that unrelated actions or omitted profiles do not become current/executable through family-level selection. Full-catalogue promotion is a later, separately approved change.
 10. **OFARM2 extraction:** promoted canonical assets are copied byte-for-byte and verified by digest.
 11. **OFARM2 runtime work:** only then may `OFARM2#359` resume. Authority evaluation, protected-effect validation, buffered disclosure, filing-outbox commitment, and transport-release enforcement remain separately reviewable runtime trust boundaries rather than one catch-all implementation PR. No dispatcher may infer release eligibility from an authorization decision or outbox row.
 
 No step is implied by completion of the prior step. Each PR retains one primary trust boundary and names any dependency on the prior step. CP15 human governance applies to current/default promotion.
+
+### 24.1 Open source-history closure checkpoint
+
+The proposed two-action scope does not establish that required history classification and historical-admission verification can be complete while qualifying-record authoring is non-executable. This is the decisive open question, not an exemption created by release scope.
+
+The reviewed public-result candidate in [PR #31](https://github.com/samovers/OFARM/pull/31) at `092be94f3a67497ba619295932cd0b2b1e9443f3` retains producer dependency `CP2A-DEP01`. [Issue #32](https://github.com/samovers/OFARM/issues/32) owns the separate history classifier/completeness contract. [Issue #33 / PR #34](https://github.com/samovers/OFARM/pull/34) at `69682c2f918ef18756261a1186294cc3a5ebe44d` is an unapproved qualifying-record governance proposal with `QG-DEP01`, including the proposed authoring action `GOVERN_AUTHORIZATION_EVIDENCE_QUALIFICATION`. This amendment does not add that action to the catalogue, approve that proposal, introduce source kinds or implement a writer or human-finalization path.
+
+Before claiming a complete selected binding, the owning contracts must demonstrate the eligible history universe, complete observation of that universe, historical admission of qualifying records, and the required visibility/concurrency evidence. An inactive writer, empty lookup or individually valid qualifier proves none of those completeness claims by itself. Unknown history must not become an all-clear classification, and a permanently unavailable classifier is not a completed positive implementation path.
+
+This revision establishes neither that qualifying-record authoring can be deferred nor that it must be executable in the first release. The unresolved proof blocks complete binding, promotion and runtime-readiness claims, not review of this Phase A scope model. If the proof requires another action or authority boundary, stop and obtain a separately reviewed scope amendment; do not silently enlarge the two-action set or introduce a second policy as a workaround. The existing `samovers/OFARM#21` promotion gates remain in force until the new semantics are approved and its scope record is explicitly aligned. No issue scope or dependent approval is changed by this candidate alone.
 
 ---
 
 ## 25. Steward approval card
 
 Before accepted-law work begins, stewards should record explicit decisions for all items:
+
+The release-scope questions below and their effect on the existing package/staging requirements are pending renewed exact-head approval. The historical approval remains evidence for the unchanged row semantics at its named head, not approval of this amended candidate. A scope-model approval is not a finding that the section 24.1 history dependency is closed.
 
 | Decision | Proposed answer | Approval required |
 |---|---|---|
@@ -1887,7 +1954,14 @@ Before accepted-law work begins, stewards should record explicit decisions for a
 | Must organization representation record the natural-person principal, represented Party, and immutable representation basis separately? | yes | yes |
 | Is every software-agent authority subject derived per candidate path from a closed immutable direct-grant, representation, or delegation basis, never from sponsor identity? | yes | yes |
 | Are action stage and authority family policy-derived rather than caller-selected? | yes | yes |
-| Is the exact matrix in section 7 the v0.2 closure, including delegation, CP3 posture, resources, subjects, and existence postures? | yes | yes, row-by-row amendments allowed |
+| Is the exact twenty-action matrix the unchanged proposed catalogue, including delegation, CP3 posture, resources, subjects and existence postures, distinct from executable release scope? | yes; catalogue membership alone does not admit an action | renewed approval for this distinction; row semantics retained |
+| Is the initial executable package's admitted set exactly `ASSERT_OPERATION_CLAIM` and `RECEIVE_READ_DATA`? | yes; no other action is admitted | renewed exact-head approval required |
+| Must both selected rules retain every unchanged resource alternative, authority path and complete transitive semantic/machine dependency? | yes; no claim-only read rule, receipt target addition or optional shared safeguard | renewed exact-head approval required |
+| Must admitted-set and resolved-rule membership be exactly equal and bound by policy identity/digest, without runtime repair, caller-selected subsets or fallback? | yes; invalid or excluded admission stops before the outcome lattice and protected effects | renewed exact-head approval required |
+| Does source reuse still require the exact complete per-action binding and all current authority checks, without cross-rule-digest or subset compatibility? | yes; packaging does not alter source-consent meaning | renewed exact-head approval required |
+| Must all eleven delivery stages apply to the complete selected scope while the other eighteen actions and unrelated profiles remain explicit deferred obligations, not passed work? | yes; the full programme remains open | renewed exact-head approval required |
+| Must promotion/currentness identify the exact scoped package variant without activating omitted actions through family-level selection? | yes; expansion requires separate binding, conformance, promotion and trusted selection | renewed exact-head approval required |
+| Does source-history completeness and historical-admission verification remain unresolved even if qualifying-record authoring is non-executable? | yes; section 24.1 blocks complete binding/promotion claims until proved, without assuming whether the writer can be deferred | renewed approval of this open dependency posture, not its closure |
 | Are the `WIDENING` target rows in section 7.5.1 accepted exactly as itemized? | yes | yes, each listed row |
 | Are the `NARROWING` target rows in section 7.5.1 accepted exactly as itemized? | yes | yes, each listed row |
 | Are the `MIXED_DELTA` target rows and their named mappings in section 7.5.1 accepted exactly as itemized? | yes | yes, each listed row and mapping |
@@ -1917,7 +1991,7 @@ Before accepted-law work begins, stewards should record explicit decisions for a
 | Is current authority always checked at trusted evaluation/effect time, while claim/report rows authorize the current reporter and keep alleged performer/historical execution authority separate? | yes; no current row reuses the reporter path at subject time | yes |
 | Must every decision and human approval bind the exact JCS/SHA-256 effect-intent digest? | yes | yes |
 | Do all current rows use `TRANSACTION_BOUND_V0_2`, bounded by the trusted effect transaction and relevant cutoffs rather than an invented universal duration? | yes | yes |
-| Must `samovers/OFARM#19` close the interactive approval reservation/finalization, concurrency, retry, and recovery protocol before machine materialization, without assuming a transaction stays open during human think time? | yes | yes |
+| Must `samovers/OFARM#19` close the interactive approval reservation/finalization, concurrency, retry, and recovery protocol before materialization of that lifecycle, without assuming a transaction stays open during human think time? | yes; any deferral requires scoped closure review and does not remove the selected write/read transaction prerequisites | renewed approval of scoped staging; lifecycle safeguards retained |
 | Are all v0.2 decisions single-use with no reserved replay mode? | yes | yes |
 | Must internal effects and authorization evidence commit in one atomic protected-effect transaction? | yes | yes |
 | Must the proposed domain result pass the rule-bound protected-effect contract before that transaction commits, with intent/result/contract digests in the receipt? | yes | yes |
@@ -1968,8 +2042,11 @@ Any amendment must state whether it changes only this authorization boundary. A 
 
 Phase A is complete when:
 
-- this candidate is reviewed against issue `samovers/OFARM#10`;
+- this candidate is reviewed against issue `samovers/OFARM#10`, with renewed semantic approval identifying the exact release-scope revision rather than inheriting the historical head's approval;
 - every acceptance criterion has a proposed disposition;
+- the unchanged twenty-action catalogue and exact initial two-action admission are distinguished, with complete selected-rule closure, excluded-action behavior and exact scoped promotion requirements explicitly reviewed;
+- the source-history question in section 24.1 is recorded as open, with separately owned proof required before complete binding, promotion or runtime readiness; Phase A scope approval is not proof that the initial package is deliverable;
+- the remaining eighteen actions and independent profiles remain explicit later obligations, with no deletion, implicit activation or passing conformance claim;
 - the one-record immutable source-ID decision, issuance-policy binding, complete per-action semantic-closure digest, exact-digest compatibility law, and exact v0.1 `TERMINATE` lookup are explicit;
 - the CP3 compatibility mapping is accepted without changing CP3 semantics, or a separate stacked change is named;
 - the actual-read mapping to policy check, mandatory CP2 qualification, and retained-versus-digest-only payload evidence is explicitly accepted;
@@ -1984,4 +2061,4 @@ Phase A is complete when:
 - the trust boundary remains authorization law and machine-contract governance; and
 - no active authority or schema was changed by the candidate PR.
 
-What is next: steward review and explicit semantic approval before any accepted-RFC or machine-contract edit.
+What is next: exact-head review and renewed semantic approval of this release-scope amendment. Keep the history-closure and downstream scope gates open; do not change accepted law, machine contracts, currentness or runtime on the strength of this candidate.
