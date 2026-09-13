@@ -2,7 +2,9 @@
 
 Date: 2026-09-11
 
-Status: non-authoritative Phase A candidate; exact-head review and semantic approval pending
+Amended: 2026-09-13, release-admission dependency alignment; proposed decision version 2
+
+Status: non-authoritative Phase A candidate; focused exact-head review and semantic approval pending
 
 Issue: [samovers/OFARM#33](https://github.com/samovers/OFARM/issues/33). Parent: [#10](https://github.com/samovers/OFARM/issues/10). First consumer: [#32](https://github.com/samovers/OFARM/issues/32). CP2A-DEP01 remains open.
 
@@ -14,11 +16,11 @@ Approve or amend one proposed source-governance mechanism, not an implementation
 
 1. A qualification is a new, immutable, directly human-governed statement about one exact committed authorization-refusal bundle, or about an earlier qualifying record under that root. The original decision never changes.
 2. Use one closed, tagged `AuthorizationEvidenceQualification v0.1` profile in the proposed `AuthorizationDecisionEvidence v0.2` package, subject to the explicit carrier/classification binding in section 4. Do not create a history registry or status receipt.
-3. Require a separately approved, dedicated authorization action and exact target/rule binding. The proposed action is `GOVERN_AUTHORIZATION_EVIDENCE_QUALIFICATION`. It is not in the pinned authorization contract and is not usable merely because this candidate names it.
+3. Require a separately approved, dedicated authorization action and exact target/rule binding, plus separately reviewed admission into the selected release package. The proposed action is `GOVERN_AUTHORIZATION_EVIDENCE_QUALIFICATION`. It is neither in the pinned action catalogue nor in its initial two-action release scope, and is not usable merely because this candidate names it.
 4. Propose `GOVERN_DECIDE`, `HUMAN_ONLY`, `DIRECT_HUMAN_ACTION_REQUIRED`, an explicit scoped grant and no inheritance/delegation for that action. A runtime verifies and commits the human's act; it has no independent power to invent qualifications.
 5. Support correction, record dispute, basis dispute, explicit resolution/reopening and append-only supersession. Preserve competing branches. All relationship targets must already be authoritatively committed before the qualifying transaction starts.
 6. Reuse the human-finalization transaction owner's guards, complete atomic set, single use and reconciliation. Do not invent a second transaction protocol or claim a complete history cut.
-7. Verify old admissions under their exact historical authority and rule bindings. Later revocation, a governed challenge and missing verification evidence are different facts.
+7. Verify old admissions under their exact historical authority, rule and original package-admission bindings, not today's admitted-action set. Later revocation, a governed challenge and missing verification evidence are different facts.
 
 Approval of this file would approve these design choices only. It would not create grants, approve the separate authorization amendment, materialize schemas, admit runtime records, approve #32's classifier, close CP2A-DEP01, merge a PR, promote contracts or unblock OFARM2 implementation.
 
@@ -30,7 +32,7 @@ This PR changes only this historical Phase A candidate. It proposes the protecte
 
 | Separate owner | Boundary preserved |
 |---|---|
-| PR #11 authorization | Existing evaluator, grants, principal/actorship, action/target rules, outcomes and retry eligibility remain unchanged |
+| PR #11 authorization | Existing evaluator, grants, principal/actorship, action/target rules, release-admission scope, outcomes and retry eligibility remain unchanged |
 | PR #17 final ReviewDecision | No new target family, ReviewDecision result mapping or accepted-consequence composition |
 | PR #20 / #26 transactions | No new isolation, locks, atomic set, operation identity, cancellation or reconciliation protocol |
 | PR #29 retention/proof strength | No new access, retention period, deletion/redaction or key-custody power |
@@ -55,11 +57,11 @@ Apply `PROJECT_AUTHORITY.md`: active baseline outranks accepted RFCs, companion 
 | Evidence Sufficiency and Attestation Policy v0.1 | Bind original support, interpretation and provenance; a carrier or frozen reference is not sufficient evidence by itself |
 | Accepted CP2 result-qualification and trace RFC | Truthful qualification and permission-limited access remain mandatory |
 
-All six PRs were rechecked on 2026-09-11: open, draft, unmerged, with canonical base `71ca724a8b6ec23f1655b086a6f549496d10a47f`. Prior semantic approvals do not make them active law. PR #17's approval status was not re-audited.
+All six PRs were rechecked on 2026-09-13: open, draft, unmerged, with canonical base `71ca724a8b6ec23f1655b086a6f549496d10a47f`. Prior semantic approvals do not make them active law. PR #17's approval status was not re-audited.
 
 | Candidate | Exact head | Sections / use |
 |---|---|---|
-| [PR #11](https://github.com/samovers/OFARM/pull/11) | `03a21f669ee04f96d444e14f00ae7212cab04803` | 7.5 closed targets; 17.2–17.6 evidence and authority bindings; 18 admission/digests; 24 delivery order |
+| [PR #11](https://github.com/samovers/OFARM/pull/11) | `4494924998183fe3fa7bc1b63b76a85893335044` | 7.2.1 release admission; 7.4–7.5 exact rules/targets; 17.2–17.6 evidence and authority bindings; 18 admission/digests; 24–24.1 staging and open history closure |
 | [PR #17](https://github.com/samovers/OFARM/pull/17) | `9ef08030b25eb3db1c2da14d6595300198384ff2` | Existing final-review target/result scope does not supply this authoring path |
 | [PR #20](https://github.com/samovers/OFARM/pull/20) | `98f8c4fafbae42c8f7fd931f43f53adcb4733713` | 10–13 guards/finalization/atomic commit; 17 recovery; 18 evidence ownership; 20 future protected families |
 | [PR #26](https://github.com/samovers/OFARM/pull/26) | `e042efa2911b2ef0a61603b8e0adaa6911c03ac0` | Original NOT_REQUIRED refusal durability where applicable; not the proposed qualifier's human-finalization mode |
@@ -76,6 +78,16 @@ Dependency files, all under `package_meta/history/clean_baseline_migration/phase
 - `cp2_authorization_result_surface_and_public_reason_codes_rfc_candidate_v0_1.md`
 
 A changed head requires inspection and renewed binding review; it does not silently replace a pin. [Issue #21](https://github.com/samovers/OFARM/issues/21) and PR #11 section 24 control staging over older #10 summaries. The [issue-level review](https://github.com/samovers/OFARM/issues/33#issuecomment-5630591207) authorized no semantics; its positive/unauthorized admission checkpoint and historical-authority case are addressed below.
+
+### 3.1 Explicit authorization dependency compatibility assessment
+
+Compared PR #11's complete one-file delta from the previous pin `03a21f669ee04f96d444e14f00ae7212cab04803` to `4494924998183fe3fa7bc1b63b76a85893335044` (96 added lines, 19 removed). Its [renewed steward approval](https://github.com/samovers/OFARM/pull/11#issuecomment-5634389303) covers that exact Phase A release-scope revision, not this candidate or executable promotion. This amendment addresses [PR #34 review 5190375531](https://github.com/samovers/OFARM/pull/34#pullrequestreview-5190375531), which found no blocking lifecycle/source-governance findings at `69682c2f918ef18756261a1186294cc3a5ebe44d` and requested this dependency alignment.
+
+The new owner revision preserves the twenty action definitions, closed target meanings, complete per-action semantic-closure digest and exact source-consent comparison. It adds an immutable manifest-bound admitted-action set, initially exactly `ASSERT_OPERATION_CLAIM` and `RECEIVE_READ_DATA`, with one complete resolved rule per admitted member. An excluded action stops at ingress before any authorization result, without fallback. Section 17.2 retains the four package families; section 24 applies every stage to the complete selected dependency closure rather than permitting partial selected rules. Human-finalization, atomicity, cutoff, consumption and read safeguards are not waived by deferral of an unrelated flow.
+
+Compatibility conclusion: this source proposal can retain its carrier proposal, authority posture, six relationship meanings and transaction/digest construction, but QG-DEP01 must distinguish defining the action from admitting it into a release. Sections 5, 8–10 and 12–13 now expose that condition and retain the original package-admission proof for historical verification. The other five dependency pins remain unchanged. No schema or runtime compatibility is claimed tested by this document comparison.
+
+PR #11 section 24.1 still leaves open whether #32 can establish complete history and historical admission while qualifier authoring is non-executable. This candidate neither answers that question nor adds a third action, activates a writer or supplies another policy as a workaround. Any necessary release expansion requires its own reviewed scope decision; this pin update is not that decision.
 
 ## 4. Minimum carrier and semantic classification
 
@@ -112,9 +124,11 @@ The proposed action is `GOVERN_AUTHORIZATION_EVIDENCE_QUALIFICATION`. The author
 
 The proposed new resource policy has exactly one `AUTHORITY_TARGET`: the refusal root, using the new closed kind `AUTHORIZATION_REFUSAL_BUNDLE`. Its complete immutable identity and owner-derived scope anchor are resolved from the root, including when the act qualifies a prior qualifier. Earlier qualifiers use a new closed `AUTHORIZATION_EVIDENCE_QUALIFICATION` kind as `INTEGRITY_INPUT`; the specifically selected original basis is an exact typed integrity input; attested support is `EVIDENCE_INPUT`. These are proposed additions, not kinds that the current extractor accepts. The exact role/cardinality choices must be recorded in QG-DEP01 and QG-BIND03. One sufficient authority path must cover the root target by itself; grants across target branches cannot be unioned. Mixed-root or mixed-tenant predecessors fail before authorization can be treated as sufficient. The profile cannot widen the scope inherited from its root.
 
-This is the precise **QG-DEP01** authorization prerequisite. It needs a separately reviewed owner amendment to PR #11's action catalog, closed target/extraction profile and corresponding rule binding. It must not enlarge existing `REVIEW_*` or evidence-link permissions. Actual authority issuance remains separately governed; no new grant-issuance route or role assignment is created here.
+This is the precise **QG-DEP01** authorization prerequisite. It has two distinct requirements: a separately reviewed owner amendment defining the action, closed target/extraction profile and corresponding complete rule binding; and separately reviewed release admission of that action through an exact immutable package/manifest under PR #11 sections 7.2.1 and 24. A defined action, valid complete rule and explicit human grant do not establish release admission. Adding it to a selected package requires its complete dependency closure, binding review, conformance, explicit promotion and trusted selection; naming it here approves none of those stages. The initial two-action package excludes this proposed writer. Do not enlarge that package automatically or introduce a second policy as a workaround.
 
-Until QG-DEP01 is accepted and bound, submitting the proposed unknown action follows PR #11 section 18.1 ingress rejection. It is not a fabricated authorization `DENY`, and cannot create a qualifying record. The worked path below is conditional on this exact prerequisite, not a claim that today's contract already accepts the action.
+QG-DEP01 must not enlarge existing `REVIEW_*` or evidence-link permissions. Actual authority issuance remains separately governed; no new grant-issuance route or role assignment is created here. Defining the action/rule, issuing a valid grant and admitting the action into a selected release are separately governed facts, not substitutes for one another.
+
+Until the action is defined and bound, submitting it follows PR #11 section 18.1 unknown-action ingress rejection. Even after definition, a request through a package that excludes the action must stop at ingress before authorization evaluation. Neither path creates an authorization result/trace, a fabricated `DENY` or a qualifier; neither may fall back to another bundle, older schema, legacy path or caller-selected policy. Any ingress evidence follows the existing owner contract and does not become an eligible refusal root under section 4. The successful worked path below is conditional on both action definition and release admission, not a claim that today's contract or initial package accepts the action.
 
 ### 5.2 What the human and runtime each establish
 
@@ -136,6 +150,7 @@ The following are semantic groups for later closed schemas, not a wire schema or
 | Historical basis | For a basis dispute, exact selected basis object/path in the subject's original evidence, with its source ID/version/digest and selection binding; no current substitute |
 | Act | Closed relationship kind; exact statement; support refs/content bindings; direct-human attestation; kind-specific lineage fields |
 | Authoring evidence | Exact final authorization request/result/trace bundle ref and digest, direct-human finalization evidence ref/digest, selected source-contract and admission-rule bindings, and transaction-owned operation/attempt identity |
+| Original package admission | The qualifying act's originally selected immutable policy-package identity/digest and exact manifest/admitted-action binding, tied to its authorizing evidence; retained proof that the action and its complete resolved rule were admitted through that package at the act's original governing evaluation, under the authorization/selection owners' contracts |
 | Time | Any asserted event/effective time is separately labeled; trusted act and final evaluation times come from their owner records; authoritative admission time/order comes from the commit evidence |
 
 Use PR #11 section 18.8 for the root and authorizing bundle digest: the exact v0.2 request/result/trace projection and exclusions, not an ad hoc hash of selected fields. Each new qualifier's content digest is over its complete finalized canonical JSON bytes under a separately bound JCS/UTF-8/SHA-256 profile. Its full-byte digest is external to the qualifier bytes. Reject duplicate JSON keys before canonicalization. Do not copy the authorization-bundle self-digest exclusions to the new profile.
@@ -197,7 +212,7 @@ One successful admission follows this construction order:
 
 1. Resolve and verify the exact already-committed root, relationship targets and original support/basis. The human performs the exact act under the bound direct-human route. This creates no durable qualifier yet.
 2. Start the short transaction with trusted time, exact `governedTransactionPolicyRef`/digest and the owner's snapshot/guard profile. Verify target commitment before start and the complete relevant source/admission state.
-3. Build the prospective immutable direct-human finalization evidence as PR #20 requires. Run the final PR #11 evaluation against the final snapshot and exact intent; require a supported rule, `ALLOW`, correct human mode and all other applicable gates. Do not use an old portable ALLOW.
+3. Build the prospective immutable direct-human finalization evidence as PR #20 requires. Before any authorization evaluation, satisfy PR #11 section 18.1 ingress checks: verify the selected immutable package/manifest, action membership and complete rule binding, then intent/extraction validity. Exclusion stops here with no authorization result or qualifier and no fallback. For admitted valid input, run the final PR #11 evaluation against the final snapshot and exact intent; require `ALLOW`, correct human mode and all other applicable gates. Retain the selected package-admission binding with the authoring evidence. Do not use an old portable ALLOW.
 4. Build the exact qualifier from the intent and trusted final authorization/finalization bindings. Validate its schema, support/provenance, relationships, derived scope and protected-result postconditions. Fix its full-byte digest before downstream consumption/receipt construction.
 5. Build the transaction owner's one decision-consumption record, protected-effect validation trace and governed-effect receipt. Bind the exact qualifier digest and complete atomic membership; the qualifier does not point forward to these records.
 6. Recheck the deadline, complete relevant guards and uniqueness under PR #20, and atomically commit the whole owner-required set, including the qualifier and any required ingress evidence. Only then expose it as an admitted source fact.
@@ -223,20 +238,22 @@ The following are **internal verification dispositions**, not wire enums, public
 
 | Disposition | Required evidence / consequence |
 |---|---|
-| Admission established for this exact record | Bytes, root, typed relationship, original authority/rule/finalization evidence, passing source validation and authoritative atomic commitment/ordering are all verified |
+| Admission established for this exact record | Bytes, root, typed relationship, original package-admission and authority/rule/finalization evidence, passing source validation and authoritative atomic commitment/ordering are all verified |
 | Proven invalid under the bound admission contract | Positive evidence of a broken requirement: wrong tenant/subject, mismatched bytes, wrong writer/rule, unsupported link, cycle or contradictory atomic membership. Do not count it as a valid qualifying act |
-| Admission not established | Required bytes, schema/rule, historical authority, target proof or commit outcome is missing, inaccessible, unsupported or unresolved. Do not promote it to a valid act, or infer that no act/history exists |
+| Admission not established | Required bytes, schema/rule, original package-admission binding, historical authority, target proof or commit outcome is missing, inaccessible, unsupported or unresolved. Do not promote it to a valid act, or infer that no act/history exists |
 
 Record failures precisely: a mismatch in a retrieved copy disproves that copy's claimed integrity; it does not prove all retained copies or the original committed object are corrupt. A failed lookup is not proof of nonexistence, deletion or original unauthorized action. A known valid record plus unproven surrounding completeness is **not** “admission not established” for that record: keep its admission result and the separate observation limitation.
 
 ### 9.1 Historical authority, not current re-admission
 
-At later inspection, verify the original act against the exact historical rule ID/digest, source-contract/schema bindings, authority-grant per-action binding, principal/Party/role relationship, scope, validity interval, revocation evidence, snapshot/guard proof and finalization/receipt that applied to that act. Current grant lookup is not a substitute for retained admission evidence. Verification checks the original governing evaluation; it does not run today's policy against the original request and replace its result.
+At later inspection, verify the original act against the exact historical rule ID/digest, source-contract/schema bindings, authority-grant per-action binding, principal/Party/role relationship, scope, validity interval, revocation evidence, snapshot/guard proof and finalization/receipt that applied to that act. Retain and verify the originally selected policy-package identity/digest and its exact manifest/admitted-action binding, including that the action and complete resolved rule belonged to that package at the original governing evaluation. The authorizing evidence must establish selection of that exact package; an unrelated manifest that happens to admit the action is insufficient. Current grant lookup or today's admitted-action set cannot substitute for that retained proof. Verification checks the original governing evaluation; it does not run today's policy against the original request and replace its result.
+
+This historical package-integrity/selection check is not a new grant-reuse rule. PR #11 sections 7.4 and 17.3 still require exact `{actionClass, ruleId, ruleDigest}` equality over the complete per-action semantic closure plus all applicable authority checks. The grant's issuance-policy digest is audit context, not a requirement to equal the selected package's overall digest. An unrelated package change can preserve grant eligibility only under that unchanged exact-rule law; it cannot admit an excluded action or legitimize an earlier excluded act.
 
 | Later development | Source-side treatment |
 |---|---|
 | Writer's permission expires or is prospectively revoked after valid admission | Original admission remains established if historical proof is intact. A new act by that writer needs new valid authority |
-| Admission policy/rule changes later | Retain the exact old binding for historical verification; neither silently reinterpret nor re-admit old records under the new rule |
+| Admission policy/rule or admitted-action set changes later | Retain and check the exact original package/manifest and rule binding. Later exclusion does not erase a valid prior admission; later inclusion cannot rescue an act proved excluded by its original package. Neither silently reinterpret nor re-admit old records under today's package |
 | Writer had no required grant at original admission but receives one later | Later authority cannot legitimize the earlier act. A claimed earlier admission fails if that violation is proved; any new act needs a new identity and lawful admission |
 | Governed record later challenges a qualifier's original grant, rule application or evidence | Preserve original admission evidence and the new exact basis-dispute relationship. A challenge is not itself proof of invalidity or permission to erase the original |
 | Retained historical proof cannot now be inspected/verified | Admission is not established for this verifier at this observation; record the precise limit, without labeling the original admission proven unauthorized |
@@ -245,16 +262,16 @@ If an independent verification proves a requirement of the original bound contra
 
 Current access controls still apply to verification and disclosure. Loss of present permission to inspect does not alter the historical act. PR #29's exact-byte versus digest-only limits remain: a digest commitment alone cannot reconstruct content or prove admission; candidate bytes can support a comparison only under the exact original profile and available provenance. Unknown schema versions, missing policy bytes or absent relationship targets block the corresponding verification claim, not merely a cosmetic detail.
 
-## 10. Worked admission pair and historical follow-through
+## 10. Worked admission cases and historical follow-through
 
-This is a falsifiable design example, **not observed records, valid JSON fixtures or executed tests**. Names `D`, `H`, `J`, `G`, `R`, `Q` and `T` are symbols for future fully bound objects, not placeholder hashes that could pass validation. QG-DEP01 and QG-BIND02 must first be separately resolved and real reviewed bytes/digests supplied.
+This is a falsifiable design example, **not observed records, valid JSON fixtures or executed tests**. Names `D`, `H`, `J`, `G`, `R`, `Q` and `T` are symbols for future fully bound objects, not placeholder hashes that could pass validation. QG-DEP01 and QG-BIND02 must first be separately resolved and real reviewed bytes/digests supplied. The positive example assumes a separately admitted package containing the proposed action; the approved initial two-action scope is not such a package.
 
 ### 10.1 Positive case: admitted basis dispute
 
 1. `D` is a durably committed v0.2 `DENY` request/result/full-trace bundle for tenant Farm-A and one exactly derived scope. The complete bytes match its `decisionBundleDigest`, and its original commit proof is available. Its trace selected immutable authority source `G` at a named original binding.
-2. Human `H` has an independently issued, valid explicit grant for the proposed action, bound to the exact rule `R` and that scope. `H` is the resolved direct human with the required Party/role relationship. The grant, issuance basis, validity and revocation state are checked independently of anything asserted in `Q`.
+2. A separately reviewed, promoted and trusted-selected package explicitly admits the defined action and its complete rule `R`. Human `H` has an independently issued, valid explicit grant for that action, bound to `R` and that scope. `H` is the resolved direct human with the required Party/role relationship. The package admission, grant, issuance basis, validity and revocation state are checked independently of anything asserted in `Q`.
 3. `H` performs `OPEN_BASIS_DISPUTE`: “The scope evidence used for G is contested,” with the exact original `D`/`G` bindings, a specific support record and an explicit sufficiency attestation. This does not allege that a current replacement grant was the original basis.
-4. Transaction `T` verifies that `D`, `G` and required support were already committed, binds the final trusted snapshot and constructs direct-human evidence. The final authorization under `R` is `ALLOW` for this **new qualifying act**, not a changed answer to D's request.
+4. Transaction `T` verifies that `D`, `G` and required support were already committed, binds the final trusted snapshot and constructs direct-human evidence. Package/action/rule and intent/extraction ingress checks pass before the final authorization under `R` is `ALLOW` for this **new qualifying act**, not a changed answer to D's request. The authoring evidence binds the exact selected package/manifest as well as `R`.
 5. The source validator derives one new qualifier `Q`, verifies the exact basis link/statement/scope and passes the result. PR #20 commits `Q` and the complete required authorization/finalization/consumption/validation/receipt set atomically. Before this commit, `Q` was only a proposal.
 6. A later authorized verifier checks the retained bytes and independent historical bindings. It establishes Q's admission, its exact relationship to D's original G and its authoritative admission facts. It passes those facts to #32. D is still the original DENY. The verifier has **not** proved that it has seen every other qualification or that any public label can yet be emitted.
 
@@ -262,15 +279,19 @@ This is a falsifiable design example, **not observed records, valid JSON fixture
 
 Replace only `H` with human `J`, who can authenticate and read D but has no grant for the new action. All intended content, target, support, time conditions and other gate inputs are otherwise identical. Authentication, read access and the human's attestation do not supply the missing action authority.
 
-With the new action correctly installed, the final authorization fails its required grant check under PR #11; the qualifier does not enter a successful atomic set and is not an admitted source fact. Any refusal evidence follows its own owner path, not a fake qualifier success. If J copies the proposed bytes into an attachment and calls it Q, it still lacks lawful authorizing/finalization/commit evidence. If it claims H's authority bundle, the requester/act/intent binding mismatch proves that claim invalid.
+With the new action correctly defined and admitted through the same selected package, the final authorization fails its required grant check under PR #11; the qualifier does not enter a successful atomic set and is not an admitted source fact. Any refusal evidence follows its own owner path, not a fake qualifier success. If J copies the proposed bytes into an attachment and calls it Q, it still lacks lawful authorizing/finalization/commit evidence. If it claims H's authority bundle, the requester/act/intent binding mismatch proves that claim invalid.
 
 This is different from unavailable evidence: if a purported Q has no inspectable original authority bundle or an unresolved commit outcome, admission is not established; do not assert “wrong writer” without proof. It is also different from the positive Q whose admission is established but whose incoming-history completeness is unknown.
 
 ### 10.3 Historical follow-through
 
-After the positive commit, H's grant is revoked and rule R is replaced. Q remains historically verifiable using the original R/grant/interval/revocation/snapshot evidence; the current grant table is not used to re-admit it. If a newly authorized human challenges the original grant's validity, that is a new exact `OPEN_BASIS_DISPUTE` about Q's admission basis, with its own fresh authorization and commit. If the old rule bytes instead become inaccessible, verification reports the proof limit; it does not call Q invalid merely because today's policy differs.
+After the positive commit, H's grant is revoked, rule R is replaced and today's selected package excludes the authoring action. Q remains historically verifiable using its original package/manifest/admitted-set and R/grant/interval/revocation/snapshot evidence; neither the current grant table nor today's admitted set is used to re-admit it. A new `OPEN_BASIS_DISPUTE` about Q's admission basis requires its own fresh package admission, authorization and commit; a newly authorized human alone cannot bypass today's exclusion. If the old rule or original package-admission proof instead becomes inaccessible, verification reports the precise proof limit; it does not call Q invalid merely because today's policy differs.
 
-Conversely, granting J permission later does not rescue the unauthorized version. These source facts and distinctions are supplied to #32; their aggregate public qualification remains that issue's decision.
+Conversely, granting J permission later does not rescue the unauthorized version, and adding the action to a later package cannot rescue an act proved excluded by its original package. Missing original package proof means admission is not established, not that exclusion has been proved. These source facts and distinctions are supplied to #32; their aggregate public qualification remains that issue's decision.
+
+### 10.4 Defined action and valid grant, but excluded release
+
+Keep H's valid exact-action grant, the correctly defined complete rule R, root, intended content and support from section 10.1. Select instead an otherwise valid package whose admitted set excludes the action, such as the initial claim/read package. R's valid definition in the catalogue or another package does not put it in this selected manifest. PR #11 section 18.1 rejects the request at ingress before authorization evaluation: no authorization result or trace, no qualifier, and no fallback to another bundle, older schema, legacy path, caller-selected policy or deployment-flag expansion. Any required ingress evidence follows its owner contract; it is not a committed authorization-refusal root. This is distinct from J's evaluated missing-grant failure and proves no complete-history or public-classification claim.
 
 ## 11. Exact handoff to the source-history producer
 
@@ -280,7 +301,7 @@ For the exact eligible root, #32 can use:
 
 - Root kind, immutable request/result identifiers, bundle digest, schema binding, tenant/scope and original authoritative commit facts.
 - Each observed candidate qualifier's exact bytes/ref/digest, kind, subject/predecessors, dispute origin/focus, selected historical basis, attested statement/support and immutable authoring bindings.
-- Per-record admission disposition with the actual verification evidence and limitations, including the original rule/grant/authority and source-validation bindings.
+- Per-record admission disposition with the actual verification evidence and limitations, including the original selected package/manifest/admitted-action, rule/grant/authority and source-validation bindings; never substitute today's package membership for historical proof.
 - Authoritative commit and dependency-order evidence, and the actual source locations/index/projection bindings used to retrieve the incoming relation set. A search result's timestamp alone is not such evidence.
 - Explicit observed resolution/reopening/replacement edges and competing branches, separately from any completeness claim about the incoming set.
 
@@ -297,7 +318,7 @@ These cases specify future conformance. No schema, admission, transaction-race o
 | Invariant | Requirement |
 |---|---|
 | QG-I01 | Only the exact eligible committed root and same-root immutable qualifiers may be governed targets |
-| QG-I02 | Qualification requires independent exact-action human authority and finalization; carrier/identity/label alone is insufficient |
+| QG-I02 | Qualification requires selected-package admission, independent exact-action human authority and finalization; action definition, carrier/identity/label or a grant alone is insufficient |
 | QG-I03 | Original authorization bytes, outcome, times and history are never rewritten or retroactively reauthorized |
 | QG-I04 | Closed typed relationships preserve focus/basis; only explicit control transitions change that branch |
 | QG-I05 | Backward committed links and successor-is-new prevent cycles; competing branches have no automatic winner |
@@ -320,41 +341,42 @@ These cases specify future conformance. No schema, admission, transaction-race o
 | QG-C11 — target not yet committed | Uncommitted or missing/unresolved root/target cannot pass admission; upload/cache visibility insufficient | Admission + later runtime; #33 / transaction |
 | QG-C12 — replay and identity conflict | Exact replay returns/reconciles one original act; repeated reference not a second act; changed bytes/intent fail their owner identity checks | Semantic + later runtime; #33 / transaction |
 | QG-C13 — concurrency and late delivery | Concurrent branches preserved; successor-first observation unresolved until proof arrives; earlier effective time cannot backdate knowledge | Later runtime + observation; transaction / #33 / #32 |
-| QG-C14 — incomplete or uncertain proof | Digest-only, missing bytes/rule/grant, corruption and uncertain commit produce precise distinct limits; no invented admission or absence | Integrity + admission; #33 / #29 / transaction |
+| QG-C14 — incomplete or uncertain proof | Digest-only, missing bytes/rule/grant/original package-admission proof, corruption and uncertain commit produce precise distinct limits; no invented admission, proven exclusion or absence | Integrity + admission; #33 / #29 / transaction |
 | QG-C15 — restricted history | No grant of access/disclosure; preserve producer uncertainty and PR #31's non-leaking fallback | Observation/privacy; #32 / #31 / retention owner |
-| QG-C16 — historical authority checkpoint | Section 10.3: later revocation/rule change does not erase admission; governed challenge differs from proof loss; later grant cannot legitimize old unauthorized act | Authority/semantic; #33, aggregate result #32 |
+| QG-C16 — historical authority checkpoint | Section 10.3: later revocation/rule/package exclusion does not erase historically proved admission; governed challenge differs from proof loss; later grant or package inclusion cannot legitimize an old unauthorized/excluded act; verify original package admission, not today's set | Authority/semantic; #33, aggregate result #32 |
 | QG-C17 — bad atomic/result binding | Correct qualifier bytes but missing consumption, wrong intent, mutated after hashing, mismatched receipt membership or premature visibility cannot prove successful admission | Semantic + later runtime; #33 / transaction |
 | QG-C18 — valid Q, incomplete incoming history | Preserve valid individual admission and separately unproven completeness; no fresh-history/public label inferred | Observation; #33 / #32 |
 | QG-C19 — unknown action/carrier today | No admitted new action/package member before owner closure; unknown action follows ingress rejection, not a made-up DENY | Binding/admission; authorization / #33 |
+| QG-C20 — defined action and valid grant, excluded package | Section 10.4 stops at ingress before authorization evaluation: no result/trace or qualifier and no fallback, even with a complete defined rule and valid exact-action human grant | Binding/admission; authorization / #33 |
 
 Traceability to the ten issue acceptance criteria:
 
 | Criterion | Design sections | Invariants | Named cases |
 |---|---|---|---|
 | 1 — concrete mechanism | 4–6 | I01, I02 | C01, C02, C19 |
-| 2 — admission authority | 5, 8–10 | I02, I07 | C01, C03, C04, C16, C19 |
+| 2 — admission authority | 5, 8–10 | I02, I07 | C01, C03, C04, C16, C19, C20 |
 | 3 — immutable binding | 4, 6–7 | I01, I03 | C04, C05, C10, C11 |
 | 4 — closed meanings | 7 | I03, I04 | C02, C05–C08, C10 |
 | 5 — own lifecycle | 7.1–7.3 | I04, I05 | C06–C09, C13 |
-| 6 — admission/visibility | 8 | I01, I05, I06 | C11–C13, C17 |
-| 7 — failures/proof | 9–10 | I03, I07 | C03, C14, C16–C18 |
+| 6 — admission/visibility | 8 | I01, I02, I05, I06 | C11–C13, C17, C20 |
+| 7 — failures/proof | 9–10 | I02, I03, I07 | C03, C14, C16–C18, C20 |
 | 8 — usable handoff | 11 | I07, I08 | C05, C08, C13–C16, C18 |
-| 9 — falsifiable cases | 10, 12 | I01–I08 | C01–C19 |
-| 10 — later units/gates | 13–14 | I02, I08 | C01, C18, C19 and exact binding review |
+| 9 — falsifiable cases | 10, 12 | I01–I08 | C01–C20 |
+| 10 — later units/gates | 13–14 | I02, I08 | C01, C18–C20 and exact binding review |
 
 In this traceability table, Ixx and Cxx abbreviate the full QG-Ixx and QG-Cxx identifiers above. Shape checks exercise closed fields and reference forms; semantic validators exercise relationship/root/focus/derivation rules; authority and admission fixtures need bound historical evidence. Races, durable visibility, uncertain commits and privacy require later real runtime evidence. None can be replaced by Markdown checks or a standalone JSON-schema pass.
 
 ## 13. Exact dependency and materialization ledger
 
-No new prerequisite issue is opened by this candidate. One demonstrated authorization amendment is required; remaining rows are exact binding/materialization or downstream work, not speculative demands for new infrastructure.
+No new prerequisite issue is opened by this candidate. One demonstrated authorization-owner dependency covers action definition and separately reviewed release admission before any authoring use; remaining rows are exact binding/materialization or downstream work, not speculative demands for new infrastructure. This ledger does not decide that authoring must be executable in the first release.
 
 | ID | Exact unit / accountable boundary | Required closure before use |
 |---|---|---|
-| QG-DEP01 | Separate authorization-owner action/rule/target amendment, section 5 | Approved dedicated action, human mode, scoped grant posture and exact closed rule/extractor/result selection. Existing actions unchanged; real authorized-rule bindings and grant instances required |
+| QG-DEP01 | Separate authorization-owner action/rule/target definition and release-admission requirements, section 5 | Approved dedicated action, human mode, scoped grant posture and exact complete closed rule/extractor/result selection; separately reviewed selected-package admission with immutable identity/manifest/admitted-set binding, complete dependency closure, conformance, promotion and trusted selection. Existing actions and initial two-action scope unchanged; real authorized-rule bindings and grants required. Definition/grant alone cannot admit the action |
 | QG-BIND02 | Source-owner tagged profile and package/event/commit binding, section 4 | Approved `AuthorizationEvidenceQualification v0.1` member of the proposed decision-evidence package, explicitly classified GovernanceEvent / governance decision; no blanket evidence-record assumption |
 | QG-BIND03 | Source-owner effect-intent schema, target/scope extractor, result contract and trace profile | Exact content-addressed schemas/contracts, closed derivations, support/attestation checks, six relationships, one-result postconditions and external full-byte digest profile |
 | QG-BIND04 | Source-to-transaction binding review | Real mapping of original commit proof, already-committed targets, guards, operation/attempt IDs, finalization, result/consumption/receipt membership and visibility to PR #20; no invented watermark or extra commit |
-| QG-BIND05 | Source-validation examples and conformance fixtures | Real valid/invalid bytes with computed digests and expected QG-C01–C19 dispositions; original-authority near-twin and historical-authority cases must be independently reproducible |
+| QG-BIND05 | Source-validation examples and conformance fixtures | Real valid/invalid bytes with computed digests and expected QG-C01–C20 dispositions; admitted positive, unauthorized near-twin, defined-but-excluded action and original-package/historical-authority cases must be independently reproducible |
 | QG-DOWN06 | #32 classifier and observation contract, then PR #31 consumer binding | Exact authoritative incoming-set/visibility bindings, completeness and label/disclosure decisions. A valid source profile alone cannot close CP2A-DEP01 |
 
 QG-BIND04 is a required test of the actual common protocol binding, not a finding that a new transaction protocol is necessary. The design uses no unique-current-head predicate and no history-completeness check during writing. If existing guarantees cannot substantiate an identified required guard or commit fact, report that exact failure to the transaction owner before implementation; do not silently choose locks/isolation or pre-open a generic “history service” issue.
@@ -363,18 +385,20 @@ Future non-default source materialization units are specifically: the tagged qua
 
 Preserve PR #11 section 24 and #21 ordering: finish and approve adjacent source/authority contracts; materialize the non-default policy/source/evidence and their exact interfaces in the authorized order; perform exact binding review and governance acceptance; run conformance; only then consider separately authorized current/default promotion and OFARM2 extraction. Do not jump from Phase A approval to schemas, runtime code or a production-ready claim.
 
-The source handoff is usable only after its applicable acceptance and exact bindings, QG-DEP01 and all required source/transaction evidence are valid. #32 may use this draft for design review but cannot treat it as an admitted production source contract. CP2A-DEP01, other #21 gates and OFARM2 implementation gates remain open.
+New authoring is usable only after QG-DEP01, the applicable source acceptance/exact bindings and all required source/transaction evidence are valid. #32 may use this draft for design review but cannot treat it as an admitted production source contract. Under PR #11 section 24.1, whether historical verification and complete observation can be bound while new authoring is non-executable remains an open owner checkpoint, not an automatic requirement to activate this writer or permission to omit proof. An inactive writer, empty lookup or valid individual qualifier does not close it. Preserve all eleven selected-scope stages and the four existing package families; a required release expansion needs separate scope approval. CP2A-DEP01, other #21 gates and OFARM2 implementation gates remain open.
 
 ## 14. Review, validation and handoff limits
 
 Decision ID: `OFARM-ISSUE33-AUTHORIZATION-EVIDENCE-QUALIFYING-RECORD-GOVERNANCE-001`.
 
-Decision version: `1`. Status: proposed, not approved. Semantic approval must identify the reviewed exact candidate head and version; it is separate from the source-issue review and from approval of QG-DEP01. A changed decision requires its own review; this card grants no merge authority.
+Decision version: `2`. Status: proposed, not approved. This version adds the release-admission and original-package verification conditions to the unapproved version 1 at `69682c2f918ef18756261a1186294cc3a5ebe44d`; it does not change the proposed profile's v0.1 identifier. Semantic approval must identify the reviewed exact candidate head and version; it is separate from the source-issue review and from approval of QG-DEP01. A changed decision requires its own review; this card grants no merge authority.
 
 The issue review's main checkpoint is made concrete in section 10: a complete proposed admission path, an unauthorized near-twin, proof-failure distinctions and the later-authority case. Review should test whether the proposed authority delta is precise, the governance-classified carrier fits, every relationship has a non-circular committed-target path and no history completeness or public label is smuggled into admission.
+
+[Review 5190375531](https://github.com/samovers/OFARM/pull/34#pullrequestreview-5190375531) found no blocking source-governance/lifecycle findings at the earlier head and requested the bounded dependency update now recorded in section 3.1. It is not review or approval of this revised head. Focused re-review should check the new PR #11 pin/compatibility assessment, distinct action-definition/grant/release-admission requirements, QG-C20's pre-evaluation rejection and the original-package proof in QG-C14/C16. Keep the six lifecycle rules and transaction/digest semantics unchanged unless a concrete new defect is identified; this amendment calls for no speculative lifecycle or history-service redesign.
 
 Phase A validation is limited to source/pin checks, document structure and repository hygiene/currentness/cross-reference/guardrail checks. These do not execute the proposed schema, historical verifier, authorizer, transaction, concurrency or privacy behavior. No runtime or expensive OFARM2 baseline test is represented by these design checks.
 
 Scope remains inside the qualifying-record source-governance design. No other candidate, active baseline/schema/index, permission, transaction/custody/public rule, runtime, approval, merge, promotion or extraction is changed. This design is a prerequisite input, not completion of the original implementation task: preserve OFARM2 #353 / PR #359 → #178 → the bounded #176 child sequence and its still-open canonical/runtime binding and implementation-card gates.
 
-What is next: review this exact-head Phase A candidate, obtain explicit semantic direction, then separately take up the demonstrated QG-DEP01 authorization amendment and the staged source bindings. Resume #32 against approved actual source semantics; do not advance to runtime implementation from this draft alone.
+What is next: focused review of this exact-head dependency-alignment amendment, then explicit Phase A semantic direction for decision version 2. Resume the #32 historical-admission/complete-observation checkpoint against approved actual source semantics before deciding whether release scope must expand; separately authorize any QG-DEP01 and staged binding work. Do not advance to runtime implementation from this draft alone.
