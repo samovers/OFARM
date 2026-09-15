@@ -1,13 +1,13 @@
 # OFARM Executable Authorization Constraints and Decision Evidence RFC v0.2
 
 Date: 2026-08-31
-Amended: 2026-09-11, release-scope amendment revision 1
-Status: Phase A RFC candidate for issue `samovers/OFARM#10`, amended under `samovers/OFARM#18`; release-scope amendment pending review and renewed semantic approval; non-authoritative, not accepted law, and not a current/default machine contract
+Amended: 2026-09-15, Scope A version 1 draft — governed-read evidence settlement
+Status: Phase A RFC amendment candidate for issue `samovers/OFARM#10`, amended under `samovers/OFARM#18`; Scope A drafting authorized, revised semantic wording pending exact-text review and renewed approval; non-authoritative, not accepted law, and not a current/default machine contract
 Triggered by: review of `samovers/OFARM2#353` and draft `samovers/OFARM2#359`
 Blocks: `samovers/OFARM2#353` and draft `samovers/OFARM2#359` until accepted semantics, promoted contracts, and byte-identical extraction exist
 Scope: define reviewable authorization semantics and the exact versioned contract delta needed before an implementation can claim a durable, fail-closed authorization decision
 
-Approval history: [steward approval](https://github.com/samovers/OFARM/pull/11#issuecomment-5506778575) remains recorded for exact head `03a21f669ee04f96d444e14f00ae7212cab04803`. It does not approve this release-scope amendment or transfer to a new head. Dependent candidates are not automatically repinned or reapproved.
+Approval history: [steward approval](https://github.com/samovers/OFARM/pull/11#issuecomment-5506778575) remains recorded for exact head `03a21f669ee04f96d444e14f00ae7212cab04803`; [renewed release-scope approval](https://github.com/samovers/OFARM/pull/11#issuecomment-5634389303) applies to predecessor head `4494924998183fe3fa7bc1b63b76a85893335044`. The task user's subsequent “approve both” authorizes drafting Scope A version 1 and the separately owned Scope B version 1, not acceptance of their eventual wording. Earlier release-scope review/approval requests below describe that predecessor's design history. No prior approval transfers to these amended bytes, and dependent candidates are not automatically repinned or reapproved.
 
 ---
 
@@ -27,11 +27,17 @@ This candidate asks OFARM stewards to approve, reject, or amend one bounded desi
 
 This document deliberately precedes accepted-RFC, schema, conformance, and currentness changes. Approval of this candidate does not itself promote any law or contract.
 
-### 1.1 Pending release-scope amendment
+### 1.1 Release-scope amendment in the approved predecessor
 
 This revision preserves the twenty action definitions and their complete rule semantics, but proposes separate, explicit executable admission for each release. The initial package would admit exactly `ASSERT_OPERATION_CLAIM` and `RECEIVE_READ_DATA`. Sections 7.2.1, 17.2 and 24 define its closed scope, complete dependency requirement and separately governed promotion. The other eighteen actions remain catalogue obligations, not implemented or passed by this release.
 
 This is a change to proposed package admission and delivery staging, not a permission weakening or approval to implement a local subset. Renewed review and explicit semantic approval must cover the new revision and its affected invariants. A complete two-action dependency closure has not yet been demonstrated: the source-history question in section 24.1 remains open. Approving this scope model would not answer that question or establish production readiness.
+
+### 1.2 Pending Scope A amendment: read-only late evidence settlement
+
+The bounded new decision is whether a single governed-read evidence-finalization operation actually initiated before the full effective cutoff may settle afterward, permanently spending that attempt without authorizing late disclosure. Sections 18.2 and 18.5.1 own this authorization-side exception. PR #37 aligns its read lifecycle with this proposal; it cannot independently widen the exception. Scope A changes read-consumption timing and truthful persistence claims, not state-affecting writes, human finalization, filing, source consent, custody or retention powers. Scope B's public-privacy tradeoff belongs exclusively to PR #31 and is not incorporated here.
+
+This is not a PostgreSQL mechanism, a temporary runtime waiver or a claim that OFARM2 #392 is implementable. The selected actions, their target/path coverage and the four package families remain unchanged. The amended read-validity closure still requires its own exact rule binding; existing exact-digest source-consent checks are not waived or replaced with cross-digest compatibility. Not provisional: no temporary implementation is proposed. The review refinements are included in Scope A version 1; no additional approval scope or prerequisite issue is created.
 
 ---
 
@@ -604,7 +610,7 @@ The v0.2 request and trace preserve these distinct times:
 
 - `subjectTime`: the governed occurrence, observation, execution, assertion, or other domain time extracted from the validated effect intent and qualified by the relevant domain contract;
 - `authorizationEvaluatedAt`: a trusted runtime clock value for the authority snapshot used to decide the current request;
-- `decisionValidUntil`: the latest trusted time at which the exact decision may be consumed;
+- `decisionValidUntil`: the exclusive cutoff for consuming the exact decision; governed reads have only the precisely bounded evidence-settlement exception in section 18.5.1, never a later disclosure cutoff;
 - `effectCommittedAt`: the transaction time at which an internal governed effect and its decision evidence become committed together; and
 - `effectDispatchedAt`, where applicable, the transport time recorded for an already committed filing envelope after a separate release-eligibility decision.
 
@@ -1298,11 +1304,11 @@ For every `TX` row, the selected `TRANSACTION_BOUND_V0_2` policy computes `decis
 5. every applicable authority-target/input lease or currentness end, evidence eligibility/freshness end, and sovereignty-policy end; and
 6. `approvalExpiresAt`, when approval is required.
 
-Instants are compared as UTC timeline instants and all ends are exclusive. An explicitly unbounded governed interval contributes no cutoff; a missing or unparseable cutoff that its governing contract requires is non-`ALLOW`. If the candidate set cannot be constructed, or its minimum is not later than `authorizationEvaluatedAt`, no consumable decision exists. The decision must be consumed inside that protected-effect transaction and is not portable to a later transaction. The transaction deadline gives the decision its hard upper bound; this RFC does not invent a universal wall-clock duration without a governing runtime contract.
+Instants are compared as UTC timeline instants and all ends are exclusive. An explicitly unbounded governed interval contributes no cutoff; a missing or unparseable cutoff that its governing contract requires is non-`ALLOW`. If the candidate set cannot be constructed, or its minimum is not later than `authorizationEvaluatedAt`, no consumable decision exists. The decision must be consumed inside that protected-effect transaction and is not portable to a later transaction. The transaction deadline gives authority use its hard upper bound; this RFC does not invent a universal wall-clock duration without a governing runtime contract. For governed reads, **D means this complete minimum, equal to `decisionValidUntil`**, not merely the potentially later fixed read-transaction deadline. Both actual finalization initiation and protected disclosure must occur strictly before D. Only continuation of the already-initiated evidence operation may settle later under section 18.5.1; all other actions retain their original consumption-at-commit cutoff.
 
 Every v0.2 decision records `SINGLE_USE`. Replay is outside v0.2; a future rule must define it explicitly rather than relying on a reserved token.
 
-The consumption evidence records the decision, effect-intent and derived-view digests, consumer principal, consumption time, effect/read/outbox reference, and idempotency key where applicable. A second consumption is non-`ALLOW` even if the payload is identical. For formal filing, expiry constrains the human-final outbox commit; after that commit, a separately eligible transport attempt is not a second filing-decision consumption and does not inherit disclosure permission from the consumed decision.
+The consumption evidence records the decision, effect-intent and derived-view digests, consumer principal, consumption time, effect/read/outbox reference, and idempotency key where applicable. For governed reads, preparation/initiation facts and the transaction owner's actual settlement facts are distinct as specified in section 18.5.1; no pre-commit sample becomes a fictitious timely consumption time. A second consumption is non-`ALLOW` even if the payload is identical. For formal filing, expiry constrains the human-final outbox commit; after that commit, a separately eligible transport attempt is not a second filing-decision consumption and does not inherit disclosure permission from the consumed decision.
 
 For a row requiring interactive human approval, `TRANSACTION_BOUND_V0_2` governs the final re-evaluation, decision consumption, evidence, and protected-effect commit. It does not assert that challenge issuance and human think time occur inside that transaction. This document states the authorization-side invariants only; `samovers/OFARM#19` must define and review the reservation/finalization, concurrency, retry, and recovery protocol before any machine profile or runtime implementation may claim this lifecycle.
 
@@ -1395,6 +1401,22 @@ Every unredacted result item must be covered by the selected authority path for 
 The runtime stages and hashes the exact buffered payload, then atomically persists decision evidence, single-use consumption, governed-read receipt, coverage manifest, payload digest, and the retained payload ref/bytes when `RETAINED_BYTES` applies before the single disclosure linearization point. If persistence fails, zero protected bytes are released. Protected streaming is unsupported in v0.2; a request for it fails rule-selected intent-schema ingress validation. A later streaming design requires a separate Platform runtime RFC and cannot be inferred from this authorization policy.
 
 No cache, secondary endpoint, preflight response, denial body, count, metadata field, trace field, or retry path may release protected information outside that protocol. The full decision trace is internal evidence. A caller-facing result uses the CP2-qualified safe projection in section 18.7. Reading the full trace requires a separate `RECEIVE_READ_DATA` decision over the exact `AUTHORIZATION_TRACE` target; CP2 redaction/denial indication applies to that trace read.
+
+### 18.5.1 Scope A — initiation, actual settlement and disclosure
+
+For governed reads only, distinguish I (actual initiation of the one evidence-finalization operation), C (actual authoritative atomic commitment of the complete evidence set) and L (the first irreversible protected-byte handoff). C is not its acknowledgement. Use D exactly as defined in section 18.2. These letters identify semantic events, not new record families, caller fields or a selected storage mechanism.
+
+**I is the transaction owner's actual entry into execution of the single finalization operation for the complete, validated, frozen evidence set and the original live read attempt.** At that boundary the transaction owner must enforce the attempt's still-live authority to initiate and trusted time strictly before D, with no check-to-start gap. Preparation, a prior deadline check, sending or queueing a request, or acknowledging an intention to finalize does not establish I. The provider binding must make actual entry, its trusted time, exact set/attempt identity and ordering against expiry or termination independently verifiable by the read owner. A caller flag, receipt timestamp or unverified provider assertion is not this proof. This draft specifies the property; the actual mechanism remains unbound under the read transaction owner and OFARM2 #392.
+
+Before I, all required preparation, source/coverage, current authority and non-temporal guards must pass. Independently establish lawful permission to persist and retain the exact immutable set, including settlement of an already-initiated operation after read expiry. The original read owner cannot create that permission by calling the data audit evidence. A missing or incompatible custody, sovereignty or retention policy prevents initiation; Scope A grants no exception to those policies. Incomplete preparation cannot enter finalization.
+
+No operation may first cross I at or after D or after irreversible termination, even if a pre-initiation check or queued request was earlier. There is no new initiation or retry after observed expiry or termination. An operation that actually crossed I before D while eligible may continue to its real atomic outcome afterward; continuation performs no new evaluation, payload construction or second finalization request. This exception relaxes only the read cutoff for settlement. It does not waive atomic membership, source protection, non-temporal guards or independently applicable persistence/retention restrictions.
+
+Every authoritatively complete C permanently spends the attempt's single-use decision binding, including late C or lost acknowledgement. Late settled evidence establishes non-reusability, not valid authority at C, timely consumption or disclosure. No timestamp sampled before C proves when C actually became durable. Record actual commitment facts from the transaction owner separately from preparation/initiation facts; if actual time is unknown, keep it unknown. Do not backdate, fill in, replace or rewrite immutable members to manufacture timeliness. The existing preparation and linked observed-outcome profiles can carry their respective established facts at the later materialization stage; no preparation receipt predicts future C or L.
+
+L still requires the original sole live owner, conclusive acknowledgement of the entire exact C set and an atomic guard-and-time-checked handoff strictly before D. Reaching D without L irrevocably ends disclosure eligibility, even if C is pending. Late settlement, reconciliation, a new handler or a changed session cannot restore it. No protected replay or automatic new request is authorized.
+
+Preparation/gate failure, definite rollback, unknown commitment and a committed-set integrity breach remain different. Only an authoritatively committed set that is incomplete or inconsistent is a committed-set integrity breach; it permits no L or repair-by-replay. An unknown outcome remains unknown, with no L, until authoritative evidence resolves that fact; resolution never revives disclosure. PR #37 owns the detailed lifecycle and conformance alignment. State-changing writes, human approval/finalization and filing-outbox/transport semantics in sections 18.3–18.4 and 18.6 are unchanged.
 
 ### 18.6 External side effects
 
@@ -1651,7 +1673,7 @@ The accepted design and conformance suite must preserve these invariants. Each c
 16. Challenge and final full snapshot refs may differ, but their rule-selected `authorityRelevantStateDigest` values must be equal; relevant change requires a new challenge and unrelated history does not.
 17. Direct human invocation satisfies fresh approval only through the lifecycle and under `SAME_PRINCIPAL_ALLOWED`; a distinct-approver profile is independently enforced.
 18. Approval and decision are single-use, and their consumption commits atomically with the protected effect, buffered read evidence, or filing-outbox record.
-19. Payload substitution, pre-consumption expiry, and replay are non-`ALLOW`.
+19. Payload substitution and replay are non-`ALLOW`. Expiry prevents consumption except for continuation of the single read-evidence operation actually initiated before D under section 18.5.1; that late C only spends the attempt and never permits late L. Other actions' consumption-at-commit cutoff is unchanged.
 20. `SHARE_REVOKE_ACCESS` creates a prospective `RevocationDecision` that terminates one exact immutable SharingGrant ID and never edits that SharingGrant.
 21. Pack activation/deactivation creates a prospective `StructureEvent` and successor activation state and never edits its prior activation set.
 22. Pack release, installation, activation set, scope, and registry identities remain distinct; only the target scope is an authority target.
@@ -1666,7 +1688,7 @@ The accepted design and conformance suite must preserve these invariants. Each c
 31. Partial paths or paths with different authority subjects are not unioned; mixed paths aggregate under one total lattice.
 32. The same immutable intent/view, relevant snapshot facts, policy bytes, and basis revisions produce the same selected path, authority result, primary reason, and ordered evidence.
 33. An internal domain effect passes its separately owned, rule-bound protected-effect contract and commits with its authorization evidence in one atomic transaction; authorization audit records do not create domain truth or event/commit classification.
-34. Every unredacted read row, field, aggregate, count, metadata item, and lineage item has result-coverage proof under one governed snapshot before disclosure, and its receipt states whether payload bytes are retained/reconstructible or digest-only.
+34. Every unredacted read row, field, aggregate, count, metadata item, and lineage item has result-coverage proof under one governed snapshot before disclosure, and its receipt states whether payload bytes are retained/reconstructible or digest-only. Actual I and L must be strictly before D; any complete C remains spent, without a fictitious timely-consumption or delivery claim. Section 18.5.1 never supplies independent custody/retention authority.
 35. CP2 qualification describes a read result but never supplies missing read authority.
 36. Protected streaming is unsupported in v0.2; only a fully evidenced buffered payload may cross the trust boundary.
 37. Full traces are internal; caller-facing results use CP2 qualification and registered safe categories, truthfully indicate denial/review/human-action/redaction posture, and require a separate authorized `AUTHORIZATION_TRACE` read for full retrieval.
@@ -1748,7 +1770,13 @@ The future executable conformance suite must include at least the cases applicab
 | `REVIEW_REJECT_OR_CONTEST` intent binds `REJECTED`, but the proposed `ReviewDecision` result says `CONTESTED`, or vice versa | protected-effect contract validation failure; transaction aborts without rewriting the authorization result or intent |
 | Consumed human approval is replayed with the same challenge and payload | `DENY` with `APPROVAL_ALREADY_CONSUMED`; no effect |
 | A single-use decision is consumed twice with the same payload | second consumption is `DENY` |
-| A decision is consumed after `decisionValidUntil` | `DENY` |
+| A decision is consumed at or after `decisionValidUntil`, outside the read-only continuation in section 18.5.1 | `DENY`; no late write, human-finalization or filing exception |
+| Read finalization actually begins at I before D, but complete C settles at or after D | Permanently spent attempt, truthful actual settlement facts, no L and no late-authority claim |
+| A read pre-initiation check is before D, but execution pauses until D before actual I | Refuse initiation; neither the check nor queueing authorizes a late start |
+| Read finalization first starts or is retried after expiry or irreversible termination | Refuse; only continuation of the operation actually initiated while eligible is covered |
+| C acknowledgement is lost, or the original live read owner is lost, and complete C is established later | No L, takeover, backdating or protected replay; actual complete C remains spent |
+| Read preparation is incomplete; contrast definite rollback, unknown C and an authoritatively committed incomplete/inconsistent set | Incomplete preparation prevents I/C; rollback stays rollback, unknown stays unknown, and committed-set corruption is an integrity breach. No L or repair-by-replay |
+| The selected persistence/retention policy cannot lawfully cover late settlement of this evidence | Scope A creates no permission; do not initiate that incompatible operation or weaken custody/sovereignty constraints |
 | Revocation commits between evaluation and an internal governed write | serialization/revalidation failure; no effect |
 | Revocation or expiry occurs before the human-final filing-outbox commit | transaction fails/re-evaluates; no filing effect |
 | Source grant, approval, session, or decision expires after the filing-outbox commit | human filing act remains historically valid; current transport-release policy independently decides whether bytes may be released |
@@ -1993,6 +2021,7 @@ The release-scope questions below and their effect on the existing package/stagi
 | Do all current rows use `TRANSACTION_BOUND_V0_2`, bounded by the trusted effect transaction and relevant cutoffs rather than an invented universal duration? | yes | yes |
 | Must `samovers/OFARM#19` close the interactive approval reservation/finalization, concurrency, retry, and recovery protocol before materialization of that lifecycle, without assuming a transaction stays open during human think time? | yes; any deferral requires scoped closure review and does not remove the selected write/read transaction prerequisites | renewed approval of scoped staging; lifecycle safeguards retained |
 | Are all v0.2 decisions single-use with no reserved replay mode? | yes | yes |
+| May the one governed-read evidence operation actually initiated before full D settle later, while actual L must remain before D? | yes, only under section 18.5.1: owner-verifiable I, independent lawful persistence, permanently spent complete C, no backdating/revival or other-action exception | Scope A version 1 authorizes drafting only; renewed exact-text semantic approval required |
 | Must internal effects and authorization evidence commit in one atomic protected-effect transaction? | yes | yes |
 | Must the proposed domain result pass the rule-bound protected-effect contract before that transaction commits, with intent/result/contract digests in the receipt? | yes | yes |
 | Is authorization `ALLOW` only the authority-gate result, never a bypass for another EnforcementChain gate? | yes | yes |
@@ -2061,4 +2090,4 @@ Phase A is complete when:
 - the trust boundary remains authorization law and machine-contract governance; and
 - no active authority or schema was changed by the candidate PR.
 
-What is next: exact-head review and renewed semantic approval of this release-scope amendment. Keep the history-closure and downstream scope gates open; do not change accepted law, machine contracts, currentness or runtime on the strength of this candidate.
+What is next: review the Scope A amendment and affected read-validity invariants at the exact revised text/head, then obtain renewed semantic approval. Keep the history-closure, provider-binding and all downstream gates open; do not change accepted law, machine contracts, currentness or runtime on the strength of drafting authorization.
