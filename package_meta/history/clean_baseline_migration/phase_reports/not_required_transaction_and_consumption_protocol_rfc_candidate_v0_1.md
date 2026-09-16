@@ -21,6 +21,12 @@ in existing OFARM2 #178 / canonical PR #26 scope. It settles no governed-read
 timing or isolation claim: #392's B1 remains open, and #177's timed output
 handoff remains separately unresolved. No runtime mechanism is supplied here.
 
+Revision after [review 5700200129](https://github.com/samovers/OFARM/pull/26#issuecomment-5700200129):
+the task user selected **require eligibility first** for drafting, not semantic
+approval. This revision proposes a one-withdrawal limit, maps the source stages,
+clarifies later attempts, and names the unbound adjacent-owner requirements.
+Those prerequisites remain open; this revision does not claim reviewer clearance.
+
 ---
 
 ## 1. Decision requested
@@ -41,9 +47,9 @@ Stewards are asked to approve, reject, or amend these bounded decisions:
 12. every conclusively durable `NO_EFFECT` attempt has exactly one immutable consequence, `RETRYABLE_SAME_OPERATION` or `TERMINAL_REQUIRES_NEW_OPERATION_KEY`; an uncertain attempt has neither;
 13. operation admission uses verified evidence in this precedence: a complete matching success set, a partial success-set breach, any unresolved attempt, then the most recent conclusively ordered durable `NO_EFFECT` consequence;
 14. a current mode change after a durable no-effect `NOT_REQUIRED` attempt is terminal under the old key, but it cannot bypass an unresolved earlier attempt;
-15. an exact successful retry returns the original verified result and receipt without another effect or consumption, subject to current disclosure controls; and
+15. an exact successful retry returns the original verified result and receipt without another effect or consumption, subject to current disclosure controls;
 16. the first concrete successful result is exactly one immutable `PENDING_REVIEW` operation-claim AssertionRecord under PR #23, not accepted execution, review, current state, or another implied domain effect; and
-17. an immutable admitted source policy may permit its owner to withdraw an eligible preparatory attempt at a governed read's request before that attempt's protected-effect or COMMIT dispatch; only section 11.5's proved, durably recorded no-effect attempt receives the existing `RETRYABLE_SAME_OPERATION` consequence.
+17. an immutable admitted source policy may permit at most one read-triggered withdrawal per logical operation, only with separately approved pre-protection reader eligibility and section 11.5's stage, history, and evidence conditions; only the complete durable no-effect set receives existing `RETRYABLE_SAME_OPERATION`. The required owner bindings are presently missing, so this cause remains unavailable.
 
 Approval of this candidate authorizes no schema, accepted RFC, currentness, runtime, database, migration, or OFARM2 change.
 
@@ -136,6 +142,24 @@ Materialization or implementation must stop when:
 - another trust boundary must change.
 
 This document may identify such a prerequisite. It cannot silently fill it in.
+
+### 3.1 Withdrawal owner inputs and unbound prerequisites
+
+These exact inspected inputs identify semantics and open dependencies, not new
+approved trigger permissions. No sibling candidate or historical pin is edited.
+
+| Owner input | Meaning consumed; withdrawal disposition |
+|---|---|
+| PR #37 at `33abbe3c413a33ae38ba5ce189850c1d8556c4bd`, §§5.1, 8.3, 10 | Bind the actual A/read-attempt/read-transaction identity and preserve protection before final S. This exact head has [semantic approval](https://github.com/samovers/OFARM/pull/37#issuecomment-5687494237); its in-file pending labels are publication history. It supplies no pre-protection withdrawal eligibility result. That new, separately owned prerequisite must be defined, approved, and exactly bound before this cause is enabled. |
+| PR #31 at `907b934b44617fba01cd81b4ddb4ab8ca6979190`, §§1–3 and 8–9 | Public qualification/projection owner. The new withdrawal cause and internal read-request evidence require owner review and an exact truthful response binding; no new code or guarantee hiding read activity is imported here. |
+| PR #29 at `8e0994cae5610ac9c0d2652e02c8a8a2dd7b45c5`, §§5–6 and 9 | Retention/proof owner. Withdrawal evidence needs compatible data placement, minimization, retention, and reconstruction obligations before capture. A digest or the read's expiry alone cannot release required source proof. |
+
+Section 11.5 also requires authoritative history sufficient to enforce its
+one-withdrawal limit, including failed or uncertain evidence persistence. No
+such provider binding is demonstrated here. Missing trigger, history, public
+projection, or retention bindings disable this cause; existing outcome rules
+remain in force. Completing any adjacent owner's semantics requires that owner's
+separate review, not a policy invented during schema or runtime implementation.
 
 ---
 
@@ -756,75 +780,121 @@ If failure-evidence persistence conclusively fails, the runtime fails closed and
 
 ### 11.5 Source-owned preparatory withdrawal
 
-This is a proposed additional cause in section 11.3's closed matrix. Reusing
-`RETRYABLE_SAME_OPERATION` does not make the cause an interpretation of the
-existing transient-failure row or eliminate its approval requirement.
+This proposed cause uses the existing `RETRYABLE_SAME_OPERATION` consequence;
+it is not an interpretation of transient failure. It applies only to this
+state-affecting `NOT_REQUIRED` profile, not PR #20's human-finalization writers.
+The prerequisites below are not presently bound; this cause remains unavailable.
 
-**Authority and eligibility.** The source transaction's immutable admitted
-profile under section 8.1 must expressly bind this permission and its conditions.
-Its policy and applicability must be independent of hidden candidate presence,
-count, labels, or validity; a caller flag or mutable deployment preference cannot
-enable it. The source owner verifies and binds the governed-read request to its
-own actual attempt. A reader may request a disposition, but cannot select
-another tenant's operation or acquire source connection, rollback, signing,
-protected-effect, or retry authority. No executable admitted policy is claimed
-by this candidate.
+**Authority and reader eligibility.** The source transaction's immutable
+admitted profile under section 8.1 must expressly bind the permission and its
+conditions. Its policy and applicability must be independent of hidden candidate
+presence, count, labels, or validity. Caller flags and mutable deployment
+preferences cannot enable it. Only the source owner decides and acts; a request
+cannot select another tenant's operation or confer connection, rollback,
+protected-effect, or retry authority on the reader.
 
-Sections 6, 9, and 10 still govern admission. Withdrawal cannot create an
-eligible attempt when the operation is completed, quarantined, unresolved,
-terminal, incompatible with its stored binding, or otherwise inadmissible. It
-cannot overwrite a terminal disposition already established for the current
-attempt. With unproved eligibility or withdrawal preconditions, the owner must
-not record this cause or its retry consequence.
+Admission A under PR #37 is not authorization. Its required protection precedes
+final S, where current authorization is evaluated. Consequently an admitted read
+may later be denied. **Admission alone is insufficient to trigger withdrawal.**
+The source must verify a separately owner-approved eligibility result, available
+before protection and bound to this read's actual request, live owner, boundary,
+and intended source scope. PR #37 owns that eligibility contract; this candidate
+neither defines its predicate nor moves final authorization before S. Neither
+request identity nor a later `ALLOW` can substitute or approve an earlier
+withdrawal retroactively. The inspected PR #37 head supplies no such eligibility
+result. Missing, uncertain, or unbound eligibility permits no withdrawal.
 
-**Reached stage and irreversible stop.** The permitted immediate path requires
-exclusive control of the exact source transaction and connection; the preceding
-database command and all its results have been fully consumed. Neither protected
-effect nor COMMIT for this attempt's protected-effect transaction has been
-dispatched or may have been dispatched. Prior durable bindings and the later
-separate no-effect evidence commit are not excluded by this condition. Before ordinary
-rollback, the owner irrevocably prevents forward dispatch from that preparation
-generation, including every continuation that could still act for it. Prepared
-bytes, a signature, or a ready indication cannot override that stop. A late
-signer or validator result cannot bind, allocate, write, or commit through the
-withdrawn generation, including by carrying its authority into a successor.
-The required proof is part of the source contract; this candidate chooses no
-worker, scheduler, signing interface, or connection implementation.
+**Repetition and prior disposition.** Proposed limit: at most one read-triggered
+withdrawal may begin for one logical operation identified by section 5.1's
+authoritative tuple, including its first-admission attempts. Here beginning is
+the source owner's first irreversible stop of that attempt under this cause,
+before rollback; a request merely waiting to be processed does not count.
+A subsequent read cannot withdraw a successor attempt of that operation. The source owner must
+establish this eligibility from authoritative history under its admitted
+profile. A new attempt ID, failed evidence write, missing no-effect record, or
+lost acknowledgement does not prove that no earlier withdrawal began or reset
+the limit. If that history cannot be established, withdrawal is unavailable.
+This is a source permission limit and proof obligation, not a new counter,
+reservation, scheduler, or guarantee of eventual commit.
 
-A running database command is outside this immediate path. Do not issue a
-concurrent rollback on its connection or equate a cancellation request with
-completion. Preserve the actual command, transaction, and reached-stage facts.
-If protected-effect or COMMIT dispatch may have occurred, use the original
-section 10 outcome and reconciliation rules; no preparation-only no-effect
-certificate is available. Separate signing, authority-reader, audit, or evidence
-operations retain their actual owners and statuses. Source rollback neither
-undoes those operations nor proves that a governed read may wait for them.
+Sections 6, 9, and 10 still control. Completed, quarantined, unresolved, terminal,
+incompatible, or otherwise inadmissible operations cannot be reopened. Nor can
+withdrawal replace a terminal disposition already established for this attempt.
+All trigger, history, and stage conditions must be proved before the source acts.
 
-**Evidence and consequence.** Record the exact admitted policy binding, bound
-request and source attempt/transaction identities, reached stage, irreversible
-stop, actual rollback/status proof, and the separate obligations just described.
-These are required role-labelled members or dispositions of the existing
-section 11.4 no-effect set, not a new receipt or universal cancelled state.
-Preserve any authorization result and every actual stage result. Do not invent
-`DENY`, a failed guard, infrastructure failure, or an unperformed evaluation to
-explain this deliberate withdrawal.
+**Reached stage and irreversible stop.** The relevant identity is the existing
+`transactionAttemptId` and its exact section 8.2 inputs, established at section
+9.2 step 1; no separate canonical preparation generation is introduced. Stopping
+section 9.1 ingress preparation does not itself create an attempt, durable
+operation binding, or retry consequence.
+
+The eligible interval is section 9.2 steps 2–12, after authoritative discovery
+has established eligibility and only while every condition here holds. It ends
+at the first dispatch of a write applying the protected domain result, decision
+consumption, success-labelled attempt, or success receipt, or at dispatch of
+COMMIT for this attempt's protected-effect transaction. Dispatch counts even
+when the statement completed and its writes remain uncommitted. Construction
+of prospective bytes alone is not dispatch. Completed preparatory metadata
+insertion/verification at steps 3 and 10 does not itself cross this cutoff;
+its actual rollback, prior-binding, and evidence obligations remain. A call
+whose possible writes cannot be distinguished from effect dispatch is ineligible.
+
+The source owner must exclusively control the attempt's persistence boundary,
+with no operation in flight and all previously dispatched operations accounted
+for. It irrevocably stops every continuation acting for that attempt before
+rollback of the exact transaction. A late continuation cannot advance the old
+attempt or carry its authority into a successor. A phase label or queued stop
+request is not proof. No worker, scheduler, signing interface, or connection
+implementation is selected here.
+
+Running persistence work is outside this immediate path; no concurrent rollback
+or presumed cancellation. If effect or COMMIT dispatch may have occurred, use
+section 10's original outcome/reconciliation rules. Prior durable bindings and a
+later separate no-effect evidence commit are not excluded by the dispatch
+cutoff. Other authority-reader, audit, evidence, or external operations retain
+their real owners and statuses. Source rollback neither undoes them nor proves
+that a governed read may wait for them.
+
+**Evidence and consequence.** The section 11.4 set must bind the admitted policy,
+read-request identity and verified eligibility, operation-wide withdrawal
+history, source attempt/transaction identities, reached section 9 stages, actual
+irreversible stop and rollback/status proof, and applicable separate obligations.
+These are role-labelled members or dispositions of the existing set, not a new
+receipt. Preserve every actual authorization/stage result. Do not invent `DENY`,
+a failed guard, infrastructure failure, or an unperformed evaluation.
+
+The read-request binding is internal source evidence and grants no writer-facing
+disclosure entitlement. Before enabling this cause, PR #31/CP2 must supply its
+truthful public projection and applicable read-activity disclosure constraints;
+PR #29 must supply a compatible evidence minimization/retention binding that
+preserves required source proof. Section 3.1 records these open dependencies.
+This candidate selects no new public code, reverse-channel privacy guarantee,
+digest-only identity scheme, or inherited read-retention schedule. A reference
+alone does not satisfy privacy, provenance, or retention obligations.
 
 Only conclusive proof that no protected effect, consumption, or success receipt
 committed or can still commit, plus the complete atomically committed section
-11.4 set, establishes this row's `RETRYABLE_SAME_OPERATION`. Separate evidence
-commits retain section 6's first-admission requirements and section 10.3's exact
-transaction identities. No surviving binding means no admitted operation or
-operation-level timestamp reconstructed from memory. Uncertain evidence commit
-means reconciliation remains required even after proved source rollback;
-conclusive evidence-persistence failure after proved rollback creates no new
-consequence. Prior authoritative history and section 10 precedence still control.
+11.4 set, establishes `RETRYABLE_SAME_OPERATION`. Sections 6 and 10.3 still govern
+first admission and distinct evidence commits. No surviving binding means no
+admitted operation or timestamp reconstructed from memory. Uncertain evidence
+commit blocks reuse even after proved rollback; conclusive evidence-persistence
+failure creates no new consequence. Neither fact resets the withdrawal limit.
 
-This consequence permits a later eligible attempt, not automatic retry, a new
-caller key, or reuse of an earlier decision. Recover the surviving original
-binding and repeat current authorization, guards, and protected-effect checks.
-The withdrawal permission grants no read admission, disclosure, changed deadline,
-storage-wait classification, runtime isolation, or timed output guarantee. Those
-separate contracts must be satisfied by their actual owners.
+Once that complete set is durably verified and section 10 admits retry, the
+source owner may begin a fresh attempt while still handling the original,
+still-live caller request; withdrawal alone does not require a new submission.
+The new attempt has its own section 8.2 inputs, recovers the surviving original
+binding and full intent, and repeats current authorization, guards, and every
+protected-effect check. It cannot reuse old continuations or a decision. This
+permission schedules no automatic loop, provides no new caller-visible status,
+and grants no right to withdraw that successor again. A later explicit caller
+retry remains subject to the same immutable operation and limit.
+
+A later successful attempt must actually commit to satisfy the corresponding
+positive case; dropping the writer is insufficient. This source permission
+supplies no read admission, disclosure, changed deadline, storage-wait exception,
+runtime isolation, timed output, or #392 positive-pair guarantee. Those require
+their separate contracts and actual evidence.
 
 ---
 
@@ -1082,12 +1152,20 @@ These are obligations for later executable conformance. This documentation PR do
 | current-state-dependent domain failure later clears | later attempt may proceed only under `RETRYABLE_SAME_OPERATION` with complete fresh evaluation and guards |
 | deterministically invalid protected-result bytes are retried unchanged | prior terminal consequence prevents an indefinite same-key loop |
 | transient infrastructure failure has conclusive durable no-effect evidence | `RETRYABLE_SAME_OPERATION`; no earlier decision is reused |
-| fixed admitted policy permits withdrawal of an eligible idle source transaction before effect/COMMIT dispatch | irreversible stop precedes actual rollback; complete withdrawal/no-effect evidence commits before `RETRYABLE_SAME_OPERATION`; later attempt recovers the binding and re-evaluates current authority |
+| all section 3.1 owner bindings exist; eligible first withdrawal during section 9.2 steps 2–12 before any success/effect write or COMMIT dispatch | actual reader eligibility and complete operation-wide withdrawal history are verified; irreversible stop precedes rollback; complete no-effect evidence commits before `RETRYABLE_SAME_OPERATION` |
 | withdrawal policy is absent, caller-selected, dependent on hidden candidate facts, or request targets another tenant | no section 11.5 withdrawal permission or retry consequence is inferred |
+| an admitted read requests withdrawal without the separately approved eligibility result, then receives `DENY` at final S | no withdrawal occurs from admission A alone; later denial is not fabricated source refusal evidence, and a later `ALLOW` would not retroactively supply eligibility either |
+| separately valid pre-protection eligibility permits withdrawal, but the requesting read is later denied at S | preserve the actual eligibility and source-withdrawal facts; the eligibility result never claims final read authorization or disclosure, and no old source attempt is revived |
+| successive eligible reads request withdrawal of successive attempts of one logical operation | at most the first withdrawal may begin; later requests cannot withdraw a successor, regardless of new read/attempt IDs; missing or uncertain history fails closed rather than resetting the limit |
+| a withdrawal began but its evidence write failed or acknowledgement was lost | do not infer an unused withdrawal allowance from absence of a durable no-effect record; reconcile required history or leave withdrawal unavailable |
+| section 9.1 preparation stops before a section 9.2 attempt exists | no withdrawal attempt or retry consequence is fabricated; existing ingress and first-admission rules control |
+| idle attempt has completed step 3 or step 10 preparatory metadata, versus an uncommitted protected-result or consumption write already dispatched | metadata alone does not cross the cutoff and must be truthfully settled; dispatched effect/success writes make this immediate path unavailable despite lack of COMMIT |
 | withdrawal is requested after completed, partial, unresolved, terminal, or incompatible history, or a terminal current-attempt disposition | original admission and disposition prevail; withdrawal cannot reopen or relabel them |
-| withdrawal is requested with SQL still running, unconsumed results, escaped forward execution, or possible effect/COMMIT dispatch | immediate withdrawal path is unavailable; retain real command/status facts and original outcome/reconciliation rules |
-| a valid late signer/validator result arrives after the irreversible stop | no old or successor transaction advances under the withdrawn generation; separately owned operations keep truthful status |
+| withdrawal is requested with persistence work still in flight, unaccounted operations, escaped forward execution, or possible effect/COMMIT dispatch | immediate withdrawal path is unavailable; retain real operation/status facts and original outcome/reconciliation rules |
+| any continuation for the stopped transaction attempt resumes after the irreversible stop | no old or successor transaction advances under that attempt's authority; separately owned operations keep truthful status |
 | source rollback is proven but withdrawal evidence does not commit, is uncertain, or its committed response is lost | respectively no new consequence, blocked evidence reconciliation, or recovery of the exact committed set; preserve section 6 binding rules and never fabricate refusal evidence |
+| withdrawn operation is retried under its original live request after complete no-effect evidence is verified, and authority and every gate still permit success | fresh attempt inputs and current checks; original binding, timestamp, intent and admitted result identity preserved; actual later commit and one effect/consumption, not rollback-and-drop; this alone does not prove #392's read timing pair |
+| public projection or retention binding for withdrawal-request evidence is missing or incompatible | no new withdrawal/capture under this cause; no invented public code, reader-identity disclosure entitlement, digest-only shortcut, or deletion of required proof |
 | first transaction rolls back and failure evidence does not durably admit a binding | no logical-operation consequence or surviving operation-level `assertedAt` is claimed |
 | idempotency keys differ only by case | both are valid and byte-distinct keys |
 | key has trailing space or non-ASCII Unicode | key is invalid and is not normalized into another key |
@@ -1139,7 +1217,7 @@ Later tests must enter through the real shared lookup, trusted enrichment, autho
 27. Receipt and consumption linkage is bidirectional by identity but acyclic by digest; finalized records are never mutated to complete a reference cycle.
 28. A committed no-effect evidence transaction is not a rollback, and every proof identifies the exact transaction and attempt it proves.
 29. A separate evidence commit must be settled independently before its binding or consequence can govern another attempt.
-30. Preparatory withdrawal requires its own admitted source permission, irreversible stop, and complete durable no-effect evidence; it cannot reopen a terminal operation or grant a reader cancellation or retry authority.
+30. Read-triggered withdrawal requires its own source permission, separately approved pre-protection reader eligibility, proved one-withdrawal operation history, irreversible stop, and complete durable no-effect evidence; it cannot reopen a terminal operation or grant the reader cancellation or retry authority.
 
 ---
 
@@ -1220,6 +1298,19 @@ The transaction owns the starting snapshot and guard evidence consumed by those 
 
 OFARM2 #173 owns UnitOfWork foundations, OFARM2 #178 owns command-idempotency implementation, and OFARM2 #353 owns authorization-evaluator implementation. They may consume this protocol only after exact non-default machine-contract materialization and binding review, accepted semantic promotion, required conformance and current/default promotion, and byte/digest-verified extraction in section 21's governed order. None may infer canonical meaning from this candidate alone.
 
+### 18.6 Withdrawal amendment and sibling compatibility
+
+The following dispositions preserve the siblings' historical `e042efa` pins;
+they do not update those PRs or claim renewed dependency closure.
+
+| Existing consumer | Disposition of the new section 11.5 cause |
+|---|---|
+| PR #29, retention/proof | Existing no-unsafe-forgetting rules remain. New request/eligibility/history evidence needs its owner's compatibility review and exact binding before capture; section 3.1 remains open. |
+| PR #31, public qualification | Its consumed §§10–12/14 now have a new cause and evidence requirements. Withdrawal-specific safe projection needs owner review; no automatic mapping to infrastructure failure or new public code. |
+| PR #34, qualifying-record governance | Existing refusal-durability rows are unchanged. This amendment supplies no withdrawal permission for its future PR #20 human-finalization writer. |
+| PR #35, source-history qualification | Its consumed §§7.1/8 meanings remain unchanged; no classifier, source-universe, or evidence-admission change. |
+| PR #37, governed read | The previously consumed state-affecting principles and read exclusion remain. Consuming this new withdrawal cause requires its separately owned eligibility and binding work; A alone and the historical source pin do not enable it. |
+
 ---
 
 ## 19. Steward approval card
@@ -1275,7 +1366,11 @@ withdrawal row is not approved by that historical decision.
 | Are committed `DENY` and `REQUIRE_REVIEW` retryable only through a fresh current decision, never decision reuse? | yes | yes |
 | Is a deterministic fixed-content protected-result failure terminal under the old key? | yes | yes |
 | Is a transient failure with authoritative rollback proof retryable under the same immutable operation? | yes | yes |
-| May the source owner withdraw eligible preparation at a bound governed read's request under the immutable policy, reached-stage, irreversible-stop, precedence, and complete evidence conditions of section 11.5? | proposed yes; a new cause for existing `RETRYABLE_SAME_OPERATION`, no reader cancellation authority or read timing guarantee | renewed exact-head approval required |
+| May the source owner use section 11.5 only after separately approved pre-protection reader eligibility and the section 3.1 owner bindings actually exist? | proposed yes; admission A alone is insufficient and the cause remains unavailable with today's missing bindings | renewed exact-head approval required |
+| Is read-triggered withdrawal limited to at most one beginning per logical operation, including first admission, with no reset from missing/failed evidence or another attempt? | proposed yes; unproved complete history disables withdrawal, no counter or provider proof is invented here | renewed exact-head approval required |
+| Is the eligible stage an existing section 8.2 attempt in section 9.2 steps 2–12 before any effect/success-write or COMMIT dispatch, including uncommitted writes? | proposed yes; completed preparatory metadata alone does not cross the cutoff, and every continuation must be stopped | renewed exact-head approval required |
+| After verified durable withdrawal evidence and section 10 eligibility, may a fresh attempt continue under the original live caller request? | proposed yes; stored binding, new attempt inputs and fresh current checks, no automatic loop or permission to withdraw the successor again | renewed exact-head approval required |
+| Do reader eligibility, public read-activity projection and compatible retention remain with PR #37, PR #31/CP2 and PR #29 respectively? | yes; no new adjacent-owner semantics, privacy guarantee or retention schedule is selected here | renewed exact-head approval required |
 | Does failure-evidence persistence failure create no false durable consequence? | yes | yes |
 | Can reconciliation recover a complete committed no-effect set without falsely calling its database commit a rollback? | yes; preserve its original binding and recorded consequence | yes |
 | Are protected-effect, first-admission, and separate failure-evidence transaction roles explicitly identified and independently verified when distinct? | yes; uncertainty about an evidence commit blocks replacement admission | yes |
@@ -1352,7 +1447,8 @@ Phase A is complete when:
 - recovery covers committed no-effect sets and separately identified protected-effect, first-admission, and failure-evidence commits without conflating commit status with protected-effect outcome;
 - the mode-change terminal rule cannot bypass unresolved evidence;
 - every required failure class and failure-evidence persistence failure has one truthful posture;
-- the proposed preparatory-withdrawal permission, exact eligibility, irreversible stop, evidence, and existing retry consequence have renewed exact-head review and explicit approval;
+- the proposed withdrawal permission, pre-protection eligibility dependency, one-withdrawal limit, exact stages, irreversible stop, evidence, and fresh later-attempt rule have renewed exact-head review and explicit approval;
+- withdrawal's open reader/public/retention and source-history proof bindings are recorded as disabled-path prerequisites rather than implemented or approved guarantees;
 - evidence ownership and shared-package posture are explicit;
 - the operation-claim handoff is exact and creates only one pending-review assertion;
 - non-default materialization and exact binding review precede accepted-law promotion under section 21 and PR #11 section 24;
