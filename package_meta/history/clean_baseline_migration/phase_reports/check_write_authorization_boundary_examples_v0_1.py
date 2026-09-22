@@ -2,11 +2,16 @@
 
 Times are integer seconds from a fictional UTC origin. Guard/identity flags are
 assumed facts, never verified here. commit_at is a later observation supplied to
-this model, not a value placed in a pre-commit receipt. No I/O or runtime imports.
-Run directly with Python 3; this script is outside all executable policy lanes.
+this model, not a value placed in atomic evidence. It is optional for the new
+rule. The old-rule comparison is retrospective, not its admission workflow.
+Run with Python 3; no database, dependencies or executable policy imports.
 """
 
 from dataclasses import dataclass, replace
+
+
+COMMIT_RULE = "EXISTING_COMMIT_CUTOFF"  # Model name, not a new policy identifier.
+CHECKPOINT_RULE = "GUARDED_WRITE_CHECK_V0_1"
 
 
 @dataclass(frozen=True)
@@ -14,6 +19,7 @@ class Trace:
     checkpoint_at: int
     cutoffs: tuple
     commit_at: object
+    boundary_label: str = CHECKPOINT_RULE
     status: str = "COMMITTED"
     action: str = "ASSERT_OPERATION_CLAIM"
     mode: str = "NOT_REQUIRED"
@@ -22,9 +28,14 @@ class Trace:
     guarded: bool = True
     complete: bool = True
     already_consumed: bool = False
+    # Fictional (success member, purported physical time) pairs, not a schema.
+    atomic_physical_times: tuple = ()
 
 
-def time_gate(trace, checkpoint_rule):
+def time_gate(trace):
+    if trace.boundary_label not in (COMMIT_RULE, CHECKPOINT_RULE):
+        return False
+    checkpoint_rule = trace.boundary_label == CHECKPOINT_RULE
     if checkpoint_rule and (
         trace.action != "ASSERT_OPERATION_CLAIM" or trace.mode != "NOT_REQUIRED"
     ):
@@ -38,33 +49,37 @@ def time_gate(trace, checkpoint_rule):
     )
 
 
-def disposition(trace, checkpoint_rule):
+def disposition(trace):
     # Expiry/absence cannot turn an unknown dispatched outcome into rollback.
     if trace.status == "UNKNOWN":
         return "UNRESOLVED"
     if trace.status == "ROLLED_BACK":
         return "NO_EFFECT"
+    if trace.status == "NOT_DISPATCHED" and trace.boundary_label == COMMIT_RULE:
+        raise ValueError("Existing pre-dispatch admission is outside this model")
     prerequisites = (
         trace.same_attempt and trace.fixed_result and trace.guarded
-        and not trace.already_consumed and time_gate(trace, checkpoint_rule)
+        and not trace.already_consumed and time_gate(trace)
+        and (trace.boundary_label != CHECKPOINT_RULE or not trace.atomic_physical_times)
     )
     if trace.status == "NOT_DISPATCHED":
         return "FINALIZATION_PERMITTED" if prerequisites else "REFUSED"
     assert trace.status == "COMMITTED"
-    chronology_known = (
-        type(trace.commit_at) is int and type(trace.checkpoint_at) is int
-        and trace.commit_at >= trace.checkpoint_at
+    chronology_consistent = (
+        trace.commit_at is None
+        or (type(trace.commit_at) is int and type(trace.checkpoint_at) is int
+            and trace.commit_at >= trace.checkpoint_at)
     )
     return (
         "EFFECT_COMMITTED"
-        if prerequisites and trace.complete and chronology_known
+        if prerequisites and trace.complete and chronology_consistent
         else "INVARIANT_BREACH"
     )
 
 
 def main():
     base = Trace(checkpoint_at=29, cutoffs=(30,), commit_at=29)
-    cases = [
+    comparisons = [
         ("ordinary success", base, "EFFECT_COMMITTED", "EFFECT_COMMITTED"),
         ("commit after cutoff", replace(base, commit_at=31),
          "INVARIANT_BREACH", "EFFECT_COMMITTED"),
@@ -92,19 +107,49 @@ def main():
          "UNRESOLVED", "UNRESOLVED"),
         ("unknown with expired checkpoint", replace(base, checkpoint_at=31, status="UNKNOWN", commit_at=None),
          "UNRESOLVED", "UNRESOLVED"),
-        ("excluded action cannot select new rule", replace(base, action="ASSERT_COMPLIANCE"),
-         "EFFECT_COMMITTED", "INVARIANT_BREACH"),
-        ("human-finalized action cannot select new rule", replace(base, mode="FRESH_APPROVAL"),
-         "EFFECT_COMMITTED", "INVARIANT_BREACH"),
-        ("expired before dispatch", replace(base, checkpoint_at=30, status="NOT_DISPATCHED", commit_at=None),
-         "REFUSED", "REFUSED"),
+        ("verified complete commit without optional time", replace(base, commit_at=None),
+         "INVARIANT_BREACH", "EFFECT_COMMITTED"),
+        ("observed commit precedes checkpoint", replace(base, commit_at=28),
+         "INVARIANT_BREACH", "INVARIANT_BREACH"),
+        ("malformed later observation", replace(base, commit_at=True),
+         "INVARIANT_BREACH", "INVARIANT_BREACH"),
+        ("no promised maximum late interval", replace(base, commit_at=10**9),
+         "INVARIANT_BREACH", "EFFECT_COMMITTED"),
     ]
-    for name, trace, old, proposed in cases:
-        assert disposition(trace, False) == old, (name, "existing rule")
-        assert disposition(trace, True) == proposed, (name, "proposed rule")
-    assert time_gate(replace(base, checkpoint_at=True), True) is False
-    assert time_gate(replace(base, cutoffs=(30, None)), True) is False
-    print(f"PASS: {len(cases)} fictional traces, both rule interpretations; 2 invalid-time checks.")
+    for name, trace, old, proposed in comparisons:
+        assert disposition(replace(trace, boundary_label=COMMIT_RULE)) == old, (name, COMMIT_RULE)
+        assert disposition(replace(trace, boundary_label=CHECKPOINT_RULE)) == proposed, (name, CHECKPOINT_RULE)
+
+    cases = [
+        ("excluded action retains old rule before cutoff",
+         replace(base, action="ASSERT_COMPLIANCE", boundary_label=COMMIT_RULE), "EFFECT_COMMITTED"),
+        ("excluded action retains old cutoff",
+         replace(base, action="ASSERT_COMPLIANCE", boundary_label=COMMIT_RULE, commit_at=31), "INVARIANT_BREACH"),
+        ("excluded action cannot select new rule",
+         replace(base, action="ASSERT_COMPLIANCE"), "INVARIANT_BREACH"),
+        ("human-finalized action retains old rule",
+         replace(base, mode="FRESH_APPROVAL", boundary_label=COMMIT_RULE), "EFFECT_COMMITTED"),
+        ("human-finalized action retains old cutoff",
+         replace(base, mode="FRESH_APPROVAL", boundary_label=COMMIT_RULE, commit_at=31), "INVARIANT_BREACH"),
+        ("human-finalized action cannot select new rule",
+         replace(base, mode="FRESH_APPROVAL"), "INVARIANT_BREACH"),
+        ("unknown label cannot silently select old rule",
+         replace(base, boundary_label="UNRECOGNIZED"), "INVARIANT_BREACH"),
+        ("new-rule checkpoint permits finalization before dispatch",
+         replace(base, status="NOT_DISPATCHED", commit_at=None), "FINALIZATION_PERMITTED"),
+        ("new-rule checkpoint at cutoff refuses before dispatch",
+         replace(base, checkpoint_at=30, status="NOT_DISPATCHED", commit_at=None), "REFUSED"),
+    ]
+    for member in ("consumption", "attempt", "receipt"):
+        for purported_time in (base.checkpoint_at, None):
+            cases.append((f"{member} falsely claims physical time {purported_time!r}",
+                          replace(base, atomic_physical_times=((member, purported_time),)),
+                          "INVARIANT_BREACH"))
+    for name, trace, expected in cases:
+        assert disposition(trace) == expected, name
+    assert time_gate(replace(base, checkpoint_at=True)) is False
+    assert time_gate(replace(base, cutoffs=(30, None))) is False
+    print(f"PASS: {len(comparisons)} paired outcome traces; {len(cases)} explicit-selection/evidence cases; 2 invalid-time checks.")
     print("Assumed guards only. No database, actual clock, producer or runtime proof.")
 
 

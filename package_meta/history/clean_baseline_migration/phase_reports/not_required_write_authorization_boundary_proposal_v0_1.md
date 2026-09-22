@@ -1,7 +1,8 @@
 # Guarded write authorization checkpoint proposal v0.1
 
 Status: **proposed semantic change; unapproved and non-executable**.
-Decision: `OFARM-NOT-REQUIRED-WRITE-BOUNDARY-001`, version 1.
+Decision: `OFARM-NOT-REQUIRED-WRITE-BOUNDARY-001`, version 2.
+This review correction supersedes unapproved decision version 1.
 Owner: canonical [issue #25](https://github.com/samovers/OFARM/issues/25), with the
 authorization and protected-effect owners identified below.
 Primary boundary: **when a write may use its authorization, and the time facts
@@ -40,15 +41,27 @@ source-wait exception, source withdrawal or runtime activation is approved here.
 
 | Pinned input | Proposed change, limited to this selected write branch |
 | --- | --- |
-| [PR #11, e9052ef](https://github.com/samovers/OFARM/blob/e9052efcf3c673360d939e856ac866cb27d709ae/package_meta/history/clean_baseline_migration/phase_reports/authorization_constraints_and_decision_evidence_rfc_candidate_v0_2.md), §§8.1, 18.2, 18.4 | Temporal eligibility is T < full D; durable single-use consumption still occurs only with the complete atomic effect. Add an explicit immutable rule selection, never infer it from NOT_REQUIRED alone. |
-| [PR #26, 38af747](https://github.com/samovers/OFARM/blob/38af7475d8cbd41b158e50ba77b60f140cbef4ba/package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_and_consumption_protocol_rfc_candidate_v0_1.md), §§8–9, 12, invariants 12–15 | Introduce the checkpoint order below; replace this branch's through-commit time test and receipt commit-time requirement. Preserve guarded facts, complete atomic success and reconciliation. |
-| [PR #23, 622376e](https://github.com/samovers/OFARM/blob/622376e2998cf8b3954ca19e81d2cce6fd57e5fe/package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md), §§6.2–6.5 | Distinguish the new checkpoint fact from physical commit time. Preserve assertedAt, subjectTime, domain validation and the single pending-review result. |
+| [PR #11, e9052ef](https://github.com/samovers/OFARM/blob/e9052efcf3c673360d939e856ac866cb27d709ae/package_meta/history/clean_baseline_migration/phase_reports/authorization_constraints_and_decision_evidence_rfc_candidate_v0_2.md), §§7.2.1, 7.4, 7.8, 8.1, 18.2, 18.4, §21 invariant 19, §22 late-consumption case | Replace the initial-scope promise of unchanged validity/consumption for this action with an explicit immutable rule selection. Align the TX row and its resolved validity-policy meaning, cutoff, consumption evidence, invariant and hostile example with T < full D and permitted late durable consumption. Never infer the selection from NOT_REQUIRED alone. |
+| [PR #26, 38af747](https://github.com/samovers/OFARM/blob/38af7475d8cbd41b158e50ba77b60f140cbef4ba/package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_and_consumption_protocol_rfc_candidate_v0_1.md), §§8–9, 12, 13.3, §16 separate-time/exact-deadline cases, invariants 12–15 | Introduce the checkpoint order below; replace this branch's through-commit time test and physical commit/consumption timestamp requirements across its success set. Update the examples; preserve actual-commit consumption linearization, guarded facts, complete atomic success and reconciliation. |
+| [PR #23, 622376e](https://github.com/samovers/OFARM/blob/622376e2998cf8b3954ca19e81d2cce6fd57e5fe/package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md), §§6.2–6.5, §10 PC_TEMPORAL_SEPARATION, §13 separated-time cases, §17 approval-card answer | Distinguish T from physical commit/consumption time in the contract, postcondition, examples and approval answer. Physical time is optional later evidence for this branch. Preserve assertedAt, subjectTime, domain validation and the single pending-review result. |
 | [PR #38, 04e7a1e](https://github.com/samovers/OFARM/blob/04e7a1e3651226fe78f15bcb04955a172223e6e7/package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_time_and_attempt_binding_proposal_v0_1.md), §§3–6 | Align its gate lifetime and evidence claims with this decision if approved; the current no-late-write proposal cannot be combined unchanged with it. |
 
-These are proposed changes, not amendments applied to those sources. Historical
-pins and approvals stay attached to their original meanings. The task user's
-approval of PR #26's conditional withdrawal semantics at 38af747 remains valid
-for that scope and supplies no approval for this write-timing change.
+These are proposed changes, not amendments applied to those sources. Under
+PR #11 §7.4, changed semantic closure changes this action's `ruleDigest` even if
+a visible row token stays unchanged. The owner must bind the revised meaning
+exactly; this proposal requires no new validity-class family or compatibility
+fallback. Old source-rule bindings cannot authorize the changed meaning.
+Affected owner revisions and the initial-release package require renewed review
+and approval. Historical pins and approvals retain their original scope.
+
+The existing withdrawal approval is a task-user record, not a GitHub comment:
+
+> I approve the conditional source-withdrawal semantics in samovers/OFARM PR #26 at head 38af7475d8cbd41b158e50ba77b60f140cbef4ba.
+
+That exact instruction remains valid for conditional withdrawal at that head.
+There is no public approval link to offer; the stale PR description does not
+revoke the task instruction. It supplies no approval for this write-timing change
+or for any amended owner revision.
 
 The existing sources require validity through commit and a receipt containing a
 trusted commit time. PostgreSQL runs deferred triggers before recording commit;
@@ -56,6 +69,15 @@ later commit processing can still wait before other sessions see the transaction
 See the [PostgreSQL 17.10 transaction source](https://github.com/postgres/postgres/blob/REL_17_10/src/backend/access/transam/xact.c).
 Consequently an earlier predicate is not proof of timely physical commit.
 This proposal accepts the interval explicitly instead of claiming to eliminate it.
+
+For scale, if a grant expires one second after BEGIN, a permitted checkpoint at
+0.9 seconds could precede a commit at 59 seconds: 58 seconds after expiry.
+This illustrates the permission, not a predicted or maximum delay.
+[OFARM2's pinned role settings](https://github.com/samovers/OFARM2/blob/1b4d52e2d6387d486110465973ad822089bd9583/deployment/postgresql/provisioning_specs.py)
+set `transaction_timeout` to 60 seconds for `ofarm_app` and 120 for `ofarm_worker`.
+Neither proves a physical commit/visibility bound: PostgreSQL 17.10 holds
+interrupts and disables that timeout before `RecordTransactionCommit` in the
+source cited above. This proposal selects no runtime role and adds no timeout.
 
 ## 3. One checkpoint, then completion or abort
 
@@ -85,6 +107,13 @@ caller timestamp or preallocated receipt is not a checkpoint.
    invalidation. Commit every success member atomically. Only authoritative
    complete-success verification permits the existing success response.
 
+In PR #26 §9.2, T belongs after step 10 inserts or verifies the immutable result
+binding and before step 11 constructs/hashes the success evidence. Step 12 retains
+its non-temporal guards, rule-mode, uniqueness and status checks; this branch replaces only its
+through-commit temporal rechecks with the checkpoint test. The permitted post-T
+interval includes hashing and success-record inserts, not only engine commit
+processing. T cannot be deferred until after the records containing it are fixed.
+
 No durable authority reservation exists at step 3. T creates no consumable token,
 does not spend the decision outside the transaction and survives in authoritative
 success evidence only if that complete set commits. Rollback past the checkpoint,
@@ -106,7 +135,7 @@ The following are proposed semantic fields, not executable schemas.
 | --- | --- |
 | `authorizationEvaluatedAt` | Existing evaluator time; unchanged and distinct from T. |
 | `writeAuthorizationCheckedAt` | T from the successful final guarded database checkpoint, scoped to the original operation/attempt and fixed decision/result. |
-| `decisionValidUntil` and `transactionDeadline` | Original exact exclusive cutoffs; stored unchanged. Neither is moved to make late commit look timely. |
+| `decisionValidUntil` and `transactionDeadline` | Original exact exclusive cutoffs; stored unchanged. In this branch they limit T, not the physical transaction lifetime. Neither is moved to make late commit look timely. |
 | `writeAuthorizationBoundary` | Proposed closed label `GUARDED_WRITE_CHECK_V0_1`, admitted only by an exact versioned rule/profile binding for the stated action. |
 | Actual commit outcome | Existing authoritative status lookup plus complete matching atomic membership. A success label or receipt alone remains insufficient. |
 
@@ -119,12 +148,24 @@ The receipt's self-entry and other digest exclusions remain unchanged. This
 requires moving the checkpoint before final consumption/attempt/receipt hashing,
 not inserting T into records that have already been hashed.
 
-For this new versioned branch, the atomic receipt does **not** contain
-`effectCommittedAt` or another purported physical commit timestamp. It binds the
-truthful checkpoint fact and transaction-status key instead. These fields are
-absent, not null or provisional values. Existing historical records are neither
-rewritten nor interpreted as this new branch. Final source/schema alignment must
-make the conditional time-field meaning explicit in all three owning contracts.
+For this new versioned branch, **no atomic success member claims a physical
+commit or durable-consumption time for this attempt**. This replaces both the
+receipt's `effectCommittedAt` requirement and the separate trusted consumption
+time requirement in PR #26 §13.3 and PR #11 §18.2. The consumption, attempt,
+receipt and any other success member bind the truthful checkpoint fact where
+specified above, never a renamed T masquerading as physical time. Such physical
+time fields are absent, not null or provisional. Legitimate earlier timestamps
+of historical inputs and the assertion act retain their meanings. Historical
+records are neither rewritten nor interpreted as this new branch. Source/schema
+alignment must express the exception in all three owning contracts.
+The existing transaction-status key and atomic-membership bindings stay required.
+
+Durable consumption still linearizes at actual successful complete atomic
+commit, never at T or at record construction. A commit after D **is late durable
+consumption, explicitly permitted for this selected branch**. The hostile cases
+and invariant listed in §2 need that narrow exception; the event is not renamed
+to pretend it occurred before expiry. Authoritative committed status plus the
+complete matching membership proves consumption without a physical timestamp.
 
 If an actual commit-record or visibility observation is separately retained, it
 belongs in truthful later owner evidence pointing back to the original immutable
@@ -165,7 +206,11 @@ timeout or eventually commits; OFARM2 #396's progress obligation remains open.
 
 The companion `check_write_authorization_boundary_examples_v0_1.py` is a small
 fictional trace model, runnable with Python 3 and no dependencies or database.
-It makes the proposed old/new timing difference and outcome claims reproducible.
+It compares observed outcomes under explicitly selected old/new rules. Its
+existing-rule column is a retrospective timing comparison, not an implementation
+of the existing admission workflow; pre-dispatch examples cover the new rule only.
+Separate cases retain the old rule for excluded actions and reject an excluded
+action claiming the new label. There is no silent fallback between rules.
 Its flags assume guard/provenance facts; it does not prove their implementation.
 Its outcome labels are model conclusions, not new wire outcomes. A trace with an
 observed inadmissible commit cannot be called refused or rolled back afterward.
@@ -178,9 +223,13 @@ python3 package_meta/history/clean_baseline_migration/phase_reports/check_write_
 Review must cover: T strictly before/equal/after D; commit before and after D;
 an earlier authority cutoff; altered result or invalidated guards; wrong attempt;
 rollback and unknown status after T; incomplete committed membership; a second
-consumption; and excluded actions retaining their original cutoff. Real binding
-tests must use fictional data and isolated disposable databases over the actual
-owner path, including a pause after the checkpoint and after COMMIT dispatch.
+consumption; excluded actions retaining their original cutoff; complete success
+without an optional commit observation; contradictory observed chronology; and
+T falsely labelled commit/consumption time in atomic evidence. An optional later
+observation, if supplied, must not contradict the established chronology.
+Real binding tests must use fictional data and isolated disposable databases
+over the actual owner path, including a pause after the checkpoint and after
+COMMIT dispatch.
 
 This candidate selects a semantic option only. It does not supply the complete
 guard, real attempt factory, trusted clock contract or authoritative status
