@@ -6,8 +6,7 @@ Parent inventory: `samovers/OFARM#10` and `samovers/OFARM#12`<br>
 Depends on: the approved authorization candidate on PR #11 at `03a21f669ee04f96d444e14f00ae7212cab04803`, the approved governed human-approval transaction candidate on PR #20 at `98f8c4fafbae42c8f7fd931f43f53adcb4733713`, and the approved AssertionRecord protected-effect candidate on PR #23 at `622376e2998cf8b3954ca19e81d2cce6fd57e5fe`<br>
 Scope: one canonical transaction profile for state-affecting actions whose immutable current rule selects `humanFinalizationRequirement = NOT_REQUIRED`, with `ASSERT_OPERATION_CLAIM` as the first concrete handoff
 
-Amendment proposed 2026-09-16: **source-owned preparatory withdrawal; awaiting
-renewed exact-head steward review and approval**. PR #26's
+Historical amendment, 2026-09-16: **source-owned preparatory withdrawal**. PR #26's
 [prior semantic approval](https://github.com/samovers/OFARM/pull/26#issuecomment-5560085396)
 remains historical evidence for `e042efa2911b2ef0a61603b8e0adaa6911c03ac0`;
 it does not approve this new cause or transfer to the amended candidate.
@@ -21,11 +20,21 @@ in existing OFARM2 #178 / canonical PR #26 scope. It settles no governed-read
 timing or isolation claim: #392's B1 remains open, and #177's timed output
 handoff remains separately unresolved. No runtime mechanism is supplied here.
 
-Revision after [review 5700200129](https://github.com/samovers/OFARM/pull/26#issuecomment-5700200129):
+Historical revision after [review 5700200129](https://github.com/samovers/OFARM/pull/26#issuecomment-5700200129):
 the task user selected **require eligibility first** for drafting, not semantic
 approval. This revision proposes a one-withdrawal limit, maps the source stages,
 clarifies later attempts, and names the unbound adjacent-owner requirements.
 Those prerequisites remain open; this revision does not claim reviewer clearance.
+
+Write-timing alignment, 2026-09-23: this revision applies the task-approved
+`OFARM-NOT-REQUIRED-WRITE-BOUNDARY-001` version 3 decision at
+[PR #39, `6ec9f6650c3848083742c7039ac7a673b4375c8b`](https://github.com/samovers/OFARM/pull/39/commits/6ec9f6650c3848083742c7039ac7a673b4375c8b).
+The task user also separately approved conditional withdrawal at PR #26 head
+`38af7475d8cbd41b158e50ba77b60f140cbef4ba`; section 11.5 is preserved unchanged.
+Those approvals retain their exact scope. They authorize preparation of this
+owner alignment, not approval of its revised bytes, merge, materialization or
+runtime use. This revision needs review with the matching PR #11 and #23 owner
+revisions; their historical pins below do not select the changed time meaning.
 
 ---
 
@@ -39,7 +48,7 @@ Stewards are asked to approve, reject, or amend these bounded decisions:
 4. the complete `operationBindingDigest` is constructed once from the winning first admitted submission and is recovered, never recomputed from newly generated trusted fields on retry;
 5. for `TRUSTED_ONLINE_SUBMISSION`, the runtime-observed `assertedAt` is supplied before full intent validation and hashing, and the timestamp selected by the first durable operation binding remains the assertion-act time for that logical operation;
 6. the durable operation-binding point is the first atomic commit that makes the immutable binding visible as part of either a complete success set or a conclusively recorded no-effect attempt set; staging, locks, caches, and a write acknowledgement alone cannot prove that point;
-7. one short guarded protected-effect transaction obtains a fresh current authorization decision, validates every applicable gate and the exact domain handoff, and atomically commits the complete success set;
+7. one guarded protected-effect transaction obtains a fresh current authorization decision, validates every applicable gate and the exact domain handoff, and atomically commits the complete success set; only the explicitly selected operation-claim branch in section 8.5 may commit after its unchanged cutoff following a timely final checkpoint;
 8. no approval reservation, generation, challenge, intended approver, human-finalization act, approval, approval consumption, reservation terminal record, or direct-human finalization evidence exists in this mode;
 9. the mode-correct evidence records that the rule selected no human finalization; it never claims that a human approval occurred and never replaces AssertionRecord-domain assertion-act provenance;
 10. decision consumption becomes durable only with the successful protected effect, and one logical operation has at most one successful consumption, result, and governed-effect receipt;
@@ -74,9 +83,14 @@ This candidate owns only:
 - no-effect consequence semantics and uncertain-outcome reconciliation; and
 - the concrete transaction handoff to the already proposed operation-claim contract.
 
-The amendment's primary boundary is source transaction withdrawal and durable
+The prior amendment's primary boundary is source transaction withdrawal and durable
 outcome/retry classification within that existing transaction scope. Section
 11.5 adds a permitted cause, not another outcome or a reader cancellation right.
+
+This alignment changes only the transaction owner's write-authorization timing
+and truthful time evidence. PR #11 owns exact authorization-rule selection and
+PR #23 owns the corresponding protected-effect time statements; their changes
+remain in their respective PRs. No clock or withdrawal policy is added here.
 
 It does not own or change:
 
@@ -127,6 +141,15 @@ The exact-head steward approval evidence is:
 - PR #23: exact-head re-review at `https://github.com/samovers/OFARM/pull/23#issuecomment-5525740023` and semantic approval at `https://github.com/samovers/OFARM/pull/23#issuecomment-5525764697`.
 
 These are explicit steward comments, not formal GitHub `APPROVED` review objects. All three candidates remain draft and non-authoritative. Any semantic change to a pinned head reopens dependency review.
+
+The additional semantic input is approved PR #39 at the exact head above. Its
+section 2 identifies PR #11 `e9052efcf3c673360d939e856ac866cb27d709ae` and
+PR #23 `622376e2998cf8b3954ca19e81d2cce6fd57e5fe` as the owner starting points.
+The selected checkpoint branch requires compatible revised authorization,
+transaction and protected-effect bindings and renewed exact dependency review.
+The historical approvals do not supply that closure. Later executable use must
+bind actual immutable revised bytes/digests; no mutable PR head or old rule may
+stand in for them.
 
 Materialization or implementation must stop when:
 
@@ -476,6 +499,7 @@ The future content-addressed profile ID is `ofarm.transaction.not-required-state
 
 - trusted timestamp source and canonical time representation;
 - exact transaction-deadline calculation or trusted deadline source;
+- exact temporal-authorization meaning, including whether section 8.5 is selected;
 - supported atomic persistence boundary;
 - exact isolation or compare-and-commit mode;
 - positive-record revision guards;
@@ -533,6 +557,47 @@ The guard covers facts such as “no active revocation exists,” “no result w
 
 If any current input, required absence, success member, or uniqueness rule cannot be protected, the action is unsupported. A saga that exposes the effect before its decision, mode evidence, consumption, traces, and receipt is non-conforming.
 
+### 8.5 Explicitly selected operation-claim checkpoint
+
+Only an immutable current rule/profile binding explicitly selecting this meaning
+for `NOT_REQUIRED` `ASSERT_OPERATION_CLAIM` may use the checkpoint. The rule's
+resolved semantic closure and `ruleDigest` must change even if its visible
+`TRANSACTION_BOUND_V0_2` token does not. `NOT_REQUIRED` alone, an evidence label,
+an old binding or a compatibility fallback cannot select it. Every other branch
+retains its existing through-commit temporal requirement.
+
+Let D be the unchanged full `decisionValidUntil` minimum in section 8.3, including
+the original `transactionDeadline`. After section 9.2 step 10 and before step 11,
+the trusted database finalization path fixes the original attempt, exact decision,
+intent, result bytes/digest, rule/profile and evidence inputs, and rechecks complete
+guards and uniqueness. All domain decisions authorizing success are complete.
+It then samples admitted current time T and requires **T < D**. Missing clock
+trust, a changed original context or T equal to D prevents the checkpoint.
+`transactionDeadline` limits T in this branch, not the physical transaction lifetime.
+
+Only deterministic construction, verification and persistence of that fixed
+complete success set, then completion of the same original transaction, may
+remain on its successful path. No caller callback, new business decision,
+changed effect, new evaluation or transfer to another attempt may follow T.
+Non-temporal guards must hold through actual commit; new revocation, changed
+guarded facts or lost completeness require abort unless prevented until commit.
+Pure passage through an expiry already represented in D is the narrow exception.
+Independently governed persistence, domain or retention prohibitions still apply.
+
+This explicitly permits **late durable consumption**: T=29, D=30 and commit=31
+may succeed; T=30 may not. There is no promised maximum interval from T to commit
+or visibility, including scheduling between sampling and testing T, hashing,
+inserts, waits and durability processing. No clock budget or timeout is selected.
+
+T is no durable reservation or reusable authority. Rollback past T, recovery
+after a failed checkpoint, replaced context or altered fixed inputs cannot resume
+that finalization; a fresh admitted attempt needs fresh inputs, authorization and T.
+Conclusive rollback alone does not grant retry: section 11.4's complete committed
+evidence and authoritative status still control, and uncertainty blocks reuse.
+Separately authorized abort paths remain available. In particular, T neither
+closes nor extends section 11.5's withdrawal window: every existing condition,
+original first-dispatch cutoff and missing owner prerequisite remains in force.
+
 ---
 
 ## 9. Ordered admission and successful transaction
@@ -552,13 +617,13 @@ The mode-correct admission order is:
 9. perform PR #23 mode-correct trusted intent completion: for a new online operation add the step 3 `submissionObservedAtCandidate` as `/assertedAt`, or verify the exact offline act evidence and timestamp; an existing operation instead recovers its stored full intent and never inserts the new per-request time;
 10. validate the complete runtime-finished effect intent against the rule-selected schema and compute `effectIntentDigest`;
 11. execute PR #11's declarative authorization-view extraction and reject any missing, duplicate, type-invalid, unknown-kind, or conflicting fact; and
-12. construct the provisional operation binding and enter the short guarded transaction.
+12. construct the provisional operation binding and enter the guarded transaction.
 
 Steps 1 through 11 are ingress and trusted preparation. They create no authorization result, protected effect, consumption, success receipt, or durable operation unless a later atomic commit satisfies section 6. A schema hint remains non-authoritative and must match the current rule when present.
 
 ### 9.2 Exact successful order
 
-One successful short transaction performs this order:
+One successful guarded transaction performs this order:
 
 1. establish trusted attempt time, deadline, snapshot, status lookup, attempt sequence, and complete guard under section 8;
 2. perform the shared tuple lookup again under the atomic uniqueness boundary; on a concurrent winner, stop and resolve it under sections 6.3 and 10;
@@ -566,13 +631,18 @@ One successful short transaction performs this order:
 4. re-resolve and guard every current fact in section 8.3, including the current rule-selected mode and all negative/set-valued facts;
 5. construct the prospective `NOT_REQUIRED_MODE_EVIDENCE_V0_1` object, without making it authority or durable success evidence;
 6. run the complete PR #11 evaluator exactly once for this attempt and construct the final request/result/full-internal-trace bundle and `decisionBundleDigest`;
-7. require authorization `ALLOW` and a consumable decision whose exclusive `decisionValidUntil` remains later than the prospective commit;
+7. require authorization `ALLOW` and a consumable decision; the selected section 8.5 branch must pass its later checkpoint, while other branches require exclusive `decisionValidUntil` to remain later than commit;
 8. build the proposed domain result and evaluate every applicable non-authorization `EnforcementChain` gate, leaving inapplicable gates truthfully inapplicable rather than passed;
 9. validate the complete rule-bound protected-effect handoff, including result schema, exact result bytes/digest, state inputs, absence guards, mappings, postconditions, and overall `PASS`;
 10. insert or verify the immutable admitted protected-result binding from section 5.6;
 11. finish the required gate traces, preallocate the receipt ID, and construct the decision-consumption record, transaction-attempt record, and complete-set receipt in the acyclic digest order in section 12.2;
-12. recheck `transactionDeadline`, `decisionValidUntil`, current rule mode, every complete guard, tuple/result/consumption/receipt uniqueness, and authoritative absence of a prior success or unresolved attempt; and
+12. recheck current rule mode, every non-temporal complete guard, tuple/result/consumption/receipt uniqueness, and authoritative absence of a prior success or unresolved attempt; recheck `transactionDeadline` and `decisionValidUntil` except where section 8.5 replaced those temporal tests with its checkpoint; and
 13. atomically commit the complete success set, then expose a response allowed by current disclosure policy.
+
+For the selected section 8.5 branch, its checkpoint occurs **after step 10 and
+before step 11**, before final consumption/attempt/receipt hashing. Step 11 only
+finishes evidence for already completed gate decisions. Step numbers, success
+membership and section 11.5's first-dispatch cutoff are unchanged.
 
 No successful component becomes durably visible before step 13. The mode evidence and authorization decision are transaction-bound and non-portable. A later attempt cannot consume them.
 
@@ -599,7 +669,7 @@ The set contains no approval, reservation, human-finalization, implicit domain c
 The governed-effect receipt binds at least:
 
 - tuple, logical operation, operation-binding ref/digest, caller-projection digest, and key profile;
-- transaction attempt ID/sequence, trusted start and commit times, exclusive deadline, snapshot, atomic boundary, transaction policy, and complete guard proof/digest;
+- transaction attempt ID/sequence, trusted start time, exclusive deadline, snapshot, atomic boundary, transaction policy, complete guard proof/digest, and the branch-correct time evidence below;
 - action rule and `NOT_REQUIRED` mode-evidence refs/digests;
 - authorization request/result/trace refs and `decisionBundleDigest`;
 - decision-consumption ref/digest and `SINGLE_USE` posture;
@@ -609,6 +679,21 @@ The governed-effect receipt binds at least:
 - exact role-labelled membership of the complete atomic success set; and
 - final outcome `EFFECT_COMMITTED`.
 
+For section 8.5, the consumption, successful attempt and receipt bind identical
+`writeAuthorizationCheckedAt = T`, `writeAuthorizationBoundary = GUARDED_WRITE_CHECK_V0_1`,
+original cutoffs and original attempt before their final hashes. The boundary
+label must match the exact bound rule/profile. T uses PR #23's canonical UTC
+spelling without rounding or post-authorization normalization. No atomic success
+member asserts a physical commit or durable-consumption time for this attempt:
+those fields are absent, not null, provisional or a renamed T. Earlier historical
+input and assertion-act timestamps keep their meanings. Other branches retain
+their trusted commit/consumption time requirements.
+
+Authoritative status and complete matching membership prove actual commit and
+consumption. An optional truthful later commit/visibility observation may point
+back to the unchanged receipt; it is not a required success member, never changes
+the original bytes and is never backdated to T.
+
 The receipt's immutable identifier is allocated before consumption is hashed. Consumption binds that receipt identifier only, not its digest; the receipt binds the finalized consumption ref/digest. Verification enforces both the identifier back-reference and the digest-bearing forward reference.
 
 The role-labelled membership includes the receipt itself exactly once, by its preallocated identifier and role only. That self-entry has no digest member, including no null or provisional digest. Every other member is bound by its finalized owning digest; the admitted-result subobject is bound through its containing attempt ref/digest and fixed pointer. The receipt's own digest exists only in its top-level self-digest member and is verified using section 12.1. No nested membership entry repeats that digest. Later reconciliation evidence points back to the unchanged receipt; it is never inserted into the original receipt or original success membership.
@@ -617,7 +702,7 @@ A receipt row or label alone is not proof of success. A complete matching succes
 
 1. the receipt and every required member resolve to immutable bytes with matching digests;
 2. membership has exactly the required role cardinalities, its identifier-only receipt self-entry names this receipt, and there is no conflicting member;
-3. operation, intent, rule, decision, consumption, result, trace, and attempt bindings all agree;
+3. operation, intent, rule, decision, consumption, result, trace, and attempt bindings all agree, including identical T, boundary, original cutoffs and attempt across the three section 8.5 bindings when selected;
 4. the protected-effect disposition is `PASS` and committed result bytes equal validated bytes;
 5. authoritative atomic-store status proves the named transaction committed; and
 6. uniqueness lookup finds no second success, consumption, or differing result bytes.
@@ -944,6 +1029,11 @@ All transaction/evidence tags enter OFARM authority, if admitted there, as the e
 
 The proposed evidence profiles must support this exact construction order within the guarded atomic boundary:
 
+For section 8.5, sample and test T at the section 9.2 checkpoint before hashing
+any success record that binds it. Consumption, attempt and receipt use section
+9.4's matching checkpoint evidence; no success member for this attempt asserts
+physical commit/consumption time. This changes no member or digest exclusion.
+
 1. allocate the unique immutable transaction-evidence identifiers needed for identifier-only forward references, including the governed-effect receipt ID, independently of their eventual digests; this does not replace content-addressed refs owned by other contracts;
 2. finalize the operation binding, mode evidence, authorization bundle, proposed domain result, and applicable validation/guard evidence under their owning contracts, in dependency order; mode evidence names the attempt by ID/sequence, not by its later digest;
 3. construct and hash consumption with those finalized bindings, the exact transaction/attempt identity, and the preallocated receipt ID only;
@@ -997,7 +1087,11 @@ No application-level check followed by an unguarded insert satisfies these rules
 
 Decision consumption becomes durable only at the complete successful commit. Reserving a unique row, building a consumption object, obtaining authorization `ALLOW`, validating a result, or starting commit is not consumption.
 
-The consumption record binds the authorization decision bundle, logical operation and operation-binding digest, exact transaction/attempt identity, `NOT_REQUIRED` mode evidence, consuming principal, full effect-intent digest, exact committed result refs/digests, the preallocated immutable receipt ID only, trusted consumption time, and `SINGLE_USE`. It contains no receipt digest. The receipt is finalized later and binds this finalized consumption ref/digest; both commit atomically and verification enforces that consumption's receipt ID names that same receipt. Section 12.2 closes the construction order. Human approval, reservation, and approval-consumption fields are absent.
+The consumption record binds the authorization decision bundle, logical operation and operation-binding digest, exact transaction/attempt identity, `NOT_REQUIRED` mode evidence, consuming principal, full effect-intent digest, exact committed result refs/digests, the preallocated immutable receipt ID only, branch-correct time evidence, and `SINGLE_USE`. For section 8.5 that evidence is section 9.4's T, boundary and original cutoffs, with physical consumption time absent; other branches retain trusted consumption time. It contains no receipt digest. The receipt is finalized later and binds this finalized consumption ref/digest; both commit atomically and verification enforces that consumption's receipt ID names that same receipt. Section 12.2 closes the construction order. Human approval, reservation, and approval-consumption fields are absent.
+
+Section 8.5 permits actual consumption after D, but never linearizes it at T or
+record construction. Only complete atomic commit establishes durable consumption;
+authoritative status and matching membership prove it without a physical timestamp.
 
 If the transaction conclusively rolls back, the decision remains unconsumed and non-portable. A later attempt obtains another current decision and creates another prospective consumption object. It never consumes the earlier decision.
 
@@ -1132,12 +1226,16 @@ These are obligations for later executable conformance. This documentation PR do
 | a mode change exists while an earlier attempt remains unresolved | `BLOCKED_PENDING_RECONCILIATION`; do not encourage a new-key submission until the possible old effect is resolved |
 | retry recomputes a full operation digest with a new runtime timestamp | conformance failure; compare the stored caller projection and recover the bind-once full intent/digest |
 | caller supplies an online assertion timestamp or cached binding evidence | ingress rejection or projection conflict as applicable; it cannot create trusted time or override stored evidence |
-| verified offline assertion has different assertion, receipt, authorization, and commit times | preserve each exact governed time and evidence; create no human-finalization artifact |
+| verified offline assertion has distinct assertion, receipt/synchronization, authorization and checkpoint times | preserve each exact governed time; section 8.5 success members omit this attempt's physical commit/consumption time; any later physical observation is optional and truthful; create no human-finalization artifact |
 | natural-person requester is treated as direct-human-finalization mode | conformance failure; current rule-selected `NOT_REQUIRED` remains controlling |
 | software-agent requester omits CP3 evidence because human approval is absent | authorization non-allow; absence of finalization does not weaken agent authorization |
 | approval, challenge, reservation, intended-approver, or approval-consumption data is inserted | profile/branch failure; no effect or consumption |
 | revocation is inserted after lookup, or a relevant resource/evidence/policy/state input changes before commit | complete positive/negative/set guard blocks stale success |
-| commit reaches `transactionDeadline` or `decisionValidUntil` exactly | exclusive cutoff fails; no successful commit claim |
+| section 8.5 checkpoint reaches full D exactly, including its original transaction deadline | T < D fails; no success; changing the deadline or reusing T cannot rescue the attempt |
+| selected section 8.5 branch has T=29, D=30, commit=31 | may succeed with fixed original transaction, complete non-temporal guards and matching atomic evidence; explicitly late consumption, no post-T duration guarantee |
+| another branch commits at or after its exclusive cutoff, or old rule/evidence bytes claim the checkpoint meaning | refuse; NOT_REQUIRED alone does not select the exception |
+| T, boundary, cutoff or attempt differs across consumption/attempt/receipt, or a success member substitutes T for physical commit time | reject mismatched or untruthful evidence; do not alter hashed records |
+| guard invalidation after T, or rollback followed by reuse of the old T | no successful continuation; only a fresh eligible attempt with fresh authorization and T may proceed under the existing evidence/retry rules |
 | result bytes, result schema, contract binding, or validation trace are substituted | handoff/integrity failure; no effect or consumption |
 | authorization is `ALLOW` and a domain gate fails | preserve `ALLOW` as the authority-gate result and record only truthful non-consumable failure evidence |
 | committed `DENY`, then authority changes and exact retry occurs | original refusal remains immutable; fresh current evaluation is required under `RETRYABLE_SAME_OPERATION`; original `assertedAt` remains fixed |
@@ -1200,9 +1298,9 @@ Later tests must enter through the real shared lookup, trusted enrichment, autho
 10. Every effect-capable attempt obtains a fresh current authorization decision.
 11. `ALLOW` proves only the authority gate and never bypasses another applicable gate.
 12. The complete relevant read/write set, including negative and set-valued facts, is guarded through commit.
-13. `decisionValidUntil` and `transactionDeadline` are exclusive and both remain valid through commit.
+13. `decisionValidUntil` and `transactionDeadline` are unchanged exclusive cutoffs: section 8.5 requires T before full D and permits late commit only in that fixed original transaction; other branches require validity through commit.
 14. No protected effect becomes visible without its matching decision evidence, mode evidence, consumption, traces, and receipt.
-15. Decision consumption linearizes only with the complete successful effect set.
+15. Decision consumption linearizes only with actual commit of the complete successful effect set, never at T; section 8.5 evidence claims checkpoint time, not physical consumption time.
 16. One logical operation commits at most one protected result set, one decision consumption, and one success receipt.
 17. A result ID never resolves to two byte sequences.
 18. A failed attempt is non-consumable and never upgraded in place.
@@ -1274,6 +1372,10 @@ This candidate consumes without redefining:
 - truthful ingress rejection and refusal evidence; and
 - safe response and disclosure boundaries.
 
+The selected section 8.5 time meaning is the explicit exception to the historical
+handoff: PR #11's corresponding revision must bind it into the exact rule and
+changed semantic digest. Its old validity/consumption clauses cannot select it.
+
 The new operation projection, admission, attempt, and reconciliation rules do not become a second authorization evaluator. A later accepted-law promotion must update the transaction prerequisite for state-affecting `NOT_REQUIRED` rows to name issue #25 alongside issue #19; this Phase A PR does not edit the approved PR #11 candidate.
 
 ### 18.3 PR #20 transaction compatibility handoff
@@ -1293,6 +1395,10 @@ This candidate verifies and commits the exact PR #23 operation branch without co
 - prohibition on acceptance, current state, prior-history mutation, or implicit companion effects.
 
 The transaction owns the starting snapshot and guard evidence consumed by those checks, not the checks' domain meaning.
+
+PR #23's corresponding revision must distinguish this branch's checkpoint from
+optional later physical time evidence. No assertion field or domain mapping is
+changed by this transaction candidate.
 
 ### 18.5 Downstream implementation ownership
 
@@ -1315,9 +1421,10 @@ they do not update those PRs or claim renewed dependency closure.
 
 ## 19. Steward approval card
 
-The prior exact-head approval is preserved as described at the top of this
-candidate. This amended card requires renewed review and approval; the new
-withdrawal row is not approved by that historical decision.
+The historical exact-head approvals are preserved as described above. Conditional
+withdrawal at `38af747` and PR #39's version-3 timing decision have task-user
+approval. This owner revision and its compatible dependency bindings still need
+review and approval; no approval transfers to changed bytes automatically.
 
 | Decision | Proposed answer | Approval required |
 |---|---|---|
@@ -1376,6 +1483,8 @@ withdrawal row is not approved by that historical decision.
 | Are protected-effect, first-admission, and separate failure-evidence transaction roles explicitly identified and independently verified when distinct? | yes; uncertainty about an evidence commit blocks replacement admission | yes |
 | Is a partial success set quarantined without automatic synthesis, deletion, compensation, or replay? | yes | yes |
 | Does consumption become durable only with the successful atomic effect? | yes | yes |
+| May only the explicitly bound operation-claim branch use T < full D and complete its fixed original transaction after D? | yes; section 8.5, with late consumption and no promised post-T delay bound | owner alignment review required; PR #39 decision v3 approved |
+| Do its consumption, attempt and receipt bind matching checkpoint evidence before hashing, with physical commit/consumption time absent from every atomic success member? | yes; sections 9.4, 12.2 and 13.3, actual-commit consumption unchanged | owner alignment review required |
 | Are one operation/one success/one consumption/one result-byte-sequence uniqueness rules mandatory? | yes | yes |
 | Is receipt lookup subject to current authentication, authorization, minimization, and redaction? | yes | yes |
 | Can historical completion remain true while current response disclosure is withheld? | yes | yes |
@@ -1438,10 +1547,11 @@ No step is implied by completion of the prior step. This candidate remains histo
 Phase A is complete when:
 
 - every issue #25 requirement has a proposed closed disposition;
-- the exact PR #11, #20, and #23 heads remain unchanged and semantically approved;
+- historical PR #11, #20 and #23 approvals retain their original scope; the selected checkpoint branch has renewed review and approval of compatible revised PR #11/#23 owner bindings;
 - the key grammar, tuple, caller projection, operation binding, digest construction, result binding, durable admission point, concurrent winner, and rollback-survival rules are reviewed;
 - the first-admitted online assertion timestamp remains the runtime-observed pre-validation value rather than a commit time;
 - the transaction sequence, current re-evaluation, complete guards, success membership, verified receipt, and single-use uniqueness are reviewed;
+- section 8.5's exact rule selection, full cutoff, checkpoint order, late-consumption permission and truthful success-set time evidence match approved PR #39 version 3;
 - the acyclic digest construction, identifier-only receipt links and self-membership, and append-only reconciliation references are reviewed;
 - the exact outcome/consequence separation and deterministic success/partial/unresolved/no-effect precedence are reviewed;
 - recovery covers committed no-effect sets and separately identified protected-effect, first-admission, and failure-evidence commits without conflating commit status with protected-effect outcome;
