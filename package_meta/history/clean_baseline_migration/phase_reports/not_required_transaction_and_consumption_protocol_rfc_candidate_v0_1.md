@@ -3,7 +3,7 @@
 Date: 2026-09-06<br>
 Status: Phase A candidate for `samovers/OFARM#25`; non-authoritative, not accepted law, and not a current/default machine contract<br>
 Parent inventory: `samovers/OFARM#10` and `samovers/OFARM#12`<br>
-Depends on: the approved authorization candidate on PR #11 at `03a21f669ee04f96d444e14f00ae7212cab04803`, the approved governed human-approval transaction candidate on PR #20 at `98f8c4fafbae42c8f7fd931f43f53adcb4733713`, and the approved AssertionRecord protected-effect candidate on PR #23 at `622376e2998cf8b3954ca19e81d2cce6fd57e5fe`<br>
+Depends on: compatible revised PR #11 authorization and PR #23 AssertionRecord candidates, pending review as specified in section 3; the approved PR #20 human-finalization input at `98f8c4fafbae42c8f7fd931f43f53adcb4733713` remains unchanged. Historical starting pins are retained below.<br>
 Scope: one canonical transaction profile for state-affecting actions whose immutable current rule selects `humanFinalizationRequirement = NOT_REQUIRED`, with `ASSERT_OPERATION_CLAIM` as the first concrete handoff
 
 Historical amendment, 2026-09-16: **source-owned preparatory withdrawal**. PR #26's
@@ -36,6 +36,11 @@ owner alignment, not approval of its revised bytes, merge, materialization or
 runtime use. This revision needs review with the matching PR #11 and #23 owner
 revisions; their historical pins below do not select the changed time meaning.
 
+The task user approved PR #39's exact version and head on 2026-09-23 with
+“no new findings. i approve”; the [public approval record](https://github.com/samovers/OFARM/pull/39#issuecomment-5795648070)
+records that existing decision and its limits. It does not approve this corrected
+owner head in advance; PR #39's approved source/checker bytes remain unchanged.
+
 ---
 
 ## 1. Decision requested
@@ -54,7 +59,7 @@ Stewards are asked to approve, reject, or amend these bounded decisions:
 10. decision consumption becomes durable only with the successful protected effect, and one logical operation has at most one successful consumption, result, and governed-effect receipt;
 11. transaction outcomes are exactly `EFFECT_COMMITTED`, `NO_EFFECT`, and `OUTCOME_UNKNOWN`, separate from authorization outcomes;
 12. every conclusively durable `NO_EFFECT` attempt has exactly one immutable consequence, `RETRYABLE_SAME_OPERATION` or `TERMINAL_REQUIRES_NEW_OPERATION_KEY`; an uncertain attempt has neither;
-13. operation admission uses verified evidence in this precedence: a complete matching success set, a partial success-set breach, any unresolved attempt, then the most recent conclusively ordered durable `NO_EFFECT` consequence;
+13. operation admission uses verified evidence in this precedence: a complete matching admissible success set, a proven success-set invariant breach, any unresolved attempt, then the most recent conclusively ordered durable `NO_EFFECT` consequence;
 14. a current mode change after a durable no-effect `NOT_REQUIRED` attempt is terminal under the old key, but it cannot bypass an unresolved earlier attempt;
 15. an exact successful retry returns the original verified result and receipt without another effect or consumption, subject to current disclosure controls;
 16. the first concrete successful result is exactly one immutable `PENDING_REVIEW` operation-claim AssertionRecord under PR #23, not accepted execution, review, current state, or another implied domain effect; and
@@ -126,7 +131,7 @@ The authority order remains:
 
 This candidate preserves the active Constitution's assertion/history-first truth law, default-deny authority law, commit-class separation, and prohibition on treating an operation claim as accepted execution. It preserves the Platform Runtime requirement that every state-affecting path cross the applicable deterministic `EnforcementChain` gates and that only accepted/in-force material may affect current-state materialization.
 
-The exact Phase A dependency pins are:
+The historical Phase A dependency pins are:
 
 | Dependency | Exact approved head | Meaning consumed here |
 |---|---|---|
@@ -150,6 +155,23 @@ transaction and protected-effect bindings and renewed exact dependency review.
 The historical approvals do not supply that closure. Later executable use must
 bind actual immutable revised bytes/digests; no mutable PR head or old rule may
 stand in for them.
+
+The reviewed input set for this correction is PR #11
+`715e1129177573537296cda17b5f2669ff4622ee`, PR #26
+`88f95ae1f30b5391647656bc49c647c29f52eddb`, and PR #23
+`e9abc129eb77dc50120a4f785a91a9c220b0b94b`, against approved PR #39
+`6ec9f6650c3848083742c7039ac7a673b4375c8b`. These heads are review provenance,
+not executable bindings or approval of the correction. Review and any later
+approval must name the corrected triple together, then materialization must bind
+the actual compatible immutable bytes/digests.
+
+PR #11's later approved release-scope head `4494924998183fe3fa7bc1b63b76a85893335044`
+and Scope A read-settlement head `e9052efcf3c673360d939e856ac866cb27d709ae`
+preserved the operation-claim rule before this checkpoint change; those approvals
+do not approve the changed timing closure. PR #37's historical `33abbe3` pin below
+is not its live head, `587cd5b9fccb374df0cb1030f0ad2b74ac1c9e48` as checked on
+2026-09-23. That pre-existing read-owner drift is recorded without repinning or
+enabling withdrawal; its separate eligibility and other prerequisites remain open.
 
 Materialization or implementation must stop when:
 
@@ -200,7 +222,7 @@ PR #20 remains limited to `FRESH_HUMAN_APPROVAL_REQUIRED` and `DIRECT_HUMAN_ACTI
 | single-use decision consumption | adopted | exactly one successful decision consumption per logical operation; a failed attempt consumes nothing |
 | `EFFECT_COMMITTED`, `NO_EFFECT`, and `OUTCOME_UNKNOWN` | adopted | they remain transaction outcomes, not authorization outcomes or public problem codes |
 | authoritative reconciliation and partial-set quarantine | adopted with explicit no-effect-commit closure | verified complete success, a verified committed no-effect set, or conclusive protected-effect rollback resolves the corresponding uncertainty under section 10.3; partial success is quarantined; PR #20 is not amended |
-| immutable history with derived coordination | adopted | locks, leases, queues, and indexes may optimize the short transaction but cannot override immutable binding, attempt, consumption, result, or receipt evidence |
+| immutable history with derived coordination | adopted | locks, leases, queues, and indexes may coordinate the transaction but cannot override immutable binding, attempt, consumption, result, or receipt evidence |
 | reservation generation and approval challenge | not applicable | absent; no synthetic or empty values |
 | intended approver, human approval, and approval consumption | not applicable | absent; natural-person assertion provenance is a separate PR #23 domain fact |
 | direct-human finalization evidence | not applicable | absent; a natural person may submit under `NOT_REQUIRED`, but that does not change the rule-selected mode |
@@ -485,7 +507,7 @@ The evidence binds:
 - transaction snapshot, deadline, and guard-policy bindings; and
 - an explicit closed absence bitmap or equivalent schema branch proving the mode-inapplicable records are absent.
 
-It is constructed inside the short transaction after current bindings and trusted transaction inputs are fixed and before the final authorization evaluation. It is not supplied as an approval and cannot make an authorization path sufficient. On success it commits in the complete success set. On a conclusively committed no-effect attempt, a non-consumable instance may commit with that attempt to prove which mode was evaluated. If neither commit succeeds, no durable mode-evidence claim is made.
+It is constructed inside the guarded transaction after current bindings and trusted transaction inputs are fixed and before the final authorization evaluation. It is not supplied as an approval and cannot make an authorization path sufficient. On success it commits in the complete success set. On a conclusively committed no-effect attempt, a non-consumable instance may commit with that attempt to prove which mode was evaluated. If neither commit succeeds, no durable mode-evidence claim is made.
 
 PR #23 assertion-act evidence remains separate. In particular, `VERIFIED_OFFLINE_SUBMISSION` may require immutable natural-person or represented-Party assertion-act evidence even though transaction finalization requires no human approval.
 
@@ -579,8 +601,11 @@ Only deterministic construction, verification and persistence of that fixed
 complete success set, then completion of the same original transaction, may
 remain on its successful path. No caller callback, new business decision,
 changed effect, new evaluation or transfer to another attempt may follow T.
-Non-temporal guards must hold through actual commit; new revocation, changed
-guarded facts or lost completeness require abort unless prevented until commit.
+Non-temporal guards must hold through actual commit. PR #11 sections 8.1/18.4.1
+also retain scheduled or newly effective `TERMINATE` through actual commit;
+neither is a permitting expiry exception. Changed guarded facts or lost
+completeness require abort unless prevented until commit. A snapshot alone cannot
+prove validity through physical commit; unsupported proof paths remain unavailable.
 Pure passage through an expiry already represented in D is the narrow exception.
 Independently governed persistence, domain or retention prohibitions still apply.
 
@@ -690,9 +715,11 @@ input and assertion-act timestamps keep their meanings. Other branches retain
 their trusted commit/consumption time requirements.
 
 Authoritative status and complete matching membership prove actual commit and
-consumption. An optional truthful later commit/visibility observation may point
+consumption. An optional truthful later owner commit/visibility observation may point
 back to the unchanged receipt; it is not a required success member, never changes
-the original bytes and is never backdated to T.
+the original bytes and is never backdated to T. When admitted as evidence, that observation
+must be consistent with the bound transaction start, evaluation and checkpoint
+chronology. A purported commit before T is contradictory, not a repair of T.
 
 The receipt's immutable identifier is allocated before consumption is hashed. Consumption binds that receipt identifier only, not its digest; the receipt binds the finalized consumption ref/digest. Verification enforces both the identifier back-reference and the digest-bearing forward reference.
 
@@ -704,10 +731,11 @@ A receipt row or label alone is not proof of success. A complete matching succes
 2. membership has exactly the required role cardinalities, its identifier-only receipt self-entry names this receipt, and there is no conflicting member;
 3. operation, intent, rule, decision, consumption, result, trace, and attempt bindings all agree, including identical T, boundary, original cutoffs and attempt across the three section 8.5 bindings when selected;
 4. the protected-effect disposition is `PASS` and committed result bytes equal validated bytes;
-5. authoritative atomic-store status proves the named transaction committed; and
-6. uniqueness lookup finds no second success, consumption, or differing result bytes.
+5. authoritative atomic-store status proves the named transaction committed;
+6. the bound rule/profile actually selects the claimed timing meaning and its evidence is admissible: section 8.5 requires T < full original D, matching checkpoint bindings, the required absence of physical-time claims from atomic success members, and proof of all remaining through-commit conditions; non-selected branches retain their trusted commit/consumption evidence and strict commit-before-cutoff test. Any admitted later owner observation must be consistent with the established chronology; its absence alone does not fail the selected branch; and
+7. uniqueness lookup finds no second success, consumption, or differing result bytes.
 
-A missing or mismatched required member is a partial-set invariant breach, not a degraded success. No cache, replica, caller receipt, or success string may weaken this verification.
+A missing or mismatched required member is a partial-set invariant breach, not a degraded success. A proven committed set with complete members but inadmissible timing, selection or evidence is likewise an invariant breach under sections 10.1 and 11.3. Preserve the actual commit/effect facts; neither a success label nor retrospective refusal, rollback or `NO_EFFECT` makes it valid. Unknown status remains unresolved. No cache, replica, caller receipt, or success string may weaken this verification.
 
 ---
 
@@ -719,8 +747,8 @@ Every lookup constructs one authoritative operation view from immutable evidence
 
 The exact precedence is:
 
-1. **Verified complete success:** if section 9.4 proves one complete matching success set and authoritative inspection finds no partial or competing success material, the operation is `COMPLETED`. A matching retry may receive the original permitted response. Conflicting caller content cannot borrow that receipt, but it also cannot reopen the operation.
-2. **Partial success or competing-success breach:** if any success-labelled component exists without the complete matching set, or more than one success/consumption/result identity conflicts, the operation is `QUARANTINED_PARTIAL_SUCCESS`. No automatic synthesis, deletion, compensation, or replay is allowed.
+1. **Verified complete success:** if section 9.4 proves one complete matching admissible success set and authoritative inspection finds no partial, inadmissible or competing success material, the operation is `COMPLETED`. A matching retry may receive the original permitted response. Conflicting caller content cannot borrow that receipt, but it also cannot reopen the operation.
+2. **Success-set invariant breach:** if any success-labelled component provably lacks the complete matching set, more than one success/consumption/result identity conflicts, or a committed complete set demonstrably fails section 9.4's timing/selection/evidence requirements, the operation is `QUARANTINED_PARTIAL_SUCCESS`. This existing quarantine posture covers the complete-but-inadmissible case too; it adds no outcome value. No automatic synthesis, deletion, compensation, or replay is allowed.
 3. **Unresolved attempt or commit fact:** if any attempt that could have applied the effect remains `OUTCOME_UNKNOWN`, or authoritative status is incomplete, the operation is `BLOCKED_PENDING_RECONCILIATION` and names every exact unresolved attempt or fact. This step precedes caller-content, mode-change, and no-effect retry decisions.
 4. **Conclusive no-effect history:** only when the first three steps do not apply, select the durable `NO_EFFECT` attempt with the greatest `attemptSequence`. Its one immutable consequence controls admission.
 
@@ -770,7 +798,7 @@ The resolutions are:
 | The complete matching protected-effect success set committed under section 9.4 | `EFFECT_COMMITTED`; complete-success precedence controls and the original receipt is resolved, never rebuilt. |
 | A complete matching no-effect set committed under section 11.4, with no protected effect, decision consumption, or success receipt for that attempt | `NO_EFFECT`; preserve that set's immutable binding, original trusted intent facts, and recorded consequence. The database commit succeeded; do not label it rolled back or re-evaluate to recreate its refusal or failure evidence. |
 | The protected-effect transaction conclusively rolled back | Its protected-effect outcome is `NO_EFFECT`. Apply section 6.4 and verify any separate failure-evidence commit independently. A committed no-effect set uses the preceding row; an uncertain evidence commit keeps the operation blocked; conclusive failure to persist evidence creates no new consequence and leaves prior authoritative history controlling. Without any surviving binding, no operation is admitted. |
-| Status or required evidence remains incomplete or contradictory | Keep the operation blocked and name the exact unresolved transaction or fact. A proven partial-success or conflicting-set invariant breach is quarantined for separately governed repair. No missing member, commit, rollback, or consequence is invented. |
+| Status or required evidence remains incomplete or contradictory | Keep unresolved facts blocked and name the exact transaction or fact. A proven partial, conflicting or complete-but-inadmissible success-set breach is quarantined under section 10.1 for separately governed repair. No missing member, commit, rollback, or consequence is invented. |
 
 Verification is attempt-specific and uses authoritative status plus complete, digest-valid membership. A cache, replica, timed-out lookup, incomplete query, or caller-visible absence response proves neither rollback nor a complete no-effect set. A refusal bundle alone does not prove that an effect transaction cannot still commit.
 
@@ -793,6 +821,11 @@ The closed transaction outcomes are:
 These outcomes describe the protected effect, not whether every related database transaction committed. `NO_EFFECT` may be established by a complete committed no-effect set or by authoritative protected-effect rollback proof. If the protected-effect rollback is proven but a separate failure-evidence commit is uncertain, the protected-effect fact remains `NO_EFFECT` while the operation is `BLOCKED_PENDING_RECONCILIATION`; no new durable consequence is claimed until that evidence status is settled.
 
 They are not authorization outcomes, public `RuntimeProblem` codes, or domain result states. `DENY`, `REQUIRE_REVIEW`, and any other PR #11 result remain authorization outcomes inside their own evidence.
+
+A proven inadmissible committed set is outside the valid success lifecycle and
+uses the existing invariant-breach quarantine. Its observed commit/effect facts
+remain true; do not relabel them `NO_EFFECT` or rollback, or report a known commit
+as unknown. This adds neither a fourth transaction outcome nor a new public code.
 
 ### 11.2 Two immutable no-effect consequences
 
@@ -831,7 +864,7 @@ These values describe one no-effect attempt. `BLOCKED_PENDING_RECONCILIATION` is
 | caller projection conflicts with an existing tuple | reject the conflicting submission without creating an attempt for the existing operation | `NO_NEW_CONSEQUENCE`; existing operation state controls |
 | protected-effect transaction outcome is ambiguous and no complete no-effect set is verified | `OUTCOME_UNKNOWN`; no no-effect claim or consequence | derived `BLOCKED_PENDING_RECONCILIATION`, naming the exact attempt or unresolved fact |
 | one attempt is conclusively no-effect while another may have committed | retain the conclusive attempt and its consequence, but do not use it to authorize replay | derived `BLOCKED_PENDING_RECONCILIATION` because unresolved evidence has higher precedence |
-| any success-labelled member is missing, mismatched, duplicated, or not atomically proven | invariant breach; neither success nor rollback is fabricated | `QUARANTINED_PARTIAL_SUCCESS`; separately governed repair only |
+| a success-labelled set provably has missing, mismatched or duplicated members, fails atomicity, or committed with inadmissible timing, selection or evidence despite complete membership | invariant breach; retain actual commit facts, never fabricate verified success, refusal, rollback or `NO_EFFECT`; merely unknown status stays unresolved | `QUARANTINED_PARTIAL_SUCCESS`; separately governed repair only |
 
 Immediate automatic retry is never implied. A deployment may require a current-state change, explicit caller retry, or bounded backoff before using `RETRYABLE_SAME_OPERATION`, provided it does not reinterpret the operation or reuse a decision.
 
@@ -1226,15 +1259,20 @@ These are obligations for later executable conformance. This documentation PR do
 | a mode change exists while an earlier attempt remains unresolved | `BLOCKED_PENDING_RECONCILIATION`; do not encourage a new-key submission until the possible old effect is resolved |
 | retry recomputes a full operation digest with a new runtime timestamp | conformance failure; compare the stored caller projection and recover the bind-once full intent/digest |
 | caller supplies an online assertion timestamp or cached binding evidence | ingress rejection or projection conflict as applicable; it cannot create trusted time or override stored evidence |
-| verified offline assertion has distinct assertion, receipt/synchronization, authorization and checkpoint times | preserve each exact governed time; section 8.5 success members omit this attempt's physical commit/consumption time; any later physical observation is optional and truthful; create no human-finalization artifact |
+| verified offline assertion has distinct assertion, receipt/synchronization, authorization and checkpoint times in section 8.5 | preserve each exact governed time; atomic success members omit this attempt's physical commit/consumption time; any later physical observation is optional and truthful; create no human-finalization artifact |
+| verified offline assertion uses a non-selected branch, with distinct assertion, receipt/synchronization, authorization and physical commit times | retain the separate trusted commit/consumption evidence and strict commit cutoff; neither receipt nor commit time replaces assertedAt |
 | natural-person requester is treated as direct-human-finalization mode | conformance failure; current rule-selected `NOT_REQUIRED` remains controlling |
 | software-agent requester omits CP3 evidence because human approval is absent | authorization non-allow; absence of finalization does not weaken agent authorization |
 | approval, challenge, reservation, intended-approver, or approval-consumption data is inserted | profile/branch failure; no effect or consumption |
 | revocation is inserted after lookup, or a relevant resource/evidence/policy/state input changes before commit | complete positive/negative/set guard blocks stale success |
 | section 8.5 checkpoint reaches full D exactly, including its original transaction deadline | T < D fails; no success; changing the deadline or reusing T cannot rescue the attempt |
 | selected section 8.5 branch has T=29, D=30, commit=31 | may succeed with fixed original transaction, complete non-temporal guards and matching atomic evidence; explicitly late consumption, no post-T duration guarantee |
-| another branch commits at or after its exclusive cutoff, or old rule/evidence bytes claim the checkpoint meaning | refuse; NOT_REQUIRED alone does not select the exception |
-| T, boundary, cutoff or attempt differs across consumption/attempt/receipt, or a success member substitutes T for physical commit time | reject mismatched or untruthful evidence; do not alter hashed records |
+| before dispatch, a non-selected branch reaches its cutoff or old rule/evidence bytes claim the checkpoint meaning | stop; NOT_REQUIRED alone cannot select the exception; preserve any prior ALLOW and establish NO_EFFECT only from authoritative proof |
+| a complete set is observed committed at or after a non-selected branch's cutoff, with T >= D in the selected branch, or with a rule/evidence-selection mismatch | section 9.4 fails; preserve actual commit facts and use invariant-breach quarantine under sections 10.1/11.3, never retrospective refusal, rollback, NO_EFFECT or verified success |
+| T, boundary, cutoff or attempt differs across consumption/attempt/receipt, or a success member substitutes T for physical commit time | stop before success; if already committed, section 9.4 fails and invariant-breach quarantine applies; do not alter hashed records |
+| after timely T, authoritative status of the original attempt remains unknown | OUTCOME_UNKNOWN and BLOCKED_PENDING_RECONCILIATION; no success, NO_EFFECT, withdrawal allowance or retry inferred from expiry |
+| complete matching admissible section 8.5 set and authoritative commit status exist, but no optional later physical-time observation exists | EFFECT_COMMITTED under section 9.4; no invented timestamp or extra success member is required |
+| an admitted later owner commit observation is before T or the bound transaction start, despite a complete committed set | chronology contradiction fails section 9.4 and uses existing invariant-breach quarantine; retain the actual status and original receipt unchanged |
 | guard invalidation after T, or rollback followed by reuse of the old T | no successful continuation; only a fresh eligible attempt with fresh authorization and T may proceed under the existing evidence/retry rules |
 | result bytes, result schema, contract binding, or validation trace are substituted | handoff/integrity failure; no effect or consumption |
 | authorization is `ALLOW` and a domain gate fails | preserve `ALLOW` as the authority-gate result and record only truthful non-consumable failure evidence |
@@ -1308,7 +1346,7 @@ Later tests must enter through the real shared lookup, trusted enrichment, autho
 20. Every durable no-effect attempt has exactly one of the two closed consequences.
 21. Complete verified success outranks partial, unresolved, and no-effect evidence; partial outranks unresolved; unresolved outranks no-effect retry policy.
 22. A mode change cannot bypass an unresolved attempt.
-23. A partial success set is quarantined, not repaired or replayed automatically.
+23. A proven partial, conflicting or complete-but-inadmissible success set is quarantined, not repaired or replayed automatically.
 24. Receipt lookup cannot create disclosure authority.
 25. Retention or deletion cannot make an authoritative tuple reusable while its obligations or history remain reachable.
 26. An operation claim remains pending review and never becomes accepted execution or current state through this protocol.
@@ -1481,7 +1519,7 @@ review and approval; no approval transfers to changed bytes automatically.
 | Does failure-evidence persistence failure create no false durable consequence? | yes | yes |
 | Can reconciliation recover a complete committed no-effect set without falsely calling its database commit a rollback? | yes; preserve its original binding and recorded consequence | yes |
 | Are protected-effect, first-admission, and separate failure-evidence transaction roles explicitly identified and independently verified when distinct? | yes; uncertainty about an evidence commit blocks replacement admission | yes |
-| Is a partial success set quarantined without automatic synthesis, deletion, compensation, or replay? | yes | yes |
+| Is a proven partial, conflicting or complete-but-inadmissible success set quarantined without automatic synthesis, deletion, compensation, or replay? | yes; sections 9.4 and 10.1, with actual commit facts preserved | yes |
 | Does consumption become durable only with the successful atomic effect? | yes | yes |
 | May only the explicitly bound operation-claim branch use T < full D and complete its fixed original transaction after D? | yes; section 8.5, with late consumption and no promised post-T delay bound | owner alignment review required; PR #39 decision v3 approved |
 | Do its consumption, attempt and receipt bind matching checkpoint evidence before hashing, with physical commit/consumption time absent from every atomic success member? | yes; sections 9.4, 12.2 and 13.3, actual-commit consumption unchanged | owner alignment review required |
