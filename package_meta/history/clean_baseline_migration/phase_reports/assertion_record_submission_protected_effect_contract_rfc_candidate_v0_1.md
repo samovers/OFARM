@@ -7,6 +7,17 @@ Depends on: the approved authorization candidate on issues #16 and #18 / PR #11 
 Blocking prerequisite: PR #20 closes the shared transaction protocol only for fresh approval and direct human final action; `ASSERT_OPERATION_CLAIM` remains non-executable until a separate transaction profile closes the `NOT_REQUIRED` finalization mode selected by PR #11<br>
 Scope: define the AssertionRecord-specific mapping from one authorized assertion-submission intent to one immutable pending-review AssertionRecord
 
+Time-evidence alignment, 2026-09-23: this revision applies task-approved
+`OFARM-NOT-REQUIRED-WRITE-BOUNDARY-001` version 3 at
+[PR #39, `6ec9f6650c3848083742c7039ac7a673b4375c8b`](https://github.com/samovers/OFARM/pull/39/commits/6ec9f6650c3848083742c7039ac7a673b4375c8b),
+starting from this owner's `622376e2998cf8b3954ca19e81d2cce6fd57e5fe`.
+Only the explicitly selected NOT_REQUIRED operation-claim branch distinguishes
+its final write checkpoint from optional later physical commit/consumption time.
+PR #11 (starting `e9052ef`) owns rule selection and PR #26 (starting `38af747`)
+owns transaction order and evidence. Those owner revisions and this revised text
+need review and approval; historical pins/approvals do not approve changed bytes.
+No schema, runtime, active-law or currentness change follows from this alignment.
+
 ---
 
 ## 1. Decision requested
@@ -35,6 +46,10 @@ Approval of this candidate authorizes no schema, runtime, currentness, accepted-
 ## 2. Primary trust boundary and PR boundary
 
 The primary trust boundary is **AssertionRecord submission semantics and commit classification**.
+
+This alignment is limited to its temporal-separation contract for the selected
+write branch. It consumes the approved timing choice through the separate
+authorization/transaction owners, without adding assertion fields or effects.
 
 This candidate owns only:
 
@@ -78,6 +93,11 @@ This candidate is constrained by:
 - the approved PR #20 transaction protocol at `98f8c4f`, only for the finalization modes it actually covers.
 
 The exact PR #11 head authorizes assertion submission and binds the whole effect intent. It does not authorize acceptance or define this result. A semantic change to that head invalidates this candidate's authorization dependency before schema or executable-contract materialization.
+
+The checkpoint branch therefore requires renewed dependency review of compatible
+PR #11 and PR #26 revisions and this domain contract. Their eventual immutable
+refs/digests must bind actual revised bytes. The historical strict-time bindings,
+NOT_REQUIRED alone or a mutable PR reference cannot select the new meaning.
 
 The materialization step must stop and return to a separate boundary when any of these conditions is found:
 
@@ -306,13 +326,21 @@ For verified offline submission, the resolved act-evidence timestamp at `/assert
 
 For fresh-approval actions, `humanActedAt` is approval/finalization time under PR #20, not the assertion-act source in this v0.1 contract. It may happen to equal `assertedAt`, but equality is only an observed fact; it is never derived merely because the approver approved an agent or represented-Party submission. A future contract that makes final affirmation itself the assertion act must define that posture explicitly in a separately reviewed revision.
 
-`effectCommittedAt` remains the transaction linearization/record time in the governed-effect receipt. It never supplies `assertedAt`. If assertion and commit happen at the same instant, both independently sourced fields retain their meanings.
+`effectCommittedAt` never supplies `assertedAt`. For the explicitly bound
+checkpoint branch in section 6.5, neither physical commit nor durable-consumption
+time for this attempt appears in an atomic success member; a truthful later owner
+observation is optional. Other branches retain their existing receipt/transaction
+time requirements. `writeAuthorizationCheckedAt` also never supplies `assertedAt`.
+Coincident instants do not make independently sourced facts interchangeable.
 
 ### 6.3 Canonical time representation
 
 Every timestamp introduced by this section is a valid RFC 3339 date-time normalized to UTC and ending in uppercase `Z`. Seconds are required. Fractional seconds are omitted when zero; otherwise they use one through nine digits and the final digit is non-zero. Numeric offsets, lowercase `z`, omitted seconds, `24:00:00`, and leap-second spellings are rejected by this v0.1 profile.
 
 The contract preserves the exact canonical source string. It does not convert a numeric offset, round a fraction, or normalize a non-canonical input after authorization. Ordering compares the represented UTC instants.
+
+The transaction owner's `writeAuthorizationCheckedAt` uses this same spelling;
+clock precision and trusted-clock admission remain with its time-profile owner.
 
 ### 6.4 Closed `subjectTime` profiles
 
@@ -345,10 +373,34 @@ This contract preserves these separate facts:
 - `assertedAt`: when the asserting Party made or submitted the exact assertion under section 6.2;
 - ingress receipt/synchronization and processing times: retained by separate ingress evidence where applicable;
 - `humanActedAt`, where fresh approval applies: retained in finalization evidence;
-- `authorizationEvaluatedAt`: retained in authorization evidence; and
-- `effectCommittedAt`: retained in transaction evidence and the governed-effect receipt.
+- `authorizationEvaluatedAt`: retained in authorization evidence;
+- `writeAuthorizationCheckedAt`, only for the explicitly selected operation-claim branch: T in the transaction owner's checkpoint evidence; and
+- `effectCommittedAt` and physical consumption time: retained under the owning transaction contract, with the narrow absence rule below.
 
-None is substituted for another. A delayed-sync path with assertion at `T1`, platform receipt at `T2`, and commit at `T3` preserves all three even when `T1 < T2 < T3`; the result's `assertedAt` remains `T1`, not `T3`.
+Only an exact revised rule/profile selecting `GUARDED_WRITE_CHECK_V0_1` for
+NOT_REQUIRED `ASSERT_OPERATION_CLAIM` admits the approved checkpoint meaning.
+The PR #26 owner requires T < full unchanged D, including the original transaction
+deadline, then permits the same fixed original transaction to commit after D with
+all non-temporal guards intact. This domain contract still permits only one
+immutable `PENDING_REVIEW` assertion. Structure, compliance and other branches
+retain their existing temporal/finalization meanings.
+
+For that selected branch, consumption, attempt and receipt bind matching T,
+boundary, original cutoffs and original attempt before their hashes. No atomic
+success member asserts this attempt's physical commit/consumption time; such
+fields are absent, not null, provisional or T under another name. Actual complete
+atomic commit establishes consumption, proved by authoritative status and matching
+membership. An optional later physical-time observation points back truthfully
+without rewriting the original records. Earlier input/assertion timestamps remain.
+Domain validation fixes assertion/subject mappings before T; the transaction
+owner constructs and verifies checkpoint evidence afterward. No future time must
+be invented to pass the pre-checkpoint domain validation.
+
+None is substituted for another. A delayed-sync assertion at `T1`, receipt at
+`T2`, checkpoint at T and commit at `T3` keeps `assertedAt = T1`. In the selected
+branch, T is retained in its owner evidence and T3 is optional later evidence,
+never a required physical-time field in the atomic set. Other branches preserve
+their separately sourced commit evidence. No transaction time replaces subject time.
 
 ---
 
@@ -424,7 +476,7 @@ The immutable AssertionRecord enters under its section 7.2 record commit class. 
 | `AR_SCOPE` | sole rule-extracted `RP_SCOPE_ONE` `TARGET_SCOPE` | exact one-element `NARROWING` mapping to `anchorScopes`, including kind, ref, and immutable selector; other claim context remains in typed body/proof bindings |
 | `AR_SUBJECT_SCOPE_PROOF` | intent relationship-proof bindings, conditional under section 5.2 | exact copy or required absence, followed by relationship validation |
 | `AR_ASSERTOR` | canonical selected path's `authoritySubjectPartyRef` | exact copy to `assertedByPartyRef` |
-| `AR_ASSERTED_AT` | validated intent `/assertedAt` under section 6.2 posture | exact copy to result `/assertedAt`; never derive from `effectCommittedAt`, `humanActedAt`, receipt, or subject time |
+| `AR_ASSERTED_AT` | validated intent `/assertedAt` under section 6.2 posture | exact copy to result `/assertedAt`; never derive from `writeAuthorizationCheckedAt`, `effectCommittedAt`, `humanActedAt`, receipt, or subject time |
 | `AR_ASSERTION_ACT_POSTURE` | intent `/assertionActPosture` | exact copy to result; only the two section 6.2 values are allowed |
 | `AR_ASSERTION_ACT_EVIDENCE` | conditional intent `/assertionActEvidenceBinding` | exact immutable copy for `VERIFIED_OFFLINE_SUBMISSION`; required absence for `TRUSTED_ONLINE_SUBMISSION` |
 | `AR_SUBJECT_TIME` | intent `/subjectTime` | exact copy of one section 6.4 object to result `/subjectTime`, including allowed discriminator, members, and endpoint posture |
@@ -504,7 +556,7 @@ If another governed result is needed, an enclosing composition must separately i
 | `PC_ASSERTOR` | asserting Party is the canonical selected authority subject and is not substituted by an approver, sponsor, principal, performer, or beneficiary |
 | `PC_ASSERTION_ACT` | `assertedAt`, act posture, conditional act evidence, and asserting Party satisfy section 6.2 |
 | `PC_SUBJECT_TIME` | the exact branch/posture profile, members, canonical timestamps, endpoint order, source selectors, and conditional payload equality satisfy sections 6.3 and 6.4 |
-| `PC_TEMPORAL_SEPARATION` | assertion, subject, evidence/capture, ingress, approval, authorization, and commit times retain their distinct meanings under section 6.5 |
+| `PC_TEMPORAL_SEPARATION` | assertion, subject, evidence/capture, ingress, approval, authorization, checkpoint and physical times retain section 6.5's distinct meanings; the selected branch requires no physical commit/consumption time in the atomic set and never substitutes T for it |
 | `PC_EVENT_ASSOCIATION` | section 7.3 association passes when bound and is `NOT_APPLICABLE` when absent; AssertionRecord subtype never selects a family |
 | `PC_CORRECTION_LINEAGE` | section 5.5 posture, exact immutable prior binding, positive prior-record visibility in the trusted transaction-start snapshot, subtype, governance boundary/twin, authority anchor, and logical subject all agree without mutating or deactivating the prior assertion |
 | `PC_NO_UNBOUND_EFFECT` | no prior record mutation, event envelope, review, consequence, materialization, or other governed result is inserted or changed without its own applicable authority and contract |
@@ -598,8 +650,10 @@ This candidate states only AssertionRecord-specific preconditions and effects. I
 | asserted Party is replaced by human approver, authenticated representative, agent sponsor, performer, or beneficiary | `AR_ASSERTOR` fails |
 | caller supplies `/assertedAt` for `TRUSTED_ONLINE_SUBMISSION` instead of the trusted runtime | `AR_ASSERTED_AT` / `PC_ASSERTION_ACT` fails |
 | verified offline submission omits, substitutes, or cannot validate assertion-act evidence, or its Party, time, or content differs | `AR_ASSERTION_ACT_EVIDENCE` / `PC_ASSERTION_ACT` fails |
-| `effectCommittedAt`, `humanActedAt`, receipt, authorization, ingress, evidence-capture, or subject time is substituted for the assertion-act source | `AR_ASSERTED_AT` / `PC_TEMPORAL_SEPARATION` fails |
-| offline assertion occurs at `T1`, platform receives it at `T2`, and commit occurs at `T3`, but the result records `T2` or `T3` as `assertedAt` | `AR_ASSERTED_AT` / `PC_TEMPORAL_SEPARATION` fails; `T1`, `T2`, and `T3` remain distinct |
+| `writeAuthorizationCheckedAt`, `effectCommittedAt`, `humanActedAt`, receipt, authorization, ingress, evidence-capture, or subject time is substituted for the assertion-act source | `AR_ASSERTED_AT` / `PC_TEMPORAL_SEPARATION` fails |
+| offline assertion occurs at `T1`, receipt at `T2`, checkpoint at T and commit at `T3`, but the result uses T2, T or T3 as `assertedAt` | `AR_ASSERTED_AT` / `PC_TEMPORAL_SEPARATION` fails; the selected branch preserves T1 and its checkpoint evidence, with T3 optional only in truthful later owner evidence |
+| selected operation-claim success members omit physical commit/consumption time while their owner bindings contain matching T, boundary, original cutoffs and attempt | compatible with `PC_TEMPORAL_SEPARATION`; actual commit still requires authoritative status and complete matching membership, not a timestamp or success label alone |
+| a success member in that branch labels T as physical commit/consumption time, or adds a null/provisional physical time | time-evidence conformance failure; no backdating or post-hash repair |
 | a timestamp uses a numeric offset, lowercase `z`, omitted seconds, trailing-zero fraction, `24:00:00`, leap-second spelling, or another non-canonical representation | `PC_ASSERTION_ACT` or `PC_SUBJECT_TIME` fails as applicable |
 | subject-time profile is unavailable for the action/claim posture, carries an extra or missing member, or has `start >= end` | `AR_SUBJECT_TIME` / `PC_SUBJECT_TIME` fails |
 | `INTENDED` uses a performed profile, or `PERFORMED` uses `INTENDED_WINDOW` | `AR_OPERATION_POSTURE` / `AR_SUBJECT_TIME` fails |
@@ -719,7 +773,7 @@ The bundle cannot point at this prose file as an executable contract. It also ca
 | Is an existing subject immutable while a prospective subject remains only claimed and uncreated? | yes | yes |
 | Must a different subject-to-scope relationship have exact immutable proof? | yes | yes |
 | Is `assertedByPartyRef` the selected authority subject rather than approver, sponsor, principal, performer, or beneficiary? | yes | yes |
-| Is `assertedAt` the exact governed assertion-act time rather than `effectCommittedAt`? | yes; commit time remains separate receipt/transaction evidence | yes |
+| Is `assertedAt` the exact governed assertion-act time rather than checkpoint or commit time? | yes; the selected branch keeps T in owner evidence and omits physical commit/consumption time from the atomic success set, with truthful later physical observation optional | PR #39 decision v3 approved; revised owner text and compatible bindings require review |
 | Are `TRUSTED_ONLINE_SUBMISSION` and `VERIFIED_OFFLINE_SUBMISSION` the only assertion-act postures, with exact conditional evidence? | yes | yes |
 | Can fresh-approval `humanActedAt` become assertion time merely because approval occurred? | no; this contract never uses it as the source | yes |
 | Are the nine section 6.4 structure, operation, and compliance subject-time rows the complete closed profiles? | yes | yes |
@@ -749,7 +803,7 @@ Any requested authorization, transaction, review, event-vocabulary, evidence-ret
 
 ## 18. Staged delivery and completion
 
-1. **Authorization prerequisite:** satisfied by semantic approval for exact PR #11 head `03a21f669ee04f96d444e14f00ae7212cab04803`; re-open this gate if that head's semantics change.
+1. **Authorization prerequisite:** historical approval remains at exact PR #11 head `03a21f669ee04f96d444e14f00ae7212cab04803`; the checkpoint branch reopens this gate for the compatible revised rule, transaction profile and domain time contract.
 2. **Human-finalized transaction prerequisite:** PR #20 at `98f8c4fafbae42c8f7fd931f43f53adcb4733713` supplies the approved fresh-approval protocol selected by structure and compliance; later machine materialization must bind its exact promoted bytes.
 3. **Phase A domain approval:** approve or amend this one-file AssertionRecord candidate.
 4. **Missing transaction-mode closure:** separately define the atomic `NOT_REQUIRED` transaction path selected by `ASSERT_OPERATION_CLAIM`; do not edit PR #20 or this domain contract to simulate approval.
@@ -760,4 +814,4 @@ Any requested authorization, transaction, review, event-vocabulary, evidence-ret
 9. **Acceptance and promotion:** accept exact bytes and change current/default status only through separate governed steps in the sequence fixed by PR #11.
 10. **OFARM2 extraction:** consume only promoted, digest-verified canonical bytes.
 
-Phase A is complete when issue #22's criteria are reviewed, the exact PR #11 and PR #20 dependencies remain approved, event-family non-derivation, assertion/subject-time closure, correction lineage and target compatibility, one-anchor narrowing, and the missing transaction-mode dependency are explicit, and this PR still changes only this non-authoritative candidate file.
+Phase A is complete when issue #22's criteria are reviewed, historical approvals retain their scope, the selected checkpoint branch has reviewed and approved compatible PR #11/#26 dependency bindings, PR #20 remains unchanged, event-family non-derivation, assertion/subject-time closure, correction lineage and target compatibility, one-anchor narrowing and transaction-mode prerequisites are explicit, and this PR still changes only this non-authoritative candidate file.
