@@ -36,13 +36,13 @@ This document deliberately precedes accepted-RFC, schema, conformance, and curre
 
 ### 1.1 Release-scope amendment in the approved predecessor
 
-This revision preserves the twenty action definitions and their complete rule semantics, but proposes separate, explicit executable admission for each release. The initial package would admit exactly `ASSERT_OPERATION_CLAIM` and `RECEIVE_READ_DATA`. Sections 7.2.1, 17.2 and 24 define its closed scope, complete dependency requirement and separately governed promotion. The other eighteen actions remain catalogue obligations, not implemented or passed by this release.
+That release-scope amendment preserved the twenty action definitions and their complete rule semantics while proposing separate, explicit executable admission for each release. Its preservation claim applies to that scope amendment; the later timing decisions in sections 1.2 and 1.3 are explicit semantic changes. The initial package would admit exactly `ASSERT_OPERATION_CLAIM` and `RECEIVE_READ_DATA`. Sections 7.2.1, 17.2 and 24 define its closed scope, complete dependency requirement and separately governed promotion. The other eighteen actions remain catalogue obligations, not implemented or passed by this release.
 
-This is a change to proposed package admission and delivery staging, not a permission weakening or approval to implement a local subset. Renewed review and explicit semantic approval must cover the new revision and its affected invariants. A complete two-action dependency closure has not yet been demonstrated: the source-history question in section 24.1 remains open. Approving this scope model would not answer that question or establish production readiness.
+That scope amendment changed proposed package admission and delivery staging without weakening permissions or approving implementation of a local subset. Its approval does not cover later changed semantics. A complete two-action dependency closure has not yet been demonstrated: the source-history question in section 24.1 remains open. Scope-model approval does not answer that question or establish production readiness.
 
 ### 1.2 Historical Scope A amendment: read-only late evidence settlement
 
-The bounded new decision is whether a single governed-read evidence-finalization operation actually initiated before the full effective cutoff may settle afterward, permanently spending that attempt without authorizing late disclosure. Sections 18.2 and 18.5.1 own this authorization-side exception. PR #37 aligns its read lifecycle with this proposal; it cannot independently widen the exception. Scope A changes read-consumption timing and truthful persistence claims, not state-affecting writes, human finalization, filing, source consent, custody or retention powers. Scope B's public-privacy tradeoff belongs exclusively to PR #31 and is not incorporated here.
+The bounded decision approved at `e9052ef` permits a single governed-read evidence-finalization operation actually initiated before the full effective cutoff to settle afterward, permanently spending that attempt without authorizing late disclosure. Sections 18.2 and 18.5.1 own this authorization-side exception. PR #37 aligns its read lifecycle with this decision; it cannot independently widen the exception. Scope A changes read-consumption timing and truthful persistence claims, not state-affecting writes, human finalization, filing, source consent, custody or retention powers. Scope B's public-privacy tradeoff belongs exclusively to PR #31 and is not incorporated here.
 
 This is not a PostgreSQL mechanism, a temporary runtime waiver or a claim that OFARM2 #392 is implementable. The selected actions, their target/path coverage and the four package families remain unchanged. The amended read-validity closure still requires its own exact rule binding; existing exact-digest source-consent checks are not waived or replaced with cross-digest compatibility. Not provisional: no temporary implementation is proposed. The review refinements are included in Scope A version 1; no additional approval scope or prerequisite issue is created.
 
@@ -60,6 +60,22 @@ paths, human finalization or read disclosure. The approved semantic choice permi
 drafting these owner changes; revised heads and exact dependency bindings still
 need review and approval. No historical approval, unchanged visible rule token
 or mutable PR head supplies executable closure.
+
+The task user approved that exact version and head on 2026-09-23 with
+“no new findings. i approve”; the [public approval record](https://github.com/samovers/OFARM/pull/39#issuecomment-5795648070)
+states its scope and limits. This is a real timing relaxation: the claim may
+become durable after D, including a contributing grant/session expiry, with no
+maximum post-T delay. It does not permit a commit after a source's effective
+`TERMINATE`; sections 8.1 and 18.4.1 preserve that through-commit requirement.
+All other catalogue fields and meanings remain unchanged; only the explicit
+timing exceptions in sections 18.4.1 and 18.5.1 differ from the predecessor.
+
+This correction addresses the reviewed input set: PR #11
+`715e1129177573537296cda17b5f2669ff4622ee`, PR #26
+`88f95ae1f30b5391647656bc49c647c29f52eddb`, and PR #23
+`e9abc129eb77dc50120a4f785a91a9c220b0b94b`, against PR #39's approved head above.
+These are review provenance, not executable bindings or approval of this
+correction. Review and any later approval must name the corrected triple together.
 
 ---
 
@@ -445,7 +461,7 @@ The core row and its extension row form one immutable `ActionAuthorizationRule`.
 - one closed `effectIntentSchemaBinding`;
 - one immutable `protectedEffectContractBinding` for every state-affecting action, or explicit `NO_STATE_EFFECT` for the governed-read action;
 - one closed `authorizationViewExtraction`, including content-addressed ref/digest and exact JSON Pointer mappings from the validated effect intent to the authority target, typed inputs, effect subject, scope, twin, subject time, and use purpose;
-- `decisionValidityPolicy`, including policy ref/digest, cutoff inputs, and calculation;
+- `decisionValidityPolicy`, including policy ref/digest, cutoff inputs, calculation, and the exact transaction-profile ref/version/digest and temporal-boundary selection in its immutable resolved closure;
 - `historicalAuthorityPosture`;
 - `externalEffectPosture`;
 - exact action-level evidence-policy bindings, including explicit `NONE`;
@@ -478,12 +494,16 @@ This closure is a deterministic packaging rule inside the existing binding manif
 
 Every v0.2 row selects `TRANSACTION_BOUND_V0_2`. It requires consumption in the same final governed transaction as the protected effect, buffered read-evidence commit, or filing-outbox commit and uses the exact cutoff function in section 18.2. This authorization candidate neither requires an interactive database transaction to remain open while a human considers a challenge nor selects a reservation/finalization protocol. The separately owned governed-transaction contract in `samovers/OFARM#19` must close the interactive-approval runtime protocol before materialization or implementation of profiles that require it. Section 24 requires a complete separately governed transaction protocol for every selected rule; deferring an unrelated human-approval flow does not waive atomicity, trusted cutoff, consumption or read obligations. This candidate does not invent a universal wall-clock duration unsupported by an authoritative transaction contract.
 
-For section 18.4.1, the resolved operation-claim rule's immutable
-`decisionValidityPolicy` and transaction-profile binding must explicitly select
-the guarded write-check meaning and compatible PR #26/#23 owner contracts. This
-changes the semantic closure and `ruleDigest` even though the visible TX token
-remains. The evidence label `GUARDED_WRITE_CHECK_V0_1` only records that selection;
-it cannot select policy. Old source bindings fail the existing exact-rule match.
+The initial release's `ASSERT_OPERATION_CLAIM` rule selects section 18.4.1's
+guarded write-check meaning. Its immutable `decisionValidityPolicy` closure
+contains that explicit temporal selection and the exact compatible PR #26
+transaction-profile ref/version/digest; the existing `protectedEffectContractBinding`
+pins the compatible PR #23 contract. There is no additional top-level binding
+field or registry. This changes the semantic closure and `ruleDigest` even though
+the visible TX token remains. The evidence label `GUARDED_WRITE_CHECK_V0_1` only
+records that selection; it cannot select policy. The old rule remains historical,
+not a runtime alternative for this release. Old source bindings fail the existing
+exact-rule match.
 No new validity-class family, automatic source migration or compatibility fallback
 is introduced; missing revised immutable bytes/digests prevent executable use.
 
@@ -654,11 +674,14 @@ The v0.2 request and trace preserve these distinct times:
 
 Current principal binding, representation, role validity, grant validity, delegation, sharing, policy applicability, and revocation are evaluated at `authorizationEvaluatedAt` and must still hold at the authority-bearing effect boundary. For an internal governed write or buffered read, the transaction defined in section 18 supplies that guarantee. For formal filing, the boundary is the authenticated human's atomic commit of the exact immutable filing envelope and decision evidence to the governed outbox. Later transport cannot acquire, widen, or re-exercise filing authority, but it still requires the separate current release-eligibility decision in section 18.6 before protected bytes cross an external boundary.
 
-For the selected section 18.4.1 branch, temporal eligibility is checked at T;
-pure passage of an expiry already represented in D afterward does not invalidate
-that fixed write. Complete non-temporal guards, including new revocations, remain
-required through actual commit. This is the explicit narrow exception to temporal
-validity through commit, not authority from an earlier subject or assertion time.
+For the selected section 18.4.1 branch, “effect boundary” in sections 9–16 means
+T only for pure validity expiry already represented in D. For every other
+condition it remains actual commit. In particular, a `TERMINATE` of the source
+used by the path with `effectiveFrom` at or before actual commit invalidates
+success, even when that revocation was recorded before T. A scheduled revocation
+does not become a permitting late-expiry exception by being included in a cutoff.
+New revocations and all other through-commit guards remain binding. This is the
+explicit narrow expiry exception, not authority from an earlier subject time.
 
 The selected rule's `historicalAuthorityPosture` is mandatory. `CURRENT_ONLY` checks only current authority for the action. `CURRENT_REPORT_AUTHORITY_ONLY` also checks only current authority, but additionally states that the effect is a claim/report whose submitter is not presumed to be its alleged performer. The exact posture for every row is fixed in section 7.8.
 
@@ -1428,12 +1451,18 @@ Only deterministic construction, verification and persistence of that fixed
 complete set, then completion of the same original transaction, remain on its
 successful path. New business decisions, callbacks, changed effects, reevaluation
 or transfer to another attempt are forbidden. Non-temporal guards hold through
-actual commit; new revocation or changed guarded facts require abort unless the
-storage guard prevents them until commit. Independent persistence, domain and
+actual commit; section 8.1 also preserves scheduled and newly effective
+`TERMINATE` through actual commit. Changed guarded facts require abort unless
+the storage guard prevents them until commit. Independent persistence, domain and
 retention prohibitions remain binding. The passage of an expiry already in D is
 the narrow exception: T=29, D=30, commit=31 may succeed; T=30 may not. This is late
 durable consumption, with no maximum promised delay from T to commit/visibility,
 including sampling-to-test delay, evidence construction, inserts and database waits.
+
+A snapshot alone cannot prove that a scheduled termination stays ineffective
+until physical commit. A later real binding must prove the required through-commit
+predicate or reject the unsupported path. This clause supplies no clock budget,
+storage mechanism or permission to reinterpret termination as ordinary expiry.
 
 The existing consumption, attempt and receipt bindings carry identical
 `writeAuthorizationCheckedAt = T`, `writeAuthorizationBoundary = GUARDED_WRITE_CHECK_V0_1`,
@@ -1789,7 +1818,7 @@ The accepted design and conformance suite must preserve these invariants. Each c
 51. A display or payload digest never claims byte reconstruction without retrievable candidate bytes, and retention/key-custody policy remains separately governed.
 52. Every final review binds exactly one eligible governed-record target, including an exact accepted-event-consequence revision when selected, and one rule-constrained outcome posture; only `REVIEW_ACCEPT` and `REVIEW_REJECT_OR_CONTEST` add the exact evidence-sufficiency-case branch, while `REVIEW_SUPERSEDE`, `REVIEW_REQUEST`, and unrelated action classes do not inherit that case-eligible closure.
 53. The immutable policy identity/digest binds an exact admitted-action set and exactly one complete resolved rule per member; missing, duplicate, extra or invalid members cannot be repaired by runtime subsetting or fallback.
-54. A selected action retains every resource alternative, authority path and transitive dependency of its exact bound rule, including the explicit timing amendments; a narrow public feature neither narrows that rule nor verifies the unselected catalogue actions.
+54. A selected action retains every field, resource alternative, authority path and transitive dependency of the sections 7.2–7.8 catalogue rule, amended only by the explicit timing exceptions in sections 18.4.1 and 18.5.1; a narrow public feature neither narrows that rule nor verifies the unselected catalogue actions.
 55. A package's admitted scope can expand only through separately reviewed binding, conformance, promotion and trusted selection; family-level current/default pointers or deployment flags cannot silently admit additional actions or profiles.
 56. Approval of release scope is not proof of dependency completeness. An inactive qualifying-record writer, an empty lookup or a valid individual record does not establish complete source history or historical-admission verification; unresolved required closure blocks executable binding and promotion.
 
@@ -1851,12 +1880,14 @@ The future executable conformance suite must include at least the cases applicab
 | `REVIEW_REJECT_OR_CONTEST` intent binds `REJECTED`, but the proposed `ReviewDecision` result says `CONTESTED`, or vice versa | protected-effect contract validation failure; transaction aborts without rewriting the authorization result or intent |
 | Consumed human approval is replayed with the same challenge and payload | `DENY` with `APPROVAL_ALREADY_CONSUMED`; no effect |
 | A single-use decision is consumed twice with the same payload | second consumption is `DENY` |
-| A decision is consumed at or after `decisionValidUntil` outside sections 18.4.1 and 18.5.1 | `DENY`; no general late-write, human-finalization or filing exception |
+| After authorization `ALLOW`, a non-excepted write reaches its cutoff before dispatch | stop the transaction; preserve `ALLOW` and record failure separately, with `NO_EFFECT` only when authoritatively proved; no general late-write, human-finalization or filing exception |
+| A non-excepted write is observed committed at or after `decisionValidUntil` | invariant breach under the transaction owner, not a retroactive `DENY`, refusal or rollback; preserve the actual commit fact |
 | Explicitly selected operation-claim branch has T=29, full D=30 and commit=31 | permitted late durable consumption only with the fixed original transaction, complete non-temporal guards and matching atomic evidence; no maximum post-T delay claim |
-| Operation-claim checkpoint is at T=D, trust/context is missing, or NOT_REQUIRED/old rule bytes alone are offered as selection | no successful checkpoint; no later write under that decision |
+| After authorization `ALLOW`, the operation-claim checkpoint is at T=D, trust/context is missing, or NOT_REQUIRED/old rule bytes alone are offered as selection | no successful checkpoint or later write under that decision; preserve the existing authorization result and record transaction failure, never rewrite it as `DENY` or `DECISION_EXPIRED` |
 | Old source ruleDigest is presented for the revised checkpoint meaning | exact-rule mismatch; no automatic source migration or compatibility fallback |
 | T, boundary, original cutoffs or attempt differ across consumption/attempt/receipt, or a success member calls T physical commit time | evidence failure; no post-hash repair or valid success claim |
 | Revocation invalidates the guarded state after T, or rollback is followed by reuse of T | no successful continuation; fresh eligible attempt, current authorization and T required under the transaction owner's durable-evidence/retry rules |
+| A fictional source grant ends at 100, its TERMINATE was recorded at 10 with effectiveFrom=30, evaluation=20, transaction deadline/full D=50, T=29 and proposed commit=31 | scheduled termination still prevents success at 31; a binding must prove validity through actual commit or reject the path; an observed commit at 31 is a breach, not a refusal or extension of the expiry exception |
 | Read finalization actually begins at I before D, but complete C settles at or after D | Permanently spent attempt, truthful actual settlement facts, no L and no late-authority claim |
 | A read pre-initiation check is before D, but execution pauses until D before actual I | Refuse initiation; neither the check nor queueing authorizes a late start |
 | Read finalization first starts or is retried after expiry or irreversible termination | Refuse; only continuation of the operation actually initiated while eligible is covered |
@@ -2109,7 +2140,7 @@ The release-scope questions below and their effect on the existing package/stagi
 | Are all v0.2 decisions single-use with no reserved replay mode? | yes | yes |
 | May the one governed-read evidence operation actually initiated before full D settle later, while actual L must remain before D? | yes, only under section 18.5.1: owner-verifiable I, independent lawful persistence, permanently spent complete C, no backdating/revival or other-action exception | Scope A approved at e9052ef; meaning preserved, not approval of this changed owner head |
 | Must internal effects and authorization evidence commit in one atomic protected-effect transaction? | yes | yes |
-| May the explicitly selected NOT_REQUIRED operation-claim rule authorize its fixed original write at T < full D and commit afterward? | yes, only section 18.4.1; matching checkpoint evidence, no physical-time claim in atomic success members, no maximum post-T duration, and all non-temporal guards retained | PR #39 decision v3 approved; revised owner text and bindings require review |
+| May the explicitly selected NOT_REQUIRED operation-claim rule authorize its fixed original write at T < full D and become durable after D, including a contributing grant/session expiry? | yes, only section 18.4.1; no maximum post-T delay, matching checkpoint evidence, no physical-time claim in atomic success members, and all other through-commit conditions including scheduled TERMINATE retained | PR #39 decision v3 approved; revised owner text and bindings require review |
 | Must the proposed domain result pass the rule-bound protected-effect contract before that transaction commits, with intent/result/contract digests in the receipt? | yes | yes |
 | Is authorization `ALLOW` only the authority-gate result, never a bypass for another EnforcementChain gate? | yes | yes |
 | Do Event Grammar/protected-effect contracts, not authorization audit records, determine domain event family and commit class? | yes | yes |
