@@ -1,9 +1,10 @@
 """Fictional review examples; not a runtime gate or evidence of database safety.
 
-Times are integer seconds from a fictional UTC origin. Guard/identity flags are
-assumed facts, never verified here. commit_at is a later observation supplied to
-this model, not a value placed in atomic evidence. It is optional for the new
-rule. The old-rule comparison is retrospective, not its admission workflow.
+Times are integer seconds from a fictional UTC origin. Bound-rule selection and
+guard/identity flags are assumed facts, never verified here. commit_at is a later
+observation supplied to this model, not a value placed in atomic evidence. It is
+optional for the new rule. The old-rule comparison is retrospective, not its
+admission workflow. NO_EFFECT describes rollback, not durable retry evidence.
 Run with Python 3; no database, dependencies or executable policy imports.
 """
 
@@ -19,6 +20,7 @@ class Trace:
     checkpoint_at: int
     cutoffs: tuple
     commit_at: object
+    bound_rule: str = CHECKPOINT_RULE
     boundary_label: str = CHECKPOINT_RULE
     status: str = "COMMITTED"
     action: str = "ASSERT_OPERATION_CLAIM"
@@ -33,9 +35,10 @@ class Trace:
 
 
 def time_gate(trace):
-    if trace.boundary_label not in (COMMIT_RULE, CHECKPOINT_RULE):
+    if (trace.bound_rule not in (COMMIT_RULE, CHECKPOINT_RULE)
+            or trace.boundary_label != trace.bound_rule):
         return False
-    checkpoint_rule = trace.boundary_label == CHECKPOINT_RULE
+    checkpoint_rule = trace.bound_rule == CHECKPOINT_RULE
     if checkpoint_rule and (
         trace.action != "ASSERT_OPERATION_CLAIM" or trace.mode != "NOT_REQUIRED"
     ):
@@ -55,12 +58,12 @@ def disposition(trace):
         return "UNRESOLVED"
     if trace.status == "ROLLED_BACK":
         return "NO_EFFECT"
-    if trace.status == "NOT_DISPATCHED" and trace.boundary_label == COMMIT_RULE:
+    if trace.status == "NOT_DISPATCHED" and trace.bound_rule == COMMIT_RULE:
         raise ValueError("Existing pre-dispatch admission is outside this model")
     prerequisites = (
         trace.same_attempt and trace.fixed_result and trace.guarded
         and not trace.already_consumed and time_gate(trace)
-        and (trace.boundary_label != CHECKPOINT_RULE or not trace.atomic_physical_times)
+        and (trace.bound_rule != CHECKPOINT_RULE or not trace.atomic_physical_times)
     )
     if trace.status == "NOT_DISPATCHED":
         return "FINALIZATION_PERMITTED" if prerequisites else "REFUSED"
@@ -117,24 +120,31 @@ def main():
          "INVARIANT_BREACH", "EFFECT_COMMITTED"),
     ]
     for name, trace, old, proposed in comparisons:
-        assert disposition(replace(trace, boundary_label=COMMIT_RULE)) == old, (name, COMMIT_RULE)
-        assert disposition(replace(trace, boundary_label=CHECKPOINT_RULE)) == proposed, (name, CHECKPOINT_RULE)
+        for rule, expected in ((COMMIT_RULE, old), (CHECKPOINT_RULE, proposed)):
+            assert disposition(replace(trace, bound_rule=rule, boundary_label=rule)) == expected, (name, rule)
 
+    old_rule = replace(base, bound_rule=COMMIT_RULE, boundary_label=COMMIT_RULE)
     cases = [
         ("excluded action retains old rule before cutoff",
-         replace(base, action="ASSERT_COMPLIANCE", boundary_label=COMMIT_RULE), "EFFECT_COMMITTED"),
+         replace(old_rule, action="ASSERT_COMPLIANCE"), "EFFECT_COMMITTED"),
         ("excluded action retains old cutoff",
-         replace(base, action="ASSERT_COMPLIANCE", boundary_label=COMMIT_RULE, commit_at=31), "INVARIANT_BREACH"),
+         replace(old_rule, action="ASSERT_COMPLIANCE", commit_at=31), "INVARIANT_BREACH"),
         ("excluded action cannot select new rule",
          replace(base, action="ASSERT_COMPLIANCE"), "INVARIANT_BREACH"),
         ("human-finalized action retains old rule",
-         replace(base, mode="FRESH_APPROVAL", boundary_label=COMMIT_RULE), "EFFECT_COMMITTED"),
+         replace(old_rule, mode="FRESH_APPROVAL"), "EFFECT_COMMITTED"),
         ("human-finalized action retains old cutoff",
-         replace(base, mode="FRESH_APPROVAL", boundary_label=COMMIT_RULE, commit_at=31), "INVARIANT_BREACH"),
+         replace(old_rule, mode="FRESH_APPROVAL", commit_at=31), "INVARIANT_BREACH"),
         ("human-finalized action cannot select new rule",
          replace(base, mode="FRESH_APPROVAL"), "INVARIANT_BREACH"),
         ("unknown label cannot silently select old rule",
          replace(base, boundary_label="UNRECOGNIZED"), "INVARIANT_BREACH"),
+        ("new bound rule cannot carry old evidence label",
+         replace(base, boundary_label=COMMIT_RULE), "INVARIANT_BREACH"),
+        ("old bound rule cannot carry new evidence label",
+         replace(old_rule, boundary_label=CHECKPOINT_RULE), "INVARIANT_BREACH"),
+        ("unknown bound rule cannot borrow a known label",
+         replace(base, bound_rule="UNRECOGNIZED"), "INVARIANT_BREACH"),
         ("new-rule checkpoint permits finalization before dispatch",
          replace(base, status="NOT_DISPATCHED", commit_at=None), "FINALIZATION_PERMITTED"),
         ("new-rule checkpoint at cutoff refuses before dispatch",

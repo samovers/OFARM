@@ -1,8 +1,8 @@
 # Guarded write authorization checkpoint proposal v0.1
 
 Status: **proposed semantic change; unapproved and non-executable**.
-Decision: `OFARM-NOT-REQUIRED-WRITE-BOUNDARY-001`, version 2.
-This review correction supersedes unapproved decision version 1.
+Decision: `OFARM-NOT-REQUIRED-WRITE-BOUNDARY-001`, version 3.
+This review clarification supersedes unapproved decision version 2.
 Owner: canonical [issue #25](https://github.com/samovers/OFARM/issues/25), with the
 authorization and protected-effect owners identified below.
 Primary boundary: **when a write may use its authorization, and the time facts
@@ -90,7 +90,8 @@ caller timestamp or preallocated receipt is not a checkpoint.
    facts under the admitted profile. No missing predicate is treated as stable.
 2. Fix the exact decision, intent, result bytes/digest, rule/profile selection and
    evidence inputs. Recheck all guard and uniqueness conditions. Domain result
-   selection and every authority-affecting decision are complete before T.
+   selection and every decision authorizing this write's success are complete
+   before T.
 3. Inside the same trusted database finalization path, sample the admitted current
    time T and require T < full D. T is the clock-observation event at this check;
    it is not an earlier request time or a claim about when later processing ends.
@@ -98,14 +99,15 @@ caller timestamp or preallocated receipt is not a checkpoint.
    interval is included in the explicitly accepted post-T interval. Missing clock
    trust or an original-context mismatch prevents a successful checkpoint.
 4. After a successful checkpoint, retain exclusive owner control and the same
-   original transaction. Only deterministic construction, verification and
-   persistence of its fixed complete success set, followed by transaction
-   completion, may remain. No caller callback, new business decision, changed
-   effect, new authorization evaluation or handoff to another attempt is allowed.
+   original transaction. For its successful continuation, only deterministic
+   construction, verification and persistence of its fixed complete success set,
+   followed by transaction completion, may remain. No caller callback, new
+   business decision, changed effect, new authorization evaluation or handoff to
+   another attempt is allowed.
    Ordinary processing, database waits, scheduling and durability work may cross D.
-5. Keep the complete non-temporal guards valid through actual commit or abort on
-   invalidation. Commit every success member atomically. Only authoritative
-   complete-success verification permits the existing success response.
+5. Success requires the complete non-temporal guards to hold through actual
+   commit; invalidation requires abort. Commit every success member atomically.
+   Only authoritative complete-success verification permits the existing success response.
 
 In PR #26 §9.2, T belongs after step 10 inserts or verifies the immutable result
 binding and before step 11 constructs/hashes the success evidence. Step 12 retains
@@ -113,6 +115,21 @@ its non-temporal guards, rule-mode, uniqueness and status checks; this branch re
 through-commit temporal rechecks with the checkpoint test. The permitted post-T
 interval includes hashing and success-record inserts, not only engine commit
 processing. T cannot be deferred until after the records containing it are fixed.
+
+The post-T restrictions on successful continuation preserve separately authorized
+abort paths, including conditional source-owned withdrawal under **every existing
+PR #26 §11.5 condition**. Passing T neither closes nor extends its original
+window. The cutoff remains the first dispatch of a write applying the protected
+result, consumption, a success-labelled attempt or success receipt, or dispatch
+of COMMIT. There is no permission to interrupt running persistence work, reset
+the withdrawal limit or invent an invalidation.
+Withdrawal remains unavailable until its existing eligibility, history,
+disclosure and retention prerequisites are bound; this proposal binds none.
+
+Conclusive rollback proves no protected effect, not durable retry eligibility.
+The complete committed §11.4 evidence set and authoritative status conditions
+still control `RETRYABLE_SAME_OPERATION`; uncertainty blocks reuse. The existing
+fresh-attempt rules below apply equally to an eligible withdrawal after T.
 
 No durable authority reservation exists at step 3. T creates no consumable token,
 does not spend the decision outside the transaction and survives in authoritative
@@ -210,8 +227,10 @@ It compares observed outcomes under explicitly selected old/new rules. Its
 existing-rule column is a retrospective timing comparison, not an implementation
 of the existing admission workflow; pre-dispatch examples cover the new rule only.
 Separate cases retain the old rule for excluded actions and reject an excluded
-action claiming the new label. There is no silent fallback between rules.
-Its flags assume guard/provenance facts; it does not prove their implementation.
+action claiming the new label. The assumed bound rule selects the time test;
+the evidence label must match it, with mismatch cases in both directions.
+There is no silent fallback between rules. Rule selection and guard/provenance
+facts are inputs assumed by the model, not a resolver or implementation proof.
 Its outcome labels are model conclusions, not new wire outcomes. A trace with an
 observed inadmissible commit cannot be called refused or rolled back afterward.
 Run from the repository root:
