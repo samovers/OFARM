@@ -62,6 +62,13 @@ The operation binding's immutable carrier reference is distinct from its
 the manifest does not invent an extra operation-binding ID member. Fictional
 record wrappers label the carrier reference separately and are not evidence fields.
 
+Owned operation, mode, attempt, consumption and receipt references resolve from
+the fixture's `records` collection under the expected profile. Resolution checks
+the closed schema, immutable identity, owned self-digest and reference digest.
+They cannot fall back to `externalRecords`, which carries opaque foreign-owner
+fixtures. The auxiliary caller projection remains separately schema-checked and
+hashed as a whole object. This does not materialize foreign owner contracts.
+
 Finalize operation/mode and their inputs, then consumption → attempt → receipt.
 Consumption and attempt name the preallocated future receipt by ID only. Receipt
 self-membership has only role and ID; every other membership digest points to
@@ -132,8 +139,8 @@ digests, digest construction, membership and selected cross-record/time relation
 Negative relation cases recompute record digests and update digest references so
 they fail for the intended inconsistency rather than stale hashes.
 Positive scenarios can use the same explicit edit/rehash mechanism to exercise
-alternate valid histories. The bundle covers 18 records, 30 positive scenarios,
-117 rejection cases, four canonicalization vectors and 18 digest round trips.
+alternate valid histories. The bundle covers 18 records, 32 positive scenarios,
+132 rejection cases, four canonicalization vectors and 18 digest round trips.
 
 Every external fixture record is synthetic. Checking its bytes/digest is not
 validation under an unmaterialized authorization, domain, guard, status or clock

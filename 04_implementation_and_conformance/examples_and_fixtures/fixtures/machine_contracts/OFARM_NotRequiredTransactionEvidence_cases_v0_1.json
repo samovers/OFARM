@@ -3079,6 +3079,195 @@
         }
       ],
       "rehash": true
+    },
+    {
+      "name": "foreign_authorization_evidence_remains_opaque",
+      "kind": "success",
+      "record": "receipt",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/consumption/value/authorizationBundle/result/digest",
+          "value": "sha256:ea5eaf1eda8eda084c6561bba0a57bbf490b1fb9edd8460b051d11b71b00e984"
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/authorizationBundle/result/digest",
+          "value": "sha256:ea5eaf1eda8eda084c6561bba0a57bbf490b1fb9edd8460b051d11b71b00e984"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/authorizationBundle/result/digest",
+          "value": "sha256:ea5eaf1eda8eda084c6561bba0a57bbf490b1fb9edd8460b051d11b71b00e984"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/membership/8/digest",
+          "value": "sha256:ea5eaf1eda8eda084c6561bba0a57bbf490b1fb9edd8460b051d11b71b00e984"
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/authorizationBundle/result/digest",
+          "value": "sha256:ea5eaf1eda8eda084c6561bba0a57bbf490b1fb9edd8460b051d11b71b00e984"
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/noEffectMembership/4/digest",
+          "value": "sha256:ea5eaf1eda8eda084c6561bba0a57bbf490b1fb9edd8460b051d11b71b00e984"
+        },
+        {
+          "op": "set",
+          "path": "/records/otherPassedAbort/value/authorizationBundle/result/digest",
+          "value": "sha256:ea5eaf1eda8eda084c6561bba0a57bbf490b1fb9edd8460b051d11b71b00e984"
+        },
+        {
+          "op": "set",
+          "path": "/records/otherPassedAbort/value/noEffectMembership/4/digest",
+          "value": "sha256:ea5eaf1eda8eda084c6561bba0a57bbf490b1fb9edd8460b051d11b71b00e984"
+        },
+        {
+          "op": "set",
+          "path": "/externalRecords/fixture:allow-result/opaqueOwnerExtension",
+          "value": {
+            "unmaterialized": true,
+            "fictionalValue": [
+              1,
+              "retained"
+            ]
+          }
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "foreign_rollback_evidence_remains_opaque",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/transactionRoles",
+          "value": [
+            {
+              "role": "PROTECTED_EFFECT_TRANSACTION",
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            },
+            {
+              "role": "FIRST_ADMISSION_COMMIT",
+              "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+              "transactionStatusLookupKey": "fixture:failure-evidence-status",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            },
+            {
+              "role": "SEPARATE_FAILURE_EVIDENCE_COMMIT",
+              "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+              "transactionStatusLookupKey": "fixture:failure-evidence-status",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            }
+          ]
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/noEffectMembership",
+          "value": [
+            {
+              "role": "OPERATION_BINDING",
+              "ref": "fixture:operation-binding",
+              "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+            },
+            {
+              "role": "CALLER_PROJECTION",
+              "ref": "fixture:caller-projection",
+              "digest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602"
+            },
+            {
+              "role": "NOT_REQUIRED_MODE_EVIDENCE",
+              "ref": "fixture:noEffectMode",
+              "digest": "sha256:997416025de9f2fe2e147db7e5ccac5fca24fc6fddb0fc84bcc49cf4b0fec6b1"
+            },
+            {
+              "role": "AUTHORIZATION_REQUEST",
+              "ref": "fixture:deny-request",
+              "digest": "sha256:ede54b1fb4917f7758317c8ff5bfbfb3237dd85025fe6e87721d3dd99684db3f"
+            },
+            {
+              "role": "AUTHORIZATION_RESULT",
+              "ref": "fixture:deny-result",
+              "digest": "sha256:bbcd1df5f8cb08b9d07b46bcfd5c875da52b3a1eefd952ec738d4e22d0497f6d"
+            },
+            {
+              "role": "AUTHORIZATION_TRACE",
+              "ref": "fixture:deny-trace",
+              "digest": "sha256:6d04fe5fb4473f167edb6c345f5cea3056c63a6743595814f219e6089f0fd23b"
+            },
+            {
+              "role": "QUALIFICATION_EVIDENCE",
+              "ref": "fixture:refusal-qualification",
+              "digest": "sha256:14029ce0c85ad49497b6bb6849d2c2655c6d87d992947afb3d3da54173eacf54"
+            },
+            {
+              "role": "TRANSACTION_ATTEMPT",
+              "ref": "fixture:no-effect-attempt"
+            },
+            {
+              "role": "ROLLBACK_PROOF",
+              "ref": "fixture:protected-rollback-proof",
+              "digest": "sha256:95b0f301a8042fb1d66ad624a495e55c74cb518ccc8e2fd97710cecadd0a61c8"
+            }
+          ]
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/protectedEffectRollbackProof",
+          "value": {
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:95b0f301a8042fb1d66ad624a495e55c74cb518ccc8e2fd97710cecadd0a61c8"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations",
+          "value": [
+            {
+              "transaction": {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "ROLLED_BACK",
+              "evidence": {
+                "ref": "fixture:protected-rollback-status",
+                "digest": "sha256:fa36fed000a64000a5529c903edc04873dbd9faed79d6f4998889a6053dcc15a"
+              }
+            },
+            {
+              "transaction": {
+                "role": "SEPARATE_FAILURE_EVIDENCE_COMMIT",
+                "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+                "transactionStatusLookupKey": "fixture:failure-evidence-status",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "COMMITTED",
+              "evidence": {
+                "ref": "fixture:failure-commit-status",
+                "digest": "sha256:d3722e6c0327d5be8b1b0149e6ee37a44e2c86f58dafa884dc26b318b0eb475e"
+              }
+            }
+          ]
+        },
+        {
+          "op": "set",
+          "path": "/externalRecords/fixture:protected-rollback-proof/opaqueOwnerExtension",
+          "value": {
+            "unmaterialized": true,
+            "fictionalValue": "retained"
+          }
+        }
+      ],
+      "rehash": true
     }
   ],
   "negativeCases": [
@@ -6411,6 +6600,2020 @@
       ],
       "rehash": true,
       "error": "COMMON_BINDING"
+    },
+    {
+      "name": "external_mode_human-mode",
+      "kind": "success",
+      "record": "receipt",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/mode"
+        },
+        {
+          "op": "set",
+          "path": "/records/consumption/value/modeEvidence/digest",
+          "value": "sha256:9e355e5a2ff291191852464fabb3743aa57988343f1e0a03a79a50e684ce6f08"
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/modeEvidence/digest",
+          "value": "sha256:9e355e5a2ff291191852464fabb3743aa57988343f1e0a03a79a50e684ce6f08"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/modeEvidence/digest",
+          "value": "sha256:9e355e5a2ff291191852464fabb3743aa57988343f1e0a03a79a50e684ce6f08"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/membership/6/digest",
+          "value": "sha256:9e355e5a2ff291191852464fabb3743aa57988343f1e0a03a79a50e684ce6f08"
+        },
+        {
+          "op": "set",
+          "path": "/externalRecords/fixture:mode",
+          "value": {
+            "schemaVersion": "ofarm.notRequiredModeEvidence.v0.1",
+            "notRequiredModeEvidenceId": "fixture:mode",
+            "operation": {
+              "logicalOperationId": "fixture:logical-operation",
+              "operationBinding": {
+                "ref": "fixture:operation-binding",
+                "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+              },
+              "callerSubmissionProjectionDigest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602",
+              "effectIntentDigest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "attempt": {
+              "transactionAttemptId": "fixture:success-attempt",
+              "attemptSequence": 1,
+              "transactionStartedAt": "2026-01-01T00:00:00Z",
+              "transactionDeadline": "2026-01-01T00:00:30Z",
+              "transactionSnapshot": {
+                "ref": "fixture:success-attempt-snapshot",
+                "digest": "sha256:9620463eae05bff2df534500e2cedf21740aac9f7f20f09844b0238afcdeba92"
+              },
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "guardPolicyBinding": {
+                "ref": "fixture:guard-policy",
+                "digest": "sha256:52f5cbc8f9ebcb110b7a08c617652854aa846bd6d898b7f5daf18d8e65de4c19"
+              },
+              "transactionStatusLookupKey": "fixture:status:success-attempt",
+              "transactionTimePolicyBinding": {
+                "ref": "fixture:unbound-time-policy",
+                "digest": "sha256:9355c52e94340885700f2c1def6e2226706eb6cfbf8d36284cdc89e414c5a326"
+              }
+            },
+            "actionClass": "ASSERT_OPERATION_CLAIM",
+            "currentActionRuleBinding": {
+              "ruleId": "fixture:operation-claim-rule",
+              "ruleRef": "fixture:unmaterialized-rule",
+              "ruleRevisionSelector": {
+                "revisionRef": "fixture:rule-revision:1"
+              },
+              "ruleDigest": "sha256:11fd575f72a762ff20b8a8b244c1dbbbdb3d0271f173a3b0c9f42d69101b9bbf"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "fixture:unmaterialized-intent-schema",
+              "schemaVersion": "fixture.intent.v0.1",
+              "schemaDigest": "sha256:d559c12b665b372c4a430dc138821616f728c2a81684cdd3e34ce4286d015fc8",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "effectIntent": {
+              "ref": "fixture:full-intent",
+              "digest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+              "contractVersion": "0.1",
+              "contractRef": "fixture:unmaterialized-domain-contract",
+              "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+            },
+            "governedTransactionProfileBinding": {
+              "profileId": "ofarm.transaction.not-required-state-effect.v0.1",
+              "profileVersion": "0.1",
+              "profileRef": "fixture:unmaterialized-complete-transaction-profile",
+              "profileDigest": "sha256:ef4ce44f9f25298cca2dd31a7ee75c647e73b46623f55c77b7220c3a538d6756"
+            },
+            "humanFinalizationRequirement": "FRESH_HUMAN_APPROVAL_REQUIRED",
+            "decisionValidityPolicy": "TRANSACTION_BOUND_V0_2",
+            "consumptionPolicy": "SINGLE_USE",
+            "requestingPrincipalBinding": {
+              "resolvedPrincipalKind": "NATURAL_PERSON",
+              "authenticatedPrincipalRef": "fixture:party:farmer-alfa",
+              "principalRevisionSelector": {
+                "revisionRef": "fixture:principal-revision:1"
+              }
+            },
+            "representedPartyBinding": null,
+            "notRequiredModeEvidenceDigest": "sha256:de2a28908f54589c7ef7c6ae90490378741330462242eb4d85e61c64e30c97ab",
+            "humanApproval": {
+              "ref": "fixture:unadmitted-human-approval"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/constructionOrder",
+          "value": [
+            "operation",
+            "otherOperation",
+            "noEffectMode",
+            "noEffect",
+            "passedAbortMode",
+            "passedAbort",
+            "otherPassedAbortMode",
+            "otherPassedAbort",
+            "consumption",
+            "attempt",
+            "receipt",
+            "unknown",
+            "reconciledSuccess",
+            "laterSuccess",
+            "reconciledUnknown",
+            "reconciledNoEffect",
+            "quarantine"
+          ]
+        }
+      ],
+      "rehash": true,
+      "error": "OWNED_REFERENCE_REQUIRED"
+    },
+    {
+      "name": "external_mode_wrong-digest",
+      "kind": "success",
+      "record": "receipt",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/mode"
+        },
+        {
+          "op": "set",
+          "path": "/records/consumption/value/modeEvidence/digest",
+          "value": "sha256:c4b2af4d6d0a0f3e6a5ac43561e075a0f9643721881564d8722b31339f01aeef"
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/modeEvidence/digest",
+          "value": "sha256:c4b2af4d6d0a0f3e6a5ac43561e075a0f9643721881564d8722b31339f01aeef"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/modeEvidence/digest",
+          "value": "sha256:c4b2af4d6d0a0f3e6a5ac43561e075a0f9643721881564d8722b31339f01aeef"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/membership/6/digest",
+          "value": "sha256:c4b2af4d6d0a0f3e6a5ac43561e075a0f9643721881564d8722b31339f01aeef"
+        },
+        {
+          "op": "set",
+          "path": "/externalRecords/fixture:mode",
+          "value": {
+            "schemaVersion": "ofarm.notRequiredModeEvidence.v0.1",
+            "notRequiredModeEvidenceId": "fixture:mode",
+            "operation": {
+              "logicalOperationId": "fixture:logical-operation",
+              "operationBinding": {
+                "ref": "fixture:operation-binding",
+                "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+              },
+              "callerSubmissionProjectionDigest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602",
+              "effectIntentDigest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "attempt": {
+              "transactionAttemptId": "fixture:success-attempt",
+              "attemptSequence": 1,
+              "transactionStartedAt": "2026-01-01T00:00:00Z",
+              "transactionDeadline": "2026-01-01T00:00:30Z",
+              "transactionSnapshot": {
+                "ref": "fixture:success-attempt-snapshot",
+                "digest": "sha256:9620463eae05bff2df534500e2cedf21740aac9f7f20f09844b0238afcdeba92"
+              },
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "guardPolicyBinding": {
+                "ref": "fixture:guard-policy",
+                "digest": "sha256:52f5cbc8f9ebcb110b7a08c617652854aa846bd6d898b7f5daf18d8e65de4c19"
+              },
+              "transactionStatusLookupKey": "fixture:status:success-attempt",
+              "transactionTimePolicyBinding": {
+                "ref": "fixture:unbound-time-policy",
+                "digest": "sha256:9355c52e94340885700f2c1def6e2226706eb6cfbf8d36284cdc89e414c5a326"
+              }
+            },
+            "actionClass": "ASSERT_OPERATION_CLAIM",
+            "currentActionRuleBinding": {
+              "ruleId": "fixture:operation-claim-rule",
+              "ruleRef": "fixture:unmaterialized-rule",
+              "ruleRevisionSelector": {
+                "revisionRef": "fixture:rule-revision:1"
+              },
+              "ruleDigest": "sha256:11fd575f72a762ff20b8a8b244c1dbbbdb3d0271f173a3b0c9f42d69101b9bbf"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "fixture:unmaterialized-intent-schema",
+              "schemaVersion": "fixture.intent.v0.1",
+              "schemaDigest": "sha256:d559c12b665b372c4a430dc138821616f728c2a81684cdd3e34ce4286d015fc8",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "effectIntent": {
+              "ref": "fixture:full-intent",
+              "digest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+              "contractVersion": "0.1",
+              "contractRef": "fixture:unmaterialized-domain-contract",
+              "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+            },
+            "governedTransactionProfileBinding": {
+              "profileId": "ofarm.transaction.not-required-state-effect.v0.1",
+              "profileVersion": "0.1",
+              "profileRef": "fixture:unmaterialized-complete-transaction-profile",
+              "profileDigest": "sha256:ef4ce44f9f25298cca2dd31a7ee75c647e73b46623f55c77b7220c3a538d6756"
+            },
+            "humanFinalizationRequirement": "NOT_REQUIRED",
+            "decisionValidityPolicy": "TRANSACTION_BOUND_V0_2",
+            "consumptionPolicy": "SINGLE_USE",
+            "requestingPrincipalBinding": {
+              "resolvedPrincipalKind": "NATURAL_PERSON",
+              "authenticatedPrincipalRef": "fixture:party:farmer-alfa",
+              "principalRevisionSelector": {
+                "revisionRef": "fixture:principal-revision:1"
+              }
+            },
+            "representedPartyBinding": null,
+            "notRequiredModeEvidenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/constructionOrder",
+          "value": [
+            "operation",
+            "otherOperation",
+            "noEffectMode",
+            "noEffect",
+            "passedAbortMode",
+            "passedAbort",
+            "otherPassedAbortMode",
+            "otherPassedAbort",
+            "consumption",
+            "attempt",
+            "receipt",
+            "unknown",
+            "reconciledSuccess",
+            "laterSuccess",
+            "reconciledUnknown",
+            "reconciledNoEffect",
+            "quarantine"
+          ]
+        }
+      ],
+      "rehash": true,
+      "error": "OWNED_REFERENCE_REQUIRED"
+    },
+    {
+      "name": "owned_operation_cannot_use_external_fallback",
+      "kind": "success",
+      "record": "receipt",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/operation"
+        },
+        {
+          "op": "set",
+          "path": "/records/mode/value/operation/operationBinding/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/records/consumption/value/operation/operationBinding/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/operation/operationBinding/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/operation/operationBinding/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/membership/0/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffectMode/value/operation/operationBinding/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/operation/operationBinding/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/noEffectMembership/0/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledSuccess/value/operation/operationBinding/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/records/laterSuccess/value/operation/operationBinding/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledUnknown/value/operation/operationBinding/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/operation/operationBinding/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/records/quarantine/value/operation/operationBinding/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbortMode/value/operation/operationBinding/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/operation/operationBinding/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/noEffectMembership/0/digest",
+          "value": "sha256:dd844e5dbbe16e244d97918b631384111f83230eed7972092d28881819bb6546"
+        },
+        {
+          "op": "set",
+          "path": "/externalRecords/fixture:operation-binding",
+          "value": {
+            "schemaVersion": "ofarm.notRequiredOperationBinding.v0.1",
+            "logicalOperationId": "fixture:logical-operation",
+            "operationBoundary": {
+              "kind": "TENANT",
+              "ref": "fixture:tenant-alfa",
+              "revisionSelector": {
+                "revisionRef": "fixture:tenant-revision:1"
+              }
+            },
+            "requestingPrincipalBinding": {
+              "resolvedPrincipalKind": "NATURAL_PERSON",
+              "authenticatedPrincipalRef": "fixture:party:farmer-alfa",
+              "principalRevisionSelector": {
+                "revisionRef": "fixture:principal-revision:1"
+              }
+            },
+            "representedPartyBinding": null,
+            "actionClass": "ASSERT_OPERATION_CLAIM",
+            "operationIdempotencyKeyProfile": "OFARM_OPERATION_IDEMPOTENCY_KEY_V0_1",
+            "humanFinalizationRequirement": "NOT_REQUIRED",
+            "effectIntentSchemaBinding": {
+              "schemaRef": "fixture:unmaterialized-intent-schema",
+              "schemaVersion": "fixture.intent.v0.1",
+              "schemaDigest": "sha256:d559c12b665b372c4a430dc138821616f728c2a81684cdd3e34ce4286d015fc8",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+              "contractVersion": "0.1",
+              "contractRef": "fixture:unmaterialized-domain-contract",
+              "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+            },
+            "governedTransactionProfileBinding": {
+              "profileId": "ofarm.transaction.not-required-state-effect.v0.1",
+              "profileVersion": "0.1",
+              "profileRef": "fixture:unmaterialized-complete-transaction-profile",
+              "profileDigest": "sha256:ef4ce44f9f25298cca2dd31a7ee75c647e73b46623f55c77b7220c3a538d6756"
+            },
+            "callerSubmissionProjectionProfile": "ofarm.notRequiredCallerSubmissionProjection.v0.1",
+            "callerSubmissionProjectionDigest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602",
+            "effectIntentRef": "fixture:full-intent",
+            "effectIntentDigest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398",
+            "effectIntentCanonicalization": "JCS_RFC8785_SHA256",
+            "operationIdempotencyKey": "fictional:operation:1",
+            "operationBindingDigest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/constructionOrder",
+          "value": [
+            "otherOperation",
+            "noEffectMode",
+            "noEffect",
+            "passedAbortMode",
+            "passedAbort",
+            "otherPassedAbortMode",
+            "otherPassedAbort",
+            "mode",
+            "consumption",
+            "attempt",
+            "receipt",
+            "unknown",
+            "reconciledSuccess",
+            "laterSuccess",
+            "reconciledUnknown",
+            "reconciledNoEffect",
+            "quarantine"
+          ]
+        }
+      ],
+      "rehash": true,
+      "error": "OWNED_REFERENCE_REQUIRED"
+    },
+    {
+      "name": "owned_mode_cannot_use_external_fallback",
+      "kind": "success",
+      "record": "receipt",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/mode"
+        },
+        {
+          "op": "set",
+          "path": "/records/consumption/value/modeEvidence/digest",
+          "value": "sha256:a0706efeba0e6d26dec4ecd0aafc7f9743b4a85f475563e3492e9acb35f4b9df"
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/modeEvidence/digest",
+          "value": "sha256:a0706efeba0e6d26dec4ecd0aafc7f9743b4a85f475563e3492e9acb35f4b9df"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/modeEvidence/digest",
+          "value": "sha256:a0706efeba0e6d26dec4ecd0aafc7f9743b4a85f475563e3492e9acb35f4b9df"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/membership/6/digest",
+          "value": "sha256:a0706efeba0e6d26dec4ecd0aafc7f9743b4a85f475563e3492e9acb35f4b9df"
+        },
+        {
+          "op": "set",
+          "path": "/externalRecords/fixture:mode",
+          "value": {
+            "schemaVersion": "ofarm.notRequiredModeEvidence.v0.1",
+            "notRequiredModeEvidenceId": "fixture:mode",
+            "operation": {
+              "logicalOperationId": "fixture:logical-operation",
+              "operationBinding": {
+                "ref": "fixture:operation-binding",
+                "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+              },
+              "callerSubmissionProjectionDigest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602",
+              "effectIntentDigest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "attempt": {
+              "transactionAttemptId": "fixture:success-attempt",
+              "attemptSequence": 1,
+              "transactionStartedAt": "2026-01-01T00:00:00Z",
+              "transactionDeadline": "2026-01-01T00:00:30Z",
+              "transactionSnapshot": {
+                "ref": "fixture:success-attempt-snapshot",
+                "digest": "sha256:9620463eae05bff2df534500e2cedf21740aac9f7f20f09844b0238afcdeba92"
+              },
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "guardPolicyBinding": {
+                "ref": "fixture:guard-policy",
+                "digest": "sha256:52f5cbc8f9ebcb110b7a08c617652854aa846bd6d898b7f5daf18d8e65de4c19"
+              },
+              "transactionStatusLookupKey": "fixture:status:success-attempt",
+              "transactionTimePolicyBinding": {
+                "ref": "fixture:unbound-time-policy",
+                "digest": "sha256:9355c52e94340885700f2c1def6e2226706eb6cfbf8d36284cdc89e414c5a326"
+              }
+            },
+            "actionClass": "ASSERT_OPERATION_CLAIM",
+            "currentActionRuleBinding": {
+              "ruleId": "fixture:operation-claim-rule",
+              "ruleRef": "fixture:unmaterialized-rule",
+              "ruleRevisionSelector": {
+                "revisionRef": "fixture:rule-revision:1"
+              },
+              "ruleDigest": "sha256:11fd575f72a762ff20b8a8b244c1dbbbdb3d0271f173a3b0c9f42d69101b9bbf"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "fixture:unmaterialized-intent-schema",
+              "schemaVersion": "fixture.intent.v0.1",
+              "schemaDigest": "sha256:d559c12b665b372c4a430dc138821616f728c2a81684cdd3e34ce4286d015fc8",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "effectIntent": {
+              "ref": "fixture:full-intent",
+              "digest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+              "contractVersion": "0.1",
+              "contractRef": "fixture:unmaterialized-domain-contract",
+              "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+            },
+            "governedTransactionProfileBinding": {
+              "profileId": "ofarm.transaction.not-required-state-effect.v0.1",
+              "profileVersion": "0.1",
+              "profileRef": "fixture:unmaterialized-complete-transaction-profile",
+              "profileDigest": "sha256:ef4ce44f9f25298cca2dd31a7ee75c647e73b46623f55c77b7220c3a538d6756"
+            },
+            "humanFinalizationRequirement": "NOT_REQUIRED",
+            "decisionValidityPolicy": "TRANSACTION_BOUND_V0_2",
+            "consumptionPolicy": "SINGLE_USE",
+            "requestingPrincipalBinding": {
+              "resolvedPrincipalKind": "NATURAL_PERSON",
+              "authenticatedPrincipalRef": "fixture:party:farmer-alfa",
+              "principalRevisionSelector": {
+                "revisionRef": "fixture:principal-revision:1"
+              }
+            },
+            "representedPartyBinding": null,
+            "notRequiredModeEvidenceDigest": "sha256:a7fa1e1c97be0849f6fdfc744449de9bf1e2b1d5cb554123441442f2bef512af"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/constructionOrder",
+          "value": [
+            "operation",
+            "otherOperation",
+            "noEffectMode",
+            "noEffect",
+            "passedAbortMode",
+            "passedAbort",
+            "otherPassedAbortMode",
+            "otherPassedAbort",
+            "consumption",
+            "attempt",
+            "receipt",
+            "unknown",
+            "reconciledSuccess",
+            "laterSuccess",
+            "reconciledUnknown",
+            "reconciledNoEffect",
+            "quarantine"
+          ]
+        }
+      ],
+      "rehash": true,
+      "error": "OWNED_REFERENCE_REQUIRED"
+    },
+    {
+      "name": "owned_noEffectMode_cannot_use_external_fallback",
+      "kind": "no-effect",
+      "record": "noEffect",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/noEffectMode"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/modeEvidence/digest",
+          "value": "sha256:0480c36c7c619be46003c4d4fb55e50778313d1f33dab5b6526037f422d4ec31"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/noEffectMembership/2/digest",
+          "value": "sha256:0480c36c7c619be46003c4d4fb55e50778313d1f33dab5b6526037f422d4ec31"
+        },
+        {
+          "op": "set",
+          "path": "/externalRecords/fixture:noEffectMode",
+          "value": {
+            "schemaVersion": "ofarm.notRequiredModeEvidence.v0.1",
+            "notRequiredModeEvidenceId": "fixture:noEffectMode",
+            "operation": {
+              "logicalOperationId": "fixture:logical-operation",
+              "operationBinding": {
+                "ref": "fixture:operation-binding",
+                "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+              },
+              "callerSubmissionProjectionDigest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602",
+              "effectIntentDigest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "attempt": {
+              "transactionAttemptId": "fixture:no-effect-attempt",
+              "attemptSequence": 1,
+              "transactionStartedAt": "2026-01-01T00:00:00Z",
+              "transactionDeadline": "2026-01-01T00:00:30Z",
+              "transactionSnapshot": {
+                "ref": "fixture:no-effect-attempt-snapshot",
+                "digest": "sha256:57628d8b066939fd7c1b50e3b45aab2c25fcb73f87a565a231071b419928eb8f"
+              },
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "guardPolicyBinding": {
+                "ref": "fixture:guard-policy",
+                "digest": "sha256:52f5cbc8f9ebcb110b7a08c617652854aa846bd6d898b7f5daf18d8e65de4c19"
+              },
+              "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+              "transactionTimePolicyBinding": {
+                "ref": "fixture:unbound-time-policy",
+                "digest": "sha256:9355c52e94340885700f2c1def6e2226706eb6cfbf8d36284cdc89e414c5a326"
+              }
+            },
+            "actionClass": "ASSERT_OPERATION_CLAIM",
+            "currentActionRuleBinding": {
+              "ruleId": "fixture:operation-claim-rule",
+              "ruleRef": "fixture:unmaterialized-rule",
+              "ruleRevisionSelector": {
+                "revisionRef": "fixture:rule-revision:1"
+              },
+              "ruleDigest": "sha256:11fd575f72a762ff20b8a8b244c1dbbbdb3d0271f173a3b0c9f42d69101b9bbf"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "fixture:unmaterialized-intent-schema",
+              "schemaVersion": "fixture.intent.v0.1",
+              "schemaDigest": "sha256:d559c12b665b372c4a430dc138821616f728c2a81684cdd3e34ce4286d015fc8",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "effectIntent": {
+              "ref": "fixture:full-intent",
+              "digest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+              "contractVersion": "0.1",
+              "contractRef": "fixture:unmaterialized-domain-contract",
+              "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+            },
+            "governedTransactionProfileBinding": {
+              "profileId": "ofarm.transaction.not-required-state-effect.v0.1",
+              "profileVersion": "0.1",
+              "profileRef": "fixture:unmaterialized-complete-transaction-profile",
+              "profileDigest": "sha256:ef4ce44f9f25298cca2dd31a7ee75c647e73b46623f55c77b7220c3a538d6756"
+            },
+            "humanFinalizationRequirement": "NOT_REQUIRED",
+            "decisionValidityPolicy": "TRANSACTION_BOUND_V0_2",
+            "consumptionPolicy": "SINGLE_USE",
+            "requestingPrincipalBinding": {
+              "resolvedPrincipalKind": "NATURAL_PERSON",
+              "authenticatedPrincipalRef": "fixture:party:farmer-alfa",
+              "principalRevisionSelector": {
+                "revisionRef": "fixture:principal-revision:1"
+              }
+            },
+            "representedPartyBinding": null,
+            "notRequiredModeEvidenceDigest": "sha256:997416025de9f2fe2e147db7e5ccac5fca24fc6fddb0fc84bcc49cf4b0fec6b1"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/constructionOrder",
+          "value": [
+            "operation",
+            "otherOperation",
+            "noEffect",
+            "passedAbortMode",
+            "passedAbort",
+            "otherPassedAbortMode",
+            "otherPassedAbort",
+            "mode",
+            "consumption",
+            "attempt",
+            "receipt",
+            "unknown",
+            "reconciledSuccess",
+            "laterSuccess",
+            "reconciledUnknown",
+            "reconciledNoEffect",
+            "quarantine"
+          ]
+        }
+      ],
+      "rehash": true,
+      "error": "OWNED_REFERENCE_REQUIRED"
+    },
+    {
+      "name": "owned_consumption_cannot_use_external_fallback",
+      "kind": "success",
+      "record": "receipt",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/consumption"
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/decisionConsumption/digest",
+          "value": "sha256:f004366e5f0aa72cd0dc0aa23e29c5300e7b6de00331291d67deee7a188d4730"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/decisionConsumption/digest",
+          "value": "sha256:f004366e5f0aa72cd0dc0aa23e29c5300e7b6de00331291d67deee7a188d4730"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/membership/3/digest",
+          "value": "sha256:f004366e5f0aa72cd0dc0aa23e29c5300e7b6de00331291d67deee7a188d4730"
+        },
+        {
+          "op": "set",
+          "path": "/externalRecords/fixture:consumption",
+          "value": {
+            "schemaVersion": "ofarm.notRequiredDecisionConsumption.v0.1",
+            "decisionConsumptionId": "fixture:consumption",
+            "operation": {
+              "logicalOperationId": "fixture:logical-operation",
+              "operationBinding": {
+                "ref": "fixture:operation-binding",
+                "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+              },
+              "callerSubmissionProjectionDigest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602",
+              "effectIntentDigest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "attempt": {
+              "transactionAttemptId": "fixture:success-attempt",
+              "attemptSequence": 1,
+              "transactionStartedAt": "2026-01-01T00:00:00Z",
+              "transactionDeadline": "2026-01-01T00:00:30Z",
+              "transactionSnapshot": {
+                "ref": "fixture:success-attempt-snapshot",
+                "digest": "sha256:9620463eae05bff2df534500e2cedf21740aac9f7f20f09844b0238afcdeba92"
+              },
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "guardPolicyBinding": {
+                "ref": "fixture:guard-policy",
+                "digest": "sha256:52f5cbc8f9ebcb110b7a08c617652854aa846bd6d898b7f5daf18d8e65de4c19"
+              },
+              "transactionStatusLookupKey": "fixture:status:success-attempt",
+              "transactionTimePolicyBinding": {
+                "ref": "fixture:unbound-time-policy",
+                "digest": "sha256:9355c52e94340885700f2c1def6e2226706eb6cfbf8d36284cdc89e414c5a326"
+              }
+            },
+            "actionClass": "ASSERT_OPERATION_CLAIM",
+            "currentActionRuleBinding": {
+              "ruleId": "fixture:operation-claim-rule",
+              "ruleRef": "fixture:unmaterialized-rule",
+              "ruleRevisionSelector": {
+                "revisionRef": "fixture:rule-revision:1"
+              },
+              "ruleDigest": "sha256:11fd575f72a762ff20b8a8b244c1dbbbdb3d0271f173a3b0c9f42d69101b9bbf"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "fixture:unmaterialized-intent-schema",
+              "schemaVersion": "fixture.intent.v0.1",
+              "schemaDigest": "sha256:d559c12b665b372c4a430dc138821616f728c2a81684cdd3e34ce4286d015fc8",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "effectIntent": {
+              "ref": "fixture:full-intent",
+              "digest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+              "contractVersion": "0.1",
+              "contractRef": "fixture:unmaterialized-domain-contract",
+              "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+            },
+            "governedTransactionProfileBinding": {
+              "profileId": "ofarm.transaction.not-required-state-effect.v0.1",
+              "profileVersion": "0.1",
+              "profileRef": "fixture:unmaterialized-complete-transaction-profile",
+              "profileDigest": "sha256:ef4ce44f9f25298cca2dd31a7ee75c647e73b46623f55c77b7220c3a538d6756"
+            },
+            "modeEvidence": {
+              "ref": "fixture:mode",
+              "digest": "sha256:a7fa1e1c97be0849f6fdfc744449de9bf1e2b1d5cb554123441442f2bef512af"
+            },
+            "authorizationBundle": {
+              "request": {
+                "ref": "fixture:allow-request",
+                "digest": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+              },
+              "result": {
+                "ref": "fixture:allow-result",
+                "digest": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+              },
+              "trace": {
+                "ref": "fixture:allow-trace",
+                "digest": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+              },
+              "decisionBundleDigest": "sha256:fbd612bbe8664272cf69136a7c0708a88d00f37e1f3fd8325c935509732a319c",
+              "outcome": "ALLOW"
+            },
+            "derivedAuthorizationViewDigest": "sha256:011d94a5de0bb3dfea65366b24463acef1ec7daa75669f4093a022fc69a4643e",
+            "consumingPrincipalBinding": {
+              "resolvedPrincipalKind": "NATURAL_PERSON",
+              "authenticatedPrincipalRef": "fixture:party:farmer-alfa",
+              "principalRevisionSelector": {
+                "revisionRef": "fixture:principal-revision:1"
+              }
+            },
+            "checkpoint": {
+              "authorizationEvaluatedAt": "2026-01-01T00:00:01Z",
+              "decisionValidUntil": "2026-01-01T00:00:20Z",
+              "writeAuthorizationCheckedAt": "2026-01-01T00:00:10Z",
+              "writeAuthorizationBoundary": "GUARDED_WRITE_CHECK_V0_1"
+            },
+            "consumptionPolicy": "SINGLE_USE",
+            "committedResults": [
+              {
+                "ref": "fixture:protected-result",
+                "digest": "sha256:26943eb9bd245eb44997f53f93f655a37a345ee2810edede6cb7b4cbaf146ec9"
+              }
+            ],
+            "governedEffectReceiptId": "fixture:receipt",
+            "decisionConsumptionDigest": "sha256:5ed32fe40df8b604616b71b496ad005c424446f7b80bbfcc3144cd063325112d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/constructionOrder",
+          "value": [
+            "operation",
+            "otherOperation",
+            "noEffectMode",
+            "noEffect",
+            "passedAbortMode",
+            "passedAbort",
+            "otherPassedAbortMode",
+            "otherPassedAbort",
+            "mode",
+            "attempt",
+            "receipt",
+            "unknown",
+            "reconciledSuccess",
+            "laterSuccess",
+            "reconciledUnknown",
+            "reconciledNoEffect",
+            "quarantine"
+          ]
+        }
+      ],
+      "rehash": true,
+      "error": "OWNED_REFERENCE_REQUIRED"
+    },
+    {
+      "name": "owned_attempt_cannot_use_external_fallback",
+      "kind": "reconciliation",
+      "record": "reconciledSuccess",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/attempt"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/admittedProtectedResult/attempt/digest",
+          "value": "sha256:53922700c243eca3ed9eda63553d7609a8e01ede3b3de9ad44caebdc018b2251"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/membership/2/digest",
+          "value": "sha256:53922700c243eca3ed9eda63553d7609a8e01ede3b3de9ad44caebdc018b2251"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/membership/5/digest",
+          "value": "sha256:53922700c243eca3ed9eda63553d7609a8e01ede3b3de9ad44caebdc018b2251"
+        },
+        {
+          "op": "set",
+          "path": "/externalRecords/fixture:success-attempt",
+          "value": {
+            "schemaVersion": "ofarm.notRequiredTransactionAttempt.v0.1",
+            "operation": {
+              "logicalOperationId": "fixture:logical-operation",
+              "operationBinding": {
+                "ref": "fixture:operation-binding",
+                "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+              },
+              "callerSubmissionProjectionDigest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602",
+              "effectIntentDigest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "attempt": {
+              "transactionAttemptId": "fixture:success-attempt",
+              "attemptSequence": 1,
+              "transactionStartedAt": "2026-01-01T00:00:00Z",
+              "transactionDeadline": "2026-01-01T00:00:30Z",
+              "transactionSnapshot": {
+                "ref": "fixture:success-attempt-snapshot",
+                "digest": "sha256:9620463eae05bff2df534500e2cedf21740aac9f7f20f09844b0238afcdeba92"
+              },
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "guardPolicyBinding": {
+                "ref": "fixture:guard-policy",
+                "digest": "sha256:52f5cbc8f9ebcb110b7a08c617652854aa846bd6d898b7f5daf18d8e65de4c19"
+              },
+              "transactionStatusLookupKey": "fixture:status:success-attempt",
+              "transactionTimePolicyBinding": {
+                "ref": "fixture:unbound-time-policy",
+                "digest": "sha256:9355c52e94340885700f2c1def6e2226706eb6cfbf8d36284cdc89e414c5a326"
+              }
+            },
+            "actionClass": "ASSERT_OPERATION_CLAIM",
+            "currentActionRuleBinding": {
+              "ruleId": "fixture:operation-claim-rule",
+              "ruleRef": "fixture:unmaterialized-rule",
+              "ruleRevisionSelector": {
+                "revisionRef": "fixture:rule-revision:1"
+              },
+              "ruleDigest": "sha256:11fd575f72a762ff20b8a8b244c1dbbbdb3d0271f173a3b0c9f42d69101b9bbf"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "fixture:unmaterialized-intent-schema",
+              "schemaVersion": "fixture.intent.v0.1",
+              "schemaDigest": "sha256:d559c12b665b372c4a430dc138821616f728c2a81684cdd3e34ce4286d015fc8",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "effectIntent": {
+              "ref": "fixture:full-intent",
+              "digest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+              "contractVersion": "0.1",
+              "contractRef": "fixture:unmaterialized-domain-contract",
+              "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+            },
+            "governedTransactionProfileBinding": {
+              "profileId": "ofarm.transaction.not-required-state-effect.v0.1",
+              "profileVersion": "0.1",
+              "profileRef": "fixture:unmaterialized-complete-transaction-profile",
+              "profileDigest": "sha256:ef4ce44f9f25298cca2dd31a7ee75c647e73b46623f55c77b7220c3a538d6756"
+            },
+            "outcome": "EFFECT_COMMITTED",
+            "transactionRoles": [
+              {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:success-attempt",
+                "transactionAttemptId": "fixture:success-attempt"
+              },
+              {
+                "role": "FIRST_ADMISSION_COMMIT",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:success-attempt",
+                "transactionAttemptId": "fixture:success-attempt"
+              }
+            ],
+            "reachedStages": {
+              "modeEvidence": "COMPLETED",
+              "authorization": "COMPLETED",
+              "protectedEffectValidation": "COMPLETED"
+            },
+            "modeEvidence": {
+              "ref": "fixture:mode",
+              "digest": "sha256:a7fa1e1c97be0849f6fdfc744449de9bf1e2b1d5cb554123441442f2bef512af"
+            },
+            "authorizationBundle": {
+              "request": {
+                "ref": "fixture:allow-request",
+                "digest": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+              },
+              "result": {
+                "ref": "fixture:allow-result",
+                "digest": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+              },
+              "trace": {
+                "ref": "fixture:allow-trace",
+                "digest": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+              },
+              "decisionBundleDigest": "sha256:fbd612bbe8664272cf69136a7c0708a88d00f37e1f3fd8325c935509732a319c",
+              "outcome": "ALLOW"
+            },
+            "protectedEffectValidation": {
+              "trace": {
+                "ref": "fixture:domain-validation-trace",
+                "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+              },
+              "disposition": "PASS"
+            },
+            "gateTraces": [],
+            "admittedProtectedResultBinding": {
+              "resultId": "fixture:protected-result",
+              "resultSchemaBinding": {
+                "schemaRef": "fixture:unmaterialized-result-schema",
+                "schemaVersion": "fixture.result.v0.1",
+                "schemaDigest": "sha256:ef155b5fed25e15426b1277b929788f6c3daed3761e25ded605e13cc79525cde",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              },
+              "resultDigest": "sha256:26943eb9bd245eb44997f53f93f655a37a345ee2810edede6cb7b4cbaf146ec9",
+              "protectedEffectContractBinding": {
+                "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+                "contractVersion": "0.1",
+                "contractRef": "fixture:unmaterialized-domain-contract",
+                "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+              },
+              "validationTrace": {
+                "ref": "fixture:domain-validation-trace",
+                "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+              }
+            },
+            "checkpoint": {
+              "authorizationEvaluatedAt": "2026-01-01T00:00:01Z",
+              "decisionValidUntil": "2026-01-01T00:00:20Z",
+              "writeAuthorizationCheckedAt": "2026-01-01T00:00:10Z",
+              "writeAuthorizationBoundary": "GUARDED_WRITE_CHECK_V0_1"
+            },
+            "completeGuardEvidence": {
+              "ref": "fixture:complete-guard-evidence",
+              "digest": "sha256:3c0631c6dfe2d9190f27db85c0b6508ca7641f70d19a538caa91947d11ce6621"
+            },
+            "decisionConsumption": {
+              "ref": "fixture:consumption",
+              "digest": "sha256:5ed32fe40df8b604616b71b496ad005c424446f7b80bbfcc3144cd063325112d"
+            },
+            "governedEffectReceiptId": "fixture:receipt",
+            "transactionAttemptDigest": "sha256:30d8fa063f72ba769b44e5aa0b748be95edf2fa43a7662901178826561e61bde"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/constructionOrder",
+          "value": [
+            "operation",
+            "otherOperation",
+            "noEffectMode",
+            "noEffect",
+            "passedAbortMode",
+            "passedAbort",
+            "otherPassedAbortMode",
+            "otherPassedAbort",
+            "mode",
+            "consumption",
+            "receipt",
+            "unknown",
+            "reconciledSuccess",
+            "laterSuccess",
+            "reconciledUnknown",
+            "reconciledNoEffect",
+            "quarantine"
+          ]
+        }
+      ],
+      "rehash": true,
+      "error": "OWNED_REFERENCE_REQUIRED"
+    },
+    {
+      "name": "owned_noEffect_cannot_use_external_fallback",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/noEffect"
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/resolvedNoEffectAttempt/digest",
+          "value": "sha256:deeb844e90f50b3dd9690cf9522f5e570b3b8ec71b5d11b63bb0bae2108ee1c3"
+        },
+        {
+          "op": "set",
+          "path": "/externalRecords/fixture:no-effect-attempt",
+          "value": {
+            "schemaVersion": "ofarm.notRequiredTransactionAttempt.v0.1",
+            "operation": {
+              "logicalOperationId": "fixture:logical-operation",
+              "operationBinding": {
+                "ref": "fixture:operation-binding",
+                "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+              },
+              "callerSubmissionProjectionDigest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602",
+              "effectIntentDigest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "attempt": {
+              "transactionAttemptId": "fixture:no-effect-attempt",
+              "attemptSequence": 1,
+              "transactionStartedAt": "2026-01-01T00:00:00Z",
+              "transactionDeadline": "2026-01-01T00:00:30Z",
+              "transactionSnapshot": {
+                "ref": "fixture:no-effect-attempt-snapshot",
+                "digest": "sha256:57628d8b066939fd7c1b50e3b45aab2c25fcb73f87a565a231071b419928eb8f"
+              },
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "guardPolicyBinding": {
+                "ref": "fixture:guard-policy",
+                "digest": "sha256:52f5cbc8f9ebcb110b7a08c617652854aa846bd6d898b7f5daf18d8e65de4c19"
+              },
+              "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+              "transactionTimePolicyBinding": {
+                "ref": "fixture:unbound-time-policy",
+                "digest": "sha256:9355c52e94340885700f2c1def6e2226706eb6cfbf8d36284cdc89e414c5a326"
+              }
+            },
+            "actionClass": "ASSERT_OPERATION_CLAIM",
+            "currentActionRuleBinding": {
+              "ruleId": "fixture:operation-claim-rule",
+              "ruleRef": "fixture:unmaterialized-rule",
+              "ruleRevisionSelector": {
+                "revisionRef": "fixture:rule-revision:1"
+              },
+              "ruleDigest": "sha256:11fd575f72a762ff20b8a8b244c1dbbbdb3d0271f173a3b0c9f42d69101b9bbf"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "fixture:unmaterialized-intent-schema",
+              "schemaVersion": "fixture.intent.v0.1",
+              "schemaDigest": "sha256:d559c12b665b372c4a430dc138821616f728c2a81684cdd3e34ce4286d015fc8",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "effectIntent": {
+              "ref": "fixture:full-intent",
+              "digest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+              "contractVersion": "0.1",
+              "contractRef": "fixture:unmaterialized-domain-contract",
+              "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+            },
+            "governedTransactionProfileBinding": {
+              "profileId": "ofarm.transaction.not-required-state-effect.v0.1",
+              "profileVersion": "0.1",
+              "profileRef": "fixture:unmaterialized-complete-transaction-profile",
+              "profileDigest": "sha256:ef4ce44f9f25298cca2dd31a7ee75c647e73b46623f55c77b7220c3a538d6756"
+            },
+            "outcome": "NO_EFFECT",
+            "transactionRoles": [
+              {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              {
+                "role": "FIRST_ADMISSION_COMMIT",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              }
+            ],
+            "reachedStages": {
+              "modeEvidence": "COMPLETED",
+              "authorization": "COMPLETED",
+              "protectedEffectValidation": "NOT_PERFORMED"
+            },
+            "modeEvidence": {
+              "ref": "fixture:noEffectMode",
+              "digest": "sha256:997416025de9f2fe2e147db7e5ccac5fca24fc6fddb0fc84bcc49cf4b0fec6b1"
+            },
+            "authorizationBundle": {
+              "request": {
+                "ref": "fixture:deny-request",
+                "digest": "sha256:ede54b1fb4917f7758317c8ff5bfbfb3237dd85025fe6e87721d3dd99684db3f"
+              },
+              "result": {
+                "ref": "fixture:deny-result",
+                "digest": "sha256:bbcd1df5f8cb08b9d07b46bcfd5c875da52b3a1eefd952ec738d4e22d0497f6d"
+              },
+              "trace": {
+                "ref": "fixture:deny-trace",
+                "digest": "sha256:6d04fe5fb4473f167edb6c345f5cea3056c63a6743595814f219e6089f0fd23b"
+              },
+              "decisionBundleDigest": "sha256:1e5aa834b04f97ca26855758dc63345ffa2ebd76cbe8fe09b87e8500c195d160",
+              "outcome": "DENY"
+            },
+            "gateTraces": [],
+            "noEffectConsequence": "RETRYABLE_SAME_OPERATION",
+            "failureEvidence": [],
+            "noEffectMembership": [
+              {
+                "role": "OPERATION_BINDING",
+                "ref": "fixture:operation-binding",
+                "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+              },
+              {
+                "role": "CALLER_PROJECTION",
+                "ref": "fixture:caller-projection",
+                "digest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602"
+              },
+              {
+                "role": "NOT_REQUIRED_MODE_EVIDENCE",
+                "ref": "fixture:noEffectMode",
+                "digest": "sha256:997416025de9f2fe2e147db7e5ccac5fca24fc6fddb0fc84bcc49cf4b0fec6b1"
+              },
+              {
+                "role": "AUTHORIZATION_REQUEST",
+                "ref": "fixture:deny-request",
+                "digest": "sha256:ede54b1fb4917f7758317c8ff5bfbfb3237dd85025fe6e87721d3dd99684db3f"
+              },
+              {
+                "role": "AUTHORIZATION_RESULT",
+                "ref": "fixture:deny-result",
+                "digest": "sha256:bbcd1df5f8cb08b9d07b46bcfd5c875da52b3a1eefd952ec738d4e22d0497f6d"
+              },
+              {
+                "role": "AUTHORIZATION_TRACE",
+                "ref": "fixture:deny-trace",
+                "digest": "sha256:6d04fe5fb4473f167edb6c345f5cea3056c63a6743595814f219e6089f0fd23b"
+              },
+              {
+                "role": "QUALIFICATION_EVIDENCE",
+                "ref": "fixture:refusal-qualification",
+                "digest": "sha256:14029ce0c85ad49497b6bb6849d2c2655c6d87d992947afb3d3da54173eacf54"
+              },
+              {
+                "role": "TRANSACTION_ATTEMPT",
+                "ref": "fixture:no-effect-attempt"
+              }
+            ],
+            "transactionAttemptDigest": "sha256:03400de324f803598b5c531039e8cf7c08e2b799bdd216096e2f98c1ed531b87",
+            "qualificationEvidence": [
+              {
+                "ref": "fixture:refusal-qualification",
+                "digest": "sha256:14029ce0c85ad49497b6bb6849d2c2655c6d87d992947afb3d3da54173eacf54"
+              }
+            ]
+          }
+        },
+        {
+          "op": "set",
+          "path": "/constructionOrder",
+          "value": [
+            "operation",
+            "otherOperation",
+            "noEffectMode",
+            "passedAbortMode",
+            "passedAbort",
+            "otherPassedAbortMode",
+            "otherPassedAbort",
+            "mode",
+            "consumption",
+            "attempt",
+            "receipt",
+            "unknown",
+            "reconciledSuccess",
+            "laterSuccess",
+            "reconciledUnknown",
+            "reconciledNoEffect",
+            "quarantine"
+          ]
+        }
+      ],
+      "rehash": true,
+      "error": "OWNED_REFERENCE_REQUIRED"
+    },
+    {
+      "name": "owned_receipt_cannot_use_external_fallback",
+      "kind": "reconciliation",
+      "record": "reconciledSuccess",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/receipt"
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledSuccess/value/resolvedReceipt/digest",
+          "value": "sha256:cecd07ce0f6a31d75c2848db9c9992baed52559c1385806a99baaa4b62e6df07"
+        },
+        {
+          "op": "set",
+          "path": "/records/laterSuccess/value/resolvedReceipt/digest",
+          "value": "sha256:cecd07ce0f6a31d75c2848db9c9992baed52559c1385806a99baaa4b62e6df07"
+        },
+        {
+          "op": "set",
+          "path": "/records/laterSuccess/value/laterTimeObservation/receipt/digest",
+          "value": "sha256:cecd07ce0f6a31d75c2848db9c9992baed52559c1385806a99baaa4b62e6df07"
+        },
+        {
+          "op": "set",
+          "path": "/records/quarantine/value/resolvedReceipt/digest",
+          "value": "sha256:cecd07ce0f6a31d75c2848db9c9992baed52559c1385806a99baaa4b62e6df07"
+        },
+        {
+          "op": "set",
+          "path": "/records/quarantine/value/laterTimeObservation/receipt/digest",
+          "value": "sha256:cecd07ce0f6a31d75c2848db9c9992baed52559c1385806a99baaa4b62e6df07"
+        },
+        {
+          "op": "set",
+          "path": "/externalRecords/fixture:receipt",
+          "value": {
+            "schemaVersion": "ofarm.notRequiredGovernedEffectReceipt.v0.1",
+            "governedEffectReceiptId": "fixture:receipt",
+            "operation": {
+              "logicalOperationId": "fixture:logical-operation",
+              "operationBinding": {
+                "ref": "fixture:operation-binding",
+                "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+              },
+              "callerSubmissionProjectionDigest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602",
+              "effectIntentDigest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "attempt": {
+              "transactionAttemptId": "fixture:success-attempt",
+              "attemptSequence": 1,
+              "transactionStartedAt": "2026-01-01T00:00:00Z",
+              "transactionDeadline": "2026-01-01T00:00:30Z",
+              "transactionSnapshot": {
+                "ref": "fixture:success-attempt-snapshot",
+                "digest": "sha256:9620463eae05bff2df534500e2cedf21740aac9f7f20f09844b0238afcdeba92"
+              },
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "guardPolicyBinding": {
+                "ref": "fixture:guard-policy",
+                "digest": "sha256:52f5cbc8f9ebcb110b7a08c617652854aa846bd6d898b7f5daf18d8e65de4c19"
+              },
+              "transactionStatusLookupKey": "fixture:status:success-attempt",
+              "transactionTimePolicyBinding": {
+                "ref": "fixture:unbound-time-policy",
+                "digest": "sha256:9355c52e94340885700f2c1def6e2226706eb6cfbf8d36284cdc89e414c5a326"
+              }
+            },
+            "actionClass": "ASSERT_OPERATION_CLAIM",
+            "currentActionRuleBinding": {
+              "ruleId": "fixture:operation-claim-rule",
+              "ruleRef": "fixture:unmaterialized-rule",
+              "ruleRevisionSelector": {
+                "revisionRef": "fixture:rule-revision:1"
+              },
+              "ruleDigest": "sha256:11fd575f72a762ff20b8a8b244c1dbbbdb3d0271f173a3b0c9f42d69101b9bbf"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "fixture:unmaterialized-intent-schema",
+              "schemaVersion": "fixture.intent.v0.1",
+              "schemaDigest": "sha256:d559c12b665b372c4a430dc138821616f728c2a81684cdd3e34ce4286d015fc8",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "effectIntent": {
+              "ref": "fixture:full-intent",
+              "digest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+              "contractVersion": "0.1",
+              "contractRef": "fixture:unmaterialized-domain-contract",
+              "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+            },
+            "governedTransactionProfileBinding": {
+              "profileId": "ofarm.transaction.not-required-state-effect.v0.1",
+              "profileVersion": "0.1",
+              "profileRef": "fixture:unmaterialized-complete-transaction-profile",
+              "profileDigest": "sha256:ef4ce44f9f25298cca2dd31a7ee75c647e73b46623f55c77b7220c3a538d6756"
+            },
+            "lookupTuple": {
+              "operationBoundaryKind": "TENANT",
+              "operationBoundaryRef": "fixture:tenant-alfa",
+              "authenticatedRequestingPrincipalRef": "fixture:party:farmer-alfa",
+              "representedPartyRef": null,
+              "actionClass": "ASSERT_OPERATION_CLAIM",
+              "operationIdempotencyKey": "fictional:operation:1"
+            },
+            "operationIdempotencyKeyProfile": "OFARM_OPERATION_IDEMPOTENCY_KEY_V0_1",
+            "checkpoint": {
+              "authorizationEvaluatedAt": "2026-01-01T00:00:01Z",
+              "decisionValidUntil": "2026-01-01T00:00:20Z",
+              "writeAuthorizationCheckedAt": "2026-01-01T00:00:10Z",
+              "writeAuthorizationBoundary": "GUARDED_WRITE_CHECK_V0_1"
+            },
+            "completeGuardEvidence": {
+              "ref": "fixture:complete-guard-evidence",
+              "digest": "sha256:3c0631c6dfe2d9190f27db85c0b6508ca7641f70d19a538caa91947d11ce6621"
+            },
+            "modeEvidence": {
+              "ref": "fixture:mode",
+              "digest": "sha256:a7fa1e1c97be0849f6fdfc744449de9bf1e2b1d5cb554123441442f2bef512af"
+            },
+            "authorizationBundle": {
+              "request": {
+                "ref": "fixture:allow-request",
+                "digest": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+              },
+              "result": {
+                "ref": "fixture:allow-result",
+                "digest": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+              },
+              "trace": {
+                "ref": "fixture:allow-trace",
+                "digest": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+              },
+              "decisionBundleDigest": "sha256:fbd612bbe8664272cf69136a7c0708a88d00f37e1f3fd8325c935509732a319c",
+              "outcome": "ALLOW"
+            },
+            "decisionConsumption": {
+              "ref": "fixture:consumption",
+              "digest": "sha256:5ed32fe40df8b604616b71b496ad005c424446f7b80bbfcc3144cd063325112d"
+            },
+            "consumptionPolicy": "SINGLE_USE",
+            "admittedProtectedResult": {
+              "attempt": {
+                "ref": "fixture:success-attempt",
+                "digest": "sha256:30d8fa063f72ba769b44e5aa0b748be95edf2fa43a7662901178826561e61bde"
+              },
+              "attemptSequence": 1,
+              "pointer": "/admittedProtectedResultBinding"
+            },
+            "resultSchemaBinding": {
+              "schemaRef": "fixture:unmaterialized-result-schema",
+              "schemaVersion": "fixture.result.v0.1",
+              "schemaDigest": "sha256:ef155b5fed25e15426b1277b929788f6c3daed3761e25ded605e13cc79525cde",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "committedResult": {
+              "ref": "fixture:protected-result",
+              "digest": "sha256:26943eb9bd245eb44997f53f93f655a37a345ee2810edede6cb7b4cbaf146ec9"
+            },
+            "protectedEffectValidation": {
+              "trace": {
+                "ref": "fixture:domain-validation-trace",
+                "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+              },
+              "disposition": "PASS"
+            },
+            "gateTraces": [],
+            "outcome": "EFFECT_COMMITTED",
+            "membership": [
+              {
+                "role": "OPERATION_BINDING",
+                "ref": "fixture:operation-binding",
+                "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+              },
+              {
+                "role": "CALLER_PROJECTION",
+                "ref": "fixture:caller-projection",
+                "digest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602"
+              },
+              {
+                "role": "TRANSACTION_ATTEMPT",
+                "ref": "fixture:success-attempt",
+                "digest": "sha256:30d8fa063f72ba769b44e5aa0b748be95edf2fa43a7662901178826561e61bde"
+              },
+              {
+                "role": "DECISION_CONSUMPTION",
+                "ref": "fixture:consumption",
+                "digest": "sha256:5ed32fe40df8b604616b71b496ad005c424446f7b80bbfcc3144cd063325112d"
+              },
+              {
+                "role": "PROTECTED_RESULT",
+                "ref": "fixture:protected-result",
+                "digest": "sha256:26943eb9bd245eb44997f53f93f655a37a345ee2810edede6cb7b4cbaf146ec9"
+              },
+              {
+                "role": "ADMITTED_RESULT_BINDING",
+                "ref": "fixture:success-attempt",
+                "digest": "sha256:30d8fa063f72ba769b44e5aa0b748be95edf2fa43a7662901178826561e61bde",
+                "pointer": "/admittedProtectedResultBinding"
+              },
+              {
+                "role": "NOT_REQUIRED_MODE_EVIDENCE",
+                "ref": "fixture:mode",
+                "digest": "sha256:a7fa1e1c97be0849f6fdfc744449de9bf1e2b1d5cb554123441442f2bef512af"
+              },
+              {
+                "role": "AUTHORIZATION_REQUEST",
+                "ref": "fixture:allow-request",
+                "digest": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+              },
+              {
+                "role": "AUTHORIZATION_RESULT",
+                "ref": "fixture:allow-result",
+                "digest": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+              },
+              {
+                "role": "AUTHORIZATION_TRACE",
+                "ref": "fixture:allow-trace",
+                "digest": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+              },
+              {
+                "role": "PROTECTED_EFFECT_TRACE",
+                "ref": "fixture:domain-validation-trace",
+                "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+              },
+              {
+                "role": "GOVERNED_EFFECT_RECEIPT",
+                "ref": "fixture:receipt"
+              }
+            ],
+            "governedEffectReceiptDigest": "sha256:4373269d4cedab324c2f53069c706a9940037c921f4e4b02803306b2dc47bd91"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/constructionOrder",
+          "value": [
+            "operation",
+            "otherOperation",
+            "noEffectMode",
+            "noEffect",
+            "passedAbortMode",
+            "passedAbort",
+            "otherPassedAbortMode",
+            "otherPassedAbort",
+            "mode",
+            "consumption",
+            "attempt",
+            "unknown",
+            "reconciledSuccess",
+            "laterSuccess",
+            "reconciledUnknown",
+            "reconciledNoEffect",
+            "quarantine"
+          ]
+        }
+      ],
+      "rehash": true,
+      "error": "OWNED_REFERENCE_REQUIRED"
+    },
+    {
+      "name": "prior_admission_requires_owned_attempt",
+      "kind": "no-effect",
+      "record": "noEffect",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/passedAbort"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffectMode/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "remove",
+          "path": "/records/noEffect/value/qualificationEvidence"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/reachedStages/protectedEffectValidation",
+          "value": "COMPLETED"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/authorizationBundle/request/ref",
+          "value": "fixture:allow-request"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/authorizationBundle/request/digest",
+          "value": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/authorizationBundle/result/ref",
+          "value": "fixture:allow-result"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/authorizationBundle/result/digest",
+          "value": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/authorizationBundle/trace/ref",
+          "value": "fixture:allow-trace"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/authorizationBundle/trace/digest",
+          "value": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/authorizationBundle/decisionBundleDigest",
+          "value": "sha256:fbd612bbe8664272cf69136a7c0708a88d00f37e1f3fd8325c935509732a319c"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/authorizationBundle/outcome",
+          "value": "ALLOW"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/failureEvidence",
+          "value": [
+            {
+              "ref": "fixture:post-checkpoint-abort",
+              "digest": "sha256:5e6e6c7abf309efc37f0acdc453dd81d54210de9bbc2c36c8eb31c6fd9ce8cd1"
+            }
+          ]
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/noEffectMembership",
+          "value": [
+            {
+              "role": "OPERATION_BINDING",
+              "ref": "fixture:operation-binding",
+              "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+            },
+            {
+              "role": "CALLER_PROJECTION",
+              "ref": "fixture:caller-projection",
+              "digest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602"
+            },
+            {
+              "role": "NOT_REQUIRED_MODE_EVIDENCE",
+              "ref": "fixture:noEffectMode",
+              "digest": "sha256:997416025de9f2fe2e147db7e5ccac5fca24fc6fddb0fc84bcc49cf4b0fec6b1"
+            },
+            {
+              "role": "AUTHORIZATION_REQUEST",
+              "ref": "fixture:allow-request",
+              "digest": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+            },
+            {
+              "role": "AUTHORIZATION_RESULT",
+              "ref": "fixture:allow-result",
+              "digest": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+            },
+            {
+              "role": "AUTHORIZATION_TRACE",
+              "ref": "fixture:allow-trace",
+              "digest": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+            },
+            {
+              "role": "PROTECTED_EFFECT_TRACE",
+              "ref": "fixture:domain-validation-trace",
+              "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+            },
+            {
+              "role": "FAILURE_TRACE",
+              "ref": "fixture:post-checkpoint-abort",
+              "digest": "sha256:5e6e6c7abf309efc37f0acdc453dd81d54210de9bbc2c36c8eb31c6fd9ce8cd1"
+            },
+            {
+              "role": "ADMITTED_RESULT_BINDING",
+              "ref": "fixture:passedAbort",
+              "digest": "sha256:b44ca7ae5eed4200581244c2517c9bf41a91296a82c90a28759c976279e33f42",
+              "pointer": "/admittedProtectedResultBinding"
+            },
+            {
+              "role": "TRANSACTION_ATTEMPT",
+              "ref": "fixture:no-effect-attempt"
+            }
+          ]
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/protectedEffectValidation",
+          "value": {
+            "trace": {
+              "ref": "fixture:domain-validation-trace",
+              "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+            },
+            "disposition": "PASS"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/checkpoint",
+          "value": {
+            "authorizationEvaluatedAt": "2026-01-01T00:00:01Z",
+            "decisionValidUntil": "2026-01-01T00:00:20Z",
+            "writeAuthorizationCheckedAt": "2026-01-01T00:00:10Z",
+            "writeAuthorizationBoundary": "GUARDED_WRITE_CHECK_V0_1"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/priorAdmittedProtectedResultBinding",
+          "value": {
+            "attempt": {
+              "ref": "fixture:passedAbort",
+              "digest": "sha256:b44ca7ae5eed4200581244c2517c9bf41a91296a82c90a28759c976279e33f42"
+            },
+            "attemptSequence": 1,
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/externalRecords/fixture:passedAbort",
+          "value": {
+            "schemaVersion": "ofarm.notRequiredTransactionAttempt.v0.1",
+            "operation": {
+              "logicalOperationId": "fixture:logical-operation",
+              "operationBinding": {
+                "ref": "fixture:operation-binding",
+                "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+              },
+              "callerSubmissionProjectionDigest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602",
+              "effectIntentDigest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "attempt": {
+              "transactionAttemptId": "fixture:passedAbort",
+              "attemptSequence": 1,
+              "transactionStartedAt": "2026-01-01T00:00:00Z",
+              "transactionDeadline": "2026-01-01T00:00:30Z",
+              "transactionSnapshot": {
+                "ref": "fixture:passedAbort-snapshot",
+                "digest": "sha256:7abfcc5b4e18fd7e853cee91229b8a5ffca5ae16faedf2a4b5ceb3750877c245"
+              },
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "guardPolicyBinding": {
+                "ref": "fixture:guard-policy",
+                "digest": "sha256:52f5cbc8f9ebcb110b7a08c617652854aa846bd6d898b7f5daf18d8e65de4c19"
+              },
+              "transactionStatusLookupKey": "fixture:status:passedAbort",
+              "transactionTimePolicyBinding": {
+                "ref": "fixture:unbound-time-policy",
+                "digest": "sha256:9355c52e94340885700f2c1def6e2226706eb6cfbf8d36284cdc89e414c5a326"
+              }
+            },
+            "actionClass": "ASSERT_OPERATION_CLAIM",
+            "currentActionRuleBinding": {
+              "ruleId": "fixture:operation-claim-rule",
+              "ruleRef": "fixture:unmaterialized-rule",
+              "ruleRevisionSelector": {
+                "revisionRef": "fixture:rule-revision:1"
+              },
+              "ruleDigest": "sha256:11fd575f72a762ff20b8a8b244c1dbbbdb3d0271f173a3b0c9f42d69101b9bbf"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "fixture:unmaterialized-intent-schema",
+              "schemaVersion": "fixture.intent.v0.1",
+              "schemaDigest": "sha256:d559c12b665b372c4a430dc138821616f728c2a81684cdd3e34ce4286d015fc8",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "effectIntent": {
+              "ref": "fixture:full-intent",
+              "digest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+              "contractVersion": "0.1",
+              "contractRef": "fixture:unmaterialized-domain-contract",
+              "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+            },
+            "governedTransactionProfileBinding": {
+              "profileId": "ofarm.transaction.not-required-state-effect.v0.1",
+              "profileVersion": "0.1",
+              "profileRef": "fixture:unmaterialized-complete-transaction-profile",
+              "profileDigest": "sha256:ef4ce44f9f25298cca2dd31a7ee75c647e73b46623f55c77b7220c3a538d6756"
+            },
+            "outcome": "NO_EFFECT",
+            "transactionRoles": [
+              {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:passedAbort",
+                "transactionAttemptId": "fixture:passedAbort"
+              },
+              {
+                "role": "FIRST_ADMISSION_COMMIT",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:passedAbort",
+                "transactionAttemptId": "fixture:passedAbort"
+              }
+            ],
+            "reachedStages": {
+              "modeEvidence": "COMPLETED",
+              "authorization": "COMPLETED",
+              "protectedEffectValidation": "COMPLETED"
+            },
+            "modeEvidence": {
+              "ref": "fixture:passedAbortMode",
+              "digest": "sha256:40985b8a6fc6388e843118943c34c229e273100a6cfd25f1c15690d4fa477234"
+            },
+            "authorizationBundle": {
+              "request": {
+                "ref": "fixture:allow-request",
+                "digest": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+              },
+              "result": {
+                "ref": "fixture:allow-result",
+                "digest": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+              },
+              "trace": {
+                "ref": "fixture:allow-trace",
+                "digest": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+              },
+              "decisionBundleDigest": "sha256:fbd612bbe8664272cf69136a7c0708a88d00f37e1f3fd8325c935509732a319c",
+              "outcome": "ALLOW"
+            },
+            "gateTraces": [],
+            "noEffectConsequence": "RETRYABLE_SAME_OPERATION",
+            "failureEvidence": [
+              {
+                "ref": "fixture:post-checkpoint-abort",
+                "digest": "sha256:5e6e6c7abf309efc37f0acdc453dd81d54210de9bbc2c36c8eb31c6fd9ce8cd1"
+              }
+            ],
+            "noEffectMembership": [
+              {
+                "role": "OPERATION_BINDING",
+                "ref": "fixture:operation-binding",
+                "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+              },
+              {
+                "role": "CALLER_PROJECTION",
+                "ref": "fixture:caller-projection",
+                "digest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602"
+              },
+              {
+                "role": "NOT_REQUIRED_MODE_EVIDENCE",
+                "ref": "fixture:passedAbortMode",
+                "digest": "sha256:40985b8a6fc6388e843118943c34c229e273100a6cfd25f1c15690d4fa477234"
+              },
+              {
+                "role": "AUTHORIZATION_REQUEST",
+                "ref": "fixture:allow-request",
+                "digest": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+              },
+              {
+                "role": "AUTHORIZATION_RESULT",
+                "ref": "fixture:allow-result",
+                "digest": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+              },
+              {
+                "role": "AUTHORIZATION_TRACE",
+                "ref": "fixture:allow-trace",
+                "digest": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+              },
+              {
+                "role": "PROTECTED_EFFECT_TRACE",
+                "ref": "fixture:domain-validation-trace",
+                "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+              },
+              {
+                "role": "FAILURE_TRACE",
+                "ref": "fixture:post-checkpoint-abort",
+                "digest": "sha256:5e6e6c7abf309efc37f0acdc453dd81d54210de9bbc2c36c8eb31c6fd9ce8cd1"
+              },
+              {
+                "role": "TRANSACTION_ATTEMPT",
+                "ref": "fixture:passedAbort"
+              }
+            ],
+            "transactionAttemptDigest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3",
+            "protectedEffectValidation": {
+              "trace": {
+                "ref": "fixture:domain-validation-trace",
+                "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+              },
+              "disposition": "PASS"
+            },
+            "admittedProtectedResultBinding": {
+              "resultId": "fixture:protected-result",
+              "resultSchemaBinding": {
+                "schemaRef": "fixture:unmaterialized-result-schema",
+                "schemaVersion": "fixture.result.v0.1",
+                "schemaDigest": "sha256:ef155b5fed25e15426b1277b929788f6c3daed3761e25ded605e13cc79525cde",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              },
+              "resultDigest": "sha256:26943eb9bd245eb44997f53f93f655a37a345ee2810edede6cb7b4cbaf146ec9",
+              "protectedEffectContractBinding": {
+                "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+                "contractVersion": "0.1",
+                "contractRef": "fixture:unmaterialized-domain-contract",
+                "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+              },
+              "validationTrace": {
+                "ref": "fixture:domain-validation-trace",
+                "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+              }
+            },
+            "checkpoint": {
+              "authorizationEvaluatedAt": "2026-01-01T00:00:01Z",
+              "decisionValidUntil": "2026-01-01T00:00:20Z",
+              "writeAuthorizationCheckedAt": "2026-01-01T00:00:10Z",
+              "writeAuthorizationBoundary": "GUARDED_WRITE_CHECK_V0_1"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/constructionOrder",
+          "value": [
+            "operation",
+            "otherOperation",
+            "noEffectMode",
+            "noEffect",
+            "passedAbortMode",
+            "otherPassedAbortMode",
+            "otherPassedAbort",
+            "mode",
+            "consumption",
+            "attempt",
+            "receipt",
+            "unknown",
+            "reconciledSuccess",
+            "laterSuccess",
+            "reconciledUnknown",
+            "reconciledNoEffect",
+            "quarantine"
+          ]
+        }
+      ],
+      "rehash": true,
+      "error": "OWNED_REFERENCE_REQUIRED"
+    },
+    {
+      "name": "owned_operation_requires_expected_profile",
+      "kind": "success",
+      "record": "receipt",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/receipt/value/operation/operationBinding/ref",
+          "value": "fixture:mode"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/operation/operationBinding/digest",
+          "value": "sha256:a7fa1e1c97be0849f6fdfc744449de9bf1e2b1d5cb554123441442f2bef512af"
+        }
+      ],
+      "rehash": true,
+      "error": "REFERENCE_PROFILE"
+    },
+    {
+      "name": "owned_mode_requires_expected_profile",
+      "kind": "success",
+      "record": "receipt",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/receipt/value/modeEvidence/ref",
+          "value": "fixture:consumption"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/modeEvidence/digest",
+          "value": "sha256:5ed32fe40df8b604616b71b496ad005c424446f7b80bbfcc3144cd063325112d"
+        }
+      ],
+      "rehash": true,
+      "error": "REFERENCE_PROFILE"
+    },
+    {
+      "name": "owned_consumption_requires_expected_profile",
+      "kind": "success",
+      "record": "receipt",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/receipt/value/decisionConsumption/ref",
+          "value": "fixture:mode"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/decisionConsumption/digest",
+          "value": "sha256:a7fa1e1c97be0849f6fdfc744449de9bf1e2b1d5cb554123441442f2bef512af"
+        }
+      ],
+      "rehash": true,
+      "error": "REFERENCE_PROFILE"
+    },
+    {
+      "name": "owned_attempt_requires_expected_profile",
+      "kind": "success",
+      "record": "receipt",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/receipt/value/membership/2/ref",
+          "value": "fixture:mode"
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/membership/2/digest",
+          "value": "sha256:a7fa1e1c97be0849f6fdfc744449de9bf1e2b1d5cb554123441442f2bef512af"
+        }
+      ],
+      "rehash": true,
+      "error": "REFERENCE_PROFILE"
+    },
+    {
+      "name": "owned_receipt_requires_expected_profile",
+      "kind": "reconciliation",
+      "record": "reconciledSuccess",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/reconciledSuccess/value/resolvedReceipt/ref",
+          "value": "fixture:mode"
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledSuccess/value/resolvedReceipt/digest",
+          "value": "sha256:a7fa1e1c97be0849f6fdfc744449de9bf1e2b1d5cb554123441442f2bef512af"
+        }
+      ],
+      "rehash": true,
+      "error": "REFERENCE_PROFILE"
     }
   ],
   "canonicalizationVectors": [

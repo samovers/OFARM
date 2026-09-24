@@ -122,12 +122,17 @@ def binding(definition, record, carrier_ref=None):
     return {'ref': record_id(definition, record, carrier_ref), 'digest': record[PROFILES[definition]['selfDigestMember']]}
 
 
-def resolve(data, value):
+def resolve(data, value, expected_definition=None):
     for item in data['records'].values():
         definition, record = item['definition'], item['value']
         if record_id(definition, record, item['recordRef']) == value['ref']:
+            require(expected_definition is None or definition == expected_definition, 'REFERENCE_PROFILE')
+            if expected_definition is not None:
+                validate_shape(definition, record)
+                verify_digest(definition, record)
             require(binding(definition, record, item['recordRef']) == {k: value[k] for k in ('ref', 'digest')}, 'REFERENCE_DIGEST')
             return record
+    require(expected_definition is None, 'OWNED_REFERENCE_REQUIRED')
     external = data['externalRecords'].get(value['ref'])
     require(external is not None and digest(external) == value['digest'], 'FIXTURE_REFERENCE')
     return external  # Only fictional bytes are checked; no foreign owner semantics.
@@ -174,7 +179,7 @@ def tuple_from(operation):
 
 def check_operation(data, record):
     identity = record['operation']
-    operation = resolve(data, identity['operationBinding'])
+    operation = resolve(data, identity['operationBinding'], 'operationBinding')
     require(identity['logicalOperationId'] == operation['logicalOperationId'], 'OPERATION_IDENTITY')
     for key in ('callerSubmissionProjectionDigest', 'effectIntentDigest'):
         require(identity[key] == operation[key], 'OPERATION_IDENTITY')
@@ -199,9 +204,7 @@ def check_admitted_result(data, attempt):
                      'pointer': '/admittedProtectedResultBinding'}
     else:
         reference = attempt['priorAdmittedProtectedResultBinding']
-        owner = resolve(data, reference['attempt'])
-        validate_shape('transactionAttempt', owner)
-        verify_digest('transactionAttempt', owner)
+        owner = resolve(data, reference['attempt'], 'transactionAttempt')
         require(reference['attempt'] == binding('transactionAttempt', owner), 'ADMISSION_BINDING')
         require(reference['attemptSequence'] == owner['attempt']['attemptSequence'] < attempt['attempt']['attemptSequence'], 'ADMISSION_SEQUENCE')
         require(owner['outcome'] == 'NO_EFFECT', 'ADMISSION_OUTCOME')
@@ -255,15 +258,15 @@ def check_common_binding(record, other):
 def receipt_attempt(data, receipt):
     attempts = [m for m in receipt['membership'] if m['role'] == 'TRANSACTION_ATTEMPT']
     require(len(attempts) == 1, 'MEMBERSHIP')
-    return resolve(data, attempts[0])
+    return resolve(data, attempts[0], 'transactionAttempt')
 
 
 def verify_success(data, name):
     receipt = data['records'][name]['value']
     operation = check_operation(data, receipt)
     require(receipt['lookupTuple'] == tuple_from(operation), 'LOOKUP_TUPLE')
-    mode = resolve(data, receipt['modeEvidence'])
-    consumption = resolve(data, receipt['decisionConsumption'])
+    mode = resolve(data, receipt['modeEvidence'], 'modeEvidence')
+    consumption = resolve(data, receipt['decisionConsumption'], 'decisionConsumption')
     require(consumption['consumingPrincipalBinding'] == mode['requestingPrincipalBinding'], 'CONSUMER_BINDING')
     check_mode_identity(mode, operation)
     attempt = receipt_attempt(data, receipt)
@@ -300,7 +303,7 @@ def verify_no_effect(data, name):
     record = data['records'][name]['value']
     operation = check_operation(data, record)
     if 'modeEvidence' in record:
-        mode = resolve(data, record['modeEvidence'])
+        mode = resolve(data, record['modeEvidence'], 'modeEvidence')
         require(mode['operation'] == record['operation'] and mode['attempt'] == record['attempt'], 'MODE_BINDING')
         check_common_binding(mode, record)
         check_mode_identity(mode, operation)
@@ -335,7 +338,7 @@ def verify_reconciliation(data, name):
         require(observation['transaction']['transactionAttemptId'] == record['transactionAttemptId'], 'STATUS_ATTEMPT')
         resolve(data, observation['evidence'])
     if 'resolvedReceipt' in record:
-        receipt = resolve(data, record['resolvedReceipt'])
+        receipt = resolve(data, record['resolvedReceipt'], 'governedEffectReceipt')
         require(record['operation'] == receipt['operation'] and record['transactionAttemptId'] == receipt['attempt']['transactionAttemptId'] and record['attemptSequence'] == receipt['attempt']['attemptSequence'], 'RECONCILIATION_BINDING')
         if record['resolution'] == 'EFFECT_COMMITTED':
             attempt = receipt_attempt(data, receipt)
@@ -343,7 +346,7 @@ def verify_reconciliation(data, name):
             require_transaction_status(record, {'role':'PROTECTED_EFFECT_TRANSACTION', **receipt['attempt']}, 'COMMITTED')
             require_declared_statuses(record, attempt)
     if 'resolvedNoEffectAttempt' in record:
-        attempt = resolve(data, record['resolvedNoEffectAttempt'])
+        attempt = resolve(data, record['resolvedNoEffectAttempt'], 'transactionAttempt')
         require(attempt['outcome'] == 'NO_EFFECT' and record['operation'] == attempt['operation'] and record['transactionAttemptId'] == attempt['attempt']['transactionAttemptId'] and record['attemptSequence'] == attempt['attempt']['attemptSequence'], 'RECONCILIATION_BINDING')
         evidence_role = next((r for r in attempt['transactionRoles'] if r['role'] == 'SEPARATE_FAILURE_EVIDENCE_COMMIT'), None)
         protected = {'role':'PROTECTED_EFFECT_TRANSACTION', **attempt['attempt']}
