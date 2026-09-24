@@ -1,0 +1,1187 @@
+{
+  "schemaVersion": "ofarm.authorizationviewextractions.draft.v0.2",
+  "status": "DRAFT_NON_DEFAULT_INCOMPLETE_NON_EXECUTABLE",
+  "primaryTrustBoundary": "AUTHORIZATION_INPUT_INTEGRITY",
+  "descriptorMeaning": "Proposed component data, not an admitted rule format or complete ActionAuthorizationRule. The owning rule must later pin these exact descriptor bytes. The caller does not select schemas or extractors.",
+  "executionRules": {
+    "strictJSON": "Reject duplicate names and non-JSON numbers before validation.",
+    "dependencyResolution": "Verify every schema and external dependency exact-file hash, register only those bytes by the declared immutable version identity, and fail on any missing, unknown or changed reference. No network retrieval.",
+    "validationOrder": [
+      "STRICT_JSON",
+      "SCHEMA_AND_DEPENDENCY_BINDING",
+      "ROOT_SCHEMA",
+      "COMPONENT_INTEGRITY_CHECKS",
+      "IDENTITY_EXTRACTION",
+      "JCS_RFC8785_SHA256_COMPLETE_INTENT"
+    ],
+    "conditions": "Each when/allOf item tests exact equality at its one literal JSON Pointer; no wildcard, normalization or fallback. A false condition disables that mapping only.",
+    "optionalSource": "For required=false only an absent source skips a mapping; null or malformed present values still fail schema validation. No default value is supplied.",
+    "pointers": "An active required source resolves exactly once. Validate each destination pointer and reject duplicate or ancestor/descendant destination writes among active mappings; build intermediate containers only to hold selected values. The output has no other facts.",
+    "identity": "Copy the complete selected JSON value unchanged; do not resolve refs, inject trusted facts, normalize, derive authority or repair conflicts.",
+    "digest": "Canonicalize the complete schema-valid input without removing any member. The digest is held by the surrounding request/evidence, not an intent self-digest.",
+    "failure": "Any dependency, parse, schema, component, pointer, conflict or canonicalization failure is input-integrity failure; it never becomes ALLOW or foreign-proof PASS."
+  },
+  "profiles": [
+    {
+      "profileId": "EI_OPERATION_ASSERTION_V0_2",
+      "actionClass": "ASSERT_OPERATION_CLAIM",
+      "intentSchemaBinding": {
+        "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+        "canonicalization": "JCS_RFC8785_SHA256",
+        "profileId": "EI_OPERATION_ASSERTION_V0_2"
+      },
+      "schemaDigestBasis": "EXACT_FILE_BYTES_SHA256",
+      "dependencySchemaBindings": [
+        {
+          "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+          "schemaVersion": "ofarm.assertionrecord.v0.2",
+          "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "digestBasis": "EXACT_FILE_BYTES_SHA256",
+          "repositoryPath": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json"
+        }
+      ],
+      "mappings": [
+        {
+          "mappingId": "R0_SCOPE_resourceRole",
+          "sourcePointer": "/resources/0/resourceRole",
+          "destinationPointer": "/resources/0/resourceRole",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_resourcePosture",
+          "sourcePointer": "/resources/0/resourcePosture",
+          "destinationPointer": "/resources/0/resourcePosture",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_tenantRef",
+          "sourcePointer": "/resources/0/tenantRef",
+          "destinationPointer": "/resources/0/tenantRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_authorizationResourceProofRefs",
+          "sourcePointer": "/resources/0/authorizationResourceProofBindings",
+          "destinationPointer": "/resources/0/authorizationResourceProofRefs",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeType",
+          "sourcePointer": "/resources/0/scope/scopeType",
+          "destinationPointer": "/resources/0/scopeType",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeRef",
+          "sourcePointer": "/resources/0/scope/scopeRef",
+          "destinationPointer": "/resources/0/scopeRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeRevisionRef",
+          "sourcePointer": "/resources/0/scope/revisionRef",
+          "destinationPointer": "/resources/0/scopeRevisionRef",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeDigest",
+          "sourcePointer": "/resources/0/scope/digest",
+          "destinationPointer": "/resources/0/scopeDigest",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "R0_SCOPE_twin",
+          "sourcePointer": "/resources/0/twin",
+          "destinationPointer": "/resources/0/twin",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceKind",
+          "sourcePointer": "/resources/0/scope/scopeType",
+          "destinationPointer": "/resources/0/resourceKind",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceRef",
+          "sourcePointer": "/resources/0/scope/scopeRef",
+          "destinationPointer": "/resources/0/resourceRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceRevisionRef",
+          "sourcePointer": "/resources/0/scope/revisionRef",
+          "destinationPointer": "/resources/0/resourceRevisionRef",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceDigest",
+          "sourcePointer": "/resources/0/scope/digest",
+          "destinationPointer": "/resources/0/resourceDigest",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "ES_subjectKind",
+          "sourcePointer": "/effectSubject/subjectKind",
+          "destinationPointer": "/effectSubject/subjectKind",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "ES_subjectRef",
+          "sourcePointer": "/effectSubject/subjectRef",
+          "destinationPointer": "/effectSubject/subjectRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "ES_existencePosture",
+          "sourcePointer": "/effectSubject/existencePosture",
+          "destinationPointer": "/effectSubject/existencePosture",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "ES_PROOFS",
+          "sourcePointer": "/effectSubject/effectSubjectProofBindings",
+          "destinationPointer": "/effectSubject/effectSubjectProofRefs",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "ES_TIME",
+          "sourcePointer": "/subjectTime",
+          "destinationPointer": "/effectSubject/subjectTime",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_scopeType",
+          "sourcePointer": "/resources/0/scope/scopeType",
+          "destinationPointer": "/context/scopeType",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_scopeRef",
+          "sourcePointer": "/resources/0/scope/scopeRef",
+          "destinationPointer": "/context/scopeRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_tenantRef",
+          "sourcePointer": "/resources/0/tenantRef",
+          "destinationPointer": "/context/tenantRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_twin",
+          "sourcePointer": "/resources/0/twin",
+          "destinationPointer": "/context/twin",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "PURPOSE",
+          "sourcePointer": "/authorizationUsePurpose",
+          "destinationPointer": "/requestedUsePurpose",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "scopeProofBindings",
+          "sourcePointer": "/scopeProofBindings",
+          "destinationPointer": "/scopeProofBindings",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "dataSovereigntyBoundaryBindings",
+          "sourcePointer": "/dataSovereigntyBoundaryBindings",
+          "destinationPointer": "/dataSovereigntyBoundaryBindings",
+          "transformation": "IDENTITY",
+          "required": false
+        }
+      ]
+    },
+    {
+      "profileId": "EI_DATA_READ_V0_2",
+      "actionClass": "RECEIVE_READ_DATA",
+      "intentSchemaBinding": {
+        "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/data-read-effect-intent/v0.2",
+        "schemaVersion": "ofarm.datareadeffectintent.v0.2",
+        "schemaDigest": "sha256:36057b520e421537eab4488c8c44bceb9a6caca1508e6f796e9da4d0e499e66d",
+        "canonicalization": "JCS_RFC8785_SHA256",
+        "profileId": "EI_DATA_READ_V0_2"
+      },
+      "schemaDigestBasis": "EXACT_FILE_BYTES_SHA256",
+      "dependencySchemaBindings": [
+        {
+          "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+          "schemaVersion": "ofarm.assertionrecord.v0.2",
+          "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "digestBasis": "EXACT_FILE_BYTES_SHA256",
+          "repositoryPath": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json"
+        }
+      ],
+      "mappings": [
+        {
+          "mappingId": "R0_SCOPE_resourceRole",
+          "sourcePointer": "/resources/0/resourceRole",
+          "destinationPointer": "/resources/0/resourceRole",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "SCOPE"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_SCOPE_resourcePosture",
+          "sourcePointer": "/resources/0/resourcePosture",
+          "destinationPointer": "/resources/0/resourcePosture",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "SCOPE"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_SCOPE_tenantRef",
+          "sourcePointer": "/resources/0/tenantRef",
+          "destinationPointer": "/resources/0/tenantRef",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "SCOPE"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_SCOPE_authorizationResourceProofRefs",
+          "sourcePointer": "/resources/0/authorizationResourceProofBindings",
+          "destinationPointer": "/resources/0/authorizationResourceProofRefs",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "SCOPE"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeType",
+          "sourcePointer": "/resources/0/scope/scopeType",
+          "destinationPointer": "/resources/0/scopeType",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "SCOPE"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeRef",
+          "sourcePointer": "/resources/0/scope/scopeRef",
+          "destinationPointer": "/resources/0/scopeRef",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "SCOPE"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeRevisionRef",
+          "sourcePointer": "/resources/0/scope/revisionRef",
+          "destinationPointer": "/resources/0/scopeRevisionRef",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "SCOPE"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeDigest",
+          "sourcePointer": "/resources/0/scope/digest",
+          "destinationPointer": "/resources/0/scopeDigest",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "SCOPE"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_SCOPE_twin",
+          "sourcePointer": "/resources/0/twin",
+          "destinationPointer": "/resources/0/twin",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "SCOPE"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceKind",
+          "sourcePointer": "/resources/0/scope/scopeType",
+          "destinationPointer": "/resources/0/resourceKind",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "SCOPE"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceRef",
+          "sourcePointer": "/resources/0/scope/scopeRef",
+          "destinationPointer": "/resources/0/resourceRef",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "SCOPE"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceRevisionRef",
+          "sourcePointer": "/resources/0/scope/revisionRef",
+          "destinationPointer": "/resources/0/resourceRevisionRef",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "SCOPE"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceDigest",
+          "sourcePointer": "/resources/0/scope/digest",
+          "destinationPointer": "/resources/0/resourceDigest",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "SCOPE"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_RECORD_resourceRole",
+          "sourcePointer": "/resources/0/resourceRole",
+          "destinationPointer": "/resources/0/resourceRole",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "RECORD"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_RECORD_resourcePosture",
+          "sourcePointer": "/resources/0/resourcePosture",
+          "destinationPointer": "/resources/0/resourcePosture",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "RECORD"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_RECORD_tenantRef",
+          "sourcePointer": "/resources/0/tenantRef",
+          "destinationPointer": "/resources/0/tenantRef",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "RECORD"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_RECORD_authorizationResourceProofRefs",
+          "sourcePointer": "/resources/0/authorizationResourceProofBindings",
+          "destinationPointer": "/resources/0/authorizationResourceProofRefs",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "RECORD"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_RECORD_scopeType",
+          "sourcePointer": "/resources/0/scope/scopeType",
+          "destinationPointer": "/resources/0/scopeType",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "RECORD"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_RECORD_scopeRef",
+          "sourcePointer": "/resources/0/scope/scopeRef",
+          "destinationPointer": "/resources/0/scopeRef",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "RECORD"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_RECORD_scopeRevisionRef",
+          "sourcePointer": "/resources/0/scope/revisionRef",
+          "destinationPointer": "/resources/0/scopeRevisionRef",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "RECORD"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_RECORD_scopeDigest",
+          "sourcePointer": "/resources/0/scope/digest",
+          "destinationPointer": "/resources/0/scopeDigest",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "RECORD"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_RECORD_twin",
+          "sourcePointer": "/resources/0/twin",
+          "destinationPointer": "/resources/0/twin",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "RECORD"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_RECORD_resourceKind",
+          "sourcePointer": "/resources/0/resourceKind",
+          "destinationPointer": "/resources/0/resourceKind",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "RECORD"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_RECORD_resourceRef",
+          "sourcePointer": "/resources/0/resourceBinding/ref",
+          "destinationPointer": "/resources/0/resourceRef",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "RECORD"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_RECORD_resourceRevisionRef",
+          "sourcePointer": "/resources/0/resourceBinding/revisionRef",
+          "destinationPointer": "/resources/0/resourceRevisionRef",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "RECORD"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R0_RECORD_resourceDigest",
+          "sourcePointer": "/resources/0/resourceBinding/digest",
+          "destinationPointer": "/resources/0/resourceDigest",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/resources/0/targetType",
+                "equals": "RECORD"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R1_RECORD_resourceRole",
+          "sourcePointer": "/resources/1/resourceRole",
+          "destinationPointer": "/resources/1/resourceRole",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R1_RECORD_resourcePosture",
+          "sourcePointer": "/resources/1/resourcePosture",
+          "destinationPointer": "/resources/1/resourcePosture",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R1_RECORD_tenantRef",
+          "sourcePointer": "/resources/1/tenantRef",
+          "destinationPointer": "/resources/1/tenantRef",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R1_RECORD_authorizationResourceProofRefs",
+          "sourcePointer": "/resources/1/authorizationResourceProofBindings",
+          "destinationPointer": "/resources/1/authorizationResourceProofRefs",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R1_RECORD_scopeType",
+          "sourcePointer": "/resources/1/scope/scopeType",
+          "destinationPointer": "/resources/1/scopeType",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R1_RECORD_scopeRef",
+          "sourcePointer": "/resources/1/scope/scopeRef",
+          "destinationPointer": "/resources/1/scopeRef",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R1_RECORD_scopeRevisionRef",
+          "sourcePointer": "/resources/1/scope/revisionRef",
+          "destinationPointer": "/resources/1/scopeRevisionRef",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R1_RECORD_scopeDigest",
+          "sourcePointer": "/resources/1/scope/digest",
+          "destinationPointer": "/resources/1/scopeDigest",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R1_RECORD_twin",
+          "sourcePointer": "/resources/1/twin",
+          "destinationPointer": "/resources/1/twin",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R1_RECORD_resourceKind",
+          "sourcePointer": "/resources/1/resourceKind",
+          "destinationPointer": "/resources/1/resourceKind",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R1_RECORD_resourceRef",
+          "sourcePointer": "/resources/1/resourceBinding/ref",
+          "destinationPointer": "/resources/1/resourceRef",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R1_RECORD_resourceRevisionRef",
+          "sourcePointer": "/resources/1/resourceBinding/revisionRef",
+          "destinationPointer": "/resources/1/resourceRevisionRef",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R1_RECORD_resourceDigest",
+          "sourcePointer": "/resources/1/resourceBinding/digest",
+          "destinationPointer": "/resources/1/resourceDigest",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R2_RECORD_resourceRole",
+          "sourcePointer": "/resources/2/resourceRole",
+          "destinationPointer": "/resources/2/resourceRole",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R2_RECORD_resourcePosture",
+          "sourcePointer": "/resources/2/resourcePosture",
+          "destinationPointer": "/resources/2/resourcePosture",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R2_RECORD_tenantRef",
+          "sourcePointer": "/resources/2/tenantRef",
+          "destinationPointer": "/resources/2/tenantRef",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R2_RECORD_authorizationResourceProofRefs",
+          "sourcePointer": "/resources/2/authorizationResourceProofBindings",
+          "destinationPointer": "/resources/2/authorizationResourceProofRefs",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R2_RECORD_scopeType",
+          "sourcePointer": "/resources/2/scope/scopeType",
+          "destinationPointer": "/resources/2/scopeType",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R2_RECORD_scopeRef",
+          "sourcePointer": "/resources/2/scope/scopeRef",
+          "destinationPointer": "/resources/2/scopeRef",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R2_RECORD_scopeRevisionRef",
+          "sourcePointer": "/resources/2/scope/revisionRef",
+          "destinationPointer": "/resources/2/scopeRevisionRef",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R2_RECORD_scopeDigest",
+          "sourcePointer": "/resources/2/scope/digest",
+          "destinationPointer": "/resources/2/scopeDigest",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R2_RECORD_twin",
+          "sourcePointer": "/resources/2/twin",
+          "destinationPointer": "/resources/2/twin",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R2_RECORD_resourceKind",
+          "sourcePointer": "/resources/2/resourceKind",
+          "destinationPointer": "/resources/2/resourceKind",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R2_RECORD_resourceRef",
+          "sourcePointer": "/resources/2/resourceBinding/ref",
+          "destinationPointer": "/resources/2/resourceRef",
+          "transformation": "IDENTITY",
+          "required": true,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R2_RECORD_resourceRevisionRef",
+          "sourcePointer": "/resources/2/resourceBinding/revisionRef",
+          "destinationPointer": "/resources/2/resourceRevisionRef",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "R2_RECORD_resourceDigest",
+          "sourcePointer": "/resources/2/resourceBinding/digest",
+          "destinationPointer": "/resources/2/resourceDigest",
+          "transformation": "IDENTITY",
+          "required": false,
+          "when": {
+            "allOf": [
+              {
+                "pointer": "/readForm",
+                "equals": "QUERY"
+              }
+            ]
+          }
+        },
+        {
+          "mappingId": "ES_subjectKind",
+          "sourcePointer": "/effectSubject/subjectKind",
+          "destinationPointer": "/effectSubject/subjectKind",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "ES_subjectRef",
+          "sourcePointer": "/effectSubject/subjectRef",
+          "destinationPointer": "/effectSubject/subjectRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "ES_existencePosture",
+          "sourcePointer": "/effectSubject/existencePosture",
+          "destinationPointer": "/effectSubject/existencePosture",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "ES_PROOFS",
+          "sourcePointer": "/effectSubject/effectSubjectProofBindings",
+          "destinationPointer": "/effectSubject/effectSubjectProofRefs",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_scopeType",
+          "sourcePointer": "/resources/0/scope/scopeType",
+          "destinationPointer": "/context/scopeType",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_scopeRef",
+          "sourcePointer": "/resources/0/scope/scopeRef",
+          "destinationPointer": "/context/scopeRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_tenantRef",
+          "sourcePointer": "/resources/0/tenantRef",
+          "destinationPointer": "/context/tenantRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_twin",
+          "sourcePointer": "/resources/0/twin",
+          "destinationPointer": "/context/twin",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "PURPOSE",
+          "sourcePointer": "/authorizationUsePurpose",
+          "destinationPointer": "/requestedUsePurpose",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "scopeProofBindings",
+          "sourcePointer": "/scopeProofBindings",
+          "destinationPointer": "/scopeProofBindings",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "dataSovereigntyBoundaryBindings",
+          "sourcePointer": "/dataSovereigntyBoundaryBindings",
+          "destinationPointer": "/dataSovereigntyBoundaryBindings",
+          "transformation": "IDENTITY",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "componentIntegrityRequirements": [
+    {
+      "id": "TIME_ORDER",
+      "appliesTo": "EI_OPERATION_ASSERTION_V0_2",
+      "requirement": "Canonical calendar-valid timestamps; any subject/body interval start is strictly before end with exact nanosecond precision."
+    },
+    {
+      "id": "BODY_TIME_EQUALITY",
+      "appliesTo": "EI_OPERATION_ASSERTION_V0_2",
+      "requirement": "When /assertionBody/temporalBasis/sourceKind is BODY_TIME, its /time object equals /subjectTime exactly. External payload/evidence time equality is deferred to actual immutable resolution."
+    },
+    {
+      "id": "SUBJECT_SCOPE_PROOF",
+      "appliesTo": "EI_OPERATION_ASSERTION_V0_2",
+      "requirement": "Compare /subject to /resources/0/scope using exact kind, ref and selector. If an EXISTING_SUBJECT is identical, subjectScopeProofBindings is absent; otherwise it is nonempty. No resolver success is inferred."
+    },
+    {
+      "id": "CORRECTION_SELF_REFERENCE",
+      "appliesTo": "EI_OPERATION_ASSERTION_V0_2",
+      "requirement": "If present, /supersedesAssertionRecordBinding/ref differs from /effectSubject/subjectRef."
+    }
+  ],
+  "applicability": {
+    "scopeKinds": [
+      "FARM",
+      "SITE",
+      "FIELD",
+      "ZONE",
+      "CROP_CYCLE",
+      "LOT",
+      "FACILITY",
+      "OPERATION",
+      "DEPLOYMENT",
+      "TENANT"
+    ],
+    "recordArtifactReadKinds": [
+      "OBSERVATION",
+      "EVIDENCE_RECORD",
+      "STRUCTURE_ASSERTION",
+      "OPERATION_ASSERTION",
+      "COMPLIANCE_ASSERTION",
+      "INTERVENTION_PLAN",
+      "EXECUTION_REPORT",
+      "REVIEW_REQUEST",
+      "REVIEW_DECISION",
+      "PACK_INSTALLATION",
+      "PACK_ACTIVATION_SET",
+      "DOCUMENT_ASSEMBLY",
+      "DOSSIER_ASSEMBLY",
+      "SUBMISSION_ASSEMBLY",
+      "EVIDENCE_BUNDLE",
+      "CURRENT_STATE_MATERIALIZATION",
+      "SHARING_GRANT",
+      "REVOCATION_DECISION",
+      "PASSPORT_VIEW",
+      "AUTHORIZATION_TRACE"
+    ],
+    "twin": {
+      "encoding": [
+        "COMPLIANCE",
+        "ADVISORY"
+      ],
+      "presence": "Optional shape for every resource kind; PR11 \u00a7\u00a77.5/8.3 require it where applicable but give no exhaustive kind-to-twin predicate. Actual immutable resource/context proof must establish applicability and presence/value; absence here is not an all-clear. Do not invent a kind-only rule.",
+      "authorityContextSource": "/resources/0/twin",
+      "otherInputs": "Each integrity input binds its own context; it never changes the authority target context."
+    },
+    "subjectTime": {
+      "EI_OPERATION_ASSERTION_V0_2": "Required /subjectTime, exactly the three frozen operation profiles, independently of anchor kind.",
+      "EI_DATA_READ_V0_2": "No read-action domain occurrence time is selected by PR11; top-level subjectTime is absent for all 30 targets. Historical query time remains in immutable query/plan bytes, not an authorization clock. New read-domain time meaning requires owner closure."
+    }
+  },
+  "deferredObligations": [
+    "TWIN_APPLICABILITY_AND_RESOURCE_CONTEXT_PROOF",
+    "IMMUTABLE_RESOURCE_QUERY_POLICY_AND_PROOF_RESOLUTION",
+    "QUERY_TARGET_AND_PROJECTION_COMPATIBILITY",
+    "FOREIGN_TIME_AND_OFFLINE_ACT_TRUST",
+    "DOMAIN_EVENT_ASSOCIATION_PREDICATES_AND_EVENT_INGRESS",
+    "CORRECTION_PRIOR_INGRESS_AND_SNAPSHOT_PROOF",
+    "GENERIC_PROTECTED_EFFECT_VALIDATION_ENVELOPE",
+    "FULL_THREE_ASSERTION_DOMAIN_BINDING_CLOSURE",
+    "COMPLETE_SELECTED_RULES_RELEVANT_STATE_PROJECTION_AND_RELEASE_MANIFEST",
+    "AUTHORITY_CP2_HISTORY_RETENTION_TRANSACTION_AND_DISCLOSURE_PROOFS"
+  ]
+}

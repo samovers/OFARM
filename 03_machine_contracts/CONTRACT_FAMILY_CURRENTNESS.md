@@ -215,3 +215,10 @@ AssertionRecord adds one draft carrier/body schema under
 `drafts_non_default/assertion_record_submission/`. AssertionRecord v0.1
 remains current/default. This component supplies no executable protected-effect
 binding, currentness promotion or runtime authority.
+
+## AuthorizationPolicyBundle v0.2 effect-intent component (draft/non-default)
+
+Two intent schemas and identity-only extraction descriptors are proposed under
+`drafts_non_default/authorization_policy_bundle/effect_intents/`. The component
+has no current/default schema, complete resolved rule or executable bundle.
+All existing family/default selections remain unchanged.

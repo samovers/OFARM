@@ -1,0 +1,255 @@
+{
+  "schemaVersion": "ofarm.authorizationEffectIntent.componentManifest.v0.2",
+  "contractFamily": "AuthorizationPolicyBundle",
+  "componentId": "ofarm.authorization-policy-bundle.effect-intents.v0.2-draft",
+  "status": "DRAFT_NON_DEFAULT",
+  "activeLaw": false,
+  "promotedToCurrentDefault": false,
+  "executable": false,
+  "selectedReleaseClosureComplete": false,
+  "completeResolvedRule": false,
+  "primaryTrustBoundary": "authorization-input integrity",
+  "stackedDependency": {
+    "pr": "https://github.com/samovers/OFARM/pull/41",
+    "head": "bfd15b98c48f70e679824005c62adf4241dd8b22",
+    "initialTargetBranch": "contracts/assertion-record-submission-v0-2",
+    "status": "PROPOSED_EXACT_BYTE_INPUT_NOT_RUNTIME_ADMISSION"
+  },
+  "profiles": [
+    {
+      "profileId": "EI_OPERATION_ASSERTION_V0_2",
+      "actionClass": "ASSERT_OPERATION_CLAIM",
+      "schemaPointer": "#",
+      "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_OperationAssertionEffectIntent_schema_v0_2.json",
+      "byteSha256": "66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+      "jcsDigest": "sha256:6cf428ced81b4143d982f8c3e46046e0032e6d366908bb66a4b58bc0dbd788b2",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2"
+    },
+    {
+      "profileId": "EI_DATA_READ_V0_2",
+      "actionClass": "RECEIVE_READ_DATA",
+      "schemaPointer": "#",
+      "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_DataReadEffectIntent_schema_v0_2.json",
+      "byteSha256": "36057b520e421537eab4488c8c44bceb9a6caca1508e6f796e9da4d0e499e66d",
+      "jcsDigest": "sha256:6371aca6119325c0b3ce69e88223d7cf003046357550bed9d7423406741550a9",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/data-read-effect-intent/v0.2"
+    }
+  ],
+  "extractionDescriptors": {
+    "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/authorization_view_extractions_v0_2.json",
+    "byteSha256": "5325370abca68ac3b29e28a9acdf2bfc0df01f596122b07b80377db359cf94d4",
+    "jcsDigest": "sha256:70e1fc2db1fb0880d0d8164066afc593afd7034055c18dd3dfe0aa878da9afb4"
+  },
+  "extractionLimit": "Declarative identity-only field selection from schema-valid fictional inputs; not a complete rule, trusted-fact producer or authority evaluator.",
+  "schemaDependencies": [
+    {
+      "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json",
+      "byteSha256": "3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+      "jcsDigest": "sha256:5533886be44edcad0713ccf9116ef7357fb4903496d1ef9452d5c3e042a445a2",
+      "schemaId": "https://ofarm.dev/schema/assertionrecord/v0.2",
+      "referencedPointers": [
+        "/$defs/INTENDED_WINDOW",
+        "/$defs/PERFORMED_INSTANT",
+        "/$defs/PERFORMED_INTERVAL",
+        "/$defs/anchorScope",
+        "/$defs/canonicalTimestamp",
+        "/$defs/immutableBinding",
+        "/$defs/intendedTimeBasis",
+        "/$defs/logicalRef",
+        "/$defs/operationClaimBody",
+        "/$defs/operationClaimContext/properties/claimPosture",
+        "/$defs/operationClaimContext/properties/performedByPartyRef",
+        "/$defs/operationClaimContext/properties/performerAuthorityEvidenceBindings",
+        "/$defs/operationClaimContext/properties/softwareAgentActorshipBindings",
+        "/$defs/operationTime",
+        "/$defs/performedInstantEvidenceBasis",
+        "/$defs/performedIntervalBasis",
+        "/$defs/subject"
+      ],
+      "inputStatus": "proposed exact-byte dependency; schema-worker checkpoint accepted for combined integration; not an admitted runtime input",
+      "limit": "Reuse operation body and compatible shapes only. Result root also carries selected-path assertor/result state and is not an intent schema. Integrator owns combined review."
+    }
+  ],
+  "dependencyResolution": "Only explicitly pinned local schema bytes; no network retrieval, mutable latest lookup or fallback schema.",
+  "integrity": {
+    "canonicalization": "JCS_RFC8785_SHA256",
+    "encoding": "UTF-8",
+    "instanceProjection": "Complete intent object; no excluded or self-digest member.",
+    "duplicateJsonNames": "REJECT_BEFORE_OBJECT_MODEL",
+    "unknownClosedMembers": "REJECT"
+  },
+  "sourceInputs": [
+    {
+      "pr": 11,
+      "head": "2b46dbed647981a55704fd69fe06b92b7240be37",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/authorization_constraints_and_decision_evidence_rfc_candidate_v0_2.md",
+      "sha256": "23feaaeff0ff47678eed8d44e661184e1f7e53db91b6abb42c115be71e7f6632",
+      "role": "primary semantic input",
+      "url": "https://github.com/samovers/OFARM/blob/2b46dbed647981a55704fd69fe06b92b7240be37/package_meta/history/clean_baseline_migration/phase_reports/authorization_constraints_and_decision_evidence_rfc_candidate_v0_2.md"
+    },
+    {
+      "pr": 23,
+      "head": "a0a06ad99516790d5b908d5de330591691dd0dcd",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+      "sha256": "0d654293a5e4a9f0b3b1efa5a9025f34d0a335c3f2f2fb2299c9e5538e6ff999",
+      "role": "primary semantic input",
+      "url": "https://github.com/samovers/OFARM/blob/a0a06ad99516790d5b908d5de330591691dd0dcd/package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md"
+    },
+    {
+      "pr": 26,
+      "head": "0d8123d3e6ded25a92c271cd8379030524208086",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_and_consumption_protocol_rfc_candidate_v0_1.md",
+      "sha256": "dcae358c76742f93964a9aa348808351a763d355b51fab3707994a3bd0714165",
+      "role": "separately owned transaction guardrail; no implementation in this component",
+      "url": "https://github.com/samovers/OFARM/blob/0d8123d3e6ded25a92c271cd8379030524208086/package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_and_consumption_protocol_rfc_candidate_v0_1.md"
+    },
+    {
+      "pr": 38,
+      "head": "028c398dc193e71f1f24b14a1302688edd67a365",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_time_and_attempt_binding_proposal_v0_1.md",
+      "sha256": "732d1b8740d03f3835903fa4b3f31b8752a953739b6a748f95ee1fc4d0d33433",
+      "role": "separately owned transaction guardrail; no implementation in this component",
+      "url": "https://github.com/samovers/OFARM/blob/028c398dc193e71f1f24b14a1302688edd67a365/package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_time_and_attempt_binding_proposal_v0_1.md"
+    },
+    {
+      "pr": 39,
+      "head": "6ec9f6650c3848083742c7039ac7a673b4375c8b",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/not_required_write_authorization_boundary_proposal_v0_1.md",
+      "sha256": "657065d9ec482fe9a9d07b6fffb7b26cc55a185b9b2d0409ddbd6af10145c672",
+      "role": "separately owned transaction guardrail; no implementation in this component",
+      "url": "https://github.com/samovers/OFARM/blob/6ec9f6650c3848083742c7039ac7a673b4375c8b/package_meta/history/clean_baseline_migration/phase_reports/not_required_write_authorization_boundary_proposal_v0_1.md"
+    }
+  ],
+  "coverage": {
+    "operation": {
+      "profile": "EI_OPERATION_ASSERTION_V0_2",
+      "resourcePolicy": "RP_SCOPE_ONE",
+      "authorityRole": "TARGET_SCOPE",
+      "scopeKinds": [
+        "FARM",
+        "SITE",
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "LOT",
+        "FACILITY",
+        "OPERATION",
+        "DEPLOYMENT",
+        "TENANT"
+      ],
+      "effectSubjectKind": "OPERATION_ASSERTION",
+      "claimPostures": [
+        "INTENDED",
+        "PERFORMED"
+      ],
+      "subjectTimeProfiles": [
+        "INTENDED_WINDOW",
+        "PERFORMED_INSTANT",
+        "PERFORMED_INTERVAL"
+      ],
+      "assertionPostures": [
+        "INITIAL",
+        "CORRECTION"
+      ],
+      "actPostures": [
+        "TRUSTED_ONLINE_SUBMISSION",
+        "VERIFIED_OFFLINE_SUBMISSION"
+      ]
+    },
+    "read": {
+      "profile": "EI_DATA_READ_V0_2",
+      "resourcePolicy": "RP_READ_TARGET_ONE",
+      "authorityRole": "READ_TARGET",
+      "scopeKinds": [
+        "FARM",
+        "SITE",
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "LOT",
+        "FACILITY",
+        "OPERATION",
+        "DEPLOYMENT",
+        "TENANT"
+      ],
+      "recordArtifactKinds": [
+        "OBSERVATION",
+        "EVIDENCE_RECORD",
+        "STRUCTURE_ASSERTION",
+        "OPERATION_ASSERTION",
+        "COMPLIANCE_ASSERTION",
+        "INTERVENTION_PLAN",
+        "EXECUTION_REPORT",
+        "REVIEW_REQUEST",
+        "REVIEW_DECISION",
+        "PACK_INSTALLATION",
+        "PACK_ACTIVATION_SET",
+        "DOCUMENT_ASSEMBLY",
+        "DOSSIER_ASSEMBLY",
+        "SUBMISSION_ASSEMBLY",
+        "EVIDENCE_BUNDLE",
+        "CURRENT_STATE_MATERIALIZATION",
+        "SHARING_GRANT",
+        "REVOCATION_DECISION",
+        "PASSPORT_VIEW",
+        "AUTHORIZATION_TRACE"
+      ],
+      "targetKindCount": 30,
+      "authorityTargetCardinality": 1,
+      "directForm": {
+        "QUERY_SPECIFICATION": 0,
+        "QUERY_PLAN": 0
+      },
+      "queryForm": {
+        "QUERY_SPECIFICATION": 1,
+        "QUERY_PLAN": 1,
+        "posture": "INTEGRITY_INPUT"
+      },
+      "effectSubjectKind": "DATA_DISCLOSURE",
+      "stateEffectBinding": "NO_STATE_EFFECT",
+      "protectedStreamingAllowed": false,
+      "receiptTargetAllowed": false
+    }
+  },
+  "unmaterializedDependencies": [
+    {
+      "id": "TWIN_APPLICABILITY",
+      "owner": "authorization resource/context-proof owner",
+      "blocks": "executable applicability guarantee",
+      "requirement": "The source gives no exhaustive kind-to-twin applicability predicate. Optional twin encoding is not proof of non-applicability; actual immutable resource/context proof must establish applicability and required presence/value."
+    },
+    {
+      "id": "M3",
+      "owner": "existing AssertionRecord domain integrator, separate domain follow-up",
+      "blocks": "full protected-effect binding, not reference-shape draft work",
+      "requirement": "PR23 \u00a77.3 requires body-selected event time pointers and subtype/dominant-consequence compatibility predicates. Frozen body checkpoint explicitly leaves them open. Encode optional association binding as input, forbid INTENDED_WINDOW association under current envelope, but do not invent event classification or mark other association branches semantically closed."
+    },
+    {
+      "id": "M4",
+      "owner": "domain identity/source-resolution, shared evidence/time-trust and prior-ingress evidence owners",
+      "blocks": "offline assertion trust, correction proof and executable binding",
+      "requirement": "Exact assertion-act evidence/time-trust contract and immutable prior creation/ingress proof. A typed revision/digest selector proves neither timestamp trust nor committed prior existence. Actual identity admission must establish that a prospective subject is not an existing registered identity; local target/context non-collision is insufficient. Foreign temporal endpoints must already be canonical and exactly string-equal to subjectTime, without normalization. Source timeBasis eligibility, posture compatibility and absent-qualifier meaning remain unclosed; fixed pointers cannot admit record/result/capture-time substitution, and other versioned payload context cannot override the designated temporalBasis."
+    },
+    {
+      "id": "M5",
+      "owner": "AuthorizationFinalizationEvidence shared evidence owner",
+      "blocks": "executable protected-effect binding",
+      "requirement": "Actual immutable shared protected-effect validation trace/receipt envelope with real ref/version/digest, generic integrity rules and a slot for PR23 assertion-specific AR_*/PC_* payload. Existing finalization recordBinding is not this envelope. No new event family."
+    },
+    {
+      "id": "M6",
+      "owner": "AuthorizationPolicyBundle integration/binding review",
+      "blocks": "admission, promotion and runtime",
+      "requirement": "Both complete rules and relevant-state projections, source-path semantics, evidence/CP2/history/retention bindings, transaction profiles, and reviewed manifest; read NO_STATE_EFFECT is not a no-evidence exception. PR23 full contract names three assertion intent/body bindings; the selected two-action component must not silently rewrite it as operation-only. Closure review must justify any deferred unrelated action-specific bindings, or commission them separately."
+    },
+    {
+      "id": "M7",
+      "owner": "PR37 read transaction owner / OFARM2#392 and CP2/retention owners",
+      "blocks": "actual protected disclosure",
+      "requirement": "Same-snapshot complete coverage, buffered payload/receipt evidence, trusted retention selection, initiation/settlement/disclosure protocol. No invented PR37 pin; ownership reference comes from pinned PR11 \u00a718.5.1."
+    }
+  ],
+  "fixturePath": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_AuthorizationEffectIntent_cases_v0_2.json",
+  "runnerPath": "04_implementation_and_conformance/conformance_runners/ofarm_authorization_effect_intents_v0_2.py",
+  "fixtureVerificationLimit": "Input shape, local identity extraction, dependency bytes and complete-intent digests only; no foreign resolution, authority, evidence trust, disclosure or transaction proof."
+}
