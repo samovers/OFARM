@@ -31,7 +31,7 @@ hardware device, scheduler, cancellation interface or second evaluator is added.
 
 | Source | Exact inspected input used here |
 | --- | --- |
-| [PR #26 protocol](https://github.com/samovers/OFARM/blob/0d8123d3e6ded25a92c271cd8379030524208086/package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_and_consumption_protocol_rfc_candidate_v0_1.md) | §§8–9 original attempt, checkpoint after step 10/before step 11, matching evidence and admissibility; §§10–11 outcomes; §21 materialization |
+| [PR #26 protocol](https://github.com/samovers/OFARM/blob/0d8123d3e6ded25a92c271cd8379030524208086/package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_and_consumption_protocol_rfc_candidate_v0_1.md) | §§5–6 original operation/intent; §§8–9 original attempt, checkpoint after step 10/before step 11, matching evidence and admissibility; §§10–11 outcomes/retry; §12 digest order; §21 materialization |
 | [PR #11 authorization](https://github.com/samovers/OFARM/blob/2b46dbed647981a55704fd69fe06b92b7240be37/package_meta/history/clean_baseline_migration/phase_reports/authorization_constraints_and_decision_evidence_rfc_candidate_v0_2.md) | §18.2 full exclusive validity minimum; §18.4.1 selected operation-claim checkpoint; §8.1 scheduled TERMINATE still binds through actual commit |
 | [PR #23 protected effect](https://github.com/samovers/OFARM/blob/a0a06ad99516790d5b908d5de330591691dd0dcd/package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md) | One PENDING_REVIEW operation-claim assertion; pre-T domain validation; §6.3 canonical UTC spelling and separate time meanings |
 | [PR #39 boundary decision v3](https://github.com/samovers/OFARM/blob/6ec9f6650c3848083742c7039ac7a673b4375c8b/package_meta/history/clean_baseline_migration/phase_reports/not_required_write_authorization_boundary_proposal_v0_1.md) | Approved checkpoint/consumption distinction; no future physical time in the atomic success set |
@@ -117,7 +117,8 @@ transactionDeadline and writeAuthorizationCheckedAt use PR #23 §6.3's existing
 canonical UTC spelling: seconds and uppercase Z; omit a zero fractional part,
 otherwise use 1–9 fractional digits with no trailing zero. This binding supports
 only **exact whole-microsecond UTC inputs**. A required cutoff with sub-microsecond
-precision makes it unavailable, even if another cutoff is earlier. Preserve all
+precision refuses the affected attempt under this binding, even if another cutoff
+is earlier. Preserve all
 upstream canonical strings; no rounding, flooring, floats or post-authorization
 normalization. For example `.12Z` is canonical, `.120000Z` is not; `.1234567Z` is
 canonical upstream but unsupported here. Precision is separate from spelling.
@@ -149,6 +150,10 @@ hosts/clocks are not claimed to be solved by two samples. Runtime admission must
 establish its actual clock accuracy/rate, UTC trust and observation contract;
 integer nanoseconds do not prove nanosecond accuracy. This proposal contains no
 measured clock-quality or production-provider clearance.
+Admission must also define prospective trust rules for a later wall-clock
+observation, including a clock step between T and that observation. Preserve
+detected trust failures and actual commit facts; do not reclassify an already
+admitted contradictory observation as absent optional evidence.
 
 The exact initial-release operation-claim rule and its profile digest must select
 the approved checkpoint semantics. A body label or this review JSON grants no
@@ -165,6 +170,10 @@ through-commit conditions stay binding. A timely checkpoint or guarded snapshot
 does not prove that predicate about future commit. The source/storage binding
 must prove it or reject the unsupported path. This unresolved storage obligation
 is not solved by clock arithmetic, and no new enforcement mechanism is claimed.
+That proof also needs the revocation owner's rules for setting effective time
+and ordering writes; lock order alone is not proof. Those bindings remain with the
+source/storage and authority owners. Post-commit quarantine handles an observed
+breach; it does not permit a knowingly invalid write path.
 
 After possible effect/COMMIT dispatch, clock expiry alone proves neither rollback
 nor NO_EFFECT. Preserve actual status, block unsafe reapplication and reconcile
@@ -240,7 +249,9 @@ python3 package_meta/history/clean_baseline_migration/phase_reports/check_not_re
 It checks this closed policy object, strict arithmetic, original-origin
 non-reopening, canonical/precision examples and illustrative checkpoint/outcome
 cases. It assumes governed D, trusted provenance, guards and status; it cannot
-prove those assumptions. No real clock, database, runtime or network is used.
+prove those assumptions or validate the evaluator's full-cutoff/minimum pipeline.
+The hosted repository workflows do not run this standalone checker; report its
+local results separately. No real clock, database, runtime or network is used.
 Actual clock quality, suspend/pause behavior, factory provenance, transaction
 identity, scheduled-termination enforcement, guards and atomic outcomes need
 separately approved real production-path tests in isolated disposable databases.

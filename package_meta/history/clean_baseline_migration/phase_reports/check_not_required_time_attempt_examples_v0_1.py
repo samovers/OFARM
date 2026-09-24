@@ -93,7 +93,8 @@ def completion(status, checkpoint, t_us=29_000_000, observed_commit_us=None,
 def main():
     blocks = re.findall(r"```json\n(.*?)\n```", DOCUMENT.read_text(), re.S)
     assert len(blocks) == 1, "one closed policy object required"
-    assert json.loads(blocks[0]) == POLICY, "candidate policy changed"
+    actual = json.dumps(json.loads(blocks[0]), sort_keys=True)
+    assert actual == json.dumps(POLICY, sort_keys=True), "candidate policy value or type changed"
     arithmetic = [
         ("ordinary", (30_000_000, 2_000_000, 2_000_000_000), {}, True),
         ("just_before", (30_000_000, 29_999_999, 29_999_999_999), {}, True),
@@ -143,10 +144,6 @@ def main():
     ]
     for value, expected in spellings:
         assert supported_utc(value) is expected, value
-    # Every required end must be representable, even a non-minimum one.
-    assert not all(supported_utc(s) for s in (
-        "2030-01-01T00:00:05Z", "2030-01-01T00:00:29.1234567Z"
-    ))
     passed = gate(30_000_000, 29_000_000, 29_000_000_000)
     refused = gate(30_000_000, 30_000_000, 30_000_000_000)
     outcomes = [
@@ -170,7 +167,7 @@ def main():
         "result": "PASS", "kind": "FICTIONAL_DESIGN_EXAMPLES_ONLY",
         "policyObjectChecks": 1, "arithmeticCases": len(arithmetic),
         "fixedOriginNonReopeningChecks": grid_checks,
-        "utcEncodingAndPrecisionCases": len(spellings) + 1,
+        "utcEncodingAndPrecisionCases": len(spellings),
         "checkpointOutcomeCases": len(outcomes),
         "realClockDatabaseRuntimeTests": False,
         "clockTrustGuardsStatusOrCommitTimingProved": False,
