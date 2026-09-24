@@ -1,0 +1,212 @@
+{
+  "schemaVersion": "ofarm.authorizationFinalizationEvidence.componentManifest.v0.2",
+  "contractFamily": "AuthorizationFinalizationEvidence",
+  "componentId": "ofarm.authorization-finalization-evidence.not-required-transaction-component.v0.2-draft",
+  "status": "DRAFT_NON_DEFAULT",
+  "activeLaw": false,
+  "promotedToCurrentDefault": false,
+  "executable": false,
+  "selectedReleaseClosureComplete": false,
+  "selectedActionClass": "ASSERT_OPERATION_CLAIM",
+  "eventClassificationIfSeparatelyAdmitted": {
+    "eventFamily": "EvidenceEvent",
+    "commitClass": "evidence record"
+  },
+  "schemaPath": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/OFARM_AuthorizationFinalizationEvidence_not_required_schema_v0_2.json",
+  "schemaByteSha256": "cfd8b67644edc39da92edf77a48c6002d353be71641ac512cd0eb0d24d0ebee5",
+  "schemaJcsDigest": "sha256:62d08a9d30f9e4e2aa25fb3ecdf4c883f336109963bf42e635d3f06a31e9e3e3",
+  "profiles": [
+    {
+      "definition": "callerSubmissionProjection",
+      "profileTag": "ofarm.notRequiredCallerSubmissionProjection.v0.1",
+      "schemaPointer": "#/$defs/callerSubmissionProjection",
+      "rootEvidenceRecord": false,
+      "identityPointer": null,
+      "identityCarrier": "AUXILIARY_OBJECT",
+      "selfDigestMember": null,
+      "provisionalSentinel": null
+    },
+    {
+      "definition": "operationBinding",
+      "profileTag": "NOT_REQUIRED_OPERATION_BINDING_V0_1",
+      "schemaPointer": "#/$defs/operationBinding",
+      "rootEvidenceRecord": true,
+      "identityPointer": null,
+      "identityCarrier": "EXTERNAL_IMMUTABLE_REFERENCE",
+      "selfDigestMember": "operationBindingDigest",
+      "provisionalSentinel": "ofarm:pending-operation-binding-digest"
+    },
+    {
+      "definition": "modeEvidence",
+      "profileTag": "NOT_REQUIRED_MODE_EVIDENCE_V0_1",
+      "schemaPointer": "#/$defs/modeEvidence",
+      "rootEvidenceRecord": true,
+      "identityPointer": "/notRequiredModeEvidenceId",
+      "identityCarrier": "NAMED_RECORD_MEMBER",
+      "selfDigestMember": "notRequiredModeEvidenceDigest",
+      "provisionalSentinel": "ofarm:pending-not-required-mode-evidence-digest"
+    },
+    {
+      "definition": "transactionAttempt",
+      "profileTag": "NOT_REQUIRED_TRANSACTION_ATTEMPT_V0_1",
+      "schemaPointer": "#/$defs/transactionAttempt",
+      "rootEvidenceRecord": true,
+      "identityPointer": "/attempt/transactionAttemptId",
+      "identityCarrier": "NAMED_RECORD_MEMBER",
+      "selfDigestMember": "transactionAttemptDigest",
+      "provisionalSentinel": "ofarm:pending-transaction-attempt-digest"
+    },
+    {
+      "definition": "decisionConsumption",
+      "profileTag": "NOT_REQUIRED_DECISION_CONSUMPTION_V0_1",
+      "schemaPointer": "#/$defs/decisionConsumption",
+      "rootEvidenceRecord": true,
+      "identityPointer": "/decisionConsumptionId",
+      "identityCarrier": "NAMED_RECORD_MEMBER",
+      "selfDigestMember": "decisionConsumptionDigest",
+      "provisionalSentinel": "ofarm:pending-decision-consumption-digest"
+    },
+    {
+      "definition": "governedEffectReceipt",
+      "profileTag": "NOT_REQUIRED_GOVERNED_EFFECT_RECEIPT_V0_1",
+      "schemaPointer": "#/$defs/governedEffectReceipt",
+      "rootEvidenceRecord": true,
+      "identityPointer": "/governedEffectReceiptId",
+      "identityCarrier": "NAMED_RECORD_MEMBER",
+      "selfDigestMember": "governedEffectReceiptDigest",
+      "provisionalSentinel": "ofarm:pending-governed-effect-receipt-digest"
+    },
+    {
+      "definition": "reconciliationEvidence",
+      "profileTag": "NOT_REQUIRED_RECONCILIATION_EVIDENCE_V0_1",
+      "schemaPointer": "#/$defs/reconciliationEvidence",
+      "rootEvidenceRecord": true,
+      "identityPointer": "/reconciliationEvidenceId",
+      "identityCarrier": "NAMED_RECORD_MEMBER",
+      "selfDigestMember": "reconciliationEvidenceDigest",
+      "provisionalSentinel": "ofarm:pending-reconciliation-evidence-digest"
+    }
+  ],
+  "integrity": {
+    "canonicalization": "JCS_RFC8785_SHA256",
+    "encoding": "UTF-8",
+    "unknownClosedRecordMembers": "REJECT",
+    "duplicateJsonNames": "REJECT_BEFORE_OBJECT_MODEL",
+    "selfDigestProjection": "Remove exactly the named top-level member, no nested exclusion.",
+    "callerProjection": "Hash the entire auxiliary object; retain all callerEffectIntent members.",
+    "constructionOrder": [
+      "operationBinding",
+      "modeEvidence",
+      "decisionConsumption",
+      "transactionAttempt",
+      "governedEffectReceipt"
+    ],
+    "identifierOnlyReferences": [
+      "consumption to future receipt",
+      "attempt to future receipt",
+      "receipt self-membership",
+      "no-effect attempt self-membership"
+    ]
+  },
+  "sourceInputs": [
+    {
+      "pr": 11,
+      "head": "2b46dbed647981a55704fd69fe06b92b7240be37",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/authorization_constraints_and_decision_evidence_rfc_candidate_v0_2.md",
+      "sha256": "23feaaeff0ff47678eed8d44e661184e1f7e53db91b6abb42c115be71e7f6632",
+      "url": "https://github.com/samovers/OFARM/blob/2b46dbed647981a55704fd69fe06b92b7240be37/package_meta/history/clean_baseline_migration/phase_reports/authorization_constraints_and_decision_evidence_rfc_candidate_v0_2.md"
+    },
+    {
+      "pr": 20,
+      "head": "98f8c4fafbae42c8f7fd931f43f53adcb4733713",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/governed_human_approval_transaction_and_consumption_protocol_rfc_candidate_v0_1.md",
+      "sha256": "08ad9d8d768c60e43520f0d431d930d865da44756abf7178bc65e52945bd37dc",
+      "url": "https://github.com/samovers/OFARM/blob/98f8c4fafbae42c8f7fd931f43f53adcb4733713/package_meta/history/clean_baseline_migration/phase_reports/governed_human_approval_transaction_and_consumption_protocol_rfc_candidate_v0_1.md"
+    },
+    {
+      "pr": 23,
+      "head": "a0a06ad99516790d5b908d5de330591691dd0dcd",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+      "sha256": "0d654293a5e4a9f0b3b1efa5a9025f34d0a335c3f2f2fb2299c9e5538e6ff999",
+      "url": "https://github.com/samovers/OFARM/blob/a0a06ad99516790d5b908d5de330591691dd0dcd/package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md"
+    },
+    {
+      "pr": 26,
+      "head": "0d8123d3e6ded25a92c271cd8379030524208086",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_and_consumption_protocol_rfc_candidate_v0_1.md",
+      "sha256": "dcae358c76742f93964a9aa348808351a763d355b51fab3707994a3bd0714165",
+      "url": "https://github.com/samovers/OFARM/blob/0d8123d3e6ded25a92c271cd8379030524208086/package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_and_consumption_protocol_rfc_candidate_v0_1.md"
+    },
+    {
+      "pr": 38,
+      "head": "028c398dc193e71f1f24b14a1302688edd67a365",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_time_and_attempt_binding_proposal_v0_1.md",
+      "sha256": "732d1b8740d03f3835903fa4b3f31b8752a953739b6a748f95ee1fc4d0d33433",
+      "url": "https://github.com/samovers/OFARM/blob/028c398dc193e71f1f24b14a1302688edd67a365/package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_time_and_attempt_binding_proposal_v0_1.md"
+    },
+    {
+      "pr": 39,
+      "head": "6ec9f6650c3848083742c7039ac7a673b4375c8b",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/not_required_write_authorization_boundary_proposal_v0_1.md",
+      "sha256": "657065d9ec482fe9a9d07b6fffb7b26cc55a185b9b2d0409ddbd6af10145c672",
+      "url": "https://github.com/samovers/OFARM/blob/6ec9f6650c3848083742c7039ac7a673b4375c8b/package_meta/history/clean_baseline_migration/phase_reports/not_required_write_authorization_boundary_proposal_v0_1.md"
+    }
+  ],
+  "unmaterializedDependencies": [
+    {
+      "owner": "#11",
+      "requiredBeforeExecutableUse": true,
+      "description": "Actual authorization request/result/trace, policy/source profiles, exact selected rule and release manifest; owner-defined projections."
+    },
+    {
+      "owner": "#23",
+      "requiredBeforeExecutableUse": true,
+      "description": "AssertionRecord/body, assertion-act evidence, protected-effect contract and shared validation trace with reviewed bytes/digests."
+    },
+    {
+      "owner": "#25 source/storage; OFARM2 #178",
+      "requiredBeforeExecutableUse": true,
+      "description": "Complete immutable transaction profile, atomic boundary, guards including negative/set facts, uniqueness, status proof and attempt producer."
+    },
+    {
+      "owner": "#38 and source/storage",
+      "requiredBeforeExecutableUse": true,
+      "description": "Real original-context clock trust and checkpoint proof; 30-second policy approval alone supplies neither."
+    },
+    {
+      "owner": "#11 and source/storage",
+      "requiredBeforeExecutableUse": true,
+      "description": "TERMINATE effective-time/writer ordering proof through actual commit; unsupported paths remain unavailable."
+    },
+    {
+      "owner": "read, retention and source-history owners",
+      "requiredBeforeExecutableUse": true,
+      "description": "All shared prerequisites of the complete selected two-action release remain open."
+    },
+    {
+      "owner": "#26 section 11.5 withdrawal owners",
+      "requiredBeforeExecutableUse": false,
+      "description": "Withdrawal remains disabled until its separate eligibility/history/storage bindings exist."
+    }
+  ],
+  "omittedProfiles": [
+    {
+      "owner": "#20",
+      "profiles": "Human approval, direct-human finalization, reservation and approval consumption",
+      "disposition": "Outside this NOT_REQUIRED component; no human-mode widening."
+    },
+    {
+      "owner": "governed-read owner",
+      "profiles": "Governed-read receipts and actual settlement",
+      "disposition": "Separate required part of the initial release; this component does not close it."
+    },
+    {
+      "owner": "filing and transport owners",
+      "profiles": "Filing outbox and transport release/delivery",
+      "disposition": "Unselected action; no permission or success stub."
+    }
+  ],
+  "fixturePath": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_NotRequiredTransactionEvidence_cases_v0_1.json",
+  "runnerPath": "04_implementation_and_conformance/conformance_runners/ofarm_not_required_transaction_evidence_v0_1.py",
+  "fixtureVerificationLimit": "Record formats, owned digests and cross-record consistency only. Fictional external bytes do not satisfy their owners or prove a database transaction."
+}
