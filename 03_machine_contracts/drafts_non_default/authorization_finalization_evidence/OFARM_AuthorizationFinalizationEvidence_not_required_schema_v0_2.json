@@ -1,0 +1,2338 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/not-required/v0.2",
+  "title": "AuthorizationFinalizationEvidence v0.2 \u2014 NOT_REQUIRED transaction component (draft/non-default)",
+  "description": "Selected ASSERT_OPERATION_CLAIM component only. Record syntax does not prove authority, domain validation, clock trust, guards, atomic commit or release closure. Caller projection is auxiliary, never a root evidence record.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/operationBinding"
+    },
+    {
+      "$ref": "#/$defs/modeEvidence"
+    },
+    {
+      "$ref": "#/$defs/transactionAttempt"
+    },
+    {
+      "$ref": "#/$defs/decisionConsumption"
+    },
+    {
+      "$ref": "#/$defs/governedEffectReceipt"
+    },
+    {
+      "$ref": "#/$defs/reconciliationEvidence"
+    }
+  ],
+  "$defs": {
+    "ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "maxLength": 71
+    },
+    "positiveInteger": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "canonicalUtcMicros": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]{0,5}[1-9])?Z$",
+      "$comment": "PR #23 section 6.3 spelling, with PR #38 whole-microsecond support. Unsupported required precision refuses this attempt; no rounding."
+    },
+    "canonicalUtc": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]{0,8}[1-9])?Z$",
+      "$comment": "PR #23 canonical UTC spelling for later owner observations. Their own admissibility is not supplied by this schema."
+    },
+    "recordBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref",
+        "digest"
+      ],
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "digest": {
+          "$ref": "#/$defs/digest"
+        }
+      }
+    },
+    "revisionSelector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "revisionRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "contentDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "revisionRef"
+          ],
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "contentDigest"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "required": [
+            "contentDigest"
+          ],
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "operationBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "ref",
+        "revisionSelector"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "TENANT",
+            "DEPLOYMENT"
+          ]
+        },
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "revisionSelector": {
+          "$ref": "#/$defs/revisionSelector"
+        }
+      }
+    },
+    "principalBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resolvedPrincipalKind",
+        "authenticatedPrincipalRef",
+        "principalRevisionSelector"
+      ],
+      "properties": {
+        "resolvedPrincipalKind": {
+          "enum": [
+            "NATURAL_PERSON",
+            "SOFTWARE_AGENT"
+          ]
+        },
+        "authenticatedPrincipalRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "principalRevisionSelector": {
+          "$ref": "#/$defs/revisionSelector"
+        }
+      }
+    },
+    "representation": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "representedPartyRef",
+            "representedPartyRevisionSelector",
+            "representationBasisRef",
+            "representationBasisRevisionSelector"
+          ],
+          "properties": {
+            "representedPartyRef": {
+              "$ref": "#/$defs/ref"
+            },
+            "representedPartyRevisionSelector": {
+              "$ref": "#/$defs/revisionSelector"
+            },
+            "representationBasisRef": {
+              "$ref": "#/$defs/ref"
+            },
+            "representationBasisRevisionSelector": {
+              "$ref": "#/$defs/revisionSelector"
+            }
+          }
+        }
+      ]
+    },
+    "schemaBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaRef",
+        "schemaVersion",
+        "schemaDigest",
+        "canonicalization"
+      ],
+      "properties": {
+        "schemaRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "schemaVersion": {
+          "$ref": "#/$defs/ref"
+        },
+        "schemaDigest": {
+          "$ref": "#/$defs/digest"
+        },
+        "canonicalization": {
+          "const": "JCS_RFC8785_SHA256"
+        }
+      }
+    },
+    "contractBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contractId",
+        "contractVersion",
+        "contractRef",
+        "contractDigest"
+      ],
+      "properties": {
+        "contractId": {
+          "const": "ofarm.protectedeffect.assertionrecord.submit.v0.1"
+        },
+        "contractVersion": {
+          "const": "0.1"
+        },
+        "contractRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "contractDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      }
+    },
+    "transactionProfileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profileId",
+        "profileVersion",
+        "profileRef",
+        "profileDigest"
+      ],
+      "properties": {
+        "profileId": {
+          "const": "ofarm.transaction.not-required-state-effect.v0.1"
+        },
+        "profileVersion": {
+          "const": "0.1"
+        },
+        "profileRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "profileDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      }
+    },
+    "ruleBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ruleId",
+        "ruleRef",
+        "ruleRevisionSelector",
+        "ruleDigest"
+      ],
+      "properties": {
+        "ruleId": {
+          "$ref": "#/$defs/ref"
+        },
+        "ruleRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "ruleRevisionSelector": {
+          "$ref": "#/$defs/revisionSelector"
+        },
+        "ruleDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      }
+    },
+    "idempotencyKey": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,255}$",
+      "not": {
+        "pattern": "[^A-Za-z0-9._:-]"
+      },
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "lookupTuple": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operationBoundaryKind",
+        "operationBoundaryRef",
+        "authenticatedRequestingPrincipalRef",
+        "representedPartyRef",
+        "actionClass",
+        "operationIdempotencyKey"
+      ],
+      "properties": {
+        "operationBoundaryKind": {
+          "enum": [
+            "TENANT",
+            "DEPLOYMENT"
+          ]
+        },
+        "operationBoundaryRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "authenticatedRequestingPrincipalRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "representedPartyRef": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "actionClass": {
+          "const": "ASSERT_OPERATION_CLAIM"
+        },
+        "operationIdempotencyKey": {
+          "$ref": "#/$defs/idempotencyKey"
+        }
+      }
+    },
+    "callerSubmissionProjection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "callerEffectIntent"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "ofarm.notRequiredCallerSubmissionProjection.v0.1"
+        },
+        "callerEffectIntent": {
+          "type": "object"
+        }
+      },
+      "$comment": "PR #26 section 5.3: preserve every callerEffectIntent member. This auxiliary object is not a root evidence record or domain validation."
+    },
+    "operationBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "logicalOperationId",
+        "operationBoundary",
+        "requestingPrincipalBinding",
+        "representedPartyBinding",
+        "actionClass",
+        "operationIdempotencyKeyProfile",
+        "humanFinalizationRequirement",
+        "effectIntentSchemaBinding",
+        "protectedEffectContractBinding",
+        "governedTransactionProfileBinding",
+        "callerSubmissionProjectionProfile",
+        "callerSubmissionProjectionDigest",
+        "effectIntentRef",
+        "effectIntentDigest",
+        "effectIntentCanonicalization",
+        "operationIdempotencyKey",
+        "operationBindingDigest"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "ofarm.notRequiredOperationBinding.v0.1"
+        },
+        "logicalOperationId": {
+          "$ref": "#/$defs/ref"
+        },
+        "operationBoundary": {
+          "$ref": "#/$defs/operationBoundary"
+        },
+        "requestingPrincipalBinding": {
+          "$ref": "#/$defs/principalBinding"
+        },
+        "representedPartyBinding": {
+          "$ref": "#/$defs/representation"
+        },
+        "actionClass": {
+          "const": "ASSERT_OPERATION_CLAIM"
+        },
+        "operationIdempotencyKeyProfile": {
+          "const": "OFARM_OPERATION_IDEMPOTENCY_KEY_V0_1"
+        },
+        "humanFinalizationRequirement": {
+          "const": "NOT_REQUIRED"
+        },
+        "effectIntentSchemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
+        },
+        "protectedEffectContractBinding": {
+          "$ref": "#/$defs/contractBinding"
+        },
+        "governedTransactionProfileBinding": {
+          "$ref": "#/$defs/transactionProfileBinding"
+        },
+        "callerSubmissionProjectionProfile": {
+          "const": "ofarm.notRequiredCallerSubmissionProjection.v0.1"
+        },
+        "callerSubmissionProjectionDigest": {
+          "$ref": "#/$defs/digest"
+        },
+        "effectIntentRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "effectIntentDigest": {
+          "$ref": "#/$defs/digest"
+        },
+        "effectIntentCanonicalization": {
+          "const": "JCS_RFC8785_SHA256"
+        },
+        "operationIdempotencyKey": {
+          "$ref": "#/$defs/idempotencyKey"
+        },
+        "operationBindingDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      }
+    },
+    "operationIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "logicalOperationId",
+        "operationBinding",
+        "callerSubmissionProjectionDigest",
+        "effectIntentDigest"
+      ],
+      "properties": {
+        "logicalOperationId": {
+          "$ref": "#/$defs/ref"
+        },
+        "operationBinding": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "callerSubmissionProjectionDigest": {
+          "$ref": "#/$defs/digest"
+        },
+        "effectIntentDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      }
+    },
+    "unresolvedOperationIdentity": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/operationIdentity"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "provisionalLookupTuple"
+          ],
+          "properties": {
+            "provisionalLookupTuple": {
+              "$ref": "#/$defs/lookupTuple"
+            }
+          }
+        }
+      ]
+    },
+    "attemptContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "transactionAttemptId",
+        "attemptSequence",
+        "transactionStartedAt",
+        "transactionDeadline",
+        "transactionSnapshot",
+        "atomicPersistenceBoundaryRef",
+        "guardPolicyBinding",
+        "transactionStatusLookupKey",
+        "transactionTimePolicyBinding"
+      ],
+      "properties": {
+        "transactionAttemptId": {
+          "$ref": "#/$defs/ref"
+        },
+        "attemptSequence": {
+          "$ref": "#/$defs/positiveInteger"
+        },
+        "transactionStartedAt": {
+          "$ref": "#/$defs/canonicalUtcMicros"
+        },
+        "transactionDeadline": {
+          "$ref": "#/$defs/canonicalUtcMicros"
+        },
+        "transactionSnapshot": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "atomicPersistenceBoundaryRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "guardPolicyBinding": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "transactionStatusLookupKey": {
+          "$ref": "#/$defs/ref"
+        },
+        "transactionTimePolicyBinding": {
+          "$ref": "#/$defs/recordBinding"
+        }
+      }
+    },
+    "transactionRoleBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "atomicPersistenceBoundaryRef",
+        "transactionStatusLookupKey",
+        "transactionAttemptId"
+      ],
+      "properties": {
+        "role": {
+          "enum": [
+            "PROTECTED_EFFECT_TRANSACTION",
+            "FIRST_ADMISSION_COMMIT",
+            "SEPARATE_FAILURE_EVIDENCE_COMMIT"
+          ]
+        },
+        "atomicPersistenceBoundaryRef": {
+          "$ref": "#/$defs/ref"
+        },
+        "transactionStatusLookupKey": {
+          "$ref": "#/$defs/ref"
+        },
+        "transactionAttemptId": {
+          "$ref": "#/$defs/ref"
+        }
+      }
+    },
+    "checkpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authorizationEvaluatedAt",
+        "decisionValidUntil",
+        "writeAuthorizationCheckedAt",
+        "writeAuthorizationBoundary"
+      ],
+      "properties": {
+        "authorizationEvaluatedAt": {
+          "$ref": "#/$defs/canonicalUtcMicros"
+        },
+        "decisionValidUntil": {
+          "$ref": "#/$defs/canonicalUtcMicros"
+        },
+        "writeAuthorizationCheckedAt": {
+          "$ref": "#/$defs/canonicalUtcMicros"
+        },
+        "writeAuthorizationBoundary": {
+          "const": "GUARDED_WRITE_CHECK_V0_1"
+        }
+      },
+      "$comment": "Original attempt context and checkpoint must match across consumption, attempt and receipt. Full D is owned by the evaluator. No physical commit/consumption timestamp exists in this branch."
+    },
+    "authorizationBundle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "request",
+        "result",
+        "trace",
+        "decisionBundleDigest",
+        "outcome"
+      ],
+      "properties": {
+        "request": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "result": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "trace": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "decisionBundleDigest": {
+          "$ref": "#/$defs/digest"
+        },
+        "outcome": {
+          "enum": [
+            "ALLOW",
+            "DENY",
+            "REQUIRE_REVIEW",
+            "REQUIRE_HUMAN_APPROVAL"
+          ]
+        }
+      }
+    },
+    "protectedEffectValidation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trace",
+        "disposition"
+      ],
+      "properties": {
+        "trace": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "disposition": {
+          "enum": [
+            "PASS",
+            "FAIL"
+          ]
+        }
+      }
+    },
+    "gateTrace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gateId",
+        "disposition"
+      ],
+      "properties": {
+        "gateId": {
+          "$ref": "#/$defs/ref"
+        },
+        "disposition": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "trace": {
+          "$ref": "#/$defs/recordBinding"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "disposition"
+            ],
+            "properties": {
+              "disposition": {
+                "const": "NOT_APPLICABLE"
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "trace"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "enum": [
+                  "PASS",
+                  "FAIL"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "trace"
+            ]
+          }
+        }
+      ]
+    },
+    "admittedProtectedResultBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resultId",
+        "resultSchemaBinding",
+        "resultDigest",
+        "protectedEffectContractBinding",
+        "validationTrace"
+      ],
+      "properties": {
+        "resultId": {
+          "$ref": "#/$defs/ref"
+        },
+        "resultSchemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
+        },
+        "resultDigest": {
+          "$ref": "#/$defs/digest"
+        },
+        "protectedEffectContractBinding": {
+          "$ref": "#/$defs/contractBinding"
+        },
+        "validationTrace": {
+          "$ref": "#/$defs/recordBinding"
+        }
+      }
+    },
+    "priorAdmittedResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "attempt",
+        "attemptSequence",
+        "pointer"
+      ],
+      "properties": {
+        "attempt": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "attemptSequence": {
+          "$ref": "#/$defs/positiveInteger"
+        },
+        "pointer": {
+          "const": "/admittedProtectedResultBinding"
+        }
+      }
+    },
+    "ordinaryMember": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "ref",
+        "digest"
+      ],
+      "properties": {
+        "role": {
+          "enum": [
+            "OPERATION_BINDING",
+            "CALLER_PROJECTION",
+            "AUTHORIZATION_REQUEST",
+            "AUTHORIZATION_RESULT",
+            "AUTHORIZATION_TRACE",
+            "NOT_REQUIRED_MODE_EVIDENCE",
+            "PROTECTED_EFFECT_TRACE",
+            "OTHER_GATE_TRACE",
+            "FAILURE_TRACE",
+            "ROLLBACK_PROOF",
+            "QUALIFICATION_EVIDENCE"
+          ]
+        },
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "digest": {
+          "$ref": "#/$defs/digest"
+        }
+      }
+    },
+    "successMember": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "role",
+            "ref",
+            "digest"
+          ],
+          "properties": {
+            "role": {
+              "enum": [
+                "OPERATION_BINDING",
+                "CALLER_PROJECTION",
+                "AUTHORIZATION_REQUEST",
+                "AUTHORIZATION_RESULT",
+                "AUTHORIZATION_TRACE",
+                "NOT_REQUIRED_MODE_EVIDENCE",
+                "PROTECTED_EFFECT_TRACE",
+                "OTHER_GATE_TRACE",
+                "TRANSACTION_ATTEMPT",
+                "DECISION_CONSUMPTION",
+                "PROTECTED_RESULT"
+              ]
+            },
+            "ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "digest": {
+              "$ref": "#/$defs/digest"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "role",
+            "ref",
+            "digest",
+            "pointer"
+          ],
+          "properties": {
+            "role": {
+              "const": "ADMITTED_RESULT_BINDING"
+            },
+            "ref": {
+              "$ref": "#/$defs/ref"
+            },
+            "digest": {
+              "$ref": "#/$defs/digest"
+            },
+            "pointer": {
+              "const": "/admittedProtectedResultBinding"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "role",
+            "ref"
+          ],
+          "properties": {
+            "role": {
+              "const": "GOVERNED_EFFECT_RECEIPT"
+            },
+            "ref": {
+              "$ref": "#/$defs/ref"
+            }
+          }
+        }
+      ]
+    },
+    "noEffectMember": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/ordinaryMember"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "role",
+            "ref"
+          ],
+          "properties": {
+            "role": {
+              "const": "TRANSACTION_ATTEMPT"
+            },
+            "ref": {
+              "$ref": "#/$defs/ref"
+            }
+          }
+        }
+      ]
+    },
+    "reachedStages": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "modeEvidence",
+        "authorization",
+        "protectedEffectValidation"
+      ],
+      "properties": {
+        "modeEvidence": {
+          "enum": [
+            "COMPLETED",
+            "NOT_PERFORMED"
+          ]
+        },
+        "authorization": {
+          "enum": [
+            "COMPLETED",
+            "NOT_PERFORMED"
+          ]
+        },
+        "protectedEffectValidation": {
+          "enum": [
+            "COMPLETED",
+            "NOT_PERFORMED"
+          ]
+        }
+      }
+    },
+    "modeEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "notRequiredModeEvidenceId",
+        "operation",
+        "attempt",
+        "actionClass",
+        "currentActionRuleBinding",
+        "effectIntentSchemaBinding",
+        "effectIntent",
+        "protectedEffectContractBinding",
+        "governedTransactionProfileBinding",
+        "humanFinalizationRequirement",
+        "decisionValidityPolicy",
+        "consumptionPolicy",
+        "requestingPrincipalBinding",
+        "representedPartyBinding",
+        "notRequiredModeEvidenceDigest"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "ofarm.notRequiredModeEvidence.v0.1"
+        },
+        "notRequiredModeEvidenceId": {
+          "$ref": "#/$defs/ref"
+        },
+        "operation": {
+          "$ref": "#/$defs/operationIdentity"
+        },
+        "attempt": {
+          "$ref": "#/$defs/attemptContext"
+        },
+        "actionClass": {
+          "const": "ASSERT_OPERATION_CLAIM"
+        },
+        "currentActionRuleBinding": {
+          "$ref": "#/$defs/ruleBinding"
+        },
+        "effectIntentSchemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
+        },
+        "effectIntent": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "protectedEffectContractBinding": {
+          "$ref": "#/$defs/contractBinding"
+        },
+        "governedTransactionProfileBinding": {
+          "$ref": "#/$defs/transactionProfileBinding"
+        },
+        "humanFinalizationRequirement": {
+          "const": "NOT_REQUIRED"
+        },
+        "decisionValidityPolicy": {
+          "const": "TRANSACTION_BOUND_V0_2"
+        },
+        "consumptionPolicy": {
+          "const": "SINGLE_USE"
+        },
+        "requestingPrincipalBinding": {
+          "$ref": "#/$defs/principalBinding"
+        },
+        "representedPartyBinding": {
+          "$ref": "#/$defs/representation"
+        },
+        "notRequiredModeEvidenceDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "$comment": "Closed branch is the absence posture. No approval/reservation/direct-human-finalization field is allowed. This record is not authority."
+    },
+    "transactionAttempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "operation",
+        "attempt",
+        "actionClass",
+        "currentActionRuleBinding",
+        "effectIntentSchemaBinding",
+        "effectIntent",
+        "protectedEffectContractBinding",
+        "governedTransactionProfileBinding",
+        "outcome",
+        "transactionRoles",
+        "reachedStages",
+        "gateTraces",
+        "transactionAttemptDigest"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "ofarm.notRequiredTransactionAttempt.v0.1"
+        },
+        "operation": {
+          "$ref": "#/$defs/unresolvedOperationIdentity"
+        },
+        "attempt": {
+          "$ref": "#/$defs/attemptContext"
+        },
+        "actionClass": {
+          "const": "ASSERT_OPERATION_CLAIM"
+        },
+        "currentActionRuleBinding": {
+          "$ref": "#/$defs/ruleBinding"
+        },
+        "effectIntentSchemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
+        },
+        "effectIntent": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "protectedEffectContractBinding": {
+          "$ref": "#/$defs/contractBinding"
+        },
+        "governedTransactionProfileBinding": {
+          "$ref": "#/$defs/transactionProfileBinding"
+        },
+        "outcome": {
+          "enum": [
+            "EFFECT_COMMITTED",
+            "NO_EFFECT",
+            "OUTCOME_UNKNOWN"
+          ]
+        },
+        "transactionRoles": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/transactionRoleBinding"
+          },
+          "allOf": [
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "PROTECTED_EFFECT_TRANSACTION"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "FIRST_ADMISSION_COMMIT"
+                  }
+                }
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "SEPARATE_FAILURE_EVIDENCE_COMMIT"
+                  }
+                }
+              },
+              "minContains": 0,
+              "maxContains": 1
+            }
+          ]
+        },
+        "reachedStages": {
+          "$ref": "#/$defs/reachedStages"
+        },
+        "modeEvidence": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "authorizationBundle": {
+          "$ref": "#/$defs/authorizationBundle"
+        },
+        "protectedEffectValidation": {
+          "$ref": "#/$defs/protectedEffectValidation"
+        },
+        "gateTraces": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/$defs/gateTrace"
+          }
+        },
+        "admittedProtectedResultBinding": {
+          "$ref": "#/$defs/admittedProtectedResultBinding"
+        },
+        "priorAdmittedProtectedResultBinding": {
+          "$ref": "#/$defs/priorAdmittedResult"
+        },
+        "attemptedProtectedResult": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "checkpoint": {
+          "$ref": "#/$defs/checkpoint"
+        },
+        "completeGuardEvidence": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "decisionConsumption": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "governedEffectReceiptId": {
+          "$ref": "#/$defs/ref"
+        },
+        "noEffectConsequence": {
+          "enum": [
+            "RETRYABLE_SAME_OPERATION",
+            "TERMINAL_REQUIRES_NEW_OPERATION_KEY"
+          ]
+        },
+        "noEffectMembership": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "$ref": "#/$defs/noEffectMember"
+          },
+          "uniqueItems": true,
+          "allOf": [
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "OPERATION_BINDING"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "CALLER_PROJECTION"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "TRANSACTION_ATTEMPT"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "failureEvidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/recordBinding"
+          }
+        },
+        "protectedEffectRollbackProof": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "unresolvedFacts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ref"
+          }
+        },
+        "transactionAttemptDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "outcome"
+            ],
+            "properties": {
+              "outcome": {
+                "const": "EFFECT_COMMITTED"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "modeEvidence",
+              "authorizationBundle",
+              "protectedEffectValidation",
+              "checkpoint",
+              "completeGuardEvidence",
+              "decisionConsumption",
+              "governedEffectReceiptId"
+            ],
+            "properties": {
+              "operation": {
+                "$ref": "#/$defs/operationIdentity"
+              },
+              "authorizationBundle": {
+                "properties": {
+                  "outcome": {
+                    "const": "ALLOW"
+                  }
+                }
+              },
+              "protectedEffectValidation": {
+                "properties": {
+                  "disposition": {
+                    "const": "PASS"
+                  }
+                }
+              },
+              "reachedStages": {
+                "properties": {
+                  "modeEvidence": {
+                    "const": "COMPLETED"
+                  },
+                  "authorization": {
+                    "const": "COMPLETED"
+                  },
+                  "protectedEffectValidation": {
+                    "const": "COMPLETED"
+                  }
+                }
+              }
+            },
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "noEffectConsequence"
+                  ]
+                },
+                {
+                  "required": [
+                    "noEffectMembership"
+                  ]
+                },
+                {
+                  "required": [
+                    "failureEvidence"
+                  ]
+                },
+                {
+                  "required": [
+                    "protectedEffectRollbackProof"
+                  ]
+                },
+                {
+                  "required": [
+                    "unresolvedFacts"
+                  ]
+                },
+                {
+                  "required": [
+                    "attemptedProtectedResult"
+                  ]
+                }
+              ]
+            },
+            "oneOf": [
+              {
+                "required": [
+                  "admittedProtectedResultBinding"
+                ],
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "priorAdmittedProtectedResultBinding"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "required": [
+                  "priorAdmittedProtectedResultBinding"
+                ],
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "admittedProtectedResultBinding"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "outcome"
+            ],
+            "properties": {
+              "outcome": {
+                "const": "NO_EFFECT"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "noEffectConsequence",
+              "noEffectMembership",
+              "failureEvidence"
+            ],
+            "properties": {
+              "operation": {
+                "$ref": "#/$defs/operationIdentity"
+              }
+            },
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "decisionConsumption"
+                  ]
+                },
+                {
+                  "required": [
+                    "governedEffectReceiptId"
+                  ]
+                },
+                {
+                  "required": [
+                    "unresolvedFacts"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "outcome"
+            ],
+            "properties": {
+              "outcome": {
+                "const": "OUTCOME_UNKNOWN"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "unresolvedFacts"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "noEffectConsequence"
+                  ]
+                },
+                {
+                  "required": [
+                    "noEffectMembership"
+                  ]
+                },
+                {
+                  "required": [
+                    "decisionConsumption"
+                  ]
+                },
+                {
+                  "required": [
+                    "governedEffectReceiptId"
+                  ]
+                },
+                {
+                  "required": [
+                    "admittedProtectedResultBinding"
+                  ]
+                },
+                {
+                  "required": [
+                    "priorAdmittedProtectedResultBinding"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "not": {
+            "required": [
+              "admittedProtectedResultBinding",
+              "priorAdmittedProtectedResultBinding"
+            ]
+          }
+        },
+        {
+          "if": {
+            "anyOf": [
+              {
+                "required": [
+                  "admittedProtectedResultBinding"
+                ]
+              },
+              {
+                "required": [
+                  "priorAdmittedProtectedResultBinding"
+                ]
+              }
+            ]
+          },
+          "then": {
+            "required": [
+              "protectedEffectValidation"
+            ],
+            "properties": {
+              "protectedEffectValidation": {
+                "properties": {
+                  "disposition": {
+                    "const": "PASS"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "reachedStages": {
+                "properties": {
+                  "modeEvidence": {
+                    "const": "COMPLETED"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "modeEvidence"
+            ]
+          },
+          "else": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "modeEvidence"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "reachedStages": {
+                "properties": {
+                  "authorization": {
+                    "const": "COMPLETED"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "authorizationBundle"
+            ]
+          },
+          "else": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "authorizationBundle"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "reachedStages": {
+                "properties": {
+                  "protectedEffectValidation": {
+                    "const": "COMPLETED"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "protectedEffectValidation"
+            ]
+          },
+          "else": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "protectedEffectValidation"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "checkpoint"
+            ]
+          },
+          "then": {
+            "required": [
+              "modeEvidence",
+              "authorizationBundle",
+              "protectedEffectValidation"
+            ],
+            "properties": {
+              "authorizationBundle": {
+                "properties": {
+                  "outcome": {
+                    "const": "ALLOW"
+                  }
+                }
+              },
+              "protectedEffectValidation": {
+                "properties": {
+                  "disposition": {
+                    "const": "PASS"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "outcome"
+            ],
+            "properties": {
+              "outcome": {
+                "const": "EFFECT_COMMITTED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "gateTraces": {
+                "items": {
+                  "properties": {
+                    "disposition": {
+                      "enum": [
+                        "PASS",
+                        "NOT_APPLICABLE"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "decisionConsumption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "decisionConsumptionId",
+        "operation",
+        "attempt",
+        "actionClass",
+        "currentActionRuleBinding",
+        "effectIntentSchemaBinding",
+        "effectIntent",
+        "protectedEffectContractBinding",
+        "governedTransactionProfileBinding",
+        "modeEvidence",
+        "authorizationBundle",
+        "derivedAuthorizationViewDigest",
+        "consumingPrincipalBinding",
+        "checkpoint",
+        "consumptionPolicy",
+        "committedResults",
+        "governedEffectReceiptId",
+        "decisionConsumptionDigest"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "ofarm.notRequiredDecisionConsumption.v0.1"
+        },
+        "decisionConsumptionId": {
+          "$ref": "#/$defs/ref"
+        },
+        "operation": {
+          "$ref": "#/$defs/operationIdentity"
+        },
+        "attempt": {
+          "$ref": "#/$defs/attemptContext"
+        },
+        "actionClass": {
+          "const": "ASSERT_OPERATION_CLAIM"
+        },
+        "currentActionRuleBinding": {
+          "$ref": "#/$defs/ruleBinding"
+        },
+        "effectIntentSchemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
+        },
+        "effectIntent": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "protectedEffectContractBinding": {
+          "$ref": "#/$defs/contractBinding"
+        },
+        "governedTransactionProfileBinding": {
+          "$ref": "#/$defs/transactionProfileBinding"
+        },
+        "modeEvidence": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "authorizationBundle": {
+          "$ref": "#/$defs/authorizationBundle"
+        },
+        "derivedAuthorizationViewDigest": {
+          "$ref": "#/$defs/digest"
+        },
+        "consumingPrincipalBinding": {
+          "$ref": "#/$defs/principalBinding"
+        },
+        "checkpoint": {
+          "$ref": "#/$defs/checkpoint"
+        },
+        "consumptionPolicy": {
+          "const": "SINGLE_USE"
+        },
+        "committedResults": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/recordBinding"
+          },
+          "maxItems": 1
+        },
+        "governedEffectReceiptId": {
+          "$ref": "#/$defs/ref"
+        },
+        "decisionConsumptionDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "allOf": [
+        {
+          "properties": {
+            "authorizationBundle": {
+              "properties": {
+                "outcome": {
+                  "const": "ALLOW"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "governedEffectReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "governedEffectReceiptId",
+        "operation",
+        "attempt",
+        "actionClass",
+        "currentActionRuleBinding",
+        "effectIntentSchemaBinding",
+        "effectIntent",
+        "protectedEffectContractBinding",
+        "governedTransactionProfileBinding",
+        "lookupTuple",
+        "operationIdempotencyKeyProfile",
+        "checkpoint",
+        "completeGuardEvidence",
+        "modeEvidence",
+        "authorizationBundle",
+        "decisionConsumption",
+        "consumptionPolicy",
+        "admittedProtectedResult",
+        "resultSchemaBinding",
+        "committedResult",
+        "protectedEffectValidation",
+        "gateTraces",
+        "membership",
+        "outcome",
+        "governedEffectReceiptDigest"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "ofarm.notRequiredGovernedEffectReceipt.v0.1"
+        },
+        "governedEffectReceiptId": {
+          "$ref": "#/$defs/ref"
+        },
+        "operation": {
+          "$ref": "#/$defs/operationIdentity"
+        },
+        "attempt": {
+          "$ref": "#/$defs/attemptContext"
+        },
+        "actionClass": {
+          "const": "ASSERT_OPERATION_CLAIM"
+        },
+        "currentActionRuleBinding": {
+          "$ref": "#/$defs/ruleBinding"
+        },
+        "effectIntentSchemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
+        },
+        "effectIntent": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "protectedEffectContractBinding": {
+          "$ref": "#/$defs/contractBinding"
+        },
+        "governedTransactionProfileBinding": {
+          "$ref": "#/$defs/transactionProfileBinding"
+        },
+        "lookupTuple": {
+          "$ref": "#/$defs/lookupTuple"
+        },
+        "operationIdempotencyKeyProfile": {
+          "const": "OFARM_OPERATION_IDEMPOTENCY_KEY_V0_1"
+        },
+        "checkpoint": {
+          "$ref": "#/$defs/checkpoint"
+        },
+        "completeGuardEvidence": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "modeEvidence": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "authorizationBundle": {
+          "$ref": "#/$defs/authorizationBundle"
+        },
+        "decisionConsumption": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "consumptionPolicy": {
+          "const": "SINGLE_USE"
+        },
+        "admittedProtectedResult": {
+          "$ref": "#/$defs/priorAdmittedResult"
+        },
+        "resultSchemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
+        },
+        "committedResult": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "protectedEffectValidation": {
+          "$ref": "#/$defs/protectedEffectValidation"
+        },
+        "gateTraces": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/$defs/gateTrace"
+          }
+        },
+        "membership": {
+          "type": "array",
+          "minItems": 12,
+          "items": {
+            "$ref": "#/$defs/successMember"
+          },
+          "uniqueItems": true,
+          "allOf": [
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "OPERATION_BINDING"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "CALLER_PROJECTION"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "AUTHORIZATION_REQUEST"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "AUTHORIZATION_RESULT"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "AUTHORIZATION_TRACE"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "NOT_REQUIRED_MODE_EVIDENCE"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "PROTECTED_EFFECT_TRACE"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "TRANSACTION_ATTEMPT"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "DECISION_CONSUMPTION"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "PROTECTED_RESULT"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "ADMITTED_RESULT_BINDING"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "required": [
+                  "role"
+                ],
+                "properties": {
+                  "role": {
+                    "const": "GOVERNED_EFFECT_RECEIPT"
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "outcome": {
+          "const": "EFFECT_COMMITTED"
+        },
+        "governedEffectReceiptDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "allOf": [
+        {
+          "properties": {
+            "authorizationBundle": {
+              "properties": {
+                "outcome": {
+                  "const": "ALLOW"
+                }
+              }
+            },
+            "protectedEffectValidation": {
+              "properties": {
+                "disposition": {
+                  "const": "PASS"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "outcome"
+            ],
+            "properties": {
+              "outcome": {
+                "const": "EFFECT_COMMITTED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "gateTraces": {
+                "items": {
+                  "properties": {
+                    "disposition": {
+                      "enum": [
+                        "PASS",
+                        "NOT_APPLICABLE"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "statusObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "transaction",
+        "status",
+        "evidence"
+      ],
+      "properties": {
+        "transaction": {
+          "$ref": "#/$defs/transactionRoleBinding"
+        },
+        "status": {
+          "enum": [
+            "COMMITTED",
+            "ROLLED_BACK",
+            "UNKNOWN"
+          ]
+        },
+        "evidence": {
+          "$ref": "#/$defs/recordBinding"
+        }
+      }
+    },
+    "laterTimeObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observedAt",
+        "receipt",
+        "observedTransactionTime",
+        "meaning",
+        "ownerEvidence"
+      ],
+      "properties": {
+        "observedAt": {
+          "$ref": "#/$defs/canonicalUtc"
+        },
+        "receipt": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "observedTransactionTime": {
+          "$ref": "#/$defs/canonicalUtc"
+        },
+        "meaning": {
+          "enum": [
+            "PHYSICAL_COMMIT",
+            "VISIBILITY"
+          ]
+        },
+        "ownerEvidence": {
+          "$ref": "#/$defs/recordBinding"
+        }
+      }
+    },
+    "reconciliationEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "reconciliationEvidenceId",
+        "operation",
+        "transactionAttemptId",
+        "attemptSequence",
+        "observedAt",
+        "statusObservations",
+        "resolution",
+        "reconciliationEvidenceDigest"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "ofarm.notRequiredReconciliationEvidence.v0.1"
+        },
+        "reconciliationEvidenceId": {
+          "$ref": "#/$defs/ref"
+        },
+        "operation": {
+          "$ref": "#/$defs/unresolvedOperationIdentity"
+        },
+        "transactionAttemptId": {
+          "$ref": "#/$defs/ref"
+        },
+        "attemptSequence": {
+          "$ref": "#/$defs/positiveInteger"
+        },
+        "observedAt": {
+          "$ref": "#/$defs/canonicalUtc"
+        },
+        "statusObservations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/statusObservation"
+          }
+        },
+        "resolution": {
+          "enum": [
+            "EFFECT_COMMITTED",
+            "NO_EFFECT",
+            "OUTCOME_UNKNOWN",
+            "QUARANTINED_PARTIAL_SUCCESS"
+          ]
+        },
+        "resolvedReceipt": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "resolvedNoEffectAttempt": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "protectedEffectRollbackProof": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "unresolvedFacts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ref"
+          }
+        },
+        "invariantBreachEvidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/recordBinding"
+          }
+        },
+        "laterTimeObservation": {
+          "$ref": "#/$defs/laterTimeObservation"
+        },
+        "priorReconciliation": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "reconciliationEvidenceDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "resolution"
+            ],
+            "properties": {
+              "resolution": {
+                "const": "EFFECT_COMMITTED"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "resolvedReceipt"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "resolvedNoEffectAttempt"
+                  ]
+                },
+                {
+                  "required": [
+                    "protectedEffectRollbackProof"
+                  ]
+                },
+                {
+                  "required": [
+                    "unresolvedFacts"
+                  ]
+                },
+                {
+                  "required": [
+                    "invariantBreachEvidence"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "resolution"
+            ],
+            "properties": {
+              "resolution": {
+                "const": "NO_EFFECT"
+              }
+            }
+          },
+          "then": {
+            "anyOf": [
+              {
+                "required": [
+                  "resolvedNoEffectAttempt"
+                ]
+              },
+              {
+                "required": [
+                  "protectedEffectRollbackProof"
+                ]
+              }
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "resolvedReceipt"
+                  ]
+                },
+                {
+                  "required": [
+                    "laterTimeObservation"
+                  ]
+                },
+                {
+                  "required": [
+                    "invariantBreachEvidence"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "resolution"
+            ],
+            "properties": {
+              "resolution": {
+                "const": "OUTCOME_UNKNOWN"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "unresolvedFacts"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "resolvedReceipt"
+                  ]
+                },
+                {
+                  "required": [
+                    "resolvedNoEffectAttempt"
+                  ]
+                },
+                {
+                  "required": [
+                    "protectedEffectRollbackProof"
+                  ]
+                },
+                {
+                  "required": [
+                    "laterTimeObservation"
+                  ]
+                },
+                {
+                  "required": [
+                    "invariantBreachEvidence"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "resolution"
+            ],
+            "properties": {
+              "resolution": {
+                "const": "QUARANTINED_PARTIAL_SUCCESS"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "invariantBreachEvidence"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "resolvedNoEffectAttempt"
+                  ]
+                },
+                {
+                  "required": [
+                    "protectedEffectRollbackProof"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "$comment": "Quarantine is the existing derived invariant-breach posture, not a fourth transaction outcome. NO_EFFECT plus unresolvedFacts preserves proven rollback while separate evidence-commit status remains unknown."
+    }
+  }
+}

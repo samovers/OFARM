@@ -1,6 +1,6 @@
 {
   "schemaVersion": "ofarm.authorityIndex.v0.4.cleanBaselinePhase8",
-  "generatedAt": "2026-06-11T22:27:51Z",
+  "generatedAt": "2026-09-24T00:00:00Z",
   "currentPackageIdentity": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "package": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "latestControlledAmendment": "CP15",
@@ -41,7 +41,7 @@
     "FOLDER_STATUS_METADATA": 186,
     "GENERATED_DERIVED_VIEW": 11,
     "HANDOFF_PROMPT_SUPPORT": 24,
-    "IMPLEMENTATION_CONFORMANCE_SUPPORT": 2595,
+    "IMPLEMENTATION_CONFORMANCE_SUPPORT": 2597,
     "IMPLEMENTATION_HISTORICAL_ARCHIVE": 125,
     "IMPLEMENTATION_SPIKE_NON_DEFAULT": 188,
     "LEGACY_REFERENCE_CONTEXTUAL_ONLY": 89,
@@ -49,14 +49,14 @@
     "MACHINE_CONTRACT_CURRENTNESS_CONTROL": 5,
     "MACHINE_CONTRACT_CURRENTNESS_VIEW": 2,
     "MACHINE_CONTRACT_CURRENT_DEFAULT_SCHEMA": 143,
-    "MACHINE_CONTRACT_DRAFT_NAVIGATION_METADATA": 9,
-    "MACHINE_CONTRACT_DRAFT_NON_DEFAULT": 153,
-    "MACHINE_CONTRACT_FOLDER_STATUS_METADATA": 4,
+    "MACHINE_CONTRACT_DRAFT_NAVIGATION_METADATA": 10,
+    "MACHINE_CONTRACT_DRAFT_NON_DEFAULT": 154,
+    "MACHINE_CONTRACT_FOLDER_STATUS_METADATA": 5,
     "MACHINE_CONTRACT_NAVIGATION_METADATA": 4,
     "MACHINE_CONTRACT_SCHEMA_NAVIGATION_METADATA": 17,
     "MACHINE_CONTRACT_SUPPORT": 20,
     "NAVIGATION_METADATA": 263,
-    "PACKAGE_METADATA": 137,
+    "PACKAGE_METADATA": 138,
     "PACKAGE_RELEASE_METADATA": 13,
     "REVIEW_HOLDING_ARCHIVE": 2,
     "ROOT_PACKAGE_METADATA": 33
@@ -1378,6 +1378,7 @@
       "04_implementation_and_conformance/conformance_runners/learning_experimentation_farm_memory_conformance/ofarm_cp13_phase7_1_conformance_runner.py",
       "04_implementation_and_conformance/conformance_runners/learning_experimentation_farm_memory_conformance/ofarm_cp13_phase7_2_conformance_runner.py",
       "04_implementation_and_conformance/conformance_runners/learning_experimentation_farm_memory_conformance/ofarm_cp13_phase7_conformance_runner.py",
+      "04_implementation_and_conformance/conformance_runners/ofarm_not_required_transaction_evidence_v0_1.py",
       "04_implementation_and_conformance/conformance_runners/sustainability_charter_conformance/CP11_sustainability_charter_conformance_fixture_set_v0_1.md",
       "04_implementation_and_conformance/conformance_runners/sustainability_charter_conformance/CP11_sustainability_charter_conformance_results_v0_1.json",
       "04_implementation_and_conformance/conformance_runners/sustainability_charter_conformance/CP11_sustainability_charter_conformance_stdout.txt",
@@ -2837,6 +2838,7 @@
       "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/world_model/OFARM_WorldModelState_example_field17_advisory_disease_risk_v0_1.json",
       "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/world_model/OFARM_WorldModelUncertaintyStatement_example_field17_advisory_disease_risk_v0_1.json",
       "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/world_model/OFARM_WorldModelValidityWindow_example_field17_advisory_disease_risk_v0_1.json",
+      "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_NotRequiredTransactionEvidence_cases_v0_1.json",
       "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/agent_manifest/OFARM_CP5_manifest_honesty_fixture_set_v0_1.json",
       "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/authority/OFARM_Agent_Actorship_Authority_Fixtures_v0_1.md",
       "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/core/OFARM_External_Standard_Readiness_Fixtures_v0_1.md",
@@ -3892,6 +3894,7 @@
     "MACHINE_CONTRACT_DRAFT_NAVIGATION_METADATA": [
       "03_machine_contracts/drafts_non_default/README.md",
       "03_machine_contracts/drafts_non_default/agentic_software_delivery_model_deployment/README.md",
+      "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/README.md",
       "03_machine_contracts/drafts_non_default/cyber_physical_mission/README.md",
       "03_machine_contracts/drafts_non_default/explainable_current_state_evidence/README.md",
       "03_machine_contracts/drafts_non_default/learning_experimentation_farm_memory/README.md",
@@ -3936,6 +3939,7 @@
       "03_machine_contracts/drafts_non_default/agentic_software_delivery_model_deployment/OFARM_SoftwareSupplyChainIncident_schema_v0_1.json",
       "03_machine_contracts/drafts_non_default/agentic_software_delivery_model_deployment/OFARM_StaticAnalysisResult_schema_v0_1.json",
       "03_machine_contracts/drafts_non_default/agentic_software_delivery_model_deployment/OFARM_WorkflowDeploymentCandidate_schema_v0_1.json",
+      "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/OFARM_AuthorizationFinalizationEvidence_not_required_schema_v0_2.json",
       "03_machine_contracts/drafts_non_default/cyber_physical_mission/OFARM_AutonomyLevelDeclaration_schema_v0_1_DRAFT_NON_DEFAULT_FINAL_CANDIDATE.json",
       "03_machine_contracts/drafts_non_default/cyber_physical_mission/OFARM_CommandAcknowledgement_schema_v0_1_DRAFT_NON_DEFAULT_FINAL_CANDIDATE.json",
       "03_machine_contracts/drafts_non_default/cyber_physical_mission/OFARM_CommandEnvelope_schema_v0_1_DRAFT_NON_DEFAULT_FINAL_CANDIDATE.json",
@@ -4057,6 +4061,7 @@
     ],
     "MACHINE_CONTRACT_FOLDER_STATUS_METADATA": [
       "03_machine_contracts/drafts_non_default/agentic_software_delivery_model_deployment/folder.status.json",
+      "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/folder.status.json",
       "03_machine_contracts/drafts_non_default/explainable_current_state_evidence/folder.status.json",
       "03_machine_contracts/drafts_non_default/query_capability_performance_envelope/folder.status.json",
       "03_machine_contracts/folder.status.json"
@@ -4374,6 +4379,7 @@
       "package_meta/validators/README.md"
     ],
     "PACKAGE_METADATA": [
+      "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/NOT_REQUIRED_TRANSACTION_EVIDENCE_manifest_v0_1.json",
       "04_implementation_and_conformance/IMPLEMENTATION_LANE_INDEX.json",
       "04_implementation_and_conformance/IMPLEMENTATION_LANE_INDEX.md",
       "04_implementation_and_conformance/IMPLEMENTATION_SUBFOLDER_INDEX.json",

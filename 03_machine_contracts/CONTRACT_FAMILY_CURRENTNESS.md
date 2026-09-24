@@ -202,3 +202,9 @@ Currentness addendum files:
 ## CP14 draft/non-default currentness addendum — 2026-05-30
 
 CP14 adds `03_machine_contracts/CONTRACT_FAMILY_CURRENTNESS_CP14_FINAL_DRAFT_ADDENDUM.*` and draft/non-default schemas under `03_machine_contracts/drafts_non_default/farm_to_farm_intelligence_boundary/`. These schemas are not current/default.
+
+## NOT_REQUIRED transaction component (draft/non-default)
+
+AuthorizationFinalizationEvidence adds one draft component schema under
+`drafts_non_default/authorization_finalization_evidence/`. It has no current/default
+schema and does not complete the selected release or enable runtime use.
