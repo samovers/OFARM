@@ -1804,6 +1804,29 @@
               }
             ]
           }
+        },
+        {
+          "if": {
+            "required": [
+              "protectedEffectValidation"
+            ],
+            "properties": {
+              "protectedEffectValidation": {
+                "properties": {
+                  "disposition": {
+                    "const": "PASS"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "attemptedProtectedResult"
+              ]
+            }
+          }
         }
       ]
     },

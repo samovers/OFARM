@@ -73,7 +73,9 @@ use that attempt's digest and `/admittedProtectedResultBinding`.
 Protected-effect validation requires completed mode evidence and authorization
 `ALLOW`. A durable no-effect attempt with passing validation retains exactly one
 new admitted-result binding or a verified reference to its operation's earlier
-binding. Prior admission never transfers between operations. No-effect membership
+binding. Prior admission never transfers between operations or from an already
+successful attempt. Passing validation cannot also claim a rejected candidate
+in `attemptedProtectedResult`. No-effect membership
 includes a prior admission by its containing attempt's digest and fixed pointer;
 an embedded new admission remains covered by the attempt's identifier-only entry.
 
@@ -83,6 +85,8 @@ failure traces remain separate. The closed refusal-consequence rows retain
 retryability for `DENY`/`REQUIRE_REVIEW` and terminal posture for an inconsistent
 `REQUIRE_HUMAN_APPROVAL`. Current mode evidence preserves principal kind/reference
 and represented-party identity, while current revision/basis facts may change.
+Its rule, intent/schema, protected contract and transaction profile match the
+containing attempt; current rule selection is not frozen to first admission.
 
 The selected branch carries the original attempt context and matching checkpoint
 in consumption, attempt and receipt. T must be before full original D, including
@@ -95,6 +99,11 @@ a success check pass. Quarantine is not a fourth transaction outcome.
 
 Conclusive status checks match the atomic-store boundary, lookup key, attempt and
 transaction role. A committed no-effect evidence set is distinct from a rollback.
+Every observation in a resolved complete set names one of that attempt's declared
+transactions. A durable attempt carrying protected rollback proof requires a
+distinct separate evidence commit. First admission, when declared by this attempt,
+names the transaction carrying the set; aliases share its status proof without
+requiring duplicate observations. A retry need not declare a new first admission.
 Proven protected rollback plus an unknown separate evidence commit retains
 `NO_EFFECT` with explicit unresolved facts; it does not permit another attempt.
 Contradictory statuses remain recordable under unresolved/quarantine postures.
@@ -123,8 +132,8 @@ digests, digest construction, membership and selected cross-record/time relation
 Negative relation cases recompute record digests and update digest references so
 they fail for the intended inconsistency rather than stale hashes.
 Positive scenarios can use the same explicit edit/rehash mechanism to exercise
-alternate valid histories. The bundle covers 18 records, 24 positive scenarios,
-97 rejection cases, four canonicalization vectors and 18 digest round trips.
+alternate valid histories. The bundle covers 18 records, 30 positive scenarios,
+117 rejection cases, four canonicalization vectors and 18 digest round trips.
 
 Every external fixture record is synthetic. Checking its bytes/digest is not
 validation under an unmaterialized authorization, domain, guard, status or clock
