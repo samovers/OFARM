@@ -1,7 +1,7 @@
 # OFARM `NOT_REQUIRED` Transaction and Consumption Protocol v0.1
 
 Date: 2026-09-06<br>
-Status: Phase A candidate for `samovers/OFARM#25`; non-authoritative, not accepted law, and not a current/default machine contract<br>
+Status: Phase A delivery/conformance sequencing amendment candidate for `samovers/OFARM#25`; changed sequencing pending renewed exact-head review and approval; non-authoritative, not accepted law, and not a current/default machine contract<br>
 Parent inventory: `samovers/OFARM#10` and `samovers/OFARM#12`<br>
 Depends on: compatible revised PR #11 authorization and PR #23 AssertionRecord candidates, pending review as specified in section 3; the approved PR #20 human-finalization input at `98f8c4fafbae42c8f7fd931f43f53adcb4733713` remains unchanged. Historical starting pins are retained below.<br>
 Scope: one canonical transaction profile for state-affecting actions whose immutable current rule selects `humanFinalizationRequirement = NOT_REQUIRED`, with `ASSERT_OPERATION_CLAIM` as the first concrete handoff
@@ -40,6 +40,8 @@ The task user approved PR #39's exact version and head on 2026-09-23 with
 “no new findings. i approve”; the [public approval record](https://github.com/samovers/OFARM/pull/39#issuecomment-5795648070)
 records that existing decision and its limits. It does not approve this corrected
 owner head in advance; PR #39's approved source/checker bytes remain unchanged.
+
+Sequencing amendment proposal, 2026-09-24, based on exact owner head `0d8123d3e6ded25a92c271cd8379030524208086`: only the delivery/conformance authorization in sections 18.5, 20 and 21 is reopened for renewed exact-head review and approval. Historical exact-head approvals retain their original scope; earlier pending labels and review provenance are not new requests to reopen unchanged transaction, withdrawal, checkpoint, atomicity or evidence meaning. No historical approval covers this new construction allowance. This amendment is unapproved and grants no current implementation, merge, extraction, promotion or production permission. The primary boundary of this amendment is delivery/conformance authorization; actual transaction, source/storage and disclosure implementations remain separately owned.
 
 ---
 
@@ -1440,7 +1442,7 @@ changed by this transaction candidate.
 
 ### 18.5 Downstream implementation ownership
 
-OFARM2 #173 owns UnitOfWork foundations, OFARM2 #178 owns command-idempotency implementation, and OFARM2 #353 owns authorization-evaluator implementation. They may consume this protocol only after exact non-default machine-contract materialization and binding review, accepted semantic promotion, required conformance and current/default promotion, and byte/digest-verified extraction in section 21's governed order. None may infer canonical meaning from this candidate alone.
+OFARM2 #173 owns UnitOfWork foundations, OFARM2 #178 owns command-idempotency implementation, and OFARM2 #353 owns authorization-evaluator implementation. Isolated conformance-only construction and test consumption may be authorized only after the complete selected binding review and accepted semantic promotion, through section 21's conformance-construction stage and every condition in PR #11 section 24.2, with separately approved per-boundary Phase A designs and the exact test-only consumption mechanism. Production consumption still requires successful conformance, current/default promotion, byte/digest-verified production extraction and separate release approval in section 21's governed order. None may infer canonical meaning, implementation permission or automatic task resumption from this candidate alone.
 
 ### 18.6 Withdrawal amendment and sibling compatibility
 
@@ -1557,7 +1559,7 @@ This candidate does not create:
 
 Outcome reconciliation belongs to this semantic boundary. Executing database repair does not. If reconciliation finds a partial-set breach, work stops at quarantine and separately governed repair ownership.
 
-Stop and split before changing a dependency's semantics, introducing a missing domain/evidence/time-trust rule, materializing schemas in this candidate PR, modifying active/current files, or implementing OFARM2 behavior before canonical promotion and extraction.
+Stop and split before changing a dependency's semantics, introducing a missing domain/evidence/time-trust rule, materializing schemas in this candidate PR, modifying active/current files, implementing OFARM2 behavior outside section 21's explicitly approved conformance-construction conditions, or admitting production behavior before the required conformance, canonical promotion, verified production extraction and separate release decision. This candidate itself authorizes none of those actions.
 
 ---
 
@@ -1571,12 +1573,13 @@ The required sequence is:
 4. **Domain/shared-evidence prerequisites:** separately materialize the approved PR #23 AssertionRecord result/body schemas, assertion-act evidence, protected-effect contract, trace envelope, and exact bundle bindings. Complete the other applicable prerequisites and separately owned draft profiles required by PR #11 section 24 before accepted-law work.
 5. **Non-default authorization policy-bundle binding:** bind the exact materialized issue #25 transaction profile and PR #23 protected-effect contract into the affected complete action rule and immutable manifest without duplicating their semantics. The referenced bytes and digests must actually exist; they are not yet promoted by this step.
 6. **Exact binding review, then accepted semantic promotion:** stewards review the required schema/profile/manifest bytes and their content-addressed bindings before a separate governed PR performs the applicable accepted-law promotion under PR #11 section 24. Pin the reviewed digests. Any semantic change returns to exact-head semantic review and approval. The eventual accepted-law transaction prerequisite for applicable `NOT_REQUIRED` rows must name issue #25 alongside issue #19; do not edit the historical approved PR #11 candidate in this Phase A PR.
-7. **Hostile conformance:** exercise section 16 through production-reachable lookup, trusted enrichment, authorization, gate, persistence, receipt, and reconciliation paths, and record actual evidence.
-8. **Explicit current/default promotion:** change currentness only through a separate steward-approved step after contract and conformance review.
-9. **OFARM2 extraction:** copy only promoted canonical assets, verify exact bytes and digests, and retain source provenance.
-10. **Separately reviewable runtime work:** keep UnitOfWork, command idempotency, authorization evaluation, protected-effect application, disclosure, retention/custody, and database authority in their respective trust-boundary PRs.
+7. **Conformance construction:** only after step 6's complete selected binding review and accepted semantic promotion, and only under every condition in PR #11 section 24.2, separately approve the affected per-boundary Phase A designs and exact test-only consumption mechanism. Those approvals may permit isolated construction of actual lookup, trusted enrichment, authorization, gate, persistence, receipt and reconciliation paths using exact reviewed candidate bindings. They grant no production admission and waive no transaction or adjacent-owner prerequisite.
+8. **Hostile conformance:** exercise section 16 through those production-reachable implementation paths and record actual evidence identifying the candidate package, implementation revision, configuration and observed outcomes. Do not replace missing producers with successful stubs or helper-only evidence.
+9. **Explicit current/default promotion:** change currentness only through a separate steward-approved step after contract and conformance review.
+10. **OFARM2 production extraction:** copy only promoted canonical assets for production consumption, verify exact bytes/digests and retain source provenance. Step 7's approved test-only consumption does not satisfy this production gate.
+11. **Separate production admission:** keep UnitOfWork, command idempotency, authorization evaluation, protected-effect application, disclosure, retention/custody and database authority in their respective reviewed trust-boundary PRs. The exact tested implementation and promoted package require a separate release decision after the preceding gates. No stage automatically resumes tasks, merges PRs or deploys code; changed inputs require affected conformance checks again under PR #11 section 24.2.
 
-No step is implied by completion of the prior step. This candidate remains historical Phase A material until separately accepted.
+No step is implied by completion of the prior step. This candidate remains historical Phase A material until separately accepted. The conformance allowance does not close the remaining shared/domain/history/temporal/twin/provider dependencies, override another owner's restriction or unpark OFARM2 #392/#396; PR #11 section 24.2 governs each affected stop.
 
 ---
 
