@@ -208,3 +208,10 @@ CP14 adds `03_machine_contracts/CONTRACT_FAMILY_CURRENTNESS_CP14_FINAL_DRAFT_ADD
 AuthorizationFinalizationEvidence adds one draft component schema under
 `drafts_non_default/authorization_finalization_evidence/`. It has no current/default
 schema and does not complete the selected release or enable runtime use.
+
+## AssertionRecord v0.2 submission component (draft/non-default)
+
+AssertionRecord adds one draft carrier/body schema under
+`drafts_non_default/assertion_record_submission/`. AssertionRecord v0.1
+remains current/default. This component supplies no executable protected-effect
+binding, currentness promotion or runtime authority.
