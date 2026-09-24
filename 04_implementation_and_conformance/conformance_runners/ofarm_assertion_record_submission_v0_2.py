@@ -117,6 +117,13 @@ def check_component(definition, record):
     if definition != 'assertionRecord':
         return
     subject, anchor = record['subject'], record['anchorScopes'][0]
+    if subject['subjectPosture'] == 'PROSPECTIVE_SUBJECT':
+        identity = (subject['subjectType'], subject['subjectRef'])
+        require(identity != (anchor['scopeType'], anchor['scopeRef']),
+                'COMPONENT', 'PROSPECTIVE_SUBJECT_IS_ANCHOR')
+        for context in record['assertionBody'].get('contextBindings', []):
+            require(identity != (context['contextRole'], context['binding']['ref']),
+                    'COMPONENT', 'PROSPECTIVE_SUBJECT_IS_CONTEXT')
     same = (subject['subjectPosture'] == 'EXISTING_SUBJECT'
             and subject['subjectType'] == anchor['scopeType']
             and subject['subjectRef'] == anchor['scopeRef']
@@ -134,6 +141,22 @@ def check_component(definition, record):
     # External temporal sources deliberately remain unresolved here.
 
 
+
+def error_tree(errors):
+    for error in errors:
+        yield error
+        yield from error_tree(error.context)
+
+
+def matches_schema_error(error, witness):
+    keyword = 'falseSchema' if error.schema is False else error.validator
+    return (list(error.absolute_path) == witness['instancePath']
+            and list(error.absolute_schema_path) == witness['schemaPath']
+            and keyword == witness['keyword']
+            and ('missingProperty' not in witness
+                 or error.message == repr(witness['missingProperty']) + ' is a required property'))
+
+
 def run_case(case, fixtures, validators):
     kind = case['kind']
     if kind == 'json':
@@ -146,16 +169,25 @@ def run_case(case, fixtures, validators):
         return
     value = changed(fixtures[case['fixture']]['value'], case.get('edits', []))
     definition = case.get('definition', fixtures[case['fixture']]['definition'])
-    try:
-        definition_error = next(validators[definition].iter_errors(value), None)
-        if definition == 'assertionRecord':
-            root_error = next(validators['root'].iter_errors(value), None)
-            require((definition_error is None) == (root_error is None),
-                    'HARNESS', 'ROOT_PROFILE_DISAGREEMENT')
-        if definition_error is not None:
-            raise definition_error
-    except ValidationError as error:
-        raise ContractError('SCHEMA', 'SCHEMA', error.json_path + ': ' + error.message) from error
+    errors = list(validators[definition].iter_errors(value))
+    bare_errors = list(validators[definition + ':no-formats'].iter_errors(value))
+    if definition == 'assertionRecord':
+        require(bool(errors) == bool(list(validators['root'].iter_errors(value)))
+                and bool(bare_errors) == bool(list(validators['root:no-formats'].iter_errors(value))),
+                'HARNESS', 'ROOT_PROFILE_DISAGREEMENT')
+    witness = case.get('schemaError')
+    if witness:
+        require(any(matches_schema_error(error, witness) for error in error_tree(errors)),
+                'HARNESS', 'SCHEMA_REJECTION_WITNESS', case['name'])
+        if witness['keyword'] == 'format':
+            require(not bare_errors, 'HARNESS', 'FORMAT_DEPENDENCE_WITNESS', case['name'])
+        else:
+            require(any(matches_schema_error(error, witness) for error in error_tree(bare_errors)),
+                    'HARNESS', 'NO_FORMAT_REJECTION_WITNESS', case['name'])
+    else:
+        require(not bare_errors, 'HARNESS', 'NO_FORMAT_POSITIVE_CONTROL', case['name'])
+    if errors:
+        raise ContractError('SCHEMA', 'SCHEMA', errors[0].json_path + ': ' + errors[0].message)
     if kind != 'schema':
         check_component(definition, value)
     if kind == 'integrity':
@@ -198,6 +230,12 @@ def main():
     validators = {name: Draft202012Validator({'$schema': schema['$schema'], '$defs': schema['$defs'],
                     '$ref': '#/$defs/' + name}, format_checker=formats) for name in DEFINITIONS}
     validators['root'] = Draft202012Validator(schema, format_checker=formats)
+    for name in DEFINITIONS:
+        validators[name + ':no-formats'] = Draft202012Validator(
+            {'$schema': schema['$schema'], '$defs': schema['$defs'], '$ref': '#/$defs/' + name})
+    validators['root:no-formats'] = Draft202012Validator(schema)
+    require(all('schemaError' in c for c in data['cases'] if c['expect'] == {'layer': 'SCHEMA', 'code': 'SCHEMA'}),
+            'HARNESS', 'MISSING_SCHEMA_WITNESS')
     counts, layers, failures = Counter(), Counter(), []
     names = [case['name'] for case in data['cases']]
     require(len(names) == len(set(names)), 'HARNESS', 'DUPLICATE_CASE_NAME')
@@ -221,6 +259,7 @@ def main():
     print(json.dumps({'result': 'FAIL' if failures else 'PASS', 'schemaByteSha256': data['schemaByteSha256'],
                       'profiles': len(DEFINITIONS), 'fixtures': len(data['fixtures']), **counts,
                       'negativeRejectionLayers': dict(layers), 'failures': failures,
+                      'schemaWithoutFormatChecks': dict(Counter(c['schemaWithoutFormats'] for c in data['cases'] if 'schemaWithoutFormats' in c)),
                       'deferredGuarantees': data['deferredGuarantees'],
                       'limit': 'Fictional shape, local comparisons and complete-byte digests only. No foreign resolution, authorization, trusted clock, transaction, acceptance or runtime proof.'}, indent=2))
     return 1 if failures else 0

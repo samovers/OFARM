@@ -125,11 +125,15 @@
     },
     {
       "owner": "domain and source/storage owners",
-      "description": "Immutable record resolution, relationship truth/completeness, registered identities and prior committed correction snapshot."
+      "description": "Immutable record resolution, relationship truth/completeness, registered identities and prior committed correction snapshot. Identity-admission/domain-resolution owners must establish that a prospective subjectRef does not resolve to an existing registered identity of its declared kind; local anchor/context collision checks do not prove global nonexistence."
     },
     {
       "owner": "#38 and source/storage",
       "description": "Trusted original-context time and checkpoint provenance; claimed domain time is not trusted transaction time."
+    },
+    {
+      "owner": "domain and evidence-time source owners",
+      "description": "Actual immutable temporal source resolution and compatibility. Selected endpoint strings must already be canonical and exactly equal subjectTime, without conversion or normalization. Admitted timeBasis qualifiers, qualifier-to-posture compatibility and omitted-qualifier meaning remain unclosed for MeasurementEvidence and payload intervals; a fixed source pointer does not permit record/result/capture-time substitution. Additional versioned payload context cannot override the designated temporalBasis."
     },
     {
       "owner": "#26 and source/storage",
