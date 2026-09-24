@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "ofarm.assertionRecord.submissionComponentManifest.v0.2",
+  "contractFamily": "AssertionRecord",
+  "componentId": "ofarm.assertion-record.submission-component.v0.2-draft",
+  "status": "DRAFT_NON_DEFAULT",
+  "activeLaw": false,
+  "promotedToCurrentDefault": false,
+  "executable": false,
+  "selectedReleaseClosureComplete": false,
+  "primaryTrustBoundary": "assertion-domain record integrity",
+  "currentDefaultSchema": "03_machine_contracts/schemas/core/OFARM_AssertionRecord_schema_v0_1.json",
+  "schemaPath": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json",
+  "schemaByteSha256": "3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+  "schemaJcsDigest": "sha256:5533886be44edcad0713ccf9116ef7357fb4903496d1ef9452d5c3e042a445a2",
+  "profiles": [
+    {
+      "definition": "assertionRecord",
+      "schemaPointer": "#/$defs/assertionRecord",
+      "reviewKey": null,
+      "description": "Pending result carrier",
+      "payloadDiscriminatorAddedByManifest": false
+    },
+    {
+      "definition": "structureAssertionBody",
+      "schemaPointer": "#/$defs/structureAssertionBody",
+      "reviewKey": "STRUCTURE_ASSERTION_BODY_V0_2",
+      "description": "Structure claim body",
+      "payloadDiscriminatorAddedByManifest": false
+    },
+    {
+      "definition": "operationClaimBody",
+      "schemaPointer": "#/$defs/operationClaimBody",
+      "reviewKey": "OPERATION_CLAIM_BODY_V0_2",
+      "description": "Operation claim body",
+      "payloadDiscriminatorAddedByManifest": false
+    },
+    {
+      "definition": "complianceAssertionBody",
+      "schemaPointer": "#/$defs/complianceAssertionBody",
+      "reviewKey": "COMPLIANCE_ASSERTION_BODY_V0_2",
+      "description": "Compliance claim body",
+      "payloadDiscriminatorAddedByManifest": false
+    }
+  ],
+  "coveredActions": [
+    "ASSERT_STRUCTURE",
+    "ASSERT_OPERATION_CLAIM",
+    "ASSERT_COMPLIANCE"
+  ],
+  "actionCoverageLimit": "Schema branch coverage does not admit these actions to an executable release.",
+  "integrity": {
+    "canonicalization": "JCS_RFC8785_SHA256",
+    "encoding": "UTF-8",
+    "unknownClosedRecordMembers": "REJECT",
+    "duplicateJsonNames": "REJECT_BEFORE_OBJECT_MODEL",
+    "bodyAndResultProjection": "Hash the entire object; no self-digest member or nested exclusion.",
+    "foreignReferenceLimit": "Syntax and fictional byte matching do not establish owner admission or real immutable resolution."
+  },
+  "sourceInputs": [
+    {
+      "pr": 11,
+      "head": "2b46dbed647981a55704fd69fe06b92b7240be37",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/authorization_constraints_and_decision_evidence_rfc_candidate_v0_2.md",
+      "sha256": "23feaaeff0ff47678eed8d44e661184e1f7e53db91b6abb42c115be71e7f6632",
+      "url": "https://github.com/samovers/OFARM/blob/2b46dbed647981a55704fd69fe06b92b7240be37/package_meta/history/clean_baseline_migration/phase_reports/authorization_constraints_and_decision_evidence_rfc_candidate_v0_2.md"
+    },
+    {
+      "pr": 20,
+      "head": "98f8c4fafbae42c8f7fd931f43f53adcb4733713",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/governed_human_approval_transaction_and_consumption_protocol_rfc_candidate_v0_1.md",
+      "sha256": "08ad9d8d768c60e43520f0d431d930d865da44756abf7178bc65e52945bd37dc",
+      "url": "https://github.com/samovers/OFARM/blob/98f8c4fafbae42c8f7fd931f43f53adcb4733713/package_meta/history/clean_baseline_migration/phase_reports/governed_human_approval_transaction_and_consumption_protocol_rfc_candidate_v0_1.md"
+    },
+    {
+      "pr": 23,
+      "head": "a0a06ad99516790d5b908d5de330591691dd0dcd",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+      "sha256": "0d654293a5e4a9f0b3b1efa5a9025f34d0a335c3f2f2fb2299c9e5538e6ff999",
+      "url": "https://github.com/samovers/OFARM/blob/a0a06ad99516790d5b908d5de330591691dd0dcd/package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md"
+    },
+    {
+      "pr": 26,
+      "head": "0d8123d3e6ded25a92c271cd8379030524208086",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_and_consumption_protocol_rfc_candidate_v0_1.md",
+      "sha256": "dcae358c76742f93964a9aa348808351a763d355b51fab3707994a3bd0714165",
+      "url": "https://github.com/samovers/OFARM/blob/0d8123d3e6ded25a92c271cd8379030524208086/package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_and_consumption_protocol_rfc_candidate_v0_1.md"
+    },
+    {
+      "pr": 38,
+      "head": "028c398dc193e71f1f24b14a1302688edd67a365",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_time_and_attempt_binding_proposal_v0_1.md",
+      "sha256": "732d1b8740d03f3835903fa4b3f31b8752a953739b6a748f95ee1fc4d0d33433",
+      "url": "https://github.com/samovers/OFARM/blob/028c398dc193e71f1f24b14a1302688edd67a365/package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_time_and_attempt_binding_proposal_v0_1.md"
+    },
+    {
+      "pr": 39,
+      "head": "6ec9f6650c3848083742c7039ac7a673b4375c8b",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/not_required_write_authorization_boundary_proposal_v0_1.md",
+      "sha256": "657065d9ec482fe9a9d07b6fffb7b26cc55a185b9b2d0409ddbd6af10145c672",
+      "url": "https://github.com/samovers/OFARM/blob/6ec9f6650c3848083742c7039ac7a673b4375c8b/package_meta/history/clean_baseline_migration/phase_reports/not_required_write_authorization_boundary_proposal_v0_1.md"
+    }
+  ],
+  "existingSourceSchemaInputs": [
+    {
+      "path": "03_machine_contracts/schemas/agronomic/OFARM_InterventionIntentPayload_schema_v0_1.json",
+      "sha256": "72e4603d3cc98fcd99439f8a06c80724e14d4961031ff3b0a1774f3407725ec0"
+    },
+    {
+      "path": "03_machine_contracts/schemas/agronomic/OFARM_ExecutionRecordPayload_schema_v0_1.json",
+      "sha256": "ca62f01d056794ee588d55c3f5df652fc039124b76af5631d417714bc7059ff0"
+    },
+    {
+      "path": "03_machine_contracts/schemas/evidence/OFARM_MeasurementEvidence_schema_v0_1.json",
+      "sha256": "90c4cf2d1387633172e772c970d0c76889ceec0fca4682a5053914375bdc9280"
+    }
+  ],
+  "unmaterializedDependencies": [
+    {
+      "owner": "#11 and #23",
+      "description": "Actual authorization-owned effect-intent schemas and exact protected-effect input/result bindings."
+    },
+    {
+      "owner": "#23 and shared evidence owner",
+      "description": "Shared validation-trace envelope, assertion-act evidence admission and complete AR/PC contract checks."
+    },
+    {
+      "owner": "domain and source/storage owners",
+      "description": "Immutable record resolution, relationship truth/completeness, registered identities and prior committed correction snapshot. Identity-admission/domain-resolution owners must establish that a prospective subjectRef does not resolve to an existing registered identity of its declared kind; local anchor/context collision checks do not prove global nonexistence."
+    },
+    {
+      "owner": "#38 and source/storage",
+      "description": "Trusted original-context time and checkpoint provenance; claimed domain time is not trusted transaction time."
+    },
+    {
+      "owner": "domain and evidence-time source owners",
+      "description": "Actual immutable temporal source resolution and compatibility. Selected endpoint strings must already be canonical and exactly equal subjectTime, without conversion or normalization. Admitted timeBasis qualifiers, qualifier-to-posture compatibility and omitted-qualifier meaning remain unclosed for MeasurementEvidence and payload intervals; a fixed source pointer does not permit record/result/capture-time substitution. Additional versioned payload context cannot override the designated temporalBasis."
+    },
+    {
+      "owner": "#26 and source/storage",
+      "description": "Atomic transaction boundary, guards, status proof and real producer. The merged draft transaction component does not supply them."
+    },
+    {
+      "owner": "selected-release owners",
+      "description": "Remaining release bindings, including governed reads; withdrawal remains disabled until separately satisfied."
+    }
+  ],
+  "fixturePath": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_AssertionRecord_submission_cases_v0_2.json",
+  "runnerPath": "04_implementation_and_conformance/conformance_runners/ofarm_assertion_record_submission_v0_2.py",
+  "fixtureVerificationLimit": "Fictional shapes, whole-object digests and selected cross-field consistency only; no authority, trusted source, snapshot, transaction, acceptance or runtime proof."
+}

@@ -6,6 +6,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 COMMANDS = [
     ['python3', '04_implementation_and_conformance/conformance_runners/ofarm_not_required_transaction_evidence_v0_1.py'],
+    ['python3', '04_implementation_and_conformance/conformance_runners/ofarm_assertion_record_submission_v0_2.py'],
     ['python3', 'package_meta/tools/validate_repo_hygiene.py'],
     ['python3', 'package_meta/tools/check_generated_currentness.py'],
     ['python3', 'package_meta/tools/check_repository_cross_references.py'],
