@@ -70,6 +70,20 @@ self-entry and contains neither consumption nor a success receipt. An embedded
 admitted-result binding is covered by its containing attempt; later references
 use that attempt's digest and `/admittedProtectedResultBinding`.
 
+Protected-effect validation requires completed mode evidence and authorization
+`ALLOW`. A durable no-effect attempt with passing validation retains exactly one
+new admitted-result binding or a verified reference to its operation's earlier
+binding. Prior admission never transfers between operations. No-effect membership
+includes a prior admission by its containing attempt's digest and fixed pointer;
+an embedded new admission remains covered by the attempt's identifier-only entry.
+
+Completed refusal bundles need no invented extra failure trace. Optional
+`qualificationEvidence` uses `QUALIFICATION_EVIDENCE` membership; actual later
+failure traces remain separate. The closed refusal-consequence rows retain
+retryability for `DENY`/`REQUIRE_REVIEW` and terminal posture for an inconsistent
+`REQUIRE_HUMAN_APPROVAL`. Current mode evidence preserves principal kind/reference
+and represented-party identity, while current revision/basis facts may change.
+
 The selected branch carries the original attempt context and matching checkpoint
 in consumption, attempt and receipt. T must be before full original D, including
 the original 30-second deadline. Success records have no physical commit or
@@ -78,6 +92,14 @@ survive in no-effect evidence after a later abort. It grants no retry entitlemen
 Later observations point back to unchanged records. Contradictory admitted time
 evidence can accompany existing quarantine; it cannot be silently erased to make
 a success check pass. Quarantine is not a fourth transaction outcome.
+
+Conclusive status checks match the atomic-store boundary, lookup key, attempt and
+transaction role. A committed no-effect evidence set is distinct from a rollback.
+Proven protected rollback plus an unknown separate evidence commit retains
+`NO_EFFECT` with explicit unresolved facts; it does not permit another attempt.
+Contradictory statuses remain recordable under unresolved/quarantine postures.
+A later time observation requires its receipt binding; admitted success chronology
+orders checkpoint, observed transaction time, observation time and reconciliation.
 
 These formats do not establish elapsed-clock provenance, the evaluator's full D,
 complete guards, original-context continuity, status truth, observation admission
@@ -100,6 +122,9 @@ a new canonicalizer. It checks schema validity, fictional record shapes, owned
 digests, digest construction, membership and selected cross-record/time relations.
 Negative relation cases recompute record digests and update digest references so
 they fail for the intended inconsistency rather than stale hashes.
+Positive scenarios can use the same explicit edit/rehash mechanism to exercise
+alternate valid histories. The bundle covers 18 records, 24 positive scenarios,
+97 rejection cases, four canonicalization vectors and 18 digest round trips.
 
 Every external fixture record is synthetic. Checking its bytes/digest is not
 validation under an unmaterialized authorization, domain, guard, status or clock

@@ -178,6 +178,37 @@ def check_operation(data, record):
     return operation
 
 
+def check_mode_identity(mode, operation):
+    for key in ('authenticatedPrincipalRef', 'resolvedPrincipalKind'):
+        require(mode['requestingPrincipalBinding'][key] == operation['requestingPrincipalBinding'][key], 'CONSUMER_BINDING')
+    def represented(record):
+        binding = record['representedPartyBinding']
+        return binding['representedPartyRef'] if binding is not None else None
+    require(represented(mode) == represented(operation), 'REPRESENTATION_BINDING')
+    # Current principal/representation revisions may differ from first admission.
+
+
+def check_admitted_result(data, attempt):
+    if 'admittedProtectedResultBinding' in attempt:
+        owner = attempt
+        reference = {'attempt': binding('transactionAttempt', owner), 'attemptSequence': owner['attempt']['attemptSequence'],
+                     'pointer': '/admittedProtectedResultBinding'}
+    else:
+        reference = attempt['priorAdmittedProtectedResultBinding']
+        owner = resolve(data, reference['attempt'])
+        validate_shape('transactionAttempt', owner)
+        verify_digest('transactionAttempt', owner)
+        require(reference['attempt'] == binding('transactionAttempt', owner), 'ADMISSION_BINDING')
+        require(reference['attemptSequence'] == owner['attempt']['attemptSequence'] < attempt['attempt']['attemptSequence'], 'ADMISSION_SEQUENCE')
+    check_operation(data, owner)
+    require(owner['operation'] == attempt['operation'] and owner['effectIntent'] == attempt['effectIntent'], 'ADMISSION_OPERATION')
+    require('admittedProtectedResultBinding' in owner, 'ADMISSION_BINDING')
+    admitted = owner['admittedProtectedResultBinding']
+    require(admitted['validationTrace'] == owner['protectedEffectValidation']['trace'], 'ADMISSION_TRACE')
+    require(admitted['protectedEffectContractBinding'] == owner['protectedEffectContractBinding'] == attempt['protectedEffectContractBinding'], 'RESULT_BINDING')
+    return admitted, reference
+
+
 def gate_members(record):
     return [{'role': 'OTHER_GATE_TRACE', **g['trace']} for g in record['gateTraces'] if 'trace' in g]
 
@@ -218,7 +249,7 @@ def verify_success(data, name):
     mode = resolve(data, receipt['modeEvidence'])
     consumption = resolve(data, receipt['decisionConsumption'])
     require(consumption['consumingPrincipalBinding'] == mode['requestingPrincipalBinding'], 'CONSUMER_BINDING')
-    require(mode['requestingPrincipalBinding']['authenticatedPrincipalRef'] == operation['requestingPrincipalBinding']['authenticatedPrincipalRef'], 'CONSUMER_BINDING')
+    check_mode_identity(mode, operation)
     attempts = [m for m in receipt['membership'] if m['role'] == 'TRANSACTION_ATTEMPT']
     require(len(attempts) == 1, 'MEMBERSHIP')
     attempt = resolve(data, attempts[0])
@@ -238,14 +269,9 @@ def verify_success(data, name):
     require(attempt['completeGuardEvidence'] == receipt['completeGuardEvidence'], 'GUARD_BINDING')
     require(attempt['protectedEffectValidation'] == receipt['protectedEffectValidation'] and attempt['gateTraces'] == receipt['gateTraces'], 'GATE_BINDING')
     admitted_ref = receipt['admittedProtectedResult']
-    admitted_attempt = resolve(data, admitted_ref['attempt'])
-    require(admitted_attempt['attempt']['attemptSequence'] == admitted_ref['attemptSequence'], 'ADMISSION_SEQUENCE')
-    if 'admittedProtectedResultBinding' in attempt:
-        require(admitted_ref['attempt'] == binding('transactionAttempt', attempt), 'ADMISSION_BINDING')
-    else:
-        require(attempt['priorAdmittedProtectedResultBinding'] == admitted_ref and admitted_ref['attemptSequence'] < attempt['attempt']['attemptSequence'], 'ADMISSION_SEQUENCE')
-    admitted = admitted_attempt['admittedProtectedResultBinding']
-    require(admitted['validationTrace'] == admitted_attempt['protectedEffectValidation']['trace'], 'ADMISSION_TRACE')
+    admitted, expected_ref = check_admitted_result(data, attempt)
+    require(admitted_ref['attemptSequence'] == expected_ref['attemptSequence'], 'ADMISSION_SEQUENCE')
+    require(admitted_ref == expected_ref, 'ADMISSION_BINDING')
     require(receipt['committedResult'] == {'ref': admitted['resultId'], 'digest': admitted['resultDigest']}, 'RESULT_BINDING')
     require(receipt['resultSchemaBinding'] == admitted['resultSchemaBinding'] and receipt['protectedEffectContractBinding'] == admitted['protectedEffectContractBinding'], 'RESULT_BINDING')
     require(consumption['committedResults'] == [receipt['committedResult']], 'RESULT_BINDING')
@@ -263,13 +289,26 @@ def verify_no_effect(data, name):
     if 'modeEvidence' in record:
         mode = resolve(data, record['modeEvidence'])
         require(mode['operation'] == record['operation'] and mode['attempt'] == record['attempt'], 'MODE_BINDING')
+        check_mode_identity(mode, operation)
     required = [{'role':'OPERATION_BINDING', **record['operation']['operationBinding']}, projection_member(data, operation), *evidence_members(record)]
     required += [{'role':'FAILURE_TRACE', **value} for value in record['failureEvidence']]
+    required += [{'role':'QUALIFICATION_EVIDENCE', **value} for value in record.get('qualificationEvidence', [])]
+    if 'admittedProtectedResultBinding' in record or 'priorAdmittedProtectedResultBinding' in record:
+        _, reference = check_admitted_result(data, record)
+        if 'priorAdmittedProtectedResultBinding' in record:
+            required.append({'role':'ADMITTED_RESULT_BINDING', **reference['attempt'], 'pointer':reference['pointer']})
     if 'protectedEffectRollbackProof' in record:
         required.append({'role':'ROLLBACK_PROOF', **record['protectedEffectRollbackProof']})
     if 'checkpoint' in record:
         verify_checkpoint(record)  # A later abort must not erase a truthful checkpoint.
     verify_members(data, record['noEffectMembership'], required, {'role':'TRANSACTION_ATTEMPT','ref':record['attempt']['transactionAttemptId']})
+
+
+def require_transaction_status(record, transaction, status):
+    identity_fields = ('atomicPersistenceBoundaryRef', 'transactionStatusLookupKey', 'transactionAttemptId')
+    same = [o for o in record['statusObservations'] if all(o['transaction'][k] == transaction[k] for k in identity_fields)]
+    require(any(o['transaction']['role'] == transaction['role'] for o in same), 'STATUS_BINDING')
+    require(same and all(o['status'] == status for o in same), 'STATUS_BINDING')
 
 
 def verify_reconciliation(data, name):
@@ -281,23 +320,33 @@ def verify_reconciliation(data, name):
         receipt = resolve(data, record['resolvedReceipt'])
         require(record['operation'] == receipt['operation'] and record['transactionAttemptId'] == receipt['attempt']['transactionAttemptId'] and record['attemptSequence'] == receipt['attempt']['attemptSequence'], 'RECONCILIATION_BINDING')
         if record['resolution'] == 'EFFECT_COMMITTED':
-            require(any(o['status'] == 'COMMITTED' and o['transaction']['transactionStatusLookupKey'] == receipt['attempt']['transactionStatusLookupKey'] and o['transaction']['atomicPersistenceBoundaryRef'] == receipt['attempt']['atomicPersistenceBoundaryRef'] for o in record['statusObservations']), 'STATUS_BINDING')
+            require_transaction_status(record, {'role':'PROTECTED_EFFECT_TRANSACTION', **receipt['attempt']}, 'COMMITTED')
     if 'resolvedNoEffectAttempt' in record:
         attempt = resolve(data, record['resolvedNoEffectAttempt'])
         require(attempt['outcome'] == 'NO_EFFECT' and record['operation'] == attempt['operation'] and record['transactionAttemptId'] == attempt['attempt']['transactionAttemptId'] and record['attemptSequence'] == attempt['attempt']['attemptSequence'], 'RECONCILIATION_BINDING')
         evidence_role = next((r for r in attempt['transactionRoles'] if r['role'] == 'SEPARATE_FAILURE_EVIDENCE_COMMIT'), None)
-        evidence_key = evidence_role['transactionStatusLookupKey'] if evidence_role else attempt['attempt']['transactionStatusLookupKey']
-        require(any(o['status'] == 'COMMITTED' and o['transaction']['transactionStatusLookupKey'] == evidence_key for o in record['statusObservations']), 'STATUS_BINDING')
+        protected = {'role':'PROTECTED_EFFECT_TRANSACTION', **attempt['attempt']}
+        require_transaction_status(record, evidence_role or protected, 'COMMITTED')
+        if evidence_role:
+            resolve(data, attempt['protectedEffectRollbackProof'])
+            require_transaction_status(record, protected, 'ROLLED_BACK')
     if 'protectedEffectRollbackProof' in record:
         resolve(data, record['protectedEffectRollbackProof'])
+        protected = [o['transaction'] for o in record['statusObservations'] if o['transaction']['role'] == 'PROTECTED_EFFECT_TRANSACTION']
+        require(bool(protected) and all(t == protected[0] for t in protected), 'STATUS_BINDING')
+        require_transaction_status(record, protected[0], 'ROLLED_BACK')
+        # Unknown status of a distinct failure-evidence commit keeps the operation blocked.
+        if any(o['status'] == 'UNKNOWN' for o in record['statusObservations']):
+            require(bool(record.get('unresolvedFacts')), 'UNRESOLVED_STATUS')
     if 'laterTimeObservation' in record:
         later = record['laterTimeObservation']
+        require('resolvedReceipt' in record, 'OBSERVATION_RECEIPT')
         require(later['receipt'] == record['resolvedReceipt'], 'OBSERVATION_RECEIPT')
         resolve(data, later['ownerEvidence'])
         if record['resolution'] == 'EFFECT_COMMITTED':
             observed = utc_nanoseconds(later['observedTransactionTime'])
             checkpoint = utc_nanoseconds(receipt['checkpoint']['writeAuthorizationCheckedAt'])
-            require(observed >= checkpoint, 'LATER_CHRONOLOGY')
+            require(checkpoint <= observed <= utc_nanoseconds(later['observedAt']) <= utc_nanoseconds(record['observedAt']), 'LATER_CHRONOLOGY')
     # Status truth, original clock domain and observation admissibility remain owner obligations.
 
 
@@ -357,7 +406,11 @@ def main():
     counts = Counter()
     dispatch = {'success':verify_success, 'no-effect':verify_no_effect, 'reconciliation':verify_reconciliation}
     for case in data['positiveSets']:
-        dispatch[case['kind']](data, case['record'])
+        changed = mutate(data, case.get('edits', []))
+        if case.get('rehash'):
+            rehash_fixture_records(changed)
+        verify_records(changed)
+        dispatch[case['kind']](changed, case['record'])
         counts['positiveSets'] += 1
     for case in data['negativeCases']:
         changed = mutate(data, case.get('edits', []))
@@ -372,6 +425,9 @@ def main():
             elif kind == 'schema':
                 item = changed['records'][case['record']]
                 validate_shape(item['definition'], item['value'])
+            elif kind == 'schema-without-formats':
+                shape = {'$defs':SCHEMA['$defs'], '$ref':'#/$defs/' + case['definition']}
+                require(Draft202012Validator(shape).is_valid(case['value']), 'SCHEMA')
             elif kind == 'integrity':
                 item = changed['records'][case['record']]
                 verify_digest(item['definition'], item['value'])

@@ -156,6 +156,30 @@
     "fixture:other-intent": {
       "fictional": true,
       "evidenceLabel": "other-intent"
+    },
+    "fixture:post-checkpoint-abort": {
+      "fictional": true,
+      "evidenceLabel": "truthful later infrastructure abort; no protected effect"
+    },
+    "fixture:protected-rollback-proof": {
+      "fictional": true,
+      "evidenceLabel": "synthetic proof carrier; foreign owner truth is not evaluated"
+    },
+    "fixture:protected-rollback-status": {
+      "fictional": true,
+      "evidenceLabel": "synthetic ROLLED_BACK observation"
+    },
+    "fixture:failure-commit-status": {
+      "fictional": true,
+      "evidenceLabel": "synthetic separate evidence-commit observation"
+    },
+    "fixture:passedAbort-snapshot": {
+      "fictional": true,
+      "evidenceLabel": "synthetic original attempt snapshot"
+    },
+    "fixture:otherPassedAbort-snapshot": {
+      "fictional": true,
+      "evidenceLabel": "synthetic original attempt snapshot"
     }
   },
   "records": {
@@ -941,12 +965,7 @@
         },
         "gateTraces": [],
         "noEffectConsequence": "RETRYABLE_SAME_OPERATION",
-        "failureEvidence": [
-          {
-            "ref": "fixture:refusal-qualification",
-            "digest": "sha256:14029ce0c85ad49497b6bb6849d2c2655c6d87d992947afb3d3da54173eacf54"
-          }
-        ],
+        "failureEvidence": [],
         "noEffectMembership": [
           {
             "role": "OPERATION_BINDING",
@@ -979,7 +998,7 @@
             "digest": "sha256:6d04fe5fb4473f167edb6c345f5cea3056c63a6743595814f219e6089f0fd23b"
           },
           {
-            "role": "FAILURE_TRACE",
+            "role": "QUALIFICATION_EVIDENCE",
             "ref": "fixture:refusal-qualification",
             "digest": "sha256:14029ce0c85ad49497b6bb6849d2c2655c6d87d992947afb3d3da54173eacf54"
           },
@@ -988,7 +1007,13 @@
             "ref": "fixture:no-effect-attempt"
           }
         ],
-        "transactionAttemptDigest": "sha256:ce8b7626759995871f570d4a4a6d40e8435338ceb162ca15fe14f5a9815799b6"
+        "transactionAttemptDigest": "sha256:03400de324f803598b5c531039e8cf7c08e2b799bdd216096e2f98c1ed531b87",
+        "qualificationEvidence": [
+          {
+            "ref": "fixture:refusal-qualification",
+            "digest": "sha256:14029ce0c85ad49497b6bb6849d2c2655c6d87d992947afb3d3da54173eacf54"
+          }
+        ]
       }
     },
     "unknown": {
@@ -1249,9 +1274,9 @@
         "resolution": "NO_EFFECT",
         "resolvedNoEffectAttempt": {
           "ref": "fixture:no-effect-attempt",
-          "digest": "sha256:ce8b7626759995871f570d4a4a6d40e8435338ceb162ca15fe14f5a9815799b6"
+          "digest": "sha256:03400de324f803598b5c531039e8cf7c08e2b799bdd216096e2f98c1ed531b87"
         },
-        "reconciliationEvidenceDigest": "sha256:a84d72fceabe9facc4f55036d30b276c93f72ccf33f31e481db03d54a5270abd"
+        "reconciliationEvidenceDigest": "sha256:3890a70beeca80af030e31de0ee008879877c30229e28f313f09c78de0fc6355"
       }
     },
     "quarantine": {
@@ -1313,16 +1338,622 @@
         },
         "reconciliationEvidenceDigest": "sha256:461c4c9cdf14ac4769b8ed7735c6eb5fc2cc577e54e6aaf950bbe21610b6f7c6"
       }
+    },
+    "passedAbortMode": {
+      "definition": "modeEvidence",
+      "recordRef": "fixture:passedAbortMode",
+      "value": {
+        "schemaVersion": "ofarm.notRequiredModeEvidence.v0.1",
+        "notRequiredModeEvidenceId": "fixture:passedAbortMode",
+        "operation": {
+          "logicalOperationId": "fixture:logical-operation",
+          "operationBinding": {
+            "ref": "fixture:operation-binding",
+            "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+          },
+          "callerSubmissionProjectionDigest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602",
+          "effectIntentDigest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+        },
+        "attempt": {
+          "transactionAttemptId": "fixture:passedAbort",
+          "attemptSequence": 1,
+          "transactionStartedAt": "2026-01-01T00:00:00Z",
+          "transactionDeadline": "2026-01-01T00:00:30Z",
+          "transactionSnapshot": {
+            "ref": "fixture:passedAbort-snapshot",
+            "digest": "sha256:7abfcc5b4e18fd7e853cee91229b8a5ffca5ae16faedf2a4b5ceb3750877c245"
+          },
+          "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+          "guardPolicyBinding": {
+            "ref": "fixture:guard-policy",
+            "digest": "sha256:52f5cbc8f9ebcb110b7a08c617652854aa846bd6d898b7f5daf18d8e65de4c19"
+          },
+          "transactionStatusLookupKey": "fixture:status:passedAbort",
+          "transactionTimePolicyBinding": {
+            "ref": "fixture:unbound-time-policy",
+            "digest": "sha256:9355c52e94340885700f2c1def6e2226706eb6cfbf8d36284cdc89e414c5a326"
+          }
+        },
+        "actionClass": "ASSERT_OPERATION_CLAIM",
+        "currentActionRuleBinding": {
+          "ruleId": "fixture:operation-claim-rule",
+          "ruleRef": "fixture:unmaterialized-rule",
+          "ruleRevisionSelector": {
+            "revisionRef": "fixture:rule-revision:1"
+          },
+          "ruleDigest": "sha256:11fd575f72a762ff20b8a8b244c1dbbbdb3d0271f173a3b0c9f42d69101b9bbf"
+        },
+        "effectIntentSchemaBinding": {
+          "schemaRef": "fixture:unmaterialized-intent-schema",
+          "schemaVersion": "fixture.intent.v0.1",
+          "schemaDigest": "sha256:d559c12b665b372c4a430dc138821616f728c2a81684cdd3e34ce4286d015fc8",
+          "canonicalization": "JCS_RFC8785_SHA256"
+        },
+        "effectIntent": {
+          "ref": "fixture:full-intent",
+          "digest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+        },
+        "protectedEffectContractBinding": {
+          "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+          "contractVersion": "0.1",
+          "contractRef": "fixture:unmaterialized-domain-contract",
+          "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+        },
+        "governedTransactionProfileBinding": {
+          "profileId": "ofarm.transaction.not-required-state-effect.v0.1",
+          "profileVersion": "0.1",
+          "profileRef": "fixture:unmaterialized-complete-transaction-profile",
+          "profileDigest": "sha256:ef4ce44f9f25298cca2dd31a7ee75c647e73b46623f55c77b7220c3a538d6756"
+        },
+        "humanFinalizationRequirement": "NOT_REQUIRED",
+        "decisionValidityPolicy": "TRANSACTION_BOUND_V0_2",
+        "consumptionPolicy": "SINGLE_USE",
+        "requestingPrincipalBinding": {
+          "resolvedPrincipalKind": "NATURAL_PERSON",
+          "authenticatedPrincipalRef": "fixture:party:farmer-alfa",
+          "principalRevisionSelector": {
+            "revisionRef": "fixture:principal-revision:1"
+          }
+        },
+        "representedPartyBinding": null,
+        "notRequiredModeEvidenceDigest": "sha256:40985b8a6fc6388e843118943c34c229e273100a6cfd25f1c15690d4fa477234"
+      }
+    },
+    "passedAbort": {
+      "definition": "transactionAttempt",
+      "recordRef": "fixture:passedAbort",
+      "value": {
+        "schemaVersion": "ofarm.notRequiredTransactionAttempt.v0.1",
+        "operation": {
+          "logicalOperationId": "fixture:logical-operation",
+          "operationBinding": {
+            "ref": "fixture:operation-binding",
+            "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+          },
+          "callerSubmissionProjectionDigest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602",
+          "effectIntentDigest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+        },
+        "attempt": {
+          "transactionAttemptId": "fixture:passedAbort",
+          "attemptSequence": 1,
+          "transactionStartedAt": "2026-01-01T00:00:00Z",
+          "transactionDeadline": "2026-01-01T00:00:30Z",
+          "transactionSnapshot": {
+            "ref": "fixture:passedAbort-snapshot",
+            "digest": "sha256:7abfcc5b4e18fd7e853cee91229b8a5ffca5ae16faedf2a4b5ceb3750877c245"
+          },
+          "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+          "guardPolicyBinding": {
+            "ref": "fixture:guard-policy",
+            "digest": "sha256:52f5cbc8f9ebcb110b7a08c617652854aa846bd6d898b7f5daf18d8e65de4c19"
+          },
+          "transactionStatusLookupKey": "fixture:status:passedAbort",
+          "transactionTimePolicyBinding": {
+            "ref": "fixture:unbound-time-policy",
+            "digest": "sha256:9355c52e94340885700f2c1def6e2226706eb6cfbf8d36284cdc89e414c5a326"
+          }
+        },
+        "actionClass": "ASSERT_OPERATION_CLAIM",
+        "currentActionRuleBinding": {
+          "ruleId": "fixture:operation-claim-rule",
+          "ruleRef": "fixture:unmaterialized-rule",
+          "ruleRevisionSelector": {
+            "revisionRef": "fixture:rule-revision:1"
+          },
+          "ruleDigest": "sha256:11fd575f72a762ff20b8a8b244c1dbbbdb3d0271f173a3b0c9f42d69101b9bbf"
+        },
+        "effectIntentSchemaBinding": {
+          "schemaRef": "fixture:unmaterialized-intent-schema",
+          "schemaVersion": "fixture.intent.v0.1",
+          "schemaDigest": "sha256:d559c12b665b372c4a430dc138821616f728c2a81684cdd3e34ce4286d015fc8",
+          "canonicalization": "JCS_RFC8785_SHA256"
+        },
+        "effectIntent": {
+          "ref": "fixture:full-intent",
+          "digest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+        },
+        "protectedEffectContractBinding": {
+          "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+          "contractVersion": "0.1",
+          "contractRef": "fixture:unmaterialized-domain-contract",
+          "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+        },
+        "governedTransactionProfileBinding": {
+          "profileId": "ofarm.transaction.not-required-state-effect.v0.1",
+          "profileVersion": "0.1",
+          "profileRef": "fixture:unmaterialized-complete-transaction-profile",
+          "profileDigest": "sha256:ef4ce44f9f25298cca2dd31a7ee75c647e73b46623f55c77b7220c3a538d6756"
+        },
+        "outcome": "NO_EFFECT",
+        "transactionRoles": [
+          {
+            "role": "PROTECTED_EFFECT_TRANSACTION",
+            "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+            "transactionStatusLookupKey": "fixture:status:passedAbort",
+            "transactionAttemptId": "fixture:passedAbort"
+          },
+          {
+            "role": "FIRST_ADMISSION_COMMIT",
+            "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+            "transactionStatusLookupKey": "fixture:status:passedAbort",
+            "transactionAttemptId": "fixture:passedAbort"
+          }
+        ],
+        "reachedStages": {
+          "modeEvidence": "COMPLETED",
+          "authorization": "COMPLETED",
+          "protectedEffectValidation": "COMPLETED"
+        },
+        "modeEvidence": {
+          "ref": "fixture:passedAbortMode",
+          "digest": "sha256:40985b8a6fc6388e843118943c34c229e273100a6cfd25f1c15690d4fa477234"
+        },
+        "authorizationBundle": {
+          "request": {
+            "ref": "fixture:allow-request",
+            "digest": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+          },
+          "result": {
+            "ref": "fixture:allow-result",
+            "digest": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+          },
+          "trace": {
+            "ref": "fixture:allow-trace",
+            "digest": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+          },
+          "decisionBundleDigest": "sha256:fbd612bbe8664272cf69136a7c0708a88d00f37e1f3fd8325c935509732a319c",
+          "outcome": "ALLOW"
+        },
+        "gateTraces": [],
+        "noEffectConsequence": "RETRYABLE_SAME_OPERATION",
+        "failureEvidence": [
+          {
+            "ref": "fixture:post-checkpoint-abort",
+            "digest": "sha256:5e6e6c7abf309efc37f0acdc453dd81d54210de9bbc2c36c8eb31c6fd9ce8cd1"
+          }
+        ],
+        "noEffectMembership": [
+          {
+            "role": "OPERATION_BINDING",
+            "ref": "fixture:operation-binding",
+            "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+          },
+          {
+            "role": "CALLER_PROJECTION",
+            "ref": "fixture:caller-projection",
+            "digest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602"
+          },
+          {
+            "role": "NOT_REQUIRED_MODE_EVIDENCE",
+            "ref": "fixture:passedAbortMode",
+            "digest": "sha256:40985b8a6fc6388e843118943c34c229e273100a6cfd25f1c15690d4fa477234"
+          },
+          {
+            "role": "AUTHORIZATION_REQUEST",
+            "ref": "fixture:allow-request",
+            "digest": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+          },
+          {
+            "role": "AUTHORIZATION_RESULT",
+            "ref": "fixture:allow-result",
+            "digest": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+          },
+          {
+            "role": "AUTHORIZATION_TRACE",
+            "ref": "fixture:allow-trace",
+            "digest": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+          },
+          {
+            "role": "PROTECTED_EFFECT_TRACE",
+            "ref": "fixture:domain-validation-trace",
+            "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+          },
+          {
+            "role": "FAILURE_TRACE",
+            "ref": "fixture:post-checkpoint-abort",
+            "digest": "sha256:5e6e6c7abf309efc37f0acdc453dd81d54210de9bbc2c36c8eb31c6fd9ce8cd1"
+          },
+          {
+            "role": "TRANSACTION_ATTEMPT",
+            "ref": "fixture:passedAbort"
+          }
+        ],
+        "transactionAttemptDigest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3",
+        "protectedEffectValidation": {
+          "trace": {
+            "ref": "fixture:domain-validation-trace",
+            "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+          },
+          "disposition": "PASS"
+        },
+        "admittedProtectedResultBinding": {
+          "resultId": "fixture:protected-result",
+          "resultSchemaBinding": {
+            "schemaRef": "fixture:unmaterialized-result-schema",
+            "schemaVersion": "fixture.result.v0.1",
+            "schemaDigest": "sha256:ef155b5fed25e15426b1277b929788f6c3daed3761e25ded605e13cc79525cde",
+            "canonicalization": "JCS_RFC8785_SHA256"
+          },
+          "resultDigest": "sha256:26943eb9bd245eb44997f53f93f655a37a345ee2810edede6cb7b4cbaf146ec9",
+          "protectedEffectContractBinding": {
+            "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+            "contractVersion": "0.1",
+            "contractRef": "fixture:unmaterialized-domain-contract",
+            "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+          },
+          "validationTrace": {
+            "ref": "fixture:domain-validation-trace",
+            "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+          }
+        },
+        "checkpoint": {
+          "authorizationEvaluatedAt": "2026-01-01T00:00:01Z",
+          "decisionValidUntil": "2026-01-01T00:00:20Z",
+          "writeAuthorizationCheckedAt": "2026-01-01T00:00:10Z",
+          "writeAuthorizationBoundary": "GUARDED_WRITE_CHECK_V0_1"
+        }
+      }
+    },
+    "otherOperation": {
+      "definition": "operationBinding",
+      "recordRef": "fixture:other-operation-binding",
+      "value": {
+        "schemaVersion": "ofarm.notRequiredOperationBinding.v0.1",
+        "logicalOperationId": "fixture:other-operation",
+        "operationBoundary": {
+          "kind": "TENANT",
+          "ref": "fixture:tenant-alfa",
+          "revisionSelector": {
+            "revisionRef": "fixture:tenant-revision:1"
+          }
+        },
+        "requestingPrincipalBinding": {
+          "resolvedPrincipalKind": "NATURAL_PERSON",
+          "authenticatedPrincipalRef": "fixture:party:farmer-alfa",
+          "principalRevisionSelector": {
+            "revisionRef": "fixture:principal-revision:1"
+          }
+        },
+        "representedPartyBinding": null,
+        "actionClass": "ASSERT_OPERATION_CLAIM",
+        "operationIdempotencyKeyProfile": "OFARM_OPERATION_IDEMPOTENCY_KEY_V0_1",
+        "humanFinalizationRequirement": "NOT_REQUIRED",
+        "effectIntentSchemaBinding": {
+          "schemaRef": "fixture:unmaterialized-intent-schema",
+          "schemaVersion": "fixture.intent.v0.1",
+          "schemaDigest": "sha256:d559c12b665b372c4a430dc138821616f728c2a81684cdd3e34ce4286d015fc8",
+          "canonicalization": "JCS_RFC8785_SHA256"
+        },
+        "protectedEffectContractBinding": {
+          "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+          "contractVersion": "0.1",
+          "contractRef": "fixture:unmaterialized-domain-contract",
+          "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+        },
+        "governedTransactionProfileBinding": {
+          "profileId": "ofarm.transaction.not-required-state-effect.v0.1",
+          "profileVersion": "0.1",
+          "profileRef": "fixture:unmaterialized-complete-transaction-profile",
+          "profileDigest": "sha256:ef4ce44f9f25298cca2dd31a7ee75c647e73b46623f55c77b7220c3a538d6756"
+        },
+        "callerSubmissionProjectionProfile": "ofarm.notRequiredCallerSubmissionProjection.v0.1",
+        "callerSubmissionProjectionDigest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602",
+        "effectIntentRef": "fixture:full-intent",
+        "effectIntentDigest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398",
+        "effectIntentCanonicalization": "JCS_RFC8785_SHA256",
+        "operationIdempotencyKey": "other-operation-key",
+        "operationBindingDigest": "sha256:e1be70f10812c7c20fe591b5927a7b1d7b908fc513c4b497dbab28e27a6efa5a"
+      }
+    },
+    "otherPassedAbortMode": {
+      "definition": "modeEvidence",
+      "recordRef": "fixture:otherPassedAbortMode",
+      "value": {
+        "schemaVersion": "ofarm.notRequiredModeEvidence.v0.1",
+        "notRequiredModeEvidenceId": "fixture:otherPassedAbortMode",
+        "operation": {
+          "logicalOperationId": "fixture:other-operation",
+          "operationBinding": {
+            "ref": "fixture:other-operation-binding",
+            "digest": "sha256:e1be70f10812c7c20fe591b5927a7b1d7b908fc513c4b497dbab28e27a6efa5a"
+          },
+          "callerSubmissionProjectionDigest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602",
+          "effectIntentDigest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+        },
+        "attempt": {
+          "transactionAttemptId": "fixture:otherPassedAbort",
+          "attemptSequence": 1,
+          "transactionStartedAt": "2026-01-01T00:00:00Z",
+          "transactionDeadline": "2026-01-01T00:00:30Z",
+          "transactionSnapshot": {
+            "ref": "fixture:otherPassedAbort-snapshot",
+            "digest": "sha256:7abfcc5b4e18fd7e853cee91229b8a5ffca5ae16faedf2a4b5ceb3750877c245"
+          },
+          "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+          "guardPolicyBinding": {
+            "ref": "fixture:guard-policy",
+            "digest": "sha256:52f5cbc8f9ebcb110b7a08c617652854aa846bd6d898b7f5daf18d8e65de4c19"
+          },
+          "transactionStatusLookupKey": "fixture:status:otherPassedAbort",
+          "transactionTimePolicyBinding": {
+            "ref": "fixture:unbound-time-policy",
+            "digest": "sha256:9355c52e94340885700f2c1def6e2226706eb6cfbf8d36284cdc89e414c5a326"
+          }
+        },
+        "actionClass": "ASSERT_OPERATION_CLAIM",
+        "currentActionRuleBinding": {
+          "ruleId": "fixture:operation-claim-rule",
+          "ruleRef": "fixture:unmaterialized-rule",
+          "ruleRevisionSelector": {
+            "revisionRef": "fixture:rule-revision:1"
+          },
+          "ruleDigest": "sha256:11fd575f72a762ff20b8a8b244c1dbbbdb3d0271f173a3b0c9f42d69101b9bbf"
+        },
+        "effectIntentSchemaBinding": {
+          "schemaRef": "fixture:unmaterialized-intent-schema",
+          "schemaVersion": "fixture.intent.v0.1",
+          "schemaDigest": "sha256:d559c12b665b372c4a430dc138821616f728c2a81684cdd3e34ce4286d015fc8",
+          "canonicalization": "JCS_RFC8785_SHA256"
+        },
+        "effectIntent": {
+          "ref": "fixture:full-intent",
+          "digest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+        },
+        "protectedEffectContractBinding": {
+          "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+          "contractVersion": "0.1",
+          "contractRef": "fixture:unmaterialized-domain-contract",
+          "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+        },
+        "governedTransactionProfileBinding": {
+          "profileId": "ofarm.transaction.not-required-state-effect.v0.1",
+          "profileVersion": "0.1",
+          "profileRef": "fixture:unmaterialized-complete-transaction-profile",
+          "profileDigest": "sha256:ef4ce44f9f25298cca2dd31a7ee75c647e73b46623f55c77b7220c3a538d6756"
+        },
+        "humanFinalizationRequirement": "NOT_REQUIRED",
+        "decisionValidityPolicy": "TRANSACTION_BOUND_V0_2",
+        "consumptionPolicy": "SINGLE_USE",
+        "requestingPrincipalBinding": {
+          "resolvedPrincipalKind": "NATURAL_PERSON",
+          "authenticatedPrincipalRef": "fixture:party:farmer-alfa",
+          "principalRevisionSelector": {
+            "revisionRef": "fixture:principal-revision:1"
+          }
+        },
+        "representedPartyBinding": null,
+        "notRequiredModeEvidenceDigest": "sha256:c8e9cc84ebb6fda3f755aaf6721f547430222a88adebd8eb7650d3f5af107a9c"
+      }
+    },
+    "otherPassedAbort": {
+      "definition": "transactionAttempt",
+      "recordRef": "fixture:otherPassedAbort",
+      "value": {
+        "schemaVersion": "ofarm.notRequiredTransactionAttempt.v0.1",
+        "operation": {
+          "logicalOperationId": "fixture:other-operation",
+          "operationBinding": {
+            "ref": "fixture:other-operation-binding",
+            "digest": "sha256:e1be70f10812c7c20fe591b5927a7b1d7b908fc513c4b497dbab28e27a6efa5a"
+          },
+          "callerSubmissionProjectionDigest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602",
+          "effectIntentDigest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+        },
+        "attempt": {
+          "transactionAttemptId": "fixture:otherPassedAbort",
+          "attemptSequence": 1,
+          "transactionStartedAt": "2026-01-01T00:00:00Z",
+          "transactionDeadline": "2026-01-01T00:00:30Z",
+          "transactionSnapshot": {
+            "ref": "fixture:otherPassedAbort-snapshot",
+            "digest": "sha256:7abfcc5b4e18fd7e853cee91229b8a5ffca5ae16faedf2a4b5ceb3750877c245"
+          },
+          "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+          "guardPolicyBinding": {
+            "ref": "fixture:guard-policy",
+            "digest": "sha256:52f5cbc8f9ebcb110b7a08c617652854aa846bd6d898b7f5daf18d8e65de4c19"
+          },
+          "transactionStatusLookupKey": "fixture:status:otherPassedAbort",
+          "transactionTimePolicyBinding": {
+            "ref": "fixture:unbound-time-policy",
+            "digest": "sha256:9355c52e94340885700f2c1def6e2226706eb6cfbf8d36284cdc89e414c5a326"
+          }
+        },
+        "actionClass": "ASSERT_OPERATION_CLAIM",
+        "currentActionRuleBinding": {
+          "ruleId": "fixture:operation-claim-rule",
+          "ruleRef": "fixture:unmaterialized-rule",
+          "ruleRevisionSelector": {
+            "revisionRef": "fixture:rule-revision:1"
+          },
+          "ruleDigest": "sha256:11fd575f72a762ff20b8a8b244c1dbbbdb3d0271f173a3b0c9f42d69101b9bbf"
+        },
+        "effectIntentSchemaBinding": {
+          "schemaRef": "fixture:unmaterialized-intent-schema",
+          "schemaVersion": "fixture.intent.v0.1",
+          "schemaDigest": "sha256:d559c12b665b372c4a430dc138821616f728c2a81684cdd3e34ce4286d015fc8",
+          "canonicalization": "JCS_RFC8785_SHA256"
+        },
+        "effectIntent": {
+          "ref": "fixture:full-intent",
+          "digest": "sha256:b2cfd9efdb227ac27d1918ca3ae21078d369bdbe53002caf6c57eee588af1398"
+        },
+        "protectedEffectContractBinding": {
+          "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+          "contractVersion": "0.1",
+          "contractRef": "fixture:unmaterialized-domain-contract",
+          "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+        },
+        "governedTransactionProfileBinding": {
+          "profileId": "ofarm.transaction.not-required-state-effect.v0.1",
+          "profileVersion": "0.1",
+          "profileRef": "fixture:unmaterialized-complete-transaction-profile",
+          "profileDigest": "sha256:ef4ce44f9f25298cca2dd31a7ee75c647e73b46623f55c77b7220c3a538d6756"
+        },
+        "outcome": "NO_EFFECT",
+        "transactionRoles": [
+          {
+            "role": "PROTECTED_EFFECT_TRANSACTION",
+            "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+            "transactionStatusLookupKey": "fixture:status:otherPassedAbort",
+            "transactionAttemptId": "fixture:otherPassedAbort"
+          },
+          {
+            "role": "FIRST_ADMISSION_COMMIT",
+            "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+            "transactionStatusLookupKey": "fixture:status:otherPassedAbort",
+            "transactionAttemptId": "fixture:otherPassedAbort"
+          }
+        ],
+        "reachedStages": {
+          "modeEvidence": "COMPLETED",
+          "authorization": "COMPLETED",
+          "protectedEffectValidation": "COMPLETED"
+        },
+        "modeEvidence": {
+          "ref": "fixture:otherPassedAbortMode",
+          "digest": "sha256:c8e9cc84ebb6fda3f755aaf6721f547430222a88adebd8eb7650d3f5af107a9c"
+        },
+        "authorizationBundle": {
+          "request": {
+            "ref": "fixture:allow-request",
+            "digest": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+          },
+          "result": {
+            "ref": "fixture:allow-result",
+            "digest": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+          },
+          "trace": {
+            "ref": "fixture:allow-trace",
+            "digest": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+          },
+          "decisionBundleDigest": "sha256:fbd612bbe8664272cf69136a7c0708a88d00f37e1f3fd8325c935509732a319c",
+          "outcome": "ALLOW"
+        },
+        "gateTraces": [],
+        "noEffectConsequence": "RETRYABLE_SAME_OPERATION",
+        "failureEvidence": [
+          {
+            "ref": "fixture:post-checkpoint-abort",
+            "digest": "sha256:5e6e6c7abf309efc37f0acdc453dd81d54210de9bbc2c36c8eb31c6fd9ce8cd1"
+          }
+        ],
+        "noEffectMembership": [
+          {
+            "role": "OPERATION_BINDING",
+            "ref": "fixture:other-operation-binding",
+            "digest": "sha256:e1be70f10812c7c20fe591b5927a7b1d7b908fc513c4b497dbab28e27a6efa5a"
+          },
+          {
+            "role": "CALLER_PROJECTION",
+            "ref": "fixture:caller-projection",
+            "digest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602"
+          },
+          {
+            "role": "NOT_REQUIRED_MODE_EVIDENCE",
+            "ref": "fixture:otherPassedAbortMode",
+            "digest": "sha256:c8e9cc84ebb6fda3f755aaf6721f547430222a88adebd8eb7650d3f5af107a9c"
+          },
+          {
+            "role": "AUTHORIZATION_REQUEST",
+            "ref": "fixture:allow-request",
+            "digest": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+          },
+          {
+            "role": "AUTHORIZATION_RESULT",
+            "ref": "fixture:allow-result",
+            "digest": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+          },
+          {
+            "role": "AUTHORIZATION_TRACE",
+            "ref": "fixture:allow-trace",
+            "digest": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+          },
+          {
+            "role": "PROTECTED_EFFECT_TRACE",
+            "ref": "fixture:domain-validation-trace",
+            "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+          },
+          {
+            "role": "FAILURE_TRACE",
+            "ref": "fixture:post-checkpoint-abort",
+            "digest": "sha256:5e6e6c7abf309efc37f0acdc453dd81d54210de9bbc2c36c8eb31c6fd9ce8cd1"
+          },
+          {
+            "role": "TRANSACTION_ATTEMPT",
+            "ref": "fixture:otherPassedAbort"
+          }
+        ],
+        "transactionAttemptDigest": "sha256:6e4335dbd473c8ff136bb5fb0f4aed2c615bb1ce5970201a21957bc510de0b57",
+        "protectedEffectValidation": {
+          "trace": {
+            "ref": "fixture:domain-validation-trace",
+            "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+          },
+          "disposition": "PASS"
+        },
+        "admittedProtectedResultBinding": {
+          "resultId": "fixture:protected-result",
+          "resultSchemaBinding": {
+            "schemaRef": "fixture:unmaterialized-result-schema",
+            "schemaVersion": "fixture.result.v0.1",
+            "schemaDigest": "sha256:ef155b5fed25e15426b1277b929788f6c3daed3761e25ded605e13cc79525cde",
+            "canonicalization": "JCS_RFC8785_SHA256"
+          },
+          "resultDigest": "sha256:26943eb9bd245eb44997f53f93f655a37a345ee2810edede6cb7b4cbaf146ec9",
+          "protectedEffectContractBinding": {
+            "contractId": "ofarm.protectedeffect.assertionrecord.submit.v0.1",
+            "contractVersion": "0.1",
+            "contractRef": "fixture:unmaterialized-domain-contract",
+            "contractDigest": "sha256:8251d564a4ab948f4509eb9ec337cac47a6d753a42991d618553ee197a30106d"
+          },
+          "validationTrace": {
+            "ref": "fixture:domain-validation-trace",
+            "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+          }
+        },
+        "checkpoint": {
+          "authorizationEvaluatedAt": "2026-01-01T00:00:01Z",
+          "decisionValidUntil": "2026-01-01T00:00:20Z",
+          "writeAuthorizationCheckedAt": "2026-01-01T00:00:10Z",
+          "writeAuthorizationBoundary": "GUARDED_WRITE_CHECK_V0_1"
+        }
+      }
     }
   },
   "constructionOrder": [
     "operation",
+    "otherOperation",
+    "noEffectMode",
+    "noEffect",
+    "passedAbortMode",
+    "passedAbort",
+    "otherPassedAbortMode",
+    "otherPassedAbort",
     "mode",
     "consumption",
     "attempt",
     "receipt",
-    "noEffectMode",
-    "noEffect",
     "unknown",
     "reconciledSuccess",
     "laterSuccess",
@@ -1358,6 +1989,682 @@
     {
       "kind": "reconciliation",
       "record": "quarantine"
+    },
+    {
+      "name": "passedAbort",
+      "kind": "no-effect",
+      "record": "passedAbort",
+      "edits": [],
+      "rehash": true
+    },
+    {
+      "name": "passed_abort_before_checkpoint",
+      "kind": "no-effect",
+      "record": "passedAbort",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/passedAbort/value/checkpoint"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "otherPassedAbort",
+      "kind": "no-effect",
+      "record": "otherPassedAbort",
+      "edits": [],
+      "rehash": true
+    },
+    {
+      "name": "same_operation_retry",
+      "kind": "success",
+      "record": "receipt",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/mode/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/consumption/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "remove",
+          "path": "/records/attempt/value/admittedProtectedResultBinding"
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/priorAdmittedProtectedResultBinding",
+          "value": {
+            "attempt": {
+              "ref": "fixture:passedAbort",
+              "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3"
+            },
+            "attemptSequence": 1,
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/admittedProtectedResult",
+          "value": {
+            "attempt": {
+              "ref": "fixture:passedAbort",
+              "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3"
+            },
+            "attemptSequence": 1,
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/membership/5",
+          "value": {
+            "role": "ADMITTED_RESULT_BINDING",
+            "ref": "fixture:passedAbort",
+            "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3",
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "no_effect_reuses_admitted_result",
+      "kind": "no-effect",
+      "record": "noEffect",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/reachedStages",
+          "value": {
+            "modeEvidence": "COMPLETED",
+            "authorization": "COMPLETED",
+            "protectedEffectValidation": "COMPLETED"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/authorizationBundle",
+          "value": {
+            "request": {
+              "ref": "fixture:allow-request",
+              "digest": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+            },
+            "result": {
+              "ref": "fixture:allow-result",
+              "digest": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+            },
+            "trace": {
+              "ref": "fixture:allow-trace",
+              "digest": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+            },
+            "decisionBundleDigest": "sha256:fbd612bbe8664272cf69136a7c0708a88d00f37e1f3fd8325c935509732a319c",
+            "outcome": "ALLOW"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/protectedEffectValidation",
+          "value": {
+            "trace": {
+              "ref": "fixture:domain-validation-trace",
+              "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+            },
+            "disposition": "PASS"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/checkpoint",
+          "value": {
+            "authorizationEvaluatedAt": "2026-01-01T00:00:01Z",
+            "decisionValidUntil": "2026-01-01T00:00:20Z",
+            "writeAuthorizationCheckedAt": "2026-01-01T00:00:10Z",
+            "writeAuthorizationBoundary": "GUARDED_WRITE_CHECK_V0_1"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/priorAdmittedProtectedResultBinding",
+          "value": {
+            "attempt": {
+              "ref": "fixture:passedAbort",
+              "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3"
+            },
+            "attemptSequence": 1,
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/failureEvidence",
+          "value": [
+            {
+              "ref": "fixture:post-checkpoint-abort",
+              "digest": "sha256:5e6e6c7abf309efc37f0acdc453dd81d54210de9bbc2c36c8eb31c6fd9ce8cd1"
+            }
+          ]
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/noEffectMembership",
+          "value": [
+            {
+              "role": "OPERATION_BINDING",
+              "ref": "fixture:operation-binding",
+              "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+            },
+            {
+              "role": "CALLER_PROJECTION",
+              "ref": "fixture:caller-projection",
+              "digest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602"
+            },
+            {
+              "role": "NOT_REQUIRED_MODE_EVIDENCE",
+              "ref": "fixture:noEffectMode",
+              "digest": "sha256:997416025de9f2fe2e147db7e5ccac5fca24fc6fddb0fc84bcc49cf4b0fec6b1"
+            },
+            {
+              "role": "AUTHORIZATION_REQUEST",
+              "ref": "fixture:allow-request",
+              "digest": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+            },
+            {
+              "role": "AUTHORIZATION_RESULT",
+              "ref": "fixture:allow-result",
+              "digest": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+            },
+            {
+              "role": "AUTHORIZATION_TRACE",
+              "ref": "fixture:allow-trace",
+              "digest": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+            },
+            {
+              "role": "PROTECTED_EFFECT_TRACE",
+              "ref": "fixture:domain-validation-trace",
+              "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+            },
+            {
+              "role": "FAILURE_TRACE",
+              "ref": "fixture:post-checkpoint-abort",
+              "digest": "sha256:5e6e6c7abf309efc37f0acdc453dd81d54210de9bbc2c36c8eb31c6fd9ce8cd1"
+            },
+            {
+              "role": "ADMITTED_RESULT_BINDING",
+              "ref": "fixture:passedAbort",
+              "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3",
+              "pointer": "/admittedProtectedResultBinding"
+            },
+            {
+              "role": "TRANSACTION_ATTEMPT",
+              "ref": "fixture:no-effect-attempt"
+            }
+          ]
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "remove",
+          "path": "/records/noEffect/value/qualificationEvidence"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffectMode/value/attempt/attemptSequence",
+          "value": 2
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "correct_REQUIRE_REVIEW",
+      "kind": "no-effect",
+      "record": "noEffect",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/authorizationBundle/outcome",
+          "value": "REQUIRE_REVIEW"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/noEffectConsequence",
+          "value": "RETRYABLE_SAME_OPERATION"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "correct_REQUIRE_HUMAN_APPROVAL",
+      "kind": "no-effect",
+      "record": "noEffect",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/authorizationBundle/outcome",
+          "value": "REQUIRE_HUMAN_APPROVAL"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/noEffectConsequence",
+          "value": "TERMINAL_REQUIRES_NEW_OPERATION_KEY"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "refusal_without_extra_failure_or_qualification",
+      "kind": "no-effect",
+      "record": "noEffect",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/noEffect/value/qualificationEvidence"
+        },
+        {
+          "op": "remove",
+          "path": "/records/noEffect/value/noEffectMembership/6"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "represented_party_matches",
+      "kind": "success",
+      "record": "receipt",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/operation/value/representedPartyBinding",
+          "value": {
+            "representedPartyRef": "fixture:represented-party-alfa",
+            "representedPartyRevisionSelector": {
+              "revisionRef": "fixture:party-revision:1"
+            },
+            "representationBasisRef": "fixture:representation-basis:1",
+            "representationBasisRevisionSelector": {
+              "revisionRef": "fixture:basis-revision:1"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/mode/value/representedPartyBinding",
+          "value": {
+            "representedPartyRef": "fixture:represented-party-alfa",
+            "representedPartyRevisionSelector": {
+              "revisionRef": "fixture:party-revision:1"
+            },
+            "representationBasisRef": "fixture:representation-basis:1",
+            "representationBasisRevisionSelector": {
+              "revisionRef": "fixture:basis-revision:1"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/lookupTuple/representedPartyRef",
+          "value": "fixture:represented-party-alfa"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "representation_current_revisions_may_change",
+      "kind": "success",
+      "record": "receipt",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/operation/value/representedPartyBinding",
+          "value": {
+            "representedPartyRef": "fixture:represented-party-alfa",
+            "representedPartyRevisionSelector": {
+              "revisionRef": "fixture:party-revision:1"
+            },
+            "representationBasisRef": "fixture:representation-basis:1",
+            "representationBasisRevisionSelector": {
+              "revisionRef": "fixture:basis-revision:1"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/mode/value/representedPartyBinding",
+          "value": {
+            "representedPartyRef": "fixture:represented-party-alfa",
+            "representedPartyRevisionSelector": {
+              "revisionRef": "fixture:party-revision:1"
+            },
+            "representationBasisRef": "fixture:representation-basis:1",
+            "representationBasisRevisionSelector": {
+              "revisionRef": "fixture:basis-revision:1"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/lookupTuple/representedPartyRef",
+          "value": "fixture:represented-party-alfa"
+        },
+        {
+          "op": "set",
+          "path": "/records/mode/value/representedPartyBinding",
+          "value": {
+            "representedPartyRef": "fixture:represented-party-alfa",
+            "representedPartyRevisionSelector": {
+              "revisionRef": "fixture:party-revision:2"
+            },
+            "representationBasisRef": "fixture:current-representation-basis",
+            "representationBasisRevisionSelector": {
+              "revisionRef": "fixture:basis-revision:2"
+            }
+          }
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "principal_current_revision_may_change",
+      "kind": "success",
+      "record": "receipt",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/mode/value/requestingPrincipalBinding/principalRevisionSelector",
+          "value": {
+            "revisionRef": "fixture:principal-revision:2"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/consumption/value/consumingPrincipalBinding/principalRevisionSelector",
+          "value": {
+            "revisionRef": "fixture:principal-revision:2"
+          }
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "rollback_proof_no_effect",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/reconciledNoEffect/value/resolvedNoEffectAttempt"
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/protectedEffectRollbackProof",
+          "value": {
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations",
+          "value": [
+            {
+              "transaction": {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "ROLLED_BACK",
+              "evidence": {
+                "ref": "fixture:protected-rollback-status",
+                "digest": "sha256:fa36fed000a64000a5529c903edc04873dbd9faed79d6f4998889a6053dcc15a"
+              }
+            }
+          ]
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "separate_failure_evidence_committed",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/protectedEffectRollbackProof",
+          "value": {
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/transactionRoles",
+          "value": [
+            {
+              "role": "PROTECTED_EFFECT_TRANSACTION",
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            },
+            {
+              "role": "FIRST_ADMISSION_COMMIT",
+              "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+              "transactionStatusLookupKey": "fixture:failure-evidence-status",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            },
+            {
+              "role": "SEPARATE_FAILURE_EVIDENCE_COMMIT",
+              "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+              "transactionStatusLookupKey": "fixture:failure-evidence-status",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            }
+          ]
+        },
+        {
+          "op": "append",
+          "path": "/records/noEffect/value/noEffectMembership",
+          "value": {
+            "role": "ROLLBACK_PROOF",
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations",
+          "value": [
+            {
+              "transaction": {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "ROLLED_BACK",
+              "evidence": {
+                "ref": "fixture:protected-rollback-status",
+                "digest": "sha256:fa36fed000a64000a5529c903edc04873dbd9faed79d6f4998889a6053dcc15a"
+              }
+            },
+            {
+              "transaction": {
+                "role": "SEPARATE_FAILURE_EVIDENCE_COMMIT",
+                "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+                "transactionStatusLookupKey": "fixture:failure-evidence-status",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "COMMITTED",
+              "evidence": {
+                "ref": "fixture:failure-commit-status",
+                "digest": "sha256:d3722e6c0327d5be8b1b0149e6ee37a44e2c86f58dafa884dc26b318b0eb475e"
+              }
+            }
+          ]
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "rollback_with_unknown_separate_evidence_stays_unresolved",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/reconciledNoEffect/value/resolvedNoEffectAttempt"
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/protectedEffectRollbackProof",
+          "value": {
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations",
+          "value": [
+            {
+              "transaction": {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "ROLLED_BACK",
+              "evidence": {
+                "ref": "fixture:protected-rollback-status",
+                "digest": "sha256:fa36fed000a64000a5529c903edc04873dbd9faed79d6f4998889a6053dcc15a"
+              }
+            }
+          ]
+        },
+        {
+          "op": "append",
+          "path": "/records/reconciledNoEffect/value/statusObservations",
+          "value": {
+            "transaction": {
+              "role": "SEPARATE_FAILURE_EVIDENCE_COMMIT",
+              "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+              "transactionStatusLookupKey": "fixture:failure-evidence-status",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            },
+            "status": "UNKNOWN",
+            "evidence": {
+              "ref": "fixture:failure-commit-status",
+              "digest": "sha256:d3722e6c0327d5be8b1b0149e6ee37a44e2c86f58dafa884dc26b318b0eb475e"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/unresolvedFacts",
+          "value": [
+            "fixture:failure-evidence-status"
+          ]
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "quarantine_retains_conflicting_status",
+      "kind": "reconciliation",
+      "record": "quarantine",
+      "edits": [
+        {
+          "op": "append",
+          "path": "/records/quarantine/value/statusObservations",
+          "value": {
+            "transaction": {
+              "role": "PROTECTED_EFFECT_TRANSACTION",
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "transactionStatusLookupKey": "fixture:status:success-attempt",
+              "transactionAttemptId": "fixture:success-attempt"
+            },
+            "status": "ROLLED_BACK",
+            "evidence": {
+              "ref": "fixture:quarantine-status-evidence",
+              "digest": "sha256:ff7dde00a74b8af24cc2910c06c69c7a8d11c74e9575cbbd900609d4879eb0e1"
+            }
+          }
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "unresolved_retains_conflicting_status",
+      "kind": "reconciliation",
+      "record": "reconciledUnknown",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/reconciledUnknown/value/statusObservations",
+          "value": [
+            {
+              "transaction": {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:success-attempt",
+                "transactionAttemptId": "fixture:unknown-attempt"
+              },
+              "status": "COMMITTED",
+              "evidence": {
+                "ref": "fixture:quarantine-status-evidence",
+                "digest": "sha256:ff7dde00a74b8af24cc2910c06c69c7a8d11c74e9575cbbd900609d4879eb0e1"
+              }
+            },
+            {
+              "transaction": {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:success-attempt",
+                "transactionAttemptId": "fixture:unknown-attempt"
+              },
+              "status": "ROLLED_BACK",
+              "evidence": {
+                "ref": "fixture:quarantine-status-evidence",
+                "digest": "sha256:ff7dde00a74b8af24cc2910c06c69c7a8d11c74e9575cbbd900609d4879eb0e1"
+              }
+            }
+          ]
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "quarantine_without_receipt_or_time_observation",
+      "kind": "reconciliation",
+      "record": "quarantine",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/quarantine/value/resolvedReceipt"
+        },
+        {
+          "op": "remove",
+          "path": "/records/quarantine/value/laterTimeObservation"
+        }
+      ],
+      "rehash": true
     }
   ],
   "negativeCases": [
@@ -2099,6 +3406,1576 @@
       "error": "CANONICAL_DOMAIN",
       "edits": [],
       "value": 9007199254740992
+    },
+    {
+      "name": "retry_borrows_other_operation",
+      "kind": "success",
+      "record": "receipt",
+      "error": "ADMISSION_OPERATION",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/mode/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/consumption/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "remove",
+          "path": "/records/attempt/value/admittedProtectedResultBinding"
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/priorAdmittedProtectedResultBinding",
+          "value": {
+            "attempt": {
+              "ref": "fixture:otherPassedAbort",
+              "digest": "sha256:6e4335dbd473c8ff136bb5fb0f4aed2c615bb1ce5970201a21957bc510de0b57"
+            },
+            "attemptSequence": 1,
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/admittedProtectedResult",
+          "value": {
+            "attempt": {
+              "ref": "fixture:otherPassedAbort",
+              "digest": "sha256:6e4335dbd473c8ff136bb5fb0f4aed2c615bb1ce5970201a21957bc510de0b57"
+            },
+            "attemptSequence": 1,
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/membership/5",
+          "value": {
+            "role": "ADMITTED_RESULT_BINDING",
+            "ref": "fixture:otherPassedAbort",
+            "digest": "sha256:6e4335dbd473c8ff136bb5fb0f4aed2c615bb1ce5970201a21957bc510de0b57",
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "retry_borrows_denied_admission",
+      "kind": "success",
+      "record": "receipt",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/mode/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/consumption/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "remove",
+          "path": "/records/attempt/value/admittedProtectedResultBinding"
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/priorAdmittedProtectedResultBinding",
+          "value": {
+            "attempt": {
+              "ref": "fixture:passedAbort",
+              "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3"
+            },
+            "attemptSequence": 1,
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/admittedProtectedResult",
+          "value": {
+            "attempt": {
+              "ref": "fixture:passedAbort",
+              "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3"
+            },
+            "attemptSequence": 1,
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/membership/5",
+          "value": {
+            "role": "ADMITTED_RESULT_BINDING",
+            "ref": "fixture:passedAbort",
+            "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3",
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/records/passedAbort/value/checkpoint"
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/authorizationBundle/outcome",
+          "value": "DENY"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "retry_borrows_skipped_authorization",
+      "kind": "success",
+      "record": "receipt",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/mode/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/consumption/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "remove",
+          "path": "/records/attempt/value/admittedProtectedResultBinding"
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/priorAdmittedProtectedResultBinding",
+          "value": {
+            "attempt": {
+              "ref": "fixture:passedAbort",
+              "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3"
+            },
+            "attemptSequence": 1,
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/admittedProtectedResult",
+          "value": {
+            "attempt": {
+              "ref": "fixture:passedAbort",
+              "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3"
+            },
+            "attemptSequence": 1,
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/membership/5",
+          "value": {
+            "role": "ADMITTED_RESULT_BINDING",
+            "ref": "fixture:passedAbort",
+            "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3",
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/records/passedAbort/value/checkpoint"
+        },
+        {
+          "op": "remove",
+          "path": "/records/passedAbort/value/authorizationBundle"
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/reachedStages/authorization",
+          "value": "NOT_PERFORMED"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "retry_admission_sequence_is_not_earlier",
+      "kind": "success",
+      "record": "receipt",
+      "error": "ADMISSION_SEQUENCE",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/mode/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/consumption/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "remove",
+          "path": "/records/attempt/value/admittedProtectedResultBinding"
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/priorAdmittedProtectedResultBinding",
+          "value": {
+            "attempt": {
+              "ref": "fixture:passedAbort",
+              "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3"
+            },
+            "attemptSequence": 1,
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/admittedProtectedResult",
+          "value": {
+            "attempt": {
+              "ref": "fixture:passedAbort",
+              "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3"
+            },
+            "attemptSequence": 1,
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/membership/5",
+          "value": {
+            "role": "ADMITTED_RESULT_BINDING",
+            "ref": "fixture:passedAbort",
+            "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3",
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/attempt/attemptSequence",
+          "value": 3
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbortMode/value/attempt/attemptSequence",
+          "value": 3
+        },
+        {
+          "op": "set",
+          "path": "/records/attempt/value/priorAdmittedProtectedResultBinding/attemptSequence",
+          "value": 3
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/admittedProtectedResult/attemptSequence",
+          "value": 3
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "passed_no_effect_loses_result",
+      "kind": "no-effect",
+      "record": "passedAbort",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/passedAbort/value/admittedProtectedResultBinding"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "admission_after_denial",
+      "kind": "no-effect",
+      "record": "passedAbort",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/passedAbort/value/checkpoint"
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/authorizationBundle/outcome",
+          "value": "DENY"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "admission_without_authorization",
+      "kind": "no-effect",
+      "record": "passedAbort",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/passedAbort/value/checkpoint"
+        },
+        {
+          "op": "remove",
+          "path": "/records/passedAbort/value/authorizationBundle"
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/reachedStages/authorization",
+          "value": "NOT_PERFORMED"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "admission_without_mode",
+      "kind": "no-effect",
+      "record": "passedAbort",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/passedAbort/value/checkpoint"
+        },
+        {
+          "op": "remove",
+          "path": "/records/passedAbort/value/modeEvidence"
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/reachedStages/modeEvidence",
+          "value": "NOT_PERFORMED"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "admission_without_mode_or_authorization",
+      "kind": "no-effect",
+      "record": "passedAbort",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/passedAbort/value/checkpoint"
+        },
+        {
+          "op": "remove",
+          "path": "/records/passedAbort/value/modeEvidence"
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/reachedStages/modeEvidence",
+          "value": "NOT_PERFORMED"
+        },
+        {
+          "op": "remove",
+          "path": "/records/passedAbort/value/authorizationBundle"
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/reachedStages/authorization",
+          "value": "NOT_PERFORMED"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "domain_failure_still_requires_allow",
+      "kind": "no-effect",
+      "record": "passedAbort",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/passedAbort/value/checkpoint"
+        },
+        {
+          "op": "remove",
+          "path": "/records/passedAbort/value/admittedProtectedResultBinding"
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/protectedEffectValidation/disposition",
+          "value": "FAIL"
+        },
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/authorizationBundle/outcome",
+          "value": "DENY"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "authorization_without_mode",
+      "kind": "no-effect",
+      "record": "noEffect",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/noEffect/value/modeEvidence"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/reachedStages/modeEvidence",
+          "value": "NOT_PERFORMED"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "no_effect_admission_trace_mismatch",
+      "kind": "no-effect",
+      "record": "passedAbort",
+      "error": "ADMISSION_TRACE",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/admittedProtectedResultBinding/validationTrace",
+          "value": {
+            "ref": "fixture:post-checkpoint-abort",
+            "digest": "sha256:5e6e6c7abf309efc37f0acdc453dd81d54210de9bbc2c36c8eb31c6fd9ce8cd1"
+          }
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "no_effect_borrows_other_operation",
+      "kind": "no-effect",
+      "record": "noEffect",
+      "error": "ADMISSION_OPERATION",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/reachedStages",
+          "value": {
+            "modeEvidence": "COMPLETED",
+            "authorization": "COMPLETED",
+            "protectedEffectValidation": "COMPLETED"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/authorizationBundle",
+          "value": {
+            "request": {
+              "ref": "fixture:allow-request",
+              "digest": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+            },
+            "result": {
+              "ref": "fixture:allow-result",
+              "digest": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+            },
+            "trace": {
+              "ref": "fixture:allow-trace",
+              "digest": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+            },
+            "decisionBundleDigest": "sha256:fbd612bbe8664272cf69136a7c0708a88d00f37e1f3fd8325c935509732a319c",
+            "outcome": "ALLOW"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/protectedEffectValidation",
+          "value": {
+            "trace": {
+              "ref": "fixture:domain-validation-trace",
+              "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+            },
+            "disposition": "PASS"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/checkpoint",
+          "value": {
+            "authorizationEvaluatedAt": "2026-01-01T00:00:01Z",
+            "decisionValidUntil": "2026-01-01T00:00:20Z",
+            "writeAuthorizationCheckedAt": "2026-01-01T00:00:10Z",
+            "writeAuthorizationBoundary": "GUARDED_WRITE_CHECK_V0_1"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/priorAdmittedProtectedResultBinding",
+          "value": {
+            "attempt": {
+              "ref": "fixture:passedAbort",
+              "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3"
+            },
+            "attemptSequence": 1,
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/failureEvidence",
+          "value": [
+            {
+              "ref": "fixture:post-checkpoint-abort",
+              "digest": "sha256:5e6e6c7abf309efc37f0acdc453dd81d54210de9bbc2c36c8eb31c6fd9ce8cd1"
+            }
+          ]
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/noEffectMembership",
+          "value": [
+            {
+              "role": "OPERATION_BINDING",
+              "ref": "fixture:operation-binding",
+              "digest": "sha256:bd30b4fc00d622176592554dfbd64201e23bd0cc43d8015932403a362551a30a"
+            },
+            {
+              "role": "CALLER_PROJECTION",
+              "ref": "fixture:caller-projection",
+              "digest": "sha256:366c83c18c75b9eb2ebc73dbb9945b40a7550abeb2cf39b41ec7031bc1379602"
+            },
+            {
+              "role": "NOT_REQUIRED_MODE_EVIDENCE",
+              "ref": "fixture:noEffectMode",
+              "digest": "sha256:997416025de9f2fe2e147db7e5ccac5fca24fc6fddb0fc84bcc49cf4b0fec6b1"
+            },
+            {
+              "role": "AUTHORIZATION_REQUEST",
+              "ref": "fixture:allow-request",
+              "digest": "sha256:71d762ace34c315079962d1840d1fe1841f024623a46d4a6cbd219587b778c73"
+            },
+            {
+              "role": "AUTHORIZATION_RESULT",
+              "ref": "fixture:allow-result",
+              "digest": "sha256:37093ec9c409f8fa4cf2f91985ab75874c8bef17ac0cb272f375a84ee5d9184f"
+            },
+            {
+              "role": "AUTHORIZATION_TRACE",
+              "ref": "fixture:allow-trace",
+              "digest": "sha256:bde9131d5453014d292782a94c317dfd61954622ac3e21ce770646e1b542bb3a"
+            },
+            {
+              "role": "PROTECTED_EFFECT_TRACE",
+              "ref": "fixture:domain-validation-trace",
+              "digest": "sha256:dcaa8e618b8fd464d9f6b8f8a959750c851b29722fecbe6bba19ea0f6eab1bda"
+            },
+            {
+              "role": "FAILURE_TRACE",
+              "ref": "fixture:post-checkpoint-abort",
+              "digest": "sha256:5e6e6c7abf309efc37f0acdc453dd81d54210de9bbc2c36c8eb31c6fd9ce8cd1"
+            },
+            {
+              "role": "ADMITTED_RESULT_BINDING",
+              "ref": "fixture:passedAbort",
+              "digest": "sha256:193fabdad82c65956c17fc4d4329d952c5203ebee29cf7cc18000492205ab7e3",
+              "pointer": "/admittedProtectedResultBinding"
+            },
+            {
+              "role": "TRANSACTION_ATTEMPT",
+              "ref": "fixture:no-effect-attempt"
+            }
+          ]
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "remove",
+          "path": "/records/noEffect/value/qualificationEvidence"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffectMode/value/attempt/attemptSequence",
+          "value": 2
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/priorAdmittedProtectedResultBinding",
+          "value": {
+            "attempt": {
+              "ref": "fixture:otherPassedAbort",
+              "digest": "sha256:6e4335dbd473c8ff136bb5fb0f4aed2c615bb1ce5970201a21957bc510de0b57"
+            },
+            "attemptSequence": 1,
+            "pointer": "/admittedProtectedResultBinding"
+          }
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "human_approval_is_not_retryable",
+      "kind": "no-effect",
+      "record": "noEffect",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/authorizationBundle/outcome",
+          "value": "REQUIRE_HUMAN_APPROVAL"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "denial_is_not_terminal",
+      "kind": "no-effect",
+      "record": "noEffect",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/noEffectConsequence",
+          "value": "TERMINAL_REQUIRES_NEW_OPERATION_KEY"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "require_review_is_not_terminal",
+      "kind": "no-effect",
+      "record": "noEffect",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/authorizationBundle/outcome",
+          "value": "REQUIRE_REVIEW"
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/noEffectConsequence",
+          "value": "TERMINAL_REQUIRES_NEW_OPERATION_KEY"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "qualification_mislabeled_as_failure",
+      "kind": "no-effect",
+      "record": "noEffect",
+      "error": "MEMBERSHIP",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/noEffectMembership/6/role",
+          "value": "FAILURE_TRACE"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "post_allow_abort_requires_failure_evidence",
+      "kind": "no-effect",
+      "record": "passedAbort",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/passedAbort/value/failureEvidence",
+          "value": []
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "unknown_attempt_cannot_claim_proven_rollback",
+      "kind": "schema",
+      "record": "unknown",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/unknown/value/protectedEffectRollbackProof",
+          "value": {
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "null_operation_cannot_gain_representation",
+      "kind": "success",
+      "record": "receipt",
+      "error": "REPRESENTATION_BINDING",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/mode/value/representedPartyBinding",
+          "value": {
+            "representedPartyRef": "fixture:represented-party-alfa",
+            "representedPartyRevisionSelector": {
+              "revisionRef": "fixture:party-revision:1"
+            },
+            "representationBasisRef": "fixture:representation-basis:1",
+            "representationBasisRevisionSelector": {
+              "revisionRef": "fixture:basis-revision:1"
+            }
+          }
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "represented_operation_cannot_lose_party",
+      "kind": "success",
+      "record": "receipt",
+      "error": "REPRESENTATION_BINDING",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/operation/value/representedPartyBinding",
+          "value": {
+            "representedPartyRef": "fixture:represented-party-alfa",
+            "representedPartyRevisionSelector": {
+              "revisionRef": "fixture:party-revision:1"
+            },
+            "representationBasisRef": "fixture:representation-basis:1",
+            "representationBasisRevisionSelector": {
+              "revisionRef": "fixture:basis-revision:1"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/mode/value/representedPartyBinding",
+          "value": {
+            "representedPartyRef": "fixture:represented-party-alfa",
+            "representedPartyRevisionSelector": {
+              "revisionRef": "fixture:party-revision:1"
+            },
+            "representationBasisRef": "fixture:representation-basis:1",
+            "representationBasisRevisionSelector": {
+              "revisionRef": "fixture:basis-revision:1"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/lookupTuple/representedPartyRef",
+          "value": "fixture:represented-party-alfa"
+        },
+        {
+          "op": "set",
+          "path": "/records/mode/value/representedPartyBinding",
+          "value": null
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "represented_party_cannot_change_identity",
+      "kind": "success",
+      "record": "receipt",
+      "error": "REPRESENTATION_BINDING",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/operation/value/representedPartyBinding",
+          "value": {
+            "representedPartyRef": "fixture:represented-party-alfa",
+            "representedPartyRevisionSelector": {
+              "revisionRef": "fixture:party-revision:1"
+            },
+            "representationBasisRef": "fixture:representation-basis:1",
+            "representationBasisRevisionSelector": {
+              "revisionRef": "fixture:basis-revision:1"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/mode/value/representedPartyBinding",
+          "value": {
+            "representedPartyRef": "fixture:represented-party-alfa",
+            "representedPartyRevisionSelector": {
+              "revisionRef": "fixture:party-revision:1"
+            },
+            "representationBasisRef": "fixture:representation-basis:1",
+            "representationBasisRevisionSelector": {
+              "revisionRef": "fixture:basis-revision:1"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/receipt/value/lookupTuple/representedPartyRef",
+          "value": "fixture:represented-party-alfa"
+        },
+        {
+          "op": "set",
+          "path": "/records/mode/value/representedPartyBinding/representedPartyRef",
+          "value": "fixture:represented-party-bravo"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "principal_kind_cannot_change_identity",
+      "kind": "success",
+      "record": "receipt",
+      "error": "CONSUMER_BINDING",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/mode/value/requestingPrincipalBinding/resolvedPrincipalKind",
+          "value": "SOFTWARE_AGENT"
+        },
+        {
+          "op": "set",
+          "path": "/records/consumption/value/consumingPrincipalBinding/resolvedPrincipalKind",
+          "value": "SOFTWARE_AGENT"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "no_effect_cannot_borrow_representation",
+      "kind": "no-effect",
+      "record": "noEffect",
+      "error": "REPRESENTATION_BINDING",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/noEffectMode/value/representedPartyBinding",
+          "value": {
+            "representedPartyRef": "fixture:represented-party-alfa",
+            "representedPartyRevisionSelector": {
+              "revisionRef": "fixture:party-revision:1"
+            },
+            "representationBasisRef": "fixture:representation-basis:1",
+            "representationBasisRevisionSelector": {
+              "revisionRef": "fixture:basis-revision:1"
+            }
+          }
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "rollback_proof_conflicts_with_COMMITTED",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "error": "STATUS_BINDING",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/reconciledNoEffect/value/resolvedNoEffectAttempt"
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/protectedEffectRollbackProof",
+          "value": {
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations",
+          "value": [
+            {
+              "transaction": {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "ROLLED_BACK",
+              "evidence": {
+                "ref": "fixture:protected-rollback-status",
+                "digest": "sha256:fa36fed000a64000a5529c903edc04873dbd9faed79d6f4998889a6053dcc15a"
+              }
+            }
+          ]
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations/0/status",
+          "value": "COMMITTED"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "rollback_proof_conflicts_with_UNKNOWN",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "error": "STATUS_BINDING",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/reconciledNoEffect/value/resolvedNoEffectAttempt"
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/protectedEffectRollbackProof",
+          "value": {
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations",
+          "value": [
+            {
+              "transaction": {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "ROLLED_BACK",
+              "evidence": {
+                "ref": "fixture:protected-rollback-status",
+                "digest": "sha256:fa36fed000a64000a5529c903edc04873dbd9faed79d6f4998889a6053dcc15a"
+              }
+            }
+          ]
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations/0/status",
+          "value": "UNKNOWN"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "unknown_separate_evidence_needs_unresolved_fact",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "error": "UNRESOLVED_STATUS",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/reconciledNoEffect/value/resolvedNoEffectAttempt"
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/protectedEffectRollbackProof",
+          "value": {
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations",
+          "value": [
+            {
+              "transaction": {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "ROLLED_BACK",
+              "evidence": {
+                "ref": "fixture:protected-rollback-status",
+                "digest": "sha256:fa36fed000a64000a5529c903edc04873dbd9faed79d6f4998889a6053dcc15a"
+              }
+            }
+          ]
+        },
+        {
+          "op": "append",
+          "path": "/records/reconciledNoEffect/value/statusObservations",
+          "value": {
+            "transaction": {
+              "role": "SEPARATE_FAILURE_EVIDENCE_COMMIT",
+              "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+              "transactionStatusLookupKey": "fixture:failure-evidence-status",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            },
+            "status": "UNKNOWN",
+            "evidence": {
+              "ref": "fixture:failure-commit-status",
+              "digest": "sha256:d3722e6c0327d5be8b1b0149e6ee37a44e2c86f58dafa884dc26b318b0eb475e"
+            }
+          }
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "direct_no_effect_wrong_atomicPersistenceBoundaryRef",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "error": "STATUS_BINDING",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations/0/transaction/atomicPersistenceBoundaryRef",
+          "value": "fixture:unrelated-store"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "direct_no_effect_wrong_transactionStatusLookupKey",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "error": "STATUS_BINDING",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations/0/transaction/transactionStatusLookupKey",
+          "value": "fixture:unrelated-key"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "direct_no_effect_wrong_role",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "error": "STATUS_BINDING",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations/0/transaction/role",
+          "value": "SEPARATE_FAILURE_EVIDENCE_COMMIT"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "separate_no_effect_wrong_atomicPersistenceBoundaryRef",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "error": "STATUS_BINDING",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/protectedEffectRollbackProof",
+          "value": {
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/transactionRoles",
+          "value": [
+            {
+              "role": "PROTECTED_EFFECT_TRANSACTION",
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            },
+            {
+              "role": "FIRST_ADMISSION_COMMIT",
+              "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+              "transactionStatusLookupKey": "fixture:failure-evidence-status",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            },
+            {
+              "role": "SEPARATE_FAILURE_EVIDENCE_COMMIT",
+              "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+              "transactionStatusLookupKey": "fixture:failure-evidence-status",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            }
+          ]
+        },
+        {
+          "op": "append",
+          "path": "/records/noEffect/value/noEffectMembership",
+          "value": {
+            "role": "ROLLBACK_PROOF",
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations",
+          "value": [
+            {
+              "transaction": {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "ROLLED_BACK",
+              "evidence": {
+                "ref": "fixture:protected-rollback-status",
+                "digest": "sha256:fa36fed000a64000a5529c903edc04873dbd9faed79d6f4998889a6053dcc15a"
+              }
+            },
+            {
+              "transaction": {
+                "role": "SEPARATE_FAILURE_EVIDENCE_COMMIT",
+                "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+                "transactionStatusLookupKey": "fixture:failure-evidence-status",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "COMMITTED",
+              "evidence": {
+                "ref": "fixture:failure-commit-status",
+                "digest": "sha256:d3722e6c0327d5be8b1b0149e6ee37a44e2c86f58dafa884dc26b318b0eb475e"
+              }
+            }
+          ]
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations/1/transaction/atomicPersistenceBoundaryRef",
+          "value": "fixture:unrelated-store"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "separate_no_effect_wrong_transactionStatusLookupKey",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "error": "STATUS_BINDING",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/protectedEffectRollbackProof",
+          "value": {
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/transactionRoles",
+          "value": [
+            {
+              "role": "PROTECTED_EFFECT_TRANSACTION",
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            },
+            {
+              "role": "FIRST_ADMISSION_COMMIT",
+              "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+              "transactionStatusLookupKey": "fixture:failure-evidence-status",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            },
+            {
+              "role": "SEPARATE_FAILURE_EVIDENCE_COMMIT",
+              "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+              "transactionStatusLookupKey": "fixture:failure-evidence-status",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            }
+          ]
+        },
+        {
+          "op": "append",
+          "path": "/records/noEffect/value/noEffectMembership",
+          "value": {
+            "role": "ROLLBACK_PROOF",
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations",
+          "value": [
+            {
+              "transaction": {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "ROLLED_BACK",
+              "evidence": {
+                "ref": "fixture:protected-rollback-status",
+                "digest": "sha256:fa36fed000a64000a5529c903edc04873dbd9faed79d6f4998889a6053dcc15a"
+              }
+            },
+            {
+              "transaction": {
+                "role": "SEPARATE_FAILURE_EVIDENCE_COMMIT",
+                "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+                "transactionStatusLookupKey": "fixture:failure-evidence-status",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "COMMITTED",
+              "evidence": {
+                "ref": "fixture:failure-commit-status",
+                "digest": "sha256:d3722e6c0327d5be8b1b0149e6ee37a44e2c86f58dafa884dc26b318b0eb475e"
+              }
+            }
+          ]
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations/1/transaction/transactionStatusLookupKey",
+          "value": "fixture:unrelated-key"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "separate_no_effect_wrong_role",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "error": "STATUS_BINDING",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/protectedEffectRollbackProof",
+          "value": {
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/transactionRoles",
+          "value": [
+            {
+              "role": "PROTECTED_EFFECT_TRANSACTION",
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            },
+            {
+              "role": "FIRST_ADMISSION_COMMIT",
+              "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+              "transactionStatusLookupKey": "fixture:failure-evidence-status",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            },
+            {
+              "role": "SEPARATE_FAILURE_EVIDENCE_COMMIT",
+              "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+              "transactionStatusLookupKey": "fixture:failure-evidence-status",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            }
+          ]
+        },
+        {
+          "op": "append",
+          "path": "/records/noEffect/value/noEffectMembership",
+          "value": {
+            "role": "ROLLBACK_PROOF",
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations",
+          "value": [
+            {
+              "transaction": {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "ROLLED_BACK",
+              "evidence": {
+                "ref": "fixture:protected-rollback-status",
+                "digest": "sha256:fa36fed000a64000a5529c903edc04873dbd9faed79d6f4998889a6053dcc15a"
+              }
+            },
+            {
+              "transaction": {
+                "role": "SEPARATE_FAILURE_EVIDENCE_COMMIT",
+                "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+                "transactionStatusLookupKey": "fixture:failure-evidence-status",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "COMMITTED",
+              "evidence": {
+                "ref": "fixture:failure-commit-status",
+                "digest": "sha256:d3722e6c0327d5be8b1b0149e6ee37a44e2c86f58dafa884dc26b318b0eb475e"
+              }
+            }
+          ]
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations/1/transaction/role",
+          "value": "PROTECTED_EFFECT_TRANSACTION"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "separate_no_effect_needs_protected_rollback",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "error": "STATUS_BINDING",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/protectedEffectRollbackProof",
+          "value": {
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/noEffect/value/transactionRoles",
+          "value": [
+            {
+              "role": "PROTECTED_EFFECT_TRANSACTION",
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            },
+            {
+              "role": "FIRST_ADMISSION_COMMIT",
+              "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+              "transactionStatusLookupKey": "fixture:failure-evidence-status",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            },
+            {
+              "role": "SEPARATE_FAILURE_EVIDENCE_COMMIT",
+              "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+              "transactionStatusLookupKey": "fixture:failure-evidence-status",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            }
+          ]
+        },
+        {
+          "op": "append",
+          "path": "/records/noEffect/value/noEffectMembership",
+          "value": {
+            "role": "ROLLBACK_PROOF",
+            "ref": "fixture:protected-rollback-proof",
+            "digest": "sha256:24cb8ed4ab551f7336c5a543f953c2efe90778441224055f05c0b729331a446d"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations",
+          "value": [
+            {
+              "transaction": {
+                "role": "PROTECTED_EFFECT_TRANSACTION",
+                "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+                "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "ROLLED_BACK",
+              "evidence": {
+                "ref": "fixture:protected-rollback-status",
+                "digest": "sha256:fa36fed000a64000a5529c903edc04873dbd9faed79d6f4998889a6053dcc15a"
+              }
+            },
+            {
+              "transaction": {
+                "role": "SEPARATE_FAILURE_EVIDENCE_COMMIT",
+                "atomicPersistenceBoundaryRef": "fixture:evidence-store",
+                "transactionStatusLookupKey": "fixture:failure-evidence-status",
+                "transactionAttemptId": "fixture:no-effect-attempt"
+              },
+              "status": "COMMITTED",
+              "evidence": {
+                "ref": "fixture:failure-commit-status",
+                "digest": "sha256:d3722e6c0327d5be8b1b0149e6ee37a44e2c86f58dafa884dc26b318b0eb475e"
+              }
+            }
+          ]
+        },
+        {
+          "op": "set",
+          "path": "/records/reconciledNoEffect/value/statusObservations/0/status",
+          "value": "UNKNOWN"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "reconciledSuccess_contradictory_status",
+      "kind": "reconciliation",
+      "record": "reconciledSuccess",
+      "error": "STATUS_BINDING",
+      "edits": [
+        {
+          "op": "append",
+          "path": "/records/reconciledSuccess/value/statusObservations",
+          "value": {
+            "transaction": {
+              "role": "PROTECTED_EFFECT_TRANSACTION",
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "transactionStatusLookupKey": "fixture:status:success-attempt",
+              "transactionAttemptId": "fixture:success-attempt"
+            },
+            "status": "ROLLED_BACK",
+            "evidence": {
+              "ref": "fixture:reconciledSuccess-status-evidence",
+              "digest": "sha256:32e7f7015bfd3a34e37f18a050cecbb19c90078ad01b9b75e1cc966ca91bb063"
+            }
+          }
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "reconciledNoEffect_contradictory_status",
+      "kind": "reconciliation",
+      "record": "reconciledNoEffect",
+      "error": "STATUS_BINDING",
+      "edits": [
+        {
+          "op": "append",
+          "path": "/records/reconciledNoEffect/value/statusObservations",
+          "value": {
+            "transaction": {
+              "role": "PROTECTED_EFFECT_TRANSACTION",
+              "atomicPersistenceBoundaryRef": "fixture:atomic-store",
+              "transactionStatusLookupKey": "fixture:status:no-effect-attempt",
+              "transactionAttemptId": "fixture:no-effect-attempt"
+            },
+            "status": "ROLLED_BACK",
+            "evidence": {
+              "ref": "fixture:reconciledNoEffect-status-evidence",
+              "digest": "sha256:2c8b00a9368ceac6a0089a12891da0e0320f81547df3695e6a02cd0c57981c62"
+            }
+          }
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "later_observation_cannot_report_future_time",
+      "kind": "reconciliation",
+      "record": "laterSuccess",
+      "error": "LATER_CHRONOLOGY",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/laterSuccess/value/laterTimeObservation/observedAt",
+          "value": "2026-01-01T00:00:10.5Z"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "reconciliation_cannot_precede_observation",
+      "kind": "reconciliation",
+      "record": "laterSuccess",
+      "error": "LATER_CHRONOLOGY",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/laterSuccess/value/observedAt",
+          "value": "2026-01-01T00:00:59.999999999Z"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "quarantine_observation_requires_receipt",
+      "kind": "reconciliation",
+      "record": "quarantine",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/records/quarantine/value/resolvedReceipt"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "canonicalUtc_newline_without_formats",
+      "kind": "schema-without-formats",
+      "record": null,
+      "error": "SCHEMA",
+      "edits": [],
+      "rehash": true,
+      "definition": "canonicalUtc",
+      "value": "2026-01-01T00:00:00Z\n"
+    },
+    {
+      "name": "canonicalUtcMicros_newline_without_formats",
+      "kind": "schema-without-formats",
+      "record": null,
+      "error": "SCHEMA",
+      "edits": [],
+      "rehash": true,
+      "definition": "canonicalUtcMicros",
+      "value": "2026-01-01T00:00:00Z\n"
+    },
+    {
+      "name": "required_time_newline_with_formats",
+      "kind": "schema",
+      "record": "attempt",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/attempt/value/attempt/transactionStartedAt",
+          "value": "2026-01-01T00:00:00Z\n"
+        }
+      ],
+      "rehash": true
+    },
+    {
+      "name": "later_time_newline_with_formats",
+      "kind": "schema",
+      "record": "laterSuccess",
+      "error": "SCHEMA",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/records/laterSuccess/value/observedAt",
+          "value": "2026-01-01T00:01:00Z\n"
+        }
+      ],
+      "rehash": true
     }
   ],
   "canonicalizationVectors": [
