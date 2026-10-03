@@ -1,0 +1,573 @@
+{
+  "schemaVersion": "ofarm.authorizationviewextractions.draft.v0.2",
+  "status": "DRAFT_NON_DEFAULT_INCOMPLETE_NON_EXECUTABLE",
+  "primaryTrustBoundary": "AUTHORIZATION_INPUT_INTEGRITY",
+  "descriptorMeaning": "Missing inactive structure/compliance profiles only. Proposed component data, not an admitted rule format or complete ActionAuthorizationRule. A later owning rule must pin these exact descriptor bytes. The caller does not select schemas or extractors. The existing operation/read descriptor remains unchanged.",
+  "executionRules": {
+    "strictJSON": "Reject duplicate names and non-JSON numbers before validation.",
+    "dependencyResolution": "Verify every schema and external dependency exact-file hash, register only those bytes by the declared immutable version identity, and fail on any missing, unknown or changed reference. No network retrieval.",
+    "validationOrder": [
+      "STRICT_JSON",
+      "SCHEMA_AND_DEPENDENCY_BINDING",
+      "ROOT_SCHEMA",
+      "COMPONENT_INTEGRITY_CHECKS",
+      "IDENTITY_EXTRACTION",
+      "JCS_RFC8785_SHA256_COMPLETE_INTENT"
+    ],
+    "conditions": "Each when/allOf item tests exact equality at its one literal JSON Pointer; no wildcard, normalization or fallback. A false condition disables that mapping only.",
+    "optionalSource": "For required=false only an absent source skips a mapping; null or malformed present values still fail schema validation. No default value is supplied.",
+    "pointers": "An active required source resolves exactly once. Validate each destination pointer and reject duplicate or ancestor/descendant destination writes among active mappings; build intermediate containers only to hold selected values. The output has no other facts.",
+    "identity": "Copy the complete selected JSON value unchanged; do not resolve refs, inject trusted facts, normalize, derive authority or repair conflicts.",
+    "digest": "Canonicalize the complete schema-valid input without removing any member. The digest is held by the surrounding request/evidence, not an intent self-digest.",
+    "failure": "Any dependency, parse, schema, component, pointer, conflict or canonicalization failure is input-integrity failure; it never becomes ALLOW or foreign-proof PASS."
+  },
+  "profiles": [
+    {
+      "profileId": "EI_STRUCTURE_ASSERTION_V0_2",
+      "actionClass": "ASSERT_STRUCTURE",
+      "intentSchemaBinding": {
+        "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/structure-assertion-effect-intent/v0.2",
+        "schemaVersion": "ofarm.structureassertioneffectintent.v0.2",
+        "schemaDigest": "sha256:56cf55fcb46cc39990b61261d62f307500e2da55dca1dd1ff831fb27997e93ad",
+        "canonicalization": "JCS_RFC8785_SHA256",
+        "profileId": "EI_STRUCTURE_ASSERTION_V0_2"
+      },
+      "schemaDigestBasis": "EXACT_FILE_BYTES_SHA256",
+      "dependencySchemaBindings": [
+        {
+          "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+          "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+          "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+          "digestBasis": "EXACT_FILE_BYTES_SHA256",
+          "repositoryPath": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_OperationAssertionEffectIntent_schema_v0_2.json"
+        },
+        {
+          "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+          "schemaVersion": "ofarm.assertionrecord.v0.2",
+          "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "digestBasis": "EXACT_FILE_BYTES_SHA256",
+          "repositoryPath": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json"
+        }
+      ],
+      "mappings": [
+        {
+          "mappingId": "R0_SCOPE_resourceRole",
+          "sourcePointer": "/resources/0/resourceRole",
+          "destinationPointer": "/resources/0/resourceRole",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_resourcePosture",
+          "sourcePointer": "/resources/0/resourcePosture",
+          "destinationPointer": "/resources/0/resourcePosture",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_tenantRef",
+          "sourcePointer": "/resources/0/tenantRef",
+          "destinationPointer": "/resources/0/tenantRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_authorizationResourceProofRefs",
+          "sourcePointer": "/resources/0/authorizationResourceProofBindings",
+          "destinationPointer": "/resources/0/authorizationResourceProofRefs",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeType",
+          "sourcePointer": "/resources/0/scope/scopeType",
+          "destinationPointer": "/resources/0/scopeType",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeRef",
+          "sourcePointer": "/resources/0/scope/scopeRef",
+          "destinationPointer": "/resources/0/scopeRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeRevisionRef",
+          "sourcePointer": "/resources/0/scope/revisionRef",
+          "destinationPointer": "/resources/0/scopeRevisionRef",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeDigest",
+          "sourcePointer": "/resources/0/scope/digest",
+          "destinationPointer": "/resources/0/scopeDigest",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "R0_SCOPE_twin",
+          "sourcePointer": "/resources/0/twin",
+          "destinationPointer": "/resources/0/twin",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceKind",
+          "sourcePointer": "/resources/0/scope/scopeType",
+          "destinationPointer": "/resources/0/resourceKind",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceRef",
+          "sourcePointer": "/resources/0/scope/scopeRef",
+          "destinationPointer": "/resources/0/resourceRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceRevisionRef",
+          "sourcePointer": "/resources/0/scope/revisionRef",
+          "destinationPointer": "/resources/0/resourceRevisionRef",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceDigest",
+          "sourcePointer": "/resources/0/scope/digest",
+          "destinationPointer": "/resources/0/resourceDigest",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "ES_subjectKind",
+          "sourcePointer": "/effectSubject/subjectKind",
+          "destinationPointer": "/effectSubject/subjectKind",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "ES_subjectRef",
+          "sourcePointer": "/effectSubject/subjectRef",
+          "destinationPointer": "/effectSubject/subjectRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "ES_existencePosture",
+          "sourcePointer": "/effectSubject/existencePosture",
+          "destinationPointer": "/effectSubject/existencePosture",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "ES_PROOFS",
+          "sourcePointer": "/effectSubject/effectSubjectProofBindings",
+          "destinationPointer": "/effectSubject/effectSubjectProofRefs",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "ES_TIME",
+          "sourcePointer": "/subjectTime",
+          "destinationPointer": "/effectSubject/subjectTime",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_scopeType",
+          "sourcePointer": "/resources/0/scope/scopeType",
+          "destinationPointer": "/context/scopeType",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_scopeRef",
+          "sourcePointer": "/resources/0/scope/scopeRef",
+          "destinationPointer": "/context/scopeRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_tenantRef",
+          "sourcePointer": "/resources/0/tenantRef",
+          "destinationPointer": "/context/tenantRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_twin",
+          "sourcePointer": "/resources/0/twin",
+          "destinationPointer": "/context/twin",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "PURPOSE",
+          "sourcePointer": "/authorizationUsePurpose",
+          "destinationPointer": "/requestedUsePurpose",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "scopeProofBindings",
+          "sourcePointer": "/scopeProofBindings",
+          "destinationPointer": "/scopeProofBindings",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "dataSovereigntyBoundaryBindings",
+          "sourcePointer": "/dataSovereigntyBoundaryBindings",
+          "destinationPointer": "/dataSovereigntyBoundaryBindings",
+          "transformation": "IDENTITY",
+          "required": false
+        }
+      ]
+    },
+    {
+      "profileId": "EI_COMPLIANCE_ASSERTION_V0_2",
+      "actionClass": "ASSERT_COMPLIANCE",
+      "intentSchemaBinding": {
+        "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/compliance-assertion-effect-intent/v0.2",
+        "schemaVersion": "ofarm.complianceassertioneffectintent.v0.2",
+        "schemaDigest": "sha256:1dc0d24b909aaabd39ddea2df89bdea1184d5c727ba7cbd488c8489cd26fe722",
+        "canonicalization": "JCS_RFC8785_SHA256",
+        "profileId": "EI_COMPLIANCE_ASSERTION_V0_2"
+      },
+      "schemaDigestBasis": "EXACT_FILE_BYTES_SHA256",
+      "dependencySchemaBindings": [
+        {
+          "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+          "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+          "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+          "digestBasis": "EXACT_FILE_BYTES_SHA256",
+          "repositoryPath": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_OperationAssertionEffectIntent_schema_v0_2.json"
+        },
+        {
+          "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+          "schemaVersion": "ofarm.assertionrecord.v0.2",
+          "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "digestBasis": "EXACT_FILE_BYTES_SHA256",
+          "repositoryPath": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json"
+        }
+      ],
+      "mappings": [
+        {
+          "mappingId": "R0_SCOPE_resourceRole",
+          "sourcePointer": "/resources/0/resourceRole",
+          "destinationPointer": "/resources/0/resourceRole",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_resourcePosture",
+          "sourcePointer": "/resources/0/resourcePosture",
+          "destinationPointer": "/resources/0/resourcePosture",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_tenantRef",
+          "sourcePointer": "/resources/0/tenantRef",
+          "destinationPointer": "/resources/0/tenantRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_authorizationResourceProofRefs",
+          "sourcePointer": "/resources/0/authorizationResourceProofBindings",
+          "destinationPointer": "/resources/0/authorizationResourceProofRefs",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeType",
+          "sourcePointer": "/resources/0/scope/scopeType",
+          "destinationPointer": "/resources/0/scopeType",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeRef",
+          "sourcePointer": "/resources/0/scope/scopeRef",
+          "destinationPointer": "/resources/0/scopeRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeRevisionRef",
+          "sourcePointer": "/resources/0/scope/revisionRef",
+          "destinationPointer": "/resources/0/scopeRevisionRef",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "R0_SCOPE_scopeDigest",
+          "sourcePointer": "/resources/0/scope/digest",
+          "destinationPointer": "/resources/0/scopeDigest",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "R0_SCOPE_twin",
+          "sourcePointer": "/resources/0/twin",
+          "destinationPointer": "/resources/0/twin",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceKind",
+          "sourcePointer": "/resources/0/scope/scopeType",
+          "destinationPointer": "/resources/0/resourceKind",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceRef",
+          "sourcePointer": "/resources/0/scope/scopeRef",
+          "destinationPointer": "/resources/0/resourceRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceRevisionRef",
+          "sourcePointer": "/resources/0/scope/revisionRef",
+          "destinationPointer": "/resources/0/resourceRevisionRef",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "R0_SCOPE_resourceDigest",
+          "sourcePointer": "/resources/0/scope/digest",
+          "destinationPointer": "/resources/0/resourceDigest",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "ES_subjectKind",
+          "sourcePointer": "/effectSubject/subjectKind",
+          "destinationPointer": "/effectSubject/subjectKind",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "ES_subjectRef",
+          "sourcePointer": "/effectSubject/subjectRef",
+          "destinationPointer": "/effectSubject/subjectRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "ES_existencePosture",
+          "sourcePointer": "/effectSubject/existencePosture",
+          "destinationPointer": "/effectSubject/existencePosture",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "ES_PROOFS",
+          "sourcePointer": "/effectSubject/effectSubjectProofBindings",
+          "destinationPointer": "/effectSubject/effectSubjectProofRefs",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "ES_TIME",
+          "sourcePointer": "/subjectTime",
+          "destinationPointer": "/effectSubject/subjectTime",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_scopeType",
+          "sourcePointer": "/resources/0/scope/scopeType",
+          "destinationPointer": "/context/scopeType",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_scopeRef",
+          "sourcePointer": "/resources/0/scope/scopeRef",
+          "destinationPointer": "/context/scopeRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_tenantRef",
+          "sourcePointer": "/resources/0/tenantRef",
+          "destinationPointer": "/context/tenantRef",
+          "transformation": "IDENTITY",
+          "required": true
+        },
+        {
+          "mappingId": "CONTEXT_twin",
+          "sourcePointer": "/resources/0/twin",
+          "destinationPointer": "/context/twin",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "PURPOSE",
+          "sourcePointer": "/authorizationUsePurpose",
+          "destinationPointer": "/requestedUsePurpose",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "scopeProofBindings",
+          "sourcePointer": "/scopeProofBindings",
+          "destinationPointer": "/scopeProofBindings",
+          "transformation": "IDENTITY",
+          "required": false
+        },
+        {
+          "mappingId": "dataSovereigntyBoundaryBindings",
+          "sourcePointer": "/dataSovereigntyBoundaryBindings",
+          "destinationPointer": "/dataSovereigntyBoundaryBindings",
+          "transformation": "IDENTITY",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "componentIntegrityRequirements": [
+    {
+      "id": "TIME_ORDER",
+      "appliesTo": [
+        "EI_STRUCTURE_ASSERTION_V0_2",
+        "EI_COMPLIANCE_ASSERTION_V0_2"
+      ],
+      "requirement": "Canonical calendar-valid timestamps; any subject/body interval start is strictly before end with exact nanosecond precision.",
+      "failureCodes": [
+        {
+          "layer": "SCHEMA",
+          "code": "SCHEMA",
+          "when": "Timestamp syntax/calendar validation fails before cross-field checks; witness keyword is pattern or format as applicable."
+        },
+        {
+          "layer": "COMPONENT",
+          "code": "INTERVAL_ORDER",
+          "when": "A schema-valid subject/body interval does not satisfy start < end at nanosecond precision."
+        }
+      ]
+    },
+    {
+      "id": "BODY_TIME_EQUALITY",
+      "appliesTo": [
+        "EI_STRUCTURE_ASSERTION_V0_2",
+        "EI_COMPLIANCE_ASSERTION_V0_2"
+      ],
+      "requirement": "The complete /assertionBody/applicability object equals /subjectTime exactly. No normalization, default qualifier or foreign temporal inference.",
+      "failureCodes": [
+        {
+          "layer": "COMPONENT",
+          "code": "APPLICABILITY_TIME_EQUALITY",
+          "when": "The complete /assertionBody/applicability and /subjectTime values differ for these inactive profiles."
+        }
+      ]
+    },
+    {
+      "id": "PROSPECTIVE_SUBJECT_NON_COLLISION",
+      "appliesTo": [
+        "EI_STRUCTURE_ASSERTION_V0_2",
+        "EI_COMPLIANCE_ASSERTION_V0_2"
+      ],
+      "requirement": "A PROSPECTIVE_SUBJECT's exact subjectType/subjectRef pair differs from the existing target scope's scopeType/scopeRef and every existing typed assertionBody/contextBindings role/ref pair. This local comparison does not prove global non-existence.",
+      "failureCodes": [
+        {
+          "layer": "COMPONENT",
+          "code": "PROSPECTIVE_SUBJECT_IS_ANCHOR",
+          "when": "The prospective subject kind/ref equals the authority anchor kind/ref."
+        },
+        {
+          "layer": "COMPONENT",
+          "code": "PROSPECTIVE_SUBJECT_IS_CONTEXT",
+          "when": "The prospective subject kind/ref equals an immutable typed body-context role/ref."
+        }
+      ]
+    },
+    {
+      "id": "SUBJECT_SCOPE_PROOF",
+      "appliesTo": [
+        "EI_STRUCTURE_ASSERTION_V0_2",
+        "EI_COMPLIANCE_ASSERTION_V0_2"
+      ],
+      "requirement": "Compare /subject to /resources/0/scope using exact kind, ref and selector. If an EXISTING_SUBJECT is identical, subjectScopeProofBindings is absent; otherwise it is nonempty. No resolver success is inferred.",
+      "failureCodes": [
+        {
+          "layer": "COMPONENT",
+          "code": "SUBJECT_SCOPE_PROOF_ABSENCE",
+          "when": "An exactly identical existing subject/anchor, including selector, carries subjectScopeProofBindings."
+        },
+        {
+          "layer": "COMPONENT",
+          "code": "SUBJECT_SCOPE_PROOF_REQUIRED",
+          "when": "A non-identical subject/anchor lacks subjectScopeProofBindings; a present empty/invalid array already fails SCHEMA."
+        }
+      ]
+    },
+    {
+      "id": "CORRECTION_SELF_REFERENCE",
+      "appliesTo": [
+        "EI_STRUCTURE_ASSERTION_V0_2",
+        "EI_COMPLIANCE_ASSERTION_V0_2"
+      ],
+      "requirement": "If present, /supersedesAssertionRecordBinding/ref differs from /effectSubject/subjectRef. Prior committed-record eligibility remains a domain/transaction owner obligation.",
+      "failureCodes": [
+        {
+          "layer": "COMPONENT",
+          "code": "CORRECTION_SELF_REFERENCE",
+          "when": "The superseded record ref equals the proposed assertion effect-subject ref."
+        }
+      ]
+    }
+  ],
+  "applicability": {
+    "scopeKinds": [
+      "FARM",
+      "SITE",
+      "FIELD",
+      "ZONE",
+      "CROP_CYCLE",
+      "LOT",
+      "FACILITY",
+      "OPERATION",
+      "DEPLOYMENT",
+      "TENANT"
+    ],
+    "twin": {
+      "encoding": [
+        "COMPLIANCE",
+        "ADVISORY"
+      ],
+      "presence": "Optional shape for every resource kind; PR11 §§7.5/8.3 require it where applicable but give no exhaustive kind-to-twin predicate. Actual immutable resource/context proof must establish applicability and presence/value; absence here is not an all-clear. Do not invent a kind-only rule.",
+      "authorityContextSource": "/resources/0/twin",
+      "otherInputs": "Each integrity input binds its own context; it never changes the authority target context."
+    },
+    "subjectTime": {
+      "EI_STRUCTURE_ASSERTION_V0_2": "Required /subjectTime, exactly STRUCTURE_AS_OF, STRUCTURE_EFFECTIVE_FROM or STRUCTURE_EFFECTIVE_INTERVAL, independently of anchor kind.",
+      "EI_COMPLIANCE_ASSERTION_V0_2": "Required /subjectTime, exactly COMPLIANCE_AS_OF, COMPLIANCE_EFFECTIVE_FROM or COMPLIANCE_EFFECTIVE_INTERVAL, independently of anchor kind."
+    },
+    "actionAdmission": "Both profiles remain inactive. Existing two-action admission and qualifier/resource policies are unchanged. Later admission must satisfy their own fresh-human-approval semantics; operation's NOT_REQUIRED checkpoint is not inherited."
+  },
+  "deferredObligations": [
+    "TWIN_APPLICABILITY_AND_RESOURCE_CONTEXT_PROOF",
+    "IMMUTABLE_RESOURCE_RULE_POLICY_AND_PROOF_RESOLUTION",
+    "GLOBAL_PROSPECTIVE_IDENTITY_AND_RELATIONSHIP_TRUTH",
+    "TRUSTED_ASSERTION_ACT_AND_OFFLINE_EVIDENCE",
+    "DOMAIN_RESULT_MAPPINGS_AND_EVENT_INGRESS_COMPATIBILITY",
+    "CORRECTION_PRIOR_INGRESS_AND_COMMITTED_SNAPSHOT_PROOF",
+    "COMPLIANCE_ACTION_EVIDENCE_POLICY_EVALUATION",
+    "FULL_THREE_ASSERTION_DOMAIN_BINDING_CLOSURE",
+    "COMPLETE_SELECTED_RULES_RELEVANT_STATE_PROJECTION_AND_RELEASE_MANIFEST",
+    "FRESH_HUMAN_APPROVAL_AND_SEPARATELY_APPROVED_TRANSACTION_PATH"
+  ],
+  "requirementFailureCodePolicy": {
+    "scope": "Requirement IDs are local to this descriptor, not universal error codes. Schema validation always precedes the listed component checks; malformed prerequisite shapes fail SCHEMA first.",
+    "inactiveTimeEquality": "Here BODY_TIME_EQUALITY means /assertionBody/applicability == /subjectTime and emits COMPONENT/APPLICABILITY_TIME_EQUALITY.",
+    "preservedOperationTimeEquality": "In the unchanged operation descriptor, BODY_TIME_EQUALITY applies only when /assertionBody/temporalBasis/sourceKind is BODY_TIME; /assertionBody/temporalBasis/time == /subjectTime emits COMPONENT/BODY_TIME_EQUALITY."
+  }
+}

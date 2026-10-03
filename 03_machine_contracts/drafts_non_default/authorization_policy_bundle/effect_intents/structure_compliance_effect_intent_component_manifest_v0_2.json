@@ -1,0 +1,227 @@
+{
+  "schemaVersion": "ofarm.authorizationEffectIntent.inactiveAssertionComponentManifest.v0.2",
+  "contractFamily": "AuthorizationPolicyBundle",
+  "componentId": "ofarm.authorization-policy-bundle.structure-compliance-inputs.v0.2-draft",
+  "status": "DRAFT_NON_DEFAULT",
+  "activeLaw": false,
+  "promotedToCurrentDefault": false,
+  "executable": false,
+  "selectedReleaseClosureComplete": false,
+  "completeResolvedRule": false,
+  "primaryTrustBoundary": "authorization-input integrity",
+  "stackedDependency": {
+    "pr": "https://github.com/samovers/OFARM/pull/43",
+    "head": "546f831f495d60b45e93b55fbaaa601b1374ad7e",
+    "status": "EXACT_DRAFT_COMPONENTS_NOT_RUNTIME_ADMISSION"
+  },
+  "sourceInputs": [
+    {
+      "pr": 11,
+      "head": "d1178fe07d57accedde5748672602db38346b3e6",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/authorization_constraints_and_decision_evidence_rfc_candidate_v0_2.md",
+      "sha256": "8c218df076fcf06aceb531173a854091e21bda7775ad1fe66dd06a772857691f",
+      "url": "https://github.com/samovers/OFARM/blob/d1178fe07d57accedde5748672602db38346b3e6/package_meta/history/clean_baseline_migration/phase_reports/authorization_constraints_and_decision_evidence_rfc_candidate_v0_2.md"
+    },
+    {
+      "pr": 23,
+      "head": "6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+      "sha256": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809",
+      "url": "https://github.com/samovers/OFARM/blob/6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f/package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md"
+    }
+  ],
+  "profiles": [
+    {
+      "profileId": "EI_STRUCTURE_ASSERTION_V0_2",
+      "actionClass": "ASSERT_STRUCTURE",
+      "executable": false,
+      "schema": {
+        "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_StructureAssertionEffectIntent_schema_v0_2.json",
+        "bytes": 7144,
+        "byteSha256": "56cf55fcb46cc39990b61261d62f307500e2da55dca1dd1ff831fb27997e93ad",
+        "jcsDigest": "sha256:0ab5e2772c6b4e2afb401b38772eb713bab4c04186a915e88628b8c47f1810ba",
+        "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/structure-assertion-effect-intent/v0.2",
+        "schemaVersion": "ofarm.structureassertioneffectintent.v0.2"
+      },
+      "effectSubjectKind": "STRUCTURE_ASSERTION",
+      "bodySchemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/structureAssertionBody",
+      "subjectTimeSchemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/structureTime",
+      "resourcePolicy": "RP_SCOPE_ONE",
+      "authorityRole": "TARGET_SCOPE",
+      "authorityTargetCardinality": 1,
+      "prospectiveEffectSubject": true,
+      "identityMappings": 25,
+      "futureHumanFinalization": "FRESH_HUMAN_APPROVAL_REQUIRED",
+      "futureHistoricalAuthorityPosture": "CURRENT_ONLY"
+    },
+    {
+      "profileId": "EI_COMPLIANCE_ASSERTION_V0_2",
+      "actionClass": "ASSERT_COMPLIANCE",
+      "executable": false,
+      "schema": {
+        "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_ComplianceAssertionEffectIntent_schema_v0_2.json",
+        "bytes": 8044,
+        "byteSha256": "1dc0d24b909aaabd39ddea2df89bdea1184d5c727ba7cbd488c8489cd26fe722",
+        "jcsDigest": "sha256:5b188a87da9e3a2a6305904e96893ef62d964c4b796a4608d155bde1c189df5a",
+        "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/compliance-assertion-effect-intent/v0.2",
+        "schemaVersion": "ofarm.complianceassertioneffectintent.v0.2"
+      },
+      "effectSubjectKind": "COMPLIANCE_ASSERTION",
+      "bodySchemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/complianceAssertionBody",
+      "subjectTimeSchemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/complianceTime",
+      "resourcePolicy": "RP_SCOPE_ONE",
+      "authorityRole": "TARGET_SCOPE",
+      "authorityTargetCardinality": 1,
+      "prospectiveEffectSubject": true,
+      "identityMappings": 25,
+      "futureHumanFinalization": "FRESH_HUMAN_APPROVAL_REQUIRED",
+      "futureHistoricalAuthorityPosture": "CURRENT_ONLY"
+    }
+  ],
+  "extractionDescriptor": {
+    "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/authorization_view_extractions_structure_compliance_v0_2.json",
+    "bytes": 24626,
+    "byteSha256": "bdf362e4ccd6ae22c1ae5ac7697fb56b9d85a2ff9ff62b19c39be3187867637b",
+    "jcsDigest": "sha256:df0ee6f55e59be3f278d9023b5cd68a697119696ca6353abae50f97bb4c910e8"
+  },
+  "extractionLimit": "Two inactive profiles, identity-only field selection. No authority evaluation, caller-selected runtime profile or duplicate operation/read profile.",
+  "schemaDependencies": [
+    {
+      "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+      "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+      "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+      "digestBasis": "EXACT_FILE_BYTES_SHA256",
+      "repositoryPath": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_OperationAssertionEffectIntent_schema_v0_2.json"
+    },
+    {
+      "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+      "schemaVersion": "ofarm.assertionrecord.v0.2",
+      "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+      "digestBasis": "EXACT_FILE_BYTES_SHA256",
+      "repositoryPath": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json"
+    }
+  ],
+  "wireChoices": [
+    "Flat compliance ruleRevisionBindings/evidencePolicyRevisionBindings; no duplicate complianceBasis input wrapper.",
+    "The targetScope shape is reused through an intentional exact-byte dependency on the entire PR42 operation schema. Unrelated comment changes invalidate the pin; changing this ownership/coupling requires a separately scoped choice.",
+    "Separate missing-profiles-only descriptor preserves the original two-profile descriptor."
+  ],
+  "priorInputArtifactsPreserved": [
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_OperationAssertionEffectIntent_schema_v0_2.json",
+      "bytes": 11441,
+      "byteSha256": "66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+      "jcsDigest": "sha256:6cf428ced81b4143d982f8c3e46046e0032e6d366908bb66a4b58bc0dbd788b2",
+      "commit": "471cb1ef20ffde56b1437949975a4c6c86c59dd5"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_DataReadEffectIntent_schema_v0_2.json",
+      "bytes": 14080,
+      "byteSha256": "36057b520e421537eab4488c8c44bceb9a6caca1508e6f796e9da4d0e499e66d",
+      "jcsDigest": "sha256:6371aca6119325c0b3ce69e88223d7cf003046357550bed9d7423406741550a9",
+      "commit": "471cb1ef20ffde56b1437949975a4c6c86c59dd5"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/authorization_view_extractions_v0_2.json",
+      "bytes": 39998,
+      "byteSha256": "5325370abca68ac3b29e28a9acdf2bfc0df01f596122b07b80377db359cf94d4",
+      "jcsDigest": "sha256:70e1fc2db1fb0880d0d8164066afc593afd7034055c18dd3dfe0aa878da9afb4",
+      "commit": "471cb1ef20ffde56b1437949975a4c6c86c59dd5"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/effect_intent_component_manifest_v0_2.json",
+      "bytes": 13724,
+      "byteSha256": "efab6a3e086e5c09a9732b20ad8df8f3f0489cdb715bf89f6ad1e0b611b46ec0",
+      "jcsDigest": "sha256:8bce1126cbc2905ec811fe203324b15ccdb41397bf272c4f1260de6e7add8afd",
+      "commit": "471cb1ef20ffde56b1437949975a4c6c86c59dd5"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/README.md",
+      "bytes": 7741,
+      "byteSha256": "562ec98c45f294f59abbe2d98d56b5be648847c9c438b69d3337b9af4f720949",
+      "commit": "471cb1ef20ffde56b1437949975a4c6c86c59dd5"
+    }
+  ],
+  "priorComponentPolicy": "PR40, PR41 and PR43 component bytes remain unchanged. PR42 schemas, descriptor, manifest, README and old fixture remain unchanged; its one shared checker is extended while retaining old default behavior and expectations.",
+  "integrity": {
+    "canonicalization": "JCS_RFC8785_SHA256",
+    "schemaDigestBasis": "EXACT_FILE_BYTES_SHA256",
+    "instanceProjection": "Complete intent; no exclusions or self-digest.",
+    "duplicateJsonNames": "REJECT_BEFORE_OBJECT_MODEL",
+    "dependencyResolution": "Exact pinned local bytes only; no network/latest/fallback."
+  },
+  "verification": {
+    "fixture": {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_StructureComplianceEffectIntent_cases_v0_2.json",
+      "bytes": 416638,
+      "byteSha256": "c7dbfaf155cfe63f95f38ab0556698c45a50a4268674dbe1c8366e47bc97d60a"
+    },
+    "runner": {
+      "path": "04_implementation_and_conformance/conformance_runners/ofarm_authorization_effect_intents_v0_2.py",
+      "bytes": 26607,
+      "byteSha256": "9909a5028fb0276dc721e48dd804d477d1df9754d7ca84340e7f216699cc55ac"
+    },
+    "invocation": [
+      "python3",
+      "04_implementation_and_conformance/conformance_runners/ofarm_authorization_effect_intents_v0_2.py",
+      "--cases",
+      "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_StructureComplianceEffectIntent_cases_v0_2.json"
+    ],
+    "caseInventory": {
+      "totalCases": 407,
+      "positiveCases": 59,
+      "negativeCases": 348,
+      "schemaWitnesses": 194,
+      "expectedRejectionsByLayer": {
+        "BINDING": 33,
+        "CANONICAL": 1,
+        "COMPONENT": 20,
+        "EXTRACTION": 14,
+        "HARNESS": 64,
+        "INTEGRITY": 16,
+        "JSON": 6,
+        "SCHEMA": 194
+      },
+      "limit": "Committed fictional cases only. Counts are an inventory; exact execution results accompany the reviewed candidate.",
+      "unexpectedPropertyWitnesses": 46,
+      "witnessCorruptionControls": 64
+    },
+    "oldDefaultInputCasesPreserved": 620,
+    "oldReadKindFormPairsPreserved": 60,
+    "databaseRequired": false,
+    "runtimeConformanceClaimed": false
+  },
+  "unmaterializedDependencies": [
+    {
+      "owner": "Resource/context proof and identity admission",
+      "requirement": "Actual immutable resolution, twin applicability, truthful prospective identity, tenant/scope relationships and proof completeness."
+    },
+    {
+      "owner": "Assertion-act and evidence-time trust",
+      "requirement": "Trusted online assertion time or exact admitted offline evidence; no change to foreign operation time qualifiers."
+    },
+    {
+      "owner": "Assertion domain",
+      "requirement": "Full three-branch contract and real AR_*/PC_* payload; truthful mappings, committed prior snapshot/creation context and optional Event Ingress compatibility."
+    },
+    {
+      "owner": "Compliance action evidence policy",
+      "requirement": "Exact EP_COMPLIANCE_ASSERTION_V0_2 policy and evaluation; rule/policy arrays are no compliance fact."
+    },
+    {
+      "owner": "Authorization and transaction",
+      "requirement": "Complete resolved rules, source/history closure, fresh human approval and separately owned transaction paths; no operation checkpoint inheritance."
+    },
+    {
+      "owner": "Assertion body/domain source owner — DC-02 pending",
+      "requirement": "Pinned PR41 structure/compliance bodies lack the body-owned exact envelope time selectors and exact-claim/eventSubtypeId/dominantSemanticConsequence compatibility predicate required by PR23 section 7.3. Event binding remains optionally allowed as input syntax. Neither the proposed absence-only contract nor the full-event alternative with new body/contract versions is adopted; family equality alone cannot close compatibility."
+    },
+    {
+      "owner": "Assertion body/domain source owner — inherited subject and claim-text choices pending",
+      "requirement": "Confirm or explicitly revise each action body permitted subject-kind set (currently the shared nine-kind set including INPUT and OPERATION) and the minLength-1 claimText treatment that accepts whitespace-only strings. This input correction neither narrows the body schema nor normalizes claims."
+    }
+  ],
+  "releaseLimit": "Only inactive formats are added. The source initial admitted set remains ASSERT_OPERATION_CLAIM and RECEIVE_READ_DATA. New schema bytes do not admit structure/compliance.",
+  "downstream": "Freeze and review these input bytes, then a separate domain PR binds all three assertion intent/body profiles. Conformance construction and production selection keep their owner gates; OFARM2 #392/#396 remains parked.",
+  "dependencyChangePolicy": "A changed operation-schema file needs explicit compatibility review and new pins in both inactive schemas, descriptor, fixture, manifest and downstream consumers including PR45. No silent refresh or fragment digest is used."
+}
