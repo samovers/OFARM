@@ -10,6 +10,7 @@ COMMANDS = [
     ['python3', '04_implementation_and_conformance/conformance_runners/ofarm_authorization_effect_intents_v0_2.py'],
     ['python3', '04_implementation_and_conformance/conformance_runners/ofarm_authorization_effect_intents_v0_2.py', '--cases', '04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_StructureComplianceEffectIntent_cases_v0_2.json'],
     ['python3', '04_implementation_and_conformance/conformance_runners/ofarm_protected_effect_validation_trace_envelope_v0_1.py'],
+    ['python3', '04_implementation_and_conformance/conformance_runners/ofarm_assertion_record_domain_mappings_v0_1.py'],
     ['python3', 'package_meta/tools/validate_repo_hygiene.py'],
     ['python3', 'package_meta/tools/check_generated_currentness.py'],
     ['python3', 'package_meta/tools/check_repository_cross_references.py'],

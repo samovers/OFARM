@@ -1,0 +1,2758 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-record/operation-mapping-report/v0.1",
+  "title": "Offline operation mapping report; not a domain validation payload",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionrecord.operationmappingreport.v0.1"
+    },
+    "componentResult": {
+      "enum": [
+        "MATCH",
+        "MISMATCH"
+      ]
+    },
+    "fullDomainValidation": {
+      "const": "UNAVAILABLE"
+    },
+    "inputDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "minLength": 71,
+      "maxLength": 71
+    },
+    "resultDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "minLength": 71,
+      "maxLength": 71
+    },
+    "inputSchemaBinding": {
+      "const": {
+        "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      }
+    },
+    "resultSchemaBinding": {
+      "const": {
+        "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      }
+    },
+    "selectedBodySchemaBinding": {
+      "const": {
+        "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody",
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      }
+    },
+    "schemaValidation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "intent": {
+          "const": true
+        },
+        "result": {
+          "const": true
+        },
+        "resultBody": {
+          "const": true
+        }
+      },
+      "required": [
+        "intent",
+        "result",
+        "resultBody"
+      ]
+    },
+    "localConsistency": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "intent": {
+          "const": true
+        },
+        "result": {
+          "const": true
+        }
+      },
+      "required": [
+        "intent",
+        "result"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 19,
+      "maxItems": 19,
+      "prefixItems": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_ID.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_ID"
+              ]
+            },
+            "sourcePointer": {
+              "const": "/effectSubject/subjectRef"
+            },
+            "resultPointer": {
+              "const": "/assertionRecordId"
+            },
+            "sourcePresent": {
+              "const": true
+            },
+            "resultPresent": {
+              "const": true
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_EFFECT_SUBJECT.kind_and_id"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_EFFECT_SUBJECT"
+              ]
+            },
+            "evidenceRef": {
+              "const": "AR_ID.copy"
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "evidenceRef"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_TYPE.derived_constant"
+            },
+            "outcome": {
+              "const": "MATCH"
+            },
+            "obligationIds": {
+              "const": [
+                "AR_TYPE"
+              ]
+            },
+            "sourcePointer": {
+              "const": "PR23/7.2/ASSERT_OPERATION_CLAIM/assertionType"
+            },
+            "resultPointer": {
+              "const": "/assertionType"
+            },
+            "sourcePresent": {
+              "const": true
+            },
+            "resultPresent": {
+              "const": true
+            },
+            "sourceDigest": {
+              "const": "sha256:471b135cd35b00aed7a5c213464f1d96d0fd7f7a4b0894136ad8d295bcbcdc0d"
+            },
+            "resultDigest": {
+              "const": "sha256:471b135cd35b00aed7a5c213464f1d96d0fd7f7a4b0894136ad8d295bcbcdc0d"
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_SUBJECT.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_SUBJECT"
+              ]
+            },
+            "sourcePointer": {
+              "const": "/subject"
+            },
+            "resultPointer": {
+              "const": "/subject"
+            },
+            "sourcePresent": {
+              "const": true
+            },
+            "resultPresent": {
+              "const": true
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_SCOPE.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_SCOPE"
+              ]
+            },
+            "sourcePointer": {
+              "const": "/resources/0/scope"
+            },
+            "resultPointer": {
+              "const": "/anchorScopes/0"
+            },
+            "sourcePresent": {
+              "const": true
+            },
+            "resultPresent": {
+              "const": true
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_SUBJECT_SCOPE_PROOF.copy_or_absence"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_SUBJECT_SCOPE_PROOF"
+              ]
+            },
+            "sourcePointer": {
+              "const": "/subjectScopeProofBindings"
+            },
+            "resultPointer": {
+              "const": "/subjectScopeProofBindings"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": false
+                  },
+                  "resultPresent": {
+                    "const": false
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "outcome": {
+                    "const": "MATCH"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  },
+                  "resultPresent": {
+                    "const": false
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "outcome": {
+                    "const": "MISMATCH"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": false
+                  },
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "outcome": {
+                    "const": "MISMATCH"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_ASSERTED_AT.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_ASSERTED_AT"
+              ]
+            },
+            "sourcePointer": {
+              "const": "/assertedAt"
+            },
+            "resultPointer": {
+              "const": "/assertedAt"
+            },
+            "sourcePresent": {
+              "const": true
+            },
+            "resultPresent": {
+              "const": true
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_ASSERTION_ACT_POSTURE.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_ASSERTION_ACT_POSTURE"
+              ]
+            },
+            "sourcePointer": {
+              "const": "/assertionActPosture"
+            },
+            "resultPointer": {
+              "const": "/assertionActPosture"
+            },
+            "sourcePresent": {
+              "const": true
+            },
+            "resultPresent": {
+              "const": true
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_ASSERTION_ACT_EVIDENCE.copy_or_absence"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_ASSERTION_ACT_EVIDENCE"
+              ]
+            },
+            "sourcePointer": {
+              "const": "/assertionActEvidenceBinding"
+            },
+            "resultPointer": {
+              "const": "/assertionActEvidenceBinding"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": false
+                  },
+                  "resultPresent": {
+                    "const": false
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "outcome": {
+                    "const": "MATCH"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  },
+                  "resultPresent": {
+                    "const": false
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "outcome": {
+                    "const": "MISMATCH"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": false
+                  },
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "outcome": {
+                    "const": "MISMATCH"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_SUBJECT_TIME.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_SUBJECT_TIME"
+              ]
+            },
+            "sourcePointer": {
+              "const": "/subjectTime"
+            },
+            "resultPointer": {
+              "const": "/subjectTime"
+            },
+            "sourcePresent": {
+              "const": true
+            },
+            "resultPresent": {
+              "const": true
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_BODY.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_BODY"
+              ]
+            },
+            "sourcePointer": {
+              "const": "/assertionBody"
+            },
+            "resultPointer": {
+              "const": "/assertionBody"
+            },
+            "sourcePresent": {
+              "const": true
+            },
+            "resultPresent": {
+              "const": true
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_EVIDENCE.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_EVIDENCE"
+              ]
+            },
+            "sourcePointer": {
+              "const": "/evidenceBindings"
+            },
+            "resultPointer": {
+              "const": "/evidenceBindings"
+            },
+            "sourcePresent": {
+              "const": true
+            },
+            "resultPresent": {
+              "const": true
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_OPERATION_POSTURE.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_OPERATION_POSTURE"
+              ]
+            },
+            "sourcePointer": {
+              "const": "/claimPosture"
+            },
+            "resultPointer": {
+              "const": "/operationClaimContext/claimPosture"
+            },
+            "sourcePresent": {
+              "const": true
+            },
+            "resultPresent": {
+              "const": true
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_OPERATION_PERFORMER.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_OPERATION_PERFORMER"
+              ]
+            },
+            "sourcePointer": {
+              "const": "/performedByPartyRef"
+            },
+            "resultPointer": {
+              "const": "/operationClaimContext/performedByPartyRef"
+            },
+            "sourcePresent": {
+              "const": true
+            },
+            "resultPresent": {
+              "const": true
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_OPERATION_AGENT_ACTORSHIP.copy_or_absence"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_OPERATION_AGENT_ACTORSHIP"
+              ]
+            },
+            "sourcePointer": {
+              "const": "/softwareAgentActorshipBindings"
+            },
+            "resultPointer": {
+              "const": "/operationClaimContext/softwareAgentActorshipBindings"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": false
+                  },
+                  "resultPresent": {
+                    "const": false
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "outcome": {
+                    "const": "MATCH"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  },
+                  "resultPresent": {
+                    "const": false
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "outcome": {
+                    "const": "MISMATCH"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": false
+                  },
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "outcome": {
+                    "const": "MISMATCH"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_OPERATION_PERFORMER_AUTHORITY.copy_or_absence"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_OPERATION_PERFORMER_AUTHORITY"
+              ]
+            },
+            "sourcePointer": {
+              "const": "/performerAuthorityEvidenceBindings"
+            },
+            "resultPointer": {
+              "const": "/operationClaimContext/performerAuthorityEvidenceBindings"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": false
+                  },
+                  "resultPresent": {
+                    "const": false
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "outcome": {
+                    "const": "MATCH"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  },
+                  "resultPresent": {
+                    "const": false
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "outcome": {
+                    "const": "MISMATCH"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": false
+                  },
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "outcome": {
+                    "const": "MISMATCH"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_CORRECTION_LINEAGE.copy_or_absence"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_CORRECTION_LINEAGE"
+              ]
+            },
+            "sourcePointer": {
+              "const": "/supersedesAssertionRecordBinding"
+            },
+            "resultPointer": {
+              "const": "/supersedesAssertionRecordBinding"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "sourcePointer",
+            "resultPointer",
+            "sourcePresent",
+            "resultPresent"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "sourceDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "sourceDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "resultDigest"
+                ]
+              },
+              "else": {
+                "not": {
+                  "required": [
+                    "resultDigest"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": false
+                  },
+                  "resultPresent": {
+                    "const": false
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "outcome": {
+                    "const": "MATCH"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": true
+                  },
+                  "resultPresent": {
+                    "const": false
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "outcome": {
+                    "const": "MISMATCH"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "sourcePresent": {
+                    "const": false
+                  },
+                  "resultPresent": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "outcome": {
+                    "const": "MISMATCH"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_OPERATION_PAYLOADS.copied_with_body"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "obligationIds": {
+              "const": [
+                "AR_OPERATION_PAYLOADS"
+              ]
+            },
+            "evidenceRef": {
+              "const": "AR_BODY.copy"
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "evidenceRef"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "PINNED_SCHEMA.constants_and_absences"
+            },
+            "outcome": {
+              "const": "MATCH"
+            },
+            "obligationIds": {
+              "const": [
+                "AR_SCHEMA",
+                "AR_ACTION_PROFILE",
+                "AR_EFFECT_SUBJECT",
+                "AR_TYPE",
+                "AR_CLAIM_STATE",
+                "AR_OPERATION_BRANCH_ABSENCE",
+                "AR_LEGACY_ABSENCE"
+              ]
+            },
+            "evidenceRef": {
+              "const": "schemaValidation"
+            }
+          },
+          "required": [
+            "id",
+            "outcome",
+            "obligationIds",
+            "evidenceRef"
+          ]
+        }
+      ],
+      "items": false
+    },
+    "unavailable": {
+      "const": [
+        "full_AR_semantics",
+        "all_PC_semantics",
+        "authorization_Party_and_rule",
+        "relationship_and_identity_truth",
+        "trusted_act_and_time",
+        "foreign_evidence_admission",
+        "prior_history",
+        "event_compatibility",
+        "transaction_and_admission"
+      ]
+    },
+    "arTraceability": {
+      "const": [
+        {
+          "obligationId": "AR_SCHEMA",
+          "sourceSection": "PR23/8",
+          "sourceLine": 490,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [],
+          "schemaEnforcement": [
+            "result:/properties/schemaVersion"
+          ],
+          "unavailableReasons": [
+            "Selected real authorization rule/schema selection is unavailable."
+          ]
+        },
+        {
+          "obligationId": "AR_ACTION_PROFILE",
+          "sourceSection": "PR23/8",
+          "sourceLine": 491,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [],
+          "schemaEnforcement": [
+            "intent:/properties/schemaVersion"
+          ],
+          "unavailableReasons": [
+            "Canonical selected action rule and governed profile admission are unavailable."
+          ]
+        },
+        {
+          "obligationId": "AR_EFFECT_SUBJECT",
+          "sourceSection": "PR23/8",
+          "sourceLine": 492,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_EFFECT_SUBJECT.kind_and_id"
+          ],
+          "schemaEnforcement": [
+            "intent:/properties/effectSubject"
+          ],
+          "unavailableReasons": [
+            "Selected-rule authority and truthful prospective-target status are unavailable."
+          ]
+        },
+        {
+          "obligationId": "AR_ID",
+          "sourceSection": "PR23/8",
+          "sourceLine": 493,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_ID.copy"
+          ],
+          "schemaEnforcement": [],
+          "unavailableReasons": []
+        },
+        {
+          "obligationId": "AR_TYPE",
+          "sourceSection": "PR23/8",
+          "sourceLine": 494,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_TYPE.derived_constant"
+          ],
+          "schemaEnforcement": [
+            "result:/properties/assertionType",
+            "result:/allOf; selected operation body preflight"
+          ],
+          "unavailableReasons": []
+        },
+        {
+          "obligationId": "AR_SUBJECT",
+          "sourceSection": "PR23/8",
+          "sourceLine": 495,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_SUBJECT.copy"
+          ],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "Truthful identity posture and immutable foreign-byte resolution are unavailable."
+          ]
+        },
+        {
+          "obligationId": "AR_SCOPE",
+          "sourceSection": "PR23/8",
+          "sourceLine": 496,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_SCOPE.copy"
+          ],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "Real rule-extracted authority scope and relationship admission are unavailable."
+          ]
+        },
+        {
+          "obligationId": "AR_SUBJECT_SCOPE_PROOF",
+          "sourceSection": "PR23/8",
+          "sourceLine": 497,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_SUBJECT_SCOPE_PROOF.copy_or_absence"
+          ],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "Relationship validity and context completeness are unavailable."
+          ]
+        },
+        {
+          "obligationId": "AR_ASSERTOR",
+          "sourceSection": "PR23/8",
+          "sourceLine": 498,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "Canonical authoritySubjectPartyRef is not an input; result assertedByPartyRef is not its own authority proof."
+          ]
+        },
+        {
+          "obligationId": "AR_ASSERTED_AT",
+          "sourceSection": "PR23/8",
+          "sourceLine": 499,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_ASSERTED_AT.copy"
+          ],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "Trusted online injection or admitted offline act time is unavailable."
+          ]
+        },
+        {
+          "obligationId": "AR_ASSERTION_ACT_POSTURE",
+          "sourceSection": "PR23/8",
+          "sourceLine": 500,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_ASSERTION_ACT_POSTURE.copy"
+          ],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "Declared posture truth and trust admission are unavailable."
+          ]
+        },
+        {
+          "obligationId": "AR_ASSERTION_ACT_EVIDENCE",
+          "sourceSection": "PR23/8",
+          "sourceLine": 501,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_ASSERTION_ACT_EVIDENCE.copy_or_absence"
+          ],
+          "schemaEnforcement": [
+            "intent:/allOf; result:/allOf"
+          ],
+          "unavailableReasons": [
+            "Immutable act-evidence resolution and provenance admission are unavailable."
+          ]
+        },
+        {
+          "obligationId": "AR_SUBJECT_TIME",
+          "sourceSection": "PR23/8",
+          "sourceLine": 502,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_SUBJECT_TIME.copy"
+          ],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "Foreign-source resolution, qualifier eligibility and claimed-performance-context admission are unavailable."
+          ]
+        },
+        {
+          "obligationId": "AR_BODY",
+          "sourceSection": "PR23/8",
+          "sourceLine": 503,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_BODY.copy"
+          ],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "Body domain meaning and foreign context/payload admission are unavailable."
+          ]
+        },
+        {
+          "obligationId": "AR_EVIDENCE",
+          "sourceSection": "PR23/8",
+          "sourceLine": 504,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_EVIDENCE.copy"
+          ],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "Immutable evidence resolution and policy sufficiency are unavailable."
+          ]
+        },
+        {
+          "obligationId": "AR_CLAIM_STATE",
+          "sourceSection": "PR23/8",
+          "sourceLine": 505,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [],
+          "schemaEnforcement": [
+            "result:/properties/claimState"
+          ],
+          "unavailableReasons": []
+        },
+        {
+          "obligationId": "AR_EVENT_ASSOCIATION",
+          "sourceSection": "PR23/8",
+          "sourceLine": 506,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "Event binding is not copied into the result. Event Ingress, body-owned time selectors and subtype/dominant-context compatibility are unavailable. Absence visibility is not a full-contract N/A disposition."
+          ]
+        },
+        {
+          "obligationId": "AR_OPERATION_POSTURE",
+          "sourceSection": "PR23/8",
+          "sourceLine": 514,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_OPERATION_POSTURE.copy"
+          ],
+          "schemaEnforcement": [],
+          "unavailableReasons": []
+        },
+        {
+          "obligationId": "AR_OPERATION_PERFORMER",
+          "sourceSection": "PR23/8",
+          "sourceLine": 515,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_OPERATION_PERFORMER.copy"
+          ],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "No performer authority is established by this copy."
+          ]
+        },
+        {
+          "obligationId": "AR_OPERATION_AGENT_ACTORSHIP",
+          "sourceSection": "PR23/8",
+          "sourceLine": 516,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_OPERATION_AGENT_ACTORSHIP.copy_or_absence"
+          ],
+          "schemaEnforcement": [
+            "intent:/allOf; result:/$defs/operationClaimContext"
+          ],
+          "unavailableReasons": [
+            "Actorship provenance and admitted evidence are unavailable."
+          ]
+        },
+        {
+          "obligationId": "AR_OPERATION_PERFORMER_AUTHORITY",
+          "sourceSection": "PR23/8",
+          "sourceLine": 517,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_OPERATION_PERFORMER_AUTHORITY.copy_or_absence"
+          ],
+          "schemaEnforcement": [
+            "intent:/allOf; result:/$defs/operationClaimContext"
+          ],
+          "unavailableReasons": [
+            "Performer authority remains NOT_EVALUATED_BY_AUTHORIZATION."
+          ]
+        },
+        {
+          "obligationId": "AR_OPERATION_PAYLOADS",
+          "sourceSection": "PR23/8",
+          "sourceLine": 518,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_OPERATION_PAYLOADS.copied_with_body"
+          ],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "Foreign payload resolution, semantic compatibility and admission are unavailable."
+          ]
+        },
+        {
+          "obligationId": "AR_COMPLIANCE_RULES",
+          "sourceSection": "PR23/8",
+          "sourceLine": 519,
+          "componentScope": "OTHER_ACTION",
+          "comparisonRefs": [],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "Different action branch; this operation-only component does not evaluate it."
+          ]
+        },
+        {
+          "obligationId": "AR_COMPLIANCE_EVIDENCE_POLICY",
+          "sourceSection": "PR23/8",
+          "sourceLine": 520,
+          "componentScope": "OTHER_ACTION",
+          "comparisonRefs": [],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "Different action branch; this operation-only component does not evaluate it."
+          ]
+        },
+        {
+          "obligationId": "AR_CORRECTION_LINEAGE",
+          "sourceSection": "PR23/8",
+          "sourceLine": 521,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [
+            "AR_CORRECTION_LINEAGE.copy_or_absence"
+          ],
+          "schemaEnforcement": [
+            "intent:/allOf; result:/allOf"
+          ],
+          "unavailableReasons": [
+            "Prior committed visibility, creation context, typed boundary/twin and correction compatibility are unavailable."
+          ]
+        },
+        {
+          "obligationId": "AR_STRUCTURE_BRANCH_ABSENCE",
+          "sourceSection": "PR23/8",
+          "sourceLine": 522,
+          "componentScope": "OTHER_ACTION",
+          "comparisonRefs": [],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "Different action branch; this operation-only component does not evaluate it."
+          ]
+        },
+        {
+          "obligationId": "AR_OPERATION_BRANCH_ABSENCE",
+          "sourceSection": "PR23/8",
+          "sourceLine": 523,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [],
+          "schemaEnforcement": [
+            "result:/allOf; operation branch forbids complianceBasis"
+          ],
+          "unavailableReasons": []
+        },
+        {
+          "obligationId": "AR_COMPLIANCE_BRANCH_ABSENCE",
+          "sourceSection": "PR23/8",
+          "sourceLine": 524,
+          "componentScope": "OTHER_ACTION",
+          "comparisonRefs": [],
+          "schemaEnforcement": [],
+          "unavailableReasons": [
+            "Different action branch; this operation-only component does not evaluate it."
+          ]
+        },
+        {
+          "obligationId": "AR_LEGACY_ABSENCE",
+          "sourceSection": "PR23/8",
+          "sourceLine": 525,
+          "componentScope": "OPERATION_COMPONENT",
+          "comparisonRefs": [],
+          "schemaEnforcement": [
+            "intent:/additionalProperties; result:/additionalProperties; closed nested objects"
+          ],
+          "unavailableReasons": []
+        }
+      ]
+    },
+    "eventBindingPresent": {
+      "type": "boolean"
+    },
+    "eventAssociation": {
+      "enum": [
+        "NOT_SUPPLIED",
+        "UNAVAILABLE"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "componentResult",
+    "fullDomainValidation",
+    "inputDigest",
+    "resultDigest",
+    "inputSchemaBinding",
+    "resultSchemaBinding",
+    "selectedBodySchemaBinding",
+    "schemaValidation",
+    "localConsistency",
+    "checks",
+    "unavailable",
+    "arTraceability",
+    "eventBindingPresent",
+    "eventAssociation"
+  ],
+  "$comment": "Offline comparison report only. Fixed relationships are enforced here; Internal Component._validate_report additionally checks arbitrary digest equality, which standard Draft 2020-12 cannot express. Schema acceptance does not prove claimed input bytes, source truth, full AR/PC validity or runtime admission.",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "checks": {
+            "contains": {
+              "properties": {
+                "outcome": {
+                  "const": "MISMATCH"
+                }
+              },
+              "required": [
+                "outcome"
+              ]
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "componentResult": {
+            "const": "MISMATCH"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "componentResult": {
+            "const": "MATCH"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "eventBindingPresent": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "eventAssociation": {
+            "const": "UNAVAILABLE"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "eventAssociation": {
+            "const": "NOT_SUPPLIED"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "checks": {
+            "prefixItems": [
+              {
+                "properties": {
+                  "outcome": {
+                    "const": "MATCH"
+                  }
+                }
+              },
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {}
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "checks": {
+            "prefixItems": [
+              {},
+              {
+                "properties": {
+                  "outcome": {
+                    "const": "MATCH"
+                  }
+                }
+              },
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {}
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "checks": {
+            "prefixItems": [
+              {
+                "properties": {
+                  "outcome": {
+                    "const": "MISMATCH"
+                  }
+                }
+              },
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {}
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "checks": {
+            "prefixItems": [
+              {},
+              {
+                "properties": {
+                  "outcome": {
+                    "const": "MISMATCH"
+                  }
+                }
+              },
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {}
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "checks": {
+            "prefixItems": [
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {
+                "properties": {
+                  "outcome": {
+                    "const": "MATCH"
+                  }
+                }
+              },
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {}
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "checks": {
+            "prefixItems": [
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {
+                "properties": {
+                  "outcome": {
+                    "const": "MATCH"
+                  }
+                }
+              },
+              {}
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "checks": {
+            "prefixItems": [
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {
+                "properties": {
+                  "outcome": {
+                    "const": "MISMATCH"
+                  }
+                }
+              },
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {}
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "checks": {
+            "prefixItems": [
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {
+                "properties": {
+                  "outcome": {
+                    "const": "MISMATCH"
+                  }
+                }
+              },
+              {}
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

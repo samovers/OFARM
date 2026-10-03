@@ -1,0 +1,5083 @@
+{
+  "status": "TEST_ONLY_NON_AUTHORITY",
+  "fixtureBasis": "Fictional values from actual PR42 shapes, paired manually under PR23 mappings. Expected mismatch sets and schema witnesses are authored independently of the evaluator/table.",
+  "claimLimit": "MATCH is supplied-byte mapping integrity only. No schema-valid fixture proves foreign admission or domain truth.",
+  "pairs": {
+    "intended": {
+      "intent": {
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "INTENDED_WINDOW",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "INTENDED_WINDOW",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "resources": [
+          {
+            "resourceRole": "TARGET_SCOPE",
+            "resourcePosture": "AUTHORITY_TARGET",
+            "targetType": "SCOPE",
+            "scope": {
+              "scopeType": "FIELD",
+              "scopeRef": "field:fictional:1",
+              "revisionRef": "field:fictional:1:r1"
+            },
+            "tenantRef": "tenant:fictional:1",
+            "authorizationResourceProofBindings": [
+              {
+                "ref": "proof:resource:field",
+                "revisionRef": "proof:resource:field:r1"
+              }
+            ]
+          }
+        ],
+        "effectSubject": {
+          "subjectKind": "OPERATION_ASSERTION",
+          "subjectRef": "assertion:fictional:intended_window",
+          "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+          "effectSubjectProofBindings": [
+            {
+              "ref": "proof:prospective:1",
+              "revisionRef": "proof:prospective:1:r1"
+            }
+          ]
+        },
+        "claimPosture": "INTENDED",
+        "performedByPartyRef": "party:fictional:performer"
+      },
+      "result": {
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "assertionRecordId": "assertion:fictional:intended_window",
+        "assertionType": "OPERATION_CLAIM_ASSERTION",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:1",
+            "revisionRef": "field:fictional:1:r1"
+          }
+        ],
+        "assertedByPartyRef": "party:fictional:reporter",
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "INTENDED_WINDOW",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "INTENDED_WINDOW",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "claimState": "PENDING_REVIEW",
+        "operationClaimContext": {
+          "claimPosture": "INTENDED",
+          "performedByPartyRef": "party:fictional:performer"
+        }
+      }
+    },
+    "instant": {
+      "intent": {
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INSTANT",
+          "at": "2026-09-19T10:00:00.000000001Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "MEASUREMENT_EVIDENCE",
+            "evidenceBinding": {
+              "ref": "measurement:fictional:1",
+              "revisionRef": "revision:fictional:1",
+              "schemaRef": "https://ofarm.dev/schema/measurementevidence/v0.1",
+              "schemaVersion": "ofarm.measurementevidence.v0.1",
+              "schemaDigest": "sha256:90c4cf2d1387633172e772c970d0c76889ceec0fca4682a5053914375bdc9280"
+            },
+            "atPointer": "/phenomenonTime/instant"
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "resources": [
+          {
+            "resourceRole": "TARGET_SCOPE",
+            "resourcePosture": "AUTHORITY_TARGET",
+            "targetType": "SCOPE",
+            "scope": {
+              "scopeType": "FIELD",
+              "scopeRef": "field:fictional:1",
+              "revisionRef": "field:fictional:1:r1"
+            },
+            "tenantRef": "tenant:fictional:1",
+            "authorizationResourceProofBindings": [
+              {
+                "ref": "proof:resource:field",
+                "revisionRef": "proof:resource:field:r1"
+              }
+            ]
+          }
+        ],
+        "effectSubject": {
+          "subjectKind": "OPERATION_ASSERTION",
+          "subjectRef": "assertion:fictional:performed_instant",
+          "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+          "effectSubjectProofBindings": [
+            {
+              "ref": "proof:prospective:1",
+              "revisionRef": "proof:prospective:1:r1"
+            }
+          ]
+        },
+        "claimPosture": "PERFORMED",
+        "performedByPartyRef": "party:fictional:performer"
+      },
+      "result": {
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "assertionRecordId": "assertion:fictional:performed_instant",
+        "assertionType": "OPERATION_CLAIM_ASSERTION",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:1",
+            "revisionRef": "field:fictional:1:r1"
+          }
+        ],
+        "assertedByPartyRef": "party:fictional:reporter",
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INSTANT",
+          "at": "2026-09-19T10:00:00.000000001Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "MEASUREMENT_EVIDENCE",
+            "evidenceBinding": {
+              "ref": "measurement:fictional:1",
+              "revisionRef": "revision:fictional:1",
+              "schemaRef": "https://ofarm.dev/schema/measurementevidence/v0.1",
+              "schemaVersion": "ofarm.measurementevidence.v0.1",
+              "schemaDigest": "sha256:90c4cf2d1387633172e772c970d0c76889ceec0fca4682a5053914375bdc9280"
+            },
+            "atPointer": "/phenomenonTime/instant"
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "claimState": "PENDING_REVIEW",
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:performer"
+        }
+      }
+    },
+    "performed": {
+      "intent": {
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "resources": [
+          {
+            "resourceRole": "TARGET_SCOPE",
+            "resourcePosture": "AUTHORITY_TARGET",
+            "targetType": "SCOPE",
+            "scope": {
+              "scopeType": "FIELD",
+              "scopeRef": "field:fictional:1",
+              "revisionRef": "field:fictional:1:r1"
+            },
+            "tenantRef": "tenant:fictional:1",
+            "authorizationResourceProofBindings": [
+              {
+                "ref": "proof:resource:field",
+                "revisionRef": "proof:resource:field:r1"
+              }
+            ]
+          }
+        ],
+        "effectSubject": {
+          "subjectKind": "OPERATION_ASSERTION",
+          "subjectRef": "assertion:fictional:performed_interval",
+          "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+          "effectSubjectProofBindings": [
+            {
+              "ref": "proof:prospective:1",
+              "revisionRef": "proof:prospective:1:r1"
+            }
+          ]
+        },
+        "claimPosture": "PERFORMED",
+        "performedByPartyRef": "party:fictional:performer"
+      },
+      "result": {
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "assertionRecordId": "assertion:fictional:performed_interval",
+        "assertionType": "OPERATION_CLAIM_ASSERTION",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:1",
+            "revisionRef": "field:fictional:1:r1"
+          }
+        ],
+        "assertedByPartyRef": "party:fictional:reporter",
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "claimState": "PENDING_REVIEW",
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:performer"
+        }
+      }
+    },
+    "offline": {
+      "intent": {
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "VERIFIED_OFFLINE_SUBMISSION",
+        "assertionActEvidenceBinding": {
+          "ref": "act:fictional:1",
+          "revisionRef": "revision:fictional:1"
+        },
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "resources": [
+          {
+            "resourceRole": "TARGET_SCOPE",
+            "resourcePosture": "AUTHORITY_TARGET",
+            "targetType": "SCOPE",
+            "scope": {
+              "scopeType": "FIELD",
+              "scopeRef": "field:fictional:1",
+              "revisionRef": "field:fictional:1:r1"
+            },
+            "tenantRef": "tenant:fictional:1",
+            "authorizationResourceProofBindings": [
+              {
+                "ref": "proof:resource:field",
+                "revisionRef": "proof:resource:field:r1"
+              }
+            ]
+          }
+        ],
+        "effectSubject": {
+          "subjectKind": "OPERATION_ASSERTION",
+          "subjectRef": "assertion:fictional:performed_interval",
+          "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+          "effectSubjectProofBindings": [
+            {
+              "ref": "proof:prospective:1",
+              "revisionRef": "proof:prospective:1:r1"
+            }
+          ]
+        },
+        "claimPosture": "PERFORMED",
+        "performedByPartyRef": "party:fictional:performer"
+      },
+      "result": {
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "assertionRecordId": "assertion:fictional:performed_interval",
+        "assertionType": "OPERATION_CLAIM_ASSERTION",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:1",
+            "revisionRef": "field:fictional:1:r1"
+          }
+        ],
+        "assertedByPartyRef": "party:fictional:reporter",
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "VERIFIED_OFFLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "claimState": "PENDING_REVIEW",
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:performer"
+        },
+        "assertionActEvidenceBinding": {
+          "ref": "act:fictional:1",
+          "revisionRef": "revision:fictional:1"
+        }
+      }
+    },
+    "agent": {
+      "intent": {
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": true,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "resources": [
+          {
+            "resourceRole": "TARGET_SCOPE",
+            "resourcePosture": "AUTHORITY_TARGET",
+            "targetType": "SCOPE",
+            "scope": {
+              "scopeType": "FIELD",
+              "scopeRef": "field:fictional:1",
+              "revisionRef": "field:fictional:1:r1"
+            },
+            "tenantRef": "tenant:fictional:1",
+            "authorizationResourceProofBindings": [
+              {
+                "ref": "proof:resource:field",
+                "revisionRef": "proof:resource:field:r1"
+              }
+            ]
+          }
+        ],
+        "effectSubject": {
+          "subjectKind": "OPERATION_ASSERTION",
+          "subjectRef": "assertion:fictional:performed_interval",
+          "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+          "effectSubjectProofBindings": [
+            {
+              "ref": "proof:prospective:1",
+              "revisionRef": "proof:prospective:1:r1"
+            }
+          ]
+        },
+        "claimPosture": "PERFORMED",
+        "performedByPartyRef": "party:fictional:performer",
+        "softwareAgentActorshipBindings": [
+          {
+            "ref": "actorship:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ]
+      },
+      "result": {
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "assertionRecordId": "assertion:fictional:performed_interval",
+        "assertionType": "OPERATION_CLAIM_ASSERTION",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:1",
+            "revisionRef": "field:fictional:1:r1"
+          }
+        ],
+        "assertedByPartyRef": "party:fictional:reporter",
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": true,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "claimState": "PENDING_REVIEW",
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:performer",
+          "softwareAgentActorshipBindings": [
+            {
+              "ref": "actorship:fictional:1",
+              "revisionRef": "revision:fictional:1"
+            }
+          ]
+        }
+      }
+    },
+    "performer_evidence": {
+      "intent": {
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "resources": [
+          {
+            "resourceRole": "TARGET_SCOPE",
+            "resourcePosture": "AUTHORITY_TARGET",
+            "targetType": "SCOPE",
+            "scope": {
+              "scopeType": "FIELD",
+              "scopeRef": "field:fictional:1",
+              "revisionRef": "field:fictional:1:r1"
+            },
+            "tenantRef": "tenant:fictional:1",
+            "authorizationResourceProofBindings": [
+              {
+                "ref": "proof:resource:field",
+                "revisionRef": "proof:resource:field:r1"
+              }
+            ]
+          }
+        ],
+        "effectSubject": {
+          "subjectKind": "OPERATION_ASSERTION",
+          "subjectRef": "assertion:fictional:performed_interval",
+          "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+          "effectSubjectProofBindings": [
+            {
+              "ref": "proof:prospective:1",
+              "revisionRef": "proof:prospective:1:r1"
+            }
+          ]
+        },
+        "claimPosture": "PERFORMED",
+        "performedByPartyRef": "party:fictional:performer",
+        "performerAuthorityEvidenceBindings": [
+          {
+            "ref": "authority-evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ]
+      },
+      "result": {
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "assertionRecordId": "assertion:fictional:performed_interval",
+        "assertionType": "OPERATION_CLAIM_ASSERTION",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:1",
+            "revisionRef": "field:fictional:1:r1"
+          }
+        ],
+        "assertedByPartyRef": "party:fictional:reporter",
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "claimState": "PENDING_REVIEW",
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:performer",
+          "performerAuthorityEvidenceBindings": [
+            {
+              "ref": "authority-evidence:fictional:1",
+              "revisionRef": "revision:fictional:1"
+            }
+          ]
+        }
+      }
+    },
+    "intended_payload": {
+      "intent": {
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "INTENDED_WINDOW",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "INTERVENTION_INTENT_PAYLOAD",
+            "payloadBinding": {
+              "ref": "intent:fictional:1",
+              "revisionRef": "revision:fictional:1",
+              "schemaRef": "https://ofarm.dev/schema/interventionintentpayload/v0.1",
+              "schemaVersion": "ofarm.interventionintentpayload.v0.1",
+              "schemaDigest": "sha256:72e4603d3cc98fcd99439f8a06c80724e14d4961031ff3b0a1774f3407725ec0"
+            },
+            "startPointer": "/intendedTimeWindow/start",
+            "endPointer": "/intendedTimeWindow/end"
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "resources": [
+          {
+            "resourceRole": "TARGET_SCOPE",
+            "resourcePosture": "AUTHORITY_TARGET",
+            "targetType": "SCOPE",
+            "scope": {
+              "scopeType": "FIELD",
+              "scopeRef": "field:fictional:1",
+              "revisionRef": "field:fictional:1:r1"
+            },
+            "tenantRef": "tenant:fictional:1",
+            "authorizationResourceProofBindings": [
+              {
+                "ref": "proof:resource:field",
+                "revisionRef": "proof:resource:field:r1"
+              }
+            ]
+          }
+        ],
+        "effectSubject": {
+          "subjectKind": "OPERATION_ASSERTION",
+          "subjectRef": "assertion:fictional:intended_window",
+          "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+          "effectSubjectProofBindings": [
+            {
+              "ref": "proof:prospective:1",
+              "revisionRef": "proof:prospective:1:r1"
+            }
+          ]
+        },
+        "claimPosture": "INTENDED",
+        "performedByPartyRef": "party:fictional:performer"
+      },
+      "result": {
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "assertionRecordId": "assertion:fictional:intended_window",
+        "assertionType": "OPERATION_CLAIM_ASSERTION",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:1",
+            "revisionRef": "field:fictional:1:r1"
+          }
+        ],
+        "assertedByPartyRef": "party:fictional:reporter",
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "INTENDED_WINDOW",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "INTERVENTION_INTENT_PAYLOAD",
+            "payloadBinding": {
+              "ref": "intent:fictional:1",
+              "revisionRef": "revision:fictional:1",
+              "schemaRef": "https://ofarm.dev/schema/interventionintentpayload/v0.1",
+              "schemaVersion": "ofarm.interventionintentpayload.v0.1",
+              "schemaDigest": "sha256:72e4603d3cc98fcd99439f8a06c80724e14d4961031ff3b0a1774f3407725ec0"
+            },
+            "startPointer": "/intendedTimeWindow/start",
+            "endPointer": "/intendedTimeWindow/end"
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "claimState": "PENDING_REVIEW",
+        "operationClaimContext": {
+          "claimPosture": "INTENDED",
+          "performedByPartyRef": "party:fictional:performer"
+        }
+      }
+    },
+    "performed_payload": {
+      "intent": {
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "EXECUTION_RECORD_PAYLOAD",
+            "payloadBinding": {
+              "ref": "execution:fictional:1",
+              "revisionRef": "revision:fictional:1",
+              "schemaRef": "https://ofarm.dev/schema/executionrecordpayload/v0.1",
+              "schemaVersion": "ofarm.executionrecordpayload.v0.1",
+              "schemaDigest": "sha256:ca62f01d056794ee588d55c3f5df652fc039124b76af5631d417714bc7059ff0"
+            },
+            "startPointer": "/effectiveTimeInterval/start",
+            "endPointer": "/effectiveTimeInterval/end"
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "resources": [
+          {
+            "resourceRole": "TARGET_SCOPE",
+            "resourcePosture": "AUTHORITY_TARGET",
+            "targetType": "SCOPE",
+            "scope": {
+              "scopeType": "FIELD",
+              "scopeRef": "field:fictional:1",
+              "revisionRef": "field:fictional:1:r1"
+            },
+            "tenantRef": "tenant:fictional:1",
+            "authorizationResourceProofBindings": [
+              {
+                "ref": "proof:resource:field",
+                "revisionRef": "proof:resource:field:r1"
+              }
+            ]
+          }
+        ],
+        "effectSubject": {
+          "subjectKind": "OPERATION_ASSERTION",
+          "subjectRef": "assertion:fictional:performed_interval",
+          "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+          "effectSubjectProofBindings": [
+            {
+              "ref": "proof:prospective:1",
+              "revisionRef": "proof:prospective:1:r1"
+            }
+          ]
+        },
+        "claimPosture": "PERFORMED",
+        "performedByPartyRef": "party:fictional:performer"
+      },
+      "result": {
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "assertionRecordId": "assertion:fictional:performed_interval",
+        "assertionType": "OPERATION_CLAIM_ASSERTION",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:1",
+            "revisionRef": "field:fictional:1:r1"
+          }
+        ],
+        "assertedByPartyRef": "party:fictional:reporter",
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "EXECUTION_RECORD_PAYLOAD",
+            "payloadBinding": {
+              "ref": "execution:fictional:1",
+              "revisionRef": "revision:fictional:1",
+              "schemaRef": "https://ofarm.dev/schema/executionrecordpayload/v0.1",
+              "schemaVersion": "ofarm.executionrecordpayload.v0.1",
+              "schemaDigest": "sha256:ca62f01d056794ee588d55c3f5df652fc039124b76af5631d417714bc7059ff0"
+            },
+            "startPointer": "/effectiveTimeInterval/start",
+            "endPointer": "/effectiveTimeInterval/end"
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "claimState": "PENDING_REVIEW",
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:performer"
+        }
+      }
+    },
+    "context": {
+      "intent": {
+        "subject": {
+          "subjectType": "OPERATION",
+          "subjectRef": "operation:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          },
+          "contextBindings": [
+            {
+              "contextRole": "CROP_CYCLE",
+              "binding": {
+                "ref": "crop-cycle:fictional:1",
+                "revisionRef": "revision:fictional:1"
+              },
+              "relationshipProofBindings": [
+                {
+                  "ref": "proof:crop-cycle-field:1",
+                  "revisionRef": "revision:fictional:1"
+                }
+              ]
+            }
+          ]
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "subjectScopeProofBindings": [
+          {
+            "ref": "proof:operation-field:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "resources": [
+          {
+            "resourceRole": "TARGET_SCOPE",
+            "resourcePosture": "AUTHORITY_TARGET",
+            "targetType": "SCOPE",
+            "scope": {
+              "scopeType": "FIELD",
+              "scopeRef": "field:fictional:1",
+              "revisionRef": "field:fictional:1:r1"
+            },
+            "tenantRef": "tenant:fictional:1",
+            "authorizationResourceProofBindings": [
+              {
+                "ref": "proof:resource:field",
+                "revisionRef": "proof:resource:field:r1"
+              }
+            ]
+          }
+        ],
+        "effectSubject": {
+          "subjectKind": "OPERATION_ASSERTION",
+          "subjectRef": "assertion:fictional:performed_interval",
+          "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+          "effectSubjectProofBindings": [
+            {
+              "ref": "proof:prospective:1",
+              "revisionRef": "proof:prospective:1:r1"
+            }
+          ]
+        },
+        "claimPosture": "PERFORMED",
+        "performedByPartyRef": "party:fictional:performer"
+      },
+      "result": {
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "assertionRecordId": "assertion:fictional:performed_interval",
+        "assertionType": "OPERATION_CLAIM_ASSERTION",
+        "subject": {
+          "subjectType": "OPERATION",
+          "subjectRef": "operation:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:1",
+            "revisionRef": "field:fictional:1:r1"
+          }
+        ],
+        "assertedByPartyRef": "party:fictional:reporter",
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          },
+          "contextBindings": [
+            {
+              "contextRole": "CROP_CYCLE",
+              "binding": {
+                "ref": "crop-cycle:fictional:1",
+                "revisionRef": "revision:fictional:1"
+              },
+              "relationshipProofBindings": [
+                {
+                  "ref": "proof:crop-cycle-field:1",
+                  "revisionRef": "revision:fictional:1"
+                }
+              ]
+            }
+          ]
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "claimState": "PENDING_REVIEW",
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:performer"
+        },
+        "subjectScopeProofBindings": [
+          {
+            "ref": "proof:operation-field:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ]
+      }
+    },
+    "correction": {
+      "intent": {
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "CORRECTION",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "resources": [
+          {
+            "resourceRole": "TARGET_SCOPE",
+            "resourcePosture": "AUTHORITY_TARGET",
+            "targetType": "SCOPE",
+            "scope": {
+              "scopeType": "FIELD",
+              "scopeRef": "field:fictional:1",
+              "revisionRef": "field:fictional:1:r1"
+            },
+            "tenantRef": "tenant:fictional:1",
+            "authorizationResourceProofBindings": [
+              {
+                "ref": "proof:resource:field",
+                "revisionRef": "proof:resource:field:r1"
+              }
+            ]
+          }
+        ],
+        "effectSubject": {
+          "subjectKind": "OPERATION_ASSERTION",
+          "subjectRef": "assertion:fictional:performed_interval",
+          "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+          "effectSubjectProofBindings": [
+            {
+              "ref": "proof:prospective:1",
+              "revisionRef": "proof:prospective:1:r1"
+            }
+          ]
+        },
+        "claimPosture": "PERFORMED",
+        "performedByPartyRef": "party:fictional:performer",
+        "supersedesAssertionRecordBinding": {
+          "ref": "assertion:fictional:prior",
+          "revisionRef": "assertion:fictional:prior:r1"
+        }
+      },
+      "result": {
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "assertionRecordId": "assertion:fictional:performed_interval",
+        "assertionType": "OPERATION_CLAIM_ASSERTION",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:1",
+            "revisionRef": "field:fictional:1:r1"
+          }
+        ],
+        "assertedByPartyRef": "party:fictional:reporter",
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "CORRECTION",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "claimState": "PENDING_REVIEW",
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:performer"
+        },
+        "supersedesAssertionRecordBinding": {
+          "ref": "assertion:fictional:prior",
+          "revisionRef": "assertion:fictional:prior:r1"
+        }
+      }
+    },
+    "prospective": {
+      "intent": {
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:proposed",
+          "subjectPosture": "PROSPECTIVE_SUBJECT"
+        },
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "resources": [
+          {
+            "resourceRole": "TARGET_SCOPE",
+            "resourcePosture": "AUTHORITY_TARGET",
+            "targetType": "SCOPE",
+            "scope": {
+              "scopeType": "FIELD",
+              "scopeRef": "field:fictional:1",
+              "revisionRef": "field:fictional:1:r1"
+            },
+            "tenantRef": "tenant:fictional:1",
+            "authorizationResourceProofBindings": [
+              {
+                "ref": "proof:resource:field",
+                "revisionRef": "proof:resource:field:r1"
+              }
+            ]
+          }
+        ],
+        "effectSubject": {
+          "subjectKind": "OPERATION_ASSERTION",
+          "subjectRef": "assertion:fictional:performed_interval",
+          "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+          "effectSubjectProofBindings": [
+            {
+              "ref": "proof:prospective:1",
+              "revisionRef": "proof:prospective:1:r1"
+            }
+          ]
+        },
+        "claimPosture": "PERFORMED",
+        "performedByPartyRef": "party:fictional:performer",
+        "subjectScopeProofBindings": [
+          {
+            "ref": "proof:fictional:1",
+            "revisionRef": "proof:fictional:1:r1"
+          }
+        ]
+      },
+      "result": {
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "assertionRecordId": "assertion:fictional:performed_interval",
+        "assertionType": "OPERATION_CLAIM_ASSERTION",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:proposed",
+          "subjectPosture": "PROSPECTIVE_SUBJECT"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:1",
+            "revisionRef": "field:fictional:1:r1"
+          }
+        ],
+        "assertedByPartyRef": "party:fictional:reporter",
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "claimState": "PENDING_REVIEW",
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:performer"
+        },
+        "subjectScopeProofBindings": [
+          {
+            "ref": "proof:fictional:1",
+            "revisionRef": "proof:fictional:1:r1"
+          }
+        ]
+      }
+    },
+    "event": {
+      "intent": {
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "resources": [
+          {
+            "resourceRole": "TARGET_SCOPE",
+            "resourcePosture": "AUTHORITY_TARGET",
+            "targetType": "SCOPE",
+            "scope": {
+              "scopeType": "FIELD",
+              "scopeRef": "field:fictional:1",
+              "revisionRef": "field:fictional:1:r1"
+            },
+            "tenantRef": "tenant:fictional:1",
+            "authorizationResourceProofBindings": [
+              {
+                "ref": "proof:resource:field",
+                "revisionRef": "proof:resource:field:r1"
+              }
+            ]
+          }
+        ],
+        "effectSubject": {
+          "subjectKind": "OPERATION_ASSERTION",
+          "subjectRef": "assertion:fictional:performed_interval",
+          "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+          "effectSubjectProofBindings": [
+            {
+              "ref": "proof:prospective:1",
+              "revisionRef": "proof:prospective:1:r1"
+            }
+          ]
+        },
+        "claimPosture": "PERFORMED",
+        "performedByPartyRef": "party:fictional:performer",
+        "associatedSemanticEventBinding": {
+          "ref": "event:fictional:1",
+          "revisionRef": "event:fictional:1:r1"
+        }
+      },
+      "result": {
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "assertionRecordId": "assertion:fictional:performed_interval",
+        "assertionType": "OPERATION_CLAIM_ASSERTION",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:1",
+            "revisionRef": "field:fictional:1:r1"
+          }
+        ],
+        "assertedByPartyRef": "party:fictional:reporter",
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "claimState": "PENDING_REVIEW",
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:performer"
+        }
+      }
+    },
+    "unicode": {
+      "intent": {
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "INTENDED_WINDOW",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Caf\u00e9",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "INTENDED_WINDOW",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "resources": [
+          {
+            "resourceRole": "TARGET_SCOPE",
+            "resourcePosture": "AUTHORITY_TARGET",
+            "targetType": "SCOPE",
+            "scope": {
+              "scopeType": "FIELD",
+              "scopeRef": "field:fictional:1",
+              "revisionRef": "field:fictional:1:r1"
+            },
+            "tenantRef": "tenant:fictional:1",
+            "authorizationResourceProofBindings": [
+              {
+                "ref": "proof:resource:field",
+                "revisionRef": "proof:resource:field:r1"
+              }
+            ]
+          }
+        ],
+        "effectSubject": {
+          "subjectKind": "OPERATION_ASSERTION",
+          "subjectRef": "assertion:fictional:intended_window",
+          "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+          "effectSubjectProofBindings": [
+            {
+              "ref": "proof:prospective:1",
+              "revisionRef": "proof:prospective:1:r1"
+            }
+          ]
+        },
+        "claimPosture": "INTENDED",
+        "performedByPartyRef": "party:fictional:performer"
+      },
+      "result": {
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "assertionRecordId": "assertion:fictional:intended_window",
+        "assertionType": "OPERATION_CLAIM_ASSERTION",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:1",
+            "revisionRef": "field:fictional:1:r1"
+          }
+        ],
+        "assertedByPartyRef": "party:fictional:reporter",
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "INTENDED_WINDOW",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Caf\u00e9",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "INTENDED_WINDOW",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "claimState": "PENDING_REVIEW",
+        "operationClaimContext": {
+          "claimPosture": "INTENDED",
+          "performedByPartyRef": "party:fictional:performer"
+        }
+      }
+    },
+    "two_contexts": {
+      "intent": {
+        "subject": {
+          "subjectType": "OPERATION",
+          "subjectRef": "operation:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          },
+          "contextBindings": [
+            {
+              "contextRole": "CROP_CYCLE",
+              "binding": {
+                "ref": "crop-cycle:fictional:1",
+                "revisionRef": "revision:fictional:1"
+              },
+              "relationshipProofBindings": [
+                {
+                  "ref": "proof:crop-cycle-field:1",
+                  "revisionRef": "revision:fictional:1"
+                }
+              ]
+            },
+            {
+              "contextRole": "CROP_CYCLE",
+              "binding": {
+                "ref": "context:fictional:second",
+                "revisionRef": "context:fictional:second:r1"
+              },
+              "relationshipProofBindings": [
+                {
+                  "ref": "proof:crop-cycle-field:1",
+                  "revisionRef": "revision:fictional:1"
+                }
+              ]
+            }
+          ]
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "subjectScopeProofBindings": [
+          {
+            "ref": "proof:operation-field:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "resources": [
+          {
+            "resourceRole": "TARGET_SCOPE",
+            "resourcePosture": "AUTHORITY_TARGET",
+            "targetType": "SCOPE",
+            "scope": {
+              "scopeType": "FIELD",
+              "scopeRef": "field:fictional:1",
+              "revisionRef": "field:fictional:1:r1"
+            },
+            "tenantRef": "tenant:fictional:1",
+            "authorizationResourceProofBindings": [
+              {
+                "ref": "proof:resource:field",
+                "revisionRef": "proof:resource:field:r1"
+              }
+            ]
+          }
+        ],
+        "effectSubject": {
+          "subjectKind": "OPERATION_ASSERTION",
+          "subjectRef": "assertion:fictional:performed_interval",
+          "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+          "effectSubjectProofBindings": [
+            {
+              "ref": "proof:prospective:1",
+              "revisionRef": "proof:prospective:1:r1"
+            }
+          ]
+        },
+        "claimPosture": "PERFORMED",
+        "performedByPartyRef": "party:fictional:performer"
+      },
+      "result": {
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "assertionRecordId": "assertion:fictional:performed_interval",
+        "assertionType": "OPERATION_CLAIM_ASSERTION",
+        "subject": {
+          "subjectType": "OPERATION",
+          "subjectRef": "operation:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:1",
+            "revisionRef": "field:fictional:1:r1"
+          }
+        ],
+        "assertedByPartyRef": "party:fictional:reporter",
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          },
+          "contextBindings": [
+            {
+              "contextRole": "CROP_CYCLE",
+              "binding": {
+                "ref": "crop-cycle:fictional:1",
+                "revisionRef": "revision:fictional:1"
+              },
+              "relationshipProofBindings": [
+                {
+                  "ref": "proof:crop-cycle-field:1",
+                  "revisionRef": "revision:fictional:1"
+                }
+              ]
+            },
+            {
+              "contextRole": "CROP_CYCLE",
+              "binding": {
+                "ref": "context:fictional:second",
+                "revisionRef": "context:fictional:second:r1"
+              },
+              "relationshipProofBindings": [
+                {
+                  "ref": "proof:crop-cycle-field:1",
+                  "revisionRef": "revision:fictional:1"
+                }
+              ]
+            }
+          ]
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ],
+        "claimState": "PENDING_REVIEW",
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:performer"
+        },
+        "subjectScopeProofBindings": [
+          {
+            "ref": "proof:operation-field:1",
+            "revisionRef": "revision:fictional:1"
+          }
+        ]
+      }
+    },
+    "two_evidence": {
+      "intent": {
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "INTENDED_WINDOW",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "INTENDED_WINDOW",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          },
+          {
+            "ref": "evidence:fictional:2",
+            "revisionRef": "evidence:fictional:2:r1"
+          }
+        ],
+        "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+        "resources": [
+          {
+            "resourceRole": "TARGET_SCOPE",
+            "resourcePosture": "AUTHORITY_TARGET",
+            "targetType": "SCOPE",
+            "scope": {
+              "scopeType": "FIELD",
+              "scopeRef": "field:fictional:1",
+              "revisionRef": "field:fictional:1:r1"
+            },
+            "tenantRef": "tenant:fictional:1",
+            "authorizationResourceProofBindings": [
+              {
+                "ref": "proof:resource:field",
+                "revisionRef": "proof:resource:field:r1"
+              }
+            ]
+          }
+        ],
+        "effectSubject": {
+          "subjectKind": "OPERATION_ASSERTION",
+          "subjectRef": "assertion:fictional:intended_window",
+          "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+          "effectSubjectProofBindings": [
+            {
+              "ref": "proof:prospective:1",
+              "revisionRef": "proof:prospective:1:r1"
+            }
+          ]
+        },
+        "claimPosture": "INTENDED",
+        "performedByPartyRef": "party:fictional:performer"
+      },
+      "result": {
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "assertionRecordId": "assertion:fictional:intended_window",
+        "assertionType": "OPERATION_CLAIM_ASSERTION",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:1",
+          "subjectPosture": "EXISTING_SUBJECT",
+          "revisionRef": "field:fictional:1:r1"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:1",
+            "revisionRef": "field:fictional:1:r1"
+          }
+        ],
+        "assertedByPartyRef": "party:fictional:reporter",
+        "assertedAt": "2026-09-20T12:00:00Z",
+        "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+        "subjectTime": {
+          "profile": "INTENDED_WINDOW",
+          "start": "2026-09-19T10:00:00.000000001Z",
+          "end": "2026-09-19T10:00:00.000000002Z"
+        },
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "claimText": "Fictional claim. Exact wording is preserved.",
+          "allegesSoftwareAgentPerformance": false,
+          "temporalBasis": {
+            "sourceKind": "BODY_TIME",
+            "time": {
+              "profile": "INTENDED_WINDOW",
+              "start": "2026-09-19T10:00:00.000000001Z",
+              "end": "2026-09-19T10:00:00.000000002Z"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "evidence:fictional:1",
+            "revisionRef": "revision:fictional:1"
+          },
+          {
+            "ref": "evidence:fictional:2",
+            "revisionRef": "evidence:fictional:2:r1"
+          }
+        ],
+        "claimState": "PENDING_REVIEW",
+        "operationClaimContext": {
+          "claimPosture": "INTENDED",
+          "performedByPartyRef": "party:fictional:performer"
+        }
+      }
+    }
+  },
+  "cases": [
+    {
+      "name": "matching_intended",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "matching_instant",
+      "pair": "instant",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "matching_performed",
+      "pair": "performed",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "matching_offline",
+      "pair": "offline",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "matching_agent",
+      "pair": "agent",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "matching_performer_evidence",
+      "pair": "performer_evidence",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "matching_intended_payload",
+      "pair": "intended_payload",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "matching_performed_payload",
+      "pair": "performed_payload",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "matching_context",
+      "pair": "context",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "matching_correction",
+      "pair": "correction",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "matching_prospective",
+      "pair": "prospective",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "matching_event",
+      "pair": "event",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "id_honestly_rehashed",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_ID.copy",
+          "AR_EFFECT_SUBJECT.kind_and_id"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionRecordId",
+          "value": "assertion:fictional:different"
+        }
+      ]
+    },
+    {
+      "name": "subject_complete_binding",
+      "pair": "context",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_SUBJECT.copy"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subject/revisionRef",
+          "value": "operation:fictional:new-revision"
+        }
+      ]
+    },
+    {
+      "name": "anchor_complete_binding",
+      "pair": "context",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_SCOPE.copy"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/anchorScopes/0/revisionRef",
+          "value": "field:fictional:new-revision"
+        }
+      ]
+    },
+    {
+      "name": "relationship_proof_copy",
+      "pair": "context",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_SUBJECT_SCOPE_PROOF.copy_or_absence"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectScopeProofBindings/0/revisionRef",
+          "value": "proof:fictional:different"
+        }
+      ]
+    },
+    {
+      "name": "asserted_at_copy",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_ASSERTED_AT.copy"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2026-09-20T13:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "act_posture_coherent_switch",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_ASSERTION_ACT_POSTURE.copy",
+          "AR_ASSERTION_ACT_EVIDENCE.copy_or_absence"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionActPosture",
+          "value": "VERIFIED_OFFLINE_SUBMISSION"
+        },
+        {
+          "op": "set",
+          "path": "/assertionActEvidenceBinding",
+          "value": {
+            "ref": "act:fictional:2",
+            "revisionRef": "act:fictional:2:r1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "act_binding_complete_copy",
+      "pair": "offline",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_ASSERTION_ACT_EVIDENCE.copy_or_absence"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionActEvidenceBinding/revisionRef",
+          "value": "act:fictional:different"
+        }
+      ]
+    },
+    {
+      "name": "subject_time_external_basis",
+      "pair": "performed_payload",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_SUBJECT_TIME.copy"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/end",
+          "value": "2026-09-19T20:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "body_changed",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_BODY.copy",
+          "AR_OPERATION_PAYLOADS.copied_with_body"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/claimText",
+          "value": "A different claim."
+        }
+      ]
+    },
+    {
+      "name": "body_whitespace",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_BODY.copy",
+          "AR_OPERATION_PAYLOADS.copied_with_body"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/claimText",
+          "value": "Fictional claim. Exact wording is preserved. "
+        }
+      ]
+    },
+    {
+      "name": "body_case",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_BODY.copy",
+          "AR_OPERATION_PAYLOADS.copied_with_body"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/claimText",
+          "value": "FICTIONAL CLAIM. EXACT WORDING IS PRESERVED."
+        }
+      ]
+    },
+    {
+      "name": "body_unicode_composed",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_BODY.copy",
+          "AR_OPERATION_PAYLOADS.copied_with_body"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/claimText",
+          "value": "Caf\u00e9"
+        }
+      ]
+    },
+    {
+      "name": "body_unicode_decomposed",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_BODY.copy",
+          "AR_OPERATION_PAYLOADS.copied_with_body"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/claimText",
+          "value": "Cafe\u0301"
+        }
+      ]
+    },
+    {
+      "name": "unicode_matching",
+      "pair": "unicode",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "unicode_normalization_forbidden",
+      "pair": "unicode",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_BODY.copy",
+          "AR_OPERATION_PAYLOADS.copied_with_body"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/claimText",
+          "value": "Cafe\u0301"
+        }
+      ]
+    },
+    {
+      "name": "two_contexts_match",
+      "pair": "two_contexts",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "body_context_array_reordered",
+      "pair": "two_contexts",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_BODY.copy",
+          "AR_OPERATION_PAYLOADS.copied_with_body"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/contextBindings",
+          "value": [
+            {
+              "contextRole": "CROP_CYCLE",
+              "binding": {
+                "ref": "context:fictional:second",
+                "revisionRef": "context:fictional:second:r1"
+              },
+              "relationshipProofBindings": [
+                {
+                  "ref": "proof:crop-cycle-field:1",
+                  "revisionRef": "revision:fictional:1"
+                }
+              ]
+            },
+            {
+              "contextRole": "CROP_CYCLE",
+              "binding": {
+                "ref": "crop-cycle:fictional:1",
+                "revisionRef": "revision:fictional:1"
+              },
+              "relationshipProofBindings": [
+                {
+                  "ref": "proof:crop-cycle-field:1",
+                  "revisionRef": "revision:fictional:1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "body_nested_payload_binding",
+      "pair": "performed_payload",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_BODY.copy",
+          "AR_OPERATION_PAYLOADS.copied_with_body"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/payloadBinding/revisionRef",
+          "value": "payload:fictional:different"
+        }
+      ]
+    },
+    {
+      "name": "two_evidence_match",
+      "pair": "two_evidence",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "evidence_reordered",
+      "pair": "two_evidence",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_EVIDENCE.copy"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/evidenceBindings",
+          "value": [
+            {
+              "ref": "evidence:fictional:2",
+              "revisionRef": "evidence:fictional:2:r1"
+            },
+            {
+              "ref": "evidence:fictional:1",
+              "revisionRef": "revision:fictional:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "evidence_omitted",
+      "pair": "two_evidence",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_EVIDENCE.copy"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/evidenceBindings",
+          "value": [
+            {
+              "ref": "evidence:fictional:1",
+              "revisionRef": "revision:fictional:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "evidence_added",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_EVIDENCE.copy"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "append",
+          "path": "/evidenceBindings",
+          "value": {
+            "ref": "evidence:fictional:2",
+            "revisionRef": "evidence:fictional:2:r1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "performer_copy",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_OPERATION_PERFORMER.copy"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/operationClaimContext/performedByPartyRef",
+          "value": "party:fictional:different"
+        }
+      ]
+    },
+    {
+      "name": "operation_posture_coherent_switch",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_SUBJECT_TIME.copy",
+          "AR_BODY.copy",
+          "AR_OPERATION_POSTURE.copy",
+          "AR_OPERATION_PAYLOADS.copied_with_body"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/operationClaimContext/claimPosture",
+          "value": "PERFORMED"
+        },
+        {
+          "op": "set",
+          "path": "/subjectTime",
+          "value": {
+            "profile": "PERFORMED_INTERVAL",
+            "start": "2026-09-19T10:00:00.000000001Z",
+            "end": "2026-09-19T10:00:00.000000002Z"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/assertionBody",
+          "value": {
+            "assertionPosture": "INITIAL",
+            "claimText": "Fictional claim. Exact wording is preserved.",
+            "allegesSoftwareAgentPerformance": false,
+            "temporalBasis": {
+              "sourceKind": "BODY_TIME",
+              "time": {
+                "profile": "PERFORMED_INTERVAL",
+                "start": "2026-09-19T10:00:00.000000001Z",
+                "end": "2026-09-19T10:00:00.000000002Z"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "agent_actorship_copy",
+      "pair": "agent",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_OPERATION_AGENT_ACTORSHIP.copy_or_absence"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/operationClaimContext/softwareAgentActorshipBindings/0/revisionRef",
+          "value": "agent:fictional:different"
+        }
+      ]
+    },
+    {
+      "name": "performer_evidence_copy",
+      "pair": "performer_evidence",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_OPERATION_PERFORMER_AUTHORITY.copy_or_absence"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/operationClaimContext/performerAuthorityEvidenceBindings/0/revisionRef",
+          "value": "performer:fictional:different"
+        }
+      ]
+    },
+    {
+      "name": "optional_performer_evidence_omitted",
+      "pair": "performer_evidence",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_OPERATION_PERFORMER_AUTHORITY.copy_or_absence"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "remove",
+          "path": "/operationClaimContext/performerAuthorityEvidenceBindings"
+        }
+      ]
+    },
+    {
+      "name": "optional_performer_evidence_inserted",
+      "pair": "performed",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_OPERATION_PERFORMER_AUTHORITY.copy_or_absence"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/operationClaimContext/performerAuthorityEvidenceBindings",
+          "value": [
+            {
+              "ref": "proof:fictional:1",
+              "revisionRef": "proof:fictional:1:r1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "correction_binding_copy",
+      "pair": "correction",
+      "expect": {
+        "componentResult": "MISMATCH",
+        "mismatches": [
+          "AR_CORRECTION_LINEAGE.copy_or_absence"
+        ]
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/supersedesAssertionRecordBinding/revisionRef",
+          "value": "assertion:fictional:prior:different"
+        }
+      ]
+    },
+    {
+      "name": "different_assertor_is_not_authority_proof",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedByPartyRef",
+          "value": "party:fictional:unverified"
+        }
+      ]
+    },
+    {
+      "name": "object_order_invariance",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      },
+      "resultRaw": "{\"operationClaimContext\": {\"performedByPartyRef\": \"party:fictional:performer\", \"claimPosture\": \"INTENDED\"}, \"claimState\": \"PENDING_REVIEW\", \"evidenceBindings\": [{\"revisionRef\": \"revision:fictional:1\", \"ref\": \"evidence:fictional:1\"}], \"assertionBody\": {\"temporalBasis\": {\"time\": {\"end\": \"2026-09-19T10:00:00.000000002Z\", \"start\": \"2026-09-19T10:00:00.000000001Z\", \"profile\": \"INTENDED_WINDOW\"}, \"sourceKind\": \"BODY_TIME\"}, \"allegesSoftwareAgentPerformance\": false, \"claimText\": \"Fictional claim. Exact wording is preserved.\", \"assertionPosture\": \"INITIAL\"}, \"subjectTime\": {\"end\": \"2026-09-19T10:00:00.000000002Z\", \"start\": \"2026-09-19T10:00:00.000000001Z\", \"profile\": \"INTENDED_WINDOW\"}, \"assertionActPosture\": \"TRUSTED_ONLINE_SUBMISSION\", \"assertedAt\": \"2026-09-20T12:00:00Z\", \"assertedByPartyRef\": \"party:fictional:reporter\", \"anchorScopes\": [{\"revisionRef\": \"field:fictional:1:r1\", \"scopeRef\": \"field:fictional:1\", \"scopeType\": \"FIELD\"}], \"subject\": {\"revisionRef\": \"field:fictional:1:r1\", \"subjectPosture\": \"EXISTING_SUBJECT\", \"subjectRef\": \"field:fictional:1\", \"subjectType\": \"FIELD\"}, \"assertionType\": \"OPERATION_CLAIM_ASSERTION\", \"assertionRecordId\": \"assertion:fictional:intended_window\", \"schemaVersion\": \"ofarm.assertionrecord.v0.2\"}"
+    },
+    {
+      "name": "unknown_result_member",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "SCHEMA",
+          "code": "SCHEMA",
+          "target": "result",
+          "schemaError": {
+            "instancePath": [],
+            "schemaPath": [
+              "additionalProperties"
+            ],
+            "keyword": "additionalProperties"
+          }
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/notes",
+          "value": "not allowed"
+        }
+      ]
+    },
+    {
+      "name": "missing_intent_body",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "SCHEMA",
+          "code": "SCHEMA",
+          "target": "intent",
+          "schemaError": {
+            "instancePath": [],
+            "schemaPath": [
+              "required"
+            ],
+            "keyword": "required"
+          }
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "remove",
+          "path": "/assertionBody"
+        }
+      ]
+    },
+    {
+      "name": "wrong_effect_subject",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "SCHEMA",
+          "code": "SCHEMA",
+          "target": "intent",
+          "schemaError": {
+            "instancePath": [
+              "effectSubject",
+              "subjectKind"
+            ],
+            "schemaPath": [
+              "properties",
+              "effectSubject",
+              "properties",
+              "subjectKind",
+              "const"
+            ],
+            "keyword": "const"
+          }
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/effectSubject/subjectKind",
+          "value": "STRUCTURE_ASSERTION"
+        }
+      ]
+    },
+    {
+      "name": "wrong_result_claim_state",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "SCHEMA",
+          "code": "SCHEMA",
+          "target": "result",
+          "schemaError": {
+            "instancePath": [
+              "claimState"
+            ],
+            "schemaPath": [
+              "properties",
+              "claimState",
+              "const"
+            ],
+            "keyword": "const"
+          }
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/claimState",
+          "value": "IN_FORCE"
+        }
+      ]
+    },
+    {
+      "name": "conditional_online_evidence_forbidden",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "SCHEMA",
+          "code": "SCHEMA",
+          "target": "result",
+          "schemaError": {
+            "instancePath": [],
+            "schemaPath": [
+              "allOf",
+              0,
+              "else",
+              "properties"
+            ],
+            "keyword": "falseSchema"
+          }
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionActEvidenceBinding",
+          "value": {
+            "ref": "act:fictional:1",
+            "revisionRef": "act:fictional:1:r1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "wrong_result_subtype",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "SCHEMA",
+          "code": "SCHEMA",
+          "target": "result",
+          "schemaError": {
+            "instancePath": [
+              "assertionType"
+            ],
+            "schemaPath": [
+              "properties",
+              "assertionType",
+              "enum"
+            ],
+            "keyword": "enum"
+          }
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionType",
+          "value": "OTHER_ASSERTION"
+        }
+      ]
+    },
+    {
+      "name": "compliance_branch_forbidden",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "SCHEMA",
+          "code": "SCHEMA",
+          "target": "result",
+          "schemaError": {
+            "instancePath": [],
+            "schemaPath": [
+              "allOf",
+              5,
+              "then",
+              "properties"
+            ],
+            "keyword": "falseSchema"
+          }
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/complianceBasis",
+          "value": {
+            "ruleRevisionBindings": [
+              {
+                "ref": "rule:fictional:1",
+                "revisionRef": "revision:fictional:1"
+              }
+            ],
+            "evidencePolicyRevisionBindings": [
+              {
+                "ref": "policy:fictional:1",
+                "revisionRef": "revision:fictional:1"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "local_relationship_proof_required",
+      "pair": "context",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "LOCAL_CONSISTENCY",
+          "code": "SUBJECT_SCOPE_PROOF_REQUIRED",
+          "target": "result"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "remove",
+          "path": "/subjectScopeProofBindings"
+        }
+      ]
+    },
+    {
+      "name": "local_correction_self_reference",
+      "pair": "correction",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "LOCAL_CONSISTENCY",
+          "code": "CORRECTION_SELF_REFERENCE",
+          "target": "result"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/supersedesAssertionRecordBinding/ref",
+          "value": "assertion:fictional:performed_interval"
+        }
+      ]
+    },
+    {
+      "name": "local_body_time_disagreement",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "LOCAL_CONSISTENCY",
+          "code": "BODY_TIME_EQUALITY",
+          "target": "result"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/end",
+          "value": "2026-09-19T20:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "report_cannot_claim_full_domain_success",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "SCHEMA",
+          "code": "SCHEMA",
+          "target": "report",
+          "schemaError": {
+            "instancePath": [
+              "fullDomainValidation"
+            ],
+            "schemaPath": [
+              "properties",
+              "fullDomainValidation",
+              "const"
+            ],
+            "keyword": "const"
+          }
+        }
+      },
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/fullDomainValidation",
+          "value": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "report_cannot_be_domain_payload",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "SCHEMA",
+          "code": "SCHEMA",
+          "target": "report",
+          "schemaError": {
+            "instancePath": [],
+            "schemaPath": [
+              "additionalProperties"
+            ],
+            "keyword": "additionalProperties"
+          }
+        }
+      },
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/overallDisposition",
+          "value": "PASS"
+        }
+      ]
+    },
+    {
+      "name": "duplicate_json_name",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "JSON",
+          "code": "DUPLICATE_JSON_NAME",
+          "target": "intent"
+        }
+      },
+      "intentRaw": "{\"x\":1,\"x\":2}"
+    },
+    {
+      "name": "malformed_json",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "JSON",
+          "code": "INVALID_JSON",
+          "target": "intent"
+        }
+      },
+      "intentRaw": "{"
+    },
+    {
+      "name": "bom",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "JSON",
+          "code": "UTF8_BOM",
+          "target": "intent"
+        }
+      },
+      "intentRaw": "\ufeff{\"subject\": {\"subjectType\": \"FIELD\", \"subjectRef\": \"field:fictional:1\", \"subjectPosture\": \"EXISTING_SUBJECT\", \"revisionRef\": \"field:fictional:1:r1\"}, \"assertedAt\": \"2026-09-20T12:00:00Z\", \"assertionActPosture\": \"TRUSTED_ONLINE_SUBMISSION\", \"subjectTime\": {\"profile\": \"INTENDED_WINDOW\", \"start\": \"2026-09-19T10:00:00.000000001Z\", \"end\": \"2026-09-19T10:00:00.000000002Z\"}, \"assertionBody\": {\"assertionPosture\": \"INITIAL\", \"claimText\": \"Fictional claim. Exact wording is preserved.\", \"allegesSoftwareAgentPerformance\": false, \"temporalBasis\": {\"sourceKind\": \"BODY_TIME\", \"time\": {\"profile\": \"INTENDED_WINDOW\", \"start\": \"2026-09-19T10:00:00.000000001Z\", \"end\": \"2026-09-19T10:00:00.000000002Z\"}}}, \"evidenceBindings\": [{\"ref\": \"evidence:fictional:1\", \"revisionRef\": \"revision:fictional:1\"}], \"schemaVersion\": \"ofarm.operationassertioneffectintent.v0.2\", \"resources\": [{\"resourceRole\": \"TARGET_SCOPE\", \"resourcePosture\": \"AUTHORITY_TARGET\", \"targetType\": \"SCOPE\", \"scope\": {\"scopeType\": \"FIELD\", \"scopeRef\": \"field:fictional:1\", \"revisionRef\": \"field:fictional:1:r1\"}, \"tenantRef\": \"tenant:fictional:1\", \"authorizationResourceProofBindings\": [{\"ref\": \"proof:resource:field\", \"revisionRef\": \"proof:resource:field:r1\"}]}], \"effectSubject\": {\"subjectKind\": \"OPERATION_ASSERTION\", \"subjectRef\": \"assertion:fictional:intended_window\", \"existencePosture\": \"PROSPECTIVE_TARGET_ALLOWED\", \"effectSubjectProofBindings\": [{\"ref\": \"proof:prospective:1\", \"revisionRef\": \"proof:prospective:1:r1\"}]}, \"claimPosture\": \"INTENDED\", \"performedByPartyRef\": \"party:fictional:performer\"}"
+    },
+    {
+      "name": "unsafe_integer",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "CANONICAL",
+          "code": "CANONICAL_DOMAIN",
+          "target": "intent"
+        }
+      },
+      "intentRaw": "{\"x\":9007199254740992}"
+    },
+    {
+      "name": "surrogate",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "CANONICAL",
+          "code": "CANONICAL_DOMAIN",
+          "target": "intent"
+        }
+      },
+      "intentRaw": "{\"x\":\"\\ud800\"}"
+    },
+    {
+      "name": "manifest_missing",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "DEPENDENCY",
+          "code": "FILE_UNAVAILABLE",
+          "target": "manifest"
+        }
+      },
+      "dependency": "manifest",
+      "mutation": "missing"
+    },
+    {
+      "name": "manifest_altered",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "DEPENDENCY",
+          "code": "ARTIFACT_DIGEST",
+          "target": "manifest"
+        }
+      },
+      "dependency": "manifest",
+      "mutation": "altered"
+    },
+    {
+      "name": "intentSchema_missing",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "DEPENDENCY",
+          "code": "FILE_UNAVAILABLE",
+          "target": "intentSchema"
+        }
+      },
+      "dependency": "intentSchema",
+      "mutation": "missing"
+    },
+    {
+      "name": "intentSchema_altered",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "DEPENDENCY",
+          "code": "ARTIFACT_DIGEST",
+          "target": "intentSchema"
+        }
+      },
+      "dependency": "intentSchema",
+      "mutation": "altered"
+    },
+    {
+      "name": "resultSchema_missing",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "DEPENDENCY",
+          "code": "FILE_UNAVAILABLE",
+          "target": "resultSchema"
+        }
+      },
+      "dependency": "resultSchema",
+      "mutation": "missing"
+    },
+    {
+      "name": "resultSchema_altered",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "DEPENDENCY",
+          "code": "ARTIFACT_DIGEST",
+          "target": "resultSchema"
+        }
+      },
+      "dependency": "resultSchema",
+      "mutation": "altered"
+    },
+    {
+      "name": "reportSchema_missing",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "DEPENDENCY",
+          "code": "FILE_UNAVAILABLE",
+          "target": "reportSchema"
+        }
+      },
+      "dependency": "reportSchema",
+      "mutation": "missing"
+    },
+    {
+      "name": "reportSchema_altered",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "DEPENDENCY",
+          "code": "ARTIFACT_DIGEST",
+          "target": "reportSchema"
+        }
+      },
+      "dependency": "reportSchema",
+      "mutation": "altered"
+    },
+    {
+      "name": "intentSupport_missing",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "DEPENDENCY",
+          "code": "FILE_UNAVAILABLE",
+          "target": "intentSupport"
+        }
+      },
+      "dependency": "intentSupport",
+      "mutation": "missing"
+    },
+    {
+      "name": "intentSupport_altered",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "DEPENDENCY",
+          "code": "ARTIFACT_DIGEST",
+          "target": "intentSupport"
+        }
+      },
+      "dependency": "intentSupport",
+      "mutation": "altered"
+    },
+    {
+      "name": "resultSupport_missing",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "DEPENDENCY",
+          "code": "FILE_UNAVAILABLE",
+          "target": "resultSupport"
+        }
+      },
+      "dependency": "resultSupport",
+      "mutation": "missing"
+    },
+    {
+      "name": "resultSupport_altered",
+      "pair": "intended",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "DEPENDENCY",
+          "code": "ARTIFACT_DIGEST",
+          "target": "resultSupport"
+        }
+      },
+      "dependency": "resultSupport",
+      "mutation": "altered"
+    },
+    {
+      "name": "integer_parser_limit_intent",
+      "pair": "intended",
+      "intentRaw": "{\"x\":11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111}",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "JSON",
+          "code": "PARSER_VALUE_REJECTED",
+          "target": "intent"
+        }
+      }
+    },
+    {
+      "name": "integer_parser_limit_result",
+      "pair": "intended",
+      "resultRaw": "{\"x\":11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111}",
+      "expect": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "JSON",
+          "code": "PARSER_VALUE_REJECTED",
+          "target": "result"
+        }
+      }
+    },
+    {
+      "name": "calendar_feb30_intent_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_intent_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_intent_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_intent_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody",
+            "temporalBasis"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_result_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_result_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_result_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_result_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_both_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_both_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_both_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_both_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody",
+            "temporalBasis"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_intent_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_intent_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_intent_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_intent_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody",
+            "temporalBasis"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_result_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_result_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_result_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_result_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_both_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_both_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_both_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_both_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody",
+            "temporalBasis"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_intent_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_intent_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_intent_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_intent_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody",
+            "temporalBasis"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_result_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_result_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_result_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_result_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_both_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_both_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_both_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_both_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody",
+            "temporalBasis"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_valid_leap_assertedAt",
+      "pair": "intended",
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2024-02-29T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2024-02-29T12:00:00Z"
+        }
+      ],
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "calendar_valid_leap_instant",
+      "pair": "instant",
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2024-02-29T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2024-02-29T12:00:00Z"
+        }
+      ],
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "calendar_valid_leap_body_interval",
+      "pair": "intended",
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2024-02-29T12:00:00Z"
+        },
+        {
+          "op": "set",
+          "path": "/subjectTime/end",
+          "value": "2024-02-29T12:00:01Z"
+        },
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2024-02-29T12:00:00Z"
+        },
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/end",
+          "value": "2024-02-29T12:00:01Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2024-02-29T12:00:00Z"
+        },
+        {
+          "op": "set",
+          "path": "/subjectTime/end",
+          "value": "2024-02-29T12:00:01Z"
+        },
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2024-02-29T12:00:00Z"
+        },
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/end",
+          "value": "2024-02-29T12:00:01Z"
+        }
+      ],
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "report_integrity_aggregate_match_with_mismatch",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/outcome",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "componentResult"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_aggregate_mismatch_without_mismatch",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/componentResult",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "componentResult"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_missing_row_details",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0",
+          "value": {
+            "id": "AR_ID.copy",
+            "outcome": "MATCH",
+            "obligationIds": [
+              "AR_ID"
+            ]
+          }
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            0
+          ],
+          "keyword": "required"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_wrong_pointer",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/sourcePointer",
+          "value": "/assertedAt"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            0,
+            "sourcePointer"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_missing_present_digest",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "remove",
+          "path": "/checks/0/sourceDigest"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            0
+          ],
+          "keyword": "required"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_absent_with_digest",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/5/sourceDigest",
+          "value": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            5
+          ],
+          "keyword": "not"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_asymmetric_presence_claims_match",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/5/sourcePresent",
+          "value": true
+        },
+        {
+          "op": "set",
+          "path": "/checks/5/sourceDigest",
+          "value": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            5,
+            "outcome"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_required_presence_false",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/sourcePresent",
+          "value": false
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            0,
+            "sourcePresent"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_wrong_evidence_reference",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/1/evidenceRef",
+          "value": "AR_BODY.copy"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            1,
+            "evidenceRef"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_reference_adds_comparison",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/1/sourcePointer",
+          "value": "/effectSubject/subjectRef"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            1
+          ],
+          "keyword": "additionalProperties"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_reference_outcome_differs",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/1/outcome",
+          "value": "MISMATCH"
+        },
+        {
+          "op": "set",
+          "path": "/componentResult",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            1,
+            "outcome"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_body_reference_outcome_differs",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/17/outcome",
+          "value": "MISMATCH"
+        },
+        {
+          "op": "set",
+          "path": "/componentResult",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            17,
+            "outcome"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_schema_evidence_cannot_mismatch",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/18/outcome",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            18,
+            "outcome"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_type_constant_cannot_mismatch",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/2/outcome",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            2,
+            "outcome"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_type_constant_digest",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/2/sourceDigest",
+          "value": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            2,
+            "sourceDigest"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_input_schema_digest",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/inputSchemaBinding/schemaDigest",
+          "value": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "inputSchemaBinding"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_result_schema_version",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/resultSchemaBinding/schemaVersion",
+          "value": "wrong"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "resultSchemaBinding"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_body_schema_fragment",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/selectedBodySchemaBinding/schemaRef",
+          "value": "wrong"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "selectedBodySchemaBinding"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_obligation_ids",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/obligationIds",
+          "value": [
+            "AR_ASSERTOR"
+          ]
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            0,
+            "obligationIds"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_traceability_missing_obligation",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "remove",
+          "path": "/arTraceability/0"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "arTraceability"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_event_presence_status",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/eventBindingPresent",
+          "value": true
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "eventAssociation"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_event_full_na_not_claimed",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/eventAssociation",
+          "value": "NOT_APPLICABLE"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "eventAssociation"
+          ],
+          "keyword": "enum"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_unequal_digests_match",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/resultDigest",
+          "value": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "expectError": {
+        "layer": "REPORT_INTEGRITY",
+        "code": "DIGEST_OUTCOME_CONTRADICTION",
+        "target": "AR_ID.copy"
+      }
+    },
+    {
+      "name": "report_integrity_equal_digests_mismatch",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/outcome",
+          "value": "MISMATCH"
+        },
+        {
+          "op": "set",
+          "path": "/checks/1/outcome",
+          "value": "MISMATCH"
+        },
+        {
+          "op": "set",
+          "path": "/componentResult",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "REPORT_INTEGRITY",
+        "code": "DIGEST_OUTCOME_CONTRADICTION",
+        "target": "AR_ID.copy"
+      }
+    },
+    {
+      "name": "missing_caller_intent_file",
+      "callerFile": "intent",
+      "expectError": {
+        "layer": "INPUT",
+        "code": "FILE_UNAVAILABLE",
+        "target": "intent"
+      }
+    },
+    {
+      "name": "missing_caller_result_file",
+      "callerFile": "result",
+      "expectError": {
+        "layer": "INPUT",
+        "code": "FILE_UNAVAILABLE",
+        "target": "result"
+      }
+    },
+    {
+      "name": "event_presence_intended",
+      "pair": "intended",
+      "reportAssertions": [
+        {
+          "path": "/eventBindingPresent",
+          "value": false
+        },
+        {
+          "path": "/eventAssociation",
+          "value": "NOT_SUPPLIED"
+        }
+      ],
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "event_presence_event",
+      "pair": "event",
+      "reportAssertions": [
+        {
+          "path": "/eventBindingPresent",
+          "value": true
+        },
+        {
+          "path": "/eventAssociation",
+          "value": "UNAVAILABLE"
+        }
+      ],
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "other_valid_branch_rejected_before_type_comparison",
+      "pair": "intended",
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionType",
+          "value": "STRUCTURE_ASSERTION"
+        },
+        {
+          "op": "set",
+          "path": "/subjectTime",
+          "value": {
+            "profile": "STRUCTURE_AS_OF",
+            "at": "2026-09-20T12:00:00Z"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/assertionBody",
+          "value": {
+            "assertionPosture": "INITIAL",
+            "claimText": "Fictional structural claim.",
+            "applicability": {
+              "profile": "STRUCTURE_AS_OF",
+              "at": "2026-09-20T12:00:00Z"
+            }
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/operationClaimContext"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "resultBody",
+        "schemaError": {
+          "instancePath": [],
+          "keyword": "additionalProperties"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_symmetric_absence_mismatch",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/5/outcome",
+          "value": "MISMATCH"
+        },
+        {
+          "op": "set",
+          "path": "/componentResult",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            5,
+            "outcome"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_direct_adds_reference",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/evidenceRef",
+          "value": "AR_BODY.copy"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            0
+          ],
+          "keyword": "additionalProperties"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_required_both_absent",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/sourcePresent",
+          "value": false
+        },
+        {
+          "op": "set",
+          "path": "/checks/0/resultPresent",
+          "value": false
+        },
+        {
+          "op": "remove",
+          "path": "/checks/0/sourceDigest"
+        },
+        {
+          "op": "remove",
+          "path": "/checks/0/resultDigest"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            0,
+            "sourcePresent"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_dangling_payload_reference",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/17/evidenceRef",
+          "value": "AR_DOES_NOT_EXIST"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            17,
+            "evidenceRef"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_optional_both_absent_with_digests",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/5/sourceDigest",
+          "value": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "op": "set",
+          "path": "/checks/5/resultDigest",
+          "value": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            5
+          ],
+          "keyword": "not"
+        }
+      }
+    }
+  ],
+  "reviewCorrectionControls": {
+    "basis": "PR45 B1/F1/F2/F3/P1; original 74 cases and all pairs preserved.",
+    "calendar": "Three impossible dates on assertedAt, subject instant/start and body-time start, each side and both sides, plus valid leap-date companions.",
+    "report": "Independently specified mutations of a completed report; not recovered missing reviewer examples.",
+    "expectError": "Exact layer/code/target and, for schema controls, relevant instance path and keyword. Original 74 full error witnesses remain unchanged.",
+    "scope": "All cases are offline structural/mapping controls; no foreign semantic PASS.",
+    "independentProbeBasis": "Independent correction-batch review preflight supplied S01-S16 schema relationships and P01-P03 procedural limits; original posted detailed sections remain missing."
+  }
+}
