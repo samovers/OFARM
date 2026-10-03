@@ -1,0 +1,281 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1",
+  "title": "AuthorizationFinalizationEvidence v0.2 — protected-effect validation-trace envelope v0.1 (draft/non-default)",
+  "description": "Shared validation-evidence integrity only. The root is one immutable trace with one proposed-result binding and a separately schema-bound domain payload. Syntax and hashes do not prove validation ran, authority, domain truth, atomic commit, production admission or complete release closure. When separately admitted as governed evidence, classification remains the existing EvidenceEvent / evidence record; this is not a new event family.",
+  "$comment": "Strict UTF-8 JSON must reject duplicate names and invalid JCS values before validation. Reject unknown members at every closed object. Compute the trace digest over RFC 8785 JCS of the entire root value; exclude nothing, insert no self-digest or provisional sentinel, and never mutate after hashing. External traceReference is auxiliary, not a root evidence record. Verification uses an independently pinned expected binding context and real local foreign bytes. See the accompanying source-to-wire/digest design for mandatory non-schema checks and unresolved owner obligations.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "validationTraceId",
+    "canonicalization",
+    "actionClass",
+    "authorizationResult",
+    "decisionBundleDigest",
+    "currentActionRuleBinding",
+    "effectIntent",
+    "effectIntentSchemaBinding",
+    "proposedResult",
+    "protectedEffectContractBinding",
+    "domainPayload",
+    "overallDisposition"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.protectedEffectValidationTrace.v0.1"
+    },
+    "validationTraceId": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "canonicalization": {
+      "const": "JCS_RFC8785_SHA256"
+    },
+    "actionClass": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "authorizationResult": {
+      "$ref": "#/$defs/recordBinding"
+    },
+    "decisionBundleDigest": {
+      "$ref": "#/$defs/digest"
+    },
+    "currentActionRuleBinding": {
+      "$ref": "#/$defs/ruleBinding"
+    },
+    "effectIntent": {
+      "$ref": "#/$defs/recordBinding"
+    },
+    "effectIntentSchemaBinding": {
+      "$ref": "#/$defs/schemaBinding"
+    },
+    "proposedResult": {
+      "$ref": "#/$defs/resultBinding"
+    },
+    "protectedEffectContractBinding": {
+      "$ref": "#/$defs/contractBinding"
+    },
+    "domainPayload": {
+      "$ref": "#/$defs/domainPayloadBinding"
+    },
+    "overallDisposition": {
+      "$ref": "#/$defs/overallDisposition"
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "minLength": 71,
+      "maxLength": 71
+    },
+    "revisionSelector": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "revisionRef": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "contentDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "revisionRef"
+          ],
+          "not": {
+            "required": [
+              "contentDigest"
+            ]
+          }
+        },
+        {
+          "required": [
+            "contentDigest"
+          ],
+          "not": {
+            "required": [
+              "revisionRef"
+            ]
+          }
+        }
+      ],
+      "description": "Preserve the complete selected selector and exact strings. No latest lookup, conversion between selector forms, or fallback. A contentDigest selector must equal the resolved owner-defined digest; revisionRef must resolve to that exact immutable revision."
+    },
+    "recordBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref",
+        "digest"
+      ],
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "digest": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "description": "An exact immutable external record binding. Digest interpretation stays with the named record owner; this shape creates no resolver or admission."
+    },
+    "schemaBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaRef",
+        "schemaVersion",
+        "schemaDigest",
+        "canonicalization"
+      ],
+      "properties": {
+        "schemaRef": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "schemaVersion": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "schemaDigest": {
+          "$ref": "#/$defs/digest"
+        },
+        "canonicalization": {
+          "const": "JCS_RFC8785_SHA256"
+        }
+      },
+      "description": "schemaDigest is SHA-256 of the exact UTF-8 schema document bytes, including any definitions. schemaRef is an exact allowlisted full selector, including a fragment when selected; schemaVersion and fragment interpretation are pinned, never inferred. canonicalization names the value convention, not a rewrite of schema bytes. Complete local schema closure must be available."
+    },
+    "ruleBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ruleId",
+        "ruleRef",
+        "ruleRevisionSelector",
+        "ruleDigest"
+      ],
+      "properties": {
+        "ruleId": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "ruleRef": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "ruleRevisionSelector": {
+          "$ref": "#/$defs/revisionSelector"
+        },
+        "ruleDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "description": "The exact authorization-owned selected rule binding. Integrity comparison does not evaluate authority or policy."
+    },
+    "contractBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contractId",
+        "contractVersion",
+        "contractRef",
+        "contractDigest"
+      ],
+      "properties": {
+        "contractId": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "contractVersion": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "contractRef": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "contractDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "description": "Exact separately owned protected-effect contract. Its own digest projection remains authoritative; the envelope does not define a generic contract exclusion."
+    },
+    "resultBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resultId",
+        "resultRef",
+        "resultDigest",
+        "resultSchemaBinding"
+      ],
+      "properties": {
+        "resultId": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "resultRef": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "resultDigest": {
+          "$ref": "#/$defs/digest"
+        },
+        "resultSchemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
+        }
+      },
+      "description": "One exact proposed result, not a claim that it committed or that a PASS proves its domain postconditions. The initial AssertionRecord owner hashes its whole result value with no exclusions."
+    },
+    "domainPayloadBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref",
+        "digest",
+        "schemaBinding",
+        "overallDispositionPointer"
+      ],
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "digest": {
+          "$ref": "#/$defs/digest"
+        },
+        "schemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
+        },
+        "overallDispositionPointer": {
+          "const": "/overallDisposition"
+        }
+      },
+      "description": "Resolve actual separately schema-bound closed payload bytes. Hash the entire payload with JCS/SHA-256, with no exclusions. The domain-owned payload must expose PASS or FAIL at /overallDisposition, which must exactly equal the envelope value. No inline open payload, network resolution, boolean-true schema or successful placeholder is admitted. Payload checks and verdict truth remain domain-owned."
+    },
+    "overallDisposition": {
+      "enum": [
+        "PASS",
+        "FAIL"
+      ],
+      "description": "Carried domain disposition, never recomputed from schema validity. Equality with the bound payload is required for envelope integrity; evaluation, applicability, prerequisites and truth require the domain owner."
+    },
+    "traceReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref",
+        "digest"
+      ],
+      "properties": {
+        "ref": {
+          "type": "string",
+          "pattern": "^urn:ofarm:protected-effect-validation-trace:sha256:[0-9a-f]{64}$",
+          "minLength": 115,
+          "maxLength": 115
+        },
+        "digest": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "description": "Auxiliary external reference compatible with PR40 recordBinding. ref is the fixed urn prefix plus the lowercase hex from SHA-256(JCS(whole trace)); digest is sha256: plus that same hex. Neither this reference nor a self-digest is inside the root trace. Checking their equality requires the component verifier."
+    }
+  }
+}

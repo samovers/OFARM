@@ -222,3 +222,10 @@ Two intent schemas and identity-only extraction descriptors are proposed under
 `drafts_non_default/authorization_policy_bundle/effect_intents/`. The component
 has no current/default schema, complete resolved rule or executable bundle.
 All existing family/default selections remain unchanged.
+
+## Shared validation-trace envelope (draft/non-default)
+
+The existing AuthorizationFinalizationEvidence family also contains the proposed
+shared envelope under `drafts_non_default/authorization_finalization_evidence/
+protected_effect_validation/`. The finite integrity checker does not establish
+domain validation or complete release closure. No current/default selection changes.
