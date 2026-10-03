@@ -1,0 +1,1060 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-record/operation-mapping-report/v0.1",
+  "title": "Offline operation mapping report; not a domain validation payload",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionrecord.operationmappingreport.v0.1"
+    },
+    "componentResult": {
+      "enum": [
+        "MATCH",
+        "MISMATCH"
+      ]
+    },
+    "fullDomainValidation": {
+      "const": "UNAVAILABLE"
+    },
+    "inputDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "minLength": 71,
+      "maxLength": 71
+    },
+    "resultDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "minLength": 71,
+      "maxLength": 71
+    },
+    "inputSchemaBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaRef": {
+          "type": "string"
+        },
+        "schemaVersion": {
+          "type": "string"
+        },
+        "schemaDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "minLength": 71,
+          "maxLength": 71
+        },
+        "canonicalization": {
+          "const": "JCS_RFC8785_SHA256"
+        }
+      },
+      "required": [
+        "schemaRef",
+        "schemaVersion",
+        "schemaDigest",
+        "canonicalization"
+      ]
+    },
+    "resultSchemaBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaRef": {
+          "type": "string"
+        },
+        "schemaVersion": {
+          "type": "string"
+        },
+        "schemaDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "minLength": 71,
+          "maxLength": 71
+        },
+        "canonicalization": {
+          "const": "JCS_RFC8785_SHA256"
+        }
+      },
+      "required": [
+        "schemaRef",
+        "schemaVersion",
+        "schemaDigest",
+        "canonicalization"
+      ]
+    },
+    "selectedBodySchemaBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaRef": {
+          "type": "string"
+        },
+        "schemaVersion": {
+          "type": "string"
+        },
+        "schemaDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "minLength": 71,
+          "maxLength": 71
+        },
+        "canonicalization": {
+          "const": "JCS_RFC8785_SHA256"
+        }
+      },
+      "required": [
+        "schemaRef",
+        "schemaVersion",
+        "schemaDigest",
+        "canonicalization"
+      ]
+    },
+    "schemaValidation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "intent": {
+          "const": true
+        },
+        "result": {
+          "const": true
+        },
+        "resultBody": {
+          "const": true
+        }
+      },
+      "required": [
+        "intent",
+        "result",
+        "resultBody"
+      ]
+    },
+    "localConsistency": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "intent": {
+          "const": true
+        },
+        "result": {
+          "const": true
+        }
+      },
+      "required": [
+        "intent",
+        "result"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 19,
+      "maxItems": 19,
+      "prefixItems": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_ID.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_EFFECT_SUBJECT.kind_and_id"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_TYPE.derived_constant"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_SUBJECT.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_SCOPE.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_SUBJECT_SCOPE_PROOF.copy_or_absence"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_ASSERTED_AT.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_ASSERTION_ACT_POSTURE.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_ASSERTION_ACT_EVIDENCE.copy_or_absence"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_SUBJECT_TIME.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_BODY.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_EVIDENCE.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_OPERATION_POSTURE.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_OPERATION_PERFORMER.copy"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_OPERATION_AGENT_ACTORSHIP.copy_or_absence"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_OPERATION_PERFORMER_AUTHORITY.copy_or_absence"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_CORRECTION_LINEAGE.copy_or_absence"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "AR_OPERATION_PAYLOADS.copied_with_body"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "const": "PINNED_SCHEMA.constants_and_absences"
+            },
+            "outcome": {
+              "enum": [
+                "MATCH",
+                "MISMATCH"
+              ]
+            },
+            "sourcePointer": {
+              "type": "string"
+            },
+            "resultPointer": {
+              "type": "string"
+            },
+            "sourcePresent": {
+              "type": "boolean"
+            },
+            "resultPresent": {
+              "type": "boolean"
+            },
+            "sourceDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "resultDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "minLength": 71,
+              "maxLength": 71
+            },
+            "evidenceRef": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "outcome"
+          ]
+        }
+      ],
+      "items": false
+    },
+    "unavailable": {
+      "const": [
+        "full_AR_semantics",
+        "all_PC_semantics",
+        "authorization_Party_and_rule",
+        "relationship_and_identity_truth",
+        "trusted_act_and_time",
+        "foreign_evidence_admission",
+        "prior_history",
+        "event_compatibility",
+        "transaction_and_admission"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "componentResult",
+    "fullDomainValidation",
+    "inputDigest",
+    "resultDigest",
+    "inputSchemaBinding",
+    "resultSchemaBinding",
+    "selectedBodySchemaBinding",
+    "schemaValidation",
+    "localConsistency",
+    "checks",
+    "unavailable"
+  ],
+  "$comment": "DRAFT_NON_DEFAULT offline comparison-tool output schema within the existing AssertionRecord component. Not a governed domain record, event family, PR23 validation payload, shared trace, runtime admission or authority decision."
+}

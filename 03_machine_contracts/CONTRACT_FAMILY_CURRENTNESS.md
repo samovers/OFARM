@@ -54,7 +54,7 @@ AAI-CP10 note: no new machine-contract family was promoted by CP10; this map is 
 | AgronomicObservationContext | `03_machine_contracts/schemas/agronomic/OFARM_AgronomicObservationContext_schema_v0_1.json` | 0 | 0 | 7 |
 | AgronomicReconstructionPolicy | `03_machine_contracts/schemas/agronomic/OFARM_AgronomicReconstructionPolicy_schema_v0_1.json` | 0 | 0 | 3 |
 | AgronomicReconstructionTrace | `03_machine_contracts/schemas/agronomic/OFARM_AgronomicReconstructionTrace_schema_v0_1.json` | 0 | 0 | 4 |
-| AssertionRecord | `03_machine_contracts/schemas/core/OFARM_AssertionRecord_schema_v0_1.json` | 0 | 0 | 10 |
+| AssertionRecord | `03_machine_contracts/schemas/core/OFARM_AssertionRecord_schema_v0_1.json` | 2 | 0 | 10 |
 | AuthorityGrant | `03_machine_contracts/schemas/authority/OFARM_AuthorityGrant_schema_v0_1.json` | 0 | 0 | 6 |
 | AuthorizationDecisionRequest | `03_machine_contracts/schemas/authority/OFARM_AuthorizationDecisionRequest_schema_v0_1.json` | 0 | 0 | 22 |
 | AuthorizationDecisionResult | `03_machine_contracts/schemas/authority/OFARM_AuthorizationDecisionResult_schema_v0_1.json` | 0 | 0 | 22 |
@@ -230,3 +230,11 @@ The existing AuthorizationFinalizationEvidence family also contains the proposed
 shared envelope under `drafts_non_default/authorization_finalization_evidence/
 protected_effect_validation/`. The finite integrity checker does not establish
 domain validation or complete release closure. No current/default selection changes.
+
+## Operation comparison-tool output (draft/non-default)
+
+The existing AssertionRecord component includes one offline comparison-tool output
+schema under `drafts_non_default/assertion_record_submission/domain_validation/`.
+The family now lists two draft schemas: the v0.2 carrier and this tool output.
+The output is not a governed domain record, new event family or complete domain
+payload. AssertionRecord v0.1 remains current/default.

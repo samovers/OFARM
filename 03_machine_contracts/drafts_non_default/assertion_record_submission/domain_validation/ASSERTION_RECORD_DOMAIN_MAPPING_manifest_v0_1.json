@@ -1,0 +1,247 @@
+{
+  "schemaVersion": "ofarm.assertionrecord.operationmappingcomponent.v0.1",
+  "status": "DRAFT_NON_DEFAULT",
+  "primaryTrustBoundary": "AssertionRecord operation intent-to-result mapping integrity",
+  "activeLaw": false,
+  "promotedToCurrentDefault": false,
+  "runtimeExecutable": false,
+  "completeProtectedEffectContract": false,
+  "sourceInputs": [
+    {
+      "pr": "PR11",
+      "commit": "d1178fe07d57accedde5748672602db38346b3e6",
+      "repositoryPath": "package_meta/history/clean_baseline_migration/phase_reports/authorization_constraints_and_decision_evidence_rfc_candidate_v0_2.md",
+      "bytes": 248082,
+      "sha256": "8c218df076fcf06aceb531173a854091e21bda7775ad1fe66dd06a772857691f"
+    },
+    {
+      "pr": "PR23",
+      "commit": "6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f",
+      "repositoryPath": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+      "bytes": 90964,
+      "sha256": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809"
+    },
+    {
+      "pr": "PR26",
+      "commit": "b1abe2c93c7ca8b7a94a11bdb0fded64bb2e75e6",
+      "repositoryPath": "package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_and_consumption_protocol_rfc_candidate_v0_1.md",
+      "bytes": 156848,
+      "sha256": "8540a09a2b85b2e42bf1279a8ccacc95b5271b0c58e8bd2f03717fd37be8aa8c"
+    }
+  ],
+  "publishedDependencies": {
+    "PR41": "bfd15b98c48f70e679824005c62adf4241dd8b22",
+    "PR42": "471cb1ef20ffde56b1437949975a4c6c86c59dd5",
+    "PR43": "546f831f495d60b45e93b55fbaaa601b1374ad7e",
+    "PR44": "898396f9612541ae0305d9d5935890776978f630"
+  },
+  "artifacts": [
+    {
+      "role": "intentSchema",
+      "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_OperationAssertionEffectIntent_schema_v0_2.json",
+      "bytes": 11441,
+      "sha256": "66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2"
+    },
+    {
+      "role": "resultSchema",
+      "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json",
+      "bytes": 40882,
+      "sha256": "3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+      "schemaId": "https://ofarm.dev/schema/assertionrecord/v0.2"
+    },
+    {
+      "role": "intentSupport",
+      "path": "04_implementation_and_conformance/conformance_runners/ofarm_authorization_effect_intents_v0_2.py",
+      "bytes": 24811,
+      "sha256": "2cfc450f939c9ce911c4cb9f9c178ea6c85767a6e48dd85ab00ea10fe00bc52b",
+      "sourceCommit": "898396f9612541ae0305d9d5935890776978f630"
+    },
+    {
+      "role": "resultSupport",
+      "path": "04_implementation_and_conformance/conformance_runners/ofarm_assertion_record_submission_v0_2.py",
+      "bytes": 13356,
+      "sha256": "d73a9b32834a1e32e700b8998d00171b3d8de01eaf46bdb6837f983db126be64"
+    },
+    {
+      "role": "reportSchema",
+      "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/domain_validation/OFARM_AssertionRecord_domain_mapping_report_schema_v0_1.json",
+      "bytes": 26967,
+      "sha256": "12e6963fa70876d387d6472298e90831e1018853173033861c4256f22570c6ee",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-record/operation-mapping-report/v0.1"
+    }
+  ],
+  "selectedProfile": "EI_OPERATION_ASSERTION_V0_2",
+  "selectedBodyFragment": "/$defs/operationClaimBody",
+  "mappings": [
+    {
+      "subcheckId": "AR_ID.copy",
+      "sourcePointer": "/effectSubject/subjectRef",
+      "resultPointer": "/assertionRecordId",
+      "mode": "exact_copy",
+      "semanticLimit": "Exact proposed-ID equality; does not prove global uniqueness, admission or prior absence."
+    },
+    {
+      "subcheckId": "AR_EFFECT_SUBJECT.kind_and_id",
+      "mode": "reuse_schema_and_comparison",
+      "comparisonRef": "AR_ID.copy",
+      "semanticLimit": "Profile syntax and proposed-ID agreement, not authority or prospective-existence proof."
+    },
+    {
+      "subcheckId": "AR_TYPE.derived_constant",
+      "mode": "source_fixed_constant",
+      "resultPointer": "/assertionType",
+      "expectedValue": "OPERATION_CLAIM_ASSERTION",
+      "semanticLimit": "Required constant for this operation-only component; not verification of a real selected authorization rule."
+    },
+    {
+      "subcheckId": "AR_SUBJECT.copy",
+      "sourcePointer": "/subject",
+      "resultPointer": "/subject",
+      "mode": "exact_copy",
+      "semanticLimit": "No truthful identity, global prospective nonexistence or foreign resolution claim."
+    },
+    {
+      "subcheckId": "AR_SCOPE.copy",
+      "sourcePointer": "/resources/0/scope",
+      "resultPointer": "/anchorScopes/0",
+      "mode": "exact_copy",
+      "semanticLimit": "Pinned schema has one TARGET_SCOPE; compare the complete source scope and exact one-element result. No real selected-rule, authority or relationship claim."
+    },
+    {
+      "subcheckId": "AR_SUBJECT_SCOPE_PROOF.copy_or_absence",
+      "sourcePointer": "/subjectScopeProofBindings",
+      "resultPointer": "/subjectScopeProofBindings",
+      "mode": "exact_copy_or_symmetric_absence",
+      "semanticLimit": "Exact supplied proof array or symmetric absence, not relationship validity."
+    },
+    {
+      "subcheckId": "AR_ASSERTED_AT.copy",
+      "sourcePointer": "/assertedAt",
+      "resultPointer": "/assertedAt",
+      "mode": "exact_copy",
+      "semanticLimit": "No trusted online source or offline time admission claim."
+    },
+    {
+      "subcheckId": "AR_ASSERTION_ACT_POSTURE.copy",
+      "sourcePointer": "/assertionActPosture",
+      "resultPointer": "/assertionActPosture",
+      "mode": "exact_copy",
+      "semanticLimit": "No claim that declared posture is truthful."
+    },
+    {
+      "subcheckId": "AR_ASSERTION_ACT_EVIDENCE.copy_or_absence",
+      "sourcePointer": "/assertionActEvidenceBinding",
+      "resultPointer": "/assertionActEvidenceBinding",
+      "mode": "exact_copy_or_symmetric_absence",
+      "semanticLimit": "Pinned schemas enforce offline-required/online-absent shape; compare exact binding, not its admission or truth."
+    },
+    {
+      "subcheckId": "AR_SUBJECT_TIME.copy",
+      "sourcePointer": "/subjectTime",
+      "resultPointer": "/subjectTime",
+      "mode": "exact_copy",
+      "semanticLimit": "Preserve complete tagged time value; external source, qualifier eligibility and admitted time remain unavailable."
+    },
+    {
+      "subcheckId": "AR_BODY.copy",
+      "sourcePointer": "/assertionBody",
+      "resultPointer": "/assertionBody",
+      "mode": "exact_copy",
+      "semanticLimit": "Complete canonical JSON value, all strings and ordered arrays; no domain truth or foreign payload resolution."
+    },
+    {
+      "subcheckId": "AR_EVIDENCE.copy",
+      "sourcePointer": "/evidenceBindings",
+      "resultPointer": "/evidenceBindings",
+      "mode": "exact_copy",
+      "semanticLimit": "Complete non-empty ordered array; no evidence sufficiency or immutable foreign-byte proof."
+    },
+    {
+      "subcheckId": "AR_OPERATION_POSTURE.copy",
+      "sourcePointer": "/claimPosture",
+      "resultPointer": "/operationClaimContext/claimPosture",
+      "mode": "exact_copy",
+      "semanticLimit": "No accepted execution claim."
+    },
+    {
+      "subcheckId": "AR_OPERATION_PERFORMER.copy",
+      "sourcePointer": "/performedByPartyRef",
+      "resultPointer": "/operationClaimContext/performedByPartyRef",
+      "mode": "exact_copy",
+      "semanticLimit": "Never derive from assertor; no performer authority claim."
+    },
+    {
+      "subcheckId": "AR_OPERATION_AGENT_ACTORSHIP.copy_or_absence",
+      "sourcePointer": "/softwareAgentActorshipBindings",
+      "resultPointer": "/operationClaimContext/softwareAgentActorshipBindings",
+      "mode": "exact_copy_or_symmetric_absence",
+      "semanticLimit": "Reuse pinned schema branch condition for required/present/absent. No admitted actorship evidence claim."
+    },
+    {
+      "subcheckId": "AR_OPERATION_PERFORMER_AUTHORITY.copy_or_absence",
+      "sourcePointer": "/performerAuthorityEvidenceBindings",
+      "resultPointer": "/operationClaimContext/performerAuthorityEvidenceBindings",
+      "mode": "exact_copy_or_symmetric_absence",
+      "semanticLimit": "Exact optional PERFORMED-only array or symmetric absence; retains NOT_EVALUATED_BY_AUTHORIZATION limitation."
+    },
+    {
+      "subcheckId": "AR_CORRECTION_LINEAGE.copy_or_absence",
+      "sourcePointer": "/supersedesAssertionRecordBinding",
+      "resultPointer": "/supersedesAssertionRecordBinding",
+      "mode": "exact_copy_or_symmetric_absence",
+      "semanticLimit": "Copy CORRECTION binding or require INITIAL absence per pinned schemas; no prior visibility, creation context, boundary/twin or correction compatibility claim."
+    },
+    {
+      "subcheckId": "AR_OPERATION_PAYLOADS.copied_with_body",
+      "mode": "coverage_reference",
+      "comparisonRef": "AR_BODY.copy",
+      "semanticLimit": "The complete body comparison already includes its designated temporal basis and payload-binding arrays. Do not duplicate them in a second evaluator; foreign resolution/admission remains unavailable."
+    },
+    {
+      "subcheckId": "PINNED_SCHEMA.constants_and_absences",
+      "mode": "reuse_schema_validation_evidence",
+      "semanticLimit": "Do not reimplement schema rules in the table or report full AR/PC semantic success; structural rejection is attributed to the exact existing schema witness."
+    }
+  ],
+  "claimLimit": "Subcheck matches concern supplied bytes only. No full AR/PC success, payload/contract closure, authority, runtime or admission. The report is deliberately not a PR43 domain payload.",
+  "futurePayloadConvention": {
+    "status": "REQUIRED_FOR_LATER_REAL_DOMAIN_PAYLOAD; do not fake adoption by labelling a partial mapping report as that payload",
+    "source": "PR43 at 546f831f495d60b45e93b55fbaaa601b1374ad7e",
+    "fields": {
+      "proposedResultDigest": "sha256:SHA256(JCS(whole result))",
+      "effectIntentDigest": "sha256:SHA256(JCS(whole intent))",
+      "protectedEffectContractDigest": "sha256:SHA256(JCS(complete real contract after removing exactly top-level /contractDigest))",
+      "selectedActionBodySchemaBinding": "complete four-field action-selected body binding; whole schema file byte digest and exact fragment"
+    },
+    "overallDisposition": "PASS or FAIL; explicit top-level schema declaration and required membership for all four fields, as adopted by PR43",
+    "verification": "Read actual hashed payload fields, compare for both dispositions, no synthesized verifier facts, no pointer configurability, no recursive schema policy.",
+    "cannotCompleteNow": "No complete real PR23 protected-effect contract instance is materialized; the mapping manifest must not impersonate it or supply its digest."
+  },
+  "unavailable": [
+    "full_AR_semantics",
+    "all_PC_semantics",
+    "authorization_Party_and_rule",
+    "relationship_and_identity_truth",
+    "trusted_act_and_time",
+    "foreign_evidence_admission",
+    "prior_history",
+    "event_compatibility",
+    "transaction_and_admission"
+  ],
+  "contractFamily": "AssertionRecord",
+  "reportClassification": {
+    "status": "MACHINE_CONTRACT_DRAFT_NON_DEFAULT",
+    "role": "Offline comparison-tool output schema in the existing AssertionRecord component",
+    "governedDomainRecord": false,
+    "newEventFamily": false,
+    "domainPayload": false,
+    "runtimeAdmission": false
+  },
+  "integrationBase": {
+    "pr": "https://github.com/samovers/OFARM/pull/44",
+    "branch": "contracts/inactive-assertion-inputs-v0-2",
+    "commit": "898396f9612541ae0305d9d5935890776978f630",
+    "tree": "7d983a58f37c2047a99512cc79ac20501cb7fb80"
+  }
+}
