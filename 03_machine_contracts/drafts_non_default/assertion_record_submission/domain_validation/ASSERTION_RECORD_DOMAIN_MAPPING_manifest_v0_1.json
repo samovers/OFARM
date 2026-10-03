@@ -33,7 +33,7 @@
     "PR41": "bfd15b98c48f70e679824005c62adf4241dd8b22",
     "PR42": "471cb1ef20ffde56b1437949975a4c6c86c59dd5",
     "PR43": "546f831f495d60b45e93b55fbaaa601b1374ad7e",
-    "PR44": "898396f9612541ae0305d9d5935890776978f630"
+    "PR44": "6457009520257f8751ca03caa4b0704cf92160a7"
   },
   "artifacts": [
     {
@@ -53,9 +53,9 @@
     {
       "role": "intentSupport",
       "path": "04_implementation_and_conformance/conformance_runners/ofarm_authorization_effect_intents_v0_2.py",
-      "bytes": 24811,
-      "sha256": "2cfc450f939c9ce911c4cb9f9c178ea6c85767a6e48dd85ab00ea10fe00bc52b",
-      "sourceCommit": "898396f9612541ae0305d9d5935890776978f630"
+      "bytes": 26607,
+      "sha256": "9909a5028fb0276dc721e48dd804d477d1df9754d7ca84340e7f216699cc55ac",
+      "sourceCommit": "6457009520257f8751ca03caa4b0704cf92160a7"
     },
     {
       "role": "resultSupport",
@@ -66,8 +66,8 @@
     {
       "role": "reportSchema",
       "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/domain_validation/OFARM_AssertionRecord_domain_mapping_report_schema_v0_1.json",
-      "bytes": 26967,
-      "sha256": "12e6963fa70876d387d6472298e90831e1018853173033861c4256f22570c6ee",
+      "bytes": 71167,
+      "sha256": "4cf75be5e115e581c1ca5ab6f78f77dd061ef8ba46037628c16730b8912356f6",
       "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-record/operation-mapping-report/v0.1"
     }
   ],
@@ -79,129 +79,211 @@
       "sourcePointer": "/effectSubject/subjectRef",
       "resultPointer": "/assertionRecordId",
       "mode": "exact_copy",
-      "semanticLimit": "Exact proposed-ID equality; does not prove global uniqueness, admission or prior absence."
+      "semanticLimit": "Exact proposed-ID equality; does not prove global uniqueness, admission or prior absence.",
+      "obligationIds": [
+        "AR_ID"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_EFFECT_SUBJECT.kind_and_id",
       "mode": "reuse_schema_and_comparison",
       "comparisonRef": "AR_ID.copy",
-      "semanticLimit": "Profile syntax and proposed-ID agreement, not authority or prospective-existence proof."
+      "semanticLimit": "Profile syntax and proposed-ID agreement, not authority or prospective-existence proof.",
+      "obligationIds": [
+        "AR_EFFECT_SUBJECT"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_TYPE.derived_constant",
       "mode": "source_fixed_constant",
       "resultPointer": "/assertionType",
       "expectedValue": "OPERATION_CLAIM_ASSERTION",
-      "semanticLimit": "Required constant for this operation-only component; not verification of a real selected authorization rule."
+      "semanticLimit": "Required constant for this operation-only component; not verification of a real selected authorization rule. Schema preflight enforces the operation subtype, so every emitted derived-constant row is MATCH; a wrong subtype produces a SCHEMA error and no comparison report.",
+      "obligationIds": [
+        "AR_TYPE"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_SUBJECT.copy",
       "sourcePointer": "/subject",
       "resultPointer": "/subject",
       "mode": "exact_copy",
-      "semanticLimit": "No truthful identity, global prospective nonexistence or foreign resolution claim."
+      "semanticLimit": "No truthful identity, global prospective nonexistence or foreign resolution claim.",
+      "obligationIds": [
+        "AR_SUBJECT"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_SCOPE.copy",
       "sourcePointer": "/resources/0/scope",
       "resultPointer": "/anchorScopes/0",
       "mode": "exact_copy",
-      "semanticLimit": "Pinned schema has one TARGET_SCOPE; compare the complete source scope and exact one-element result. No real selected-rule, authority or relationship claim."
+      "semanticLimit": "Pinned schema has one TARGET_SCOPE; compare the complete source scope and exact one-element result. No real selected-rule, authority or relationship claim.",
+      "obligationIds": [
+        "AR_SCOPE"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_SUBJECT_SCOPE_PROOF.copy_or_absence",
       "sourcePointer": "/subjectScopeProofBindings",
       "resultPointer": "/subjectScopeProofBindings",
       "mode": "exact_copy_or_symmetric_absence",
-      "semanticLimit": "Exact supplied proof array or symmetric absence, not relationship validity."
+      "semanticLimit": "Exact supplied proof array or symmetric absence, not relationship validity.",
+      "obligationIds": [
+        "AR_SUBJECT_SCOPE_PROOF"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_ASSERTED_AT.copy",
       "sourcePointer": "/assertedAt",
       "resultPointer": "/assertedAt",
       "mode": "exact_copy",
-      "semanticLimit": "No trusted online source or offline time admission claim."
+      "semanticLimit": "No trusted online source or offline time admission claim.",
+      "obligationIds": [
+        "AR_ASSERTED_AT"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_ASSERTION_ACT_POSTURE.copy",
       "sourcePointer": "/assertionActPosture",
       "resultPointer": "/assertionActPosture",
       "mode": "exact_copy",
-      "semanticLimit": "No claim that declared posture is truthful."
+      "semanticLimit": "No claim that declared posture is truthful.",
+      "obligationIds": [
+        "AR_ASSERTION_ACT_POSTURE"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_ASSERTION_ACT_EVIDENCE.copy_or_absence",
       "sourcePointer": "/assertionActEvidenceBinding",
       "resultPointer": "/assertionActEvidenceBinding",
       "mode": "exact_copy_or_symmetric_absence",
-      "semanticLimit": "Pinned schemas enforce offline-required/online-absent shape; compare exact binding, not its admission or truth."
+      "semanticLimit": "Pinned schemas enforce offline-required/online-absent shape; compare exact binding, not its admission or truth.",
+      "obligationIds": [
+        "AR_ASSERTION_ACT_EVIDENCE"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_SUBJECT_TIME.copy",
       "sourcePointer": "/subjectTime",
       "resultPointer": "/subjectTime",
       "mode": "exact_copy",
-      "semanticLimit": "Preserve complete tagged time value; external source, qualifier eligibility and admitted time remain unavailable."
+      "semanticLimit": "Preserve complete tagged time value; external source, qualifier eligibility and admitted time remain unavailable.",
+      "obligationIds": [
+        "AR_SUBJECT_TIME"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_BODY.copy",
       "sourcePointer": "/assertionBody",
       "resultPointer": "/assertionBody",
       "mode": "exact_copy",
-      "semanticLimit": "Complete canonical JSON value, all strings and ordered arrays; no domain truth or foreign payload resolution."
+      "semanticLimit": "Complete canonical JSON value, all strings and ordered arrays; no domain truth or foreign payload resolution.",
+      "obligationIds": [
+        "AR_BODY"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_EVIDENCE.copy",
       "sourcePointer": "/evidenceBindings",
       "resultPointer": "/evidenceBindings",
       "mode": "exact_copy",
-      "semanticLimit": "Complete non-empty ordered array; no evidence sufficiency or immutable foreign-byte proof."
+      "semanticLimit": "Complete non-empty ordered array; no evidence sufficiency or immutable foreign-byte proof.",
+      "obligationIds": [
+        "AR_EVIDENCE"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_OPERATION_POSTURE.copy",
       "sourcePointer": "/claimPosture",
       "resultPointer": "/operationClaimContext/claimPosture",
       "mode": "exact_copy",
-      "semanticLimit": "No accepted execution claim."
+      "semanticLimit": "No accepted execution claim.",
+      "obligationIds": [
+        "AR_OPERATION_POSTURE"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_OPERATION_PERFORMER.copy",
       "sourcePointer": "/performedByPartyRef",
       "resultPointer": "/operationClaimContext/performedByPartyRef",
       "mode": "exact_copy",
-      "semanticLimit": "Never derive from assertor; no performer authority claim."
+      "semanticLimit": "Never derive from assertor; no performer authority claim.",
+      "obligationIds": [
+        "AR_OPERATION_PERFORMER"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_OPERATION_AGENT_ACTORSHIP.copy_or_absence",
       "sourcePointer": "/softwareAgentActorshipBindings",
       "resultPointer": "/operationClaimContext/softwareAgentActorshipBindings",
       "mode": "exact_copy_or_symmetric_absence",
-      "semanticLimit": "Reuse pinned schema branch condition for required/present/absent. No admitted actorship evidence claim."
+      "semanticLimit": "Reuse pinned schema branch condition for required/present/absent. No admitted actorship evidence claim.",
+      "obligationIds": [
+        "AR_OPERATION_AGENT_ACTORSHIP"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_OPERATION_PERFORMER_AUTHORITY.copy_or_absence",
       "sourcePointer": "/performerAuthorityEvidenceBindings",
       "resultPointer": "/operationClaimContext/performerAuthorityEvidenceBindings",
       "mode": "exact_copy_or_symmetric_absence",
-      "semanticLimit": "Exact optional PERFORMED-only array or symmetric absence; retains NOT_EVALUATED_BY_AUTHORIZATION limitation."
+      "semanticLimit": "Exact optional PERFORMED-only array or symmetric absence; retains NOT_EVALUATED_BY_AUTHORIZATION limitation.",
+      "obligationIds": [
+        "AR_OPERATION_PERFORMER_AUTHORITY"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_CORRECTION_LINEAGE.copy_or_absence",
       "sourcePointer": "/supersedesAssertionRecordBinding",
       "resultPointer": "/supersedesAssertionRecordBinding",
       "mode": "exact_copy_or_symmetric_absence",
-      "semanticLimit": "Copy CORRECTION binding or require INITIAL absence per pinned schemas; no prior visibility, creation context, boundary/twin or correction compatibility claim."
+      "semanticLimit": "Copy CORRECTION binding or require INITIAL absence per pinned schemas; no prior visibility, creation context, boundary/twin or correction compatibility claim.",
+      "obligationIds": [
+        "AR_CORRECTION_LINEAGE"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "AR_OPERATION_PAYLOADS.copied_with_body",
       "mode": "coverage_reference",
       "comparisonRef": "AR_BODY.copy",
-      "semanticLimit": "The complete body comparison already includes its designated temporal basis and payload-binding arrays. Do not duplicate them in a second evaluator; foreign resolution/admission remains unavailable."
+      "semanticLimit": "The complete body comparison already includes its designated temporal basis and payload-binding arrays. Do not duplicate them in a second evaluator; foreign resolution/admission remains unavailable.",
+      "obligationIds": [
+        "AR_OPERATION_PAYLOADS"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     },
     {
       "subcheckId": "PINNED_SCHEMA.constants_and_absences",
       "mode": "reuse_schema_validation_evidence",
-      "semanticLimit": "Do not reimplement schema rules in the table or report full AR/PC semantic success; structural rejection is attributed to the exact existing schema witness."
+      "semanticLimit": "Do not reimplement schema rules in the table or report full AR/PC semantic success; structural rejection is attributed to the exact existing schema witness.",
+      "obligationIds": [
+        "AR_SCHEMA",
+        "AR_ACTION_PROFILE",
+        "AR_EFFECT_SUBJECT",
+        "AR_TYPE",
+        "AR_CLAIM_STATE",
+        "AR_OPERATION_BRANCH_ABSENCE",
+        "AR_LEGACY_ABSENCE"
+      ],
+      "preflightLimit": "No row is emitted when JSON/schema/local preflight fails; that failure is reported separately as UNAVAILABLE."
     }
   ],
   "claimLimit": "Subcheck matches concern supplied bytes only. No full AR/PC success, payload/contract closure, authority, runtime or admission. The report is deliberately not a PR43 domain payload.",
@@ -241,7 +323,408 @@
   "integrationBase": {
     "pr": "https://github.com/samovers/OFARM/pull/44",
     "branch": "contracts/inactive-assertion-inputs-v0-2",
-    "commit": "898396f9612541ae0305d9d5935890776978f630",
-    "tree": "7d983a58f37c2047a99512cc79ac20501cb7fb80"
+    "commit": "6457009520257f8751ca03caa4b0704cf92160a7",
+    "tree": "2f6536ef91862eff90be03d035b343852810d167"
+  },
+  "arTraceability": [
+    {
+      "obligationId": "AR_SCHEMA",
+      "sourceSection": "PR23/8",
+      "sourceLine": 490,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [],
+      "schemaEnforcement": [
+        "result:/properties/schemaVersion"
+      ],
+      "unavailableReasons": [
+        "Selected real authorization rule/schema selection is unavailable."
+      ]
+    },
+    {
+      "obligationId": "AR_ACTION_PROFILE",
+      "sourceSection": "PR23/8",
+      "sourceLine": 491,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [],
+      "schemaEnforcement": [
+        "intent:/properties/schemaVersion"
+      ],
+      "unavailableReasons": [
+        "Canonical selected action rule and governed profile admission are unavailable."
+      ]
+    },
+    {
+      "obligationId": "AR_EFFECT_SUBJECT",
+      "sourceSection": "PR23/8",
+      "sourceLine": 492,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_EFFECT_SUBJECT.kind_and_id"
+      ],
+      "schemaEnforcement": [
+        "intent:/properties/effectSubject"
+      ],
+      "unavailableReasons": [
+        "Selected-rule authority and truthful prospective-target status are unavailable."
+      ]
+    },
+    {
+      "obligationId": "AR_ID",
+      "sourceSection": "PR23/8",
+      "sourceLine": 493,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_ID.copy"
+      ],
+      "schemaEnforcement": [],
+      "unavailableReasons": []
+    },
+    {
+      "obligationId": "AR_TYPE",
+      "sourceSection": "PR23/8",
+      "sourceLine": 494,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_TYPE.derived_constant"
+      ],
+      "schemaEnforcement": [
+        "result:/properties/assertionType",
+        "result:/allOf; selected operation body preflight"
+      ],
+      "unavailableReasons": []
+    },
+    {
+      "obligationId": "AR_SUBJECT",
+      "sourceSection": "PR23/8",
+      "sourceLine": 495,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_SUBJECT.copy"
+      ],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "Truthful identity posture and immutable foreign-byte resolution are unavailable."
+      ]
+    },
+    {
+      "obligationId": "AR_SCOPE",
+      "sourceSection": "PR23/8",
+      "sourceLine": 496,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_SCOPE.copy"
+      ],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "Real rule-extracted authority scope and relationship admission are unavailable."
+      ]
+    },
+    {
+      "obligationId": "AR_SUBJECT_SCOPE_PROOF",
+      "sourceSection": "PR23/8",
+      "sourceLine": 497,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_SUBJECT_SCOPE_PROOF.copy_or_absence"
+      ],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "Relationship validity and context completeness are unavailable."
+      ]
+    },
+    {
+      "obligationId": "AR_ASSERTOR",
+      "sourceSection": "PR23/8",
+      "sourceLine": 498,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "Canonical authoritySubjectPartyRef is not an input; result assertedByPartyRef is not its own authority proof."
+      ]
+    },
+    {
+      "obligationId": "AR_ASSERTED_AT",
+      "sourceSection": "PR23/8",
+      "sourceLine": 499,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_ASSERTED_AT.copy"
+      ],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "Trusted online injection or admitted offline act time is unavailable."
+      ]
+    },
+    {
+      "obligationId": "AR_ASSERTION_ACT_POSTURE",
+      "sourceSection": "PR23/8",
+      "sourceLine": 500,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_ASSERTION_ACT_POSTURE.copy"
+      ],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "Declared posture truth and trust admission are unavailable."
+      ]
+    },
+    {
+      "obligationId": "AR_ASSERTION_ACT_EVIDENCE",
+      "sourceSection": "PR23/8",
+      "sourceLine": 501,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_ASSERTION_ACT_EVIDENCE.copy_or_absence"
+      ],
+      "schemaEnforcement": [
+        "intent:/allOf; result:/allOf"
+      ],
+      "unavailableReasons": [
+        "Immutable act-evidence resolution and provenance admission are unavailable."
+      ]
+    },
+    {
+      "obligationId": "AR_SUBJECT_TIME",
+      "sourceSection": "PR23/8",
+      "sourceLine": 502,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_SUBJECT_TIME.copy"
+      ],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "Foreign-source resolution, qualifier eligibility and claimed-performance-context admission are unavailable."
+      ]
+    },
+    {
+      "obligationId": "AR_BODY",
+      "sourceSection": "PR23/8",
+      "sourceLine": 503,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_BODY.copy"
+      ],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "Body domain meaning and foreign context/payload admission are unavailable."
+      ]
+    },
+    {
+      "obligationId": "AR_EVIDENCE",
+      "sourceSection": "PR23/8",
+      "sourceLine": 504,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_EVIDENCE.copy"
+      ],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "Immutable evidence resolution and policy sufficiency are unavailable."
+      ]
+    },
+    {
+      "obligationId": "AR_CLAIM_STATE",
+      "sourceSection": "PR23/8",
+      "sourceLine": 505,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [],
+      "schemaEnforcement": [
+        "result:/properties/claimState"
+      ],
+      "unavailableReasons": []
+    },
+    {
+      "obligationId": "AR_EVENT_ASSOCIATION",
+      "sourceSection": "PR23/8",
+      "sourceLine": 506,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "Event binding is not copied into the result. Event Ingress, body-owned time selectors and subtype/dominant-context compatibility are unavailable. Absence visibility is not a full-contract N/A disposition."
+      ]
+    },
+    {
+      "obligationId": "AR_OPERATION_POSTURE",
+      "sourceSection": "PR23/8",
+      "sourceLine": 514,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_OPERATION_POSTURE.copy"
+      ],
+      "schemaEnforcement": [],
+      "unavailableReasons": []
+    },
+    {
+      "obligationId": "AR_OPERATION_PERFORMER",
+      "sourceSection": "PR23/8",
+      "sourceLine": 515,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_OPERATION_PERFORMER.copy"
+      ],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "No performer authority is established by this copy."
+      ]
+    },
+    {
+      "obligationId": "AR_OPERATION_AGENT_ACTORSHIP",
+      "sourceSection": "PR23/8",
+      "sourceLine": 516,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_OPERATION_AGENT_ACTORSHIP.copy_or_absence"
+      ],
+      "schemaEnforcement": [
+        "intent:/allOf; result:/$defs/operationClaimContext"
+      ],
+      "unavailableReasons": [
+        "Actorship provenance and admitted evidence are unavailable."
+      ]
+    },
+    {
+      "obligationId": "AR_OPERATION_PERFORMER_AUTHORITY",
+      "sourceSection": "PR23/8",
+      "sourceLine": 517,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_OPERATION_PERFORMER_AUTHORITY.copy_or_absence"
+      ],
+      "schemaEnforcement": [
+        "intent:/allOf; result:/$defs/operationClaimContext"
+      ],
+      "unavailableReasons": [
+        "Performer authority remains NOT_EVALUATED_BY_AUTHORIZATION."
+      ]
+    },
+    {
+      "obligationId": "AR_OPERATION_PAYLOADS",
+      "sourceSection": "PR23/8",
+      "sourceLine": 518,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_OPERATION_PAYLOADS.copied_with_body"
+      ],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "Foreign payload resolution, semantic compatibility and admission are unavailable."
+      ]
+    },
+    {
+      "obligationId": "AR_COMPLIANCE_RULES",
+      "sourceSection": "PR23/8",
+      "sourceLine": 519,
+      "componentScope": "OTHER_ACTION",
+      "comparisonRefs": [],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "Different action branch; this operation-only component does not evaluate it."
+      ]
+    },
+    {
+      "obligationId": "AR_COMPLIANCE_EVIDENCE_POLICY",
+      "sourceSection": "PR23/8",
+      "sourceLine": 520,
+      "componentScope": "OTHER_ACTION",
+      "comparisonRefs": [],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "Different action branch; this operation-only component does not evaluate it."
+      ]
+    },
+    {
+      "obligationId": "AR_CORRECTION_LINEAGE",
+      "sourceSection": "PR23/8",
+      "sourceLine": 521,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [
+        "AR_CORRECTION_LINEAGE.copy_or_absence"
+      ],
+      "schemaEnforcement": [
+        "intent:/allOf; result:/allOf"
+      ],
+      "unavailableReasons": [
+        "Prior committed visibility, creation context, typed boundary/twin and correction compatibility are unavailable."
+      ]
+    },
+    {
+      "obligationId": "AR_STRUCTURE_BRANCH_ABSENCE",
+      "sourceSection": "PR23/8",
+      "sourceLine": 522,
+      "componentScope": "OTHER_ACTION",
+      "comparisonRefs": [],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "Different action branch; this operation-only component does not evaluate it."
+      ]
+    },
+    {
+      "obligationId": "AR_OPERATION_BRANCH_ABSENCE",
+      "sourceSection": "PR23/8",
+      "sourceLine": 523,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [],
+      "schemaEnforcement": [
+        "result:/allOf; operation branch forbids complianceBasis"
+      ],
+      "unavailableReasons": []
+    },
+    {
+      "obligationId": "AR_COMPLIANCE_BRANCH_ABSENCE",
+      "sourceSection": "PR23/8",
+      "sourceLine": 524,
+      "componentScope": "OTHER_ACTION",
+      "comparisonRefs": [],
+      "schemaEnforcement": [],
+      "unavailableReasons": [
+        "Different action branch; this operation-only component does not evaluate it."
+      ]
+    },
+    {
+      "obligationId": "AR_LEGACY_ABSENCE",
+      "sourceSection": "PR23/8",
+      "sourceLine": 525,
+      "componentScope": "OPERATION_COMPONENT",
+      "comparisonRefs": [],
+      "schemaEnforcement": [
+        "intent:/additionalProperties; result:/additionalProperties; closed nested objects"
+      ],
+      "unavailableReasons": []
+    }
+  ],
+  "traceabilityMeaning": "Explanatory inventory of all 29 PR23 AR obligations, not PASS/FAIL/N/A/NOT_EVALUATED domain dispositions. Empty unavailableReasons means no additional meaning is claimed by this mapping inventory; it is not full-contract success.",
+  "nonCopiedFields": [
+    {
+      "side": "intent",
+      "pointer": "/resources/0/tenantRef",
+      "reason": "Authorization governance context, not a result copy."
+    },
+    {
+      "side": "intent",
+      "pointer": "/resources/0/authorizationResourceProofBindings",
+      "reason": "Authorization proof, not a result copy."
+    },
+    {
+      "side": "intent",
+      "pointer": "/effectSubject/effectSubjectProofBindings",
+      "reason": "Prospective authorization proof, not a result copy."
+    },
+    {
+      "side": "intent",
+      "pointer": "/associatedSemanticEventBinding",
+      "reason": "No AssertionRecord destination; presence is reported, compatibility remains unavailable."
+    },
+    {
+      "side": "result",
+      "pointer": "/assertedByPartyRef",
+      "reason": "Canonical authority source is external, not supplied by the result or inferred from performer."
+    }
+  ],
+  "reportVerification": {
+    "schema": "Closed rows, fixed pointers/references/schema bindings, presence/digest membership, constant rows, aggregate and reused outcomes, event presence/status and exact AR traceability.",
+    "additionalIntegrity": "Internal Component._validate_report checks arbitrary digest equality against row outcomes; JSON Schema Draft 2020-12 has no cross-property value-equality keyword.",
+    "limit": "Neither report validation layer proves original bytes or foreign facts. Re-run verify with original input/result bytes to substantiate a supplied report."
   }
 }

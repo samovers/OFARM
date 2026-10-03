@@ -1564,7 +1564,7 @@
         },
         "assertionBody": {
           "assertionPosture": "INITIAL",
-          "claimText": "Café",
+          "claimText": "Caf\u00e9",
           "allegesSoftwareAgentPerformance": false,
           "temporalBasis": {
             "sourceKind": "BODY_TIME",
@@ -1642,7 +1642,7 @@
         },
         "assertionBody": {
           "assertionPosture": "INITIAL",
-          "claimText": "Café",
+          "claimText": "Caf\u00e9",
           "allegesSoftwareAgentPerformance": false,
           "temporalBasis": {
             "sourceKind": "BODY_TIME",
@@ -2292,7 +2292,7 @@
         {
           "op": "set",
           "path": "/assertionBody/claimText",
-          "value": "Café"
+          "value": "Caf\u00e9"
         }
       ]
     },
@@ -2310,7 +2310,7 @@
         {
           "op": "set",
           "path": "/assertionBody/claimText",
-          "value": "Café"
+          "value": "Cafe\u0301"
         }
       ]
     },
@@ -2336,7 +2336,7 @@
         {
           "op": "set",
           "path": "/assertionBody/claimText",
-          "value": "Café"
+          "value": "Cafe\u0301"
         }
       ]
     },
@@ -3045,7 +3045,7 @@
           "target": "intent"
         }
       },
-      "intentRaw": "﻿{\"subject\": {\"subjectType\": \"FIELD\", \"subjectRef\": \"field:fictional:1\", \"subjectPosture\": \"EXISTING_SUBJECT\", \"revisionRef\": \"field:fictional:1:r1\"}, \"assertedAt\": \"2026-09-20T12:00:00Z\", \"assertionActPosture\": \"TRUSTED_ONLINE_SUBMISSION\", \"subjectTime\": {\"profile\": \"INTENDED_WINDOW\", \"start\": \"2026-09-19T10:00:00.000000001Z\", \"end\": \"2026-09-19T10:00:00.000000002Z\"}, \"assertionBody\": {\"assertionPosture\": \"INITIAL\", \"claimText\": \"Fictional claim. Exact wording is preserved.\", \"allegesSoftwareAgentPerformance\": false, \"temporalBasis\": {\"sourceKind\": \"BODY_TIME\", \"time\": {\"profile\": \"INTENDED_WINDOW\", \"start\": \"2026-09-19T10:00:00.000000001Z\", \"end\": \"2026-09-19T10:00:00.000000002Z\"}}}, \"evidenceBindings\": [{\"ref\": \"evidence:fictional:1\", \"revisionRef\": \"revision:fictional:1\"}], \"schemaVersion\": \"ofarm.operationassertioneffectintent.v0.2\", \"resources\": [{\"resourceRole\": \"TARGET_SCOPE\", \"resourcePosture\": \"AUTHORITY_TARGET\", \"targetType\": \"SCOPE\", \"scope\": {\"scopeType\": \"FIELD\", \"scopeRef\": \"field:fictional:1\", \"revisionRef\": \"field:fictional:1:r1\"}, \"tenantRef\": \"tenant:fictional:1\", \"authorizationResourceProofBindings\": [{\"ref\": \"proof:resource:field\", \"revisionRef\": \"proof:resource:field:r1\"}]}], \"effectSubject\": {\"subjectKind\": \"OPERATION_ASSERTION\", \"subjectRef\": \"assertion:fictional:intended_window\", \"existencePosture\": \"PROSPECTIVE_TARGET_ALLOWED\", \"effectSubjectProofBindings\": [{\"ref\": \"proof:prospective:1\", \"revisionRef\": \"proof:prospective:1:r1\"}]}, \"claimPosture\": \"INTENDED\", \"performedByPartyRef\": \"party:fictional:performer\"}"
+      "intentRaw": "\ufeff{\"subject\": {\"subjectType\": \"FIELD\", \"subjectRef\": \"field:fictional:1\", \"subjectPosture\": \"EXISTING_SUBJECT\", \"revisionRef\": \"field:fictional:1:r1\"}, \"assertedAt\": \"2026-09-20T12:00:00Z\", \"assertionActPosture\": \"TRUSTED_ONLINE_SUBMISSION\", \"subjectTime\": {\"profile\": \"INTENDED_WINDOW\", \"start\": \"2026-09-19T10:00:00.000000001Z\", \"end\": \"2026-09-19T10:00:00.000000002Z\"}, \"assertionBody\": {\"assertionPosture\": \"INITIAL\", \"claimText\": \"Fictional claim. Exact wording is preserved.\", \"allegesSoftwareAgentPerformance\": false, \"temporalBasis\": {\"sourceKind\": \"BODY_TIME\", \"time\": {\"profile\": \"INTENDED_WINDOW\", \"start\": \"2026-09-19T10:00:00.000000001Z\", \"end\": \"2026-09-19T10:00:00.000000002Z\"}}}, \"evidenceBindings\": [{\"ref\": \"evidence:fictional:1\", \"revisionRef\": \"revision:fictional:1\"}], \"schemaVersion\": \"ofarm.operationassertioneffectintent.v0.2\", \"resources\": [{\"resourceRole\": \"TARGET_SCOPE\", \"resourcePosture\": \"AUTHORITY_TARGET\", \"targetType\": \"SCOPE\", \"scope\": {\"scopeType\": \"FIELD\", \"scopeRef\": \"field:fictional:1\", \"revisionRef\": \"field:fictional:1:r1\"}, \"tenantRef\": \"tenant:fictional:1\", \"authorizationResourceProofBindings\": [{\"ref\": \"proof:resource:field\", \"revisionRef\": \"proof:resource:field:r1\"}]}], \"effectSubject\": {\"subjectKind\": \"OPERATION_ASSERTION\", \"subjectRef\": \"assertion:fictional:intended_window\", \"existencePosture\": \"PROSPECTIVE_TARGET_ALLOWED\", \"effectSubjectProofBindings\": [{\"ref\": \"proof:prospective:1\", \"revisionRef\": \"proof:prospective:1:r1\"}]}, \"claimPosture\": \"INTENDED\", \"performedByPartyRef\": \"party:fictional:performer\"}"
     },
     {
       "name": "unsafe_integer",
@@ -3282,6 +3282,1802 @@
           "target": "result"
         }
       }
+    },
+    {
+      "name": "calendar_feb30_intent_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_intent_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_intent_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_intent_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody",
+            "temporalBasis"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_result_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_result_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_result_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_result_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_both_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_both_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_both_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_feb30_both_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody",
+            "temporalBasis"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2024-02-30T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_intent_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_intent_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_intent_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_intent_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody",
+            "temporalBasis"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_result_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_result_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_result_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_result_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_both_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_both_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_both_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_non_leap_both_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody",
+            "temporalBasis"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2026-02-29T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_intent_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_intent_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_intent_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_intent_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody",
+            "temporalBasis"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_result_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_result_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_result_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_result_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "result",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_both_assertedAt",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertedAt"
+          ],
+          "keyword": "format"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_both_subject_instant",
+      "pair": "instant",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_both_subject_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "subjectTime"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_year0_both_body_start",
+      "pair": "intended",
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "intent",
+        "schemaError": {
+          "instancePath": [
+            "assertionBody",
+            "temporalBasis"
+          ],
+          "keyword": "oneOf"
+        }
+      },
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "0000-01-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "name": "calendar_valid_leap_assertedAt",
+      "pair": "intended",
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2024-02-29T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertedAt",
+          "value": "2024-02-29T12:00:00Z"
+        }
+      ],
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "calendar_valid_leap_instant",
+      "pair": "instant",
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2024-02-29T12:00:00Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/at",
+          "value": "2024-02-29T12:00:00Z"
+        }
+      ],
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "calendar_valid_leap_body_interval",
+      "pair": "intended",
+      "intentEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2024-02-29T12:00:00Z"
+        },
+        {
+          "op": "set",
+          "path": "/subjectTime/end",
+          "value": "2024-02-29T12:00:01Z"
+        },
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2024-02-29T12:00:00Z"
+        },
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/end",
+          "value": "2024-02-29T12:00:01Z"
+        }
+      ],
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/subjectTime/start",
+          "value": "2024-02-29T12:00:00Z"
+        },
+        {
+          "op": "set",
+          "path": "/subjectTime/end",
+          "value": "2024-02-29T12:00:01Z"
+        },
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/start",
+          "value": "2024-02-29T12:00:00Z"
+        },
+        {
+          "op": "set",
+          "path": "/assertionBody/temporalBasis/time/end",
+          "value": "2024-02-29T12:00:01Z"
+        }
+      ],
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "report_integrity_aggregate_match_with_mismatch",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/outcome",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "componentResult"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_aggregate_mismatch_without_mismatch",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/componentResult",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "componentResult"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_missing_row_details",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0",
+          "value": {
+            "id": "AR_ID.copy",
+            "outcome": "MATCH",
+            "obligationIds": [
+              "AR_ID"
+            ]
+          }
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            0
+          ],
+          "keyword": "required"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_wrong_pointer",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/sourcePointer",
+          "value": "/assertedAt"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            0,
+            "sourcePointer"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_missing_present_digest",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "remove",
+          "path": "/checks/0/sourceDigest"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            0
+          ],
+          "keyword": "required"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_absent_with_digest",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/5/sourceDigest",
+          "value": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            5
+          ],
+          "keyword": "not"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_asymmetric_presence_claims_match",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/5/sourcePresent",
+          "value": true
+        },
+        {
+          "op": "set",
+          "path": "/checks/5/sourceDigest",
+          "value": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            5,
+            "outcome"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_required_presence_false",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/sourcePresent",
+          "value": false
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            0,
+            "sourcePresent"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_wrong_evidence_reference",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/1/evidenceRef",
+          "value": "AR_BODY.copy"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            1,
+            "evidenceRef"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_reference_adds_comparison",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/1/sourcePointer",
+          "value": "/effectSubject/subjectRef"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            1
+          ],
+          "keyword": "additionalProperties"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_reference_outcome_differs",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/1/outcome",
+          "value": "MISMATCH"
+        },
+        {
+          "op": "set",
+          "path": "/componentResult",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            1,
+            "outcome"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_body_reference_outcome_differs",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/17/outcome",
+          "value": "MISMATCH"
+        },
+        {
+          "op": "set",
+          "path": "/componentResult",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            17,
+            "outcome"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_schema_evidence_cannot_mismatch",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/18/outcome",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            18,
+            "outcome"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_type_constant_cannot_mismatch",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/2/outcome",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            2,
+            "outcome"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_type_constant_digest",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/2/sourceDigest",
+          "value": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            2,
+            "sourceDigest"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_input_schema_digest",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/inputSchemaBinding/schemaDigest",
+          "value": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "inputSchemaBinding"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_result_schema_version",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/resultSchemaBinding/schemaVersion",
+          "value": "wrong"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "resultSchemaBinding"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_body_schema_fragment",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/selectedBodySchemaBinding/schemaRef",
+          "value": "wrong"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "selectedBodySchemaBinding"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_obligation_ids",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/obligationIds",
+          "value": [
+            "AR_ASSERTOR"
+          ]
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            0,
+            "obligationIds"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_traceability_missing_obligation",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "remove",
+          "path": "/arTraceability/0"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "arTraceability"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_event_presence_status",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/eventBindingPresent",
+          "value": true
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "eventAssociation"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_event_full_na_not_claimed",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/eventAssociation",
+          "value": "NOT_APPLICABLE"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "eventAssociation"
+          ],
+          "keyword": "enum"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_unequal_digests_match",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/resultDigest",
+          "value": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "expectError": {
+        "layer": "REPORT_INTEGRITY",
+        "code": "DIGEST_OUTCOME_CONTRADICTION",
+        "target": "AR_ID.copy"
+      }
+    },
+    {
+      "name": "report_integrity_equal_digests_mismatch",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/outcome",
+          "value": "MISMATCH"
+        },
+        {
+          "op": "set",
+          "path": "/checks/1/outcome",
+          "value": "MISMATCH"
+        },
+        {
+          "op": "set",
+          "path": "/componentResult",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "REPORT_INTEGRITY",
+        "code": "DIGEST_OUTCOME_CONTRADICTION",
+        "target": "AR_ID.copy"
+      }
+    },
+    {
+      "name": "missing_caller_intent_file",
+      "callerFile": "intent",
+      "expectError": {
+        "layer": "INPUT",
+        "code": "FILE_UNAVAILABLE",
+        "target": "intent"
+      }
+    },
+    {
+      "name": "missing_caller_result_file",
+      "callerFile": "result",
+      "expectError": {
+        "layer": "INPUT",
+        "code": "FILE_UNAVAILABLE",
+        "target": "result"
+      }
+    },
+    {
+      "name": "event_presence_intended",
+      "pair": "intended",
+      "reportAssertions": [
+        {
+          "path": "/eventBindingPresent",
+          "value": false
+        },
+        {
+          "path": "/eventAssociation",
+          "value": "NOT_SUPPLIED"
+        }
+      ],
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "event_presence_event",
+      "pair": "event",
+      "reportAssertions": [
+        {
+          "path": "/eventBindingPresent",
+          "value": true
+        },
+        {
+          "path": "/eventAssociation",
+          "value": "UNAVAILABLE"
+        }
+      ],
+      "expect": {
+        "componentResult": "MATCH",
+        "mismatches": []
+      }
+    },
+    {
+      "name": "other_valid_branch_rejected_before_type_comparison",
+      "pair": "intended",
+      "resultEdits": [
+        {
+          "op": "set",
+          "path": "/assertionType",
+          "value": "STRUCTURE_ASSERTION"
+        },
+        {
+          "op": "set",
+          "path": "/subjectTime",
+          "value": {
+            "profile": "STRUCTURE_AS_OF",
+            "at": "2026-09-20T12:00:00Z"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/assertionBody",
+          "value": {
+            "assertionPosture": "INITIAL",
+            "claimText": "Fictional structural claim.",
+            "applicability": {
+              "profile": "STRUCTURE_AS_OF",
+              "at": "2026-09-20T12:00:00Z"
+            }
+          }
+        },
+        {
+          "op": "remove",
+          "path": "/operationClaimContext"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "resultBody",
+        "schemaError": {
+          "instancePath": [],
+          "keyword": "additionalProperties"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_symmetric_absence_mismatch",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/5/outcome",
+          "value": "MISMATCH"
+        },
+        {
+          "op": "set",
+          "path": "/componentResult",
+          "value": "MISMATCH"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            5,
+            "outcome"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_direct_adds_reference",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/evidenceRef",
+          "value": "AR_BODY.copy"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            0
+          ],
+          "keyword": "additionalProperties"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_required_both_absent",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/0/sourcePresent",
+          "value": false
+        },
+        {
+          "op": "set",
+          "path": "/checks/0/resultPresent",
+          "value": false
+        },
+        {
+          "op": "remove",
+          "path": "/checks/0/sourceDigest"
+        },
+        {
+          "op": "remove",
+          "path": "/checks/0/resultDigest"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            0,
+            "sourcePresent"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_dangling_payload_reference",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/17/evidenceRef",
+          "value": "AR_DOES_NOT_EXIST"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            17,
+            "evidenceRef"
+          ],
+          "keyword": "const"
+        }
+      }
+    },
+    {
+      "name": "report_integrity_optional_both_absent_with_digests",
+      "pair": "intended",
+      "reportEdits": [
+        {
+          "op": "set",
+          "path": "/checks/5/sourceDigest",
+          "value": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "op": "set",
+          "path": "/checks/5/resultDigest",
+          "value": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      ],
+      "expectError": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA",
+        "target": "report",
+        "schemaError": {
+          "instancePath": [
+            "checks",
+            5
+          ],
+          "keyword": "not"
+        }
+      }
     }
-  ]
+  ],
+  "reviewCorrectionControls": {
+    "basis": "PR45 B1/F1/F2/F3/P1; original 74 cases and all pairs preserved.",
+    "calendar": "Three impossible dates on assertedAt, subject instant/start and body-time start, each side and both sides, plus valid leap-date companions.",
+    "report": "Independently specified mutations of a completed report; not recovered missing reviewer examples.",
+    "expectError": "Exact layer/code/target and, for schema controls, relevant instance path and keyword. Original 74 full error witnesses remain unchanged.",
+    "scope": "All cases are offline structural/mapping controls; no foreign semantic PASS.",
+    "independentProbeBasis": "Independent correction-batch review preflight supplied S01-S16 schema relationships and P01-P03 procedural limits; original posted detailed sections remain missing."
+  }
 }

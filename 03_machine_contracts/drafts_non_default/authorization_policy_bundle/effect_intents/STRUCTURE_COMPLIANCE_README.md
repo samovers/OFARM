@@ -46,7 +46,20 @@ scope kinds, exact immutable selector, tenant, optional twin and immutable
 proof bindings. This reference shares the existing resource shape; it does not
 import the operation action's approval or timing semantics.
 
-The proposed assertion ID appears only in `effectSubject.subjectRef`.
+This intentionally pins the **whole operation-schema file**, not a fragment
+digest. Even an unrelated comment-only change to that file invalidates its
+exact-byte dependency. A compatible replacement requires explicit review and
+repinning of both inactive schemas, their descriptor/fixture/manifest and
+downstream consumers such as PR45. No silent digest refresh or schema-owner
+restructure is implied. A future shared-shape extraction would be a separately
+scoped dependency choice; this correction retains the existing ownership.
+
+The layout places the proposed assertion ID in `effectSubject.subjectRef`
+and has no separate top-level result-ID mirror. This is not a universal
+prohibition on equal ref strings elsewhere: other subject/evidence/proof/rule
+bindings may contain that same string. Only the existing correction comparison
+explicitly prohibits it as the superseded assertion ref. Immutable resolution
+and prospective-identity truth remain separately owned.
 The assertion's typed `subject` is distinct from that future assertion record.
 Existing subjects carry one immutable selector; prospective subjects carry
 none. The local checker rejects a prospective subject whose kind/ref equals
@@ -102,6 +115,32 @@ Its schema negatives identify their precise rejection witness. Whole-intent
 digest controls cover content that may change the proposed effect even when
 the extracted authorization view is unchanged.
 
+Every new-fixture `additionalProperties` witness names `unexpectedProperty`.
+The checker matches that exact member against the validation error's instance
+and governing schema, as well as keyword and complete instance/schema paths;
+another unknown member cannot satisfy it. Older witnesses without this optional
+field retain their existing matching behavior. The inactive suite requires it
+for its unknown-field schema cases and commits controls for all 46 renamed
+members, wrong paths/keywords/property names, missing witnesses and missing
+unexpected-property names. These controls test the harness, not domain policy.
+
+The descriptor's requirement IDs map explicitly to failure layers/codes:
+
+| Inactive requirement | Failure layer/code |
+| --- | --- |
+| TIME_ORDER | SCHEMA/SCHEMA for invalid timestamp syntax/calendar; COMPONENT/INTERVAL_ORDER for non-increasing valid endpoints |
+| BODY_TIME_EQUALITY | COMPONENT/APPLICABILITY_TIME_EQUALITY for unequal complete body applicability and subjectTime |
+| PROSPECTIVE_SUBJECT_NON_COLLISION | COMPONENT/PROSPECTIVE_SUBJECT_IS_ANCHOR or COMPONENT/PROSPECTIVE_SUBJECT_IS_CONTEXT |
+| SUBJECT_SCOPE_PROOF | COMPONENT/SUBJECT_SCOPE_PROOF_ABSENCE for an unnecessary proof; COMPONENT/SUBJECT_SCOPE_PROOF_REQUIRED for a missing required proof |
+| CORRECTION_SELF_REFERENCE | COMPONENT/CORRECTION_SELF_REFERENCE |
+
+Schema preflight runs first; an empty or malformed present proof array fails
+SCHEMA/SCHEMA before those cross-field codes. The unchanged operation
+descriptor uses BODY_TIME_EQUALITY for a different, explicit comparison:
+when temporalBasis.sourceKind is BODY_TIME, temporalBasis.time must equal
+subjectTime, emitting COMPONENT/BODY_TIME_EQUALITY. Requirement IDs are local
+to their descriptor and are not interchangeable error codes. No check is weakened.
+
 Run the existing and new input suites from the repository root:
 
 ```sh
@@ -123,6 +162,40 @@ offline assertion-act evidence, correction snapshot/context proof and optional
 event subtype/time/dominant-context compatibility remain separately owned.
 Operation foreign time qualifiers and their absent-value meaning are unchanged.
 
+**Event/body closure — DC-02 remains unapproved.** PR23 section 7.3 requires
+body-owned exact envelope time selectors and a predicate relating the exact
+claim to `eventSubtypeId` and `dominantSemanticConsequence`. The pinned PR41
+structure/compliance bodies supply neither the required selector definitions
+nor that compatibility predicate. For AS_OF, the body must fix one allowed
+eventTime/observationTime/decisionTime/effectiveFrom selector; EFFECTIVE_FROM
+uses effectiveFrom, and EFFECTIVE_INTERVAL uses effectiveFrom/effectiveUntil,
+all under `/timeSemantics/`, with exact subject-time equality. Event Ingress
+family equality and schema-valid bindings cannot supply the missing guarantee.
+Presence therefore has no complete domain compatibility PASS through this input
+component; absence alone legitimately makes event association not applicable.
+The optional binding remains allowed here exactly as before.
+
+The separately proposed DC-02 absence-only initial contract would require an
+explicit source-owner narrowing; it is not adopted here. Its full-event
+alternative requires separately approved body-owned claim meaning, fixed time
+selectors, subtype/dominant-context predicates and subject-relationship proofs,
+materialized in new immutable body/contract versions before mechanical input
+repinning. A family allowlist, caller Boolean or a new body language added by
+this input correction cannot close that gap. Both routes remain source-owner
+choices; no event allowance changes in this PR.
+
+**Subject kinds and claim whitespace remain pending source-owner choices.**
+Both profiles inherit PR41's shared subject kinds: FARM, SITE, FIELD, ZONE,
+CROP_CYCLE, LOT, FACILITY, OPERATION and INPUT. This includes INPUT and OPERATION
+for structure/compliance; it is inherited syntax, not a demonstrated
+action-specific suitability decision. PR23 section 5.2 assigns closure of
+permitted subject kinds to the action-bound body schema. The domain/body owner
+must explicitly confirm or revise the branch-specific set before semantic
+closure. Likewise `claimText` has minLength 1, so whitespace-only strings pass
+shape validation and are preserved exactly. Whether to require meaningful
+non-whitespace content needs the source owner's rule; this PR neither trims
+claims nor narrows the shared body schema.
+
 The domain owner must bind all three intent/body profiles into the unchanged
 full protected-effect contract and supply the actual AR_*/PC_* payload.
 PR43's declared payload-subject comparisons remain available, but copied labels
@@ -137,4 +210,3 @@ endpoint or runtime capability changes. OFARM2 #392/#396 stays parked.
 
 Next: review and freeze these exact inactive input bindings, then consume them
 in the separately owned full three-branch domain contract and payload.
-

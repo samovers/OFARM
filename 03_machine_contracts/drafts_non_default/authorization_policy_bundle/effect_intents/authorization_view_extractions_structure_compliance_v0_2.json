@@ -440,7 +440,19 @@
         "EI_STRUCTURE_ASSERTION_V0_2",
         "EI_COMPLIANCE_ASSERTION_V0_2"
       ],
-      "requirement": "Canonical calendar-valid timestamps; any subject/body interval start is strictly before end with exact nanosecond precision."
+      "requirement": "Canonical calendar-valid timestamps; any subject/body interval start is strictly before end with exact nanosecond precision.",
+      "failureCodes": [
+        {
+          "layer": "SCHEMA",
+          "code": "SCHEMA",
+          "when": "Timestamp syntax/calendar validation fails before cross-field checks; witness keyword is pattern or format as applicable."
+        },
+        {
+          "layer": "COMPONENT",
+          "code": "INTERVAL_ORDER",
+          "when": "A schema-valid subject/body interval does not satisfy start < end at nanosecond precision."
+        }
+      ]
     },
     {
       "id": "BODY_TIME_EQUALITY",
@@ -448,7 +460,14 @@
         "EI_STRUCTURE_ASSERTION_V0_2",
         "EI_COMPLIANCE_ASSERTION_V0_2"
       ],
-      "requirement": "The complete /assertionBody/applicability object equals /subjectTime exactly. No normalization, default qualifier or foreign temporal inference."
+      "requirement": "The complete /assertionBody/applicability object equals /subjectTime exactly. No normalization, default qualifier or foreign temporal inference.",
+      "failureCodes": [
+        {
+          "layer": "COMPONENT",
+          "code": "APPLICABILITY_TIME_EQUALITY",
+          "when": "The complete /assertionBody/applicability and /subjectTime values differ for these inactive profiles."
+        }
+      ]
     },
     {
       "id": "PROSPECTIVE_SUBJECT_NON_COLLISION",
@@ -456,7 +475,19 @@
         "EI_STRUCTURE_ASSERTION_V0_2",
         "EI_COMPLIANCE_ASSERTION_V0_2"
       ],
-      "requirement": "A PROSPECTIVE_SUBJECT's exact subjectType/subjectRef pair differs from the existing target scope's scopeType/scopeRef and every existing typed assertionBody/contextBindings role/ref pair. This local comparison does not prove global non-existence."
+      "requirement": "A PROSPECTIVE_SUBJECT's exact subjectType/subjectRef pair differs from the existing target scope's scopeType/scopeRef and every existing typed assertionBody/contextBindings role/ref pair. This local comparison does not prove global non-existence.",
+      "failureCodes": [
+        {
+          "layer": "COMPONENT",
+          "code": "PROSPECTIVE_SUBJECT_IS_ANCHOR",
+          "when": "The prospective subject kind/ref equals the authority anchor kind/ref."
+        },
+        {
+          "layer": "COMPONENT",
+          "code": "PROSPECTIVE_SUBJECT_IS_CONTEXT",
+          "when": "The prospective subject kind/ref equals an immutable typed body-context role/ref."
+        }
+      ]
     },
     {
       "id": "SUBJECT_SCOPE_PROOF",
@@ -464,7 +495,19 @@
         "EI_STRUCTURE_ASSERTION_V0_2",
         "EI_COMPLIANCE_ASSERTION_V0_2"
       ],
-      "requirement": "Compare /subject to /resources/0/scope using exact kind, ref and selector. If an EXISTING_SUBJECT is identical, subjectScopeProofBindings is absent; otherwise it is nonempty. No resolver success is inferred."
+      "requirement": "Compare /subject to /resources/0/scope using exact kind, ref and selector. If an EXISTING_SUBJECT is identical, subjectScopeProofBindings is absent; otherwise it is nonempty. No resolver success is inferred.",
+      "failureCodes": [
+        {
+          "layer": "COMPONENT",
+          "code": "SUBJECT_SCOPE_PROOF_ABSENCE",
+          "when": "An exactly identical existing subject/anchor, including selector, carries subjectScopeProofBindings."
+        },
+        {
+          "layer": "COMPONENT",
+          "code": "SUBJECT_SCOPE_PROOF_REQUIRED",
+          "when": "A non-identical subject/anchor lacks subjectScopeProofBindings; a present empty/invalid array already fails SCHEMA."
+        }
+      ]
     },
     {
       "id": "CORRECTION_SELF_REFERENCE",
@@ -472,7 +515,14 @@
         "EI_STRUCTURE_ASSERTION_V0_2",
         "EI_COMPLIANCE_ASSERTION_V0_2"
       ],
-      "requirement": "If present, /supersedesAssertionRecordBinding/ref differs from /effectSubject/subjectRef. Prior committed-record eligibility remains a domain/transaction owner obligation."
+      "requirement": "If present, /supersedesAssertionRecordBinding/ref differs from /effectSubject/subjectRef. Prior committed-record eligibility remains a domain/transaction owner obligation.",
+      "failureCodes": [
+        {
+          "layer": "COMPONENT",
+          "code": "CORRECTION_SELF_REFERENCE",
+          "when": "The superseded record ref equals the proposed assertion effect-subject ref."
+        }
+      ]
     }
   ],
   "applicability": {
@@ -514,5 +564,10 @@
     "FULL_THREE_ASSERTION_DOMAIN_BINDING_CLOSURE",
     "COMPLETE_SELECTED_RULES_RELEVANT_STATE_PROJECTION_AND_RELEASE_MANIFEST",
     "FRESH_HUMAN_APPROVAL_AND_SEPARATELY_APPROVED_TRANSACTION_PATH"
-  ]
+  ],
+  "requirementFailureCodePolicy": {
+    "scope": "Requirement IDs are local to this descriptor, not universal error codes. Schema validation always precedes the listed component checks; malformed prerequisite shapes fail SCHEMA first.",
+    "inactiveTimeEquality": "Here BODY_TIME_EQUALITY means /assertionBody/applicability == /subjectTime and emits COMPONENT/APPLICABILITY_TIME_EQUALITY.",
+    "preservedOperationTimeEquality": "In the unchanged operation descriptor, BODY_TIME_EQUALITY applies only when /assertionBody/temporalBasis/sourceKind is BODY_TIME; /assertionBody/temporalBasis/time == /subjectTime emits COMPONENT/BODY_TIME_EQUALITY."
+  }
 }

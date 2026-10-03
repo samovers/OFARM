@@ -311,6 +311,16 @@ def error_tree(errors):
 
 def matches_error(error, witness):
     keyword = 'falseSchema' if error.schema is False else error.validator
+    unexpected = witness.get('unexpectedProperty')
+    if 'unexpectedProperty' in witness:
+        # Check the named member against this error's actual object and schema,
+        # not a substring which could name a different member in the message.
+        if (keyword != 'additionalProperties' or error.validator_value is not False
+                or not isinstance(unexpected, str) or not isinstance(error.instance, dict)
+                or unexpected not in error.instance
+                or unexpected in error.schema.get('properties', {})
+                or any(re.search(pattern, unexpected) for pattern in error.schema.get('patternProperties', {}))):
+            return False
     return (list(error.absolute_path) == witness['instancePath']
             and list(error.absolute_schema_path) == witness['schemaPath']
             and keyword == witness['keyword']
@@ -318,8 +328,26 @@ def matches_error(error, witness):
                  or error.message == repr(witness['missingProperty']) + ' is a required property'))
 
 
+def require_schema_witness(case):
+    if case['expect'] != {'layer': 'SCHEMA', 'code': 'SCHEMA'}:
+        return
+    require('schemaError' in case, 'HARNESS', 'SCHEMA_WITNESS_REQUIRED', case['name'])
+    witness = case['schemaError']
+    if witness['keyword'] == 'additionalProperties':
+        require(isinstance(witness.get('unexpectedProperty'), str) and bool(witness['unexpectedProperty']),
+                'HARNESS', 'UNEXPECTED_PROPERTY_WITNESS_REQUIRED', case['name'])
+
+
 def run_case(case, data, validators, descriptor, artifacts, root):
+    if data['extractorPath'] == INACTIVE_EXTRACTOR:
+        require_schema_witness(case)
     kind = case['kind']
+    if kind == 'witness-control':
+        require(data['extractorPath'] == INACTIVE_EXTRACTOR, 'HARNESS', 'WITNESS_CONTROL_PROFILE')
+        targets = [c for c in data['cases'] if c['name'] == case['caseName']]
+        require(len(targets) == 1 and targets[0]['expect'] == {'layer': 'SCHEMA', 'code': 'SCHEMA'}
+                and targets[0]['kind'] != 'witness-control', 'HARNESS', 'WITNESS_CONTROL_TARGET')
+        return run_case(changed(targets[0], case['caseEdits']), data, validators, descriptor, artifacts, root)
     if kind == 'json':
         return strict_loads(case['raw'])
     if kind == 'pointer':
@@ -404,9 +432,8 @@ def main():
             'HARNESS', 'MISSING_CONTROLS')
     inactive = data['extractorPath'] == INACTIVE_EXTRACTOR
     if inactive:
-        require(all('schemaError' in c for c in data['cases']
-                    if isinstance(c['expect'], dict) and c['expect']['layer'] == 'SCHEMA'),
-                'HARNESS', 'SCHEMA_WITNESS_REQUIRED')
+        for case in data['cases']:
+            require_schema_witness(case)
     counts, layers, failures, read_pairs = Counter(), Counter(), [], set()
     coverage = {k: set() for k in ('scopes', 'times', 'subjects', 'acts', 'postures', 'selectors')}
     for case in data['cases']:
@@ -467,6 +494,8 @@ def main():
                       'readKindFormPairs': len(read_pairs),
                       'inactiveCoverage': {k: len(v) for k, v in coverage.items()} if inactive else None,
                       'schemaRejectionWitnesses': sum('schemaError' in c for c in data['cases']),
+                      **({'schemaWitnessControls': sum(c['kind'] == 'witness-control' for c in data['cases'])}
+                         if inactive else {}),
                       'failures': failures,
                       'artifactPins': data['artifactPins'], 'deferredGuarantees': data['deferredGuarantees'],
                       'limit': 'Fictional input shapes, exact identity extraction and byte integrity only. Query compatibility, authority, foreign proofs, trusted time, transaction and disclosure remain deferred.'}, indent=2))

@@ -24,7 +24,7 @@ except ImportError as error:
 ROOT = Path(__file__).resolve().parents[2]
 DIRECTORY = '03_machine_contracts/drafts_non_default/assertion_record_submission/domain_validation/'
 MANIFEST = DIRECTORY + 'ASSERTION_RECORD_DOMAIN_MAPPING_manifest_v0_1.json'
-MANIFEST_SHA256 = '79f81c58aff8e920e20b90772cdef04c931f8645086afac56a2d0c656b820b64'
+MANIFEST_SHA256 = '0f39fdbaac4b29f2780e416f3a2aef96c55fab91d283f44ca5237960a4641dff'
 CASES = '04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_AssertionRecord_domain_mapping_cases_v0_1.json'
 
 
@@ -41,11 +41,11 @@ class MappingError(ValueError):
         return {'componentResult': 'UNAVAILABLE', 'fullDomainValidation': 'UNAVAILABLE', 'error': error}
 
 
-def file_bytes(path, target):
+def file_bytes(path, target, *, layer='DEPENDENCY'):
     try:
         return path.read_bytes()
     except OSError as error:
-        raise MappingError('DEPENDENCY', 'FILE_UNAVAILABLE', target) from error
+        raise MappingError(layer, 'FILE_UNAVAILABLE', target) from error
 
 
 def value_digest(value):
@@ -103,6 +103,14 @@ class Component:
             raise MappingError('DEPENDENCY', error.code, 'schemaRegistry') from error
         self.schemas = {role: artifacts[pin['path']] for role, pin in self.pins.items() if role.endswith('Schema')}
         formats = FormatChecker()
+
+        @formats.checks('date-time', raises=(ValueError, TypeError))
+        def calendar(value):
+            if not isinstance(value, str):
+                return True  # The schema's type constraint owns non-strings.
+            self.result_support.timestamp_ns(value)
+            return True
+
         self.validators = {role: Draft202012Validator(schema, registry=registry, format_checker=formats)
                            for role, schema in self.schemas.items()}
         self.body_validator = Draft202012Validator(
@@ -139,6 +147,23 @@ class Component:
                 'schemaDigest': 'sha256:' + self.pins[role]['sha256'],
                 'canonicalization': 'JCS_RFC8785_SHA256'}
 
+    def _validate_report(self, report):
+        """Check report consistency, not the truth of its claimed input digests.
+
+        Draft 2020-12 cannot compare arbitrary digest strings across properties.
+        The schema owns fixed relationships; this check owns digest equality.
+        Re-run verify on the original bytes to substantiate a supplied report.
+        """
+        schema_check(self.validators['reportSchema'], report, 'report')
+        for item in report['checks']:
+            if 'sourcePresent' not in item:
+                continue
+            equal = (item['sourcePresent'] == item['resultPresent'] and
+                     (not item['sourcePresent'] or item['sourceDigest'] == item['resultDigest']))
+            if (item['outcome'] == 'MATCH') != equal:
+                raise MappingError('REPORT_INTEGRITY', 'DIGEST_OUTCOME_CONTRADICTION', item['id'])
+        return report
+
     def verify(self, intent_bytes, result_bytes):
         """Return a schema-validated MATCH/MISMATCH report, or raise MappingError."""
         intent, result = self.decode(intent_bytes, 'intent'), self.decode(result_bytes, 'result')
@@ -166,7 +191,7 @@ class Component:
 
         checks, by_id = [], {}
         for row in self.manifest['mappings']:
-            item = {'id': row['subcheckId']}
+            item = {'id': row['subcheckId'], 'obligationIds': row['obligationIds']}
             mode = row['mode']
             if mode in ('reuse_schema_and_comparison', 'coverage_reference'):
                 item.update(outcome=by_id[row['comparisonRef']]['outcome'], evidenceRef=row['comparisonRef'])
@@ -205,9 +230,12 @@ class Component:
             'schemaValidation': {'intent': True, 'result': True, 'resultBody': True},
             'localConsistency': {'intent': True, 'result': True},
             'checks': checks, 'unavailable': self.manifest['unavailable'],
+            'arTraceability': self.manifest['arTraceability'],
+            'eventBindingPresent': 'associatedSemanticEventBinding' in intent,
+            'eventAssociation': ('UNAVAILABLE' if 'associatedSemanticEventBinding' in intent
+                                 else 'NOT_SUPPLIED'),
         }
-        schema_check(self.validators['reportSchema'], report, 'report')
-        return report
+        return self._validate_report(report)
 
 
 def verify(intent_bytes, result_bytes, *, root=ROOT):
@@ -218,7 +246,8 @@ def verify(intent_bytes, result_bytes, *, root=ROOT):
 def run_cases(root=ROOT, path=None):
     """Fixture expectations are explicit, independently authored outcomes."""
     root = Path(root)
-    data = json.loads(file_bytes(Path(path) if path else root / CASES, 'cases'))
+    data = json.loads(file_bytes(Path(path) if path else root / CASES, 'cases',
+                                layer='INPUT' if path else 'DEPENDENCY'))
     component = Component(root)
     if len({c['name'] for c in data['cases']}) != len(data['cases']):
         raise MappingError('HARNESS', 'DUPLICATE_CASE_NAME', 'cases')
@@ -232,6 +261,10 @@ def run_cases(root=ROOT, path=None):
             for target in ('intent', 'result'):
                 if target + 'Raw' in case:
                     raw[target] = case[target + 'Raw'].encode()
+            if 'callerFile' in case:
+                with tempfile.TemporaryDirectory(prefix='ofarm-mapping-input-') as directory:
+                    file_bytes(Path(directory) / 'missing.json', case['callerFile'], layer='INPUT')
+                raise MappingError('HARNESS', 'EXPECTED_MISSING_FILE', case['callerFile'])
             if 'dependency' in case:
                 with tempfile.TemporaryDirectory(prefix='ofarm-mapping-case-') as directory:
                     temp = Path(directory)
@@ -249,7 +282,10 @@ def run_cases(root=ROOT, path=None):
                 report = component.verify(raw['intent'], raw['result'])
             if 'reportEdits' in case:
                 changed_report = component.intent_support.changed(report, case['reportEdits'])
-                schema_check(component.validators['reportSchema'], changed_report, 'report')
+                component._validate_report(changed_report)
+            for assertion in case.get('reportAssertions', []):
+                if component.intent_support.pointer(report, assertion['path']) != assertion['value']:
+                    raise MappingError('HARNESS', 'REPORT_ASSERTION', assertion['path'])
             mismatches = [c['id'] for c in report['checks'] if c['outcome'] == 'MISMATCH']
             actual = {'componentResult': report['componentResult'], 'mismatches': mismatches}
             assert report['fullDomainValidation'] == 'UNAVAILABLE'
@@ -262,8 +298,21 @@ def run_cases(root=ROOT, path=None):
         except MappingError as error:
             actual = error.as_dict()
             evidence.append({'name': case['name'], 'actual': actual})
-        if actual != case['expect']:
-            failures.append({'name': case['name'], 'expected': case['expect'], 'actual': actual})
+        if 'expectError' in case:
+            expected = case['expectError']
+            valid_expectation = set(expected) in ({'layer', 'code', 'target'},
+                                                  {'layer', 'code', 'target', 'schemaError'})
+            found = actual.get('error', {})
+            matches = valid_expectation and actual['componentResult'] == 'UNAVAILABLE'
+            for key, value in expected.items():
+                if key == 'schemaError':
+                    matches = matches and all(found.get(key, {}).get(k) == v for k, v in value.items())
+                else:
+                    matches = matches and found.get(key) == value
+        else:
+            expected, matches = case['expect'], actual == case['expect']
+        if not matches:
+            failures.append({'name': case['name'], 'expected': expected, 'actual': actual})
         counts[actual['componentResult']] += 1
     return {'result': 'FAIL' if failures else 'PASS', 'cases': len(data['cases']),
             'outcomes': dict(counts), 'failures': failures, 'evidence': evidence,
@@ -280,7 +329,8 @@ def main(argv=None):
         parser.error('Use --intent and --result together, or --cases.')
     try:
         if args.intent:
-            report = verify(file_bytes(args.intent, 'intent'), file_bytes(args.result, 'result'))
+            report = verify(file_bytes(args.intent, 'intent', layer='INPUT'),
+                            file_bytes(args.result, 'result', layer='INPUT'))
             status = 0 if report['componentResult'] == 'MATCH' else 1
         else:
             report = run_cases(path=args.cases)
