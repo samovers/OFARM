@@ -16,6 +16,17 @@ from urllib.parse import urldefrag, urljoin
 
 ROOT = Path(__file__).resolve().parents[2]
 CASE_PATH = '04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_AuthorizationEffectIntent_cases_v0_2.json'
+INTENT_DIR = '03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/'
+ORIGINAL_EXTRACTOR = INTENT_DIR + 'authorization_view_extractions_v0_2.json'
+INACTIVE_EXTRACTOR = INTENT_DIR + 'authorization_view_extractions_structure_compliance_v0_2.json'
+PROFILE_SETS = {
+    ORIGINAL_EXTRACTOR: {'EI_OPERATION_ASSERTION_V0_2': 'ASSERT_OPERATION_CLAIM',
+                         'EI_DATA_READ_V0_2': 'RECEIVE_READ_DATA'},
+    INACTIVE_EXTRACTOR: {'EI_STRUCTURE_ASSERTION_V0_2': 'ASSERT_STRUCTURE',
+                         'EI_COMPLIANCE_ASSERTION_V0_2': 'ASSERT_COMPLIANCE'},
+}
+SCOPE_KINDS = {'FARM', 'SITE', 'FIELD', 'ZONE', 'CROP_CYCLE', 'LOT', 'FACILITY',
+               'OPERATION', 'DEPLOYMENT', 'TENANT'}
 STAMP = re.compile(r'([0-9]{4})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})(?:\.([0-9]{0,8}[1-9]))?Z\Z')
 
 
@@ -165,12 +176,12 @@ def load_artifacts(root, pins, overrides=None):
 
 
 
-def verify_descriptor(descriptor, schemas, pins):
+def verify_descriptor(descriptor, schemas, pins, extractor_path=ORIGINAL_EXTRACTOR):
     require(descriptor['status'] == 'DRAFT_NON_DEFAULT_INCOMPLETE_NON_EXECUTABLE',
             'BINDING', 'DESCRIPTOR_POSTURE')
     profiles = descriptor['profiles']
-    required_profiles = {'EI_OPERATION_ASSERTION_V0_2': 'ASSERT_OPERATION_CLAIM',
-                         'EI_DATA_READ_V0_2': 'RECEIVE_READ_DATA'}
+    require(extractor_path in PROFILE_SETS, 'BINDING', 'EXTRACTOR_SET')
+    required_profiles = PROFILE_SETS[extractor_path]
     require(len(profiles) == 2 and {p['profileId']: p['actionClass'] for p in profiles} == required_profiles,
             'BINDING', 'PROFILE_SET')
     by_id = {p['schemaId']: p for p in pins if p['kind'] == 'schema'}
@@ -189,6 +200,12 @@ def verify_descriptor(descriptor, schemas, pins):
 
     for profile in profiles:
         value = profile['intentSchemaBinding']
+        if extractor_path == INACTIVE_EXTRACTOR:
+            branch = profile['profileId'].split('_')[1].lower()
+            require(value['schemaRef'] == 'https://ofarm.dev/schema/drafts/non-default/'
+                    'authorization-policy-bundle/' + branch + '-assertion-effect-intent/v0.2'
+                    and value['schemaVersion'] == 'ofarm.' + branch + 'assertioneffectintent.v0.2',
+                    'BINDING', 'PROFILE_SCHEMA')
         binding(value)
         require(value['profileId'] == profile['profileId'] and value['canonicalization'] == 'JCS_RFC8785_SHA256'
                 and profile['schemaDigestBasis'] == 'EXACT_FILE_BYTES_SHA256', 'BINDING', 'PROFILE_BINDING')
@@ -256,7 +273,7 @@ def extract(value, profile):
 
 
 def check_component(profile_id, value):
-    if profile_id != 'EI_OPERATION_ASSERTION_V0_2':
+    if profile_id not in {'EI_OPERATION_ASSERTION_V0_2', *PROFILE_SETS[INACTIVE_EXTRACTOR]}:
         return
     for node in objects(value):
         if 'profile' in node and 'start' in node and 'end' in node:
@@ -277,9 +294,28 @@ def check_component(profile_id, value):
             'SUBJECT_SCOPE_PROOF_ABSENCE' if same else 'SUBJECT_SCOPE_PROOF_REQUIRED')
     prior = value.get('supersedesAssertionRecordBinding')
     require(prior is None or prior['ref'] != value['effectSubject']['subjectRef'], 'COMPONENT', 'CORRECTION_SELF_REFERENCE')
-    basis = value['assertionBody']['temporalBasis']
-    if basis['sourceKind'] == 'BODY_TIME':
-        require(basis['time'] == value['subjectTime'], 'COMPONENT', 'BODY_TIME_EQUALITY')
+    if profile_id == 'EI_OPERATION_ASSERTION_V0_2':
+        basis = value['assertionBody']['temporalBasis']
+        if basis['sourceKind'] == 'BODY_TIME':
+            require(basis['time'] == value['subjectTime'], 'COMPONENT', 'BODY_TIME_EQUALITY')
+    else:
+        require(value['assertionBody']['applicability'] == value['subjectTime'],
+                'COMPONENT', 'APPLICABILITY_TIME_EQUALITY')
+
+
+def error_tree(errors):
+    for error in errors:
+        yield error
+        yield from error_tree(error.context)
+
+
+def matches_error(error, witness):
+    keyword = 'falseSchema' if error.schema is False else error.validator
+    return (list(error.absolute_path) == witness['instancePath']
+            and list(error.absolute_schema_path) == witness['schemaPath']
+            and keyword == witness['keyword']
+            and ('missingProperty' not in witness
+                 or error.message == repr(witness['missingProperty']) + ' is a required property'))
 
 
 def run_case(case, data, validators, descriptor, artifacts, root):
@@ -296,6 +332,9 @@ def run_case(case, data, validators, descriptor, artifacts, root):
             require(rfc8785.dumps(case['value']).decode('utf-8') == case['expected'], 'CANONICAL', 'CANONICAL_VECTOR')
         return
     if kind == 'artifact':
+        if 'omitPin' in case:
+            load_artifacts(root, [p for p in data['artifactPins'] if p['path'] != case['omitPin']])
+            return
         path = case['path']
         raw = 'MISSING' if case.get('missing') else (root / path).read_bytes() + case['append'].encode()
         load_artifacts(root, data['artifactPins'], {path: raw})
@@ -303,19 +342,26 @@ def run_case(case, data, validators, descriptor, artifacts, root):
     fixture = data['fixtures'][case['fixture']]
     value = changed(fixture['value'], case.get('edits', []))
     profile_id = fixture['profile']
+    if 'schemaError' in case:
+        errors = list(validators[profile_id].iter_errors(value))
+        require(any(matches_error(error, case['schemaError']) for error in error_tree(errors)),
+                'HARNESS', 'SCHEMA_REJECTION_WITNESS', case['name'])
     try:
         validators[profile_id].validate(value)
     except ValidationError as error:
         raise CheckError('SCHEMA', 'SCHEMA', error.json_path + ': ' + error.message) from error
     check_component(profile_id, value)
     selected_descriptor = changed(descriptor, case.get('descriptorEdits', []))
-    verify_descriptor(selected_descriptor, artifacts, data['artifactPins'])
+    verify_descriptor(selected_descriptor, artifacts, data['artifactPins'], data['extractorPath'])
     profile = next(p for p in selected_descriptor['profiles'] if p['profileId'] == profile_id)
     view = extract(value, profile)
     if kind in ('extraction', 'descriptor'):
         expected = changed(fixture['expectedView'], case.get('viewEdits', []))
         require(digest(view) == digest(expected), 'EXTRACTION', 'VIEW_IDENTITY')
     elif kind == 'integrity':
+        if data['extractorPath'] == INACTIVE_EXTRACTOR:
+            expected = changed(fixture['expectedView'], case.get('viewEdits', []))
+            require(digest(view) == digest(expected), 'EXTRACTION', 'VIEW_IDENTITY')
         require(digest(value) == case['expectedDigest'], 'INTEGRITY', 'COMPLETE_INTENT_DIGEST')
     else:
         require(kind == 'component', 'HARNESS', 'UNKNOWN_CASE_KIND', kind)
@@ -340,7 +386,7 @@ def main():
     require(version('rfc8785') == '0.1.4', 'PREREQUISITE', 'CANONICALIZER_VERSION')
     artifacts, registry = load_artifacts(args.root, data['artifactPins'])
     descriptor = artifacts[data['extractorPath']]
-    verify_descriptor(descriptor, artifacts, data['artifactPins'])
+    verify_descriptor(descriptor, artifacts, data['artifactPins'], data['extractorPath'])
     formats = FormatChecker()
 
     @formats.checks('date-time', raises=(ValueError, TypeError))
@@ -356,7 +402,13 @@ def main():
     require(len(names) == len(set(names)), 'HARNESS', 'DUPLICATE_CASE_NAME')
     require(any(c['expect'] == 'PASS' for c in data['cases']) and any(c['expect'] != 'PASS' for c in data['cases']),
             'HARNESS', 'MISSING_CONTROLS')
+    inactive = data['extractorPath'] == INACTIVE_EXTRACTOR
+    if inactive:
+        require(all('schemaError' in c for c in data['cases']
+                    if isinstance(c['expect'], dict) and c['expect']['layer'] == 'SCHEMA'),
+                'HARNESS', 'SCHEMA_WITNESS_REQUIRED')
     counts, layers, failures, read_pairs = Counter(), Counter(), [], set()
+    coverage = {k: set() for k in ('scopes', 'times', 'subjects', 'acts', 'postures', 'selectors')}
     for case in data['cases']:
         try:
             run_case(case, data, validators, descriptor, artifacts, args.root)
@@ -370,6 +422,17 @@ def main():
         else:
             if case['expect'] == 'PASS':
                 counts['positiveCases'] += 1
+                if inactive and 'fixture' in case:
+                    fixture = data['fixtures'][case['fixture']]
+                    value = changed(fixture['value'], case.get('edits', []))
+                    profile = fixture['profile']
+                    scope = value['resources'][0]['scope']
+                    coverage['scopes'].add((profile, scope['scopeType']))
+                    coverage['times'].add(value['subjectTime']['profile'])
+                    coverage['subjects'].add((profile, value['subject']['subjectPosture']))
+                    coverage['acts'].add((profile, value['assertionActPosture']))
+                    coverage['postures'].add((profile, value['assertionBody']['assertionPosture']))
+                    coverage['selectors'].add((profile, 'digest' if 'digest' in scope else 'revisionRef'))
                 if 'readCoverage' in case:
                     value = data['fixtures'][case['fixture']]['value']
                     target = value['resources'][0]
@@ -378,13 +441,33 @@ def main():
                     read_pairs.add((target_kind, value['readForm']))
             else:
                 failures.append({'name': case['name'], 'expected': case['expect'], 'actual': 'ACCEPTED'})
-    expected_pairs = {(kind, form) for kind in data['requiredReadKinds'] for form in ('DIRECT', 'QUERY')}
-    require(len(expected_pairs) == 60, 'HARNESS', 'READ_KIND_SET')
-    if read_pairs != expected_pairs:
-        failures.append({'name': 'read-kind-form-coverage', 'missing': sorted(expected_pairs - read_pairs)})
+    if inactive:
+        profiles = PROFILE_SETS[INACTIVE_EXTRACTOR]
+        expected_coverage = {
+            'scopes': {(p, k) for p in profiles for k in SCOPE_KINDS},
+            'times': {b + '_' + t for b in ('STRUCTURE', 'COMPLIANCE')
+                      for t in ('AS_OF', 'EFFECTIVE_FROM', 'EFFECTIVE_INTERVAL')},
+            'subjects': {(p, s) for p in profiles for s in ('EXISTING_SUBJECT', 'PROSPECTIVE_SUBJECT')},
+            'acts': {(p, a) for p in profiles for a in ('TRUSTED_ONLINE_SUBMISSION', 'VERIFIED_OFFLINE_SUBMISSION')},
+            'postures': {(p, a) for p in profiles for a in ('INITIAL', 'CORRECTION')},
+            'selectors': {(p, s) for p in profiles for s in ('revisionRef', 'digest')},
+        }
+        for field, expected in expected_coverage.items():
+            if coverage[field] != expected:
+                failures.append({'name': 'inactive-' + field + '-coverage',
+                                 'missing': sorted(expected - coverage[field]),
+                                 'unexpected': sorted(coverage[field] - expected)})
+    else:
+        expected_pairs = {(kind, form) for kind in data['requiredReadKinds'] for form in ('DIRECT', 'QUERY')}
+        require(len(expected_pairs) == 60, 'HARNESS', 'READ_KIND_SET')
+        if read_pairs != expected_pairs:
+            failures.append({'name': 'read-kind-form-coverage', 'missing': sorted(expected_pairs - read_pairs)})
     print(json.dumps({'result': 'FAIL' if failures else 'PASS', 'profiles': len(validators),
                       'fixtures': len(data['fixtures']), **counts, 'negativeRejectionLayers': dict(layers),
-                      'readKindFormPairs': len(read_pairs), 'failures': failures,
+                      'readKindFormPairs': len(read_pairs),
+                      'inactiveCoverage': {k: len(v) for k, v in coverage.items()} if inactive else None,
+                      'schemaRejectionWitnesses': sum('schemaError' in c for c in data['cases']),
+                      'failures': failures,
                       'artifactPins': data['artifactPins'], 'deferredGuarantees': data['deferredGuarantees'],
                       'limit': 'Fictional input shapes, exact identity extraction and byte integrity only. Query compatibility, authority, foreign proofs, trusted time, transaction and disclosure remain deferred.'}, indent=2))
     return 1 if failures else 0

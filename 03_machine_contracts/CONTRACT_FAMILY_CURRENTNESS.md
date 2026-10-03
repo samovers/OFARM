@@ -218,7 +218,8 @@ binding, currentness promotion or runtime authority.
 
 ## AuthorizationPolicyBundle v0.2 effect-intent component (draft/non-default)
 
-Two intent schemas and identity-only extraction descriptors are proposed under
+Four intent schemas across the operation/read and inactive structure/compliance
+components, with identity-only extraction descriptors, are proposed under
 `drafts_non_default/authorization_policy_bundle/effect_intents/`. The component
 has no current/default schema, complete resolved rule or executable bundle.
 All existing family/default selections remain unchanged.

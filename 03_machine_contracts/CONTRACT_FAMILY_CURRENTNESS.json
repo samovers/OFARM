@@ -2016,14 +2016,16 @@
     {
       "family": "AuthorizationPolicyBundle",
       "currentDefaultSchema": null,
-      "draftNonDefaultCount": 2,
+      "draftNonDefaultCount": 4,
       "draftNonDefaultSchemas": [
         "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_OperationAssertionEffectIntent_schema_v0_2.json",
-        "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_DataReadEffectIntent_schema_v0_2.json"
+        "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_DataReadEffectIntent_schema_v0_2.json",
+        "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_StructureAssertionEffectIntent_schema_v0_2.json",
+        "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_ComplianceAssertionEffectIntent_schema_v0_2.json"
       ],
       "examples": [],
       "status": "draft_non_default_only",
-      "note": "Two effect-intent profiles and identity-only extraction component; not a complete resolved rule, policy bundle or executable release."
+      "note": "Operation/read and inactive structure/compliance effect-intent components; not a complete resolved rule, policy bundle or executable release."
     }
   ],
   "nonClaims": {
@@ -2089,7 +2091,7 @@
       "note": "QueryPlanIR and Capability Manifest performance-envelope extension drafts only; no current/default promotion."
     }
   ],
-  "generatedOrCuratedAt": "2026-10-03T00:00:00Z",
+  "generatedOrCuratedAt": "2026-10-03T14:54:24Z",
   "currentPackageIdentity": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "schemasMoved": false,
   "draftsMoved": false,
