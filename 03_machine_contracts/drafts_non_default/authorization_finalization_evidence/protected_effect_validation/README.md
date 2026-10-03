@@ -23,9 +23,12 @@ Those meanings remain with the protected-effect contract and payload owners.
 The required `selectedActionBodySchemaBinding` is separate from PR40's unchanged
 four-field contract binding. It must match both the separately supplied owner
 expectation and the body binding selected by the resolved contract for the same
-action. Recomputing valid hashes cannot excuse disagreement. The fictional
-single-body contract uses `bodySchemaBinding`; real action-specific selection
-remains an owner dependency.
+action. Recomputing valid hashes cannot excuse disagreement. The F4 correction
+also validates the bound result's actual `assertionBody` under that resolved
+selected schema, while retaining validation of the complete result. Matching
+bindings alone do not establish body conformance. The fictional single-body
+contract uses `bodySchemaBinding`; real action-specific selection remains an
+owner dependency. This schema-conformance check does not establish domain truth.
 
 Real closed domain payload schemas and the complete protected-effect contract
 remain unavailable. Explicitly fictional schemas and records used by the checker
@@ -78,12 +81,22 @@ mapping, exact construction, non-schema checks and owner dependencies.
 The independent runner is registered once in the existing repository suite.
 It uses real pinned local schemas and explicitly fictional foreign records.
 It compares carried bindings to separate fictional expected-context inputs,
-checks the selected body against the resolved fictional contract, checks the
-payload's schema/digest/copied verdict, and verifies the complete trace hash.
+checks the selected body binding against the resolved fictional contract,
+validates the actual bound body under that schema as well as the complete result,
+checks the payload's schema/digest/copied verdict, and verifies the complete trace hash.
 The harness does not produce trusted runtime context. Copying a changed trace
 into its expectation is not independent validation. DESIGN lists every concrete
 comparison and the domain and transaction relationships it cannot establish.
 Missing real foreign bytes remain unavailable, including for a FAIL trace.
+
+The F4 correction applies the already resolved selected-body validator to
+`result.value.assertionBody`. Its focused counterexample makes the trace, expected
+context and fictional contract all select `structureAssertionBody`, with honestly
+recomputed hashes, while the actual operation-claim body does not conform. The
+complete result remains valid under its result schema. The old checker accepted
+this counterexample. The corrected checker rejects it at `resultBody` with the
+exact root `additionalProperties` schema witness. Four ordinary before/after
+controls remain accepted in the frozen focused evidence.
 
 From the repository root with the existing validation dependencies:
 
@@ -93,15 +106,18 @@ python3 04_implementation_and_conformance/conformance_runners/ofarm_protected_ef
 python3 package_meta/tools/run_repository_validation_suite.py
 ```
 
-The runner passes 21 accepted controls and 243 expected rejections: 102 schema,
+The corrected runner passes 21 accepted controls and 244 expected rejections: 103 schema,
 62 binding, 46 integrity, 15 unavailable-dependency, 16 strict-JSON and two
-canonicalization cases. All 102 schema rejections require the intended target and
-exact error witness. These include 28 added controls; all 236 earlier case names
-remain. The repository suite retains its thirteen existing checks, including
-this runner. Separate checker evidence has seven paired witness controls and
-17 parser controls; those are not added to the 264-case total.
+canonicalization cases. All 103 schema rejections require the intended target and
+exact error witness. The one F4 case is added without changing any of the 264
+previous case objects, expectations or 102 schema witnesses. The repository suite
+retains its thirteen existing checks, including this runner. Separate checker evidence has seven paired witness controls and
+17 parser controls; those are not added to the 265-case total.
 
-The new controls cover selected-body omission and shape, mismatched independent
+The separate witness/parser evidence belongs to the earlier local checkpoint;
+it was not rerun for F4. Its absence from the repository clone remains tracked as preference P4.
+
+The preserved controls cover selected-body omission and shape, mismatched independent
 expectations, honestly re-finalized contract drift, missing schema fragments,
 schema-reference cycles and unsupported dynamic references. Oversized integers
 and deeply nested JSON now return the existing JSON rejection result rather than
@@ -114,16 +130,20 @@ fictional controls.
 
 ## Review status
 
-The first posted review identified the omitted selected action/body-schema
-binding; this correction supplies the binding and its finite integrity controls.
-The second review's visible B1 challenges replacing failed-attempt evidence under
-a new trace identity. Its old-head probe accepted separate FAIL and PASS
-envelopes with identical expected context. The envelope contains no attempt
-identity and performs no transaction admission, so individual consistency does
-not establish that the pair is admissible. Narrowed claims do not resolve B1.
-Detailed B1 and F1–F3 sections are absent from the posted review and remain
-unassessed. Transaction enforcement and truthful domain validation retain their
-existing owners.
+The complete re-review at `453bfe5` reports zero blockers, four follow-ups
+(B1, F1, F2, F4) and two preferences (P3, P4). The original selected-body binding
+blocker and P1/P2 are resolved; F3's remaining hygiene guards are now P3. All
+previously missing sections are supplied. The reviews use the author account;
+they do not establish an independent-review gate or formal approval.
 
-Next: review this bounded correction, obtain the missing review details and
-resolve the separate owner obligations before any governed binding or runtime use.
+F4 actual-body validation is corrected and passes the focused fictional controls;
+bounded review of the combined candidate remains pending. B1 remains a transaction
+integration follow-up: the envelope has no explicit attempt-ID field or authoritative attempt-history comparison, although
+its authorization-result binding supplies attempt-linkage material under the
+owner's non-reuse rules. Individual consistency does not establish admission,
+failure terminality or retry eligibility. F1 payload-subject binding, F2 recursive
+schema-closure claims, P3 optional hygiene coverage and P4 evidence reproducibility
+remain tracked. Their proposed interfaces and policies are not implemented by F4.
+
+Next: review the exact combined F4 candidate and its verification evidence before
+corrective publication. The other recorded owner obligations remain open.

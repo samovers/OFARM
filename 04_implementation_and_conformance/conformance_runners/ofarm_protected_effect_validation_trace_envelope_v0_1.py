@@ -283,10 +283,10 @@ def verify_integrity(scenario, data, artifacts, registry, validators, case):
             'BINDING', 'EXPECTED_CONTEXT_MISMATCH')
     require(digest(trace['domainPayload']['schemaBinding']) == digest(context['domainPayloadSchemaBinding']),
             'BINDING', 'EXPECTED_CONTEXT_MISMATCH')
-    for binding in (trace['effectIntentSchemaBinding'], trace['proposedResult']['resultSchemaBinding'],
-                    trace['selectedActionBodySchemaBinding'],
-                    trace['domainPayload']['schemaBinding']):
+    for binding in (trace['effectIntentSchemaBinding'], trace['proposedResult']['resultSchemaBinding']):
         schema_validator(binding, data, artifacts, registry)
+    selected_body_validator, _ = schema_validator(trace['selectedActionBodySchemaBinding'], data, artifacts, registry)
+    schema_validator(trace['domainPayload']['schemaBinding'], data, artifacts, registry)
 
     # These five projections belong ONLY to the explicitly fictional examples in this bundle.
     # Real authorization result/rule/bundle and protected-effect contract producers remain absent.
@@ -334,6 +334,7 @@ def verify_integrity(scenario, data, artifacts, registry, validators, case):
             and digest(contract['value']['resultSchemaBinding']) == digest(proposed['resultSchemaBinding'])
             and digest(contract['value']['payloadSchemaBinding']) == digest(trace['domainPayload']['schemaBinding']),
             'BINDING', 'TEST_ONLY_CONTRACT_SCHEMAS')
+    validate_shape(selected_body_validator, result['value']['assertionBody'], case, 'resultBody')
     payload = example_value(scenario, 'payload', data, artifacts, registry, case)
     payload_validator(trace['domainPayload']['schemaBinding'], data, artifacts, registry)
     require(digest(payload['schemaBinding']) == digest(trace['domainPayload']['schemaBinding']), 'BINDING', 'PAYLOAD_SCHEMA')
