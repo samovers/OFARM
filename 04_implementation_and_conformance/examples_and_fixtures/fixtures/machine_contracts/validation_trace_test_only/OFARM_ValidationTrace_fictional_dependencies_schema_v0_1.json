@@ -176,7 +176,11 @@
         "overallDisposition",
         "note",
         "orderedExamples",
-        "details"
+        "details",
+        "proposedResultDigest",
+        "effectIntentDigest",
+        "protectedEffectContractDigest",
+        "selectedActionBodySchemaBinding"
       ],
       "properties": {
         "fixtureOnly": {
@@ -219,6 +223,27 @@
               "minLength": 1
             }
           }
+        },
+        "proposedResultDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "minLength": 71,
+          "maxLength": 71
+        },
+        "effectIntentDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "minLength": 71,
+          "maxLength": 71
+        },
+        "protectedEffectContractDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "minLength": 71,
+          "maxLength": 71
+        },
+        "selectedActionBodySchemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
         }
       }
     },

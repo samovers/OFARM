@@ -243,10 +243,18 @@ def schema_validator(binding, data, artifacts, registry):
     return validator, target
 
 
-def payload_validator(binding, data, artifacts, registry):
-    validator, selected = schema_validator(binding, data, artifacts, registry)
+def validate_payload_interface(selected):
     require(selected.get('properties', {}).get('overallDisposition') == {'enum': ['PASS', 'FAIL']}
             and 'overallDisposition' in selected.get('required', []), 'BINDING', 'PAYLOAD_VERDICT_INTERFACE')
+    for field in ('proposedResultDigest', 'effectIntentDigest', 'protectedEffectContractDigest',
+                  'selectedActionBodySchemaBinding'):
+        require(field in selected.get('properties', {}) and field in selected.get('required', []),
+                'BINDING', 'PAYLOAD_SUBJECT_INTERFACE', field)
+
+
+def payload_validator(binding, data, artifacts, registry):
+    validator, selected = schema_validator(binding, data, artifacts, registry)
+    validate_payload_interface(selected)
     return validator
 
 
@@ -342,12 +350,25 @@ def verify_integrity(scenario, data, artifacts, registry, validators, case):
     require(digest(payload['value']) == trace['domainPayload']['digest'], 'INTEGRITY', 'PAYLOAD_DIGEST')
     require(pointer(payload['value'], trace['domainPayload']['overallDispositionPointer']) == trace['overallDisposition'],
             'BINDING', 'PAYLOAD_VERDICT_MISMATCH')
+    for field, expected, code in (
+            ('proposedResultDigest', proposed['resultDigest'], 'PAYLOAD_RESULT_SUBJECT_MISMATCH'),
+            ('effectIntentDigest', trace['effectIntent']['digest'], 'PAYLOAD_INTENT_SUBJECT_MISMATCH'),
+            ('protectedEffectContractDigest', cb['contractDigest'], 'PAYLOAD_CONTRACT_SUBJECT_MISMATCH'),
+            ('selectedActionBodySchemaBinding', trace['selectedActionBodySchemaBinding'], 'PAYLOAD_BODY_SUBJECT_MISMATCH')):
+        require(field in payload['value'] and digest(payload['value'][field]) == digest(expected),
+                'BINDING', code)
     verify_reference(trace, scenario['reference'], validators, case)
     return trace
 
 
 def run_case(case, data, artifacts, schemas, registry, validators, root):
     kind = case['kind']
+    if kind == 'payload-interface':
+        # Explicit helper controls edit only declaration metadata after pinned resolution.
+        # They do not claim to admit a different schema document through the hash boundary.
+        _, selected = schema_validator(case['binding'], data, artifacts, registry)
+        validate_payload_interface(changed(selected, case.get('schemaEdits', [])))
+        return
     if kind == 'json':
         strict_loads(bytes.fromhex(case['rawHex']) if 'rawHex' in case else case['raw'])
         return
