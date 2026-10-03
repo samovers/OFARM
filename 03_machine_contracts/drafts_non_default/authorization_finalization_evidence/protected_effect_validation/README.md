@@ -30,11 +30,18 @@ bindings alone do not establish body conformance. The fictional single-body
 contract uses `bodySchemaBinding`; real action-specific selection remains an
 owner dependency. This schema-conformance check does not establish domain truth.
 
-Real closed domain payload schemas and the complete protected-effect contract
+Real domain-owned payload schemas and the complete protected-effect contract
 remain unavailable. Explicitly fictional schemas and records used by the checker
 only demonstrate finite integrity controls; they cannot replace missing
 production artifacts. No network lookup, wildcard schema or successful fallback
 may stand in for an unavailable binding.
+
+For each selected schema, the resolved target must declare `type: object` and
+`additionalProperties: false`. These checks do not prohibit names admitted by
+`patternProperties` or establish recursive restrictions on nested objects. Those
+restrictions, including objects in arrays, remain with the selected schema's
+owner. Validation still applies all constraints present in that schema. Resolving every schema
+reference against pinned local documents is a separate dependency check.
 
 PR40's existing trace reference and trace/disposition wrapper can be checked
 against their actual preserved schema. Its complete admitted-result binding
@@ -72,7 +79,7 @@ decision and fresh validation/authorization evidence. Those guarantees remain
 UNAVAILABLE here.
 
 The proposed wire choices include one result per trace, exact full selectors,
-an external closed payload exposing `/overallDisposition`, and an external
+an external schema-bound payload exposing `/overallDisposition`, and an external
 content-addressed trace reference. [DESIGN.md](DESIGN.md) explains the source
 mapping, exact construction, non-schema checks and owner dependencies.
 
@@ -93,10 +100,9 @@ The F4 correction applies the already resolved selected-body validator to
 `result.value.assertionBody`. Its focused counterexample makes the trace, expected
 context and fictional contract all select `structureAssertionBody`, with honestly
 recomputed hashes, while the actual operation-claim body does not conform. The
-complete result remains valid under its result schema. The old checker accepted
-this counterexample. The corrected checker rejects it at `resultBody` with the
-exact root `additionalProperties` schema witness. Four ordinary before/after
-controls remain accepted in the frozen focused evidence.
+complete result remains valid under its result schema. The committed regression
+case `selected_body_agreement_rejects_nonconforming_actual_result_body` requires
+rejection at `resultBody` with the exact root `additionalProperties` witness.
 
 From the repository root with the existing validation dependencies:
 
@@ -109,13 +115,10 @@ python3 package_meta/tools/run_repository_validation_suite.py
 The corrected runner passes 21 accepted controls and 244 expected rejections: 103 schema,
 62 binding, 46 integrity, 15 unavailable-dependency, 16 strict-JSON and two
 canonicalization cases. All 103 schema rejections require the intended target and
-exact error witness. The one F4 case is added without changing any of the 264
-previous case objects, expectations or 102 schema witnesses. The repository suite
-retains its thirteen existing checks, including this runner. Separate checker evidence has seven paired witness controls and
-17 parser controls; those are not added to the 265-case total.
-
-The separate witness/parser evidence belongs to the earlier local checkpoint;
-it was not rerun for F4. Its absence from the repository clone remains tracked as preference P4.
+exact error witness. This wording correction preserves all 265 case objects,
+expected outcomes and exact witnesses. The repository suite retains its thirteen
+existing checks, including this runner. These verification claims refer to the
+committed fixture and the reproduction commands above.
 
 The preserved controls cover selected-body omission and shape, mismatched independent
 expectations, honestly re-finalized contract drift, missing schema fragments,
@@ -130,20 +133,24 @@ fictional controls.
 
 ## Review status
 
-The complete re-review at `453bfe5` reports zero blockers, four follow-ups
+The external re-review at `453bfe5` reported zero blockers, four follow-ups
 (B1, F1, F2, F4) and two preferences (P3, P4). The original selected-body binding
 blocker and P1/P2 are resolved; F3's remaining hygiene guards are now P3. All
 previously missing sections are supplied. The reviews use the author account;
 they do not establish an independent-review gate or formal approval.
 
-F4 actual-body validation is corrected and passes the focused fictional controls;
-bounded review of the combined candidate remains pending. B1 remains a transaction
+F4's later internal independent review cleared the exact correction, published
+at `e07a333`. That completed check is distinct from the earlier author-account
+GitHub feedback and does not create formal GitHub approval. This correction
+addresses F2 through accurate wording and P4 by removing public verification
+claims that depend on local-only evidence. It changes no schema constraints or
+checker behavior. B1 remains a transaction
 integration follow-up: the envelope has no explicit attempt-ID field or authoritative attempt-history comparison, although
 its authorization-result binding supplies attempt-linkage material under the
 owner's non-reuse rules. Individual consistency does not establish admission,
-failure terminality or retry eligibility. F1 payload-subject binding, F2 recursive
-schema-closure claims, P3 optional hygiene coverage and P4 evidence reproducibility
-remain tracked. Their proposed interfaces and policies are not implemented by F4.
+failure terminality or retry eligibility. F1 payload-subject binding and optional
+P3 hygiene coverage remain tracked. No transaction consumer/cardinality rule,
+payload-subject interface or recursive schema policy is introduced.
 
-Next: review the exact combined F4 candidate and its verification evidence before
-corrective publication. The other recorded owner obligations remain open.
+Next: settle the separate B1 transaction-integration and F1 payload-subject
+dispositions before governed binding or runtime use; optional P3 remains open.
