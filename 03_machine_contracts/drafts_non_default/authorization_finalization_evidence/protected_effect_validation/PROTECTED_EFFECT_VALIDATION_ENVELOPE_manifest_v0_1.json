@@ -1,0 +1,290 @@
+{
+  "schemaVersion": "ofarm.protectedEffectValidationEnvelope.componentManifest.v0.1",
+  "contractFamily": "AuthorizationFinalizationEvidence",
+  "componentId": "ofarm.authorization-finalization-evidence.protected-effect-validation-trace.v0.1-draft",
+  "status": "DRAFT_NON_DEFAULT",
+  "activeLaw": false,
+  "promotedToCurrentDefault": false,
+  "executable": false,
+  "selectedReleaseClosureComplete": false,
+  "completeProtectedEffectContract": false,
+  "primaryTrustBoundary": "shared validation-evidence integrity",
+  "stackedDependency": {
+    "pr": "https://github.com/samovers/OFARM/pull/42",
+    "head": "471cb1ef20ffde56b1437949975a4c6c86c59dd5",
+    "initialTargetBranch": "contracts/authorization-effect-intents-v0-2",
+    "status": "PROPOSED_EXACT_BYTE_INPUT_NOT_RUNTIME_ADMISSION"
+  },
+  "envelopeSchema": {
+    "path": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/protected_effect_validation/OFARM_ProtectedEffectValidationTrace_envelope_schema_v0_1.json",
+    "byteSha256": "a5150119555a2faaa0531ae96e650dcefd5cb491fa30fd8ffe337c873f6cdae3",
+    "bytes": 11193,
+    "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1",
+    "schemaVersion": "ofarm.protectedEffectValidationTrace.v0.1",
+    "schemaPointer": "#",
+    "jcsDigest": "sha256:e2d70a535680996f38dad97c809eb0ff08d907b1a0afe127ef59703cd7391c66"
+  },
+  "design": {
+    "path": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/protected_effect_validation/DESIGN.md",
+    "byteSha256": "620293c2d964cb694b258efa9f74252c89c8e7ebfe4e59c585dea47fdd46f70f",
+    "bytes": 30911
+  },
+  "evidenceClassification": {
+    "family": "EvidenceEvent",
+    "recordClass": "evidence record",
+    "condition": "Only if separately admitted under the existing owner contracts; no admission or new event family is created here."
+  },
+  "integrity": {
+    "canonicalization": "JCS_RFC8785_SHA256",
+    "encoding": "UTF-8",
+    "referenceImplementation": "rfc8785==0.1.4",
+    "schemaHash": "SHA256_EXACT_UTF8_DOCUMENT_BYTES",
+    "traceProjection": "WHOLE_VALUE",
+    "payloadProjection": "WHOLE_VALUE",
+    "excludedJsonPointers": [],
+    "selfDigestMember": null,
+    "traceRefPrefix": "urn:ofarm:protected-effect-validation-trace:sha256:",
+    "digestPrefix": "sha256:",
+    "duplicateJsonNames": "REJECT_BEFORE_OBJECT_MODEL",
+    "schemaResolution": "EXACT_PINNED_LOCAL_CLOSURE_ONLY",
+    "expectedBindingContext": "Separately supplied frozen fictional context in this harness. Real independently selected owner context remains unavailable; never derive expectations from the trace itself.",
+    "constructionOrder": [
+      "freeze schema bytes and finalize foreign owner bindings and their projections",
+      "validate the complete result and its actual assertionBody under the exact resolved result and selected-body schemas",
+      "populate four declared subject fields from finalized owner inputs during production, validate and hash the complete self-digest-free payload; the contract binds its schema, not a future payload digest",
+      "validate envelope and copied disposition against exact expected bindings; read and compare actual payload subject fields for both PASS and FAIL without synthesizing values",
+      "hash complete envelope and construct external ref/digest",
+      "later transaction evidence may bind finalized trace under existing PR26 rules"
+    ],
+    "selectedActionBodySchemaBinding": "Required complete root binding; compare with separate expected context and resolved selected-contract body binding for the same action. Validate the bound result's actual assertionBody with the already resolved selected-body validator while retaining complete-result validation. This is schema conformance, not domain evaluation or action admission.",
+    "schemaResolutionLimit": "Schema/reference dependencies resolve only against exact pinned local documents. This does not establish recursive restrictions on object properties.",
+    "selectedSchemaAdmission": "The resolved selected target declares type: object and additionalProperties: false. Names admitted by patternProperties are not prohibited by these checks; nested restrictions remain with the selected schema owner. Validation still applies all constraints present in that schema, including any nested restrictions.",
+    "payloadSubjectConvention": {
+      "status": "PROPOSED_SHARED_INTERFACE_CONVENTION",
+      "sourceBasis": "PR23 §11.2 delegates a separately reviewed shared envelope; the source does not literally prescribe these field names. No trace-root or PR40 binding shape changes.",
+      "actualPayloadFields": {
+        "proposedResultDigest": "/proposedResult/resultDigest",
+        "effectIntentDigest": "/effectIntent/digest",
+        "protectedEffectContractDigest": "/protectedEffectContractBinding/contractDigest",
+        "selectedActionBodySchemaBinding": "/selectedActionBodySchemaBinding"
+      },
+      "admission": "Require explicit top-level property and required-field declarations in the selected payload schema and actual values matching the verified digest/schemaBinding values. No byte-identical schema-fragment or recursive-closure policy.",
+      "comparison": "For PASS and FAIL, compare exact digest strings and the complete four-field selected body binding inside the actual hashed payload against the already verified trace. Missing/malformed values fail; never synthesize or repair fields from trace claims.",
+      "limit": "Declared-subject equality only. Relabelling and rehashing do not prove evaluation. Domain truth, AR_EFFECT_SUBJECT/AR_ID/AR_BODY, trusted context and production payload adoption remain owner responsibilities."
+    },
+    "currentAttemptConsumerHandoff": {
+      "traceSource": "authoritative attempt.protectedEffectValidation.trace",
+      "authorizationResult": "complete trace.authorizationResult equals attempt.authorizationBundle.result",
+      "decisionBundleDigest": "trace.decisionBundleDigest equals attempt.authorizationBundle.decisionBundleDigest; this is not the authorization-result record digest",
+      "historicalTrace": "A trace in prior admitted-result provenance belongs to its owning historical attempt and cannot substitute for the fresh current-attempt trace.",
+      "owner": "PR26/issue #25 transaction/source-storage ownership, with real PR11 authorization projections",
+      "remainingPrerequisite": "Authoritative attempt resolution, current-trace equality, complete-set verification, decision single-use, immutable failure/outcome history, eligible fresh-attempt retry and original-receipt replay remain unimplemented here.",
+      "independentPairQuota": "NOT_ADOPTED; does not prevent unconsumed FAIL-to-PASS replacement and must not permit decision reuse with a different result. Repeated verification/replay is not another consumption.",
+      "sourceBasis": "PR26 §5.6, §§9.2–9.4, §12.2 and §13. These exact equality expressions reconcile the existing owner fields; they are not quoted source syntax or implemented transaction enforcement."
+    }
+  },
+  "draftWireChoices": [
+    "One immutable trace identity and one proposed-result binding per envelope.",
+    "External self-digest-free schema-bound domain payload with exact /overallDisposition PASS/FAIL interface and four fixed actual-payload subject fields; no configurable subject pointers.",
+    "External content-addressed trace reference; no digest exclusions or future transaction back-references.",
+    "Exact schema document byte digest plus full selector and explicit version.",
+    "Full selected rule revision selector preserved without normalization or fallback.",
+    "Required selectedActionBodySchemaBinding uses the existing closed schemaBinding shape beside the unchanged four-field contract binding."
+  ],
+  "sourceInputs": [
+    {
+      "pr": 11,
+      "head": "d1178fe07d57accedde5748672602db38346b3e6",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/authorization_constraints_and_decision_evidence_rfc_candidate_v0_2.md",
+      "sha256": "8c218df076fcf06aceb531173a854091e21bda7775ad1fe66dd06a772857691f",
+      "url": "https://github.com/samovers/OFARM/blob/d1178fe07d57accedde5748672602db38346b3e6/package_meta/history/clean_baseline_migration/phase_reports/authorization_constraints_and_decision_evidence_rfc_candidate_v0_2.md"
+    },
+    {
+      "pr": 23,
+      "head": "6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+      "sha256": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809",
+      "url": "https://github.com/samovers/OFARM/blob/6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f/package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md"
+    },
+    {
+      "pr": 26,
+      "head": "b1abe2c93c7ca8b7a94a11bdb0fded64bb2e75e6",
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_and_consumption_protocol_rfc_candidate_v0_1.md",
+      "sha256": "8540a09a2b85b2e42bf1279a8ccacc95b5271b0c58e8bd2f03717fd37be8aa8c",
+      "url": "https://github.com/samovers/OFARM/blob/b1abe2c93c7ca8b7a94a11bdb0fded64bb2e75e6/package_meta/history/clean_baseline_migration/phase_reports/not_required_transaction_and_consumption_protocol_rfc_candidate_v0_1.md"
+    }
+  ],
+  "priorArtifacts": [
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_OperationAssertionEffectIntent_schema_v0_2.json",
+      "commit": "471cb1ef20ffde56b1437949975a4c6c86c59dd5",
+      "byteSha256": "66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+      "status": "Exact proposed non-default bytes; not a completed admitted contract"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_DataReadEffectIntent_schema_v0_2.json",
+      "commit": "471cb1ef20ffde56b1437949975a4c6c86c59dd5",
+      "byteSha256": "36057b520e421537eab4488c8c44bceb9a6caca1508e6f796e9da4d0e499e66d",
+      "status": "Exact proposed non-default bytes; not a completed admitted contract"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/authorization_view_extractions_v0_2.json",
+      "commit": "471cb1ef20ffde56b1437949975a4c6c86c59dd5",
+      "byteSha256": "5325370abca68ac3b29e28a9acdf2bfc0df01f596122b07b80377db359cf94d4",
+      "status": "Exact proposed non-default bytes; not a completed admitted contract"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json",
+      "commit": "471cb1ef20ffde56b1437949975a4c6c86c59dd5",
+      "byteSha256": "3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+      "status": "Exact proposed non-default bytes; not a completed admitted contract"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/ASSERTION_RECORD_SUBMISSION_manifest_v0_2.json",
+      "commit": "471cb1ef20ffde56b1437949975a4c6c86c59dd5",
+      "byteSha256": "b662eb2cd1eb51b577c840a1efa101f7cc8ab75b5b3964e57661ae8a63fc4c52",
+      "status": "Exact proposed non-default bytes; not a completed admitted contract"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/OFARM_AuthorizationFinalizationEvidence_not_required_schema_v0_2.json",
+      "commit": "471cb1ef20ffde56b1437949975a4c6c86c59dd5",
+      "byteSha256": "cfd8b67644edc39da92edf77a48c6002d353be71641ac512cd0eb0d24d0ebee5",
+      "status": "Exact proposed non-default bytes; not a completed admitted contract"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/NOT_REQUIRED_TRANSACTION_EVIDENCE_manifest_v0_1.json",
+      "commit": "471cb1ef20ffde56b1437949975a4c6c86c59dd5",
+      "byteSha256": "be1307aee4c265d1e433309501e0dec0b9a8b9158e1a12745df9425946e39af6",
+      "status": "Exact proposed non-default bytes; not a completed admitted contract"
+    }
+  ],
+  "priorArtifactPolicy": "All prior schemas, manifests, fixtures and runners remain unchanged. These source pins apply only to this new component.",
+  "verification": {
+    "status": "FICTIONAL_INTEGRITY_CHECKS_PASS",
+    "runner": "04_implementation_and_conformance/conformance_runners/ofarm_protected_effect_validation_trace_envelope_v0_1.py",
+    "scope": "Finite fictional envelope and declared payload-subject integrity only. Matching subjects, copied verdicts and hashes establish neither domain execution nor transaction admission.",
+    "productionDomainPayload": "UNAVAILABLE",
+    "completeProtectedEffectContract": "UNAVAILABLE",
+    "databaseUsed": false,
+    "runtimeAdmissionClaimed": false,
+    "pr40Compatibility": {
+      "traceRecordBinding": "PASS_FICTIONAL_REFERENCE_AGAINST_REAL_SCHEMA",
+      "traceDispositionWrapper": "PASS_FICTIONAL_WRAPPER_AGAINST_REAL_SCHEMA",
+      "admittedProtectedResultBinding": "UNAVAILABLE_MISSING_REAL_ASSERTION_RECORD_CONTRACT",
+      "limit": "Fictional contract bytes and matching field names do not establish a complete admitted-result binding."
+    },
+    "positiveCases": 24,
+    "negativeCases": 283,
+    "negativeRejectionLayers": {
+      "SCHEMA": 124,
+      "BINDING": 80,
+      "INTEGRITY": 46,
+      "UNAVAILABLE": 15,
+      "JSON": 16,
+      "CANONICAL": 2
+    },
+    "schemaRejectionWitnesses": 124,
+    "testArtifacts": [
+      {
+        "path": "04_implementation_and_conformance/conformance_runners/ofarm_protected_effect_validation_trace_envelope_v0_1.py",
+        "byteSha256": "2d5cfd9c3c31f0cb2be4ee1ae44b7c7b9a02d6eddeae1aec0553c1aa70cc9b53",
+        "bytes": 26427
+      },
+      {
+        "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_ProtectedEffectValidationTrace_envelope_cases_v0_1.json",
+        "byteSha256": "c465acade054117b0c39d2ded7a15aa50e0ca6f6ac7fef5f241791899ea617a1",
+        "bytes": 376076
+      },
+      {
+        "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_fictional_dependencies_schema_v0_1.json",
+        "byteSha256": "dda7946ca92e1d7265cf699978cd75b2486bb781cf6917c4540d914d56bce113",
+        "bytes": 7005
+      },
+      {
+        "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_unavailable_dependency_negative_schema_v0_1.json",
+        "byteSha256": "48aa721fa729a1b1026f99957c2e11b29bdafaaefe241f4e5b1430115d5f0324",
+        "bytes": 322
+      },
+      {
+        "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_dynamic_reference_negative_schema_v0_1.json",
+        "byteSha256": "29d74487179032d1275dcfe9a713b8a5017146eb26f2942ebff89d614d81ef8b",
+        "bytes": 467
+      },
+      {
+        "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_missing_fragment_negative_schema_v0_1.json",
+        "byteSha256": "4ebd4cd7fd8babce940a16bdd767308242a5ffe4c9c22c3add289c330780c7ca",
+        "bytes": 232
+      }
+    ],
+    "trustedExpectedContextProducer": "UNAVAILABLE",
+    "sameAttemptFailureTerminality": "UNAVAILABLE",
+    "retryAdmission": "UNAVAILABLE",
+    "localIdentityControlLimit": "Rejects different values under one local fixture ID only; a new ID does not authorize replacing failed-attempt evidence.",
+    "correctiveParent": "9185519097c0490f5d7cd344c462058509c24606",
+    "F4": {
+      "correctedCheckerCounterexample": "REJECTED_SCHEMA",
+      "schemaTarget": "resultBody",
+      "schemaWitness": {
+        "instancePath": [],
+        "schemaPath": [
+          "additionalProperties"
+        ],
+        "keyword": "additionalProperties"
+      },
+      "previousCaseObjectsPreserved": 264,
+      "previousSchemaWitnessesPreserved": 102,
+      "newCases": 1,
+      "limit": "Finite fictional body-schema conformance; no domain truth, action admission or transaction proof.",
+      "committedCase": "selected_body_agreement_rejects_nonconforming_actual_result_body"
+    },
+    "casePreservation": "The 265 inherited controls retain their purposes, order, expectations and 103 exact schema witnesses. Required payload fields and dependent hashes mechanically rebase 21 prior case objects at 63 changed pointers, including five honestly re-finalized prior controls. The sole case rename is new_identity_creates_new_trace to new_identity_is_a_distinct_record_only. Forty-two added controls exercise the fixed payload-subject comparison.",
+    "F1": {
+      "committedResultSubjectRegressions": [
+        "payload_proposedResultDigest_mismatch_pass",
+        "payload_proposedResultDigest_mismatch_fail"
+      ],
+      "expectedMismatch": {
+        "layer": "BINDING",
+        "code": "PAYLOAD_RESULT_SUBJECT_MISMATCH"
+      },
+      "committedMatchingCompanions": [
+        "payload_subjects_match_refinalized_result_pass",
+        "payload_subjects_match_refinalized_result_fail"
+      ],
+      "controlCoverage": "42 new committed controls: 3 positive, 39 negative, 21 exact schema witnesses. Four subject mismatch families in PASS and FAIL; missing/malformed fields, complete body-binding equality and explicit schema declarations.",
+      "interfaceControlBoundary": "Nine payload-interface controls edit declaration metadata only after actual pinned schema resolution. They do not claim that a changed schema document passed its original digest check.",
+      "inheritedCasePurposesOrderOutcomesPreserved": 265,
+      "inheritedSchemaWitnessesPreserved": 103,
+      "mechanicallyRebasedInheritedCaseObjects": 21,
+      "changedInheritedCasePointers": 63,
+      "honestlyRefinalizedInheritedControls": 5,
+      "limit": "Declared payload-subject agreement only. Matching relabelled payloads remain accepted and prove neither evaluation truth nor intent-to-result mappings."
+    }
+  },
+  "deferredOwnerObligations": [
+    "Actual domain payload materialization/adoption of the proposed fixed interface, AR/PC mappings, applicability, prerequisites and truthful evaluation; declared subject equality cannot prove evaluation.",
+    "Full protected-effect contract and all three assertion action/body bindings.",
+    "Complete authorization result/rule/bundle projections and admitted expected context.",
+    "F1/F2 temporal admission, prospective global identity and source-history proof.",
+    "Twin applicability and complete selected two-action release closure.",
+    "Actual clock trust, revocation time/writer ordering, transaction guards/status and atomicity.",
+    "Persistent immutable-ID enforcement, evidence custody and production selection.",
+    "PR26/issue #25 authoritative current-attempt trace/bundle equality, complete-set verification, single-use decision consumption, immutable failed-attempt/outcome history and separately eligible fresh retry or original-receipt replay. Prior admitted traces remain bound to their original attempts."
+  ],
+  "downstreamState": "OFARM2 #392/#396 remains parked; no runtime, promotion or merge permission.",
+  "reviewStatus": {
+    "reviewedRevision": "453bfe59909f03def12994dbff2652e44785c94f",
+    "latestVerdict": "Historical external re-review at 453bfe5: zero blockers, four follow-ups B1/F1/F2/F4 and two preferences P3/P4. Later dispositions are recorded separately below.",
+    "firstReviewBodyBinding": "RESOLVED_IN_COMPLETE_RE_REVIEW",
+    "F4": "COMPLETE_AT_e07a333; later internal independent review cleared the exact correction and its publication is complete. No formal GitHub approval is implied.",
+    "B1": "CONSUMER_HANDOFF_SPECIFIED; exact current-attempt authorization-result and bundle comparisons, with historical provenance distinguished. Real transaction/history enforcement remains a separate PR26/issue #25 prerequisite; no independent pair quota is adopted.",
+    "F1": "FIXED_DECLARED_PAYLOAD_SUBJECT_CONVENTION; four actual hashed-payload fields bind the declared subject for PASS and FAIL. Domain mappings/evaluation, trusted context and production payload adoption remain owner obligations.",
+    "F2": "CORRECTED_WORDING; exact selected-target declarations are distinguished from pinned reference dependencies; no recursive schema policy added.",
+    "P1_P2": "RESOLVED_IN_COMPLETE_RE_REVIEW",
+    "F3": "MOSTLY_RESOLVED; remaining hygiene paths are preference P3.",
+    "P3": "PREFERENCE_OPTIONAL_HYGIENE_COVERAGE; unchanged by this bounded correction.",
+    "P4": "PUBLIC_LOCAL_ONLY_VERIFICATION_CLAIMS_REMOVED; public results refer to the committed fixture/runner and existing repository suite.",
+    "missingDetailedReviewSections": "All previously missing sections are supplied; no clarification is pending.",
+    "reviewAuthority": "External GitHub feedback used the author account. Later internal independent review cleared F4 separately; neither creates formal GitHub approval or broader admission."
+  }
+}

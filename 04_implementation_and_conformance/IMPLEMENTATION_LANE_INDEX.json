@@ -1,6 +1,6 @@
 {
   "schemaVersion": "ofarm.implementationLaneIndex.v0.2.cleanBaseline",
-  "generatedAt": "2026-09-24T00:00:00Z",
+  "generatedAt": "2026-10-03T00:00:00Z",
   "currentPackageIdentity": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "package": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "latestControlledAmendment": "CP15",
@@ -11,12 +11,12 @@
     "04_implementation_and_conformance/IMPLEMENTATION_LANE_INDEX.json",
     "04_implementation_and_conformance/IMPLEMENTATION_LANE_INDEX.md"
   ],
-  "fileCountExcludingSelf": 3230,
+  "fileCountExcludingSelf": 3236,
   "records": [
     {
       "path": "04_implementation_and_conformance/IMPLEMENTATION_SUBFOLDER_INDEX.json",
       "bytes": 3233,
-      "sha256": "46a0955f5455a4df6766b052fbd732ec2087ca81568ee3df6ea19e67996dd6fe",
+      "sha256": "df76408da398c5e383fefb56bd0f4fa58340d5b677544d2cca16ac02c69464b5",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -5497,6 +5497,14 @@
       "path": "04_implementation_and_conformance/conformance_runners/ofarm_not_required_transaction_evidence_v0_1.py",
       "bytes": 26280,
       "sha256": "62e2f9626d08d1cac58b1b62b222b5008f2ade5a90c90af20a25b6b4c8810201",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/conformance_runners/ofarm_protected_effect_validation_trace_envelope_v0_1.py",
+      "bytes": 26427,
+      "sha256": "2d5cfd9c3c31f0cb2be4ee1ae44b7c7b9a02d6eddeae1aec0553c1aa70cc9b53",
       "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -17983,8 +17991,8 @@
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/FIXTURE_INDEX.json",
-      "bytes": 11777,
-      "sha256": "536995961784f08694e978e5269491a8abe23d9f046fe5bac52c8f8b82df5a18",
+      "bytes": 13295,
+      "sha256": "86aaa25a80a2e46067c1d727646ab0fd440905bc6883f438daa58fa5722c6cba",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -17992,7 +18000,7 @@
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/FIXTURE_INDEX.md",
       "bytes": 159,
-      "sha256": "044b4e2b181a7c5be2957f4bd9911023a8359dbe080c106f9e758defccebc8c4",
+      "sha256": "87fbc67463461b702604b9ada8cf1f2198f54a8647ff8fe1951a65ae2c95eeac",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -18033,6 +18041,14 @@
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_NotRequiredTransactionEvidence_cases_v0_1.json",
       "bytes": 328055,
       "sha256": "230993668a2e756934a0d1f3db3be16c0c2de97a7377293e01e531dbca20737c",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_ProtectedEffectValidationTrace_envelope_cases_v0_1.json",
+      "bytes": 376076,
+      "sha256": "c465acade054117b0c39d2ded7a15aa50e0ca6f6ac7fef5f241791899ea617a1",
       "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -18338,6 +18354,38 @@
       "bytes": 2185,
       "sha256": "936e45cb2e873d2f8d8a90cbe14159fc6565041459087215899aab45c4d2756c",
       "status": "PACKAGE_METADATA",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_dynamic_reference_negative_schema_v0_1.json",
+      "bytes": 467,
+      "sha256": "29d74487179032d1275dcfe9a713b8a5017146eb26f2942ebff89d614d81ef8b",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_fictional_dependencies_schema_v0_1.json",
+      "bytes": 7005,
+      "sha256": "dda7946ca92e1d7265cf699978cd75b2486bb781cf6917c4540d914d56bce113",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_missing_fragment_negative_schema_v0_1.json",
+      "bytes": 232,
+      "sha256": "4ebd4cd7fd8babce940a16bdd767308242a5ffe4c9c22c3add289c330780c7ca",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_unavailable_dependency_negative_schema_v0_1.json",
+      "bytes": 322,
+      "sha256": "48aa721fa729a1b1026f99957c2e11b29bdafaaefe241f4e5b1430115d5f0324",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
     },

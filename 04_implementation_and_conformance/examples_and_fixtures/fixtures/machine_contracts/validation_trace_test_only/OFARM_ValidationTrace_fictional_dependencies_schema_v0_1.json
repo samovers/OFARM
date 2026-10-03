@@ -1,0 +1,283 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1",
+  "title": "TEST ONLY: fictional dependencies for validation-trace envelope integrity examples",
+  "description": "No production payload, protected-effect contract, authority result, policy rule or decision bundle is supplied. These closed example schemas exercise byte and binding integrity only. Negative policy definitions are intentionally unsuitable selections.",
+  "$defs": {
+    "schemaBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaRef",
+        "schemaVersion",
+        "schemaDigest",
+        "canonicalization"
+      ],
+      "properties": {
+        "schemaRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schemaVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schemaDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "minLength": 71,
+          "maxLength": 71
+        },
+        "canonicalization": {
+          "const": "JCS_RFC8785_SHA256"
+        }
+      }
+    },
+    "authorizationResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fixtureOnly",
+        "schemaVersion",
+        "recordId",
+        "note"
+      ],
+      "properties": {
+        "fixtureOnly": {
+          "const": true
+        },
+        "schemaVersion": {
+          "const": "TEST_ONLY.authorizationResult.v0.1"
+        },
+        "recordId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "decisionBundle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fixtureOnly",
+        "schemaVersion",
+        "authorizationResultDigest",
+        "note"
+      ],
+      "properties": {
+        "fixtureOnly": {
+          "const": true
+        },
+        "schemaVersion": {
+          "const": "TEST_ONLY.decisionBundle.v0.1"
+        },
+        "authorizationResultDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "minLength": 71,
+          "maxLength": 71
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fixtureOnly",
+        "schemaVersion",
+        "ruleId",
+        "actionClass",
+        "note"
+      ],
+      "properties": {
+        "fixtureOnly": {
+          "const": true
+        },
+        "schemaVersion": {
+          "const": "TEST_ONLY.rule.v0.1"
+        },
+        "ruleId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actionClass": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fixtureOnly",
+        "schemaVersion",
+        "contractId",
+        "contractVersion",
+        "intentSchemaBinding",
+        "resultSchemaBinding",
+        "bodySchemaBinding",
+        "payloadSchemaBinding",
+        "contractDigest"
+      ],
+      "properties": {
+        "fixtureOnly": {
+          "const": true
+        },
+        "schemaVersion": {
+          "const": "TEST_ONLY.contract.v0.1"
+        },
+        "contractId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contractVersion": {
+          "const": "TEST_ONLY.0.1"
+        },
+        "intentSchemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
+        },
+        "resultSchemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
+        },
+        "bodySchemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
+        },
+        "payloadSchemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
+        },
+        "contractDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "minLength": 71,
+          "maxLength": 71
+        }
+      }
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fixtureOnly",
+        "schemaVersion",
+        "payloadId",
+        "overallDisposition",
+        "note",
+        "orderedExamples",
+        "details",
+        "proposedResultDigest",
+        "effectIntentDigest",
+        "protectedEffectContractDigest",
+        "selectedActionBodySchemaBinding"
+      ],
+      "properties": {
+        "fixtureOnly": {
+          "const": true
+        },
+        "schemaVersion": {
+          "const": "TEST_ONLY.payload.v0.1"
+        },
+        "payloadId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "overallDisposition": {
+          "enum": [
+            "PASS",
+            "FAIL"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "orderedExamples": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 2
+        },
+        "details": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "label"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "proposedResultDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "minLength": 71,
+          "maxLength": 71
+        },
+        "effectIntentDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "minLength": 71,
+          "maxLength": 71
+        },
+        "protectedEffectContractDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "minLength": 71,
+          "maxLength": 71
+        },
+        "selectedActionBodySchemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
+        }
+      }
+    },
+    "negativeOpenObject": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "negativeTrueSchema": true,
+    "negativeRefCycle": {
+      "$ref": "#/$defs/negativeRefCycle"
+    },
+    "negativeReferenceToResult": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2"
+    },
+    "negativeNoVerdict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fixtureOnly",
+        "schemaVersion",
+        "payloadId"
+      ],
+      "properties": {
+        "fixtureOnly": {
+          "const": true
+        },
+        "schemaVersion": {
+          "const": "TEST_ONLY.payloadWithoutVerdict.v0.1"
+        },
+        "payloadId": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
