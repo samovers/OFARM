@@ -26,7 +26,7 @@
       "path": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/protected_effect_validation/OFARM_ProtectedEffectValidationTrace_envelope_schema_v0_1.json",
       "kind": "schema",
       "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1",
-      "sha256": "94f52a5d051759a0e38408906017805352a0a2fa2e44d93cd08fcd595925d8b3"
+      "sha256": "2c058a1257c86f012eeee63e4bfcf999422513a55135220d17a71ebb2e7d1599"
     },
     {
       "path": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/OFARM_AuthorizationFinalizationEvidence_not_required_schema_v0_2.json",
@@ -50,7 +50,7 @@
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_fictional_dependencies_schema_v0_1.json",
       "kind": "schema",
       "schemaId": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1",
-      "sha256": "04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2"
+      "sha256": "031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e"
     }
   ],
   "pr40SchemaPath": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/OFARM_AuthorizationFinalizationEvidence_not_required_schema_v0_2.json",
@@ -87,9 +87,19 @@
     },
     {
       "binding": {
+        "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/structureAssertionBody",
+        "schemaVersion": "ofarm.assertionrecord.v0.2",
+        "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      },
+      "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json",
+      "pointer": "/$defs/structureAssertionBody"
+    },
+    {
+      "binding": {
         "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/authorizationResult",
         "schemaVersion": "TEST_ONLY.authorizationResult.v0.1",
-        "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
         "canonicalization": "JCS_RFC8785_SHA256"
       },
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_fictional_dependencies_schema_v0_1.json",
@@ -99,7 +109,7 @@
       "binding": {
         "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/decisionBundle",
         "schemaVersion": "TEST_ONLY.decisionBundle.v0.1",
-        "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
         "canonicalization": "JCS_RFC8785_SHA256"
       },
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_fictional_dependencies_schema_v0_1.json",
@@ -109,7 +119,7 @@
       "binding": {
         "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/rule",
         "schemaVersion": "TEST_ONLY.rule.v0.1",
-        "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
         "canonicalization": "JCS_RFC8785_SHA256"
       },
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_fictional_dependencies_schema_v0_1.json",
@@ -119,7 +129,7 @@
       "binding": {
         "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/contract",
         "schemaVersion": "TEST_ONLY.contract.v0.1",
-        "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
         "canonicalization": "JCS_RFC8785_SHA256"
       },
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_fictional_dependencies_schema_v0_1.json",
@@ -129,7 +139,7 @@
       "binding": {
         "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
         "schemaVersion": "TEST_ONLY.payload.v0.1",
-        "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
         "canonicalization": "JCS_RFC8785_SHA256"
       },
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_fictional_dependencies_schema_v0_1.json",
@@ -139,7 +149,7 @@
       "binding": {
         "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/negativeOpenObject",
         "schemaVersion": "TEST_ONLY.negativeOpenObject.v0.1",
-        "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
         "canonicalization": "JCS_RFC8785_SHA256"
       },
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_fictional_dependencies_schema_v0_1.json",
@@ -149,7 +159,7 @@
       "binding": {
         "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/negativeTrueSchema",
         "schemaVersion": "TEST_ONLY.negativeTrueSchema.v0.1",
-        "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
         "canonicalization": "JCS_RFC8785_SHA256"
       },
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_fictional_dependencies_schema_v0_1.json",
@@ -159,11 +169,31 @@
       "binding": {
         "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/negativeNoVerdict",
         "schemaVersion": "TEST_ONLY.negativeNoVerdict.v0.1",
-        "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
         "canonicalization": "JCS_RFC8785_SHA256"
       },
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_fictional_dependencies_schema_v0_1.json",
       "pointer": "/$defs/negativeNoVerdict"
+    },
+    {
+      "binding": {
+        "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/negativeRefCycle",
+        "schemaVersion": "TEST_ONLY.negativeRefCycle.v0.1",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      },
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_fictional_dependencies_schema_v0_1.json",
+      "pointer": "/$defs/negativeRefCycle"
+    },
+    {
+      "binding": {
+        "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/negativeReferenceToResult",
+        "schemaVersion": "TEST_ONLY.negativeReferenceToResult.v0.1",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      },
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_fictional_dependencies_schema_v0_1.json",
+      "pointer": "/$defs/negativeReferenceToResult"
     }
   ],
   "exampleDigestProjections": {
@@ -224,12 +254,18 @@
           "contractId": "urn:ofarm-test:protected-effect-contract:1",
           "contractVersion": "TEST_ONLY.0.1",
           "contractRef": "urn:ofarm-test:contract-record:1",
-          "contractDigest": "sha256:1334c999cba9dd6ad679ae0a1c5d3a1ba1a6e5febdb48efceea62da2515fb7eb"
+          "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
+        },
+        "selectedActionBodySchemaBinding": {
+          "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody",
+          "schemaVersion": "ofarm.assertionrecord.v0.2",
+          "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "canonicalization": "JCS_RFC8785_SHA256"
         },
         "domainPayloadSchemaBinding": {
           "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
           "schemaVersion": "TEST_ONLY.payload.v0.1",
-          "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+          "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
           "canonicalization": "JCS_RFC8785_SHA256"
         }
       },
@@ -245,7 +281,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/authorizationResult",
             "schemaVersion": "TEST_ONLY.authorizationResult.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         },
@@ -260,7 +296,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/decisionBundle",
             "schemaVersion": "TEST_ONLY.decisionBundle.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         },
@@ -276,7 +312,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/rule",
             "schemaVersion": "TEST_ONLY.rule.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           },
           "revisionRef": "urn:ofarm-test:rule-revision:1"
@@ -444,15 +480,15 @@
             "payloadSchemaBinding": {
               "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
               "schemaVersion": "TEST_ONLY.payload.v0.1",
-              "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+              "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
               "canonicalization": "JCS_RFC8785_SHA256"
             },
-            "contractDigest": "sha256:1334c999cba9dd6ad679ae0a1c5d3a1ba1a6e5febdb48efceea62da2515fb7eb"
+            "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
           },
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/contract",
             "schemaVersion": "TEST_ONLY.contract.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         },
@@ -475,7 +511,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
             "schemaVersion": "TEST_ONLY.payload.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         }
@@ -523,7 +559,13 @@
           "contractId": "urn:ofarm-test:protected-effect-contract:1",
           "contractVersion": "TEST_ONLY.0.1",
           "contractRef": "urn:ofarm-test:contract-record:1",
-          "contractDigest": "sha256:1334c999cba9dd6ad679ae0a1c5d3a1ba1a6e5febdb48efceea62da2515fb7eb"
+          "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
+        },
+        "selectedActionBodySchemaBinding": {
+          "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody",
+          "schemaVersion": "ofarm.assertionrecord.v0.2",
+          "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "canonicalization": "JCS_RFC8785_SHA256"
         },
         "domainPayload": {
           "ref": "urn:ofarm-test:payload:pass",
@@ -531,7 +573,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
             "schemaVersion": "TEST_ONLY.payload.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           },
           "overallDispositionPointer": "/overallDisposition"
@@ -539,13 +581,13 @@
         "overallDisposition": "PASS"
       },
       "reference": {
-        "ref": "urn:ofarm:protected-effect-validation-trace:sha256:0931220ab4b9e69015372a0d28e5df46408599cb46827f583c86c97eec8739ce",
-        "digest": "sha256:0931220ab4b9e69015372a0d28e5df46408599cb46827f583c86c97eec8739ce"
+        "ref": "urn:ofarm:protected-effect-validation-trace:sha256:83795ccb7dc9b13a5d8c0f48ff15f9c2c0e564269ce58adb63935b3f7d32676f",
+        "digest": "sha256:83795ccb7dc9b13a5d8c0f48ff15f9c2c0e564269ce58adb63935b3f7d32676f"
       },
       "wrapper": {
         "trace": {
-          "ref": "urn:ofarm:protected-effect-validation-trace:sha256:0931220ab4b9e69015372a0d28e5df46408599cb46827f583c86c97eec8739ce",
-          "digest": "sha256:0931220ab4b9e69015372a0d28e5df46408599cb46827f583c86c97eec8739ce"
+          "ref": "urn:ofarm:protected-effect-validation-trace:sha256:83795ccb7dc9b13a5d8c0f48ff15f9c2c0e564269ce58adb63935b3f7d32676f",
+          "digest": "sha256:83795ccb7dc9b13a5d8c0f48ff15f9c2c0e564269ce58adb63935b3f7d32676f"
         },
         "disposition": "PASS"
       }
@@ -592,12 +634,18 @@
           "contractId": "urn:ofarm-test:protected-effect-contract:1",
           "contractVersion": "TEST_ONLY.0.1",
           "contractRef": "urn:ofarm-test:contract-record:1",
-          "contractDigest": "sha256:1334c999cba9dd6ad679ae0a1c5d3a1ba1a6e5febdb48efceea62da2515fb7eb"
+          "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
+        },
+        "selectedActionBodySchemaBinding": {
+          "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody",
+          "schemaVersion": "ofarm.assertionrecord.v0.2",
+          "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "canonicalization": "JCS_RFC8785_SHA256"
         },
         "domainPayloadSchemaBinding": {
           "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
           "schemaVersion": "TEST_ONLY.payload.v0.1",
-          "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+          "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
           "canonicalization": "JCS_RFC8785_SHA256"
         }
       },
@@ -613,7 +661,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/authorizationResult",
             "schemaVersion": "TEST_ONLY.authorizationResult.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         },
@@ -628,7 +676,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/decisionBundle",
             "schemaVersion": "TEST_ONLY.decisionBundle.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         },
@@ -644,7 +692,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/rule",
             "schemaVersion": "TEST_ONLY.rule.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           },
           "revisionRef": "urn:ofarm-test:rule-revision:1"
@@ -812,15 +860,15 @@
             "payloadSchemaBinding": {
               "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
               "schemaVersion": "TEST_ONLY.payload.v0.1",
-              "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+              "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
               "canonicalization": "JCS_RFC8785_SHA256"
             },
-            "contractDigest": "sha256:1334c999cba9dd6ad679ae0a1c5d3a1ba1a6e5febdb48efceea62da2515fb7eb"
+            "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
           },
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/contract",
             "schemaVersion": "TEST_ONLY.contract.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         },
@@ -843,7 +891,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
             "schemaVersion": "TEST_ONLY.payload.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         }
@@ -891,7 +939,13 @@
           "contractId": "urn:ofarm-test:protected-effect-contract:1",
           "contractVersion": "TEST_ONLY.0.1",
           "contractRef": "urn:ofarm-test:contract-record:1",
-          "contractDigest": "sha256:1334c999cba9dd6ad679ae0a1c5d3a1ba1a6e5febdb48efceea62da2515fb7eb"
+          "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
+        },
+        "selectedActionBodySchemaBinding": {
+          "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody",
+          "schemaVersion": "ofarm.assertionrecord.v0.2",
+          "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "canonicalization": "JCS_RFC8785_SHA256"
         },
         "domainPayload": {
           "ref": "urn:ofarm-test:payload:fail",
@@ -899,7 +953,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
             "schemaVersion": "TEST_ONLY.payload.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           },
           "overallDispositionPointer": "/overallDisposition"
@@ -907,13 +961,13 @@
         "overallDisposition": "FAIL"
       },
       "reference": {
-        "ref": "urn:ofarm:protected-effect-validation-trace:sha256:027e4b86a099c3905c3c3682be72e4c740c6c736006b2d08a715b9420f62c35b",
-        "digest": "sha256:027e4b86a099c3905c3c3682be72e4c740c6c736006b2d08a715b9420f62c35b"
+        "ref": "urn:ofarm:protected-effect-validation-trace:sha256:24807f280ca83888aa7678a82d4bb3903f50be8a773447b0a7a03b6b6647c3bb",
+        "digest": "sha256:24807f280ca83888aa7678a82d4bb3903f50be8a773447b0a7a03b6b6647c3bb"
       },
       "wrapper": {
         "trace": {
-          "ref": "urn:ofarm:protected-effect-validation-trace:sha256:027e4b86a099c3905c3c3682be72e4c740c6c736006b2d08a715b9420f62c35b",
-          "digest": "sha256:027e4b86a099c3905c3c3682be72e4c740c6c736006b2d08a715b9420f62c35b"
+          "ref": "urn:ofarm:protected-effect-validation-trace:sha256:24807f280ca83888aa7678a82d4bb3903f50be8a773447b0a7a03b6b6647c3bb",
+          "digest": "sha256:24807f280ca83888aa7678a82d4bb3903f50be8a773447b0a7a03b6b6647c3bb"
         },
         "disposition": "FAIL"
       }
@@ -960,12 +1014,18 @@
           "contractId": "urn:ofarm-test:protected-effect-contract:1",
           "contractVersion": "TEST_ONLY.0.1",
           "contractRef": "urn:ofarm-test:contract-record:1",
-          "contractDigest": "sha256:1334c999cba9dd6ad679ae0a1c5d3a1ba1a6e5febdb48efceea62da2515fb7eb"
+          "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
+        },
+        "selectedActionBodySchemaBinding": {
+          "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody",
+          "schemaVersion": "ofarm.assertionrecord.v0.2",
+          "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "canonicalization": "JCS_RFC8785_SHA256"
         },
         "domainPayloadSchemaBinding": {
           "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
           "schemaVersion": "TEST_ONLY.payload.v0.1",
-          "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+          "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
           "canonicalization": "JCS_RFC8785_SHA256"
         }
       },
@@ -981,7 +1041,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/authorizationResult",
             "schemaVersion": "TEST_ONLY.authorizationResult.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         },
@@ -996,7 +1056,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/decisionBundle",
             "schemaVersion": "TEST_ONLY.decisionBundle.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         },
@@ -1012,7 +1072,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/rule",
             "schemaVersion": "TEST_ONLY.rule.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           },
           "revisionRef": "urn:ofarm-test:rule-revision:1"
@@ -1180,15 +1240,15 @@
             "payloadSchemaBinding": {
               "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
               "schemaVersion": "TEST_ONLY.payload.v0.1",
-              "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+              "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
               "canonicalization": "JCS_RFC8785_SHA256"
             },
-            "contractDigest": "sha256:1334c999cba9dd6ad679ae0a1c5d3a1ba1a6e5febdb48efceea62da2515fb7eb"
+            "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
           },
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/contract",
             "schemaVersion": "TEST_ONLY.contract.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         },
@@ -1211,7 +1271,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
             "schemaVersion": "TEST_ONLY.payload.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         }
@@ -1259,7 +1319,13 @@
           "contractId": "urn:ofarm-test:protected-effect-contract:1",
           "contractVersion": "TEST_ONLY.0.1",
           "contractRef": "urn:ofarm-test:contract-record:1",
-          "contractDigest": "sha256:1334c999cba9dd6ad679ae0a1c5d3a1ba1a6e5febdb48efceea62da2515fb7eb"
+          "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
+        },
+        "selectedActionBodySchemaBinding": {
+          "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody",
+          "schemaVersion": "ofarm.assertionrecord.v0.2",
+          "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "canonicalization": "JCS_RFC8785_SHA256"
         },
         "domainPayload": {
           "ref": "urn:ofarm-test:payload:content-selector",
@@ -1267,7 +1333,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
             "schemaVersion": "TEST_ONLY.payload.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           },
           "overallDispositionPointer": "/overallDisposition"
@@ -1275,13 +1341,13 @@
         "overallDisposition": "PASS"
       },
       "reference": {
-        "ref": "urn:ofarm:protected-effect-validation-trace:sha256:5fdca167dda66785ea9f9331e1c8622e84f9ad759843bb541b8e153da57d1d03",
-        "digest": "sha256:5fdca167dda66785ea9f9331e1c8622e84f9ad759843bb541b8e153da57d1d03"
+        "ref": "urn:ofarm:protected-effect-validation-trace:sha256:0e5ca11df58b8d2d32e187ca4f5fd726eb8eeb373420943bce40ce6ee4ed5a45",
+        "digest": "sha256:0e5ca11df58b8d2d32e187ca4f5fd726eb8eeb373420943bce40ce6ee4ed5a45"
       },
       "wrapper": {
         "trace": {
-          "ref": "urn:ofarm:protected-effect-validation-trace:sha256:5fdca167dda66785ea9f9331e1c8622e84f9ad759843bb541b8e153da57d1d03",
-          "digest": "sha256:5fdca167dda66785ea9f9331e1c8622e84f9ad759843bb541b8e153da57d1d03"
+          "ref": "urn:ofarm:protected-effect-validation-trace:sha256:0e5ca11df58b8d2d32e187ca4f5fd726eb8eeb373420943bce40ce6ee4ed5a45",
+          "digest": "sha256:0e5ca11df58b8d2d32e187ca4f5fd726eb8eeb373420943bce40ce6ee4ed5a45"
         },
         "disposition": "PASS"
       }
@@ -1328,12 +1394,18 @@
           "contractId": "urn:ofarm-test:protected-effect-contract:1",
           "contractVersion": "TEST_ONLY.0.1",
           "contractRef": "urn:ofarm-test:contract-record:1",
-          "contractDigest": "sha256:1334c999cba9dd6ad679ae0a1c5d3a1ba1a6e5febdb48efceea62da2515fb7eb"
+          "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
+        },
+        "selectedActionBodySchemaBinding": {
+          "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody",
+          "schemaVersion": "ofarm.assertionrecord.v0.2",
+          "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "canonicalization": "JCS_RFC8785_SHA256"
         },
         "domainPayloadSchemaBinding": {
           "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
           "schemaVersion": "TEST_ONLY.payload.v0.1",
-          "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+          "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
           "canonicalization": "JCS_RFC8785_SHA256"
         }
       },
@@ -1349,7 +1421,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/authorizationResult",
             "schemaVersion": "TEST_ONLY.authorizationResult.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         },
@@ -1364,7 +1436,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/decisionBundle",
             "schemaVersion": "TEST_ONLY.decisionBundle.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         },
@@ -1380,7 +1452,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/rule",
             "schemaVersion": "TEST_ONLY.rule.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           },
           "revisionRef": "urn:ofarm-test:rule-revision:1"
@@ -1548,15 +1620,15 @@
             "payloadSchemaBinding": {
               "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
               "schemaVersion": "TEST_ONLY.payload.v0.1",
-              "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+              "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
               "canonicalization": "JCS_RFC8785_SHA256"
             },
-            "contractDigest": "sha256:1334c999cba9dd6ad679ae0a1c5d3a1ba1a6e5febdb48efceea62da2515fb7eb"
+            "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
           },
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/contract",
             "schemaVersion": "TEST_ONLY.contract.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         },
@@ -1579,7 +1651,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
             "schemaVersion": "TEST_ONLY.payload.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           }
         }
@@ -1627,7 +1699,13 @@
           "contractId": "urn:ofarm-test:protected-effect-contract:1",
           "contractVersion": "TEST_ONLY.0.1",
           "contractRef": "urn:ofarm-test:contract-record:1",
-          "contractDigest": "sha256:1334c999cba9dd6ad679ae0a1c5d3a1ba1a6e5febdb48efceea62da2515fb7eb"
+          "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
+        },
+        "selectedActionBodySchemaBinding": {
+          "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody",
+          "schemaVersion": "ofarm.assertionrecord.v0.2",
+          "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "canonicalization": "JCS_RFC8785_SHA256"
         },
         "domainPayload": {
           "ref": "urn:ofarm-test:payload:unicode",
@@ -1635,7 +1713,7 @@
           "schemaBinding": {
             "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
             "schemaVersion": "TEST_ONLY.payload.v0.1",
-            "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+            "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
             "canonicalization": "JCS_RFC8785_SHA256"
           },
           "overallDispositionPointer": "/overallDisposition"
@@ -1643,13 +1721,13 @@
         "overallDisposition": "PASS"
       },
       "reference": {
-        "ref": "urn:ofarm:protected-effect-validation-trace:sha256:f402c6db02d67b594501f7c17ab23d3a4f7cdab8fb19671d6f577b99f83f3056",
-        "digest": "sha256:f402c6db02d67b594501f7c17ab23d3a4f7cdab8fb19671d6f577b99f83f3056"
+        "ref": "urn:ofarm:protected-effect-validation-trace:sha256:3f7e8d0ca31503a8792ed087b44830da6f402d7355c82ab9e28ab7a85930f4f5",
+        "digest": "sha256:3f7e8d0ca31503a8792ed087b44830da6f402d7355c82ab9e28ab7a85930f4f5"
       },
       "wrapper": {
         "trace": {
-          "ref": "urn:ofarm:protected-effect-validation-trace:sha256:f402c6db02d67b594501f7c17ab23d3a4f7cdab8fb19671d6f577b99f83f3056",
-          "digest": "sha256:f402c6db02d67b594501f7c17ab23d3a4f7cdab8fb19671d6f577b99f83f3056"
+          "ref": "urn:ofarm:protected-effect-validation-trace:sha256:3f7e8d0ca31503a8792ed087b44830da6f402d7355c82ab9e28ab7a85930f4f5",
+          "digest": "sha256:3f7e8d0ca31503a8792ed087b44830da6f402d7355c82ab9e28ab7a85930f4f5"
         },
         "disposition": "PASS"
       }
@@ -1840,16 +1918,22 @@
               "schemaBinding": {
                 "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
                 "schemaVersion": "TEST_ONLY.payload.v0.1",
-                "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+                "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
                 "canonicalization": "JCS_RFC8785_SHA256"
               },
               "overallDispositionPointer": "/overallDisposition"
+            },
+            "selectedActionBodySchemaBinding": {
+              "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody",
+              "schemaVersion": "ofarm.assertionrecord.v0.2",
+              "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+              "canonicalization": "JCS_RFC8785_SHA256"
             },
             "protectedEffectContractBinding": {
               "contractId": "urn:ofarm-test:protected-effect-contract:1",
               "contractVersion": "TEST_ONLY.0.1",
               "contractRef": "urn:ofarm-test:contract-record:1",
-              "contractDigest": "sha256:1334c999cba9dd6ad679ae0a1c5d3a1ba1a6e5febdb48efceea62da2515fb7eb"
+              "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
             },
             "proposedResult": {
               "resultId": "assertion:fictional:performed_interval",
@@ -2202,6 +2286,34 @@
       }
     },
     {
+      "name": "root_requires_selectedActionBodySchemaBinding",
+      "kind": "schema",
+      "requirements": [
+        "T01",
+        "T02"
+      ],
+      "expect": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/trace/selectedActionBodySchemaBinding"
+        }
+      ],
+      "schemaTarget": "trace",
+      "schemaError": {
+        "instancePath": [],
+        "schemaPath": [
+          "required"
+        ],
+        "keyword": "required",
+        "missingProperty": "selectedActionBodySchemaBinding"
+      }
+    },
+    {
       "name": "root_requires_domainPayload",
       "kind": "schema",
       "requirements": [
@@ -2317,6 +2429,130 @@
         ],
         "keyword": "required",
         "missingProperty": "digest"
+      }
+    },
+    {
+      "name": "nested_requires_selectedActionBodySchemaBinding_schemaRef",
+      "kind": "schema",
+      "requirements": [
+        "T02"
+      ],
+      "expect": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/trace/selectedActionBodySchemaBinding/schemaRef"
+        }
+      ],
+      "schemaTarget": "trace",
+      "schemaError": {
+        "instancePath": [
+          "selectedActionBodySchemaBinding"
+        ],
+        "schemaPath": [
+          "properties",
+          "selectedActionBodySchemaBinding",
+          "required"
+        ],
+        "keyword": "required",
+        "missingProperty": "schemaRef"
+      }
+    },
+    {
+      "name": "nested_requires_selectedActionBodySchemaBinding_schemaVersion",
+      "kind": "schema",
+      "requirements": [
+        "T02"
+      ],
+      "expect": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/trace/selectedActionBodySchemaBinding/schemaVersion"
+        }
+      ],
+      "schemaTarget": "trace",
+      "schemaError": {
+        "instancePath": [
+          "selectedActionBodySchemaBinding"
+        ],
+        "schemaPath": [
+          "properties",
+          "selectedActionBodySchemaBinding",
+          "required"
+        ],
+        "keyword": "required",
+        "missingProperty": "schemaVersion"
+      }
+    },
+    {
+      "name": "nested_requires_selectedActionBodySchemaBinding_schemaDigest",
+      "kind": "schema",
+      "requirements": [
+        "T02"
+      ],
+      "expect": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/trace/selectedActionBodySchemaBinding/schemaDigest"
+        }
+      ],
+      "schemaTarget": "trace",
+      "schemaError": {
+        "instancePath": [
+          "selectedActionBodySchemaBinding"
+        ],
+        "schemaPath": [
+          "properties",
+          "selectedActionBodySchemaBinding",
+          "required"
+        ],
+        "keyword": "required",
+        "missingProperty": "schemaDigest"
+      }
+    },
+    {
+      "name": "nested_requires_selectedActionBodySchemaBinding_canonicalization",
+      "kind": "schema",
+      "requirements": [
+        "T02"
+      ],
+      "expect": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "remove",
+          "path": "/trace/selectedActionBodySchemaBinding/canonicalization"
+        }
+      ],
+      "schemaTarget": "trace",
+      "schemaError": {
+        "instancePath": [
+          "selectedActionBodySchemaBinding"
+        ],
+        "schemaPath": [
+          "properties",
+          "selectedActionBodySchemaBinding",
+          "required"
+        ],
+        "keyword": "required",
+        "missingProperty": "canonicalization"
       }
     },
     {
@@ -2998,6 +3234,37 @@
       }
     },
     {
+      "name": "unknown_member_selectedActionBodySchemaBinding",
+      "kind": "schema",
+      "requirements": [
+        "T01"
+      ],
+      "expect": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/trace/selectedActionBodySchemaBinding/unexpected",
+          "value": true
+        }
+      ],
+      "schemaTarget": "trace",
+      "schemaError": {
+        "instancePath": [
+          "selectedActionBodySchemaBinding"
+        ],
+        "schemaPath": [
+          "properties",
+          "selectedActionBodySchemaBinding",
+          "additionalProperties"
+        ],
+        "keyword": "additionalProperties"
+      }
+    },
+    {
       "name": "unknown_member_effectIntentSchemaBinding",
       "kind": "schema",
       "requirements": [
@@ -3283,6 +3550,38 @@
           "additionalProperties"
         ],
         "keyword": "additionalProperties"
+      }
+    },
+    {
+      "name": "object_rejects_null_selectedActionBodySchemaBinding",
+      "kind": "schema",
+      "requirements": [
+        "T01",
+        "T02"
+      ],
+      "expect": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/trace/selectedActionBodySchemaBinding",
+          "value": null
+        }
+      ],
+      "schemaTarget": "trace",
+      "schemaError": {
+        "instancePath": [
+          "selectedActionBodySchemaBinding"
+        ],
+        "schemaPath": [
+          "properties",
+          "selectedActionBodySchemaBinding",
+          "type"
+        ],
+        "keyword": "type"
       }
     },
     {
@@ -4881,6 +5180,69 @@
       ]
     },
     {
+      "name": "expected_context_selectedActionBodySchemaBinding_schemaRef",
+      "kind": "integrity",
+      "requirements": [
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "expect": {
+        "layer": "BINDING",
+        "code": "EXPECTED_CONTEXT_MISMATCH"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/trace/selectedActionBodySchemaBinding/schemaRef",
+          "value": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody-drift"
+        }
+      ]
+    },
+    {
+      "name": "expected_context_selectedActionBodySchemaBinding_schemaVersion",
+      "kind": "integrity",
+      "requirements": [
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "expect": {
+        "layer": "BINDING",
+        "code": "EXPECTED_CONTEXT_MISMATCH"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/trace/selectedActionBodySchemaBinding/schemaVersion",
+          "value": "ofarm.assertionrecord.v0.2-drift"
+        }
+      ]
+    },
+    {
+      "name": "expected_context_selectedActionBodySchemaBinding_schemaDigest",
+      "kind": "integrity",
+      "requirements": [
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "expect": {
+        "layer": "BINDING",
+        "code": "EXPECTED_CONTEXT_MISMATCH"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/trace/selectedActionBodySchemaBinding/schemaDigest",
+          "value": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
       "name": "payload_schema_context_drift",
       "kind": "integrity",
       "requirements": [
@@ -5530,8 +5892,8 @@
           "op": "set",
           "path": "/reference",
           "value": {
-            "ref": "urn:ofarm:protected-effect-validation-trace:sha256:0931220ab4b9e69015372a0d28e5df46408599cb46827f583c86c97eec8739ce",
-            "digest": "sha256:0931220ab4b9e69015372a0d28e5df46408599cb46827f583c86c97eec8739ce"
+            "ref": "urn:ofarm:protected-effect-validation-trace:sha256:83795ccb7dc9b13a5d8c0f48ff15f9c2c0e564269ce58adb63935b3f7d32676f",
+            "digest": "sha256:83795ccb7dc9b13a5d8c0f48ff15f9c2c0e564269ce58adb63935b3f7d32676f"
           }
         }
       ]
@@ -6239,6 +6601,66 @@
       ]
     },
     {
+      "name": "whole_trace_digest_selectedActionBodySchemaBinding_schemaRef",
+      "kind": "trace-digest",
+      "requirements": [
+        "T13",
+        "T14"
+      ],
+      "expect": {
+        "layer": "INTEGRITY",
+        "code": "TRACE_DIGEST"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/trace/selectedActionBodySchemaBinding/schemaRef",
+          "value": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody-digest-mutation"
+        }
+      ]
+    },
+    {
+      "name": "whole_trace_digest_selectedActionBodySchemaBinding_schemaVersion",
+      "kind": "trace-digest",
+      "requirements": [
+        "T13",
+        "T14"
+      ],
+      "expect": {
+        "layer": "INTEGRITY",
+        "code": "TRACE_DIGEST"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/trace/selectedActionBodySchemaBinding/schemaVersion",
+          "value": "ofarm.assertionrecord.v0.2-digest-mutation"
+        }
+      ]
+    },
+    {
+      "name": "whole_trace_digest_selectedActionBodySchemaBinding_schemaDigest",
+      "kind": "trace-digest",
+      "requirements": [
+        "T13",
+        "T14"
+      ],
+      "expect": {
+        "layer": "INTEGRITY",
+        "code": "TRACE_DIGEST"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/trace/selectedActionBodySchemaBinding/schemaDigest",
+          "value": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
       "name": "whole_trace_digest_domainPayload_ref",
       "kind": "trace-digest",
       "requirements": [
@@ -6492,7 +6914,7 @@
         {
           "op": "set",
           "path": "/reference/ref",
-          "value": "urn:wrong:urn:ofarm:protected-effect-validation-trace:sha256:0931220ab4b9e69015372a0d28e5df46408599cb46827f583c86c97eec8739ce"
+          "value": "urn:wrong:urn:ofarm:protected-effect-validation-trace:sha256:83795ccb7dc9b13a5d8c0f48ff15f9c2c0e564269ce58adb63935b3f7d32676f"
         }
       ],
       "schemaTarget": "reference",
@@ -6547,8 +6969,8 @@
           "op": "set",
           "path": "/wrapper/trace",
           "value": {
-            "ref": "urn:ofarm:protected-effect-validation-trace:sha256:027e4b86a099c3905c3c3682be72e4c740c6c736006b2d08a715b9420f62c35b",
-            "digest": "sha256:027e4b86a099c3905c3c3682be72e4c740c6c736006b2d08a715b9420f62c35b"
+            "ref": "urn:ofarm:protected-effect-validation-trace:sha256:24807f280ca83888aa7678a82d4bb3903f50be8a773447b0a7a03b6b6647c3bb",
+            "digest": "sha256:24807f280ca83888aa7678a82d4bb3903f50be8a773447b0a7a03b6b6647c3bb"
           }
         }
       ]
@@ -6625,7 +7047,7 @@
       "binding": {
         "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload/",
         "schemaVersion": "TEST_ONLY.payload.v0.1",
-        "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
         "canonicalization": "JCS_RFC8785_SHA256"
       }
     },
@@ -6645,7 +7067,7 @@
       "binding": {
         "schemaRef": "https://ofarm.example.invalid/absent/payload",
         "schemaVersion": "TEST_ONLY.payload.v0.1",
-        "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
         "canonicalization": "JCS_RFC8785_SHA256"
       }
     },
@@ -6665,7 +7087,7 @@
       "binding": {
         "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
         "schemaVersion": "TEST_ONLY.other",
-        "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
         "canonicalization": "JCS_RFC8785_SHA256"
       }
     },
@@ -6705,7 +7127,7 @@
       "binding": {
         "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
         "schemaVersion": "TEST_ONLY.payload.v0.1",
-        "schemaDigest": "sha256:2f39b56cfd01232429fba9375c81e3cb258580e1aa200379c556df880551fa05",
+        "schemaDigest": "sha256:63cd5d2798fa9ed01c28016506c3b77881aa1801e63904041d04907c727d22b2",
         "canonicalization": "JCS_RFC8785_SHA256"
       }
     },
@@ -6725,7 +7147,7 @@
       "binding": {
         "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/negativeOpenObject",
         "schemaVersion": "TEST_ONLY.negativeOpenObject.v0.1",
-        "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
         "canonicalization": "JCS_RFC8785_SHA256"
       }
     },
@@ -6745,7 +7167,7 @@
       "binding": {
         "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/negativeTrueSchema",
         "schemaVersion": "TEST_ONLY.negativeTrueSchema.v0.1",
-        "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
         "canonicalization": "JCS_RFC8785_SHA256"
       }
     },
@@ -6763,7 +7185,7 @@
       "binding": {
         "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/negativeNoVerdict",
         "schemaVersion": "TEST_ONLY.negativeNoVerdict.v0.1",
-        "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
         "canonicalization": "JCS_RFC8785_SHA256"
       },
       "payload": true
@@ -6779,7 +7201,7 @@
       "binding": {
         "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
         "schemaVersion": "TEST_ONLY.payload.v0.1",
-        "schemaDigest": "sha256:04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
         "canonicalization": "JCS_RFC8785_SHA256"
       },
       "payload": true
@@ -7194,6 +7616,1320 @@
         "code": "CANONICAL_DOMAIN"
       },
       "valueJson": "\"\\ud800\""
+    },
+    {
+      "name": "selected_body_trace_refinalized_against_fixed_context",
+      "kind": "integrity",
+      "requirements": [
+        "T03",
+        "T06"
+      ],
+      "expect": {
+        "layer": "BINDING",
+        "code": "EXPECTED_CONTEXT_MISMATCH"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/trace",
+          "value": {
+            "schemaVersion": "ofarm.protectedEffectValidationTrace.v0.1",
+            "validationTraceId": "urn:ofarm-test:trace:pass",
+            "canonicalization": "JCS_RFC8785_SHA256",
+            "actionClass": "urn:ofarm-test:action:carry-only",
+            "authorizationResult": {
+              "ref": "urn:ofarm-test:authorization:1",
+              "digest": "sha256:0a72fe436acaa0cb47635a955c1dc38d0dd4c926dee7d40f85524984b6e80fc9"
+            },
+            "decisionBundleDigest": "sha256:57495aa055cbce2c0e972051d36f29ceb29bc67725f6f1b7bac09e5f7f9e5b21",
+            "currentActionRuleBinding": {
+              "ruleId": "urn:ofarm-test:rule:1",
+              "ruleRef": "urn:ofarm-test:rule-record:1",
+              "ruleRevisionSelector": {
+                "revisionRef": "urn:ofarm-test:rule-revision:1"
+              },
+              "ruleDigest": "sha256:501ff5508d17a694afa13df14e9dc4802245d93fabf6021260e4871c4280bd82"
+            },
+            "effectIntent": {
+              "ref": "urn:ofarm-test:intent:1",
+              "digest": "sha256:ba2894206cf152aa176a1f91979f17cb6905ee43f09b1dc8aa942ef25538674a"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+              "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+              "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "proposedResult": {
+              "resultId": "assertion:fictional:performed_interval",
+              "resultRef": "urn:ofarm-test:proposed-result:1",
+              "resultDigest": "sha256:1c71c26977d8b30fcf34f8fa47a5e511b3bda05c9a2d25ba4c5cc2c6de0373bb",
+              "resultSchemaBinding": {
+                "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+                "schemaVersion": "ofarm.assertionrecord.v0.2",
+                "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "urn:ofarm-test:protected-effect-contract:1",
+              "contractVersion": "TEST_ONLY.0.1",
+              "contractRef": "urn:ofarm-test:contract-record:1",
+              "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
+            },
+            "selectedActionBodySchemaBinding": {
+              "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/structureAssertionBody",
+              "schemaVersion": "ofarm.assertionrecord.v0.2",
+              "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "domainPayload": {
+              "ref": "urn:ofarm-test:payload:pass",
+              "digest": "sha256:44b17c08c5a7dc7976d511dc9b6a5e95559529a611c3976789ecfa7945ad68d1",
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
+                "schemaVersion": "TEST_ONLY.payload.v0.1",
+                "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              },
+              "overallDispositionPointer": "/overallDisposition"
+            },
+            "overallDisposition": "PASS"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/reference",
+          "value": {
+            "ref": "urn:ofarm:protected-effect-validation-trace:sha256:2e2b942b6c86603b13cf4f2d10bd97000d74e9a1eef339e9d0daef36077b1e3e",
+            "digest": "sha256:2e2b942b6c86603b13cf4f2d10bd97000d74e9a1eef339e9d0daef36077b1e3e"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/wrapper",
+          "value": {
+            "trace": {
+              "ref": "urn:ofarm:protected-effect-validation-trace:sha256:2e2b942b6c86603b13cf4f2d10bd97000d74e9a1eef339e9d0daef36077b1e3e",
+              "digest": "sha256:2e2b942b6c86603b13cf4f2d10bd97000d74e9a1eef339e9d0daef36077b1e3e"
+            },
+            "disposition": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "name": "selected_body_trace_and_context_disagree_with_resolved_contract",
+      "kind": "integrity",
+      "requirements": [
+        "T06"
+      ],
+      "expect": {
+        "layer": "BINDING",
+        "code": "SELECTED_BODY_SCHEMA_MISMATCH"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/expectedContext",
+          "value": {
+            "actionClass": "urn:ofarm-test:action:carry-only",
+            "authorizationResult": {
+              "ref": "urn:ofarm-test:authorization:1",
+              "digest": "sha256:0a72fe436acaa0cb47635a955c1dc38d0dd4c926dee7d40f85524984b6e80fc9"
+            },
+            "decisionBundleDigest": "sha256:57495aa055cbce2c0e972051d36f29ceb29bc67725f6f1b7bac09e5f7f9e5b21",
+            "currentActionRuleBinding": {
+              "ruleId": "urn:ofarm-test:rule:1",
+              "ruleRef": "urn:ofarm-test:rule-record:1",
+              "ruleRevisionSelector": {
+                "revisionRef": "urn:ofarm-test:rule-revision:1"
+              },
+              "ruleDigest": "sha256:501ff5508d17a694afa13df14e9dc4802245d93fabf6021260e4871c4280bd82"
+            },
+            "effectIntent": {
+              "ref": "urn:ofarm-test:intent:1",
+              "digest": "sha256:ba2894206cf152aa176a1f91979f17cb6905ee43f09b1dc8aa942ef25538674a"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+              "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+              "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "proposedResult": {
+              "resultId": "assertion:fictional:performed_interval",
+              "resultRef": "urn:ofarm-test:proposed-result:1",
+              "resultDigest": "sha256:1c71c26977d8b30fcf34f8fa47a5e511b3bda05c9a2d25ba4c5cc2c6de0373bb",
+              "resultSchemaBinding": {
+                "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+                "schemaVersion": "ofarm.assertionrecord.v0.2",
+                "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "urn:ofarm-test:protected-effect-contract:1",
+              "contractVersion": "TEST_ONLY.0.1",
+              "contractRef": "urn:ofarm-test:contract-record:1",
+              "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
+            },
+            "selectedActionBodySchemaBinding": {
+              "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/structureAssertionBody",
+              "schemaVersion": "ofarm.assertionrecord.v0.2",
+              "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "domainPayloadSchemaBinding": {
+              "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
+              "schemaVersion": "TEST_ONLY.payload.v0.1",
+              "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/trace",
+          "value": {
+            "schemaVersion": "ofarm.protectedEffectValidationTrace.v0.1",
+            "validationTraceId": "urn:ofarm-test:trace:pass",
+            "canonicalization": "JCS_RFC8785_SHA256",
+            "actionClass": "urn:ofarm-test:action:carry-only",
+            "authorizationResult": {
+              "ref": "urn:ofarm-test:authorization:1",
+              "digest": "sha256:0a72fe436acaa0cb47635a955c1dc38d0dd4c926dee7d40f85524984b6e80fc9"
+            },
+            "decisionBundleDigest": "sha256:57495aa055cbce2c0e972051d36f29ceb29bc67725f6f1b7bac09e5f7f9e5b21",
+            "currentActionRuleBinding": {
+              "ruleId": "urn:ofarm-test:rule:1",
+              "ruleRef": "urn:ofarm-test:rule-record:1",
+              "ruleRevisionSelector": {
+                "revisionRef": "urn:ofarm-test:rule-revision:1"
+              },
+              "ruleDigest": "sha256:501ff5508d17a694afa13df14e9dc4802245d93fabf6021260e4871c4280bd82"
+            },
+            "effectIntent": {
+              "ref": "urn:ofarm-test:intent:1",
+              "digest": "sha256:ba2894206cf152aa176a1f91979f17cb6905ee43f09b1dc8aa942ef25538674a"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+              "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+              "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "proposedResult": {
+              "resultId": "assertion:fictional:performed_interval",
+              "resultRef": "urn:ofarm-test:proposed-result:1",
+              "resultDigest": "sha256:1c71c26977d8b30fcf34f8fa47a5e511b3bda05c9a2d25ba4c5cc2c6de0373bb",
+              "resultSchemaBinding": {
+                "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+                "schemaVersion": "ofarm.assertionrecord.v0.2",
+                "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "urn:ofarm-test:protected-effect-contract:1",
+              "contractVersion": "TEST_ONLY.0.1",
+              "contractRef": "urn:ofarm-test:contract-record:1",
+              "contractDigest": "sha256:5d0dcccb77d8a793b841420d4efc78208792812dfb092393f89f8a4d0432a4b4"
+            },
+            "selectedActionBodySchemaBinding": {
+              "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/structureAssertionBody",
+              "schemaVersion": "ofarm.assertionrecord.v0.2",
+              "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "domainPayload": {
+              "ref": "urn:ofarm-test:payload:pass",
+              "digest": "sha256:44b17c08c5a7dc7976d511dc9b6a5e95559529a611c3976789ecfa7945ad68d1",
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
+                "schemaVersion": "TEST_ONLY.payload.v0.1",
+                "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              },
+              "overallDispositionPointer": "/overallDisposition"
+            },
+            "overallDisposition": "PASS"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/reference",
+          "value": {
+            "ref": "urn:ofarm:protected-effect-validation-trace:sha256:2e2b942b6c86603b13cf4f2d10bd97000d74e9a1eef339e9d0daef36077b1e3e",
+            "digest": "sha256:2e2b942b6c86603b13cf4f2d10bd97000d74e9a1eef339e9d0daef36077b1e3e"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/wrapper",
+          "value": {
+            "trace": {
+              "ref": "urn:ofarm:protected-effect-validation-trace:sha256:2e2b942b6c86603b13cf4f2d10bd97000d74e9a1eef339e9d0daef36077b1e3e",
+              "digest": "sha256:2e2b942b6c86603b13cf4f2d10bd97000d74e9a1eef339e9d0daef36077b1e3e"
+            },
+            "disposition": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "name": "selected_contract_body_refinalized_drift",
+      "kind": "integrity",
+      "requirements": [
+        "T06"
+      ],
+      "expect": {
+        "layer": "BINDING",
+        "code": "SELECTED_BODY_SCHEMA_MISMATCH"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/expectedContext",
+          "value": {
+            "actionClass": "urn:ofarm-test:action:carry-only",
+            "authorizationResult": {
+              "ref": "urn:ofarm-test:authorization:1",
+              "digest": "sha256:0a72fe436acaa0cb47635a955c1dc38d0dd4c926dee7d40f85524984b6e80fc9"
+            },
+            "decisionBundleDigest": "sha256:57495aa055cbce2c0e972051d36f29ceb29bc67725f6f1b7bac09e5f7f9e5b21",
+            "currentActionRuleBinding": {
+              "ruleId": "urn:ofarm-test:rule:1",
+              "ruleRef": "urn:ofarm-test:rule-record:1",
+              "ruleRevisionSelector": {
+                "revisionRef": "urn:ofarm-test:rule-revision:1"
+              },
+              "ruleDigest": "sha256:501ff5508d17a694afa13df14e9dc4802245d93fabf6021260e4871c4280bd82"
+            },
+            "effectIntent": {
+              "ref": "urn:ofarm-test:intent:1",
+              "digest": "sha256:ba2894206cf152aa176a1f91979f17cb6905ee43f09b1dc8aa942ef25538674a"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+              "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+              "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "proposedResult": {
+              "resultId": "assertion:fictional:performed_interval",
+              "resultRef": "urn:ofarm-test:proposed-result:1",
+              "resultDigest": "sha256:1c71c26977d8b30fcf34f8fa47a5e511b3bda05c9a2d25ba4c5cc2c6de0373bb",
+              "resultSchemaBinding": {
+                "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+                "schemaVersion": "ofarm.assertionrecord.v0.2",
+                "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "urn:ofarm-test:protected-effect-contract:1",
+              "contractVersion": "TEST_ONLY.0.1",
+              "contractRef": "urn:ofarm-test:contract-record:1",
+              "contractDigest": "sha256:8c02d83ecdc4da959ce42596c93d92a1f80929c319907d5fe2106fc0449166c7"
+            },
+            "selectedActionBodySchemaBinding": {
+              "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody",
+              "schemaVersion": "ofarm.assertionrecord.v0.2",
+              "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "domainPayloadSchemaBinding": {
+              "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
+              "schemaVersion": "TEST_ONLY.payload.v0.1",
+              "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/foreign",
+          "value": {
+            "authorizationResult": {
+              "ref": "urn:ofarm-test:authorization:1",
+              "value": {
+                "fixtureOnly": true,
+                "schemaVersion": "TEST_ONLY.authorizationResult.v0.1",
+                "recordId": "urn:ofarm-test:authorization:1",
+                "note": "Fictional record; no authority decision is asserted."
+              },
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/authorizationResult",
+                "schemaVersion": "TEST_ONLY.authorizationResult.v0.1",
+                "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "decisionBundle": {
+              "ref": "urn:ofarm-test:decision-bundle:1",
+              "value": {
+                "fixtureOnly": true,
+                "schemaVersion": "TEST_ONLY.decisionBundle.v0.1",
+                "authorizationResultDigest": "sha256:0a72fe436acaa0cb47635a955c1dc38d0dd4c926dee7d40f85524984b6e80fc9",
+                "note": "TEST ONLY whole-value projection, not the PR11 decision-bundle algorithm."
+              },
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/decisionBundle",
+                "schemaVersion": "TEST_ONLY.decisionBundle.v0.1",
+                "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "rule": {
+              "ref": "urn:ofarm-test:rule-record:1",
+              "value": {
+                "fixtureOnly": true,
+                "schemaVersion": "TEST_ONLY.rule.v0.1",
+                "ruleId": "urn:ofarm-test:rule:1",
+                "actionClass": "urn:ofarm-test:action:carry-only",
+                "note": "Fictional rule bytes; no policy evaluation."
+              },
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/rule",
+                "schemaVersion": "TEST_ONLY.rule.v0.1",
+                "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              },
+              "revisionRef": "urn:ofarm-test:rule-revision:1"
+            },
+            "intent": {
+              "ref": "urn:ofarm-test:intent:1",
+              "value": {
+                "subject": {
+                  "subjectType": "FIELD",
+                  "subjectRef": "field:fictional:1",
+                  "subjectPosture": "EXISTING_SUBJECT",
+                  "revisionRef": "field:fictional:1:r1"
+                },
+                "assertedAt": "2026-09-20T12:00:00Z",
+                "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-09-19T10:00:00.000000001Z",
+                  "end": "2026-09-19T10:00:00.000000002Z"
+                },
+                "assertionBody": {
+                  "assertionPosture": "INITIAL",
+                  "claimText": "Fictional claim. Exact wording is preserved.",
+                  "allegesSoftwareAgentPerformance": false,
+                  "temporalBasis": {
+                    "sourceKind": "BODY_TIME",
+                    "time": {
+                      "profile": "PERFORMED_INTERVAL",
+                      "start": "2026-09-19T10:00:00.000000001Z",
+                      "end": "2026-09-19T10:00:00.000000002Z"
+                    }
+                  }
+                },
+                "evidenceBindings": [
+                  {
+                    "ref": "evidence:fictional:1",
+                    "revisionRef": "revision:fictional:1"
+                  }
+                ],
+                "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+                "resources": [
+                  {
+                    "resourceRole": "TARGET_SCOPE",
+                    "resourcePosture": "AUTHORITY_TARGET",
+                    "targetType": "SCOPE",
+                    "scope": {
+                      "scopeType": "FIELD",
+                      "scopeRef": "field:fictional:1",
+                      "revisionRef": "field:fictional:1:r1"
+                    },
+                    "tenantRef": "tenant:fictional:1",
+                    "authorizationResourceProofBindings": [
+                      {
+                        "ref": "proof:resource:field",
+                        "revisionRef": "proof:resource:field:r1"
+                      }
+                    ]
+                  }
+                ],
+                "effectSubject": {
+                  "subjectKind": "OPERATION_ASSERTION",
+                  "subjectRef": "assertion:fictional:performed_interval",
+                  "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+                  "effectSubjectProofBindings": [
+                    {
+                      "ref": "proof:prospective:1",
+                      "revisionRef": "proof:prospective:1:r1"
+                    }
+                  ]
+                },
+                "claimPosture": "PERFORMED",
+                "performedByPartyRef": "party:fictional:performer"
+              },
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+                "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+                "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "result": {
+              "ref": "urn:ofarm-test:proposed-result:1",
+              "value": {
+                "schemaVersion": "ofarm.assertionrecord.v0.2",
+                "assertionRecordId": "assertion:fictional:performed_interval",
+                "assertionType": "OPERATION_CLAIM_ASSERTION",
+                "subject": {
+                  "subjectType": "FIELD",
+                  "subjectRef": "field:fictional:1",
+                  "subjectPosture": "EXISTING_SUBJECT",
+                  "revisionRef": "field:fictional:1:r1"
+                },
+                "anchorScopes": [
+                  {
+                    "scopeType": "FIELD",
+                    "scopeRef": "field:fictional:1",
+                    "revisionRef": "field:fictional:1:r1"
+                  }
+                ],
+                "assertedByPartyRef": "party:fictional:reporter",
+                "assertedAt": "2026-09-20T12:00:00Z",
+                "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-09-19T10:00:00.000000001Z",
+                  "end": "2026-09-19T10:00:00.000000002Z"
+                },
+                "assertionBody": {
+                  "assertionPosture": "INITIAL",
+                  "claimText": "Fictional claim. Exact wording is preserved.",
+                  "allegesSoftwareAgentPerformance": false,
+                  "temporalBasis": {
+                    "sourceKind": "BODY_TIME",
+                    "time": {
+                      "profile": "PERFORMED_INTERVAL",
+                      "start": "2026-09-19T10:00:00.000000001Z",
+                      "end": "2026-09-19T10:00:00.000000002Z"
+                    }
+                  }
+                },
+                "evidenceBindings": [
+                  {
+                    "ref": "evidence:fictional:1",
+                    "revisionRef": "revision:fictional:1"
+                  }
+                ],
+                "claimState": "PENDING_REVIEW",
+                "operationClaimContext": {
+                  "claimPosture": "PERFORMED",
+                  "performedByPartyRef": "party:fictional:performer"
+                }
+              },
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+                "schemaVersion": "ofarm.assertionrecord.v0.2",
+                "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "contract": {
+              "ref": "urn:ofarm-test:contract-record:1",
+              "value": {
+                "fixtureOnly": true,
+                "schemaVersion": "TEST_ONLY.contract.v0.1",
+                "contractId": "urn:ofarm-test:protected-effect-contract:1",
+                "contractVersion": "TEST_ONLY.0.1",
+                "intentSchemaBinding": {
+                  "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+                  "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+                  "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+                  "canonicalization": "JCS_RFC8785_SHA256"
+                },
+                "resultSchemaBinding": {
+                  "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+                  "schemaVersion": "ofarm.assertionrecord.v0.2",
+                  "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+                  "canonicalization": "JCS_RFC8785_SHA256"
+                },
+                "bodySchemaBinding": {
+                  "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/structureAssertionBody",
+                  "schemaVersion": "ofarm.assertionrecord.v0.2",
+                  "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+                  "canonicalization": "JCS_RFC8785_SHA256"
+                },
+                "payloadSchemaBinding": {
+                  "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
+                  "schemaVersion": "TEST_ONLY.payload.v0.1",
+                  "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                  "canonicalization": "JCS_RFC8785_SHA256"
+                },
+                "contractDigest": "sha256:8c02d83ecdc4da959ce42596c93d92a1f80929c319907d5fe2106fc0449166c7"
+              },
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/contract",
+                "schemaVersion": "TEST_ONLY.contract.v0.1",
+                "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "payload": {
+              "ref": "urn:ofarm-test:payload:pass",
+              "value": {
+                "fixtureOnly": true,
+                "schemaVersion": "TEST_ONLY.payload.v0.1",
+                "payloadId": "urn:ofarm-test:payload:pass",
+                "overallDisposition": "PASS",
+                "note": "Fictional carried PASS; no checks or domain truth are asserted.",
+                "orderedExamples": [
+                  "first",
+                  "second"
+                ],
+                "details": {
+                  "label": "literal fixture"
+                }
+              },
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
+                "schemaVersion": "TEST_ONLY.payload.v0.1",
+                "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/trace",
+          "value": {
+            "schemaVersion": "ofarm.protectedEffectValidationTrace.v0.1",
+            "validationTraceId": "urn:ofarm-test:trace:pass",
+            "canonicalization": "JCS_RFC8785_SHA256",
+            "actionClass": "urn:ofarm-test:action:carry-only",
+            "authorizationResult": {
+              "ref": "urn:ofarm-test:authorization:1",
+              "digest": "sha256:0a72fe436acaa0cb47635a955c1dc38d0dd4c926dee7d40f85524984b6e80fc9"
+            },
+            "decisionBundleDigest": "sha256:57495aa055cbce2c0e972051d36f29ceb29bc67725f6f1b7bac09e5f7f9e5b21",
+            "currentActionRuleBinding": {
+              "ruleId": "urn:ofarm-test:rule:1",
+              "ruleRef": "urn:ofarm-test:rule-record:1",
+              "ruleRevisionSelector": {
+                "revisionRef": "urn:ofarm-test:rule-revision:1"
+              },
+              "ruleDigest": "sha256:501ff5508d17a694afa13df14e9dc4802245d93fabf6021260e4871c4280bd82"
+            },
+            "effectIntent": {
+              "ref": "urn:ofarm-test:intent:1",
+              "digest": "sha256:ba2894206cf152aa176a1f91979f17cb6905ee43f09b1dc8aa942ef25538674a"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+              "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+              "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "proposedResult": {
+              "resultId": "assertion:fictional:performed_interval",
+              "resultRef": "urn:ofarm-test:proposed-result:1",
+              "resultDigest": "sha256:1c71c26977d8b30fcf34f8fa47a5e511b3bda05c9a2d25ba4c5cc2c6de0373bb",
+              "resultSchemaBinding": {
+                "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+                "schemaVersion": "ofarm.assertionrecord.v0.2",
+                "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "urn:ofarm-test:protected-effect-contract:1",
+              "contractVersion": "TEST_ONLY.0.1",
+              "contractRef": "urn:ofarm-test:contract-record:1",
+              "contractDigest": "sha256:8c02d83ecdc4da959ce42596c93d92a1f80929c319907d5fe2106fc0449166c7"
+            },
+            "selectedActionBodySchemaBinding": {
+              "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody",
+              "schemaVersion": "ofarm.assertionrecord.v0.2",
+              "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "domainPayload": {
+              "ref": "urn:ofarm-test:payload:pass",
+              "digest": "sha256:44b17c08c5a7dc7976d511dc9b6a5e95559529a611c3976789ecfa7945ad68d1",
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
+                "schemaVersion": "TEST_ONLY.payload.v0.1",
+                "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              },
+              "overallDispositionPointer": "/overallDisposition"
+            },
+            "overallDisposition": "PASS"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/reference",
+          "value": {
+            "ref": "urn:ofarm:protected-effect-validation-trace:sha256:2f9942e49ec83de295dd173c648b3dd9ab61a0ff9c61baef8b10f0bdc5eb0896",
+            "digest": "sha256:2f9942e49ec83de295dd173c648b3dd9ab61a0ff9c61baef8b10f0bdc5eb0896"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/wrapper",
+          "value": {
+            "trace": {
+              "ref": "urn:ofarm:protected-effect-validation-trace:sha256:2f9942e49ec83de295dd173c648b3dd9ab61a0ff9c61baef8b10f0bdc5eb0896",
+              "digest": "sha256:2f9942e49ec83de295dd173c648b3dd9ab61a0ff9c61baef8b10f0bdc5eb0896"
+            },
+            "disposition": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "name": "selected_body_same_binding_after_honest_contract_refinalization",
+      "kind": "integrity",
+      "requirements": [
+        "T06"
+      ],
+      "expect": "PASS",
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/expectedContext",
+          "value": {
+            "actionClass": "urn:ofarm-test:action:carry-only",
+            "authorizationResult": {
+              "ref": "urn:ofarm-test:authorization:1",
+              "digest": "sha256:0a72fe436acaa0cb47635a955c1dc38d0dd4c926dee7d40f85524984b6e80fc9"
+            },
+            "decisionBundleDigest": "sha256:57495aa055cbce2c0e972051d36f29ceb29bc67725f6f1b7bac09e5f7f9e5b21",
+            "currentActionRuleBinding": {
+              "ruleId": "urn:ofarm-test:rule:1",
+              "ruleRef": "urn:ofarm-test:rule-record:1",
+              "ruleRevisionSelector": {
+                "revisionRef": "urn:ofarm-test:rule-revision:1"
+              },
+              "ruleDigest": "sha256:501ff5508d17a694afa13df14e9dc4802245d93fabf6021260e4871c4280bd82"
+            },
+            "effectIntent": {
+              "ref": "urn:ofarm-test:intent:1",
+              "digest": "sha256:ba2894206cf152aa176a1f91979f17cb6905ee43f09b1dc8aa942ef25538674a"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+              "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+              "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "proposedResult": {
+              "resultId": "assertion:fictional:performed_interval",
+              "resultRef": "urn:ofarm-test:proposed-result:1",
+              "resultDigest": "sha256:1c71c26977d8b30fcf34f8fa47a5e511b3bda05c9a2d25ba4c5cc2c6de0373bb",
+              "resultSchemaBinding": {
+                "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+                "schemaVersion": "ofarm.assertionrecord.v0.2",
+                "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "urn:ofarm-test:protected-effect-contract:refinalized",
+              "contractVersion": "TEST_ONLY.0.1",
+              "contractRef": "urn:ofarm-test:contract-record:refinalized",
+              "contractDigest": "sha256:7451be25d6391ea11f6e36381d4c5dbe9b850570c19377056ea4624bf40a2bc1"
+            },
+            "selectedActionBodySchemaBinding": {
+              "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody",
+              "schemaVersion": "ofarm.assertionrecord.v0.2",
+              "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "domainPayloadSchemaBinding": {
+              "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
+              "schemaVersion": "TEST_ONLY.payload.v0.1",
+              "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/foreign",
+          "value": {
+            "authorizationResult": {
+              "ref": "urn:ofarm-test:authorization:1",
+              "value": {
+                "fixtureOnly": true,
+                "schemaVersion": "TEST_ONLY.authorizationResult.v0.1",
+                "recordId": "urn:ofarm-test:authorization:1",
+                "note": "Fictional record; no authority decision is asserted."
+              },
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/authorizationResult",
+                "schemaVersion": "TEST_ONLY.authorizationResult.v0.1",
+                "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "decisionBundle": {
+              "ref": "urn:ofarm-test:decision-bundle:1",
+              "value": {
+                "fixtureOnly": true,
+                "schemaVersion": "TEST_ONLY.decisionBundle.v0.1",
+                "authorizationResultDigest": "sha256:0a72fe436acaa0cb47635a955c1dc38d0dd4c926dee7d40f85524984b6e80fc9",
+                "note": "TEST ONLY whole-value projection, not the PR11 decision-bundle algorithm."
+              },
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/decisionBundle",
+                "schemaVersion": "TEST_ONLY.decisionBundle.v0.1",
+                "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "rule": {
+              "ref": "urn:ofarm-test:rule-record:1",
+              "value": {
+                "fixtureOnly": true,
+                "schemaVersion": "TEST_ONLY.rule.v0.1",
+                "ruleId": "urn:ofarm-test:rule:1",
+                "actionClass": "urn:ofarm-test:action:carry-only",
+                "note": "Fictional rule bytes; no policy evaluation."
+              },
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/rule",
+                "schemaVersion": "TEST_ONLY.rule.v0.1",
+                "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              },
+              "revisionRef": "urn:ofarm-test:rule-revision:1"
+            },
+            "intent": {
+              "ref": "urn:ofarm-test:intent:1",
+              "value": {
+                "subject": {
+                  "subjectType": "FIELD",
+                  "subjectRef": "field:fictional:1",
+                  "subjectPosture": "EXISTING_SUBJECT",
+                  "revisionRef": "field:fictional:1:r1"
+                },
+                "assertedAt": "2026-09-20T12:00:00Z",
+                "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-09-19T10:00:00.000000001Z",
+                  "end": "2026-09-19T10:00:00.000000002Z"
+                },
+                "assertionBody": {
+                  "assertionPosture": "INITIAL",
+                  "claimText": "Fictional claim. Exact wording is preserved.",
+                  "allegesSoftwareAgentPerformance": false,
+                  "temporalBasis": {
+                    "sourceKind": "BODY_TIME",
+                    "time": {
+                      "profile": "PERFORMED_INTERVAL",
+                      "start": "2026-09-19T10:00:00.000000001Z",
+                      "end": "2026-09-19T10:00:00.000000002Z"
+                    }
+                  }
+                },
+                "evidenceBindings": [
+                  {
+                    "ref": "evidence:fictional:1",
+                    "revisionRef": "revision:fictional:1"
+                  }
+                ],
+                "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+                "resources": [
+                  {
+                    "resourceRole": "TARGET_SCOPE",
+                    "resourcePosture": "AUTHORITY_TARGET",
+                    "targetType": "SCOPE",
+                    "scope": {
+                      "scopeType": "FIELD",
+                      "scopeRef": "field:fictional:1",
+                      "revisionRef": "field:fictional:1:r1"
+                    },
+                    "tenantRef": "tenant:fictional:1",
+                    "authorizationResourceProofBindings": [
+                      {
+                        "ref": "proof:resource:field",
+                        "revisionRef": "proof:resource:field:r1"
+                      }
+                    ]
+                  }
+                ],
+                "effectSubject": {
+                  "subjectKind": "OPERATION_ASSERTION",
+                  "subjectRef": "assertion:fictional:performed_interval",
+                  "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+                  "effectSubjectProofBindings": [
+                    {
+                      "ref": "proof:prospective:1",
+                      "revisionRef": "proof:prospective:1:r1"
+                    }
+                  ]
+                },
+                "claimPosture": "PERFORMED",
+                "performedByPartyRef": "party:fictional:performer"
+              },
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+                "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+                "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "result": {
+              "ref": "urn:ofarm-test:proposed-result:1",
+              "value": {
+                "schemaVersion": "ofarm.assertionrecord.v0.2",
+                "assertionRecordId": "assertion:fictional:performed_interval",
+                "assertionType": "OPERATION_CLAIM_ASSERTION",
+                "subject": {
+                  "subjectType": "FIELD",
+                  "subjectRef": "field:fictional:1",
+                  "subjectPosture": "EXISTING_SUBJECT",
+                  "revisionRef": "field:fictional:1:r1"
+                },
+                "anchorScopes": [
+                  {
+                    "scopeType": "FIELD",
+                    "scopeRef": "field:fictional:1",
+                    "revisionRef": "field:fictional:1:r1"
+                  }
+                ],
+                "assertedByPartyRef": "party:fictional:reporter",
+                "assertedAt": "2026-09-20T12:00:00Z",
+                "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-09-19T10:00:00.000000001Z",
+                  "end": "2026-09-19T10:00:00.000000002Z"
+                },
+                "assertionBody": {
+                  "assertionPosture": "INITIAL",
+                  "claimText": "Fictional claim. Exact wording is preserved.",
+                  "allegesSoftwareAgentPerformance": false,
+                  "temporalBasis": {
+                    "sourceKind": "BODY_TIME",
+                    "time": {
+                      "profile": "PERFORMED_INTERVAL",
+                      "start": "2026-09-19T10:00:00.000000001Z",
+                      "end": "2026-09-19T10:00:00.000000002Z"
+                    }
+                  }
+                },
+                "evidenceBindings": [
+                  {
+                    "ref": "evidence:fictional:1",
+                    "revisionRef": "revision:fictional:1"
+                  }
+                ],
+                "claimState": "PENDING_REVIEW",
+                "operationClaimContext": {
+                  "claimPosture": "PERFORMED",
+                  "performedByPartyRef": "party:fictional:performer"
+                }
+              },
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+                "schemaVersion": "ofarm.assertionrecord.v0.2",
+                "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "contract": {
+              "ref": "urn:ofarm-test:contract-record:refinalized",
+              "value": {
+                "fixtureOnly": true,
+                "schemaVersion": "TEST_ONLY.contract.v0.1",
+                "contractId": "urn:ofarm-test:protected-effect-contract:refinalized",
+                "contractVersion": "TEST_ONLY.0.1",
+                "intentSchemaBinding": {
+                  "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+                  "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+                  "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+                  "canonicalization": "JCS_RFC8785_SHA256"
+                },
+                "resultSchemaBinding": {
+                  "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+                  "schemaVersion": "ofarm.assertionrecord.v0.2",
+                  "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+                  "canonicalization": "JCS_RFC8785_SHA256"
+                },
+                "bodySchemaBinding": {
+                  "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody",
+                  "schemaVersion": "ofarm.assertionrecord.v0.2",
+                  "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+                  "canonicalization": "JCS_RFC8785_SHA256"
+                },
+                "payloadSchemaBinding": {
+                  "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
+                  "schemaVersion": "TEST_ONLY.payload.v0.1",
+                  "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                  "canonicalization": "JCS_RFC8785_SHA256"
+                },
+                "contractDigest": "sha256:7451be25d6391ea11f6e36381d4c5dbe9b850570c19377056ea4624bf40a2bc1"
+              },
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/contract",
+                "schemaVersion": "TEST_ONLY.contract.v0.1",
+                "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "payload": {
+              "ref": "urn:ofarm-test:payload:pass",
+              "value": {
+                "fixtureOnly": true,
+                "schemaVersion": "TEST_ONLY.payload.v0.1",
+                "payloadId": "urn:ofarm-test:payload:pass",
+                "overallDisposition": "PASS",
+                "note": "Fictional carried PASS; no checks or domain truth are asserted.",
+                "orderedExamples": [
+                  "first",
+                  "second"
+                ],
+                "details": {
+                  "label": "literal fixture"
+                }
+              },
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
+                "schemaVersion": "TEST_ONLY.payload.v0.1",
+                "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            }
+          }
+        },
+        {
+          "op": "set",
+          "path": "/trace",
+          "value": {
+            "schemaVersion": "ofarm.protectedEffectValidationTrace.v0.1",
+            "validationTraceId": "urn:ofarm-test:trace:pass",
+            "canonicalization": "JCS_RFC8785_SHA256",
+            "actionClass": "urn:ofarm-test:action:carry-only",
+            "authorizationResult": {
+              "ref": "urn:ofarm-test:authorization:1",
+              "digest": "sha256:0a72fe436acaa0cb47635a955c1dc38d0dd4c926dee7d40f85524984b6e80fc9"
+            },
+            "decisionBundleDigest": "sha256:57495aa055cbce2c0e972051d36f29ceb29bc67725f6f1b7bac09e5f7f9e5b21",
+            "currentActionRuleBinding": {
+              "ruleId": "urn:ofarm-test:rule:1",
+              "ruleRef": "urn:ofarm-test:rule-record:1",
+              "ruleRevisionSelector": {
+                "revisionRef": "urn:ofarm-test:rule-revision:1"
+              },
+              "ruleDigest": "sha256:501ff5508d17a694afa13df14e9dc4802245d93fabf6021260e4871c4280bd82"
+            },
+            "effectIntent": {
+              "ref": "urn:ofarm-test:intent:1",
+              "digest": "sha256:ba2894206cf152aa176a1f91979f17cb6905ee43f09b1dc8aa942ef25538674a"
+            },
+            "effectIntentSchemaBinding": {
+              "schemaRef": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+              "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+              "schemaDigest": "sha256:66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "proposedResult": {
+              "resultId": "assertion:fictional:performed_interval",
+              "resultRef": "urn:ofarm-test:proposed-result:1",
+              "resultDigest": "sha256:1c71c26977d8b30fcf34f8fa47a5e511b3bda05c9a2d25ba4c5cc2c6de0373bb",
+              "resultSchemaBinding": {
+                "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+                "schemaVersion": "ofarm.assertionrecord.v0.2",
+                "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              }
+            },
+            "protectedEffectContractBinding": {
+              "contractId": "urn:ofarm-test:protected-effect-contract:refinalized",
+              "contractVersion": "TEST_ONLY.0.1",
+              "contractRef": "urn:ofarm-test:contract-record:refinalized",
+              "contractDigest": "sha256:7451be25d6391ea11f6e36381d4c5dbe9b850570c19377056ea4624bf40a2bc1"
+            },
+            "selectedActionBodySchemaBinding": {
+              "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody",
+              "schemaVersion": "ofarm.assertionrecord.v0.2",
+              "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+              "canonicalization": "JCS_RFC8785_SHA256"
+            },
+            "domainPayload": {
+              "ref": "urn:ofarm-test:payload:pass",
+              "digest": "sha256:44b17c08c5a7dc7976d511dc9b6a5e95559529a611c3976789ecfa7945ad68d1",
+              "schemaBinding": {
+                "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
+                "schemaVersion": "TEST_ONLY.payload.v0.1",
+                "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+                "canonicalization": "JCS_RFC8785_SHA256"
+              },
+              "overallDispositionPointer": "/overallDisposition"
+            },
+            "overallDisposition": "PASS"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/reference",
+          "value": {
+            "ref": "urn:ofarm:protected-effect-validation-trace:sha256:7717fcd0cd2f7ce563e948d354a976e144237734e16f1af114135d7665b29475",
+            "digest": "sha256:7717fcd0cd2f7ce563e948d354a976e144237734e16f1af114135d7665b29475"
+          }
+        },
+        {
+          "op": "set",
+          "path": "/wrapper",
+          "value": {
+            "trace": {
+              "ref": "urn:ofarm:protected-effect-validation-trace:sha256:7717fcd0cd2f7ce563e948d354a976e144237734e16f1af114135d7665b29475",
+              "digest": "sha256:7717fcd0cd2f7ce563e948d354a976e144237734e16f1af114135d7665b29475"
+            },
+            "disposition": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "name": "schema_binding_canonicalization_const",
+      "kind": "schema",
+      "requirements": [
+        "T06",
+        "T17"
+      ],
+      "expect": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/trace/selectedActionBodySchemaBinding/canonicalization",
+          "value": "ORDINARY_JSON"
+        }
+      ],
+      "schemaTarget": "trace",
+      "schemaError": {
+        "instancePath": [
+          "selectedActionBodySchemaBinding",
+          "canonicalization"
+        ],
+        "schemaPath": [
+          "properties",
+          "selectedActionBodySchemaBinding",
+          "properties",
+          "canonicalization",
+          "const"
+        ],
+        "keyword": "const"
+      }
+    },
+    {
+      "name": "selected_body_empty_schema_reference",
+      "kind": "schema",
+      "requirements": [
+        "T06"
+      ],
+      "expect": {
+        "layer": "SCHEMA",
+        "code": "SCHEMA"
+      },
+      "scenario": "pass",
+      "edits": [
+        {
+          "op": "set",
+          "path": "/trace/selectedActionBodySchemaBinding/schemaRef",
+          "value": ""
+        }
+      ],
+      "schemaTarget": "trace",
+      "schemaError": {
+        "instancePath": [
+          "selectedActionBodySchemaBinding",
+          "schemaRef"
+        ],
+        "schemaPath": [
+          "properties",
+          "selectedActionBodySchemaBinding",
+          "properties",
+          "schemaRef",
+          "minLength"
+        ],
+        "keyword": "minLength"
+      }
+    },
+    {
+      "name": "catalog_digest_must_match_actual_document_pin",
+      "kind": "schema-policy",
+      "requirements": [
+        "T09"
+      ],
+      "expect": {
+        "layer": "BINDING",
+        "code": "SCHEMA_CATALOG_MISMATCH"
+      },
+      "binding": {
+        "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
+        "schemaVersion": "TEST_ONLY.payload.v0.1",
+        "schemaDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      },
+      "catalogEdits": [
+        {
+          "op": "set",
+          "path": "/schemaSelections/8/binding/schemaDigest",
+          "value": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "name": "catalog_pointer_must_match_full_selector",
+      "kind": "schema-policy",
+      "requirements": [
+        "T09"
+      ],
+      "expect": {
+        "layer": "BINDING",
+        "code": "SCHEMA_CATALOG_MISMATCH"
+      },
+      "binding": {
+        "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/payload",
+        "schemaVersion": "TEST_ONLY.payload.v0.1",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      },
+      "catalogEdits": [
+        {
+          "op": "set",
+          "path": "/schemaSelections/8/pointer",
+          "value": "/$defs/rule"
+        }
+      ]
+    },
+    {
+      "name": "selected_schema_reference_cycle",
+      "kind": "schema-policy",
+      "requirements": [
+        "T10"
+      ],
+      "expect": {
+        "layer": "BINDING",
+        "code": "SCHEMA_REFERENCE_CYCLE"
+      },
+      "binding": {
+        "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/negativeRefCycle",
+        "schemaVersion": "TEST_ONLY.negativeRefCycle.v0.1",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      }
+    },
+    {
+      "name": "selected_schema_foreign_reference_resolves",
+      "kind": "schema-policy",
+      "requirements": [
+        "T10"
+      ],
+      "expect": "PASS",
+      "binding": {
+        "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/negativeReferenceToResult",
+        "schemaVersion": "TEST_ONLY.negativeReferenceToResult.v0.1",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      }
+    },
+    {
+      "name": "helper_resolved_document_unavailable_after_preflight",
+      "kind": "schema-policy",
+      "requirements": [
+        "T10"
+      ],
+      "expect": {
+        "layer": "UNAVAILABLE",
+        "code": "SCHEMA_DOCUMENT_UNAVAILABLE"
+      },
+      "binding": {
+        "schemaRef": "https://ofarm.example.invalid/test-only/validation-trace-dependencies/v0.1#/$defs/negativeReferenceToResult",
+        "schemaVersion": "TEST_ONLY.negativeReferenceToResult.v0.1",
+        "schemaDigest": "sha256:031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      },
+      "omitResolvedDocuments": [
+        "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json"
+      ],
+      "controlScope": "Helper boundary only: intentionally remove the loaded document after successful pinned-reference preflight; entry-point absence is separately rejected before this helper."
+    },
+    {
+      "name": "dynamic_reference_fails_closed",
+      "kind": "artifact",
+      "requirements": [
+        "T09",
+        "T10"
+      ],
+      "expect": {
+        "layer": "BINDING",
+        "code": "DYNAMIC_SCHEMA_REFERENCE_UNSUPPORTED"
+      },
+      "extraPins": [
+        {
+          "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_dynamic_reference_negative_schema_v0_1.json",
+          "kind": "schema",
+          "schemaId": "https://ofarm.example.invalid/test-only/dynamic_reference/v0.1",
+          "sha256": "29d74487179032d1275dcfe9a713b8a5017146eb26f2942ebff89d614d81ef8b"
+        }
+      ]
+    },
+    {
+      "name": "missing_fragment_fails_closed",
+      "kind": "artifact",
+      "requirements": [
+        "T09",
+        "T10"
+      ],
+      "expect": {
+        "layer": "BINDING",
+        "code": "POINTER_MISSING"
+      },
+      "extraPins": [
+        {
+          "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_missing_fragment_negative_schema_v0_1.json",
+          "kind": "schema",
+          "schemaId": "https://ofarm.example.invalid/test-only/missing_fragment/v0.1",
+          "sha256": "4ebd4cd7fd8babce940a16bdd767308242a5ffe4c9c22c3add289c330780c7ca"
+        }
+      ]
+    },
+    {
+      "name": "json_integer_5000_digits",
+      "kind": "json",
+      "requirements": [
+        "T16"
+      ],
+      "expect": {
+        "layer": "JSON",
+        "code": "INVALID_JSON"
+      },
+      "raw": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"
+    },
+    {
+      "name": "json_arrays_2000_deep",
+      "kind": "json",
+      "requirements": [
+        "T16"
+      ],
+      "expect": {
+        "layer": "JSON",
+        "code": "INVALID_JSON"
+      },
+      "raw": "[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[0]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]"
     }
   ],
   "deferredGuarantees": [
@@ -7229,5 +8965,7 @@
       "id": "D08",
       "open": "Selected release bundle, governance, runtime and production admission; OFARM2 #392/#396 stays parked."
     }
-  ]
+  ],
+  "expectedContextProvenance": "Frozen test inputs; no runtime owner/context producer is exercised.",
+  "identityControlLimit": "The local ID-to-digest ledger rejects changed bytes under one ID. It does not define an attempt/subject key or prevent a separately finalized new-ID PASS after a FAIL; that transaction admissibility boundary is unavailable here."
 }

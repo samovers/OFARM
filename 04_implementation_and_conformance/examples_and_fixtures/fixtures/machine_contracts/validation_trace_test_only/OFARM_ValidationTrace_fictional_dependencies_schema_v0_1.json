@@ -227,6 +227,12 @@
       "additionalProperties": true
     },
     "negativeTrueSchema": true,
+    "negativeRefCycle": {
+      "$ref": "#/$defs/negativeRefCycle"
+    },
+    "negativeReferenceToResult": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2"
+    },
     "negativeNoVerdict": {
       "type": "object",
       "additionalProperties": false,

@@ -18,6 +18,7 @@
     "effectIntentSchemaBinding",
     "proposedResult",
     "protectedEffectContractBinding",
+    "selectedActionBodySchemaBinding",
     "domainPayload",
     "overallDisposition"
   ],
@@ -54,6 +55,9 @@
     },
     "protectedEffectContractBinding": {
       "$ref": "#/$defs/contractBinding"
+    },
+    "selectedActionBodySchemaBinding": {
+      "$ref": "#/$defs/schemaBinding"
     },
     "domainPayload": {
       "$ref": "#/$defs/domainPayloadBinding"

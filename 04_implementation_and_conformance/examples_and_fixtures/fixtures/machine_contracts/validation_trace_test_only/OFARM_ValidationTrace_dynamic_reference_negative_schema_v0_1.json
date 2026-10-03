@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.example.invalid/test-only/dynamic_reference/v0.1",
+  "title": "TEST ONLY negative: dynamic_reference",
+  "$dynamicRef": "#/$defs/closed",
+  "$defs": {
+    "closed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fixtureOnly"
+      ],
+      "properties": {
+        "fixtureOnly": {
+          "const": true
+        }
+      }
+    }
+  }
+}

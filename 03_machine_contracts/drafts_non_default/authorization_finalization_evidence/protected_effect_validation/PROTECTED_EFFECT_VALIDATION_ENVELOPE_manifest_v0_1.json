@@ -17,17 +17,17 @@
   },
   "envelopeSchema": {
     "path": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/protected_effect_validation/OFARM_ProtectedEffectValidationTrace_envelope_schema_v0_1.json",
-    "byteSha256": "94f52a5d051759a0e38408906017805352a0a2fa2e44d93cd08fcd595925d8b3",
-    "bytes": 9683,
+    "byteSha256": "2c058a1257c86f012eeee63e4bfcf999422513a55135220d17a71ebb2e7d1599",
+    "bytes": 9808,
     "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1",
     "schemaVersion": "ofarm.protectedEffectValidationTrace.v0.1",
     "schemaPointer": "#",
-    "jcsDigest": "sha256:5dfee0325ca418ccd18253b413d097dad64d8a09583e495d3b08005ad19dc13c"
+    "jcsDigest": "sha256:4195031b12645dbb5bfbecdfc8bbe85ba4d6b90f86735f850f9be22b27ff1a4c"
   },
   "design": {
     "path": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/protected_effect_validation/DESIGN.md",
-    "byteSha256": "2c74f36564749b06a7c99cbf7520bf6213adf2f61db0669d72ede0614bbfbd3e",
-    "bytes": 14714
+    "byteSha256": "760186cd4e23419708c8094b32777b22820e8e75ac704b2df227d09527abc7b4",
+    "bytes": 21692
   },
   "evidenceClassification": {
     "family": "EvidenceEvent",
@@ -47,21 +47,23 @@
     "digestPrefix": "sha256:",
     "duplicateJsonNames": "REJECT_BEFORE_OBJECT_MODEL",
     "schemaResolution": "EXACT_PINNED_LOCAL_CLOSURE_ONLY",
-    "expectedBindingContext": "Independently selected complete bindings; never derive expected identity from the trace itself.",
+    "expectedBindingContext": "Separately supplied frozen fictional context in this harness. Real independently selected owner context remains unavailable; never derive expectations from the trace itself.",
     "constructionOrder": [
       "finalize foreign owner bindings and their projections",
       "validate and hash separately owned closed domain payload",
       "validate envelope and copied disposition against exact expected bindings",
       "hash complete envelope and construct external ref/digest",
       "later transaction evidence may bind finalized trace under existing PR26 rules"
-    ]
+    ],
+    "selectedActionBodySchemaBinding": "Required complete root binding; compare with separate expected context and resolved selected-contract body binding for the same action."
   },
   "draftWireChoices": [
     "One immutable trace identity and one proposed-result binding per envelope.",
     "External self-digest-free closed domain payload with exact /overallDisposition PASS/FAIL interface.",
     "External content-addressed trace reference; no digest exclusions or future transaction back-references.",
     "Exact schema document byte digest plus full selector and explicit version.",
-    "Full selected rule revision selector preserved without normalization or fallback."
+    "Full selected rule revision selector preserved without normalization or fallback.",
+    "Required selectedActionBodySchemaBinding uses the existing closed schemaBinding shape beside the unchanged four-field contract binding."
   ],
   "sourceInputs": [
     {
@@ -134,7 +136,7 @@
   "verification": {
     "status": "FICTIONAL_INTEGRITY_CHECKS_PASS",
     "runner": "04_implementation_and_conformance/conformance_runners/ofarm_protected_effect_validation_trace_envelope_v0_1.py",
-    "scope": "Finite fictional envelope integrity only. Shape-valid PASS is not proof that domain validation ran.",
+    "scope": "Finite fictional envelope integrity only. Matching copied verdicts and hashes establish neither domain execution nor attempt admission.",
     "productionDomainPayload": "UNAVAILABLE",
     "completeProtectedEffectContract": "UNAVAILABLE",
     "databaseUsed": false,
@@ -145,39 +147,53 @@
       "admittedProtectedResultBinding": "UNAVAILABLE_MISSING_REAL_ASSERTION_RECORD_CONTRACT",
       "limit": "Fictional contract bytes and matching field names do not establish a complete admitted-result binding."
     },
-    "positiveCases": 19,
-    "negativeCases": 217,
+    "positiveCases": 21,
+    "negativeCases": 243,
     "negativeRejectionLayers": {
-      "SCHEMA": 93,
-      "BINDING": 51,
-      "INTEGRITY": 43,
-      "UNAVAILABLE": 14,
-      "JSON": 14,
+      "SCHEMA": 102,
+      "BINDING": 62,
+      "INTEGRITY": 46,
+      "UNAVAILABLE": 15,
+      "JSON": 16,
       "CANONICAL": 2
     },
-    "schemaRejectionWitnesses": 93,
+    "schemaRejectionWitnesses": 102,
     "testArtifacts": [
       {
         "path": "04_implementation_and_conformance/conformance_runners/ofarm_protected_effect_validation_trace_envelope_v0_1.py",
-        "byteSha256": "ef32dd43d84dcf9c697abde95ff69c678844e77e236f7e53ae53bf696ca3c17d",
-        "bytes": 23988
+        "byteSha256": "bfb4856a779c2ccd1287c937cfa1fa9cb16af8ec6759135690b0a5309f5bcee6",
+        "bytes": 24845
       },
       {
         "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_ProtectedEffectValidationTrace_envelope_cases_v0_1.json",
-        "byteSha256": "9c8bab9453df614ef1594ae28b70529200bc9cee5831598dcbf7fd89b10873b2",
-        "bytes": 210980
+        "byteSha256": "3b66a2b9b38017c1eeae16241c2edbe65c29870544dfd45375c92cc2a6ea4da0",
+        "bytes": 294469
       },
       {
         "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_fictional_dependencies_schema_v0_1.json",
-        "byteSha256": "04bbbc2fb1cdeee7e33f029cd54e5f86f0204e0d50ef453f9c161efaeb8450a2",
-        "bytes": 6060
+        "byteSha256": "031c8868d488c9cc911e88df1431cdb82e8fe299bf122e951b8125fc3f78488e",
+        "bytes": 6238
       },
       {
         "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_unavailable_dependency_negative_schema_v0_1.json",
         "byteSha256": "48aa721fa729a1b1026f99957c2e11b29bdafaaefe241f4e5b1430115d5f0324",
         "bytes": 322
+      },
+      {
+        "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_dynamic_reference_negative_schema_v0_1.json",
+        "byteSha256": "29d74487179032d1275dcfe9a713b8a5017146eb26f2942ebff89d614d81ef8b",
+        "bytes": 467
+      },
+      {
+        "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/validation_trace_test_only/OFARM_ValidationTrace_missing_fragment_negative_schema_v0_1.json",
+        "byteSha256": "4ebd4cd7fd8babce940a16bdd767308242a5ffe4c9c22c3add289c330780c7ca",
+        "bytes": 232
       }
-    ]
+    ],
+    "trustedExpectedContextProducer": "UNAVAILABLE",
+    "sameAttemptFailureTerminality": "UNAVAILABLE",
+    "retryAdmission": "UNAVAILABLE",
+    "localIdentityControlLimit": "Rejects different values under one local fixture ID only; a new ID does not authorize replacing failed-attempt evidence."
   },
   "deferredOwnerObligations": [
     "Actual domain payload schema, AR/PC mappings, applicability, prerequisites and truthful evaluation.",
@@ -186,7 +202,13 @@
     "F1/F2 temporal admission, prospective global identity and source-history proof.",
     "Twin applicability and complete selected two-action release closure.",
     "Actual clock trust, revocation time/writer ordering, transaction guards/status and atomicity.",
-    "Persistent immutable-ID enforcement, evidence custody and production selection."
+    "Persistent immutable-ID enforcement, evidence custody and production selection.",
+    "Authoritative attempt history, immutable failed-attempt evidence, terminal fixed-content failure and separately authorized fresh retry admission under PR26."
   ],
-  "downstreamState": "OFARM2 #392/#396 remains parked; no runtime, promotion or merge permission."
+  "downstreamState": "OFARM2 #392/#396 remains parked; no runtime, promotion or merge permission.",
+  "reviewStatus": {
+    "firstReviewBodyBinding": "CORRECTED_WITH_FINITE_FICTIONAL_CONTROLS_PENDING_COMBINED_REVIEW",
+    "secondReviewB1": "UNRESOLVED; narrowed integrity claims do not establish transaction terminality or admission.",
+    "missingDetailedReviewSections": "B1 and F1-F3 detailed sections absent from the posted review; no blanket resolution claimed."
+  }
 }

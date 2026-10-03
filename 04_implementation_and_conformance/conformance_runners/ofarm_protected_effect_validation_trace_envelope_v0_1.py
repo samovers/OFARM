@@ -53,7 +53,9 @@ def strict_loads(raw):
                            parse_float=finite_float)
         validate_json_domain(value)
         return value
-    except (json.JSONDecodeError, UnicodeDecodeError) as error:
+    except CheckError:
+        raise
+    except (ValueError, RecursionError) as error:
         raise CheckError('JSON', 'INVALID_JSON', str(error)) from error
 
 
@@ -196,7 +198,8 @@ def load_artifacts(root, pins, overrides=None):
 
 
 CONTEXT_FIELDS = ('actionClass', 'authorizationResult', 'decisionBundleDigest', 'currentActionRuleBinding',
-                  'effectIntent', 'effectIntentSchemaBinding', 'proposedResult', 'protectedEffectContractBinding')
+                  'effectIntent', 'effectIntentSchemaBinding', 'proposedResult', 'protectedEffectContractBinding',
+                  'selectedActionBodySchemaBinding')
 TRACE_PREFIX = 'urn:ofarm:protected-effect-validation-trace:sha256:'
 
 
@@ -281,6 +284,7 @@ def verify_integrity(scenario, data, artifacts, registry, validators, case):
     require(digest(trace['domainPayload']['schemaBinding']) == digest(context['domainPayloadSchemaBinding']),
             'BINDING', 'EXPECTED_CONTEXT_MISMATCH')
     for binding in (trace['effectIntentSchemaBinding'], trace['proposedResult']['resultSchemaBinding'],
+                    trace['selectedActionBodySchemaBinding'],
                     trace['domainPayload']['schemaBinding']):
         schema_validator(binding, data, artifacts, registry)
 
@@ -324,6 +328,8 @@ def verify_integrity(scenario, data, artifacts, registry, validators, case):
             'INTEGRITY', 'TEST_ONLY_CONTRACT_DIGEST')
     for field in ('intentSchemaBinding', 'resultSchemaBinding', 'bodySchemaBinding', 'payloadSchemaBinding'):
         schema_validator(contract['value'][field], data, artifacts, registry)
+    require(digest(contract['value']['bodySchemaBinding']) == digest(trace['selectedActionBodySchemaBinding']),
+            'BINDING', 'SELECTED_BODY_SCHEMA_MISMATCH')
     require(digest(contract['value']['intentSchemaBinding']) == digest(trace['effectIntentSchemaBinding'])
             and digest(contract['value']['resultSchemaBinding']) == digest(proposed['resultSchemaBinding'])
             and digest(contract['value']['payloadSchemaBinding']) == digest(trace['domainPayload']['schemaBinding']),
@@ -357,7 +363,12 @@ def run_case(case, data, artifacts, schemas, registry, validators, root):
         load_artifacts(root, pins, override)
         return
     if kind == 'schema-policy':
-        (payload_validator if case.get('payload') else schema_validator)(case['binding'], data, artifacts, registry)
+        # Deliberate helper-boundary controls may corrupt the catalog or omit an already
+        # loaded document. They are not claims about reaching these guards after preflight.
+        catalog = changed(data, case.get('catalogEdits', []))
+        available = {path: value for path, value in artifacts.items()
+                     if path not in case.get('omitResolvedDocuments', [])}
+        (payload_validator if case.get('payload') else schema_validator)(case['binding'], catalog, available, registry)
         return
     scenario = changed(data['scenarios'][case['scenario']], case.get('edits', []))
     trace = scenario['trace']
@@ -431,8 +442,9 @@ def main():
                       'negativeRejectionLayers': dict(layers), 'schemaRejectionWitnesses': sum('schemaError' in c for c in data['cases']),
                       'failures': failures, 'artifactPins': data['artifactPins'], 'deferredGuarantees': data['deferredGuarantees'],
                       'productionDomainValidation': 'UNAVAILABLE', 'productionAuthorityValidation': 'UNAVAILABLE',
+                      'expectedContextProvenance': 'Frozen test inputs; no runtime owner/context producer is exercised.',
                       'dependencies': {name: version(name) for name in ('jsonschema', 'referencing', 'rfc8785')},
-                      'limit': 'Fictional envelope integrity and actual schema/reference compatibility only; no AR/PC truth, authority, admitted result, storage immutability, transaction or runtime proof.'}, indent=2))
+                      'limit': 'Fictional envelope integrity and actual schema/reference compatibility only; no AR/PC truth, authority, admitted result, storage immutability, same-attempt FAIL-to-PASS prevention, transaction or runtime proof.'}, indent=2))
     return 1 if failures else 0
 
 

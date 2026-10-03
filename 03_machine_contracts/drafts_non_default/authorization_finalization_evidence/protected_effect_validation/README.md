@@ -13,11 +13,19 @@ EvidenceEvent / evidence-record classification.
 
 ## Ownership and limits
 
-The shared envelope binds immutable identity, authorization, intent, result and
-protected-effect contract selectors to an externally schema-bound payload. PASS
+The shared envelope binds immutable identity, authorization, intent, result,
+protected-effect contract and selected action/body-schema selectors to an
+externally schema-bound payload. PASS
 and FAIL are carried dispositions. A shape-valid PASS is not proof that the
 domain mappings, prerequisites or postconditions were evaluated successfully.
 Those meanings remain with the protected-effect contract and payload owners.
+
+The required `selectedActionBodySchemaBinding` is separate from PR40's unchanged
+four-field contract binding. It must match both the separately supplied owner
+expectation and the body binding selected by the resolved contract for the same
+action. Recomputing valid hashes cannot excuse disagreement. The fictional
+single-body contract uses `bodySchemaBinding`; real action-specific selection
+remains an owner dependency.
 
 Real closed domain payload schemas and the complete protected-effect contract
 remain unavailable. Explicitly fictional schemas and records used by the checker
@@ -52,6 +60,14 @@ The trace's ref/digest stays outside its value, so no self-digest or future
 receipt reference is needed. Later transaction evidence can bind the finalized
 trace under the existing transaction protocol. Earlier traces are not rewritten.
 
+A new trace ID does not permit replacing a FAIL with PASS for the same attempt.
+Local hashes and ID collision controls protect individual record integrity;
+they do not establish authoritative attempt history or retry eligibility.
+PR26 distinguishes retryable current-state failures from terminal invalidity of
+fixed caller content. A lawful later attempt needs the owner's eligibility
+decision and fresh validation/authorization evidence. Those guarantees remain
+UNAVAILABLE here.
+
 The proposed wire choices include one result per trace, exact full selectors,
 an external closed payload exposing `/overallDisposition`, and an external
 content-addressed trace reference. [DESIGN.md](DESIGN.md) explains the source
@@ -61,8 +77,12 @@ mapping, exact construction, non-schema checks and owner dependencies.
 
 The independent runner is registered once in the existing repository suite.
 It uses real pinned local schemas and explicitly fictional foreign records.
-It compares all bindings to independently supplied expected context, checks the
+It compares carried bindings to separate fictional expected-context inputs,
+checks the selected body against the resolved fictional contract, checks the
 payload's schema/digest/copied verdict, and verifies the complete trace hash.
+The harness does not produce trusted runtime context. Copying a changed trace
+into its expectation is not independent validation. DESIGN lists every concrete
+comparison and the domain and transaction relationships it cannot establish.
 Missing real foreign bytes remain unavailable, including for a FAIL trace.
 
 From the repository root with the existing validation dependencies:
@@ -73,14 +93,37 @@ python3 04_implementation_and_conformance/conformance_runners/ofarm_protected_ef
 python3 package_meta/tools/run_repository_validation_suite.py
 ```
 
-The runner passes 19 accepted controls and 217 expected rejections: 93 schema,
-51 binding, 43 integrity, 14 unavailable-dependency, 14 strict-JSON and two
-canonicalization cases. All 93 schema rejections require the intended target and
-exact error witness. The repository suite retains its twelve prior checks and
-adds this runner as its thirteenth.
+The runner passes 21 accepted controls and 243 expected rejections: 102 schema,
+62 binding, 46 integrity, 15 unavailable-dependency, 16 strict-JSON and two
+canonicalization cases. All 102 schema rejections require the intended target and
+exact error witness. These include 28 added controls; all 236 earlier case names
+remain. The repository suite retains its thirteen existing checks, including
+this runner. Separate checker evidence has seven paired witness controls and
+17 parser controls; those are not added to the 264-case total.
+
+The new controls cover selected-body omission and shape, mismatched independent
+expectations, honestly re-finalized contract drift, missing schema fragments,
+schema-reference cycles and unsupported dynamic references. Oversized integers
+and deeply nested JSON now return the existing JSON rejection result rather than
+uncaught interpreter exceptions. A missing-document helper control deliberately
+removes the document after preflight; it does not claim that entry-point missing
+dependencies reach that helper.
 
 No database, clock, transaction or runtime test result is claimed by these
 fictional controls.
 
-Next: complete combined verification and review the proposed envelope and its
-explicit wire choices before any separately governed binding or runtime use.
+## Review status
+
+The first posted review identified the omitted selected action/body-schema
+binding; this correction supplies the binding and its finite integrity controls.
+The second review's visible B1 challenges replacing failed-attempt evidence under
+a new trace identity. Its old-head probe accepted separate FAIL and PASS
+envelopes with identical expected context. The envelope contains no attempt
+identity and performs no transaction admission, so individual consistency does
+not establish that the pair is admissible. Narrowed claims do not resolve B1.
+Detailed B1 and F1–F3 sections are absent from the posted review and remain
+unassessed. Transaction enforcement and truthful domain validation retain their
+existing owners.
+
+Next: review this bounded correction, obtain the missing review details and
+resolve the separate owner obligations before any governed binding or runtime use.
