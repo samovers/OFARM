@@ -80,9 +80,9 @@
   ],
   "extractionDescriptor": {
     "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/authorization_view_extractions_structure_compliance_v0_2.json",
-    "bytes": 22109,
-    "byteSha256": "f15c31ffcd2ff50654108c42b70d6d9d16f8ff60e49b13d360a79cdc0309faa3",
-    "jcsDigest": "sha256:02cc72b6742c259fc428d2620e98af2a89a5699d76f718c823875ee02a2f489f"
+    "bytes": 24626,
+    "byteSha256": "bdf362e4ccd6ae22c1ae5ac7697fb56b9d85a2ff9ff62b19c39be3187867637b",
+    "jcsDigest": "sha256:df0ee6f55e59be3f278d9023b5cd68a697119696ca6353abae50f97bb4c910e8"
   },
   "extractionLimit": "Two inactive profiles, identity-only field selection. No authority evaluation, caller-selected runtime profile or duplicate operation/read profile.",
   "schemaDependencies": [
@@ -103,7 +103,7 @@
   ],
   "wireChoices": [
     "Flat compliance ruleRevisionBindings/evidencePolicyRevisionBindings; no duplicate complianceBasis input wrapper.",
-    "Exact pinned PR42 targetScope reference shares only the resource shape.",
+    "The targetScope shape is reused through an intentional exact-byte dependency on the entire PR42 operation schema. Unrelated comment changes invalidate the pin; changing this ownership/coupling requires a separately scoped choice.",
     "Separate missing-profiles-only descriptor preserves the original two-profile descriptor."
   ],
   "priorInputArtifactsPreserved": [
@@ -153,13 +153,13 @@
   "verification": {
     "fixture": {
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_StructureComplianceEffectIntent_cases_v0_2.json",
-      "bytes": 380823,
-      "byteSha256": "25ce1fc54895faa1e3d6d34dccb362aa7626b919075d5567859a892a39895ea2"
+      "bytes": 416638,
+      "byteSha256": "c7dbfaf155cfe63f95f38ab0556698c45a50a4268674dbe1c8366e47bc97d60a"
     },
     "runner": {
       "path": "04_implementation_and_conformance/conformance_runners/ofarm_authorization_effect_intents_v0_2.py",
-      "bytes": 24811,
-      "byteSha256": "2cfc450f939c9ce911c4cb9f9c178ea6c85767a6e48dd85ab00ea10fe00bc52b"
+      "bytes": 26607,
+      "byteSha256": "9909a5028fb0276dc721e48dd804d477d1df9754d7ca84340e7f216699cc55ac"
     },
     "invocation": [
       "python3",
@@ -168,20 +168,23 @@
       "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_StructureComplianceEffectIntent_cases_v0_2.json"
     ],
     "caseInventory": {
-      "totalCases": 343,
+      "totalCases": 407,
       "positiveCases": 59,
-      "negativeCases": 284,
+      "negativeCases": 348,
       "schemaWitnesses": 194,
       "expectedRejectionsByLayer": {
         "BINDING": 33,
         "CANONICAL": 1,
         "COMPONENT": 20,
         "EXTRACTION": 14,
+        "HARNESS": 64,
         "INTEGRITY": 16,
         "JSON": 6,
         "SCHEMA": 194
       },
-      "limit": "Committed fictional cases only. Counts are an inventory; exact execution results accompany the reviewed candidate."
+      "limit": "Committed fictional cases only. Counts are an inventory; exact execution results accompany the reviewed candidate.",
+      "unexpectedPropertyWitnesses": 46,
+      "witnessCorruptionControls": 64
     },
     "oldDefaultInputCasesPreserved": 620,
     "oldReadKindFormPairsPreserved": 60,
@@ -208,8 +211,17 @@
     {
       "owner": "Authorization and transaction",
       "requirement": "Complete resolved rules, source/history closure, fresh human approval and separately owned transaction paths; no operation checkpoint inheritance."
+    },
+    {
+      "owner": "Assertion body/domain source owner — DC-02 pending",
+      "requirement": "Pinned PR41 structure/compliance bodies lack the body-owned exact envelope time selectors and exact-claim/eventSubtypeId/dominantSemanticConsequence compatibility predicate required by PR23 section 7.3. Event binding remains optionally allowed as input syntax. Neither the proposed absence-only contract nor the full-event alternative with new body/contract versions is adopted; family equality alone cannot close compatibility."
+    },
+    {
+      "owner": "Assertion body/domain source owner — inherited subject and claim-text choices pending",
+      "requirement": "Confirm or explicitly revise each action body permitted subject-kind set (currently the shared nine-kind set including INPUT and OPERATION) and the minLength-1 claimText treatment that accepts whitespace-only strings. This input correction neither narrows the body schema nor normalizes claims."
     }
   ],
   "releaseLimit": "Only inactive formats are added. The source initial admitted set remains ASSERT_OPERATION_CLAIM and RECEIVE_READ_DATA. New schema bytes do not admit structure/compliance.",
-  "downstream": "Freeze and review these input bytes, then a separate domain PR binds all three assertion intent/body profiles. Conformance construction and production selection keep their owner gates; OFARM2 #392/#396 remains parked."
+  "downstream": "Freeze and review these input bytes, then a separate domain PR binds all three assertion intent/body profiles. Conformance construction and production selection keep their owner gates; OFARM2 #392/#396 remains parked.",
+  "dependencyChangePolicy": "A changed operation-schema file needs explicit compatibility review and new pins in both inactive schemas, descriptor, fixture, manifest and downstream consumers including PR45. No silent refresh or fragment digest is used."
 }
