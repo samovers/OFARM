@@ -1,0 +1,786 @@
+{
+  "sourceHead": "8e86208f96756b8f271f490696e6aa7cf23605fe",
+  "priorAmendmentDefault": "../review-amendment",
+  "examples": [
+    {
+      "id": "W01_EQUIPMENT",
+      "sourceExampleJcsSha256": "sha256:1fc7b67bded15ad36528ab101a2438002abd58ac38d1ce196f9389cffbc387eb",
+      "sourceContentDigest": "sha256:e94536fa4aaec3478a23e723aa64f316a58f00b2aa69660e9f3e31f4cc8b9108",
+      "targetContentDigest": "sha256:b220629aa463cdb6db780be6811fe23c7913c585b57188275a9e663d6e69920c",
+      "sourceTextDigest": "sha256:e78cd8cb687c7e13d6c95f26d6ca2162958e7f08b7d0f825be26f663e93ff17f",
+      "targetTextDigest": "sha256:6fa17d74ad052a3502fcb3c091c1e2673b87a0864a34d2c5872ac189d3685c36",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        }
+      ]
+    },
+    {
+      "id": "W02_SI_QUALIFIED_PARTIAL_USE",
+      "sourceExampleJcsSha256": "sha256:7dbe5391641c047c1ddfd8e412cfbee6a238f9b74a5523e36ab99e31a964c817",
+      "sourceContentDigest": "sha256:d9eddc48a62c3fb50984fe81e26dab31c071ad18193b681561a2ae669a826702",
+      "targetContentDigest": "sha256:101fd25e73331ecc6c4f3f864ea6cd380a87296bb28911b602e98502049883d7",
+      "sourceTextDigest": "sha256:07bc0905ee404ddedd1f90494166a67f1c214e2073d166f63b63987c19ad5dfd",
+      "targetTextDigest": "sha256:d9f21a9ce629982f043847d2502e83f58881d0891e1922c410ce93a989867f06",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W03_MEASURED_PRUNING_NO_EVENT",
+      "sourceExampleJcsSha256": "sha256:bdfc18dfa61a50b19ee41305c46604af43bde39e6294e4e6ace72ad500f2577e",
+      "sourceContentDigest": "sha256:a1c712b1ec58a53dcabbf78530798397731d2dae29e8474b0ea1c75cc8c4c6b4",
+      "targetContentDigest": "sha256:f207688adf2e428d5e0f2b598c49d0144fbe2dbd94fbd1e699d67772570a8b18",
+      "sourceTextDigest": "sha256:4a07144c2dbe0acb853c26fc7c0138b6cd931e0c8d50fc4accd0e480089a5bf6",
+      "targetTextDigest": "sha256:715df6e20b0daa030ca09275cdf032424acefa1ec641a9122bb8338bc8cff0ad",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W04_MEASURED_PRUNING_WITH_EVENT",
+      "sourceExampleJcsSha256": "sha256:f24570e47c11af10043a761b8b241967740796f9e738e4c980aea74879dc22db",
+      "sourceContentDigest": "sha256:46a19a2de83d7ebfcddc4e2619811e9bd6ac14904af68b2a01b3cb0c7fb0c79c",
+      "targetContentDigest": "sha256:c6401d62cda670741c2e28b737f1a7a1360ee1d8570d4716e8fc842d47ce0531",
+      "sourceTextDigest": "sha256:233fc111e13cad212e410e44069729a9fc9061ba3ed56ad041f9902f5db32875",
+      "targetTextDigest": "sha256:6acf466033cc6948b0870ad2357e3f1d7ee4744db9192e265a1725b0fbd14380",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "PRESENT",
+            "envelope": {
+              "fixtureLogicalRef": "event:pruning-fictional",
+              "fixtureRevision": "r1",
+              "admittedRuntimeBinding": false
+            },
+            "caseDefinition": "candidate:pruning-completion-event:r4",
+            "timeRole": "EVENT_TIME",
+            "ingressEvidence": {
+              "fixtureLogicalRef": "event-ingress:fictional",
+              "fixtureRevision": "r1",
+              "admittedRuntimeBinding": false
+            },
+            "timeSelector": "/timeSemantics/eventTime"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W05_CENSORED_CRITERION",
+      "sourceExampleJcsSha256": "sha256:52a54d2e9fa82dddb2ef349fedf22355ec7b21cb9c0a215856c03eb6cb367a88",
+      "sourceContentDigest": "sha256:804ecadacddfb40ccc6870488f7388e73c8bde8ba2c647c27b69aa4b75f59b7d",
+      "targetContentDigest": "sha256:40b07eda6c06fa97846a9a8ce4cfb75cf89de9728940376561a1e7e6aa34b8b8",
+      "sourceTextDigest": "sha256:09f97047a7074a612b4207a11cbb0e83bca96031783d848520baa9b489447b16",
+      "targetTextDigest": "sha256:63eca388bdc0a3124a8f73c317417c70f8257cf4592411cfe659077b955e9f01",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "replace",
+          "path": "/claimContent/proposition/definition",
+          "before": "local-candidate:complete-claims:2026-10-20:r4#C04",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02#C04"
+        },
+        {
+          "op": "add",
+          "path": "/claimContent/proposition/body/criterion",
+          "value": {
+            "fixtureLogicalRef": "criterion:W05-nitrate-fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          }
+        },
+        {
+          "op": "add",
+          "path": "/claimContent/proposition/body/operand/source",
+          "value": {
+            "role": "MEASURED_COMPLIANCE_OPERAND",
+            "measurementBinding": {
+              "fixtureLogicalRef": "nitrate-measurement:fictional",
+              "fixtureRevision": "r1",
+              "admittedRuntimeBinding": false
+            },
+            "resultPointer": "/result",
+            "contextBinding": {
+              "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+              "fixtureRevision": "r1",
+              "admittedRuntimeBinding": false
+            },
+            "subjectRelationBinding": {
+              "fixtureLogicalRef": "sample-to-field:fictional",
+              "fixtureRevision": "r1",
+              "admittedRuntimeBinding": false
+            },
+            "methodUseBinding": {
+              "fixtureLogicalRef": "method-use:W05-nitrate-fictional",
+              "fixtureRevision": "r1",
+              "admittedRuntimeBinding": false
+            },
+            "qualificationPointers": [
+              "/uncertainty"
+            ]
+          }
+        },
+        {
+          "op": "add",
+          "path": "/claimContent/proposition/body/operand/admissibleValues",
+          "value": {
+            "kind": "INTERVAL",
+            "lower": {
+              "decimal": "0",
+              "inclusive": true
+            },
+            "upper": {
+              "decimal": "2",
+              "inclusive": false
+            },
+            "basis": "METHOD_NONNEGATIVE_BELOW_LOQ"
+          }
+        },
+        {
+          "op": "append",
+          "path": "/claimContent/evidenceBindings",
+          "values": [
+            {
+              "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+              "fixtureRevision": "r1",
+              "admittedRuntimeBinding": false
+            },
+            {
+              "fixtureLogicalRef": "method-use:W05-nitrate-fictional",
+              "fixtureRevision": "r1",
+              "admittedRuntimeBinding": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W06_RS_SUSPENDED_CERTIFICATE",
+      "sourceExampleJcsSha256": "sha256:9d75761c846f9dc3fb5c478e1c94e808511543169906c2c5fb4d2e673d8cedd1",
+      "sourceContentDigest": "sha256:e05ac43373846ee857850d677691c287e187b89cfb962e498bda68f1def0ba1b",
+      "targetContentDigest": "sha256:391c3b5b47002942fa63c7ad6c7c85f4461a1d9067629d29d55122abf44eeb30",
+      "sourceTextDigest": "sha256:d4f3b6a221a180b689bd30bcd1da7bb82ff919fbfbf5cc42a939ce2a40e4a860",
+      "targetTextDigest": "sha256:6c41d69d54bdf86b3f21445d243458aed2024d4a31a80462276608d422c60146",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        }
+      ]
+    },
+    {
+      "id": "W07_NL_ROUTE_QUALIFIED",
+      "sourceExampleJcsSha256": "sha256:ac587c7e6d83605b6a4b63c7ddece9e1fa403620f6c47402c009046209e744a6",
+      "sourceContentDigest": "sha256:e448fe255ab257fa157ca5f30a3c6bb4bb86501fa06b6449bb8e846b0aec078b",
+      "targetContentDigest": "sha256:e23881ec46577bc79c44fa998126867ce997ef1390a0e884058184bc28aeccdc",
+      "sourceTextDigest": "sha256:35b821e43531a18e11f7a97f3d14e66410d0de4a046416ce2743b8498abae26e",
+      "targetTextDigest": "sha256:efeb669e983968b5ee411a6a78aa183b9d0975857757b66b771a3c6e47c2d05b",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        }
+      ]
+    },
+    {
+      "id": "W08_SI_COMPLETE_TYPED_USE",
+      "sourceExampleJcsSha256": "sha256:bc42c0ec78fda84f132a2f7d5be781e2024836091244e692439996d9adf360cb",
+      "sourceContentDigest": "sha256:f76f5bf1be8f6a4d2021ed296bb4ce666a5e823b33db7522d77ae8b944b17a80",
+      "targetContentDigest": "sha256:7d53a0639f2a96a2dcca896fa172f61bb374ffe45ba1419a91623ae77d159f56",
+      "sourceTextDigest": "sha256:34daf0c857b6e823ba091409806b47de7224a8f7581507607a200a2f3cf95c89",
+      "targetTextDigest": "sha256:d192d44ec07acad67555a3c8296da48943f08a1e95fbefce2f2f0372c142d394",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W09_COLLECTION_WITH_PENDING_ANALYSIS",
+      "sourceExampleJcsSha256": "sha256:0d9db5a40f96ba6683549261a42763df7db1954164a06d118ec1de82b0102293",
+      "sourceContentDigest": "sha256:c7a463243a15fac1f8878b577355dd90369f51e8040065ed6b67945ab5eb78b9",
+      "targetContentDigest": "sha256:3677031e104dc47ad2dbb97b3df6938fdf100f1108451a6b292d9531cc3c621f",
+      "sourceTextDigest": "sha256:b099e90b42480f0977b6926702eb2f63829b1448c676864d49f33cd07b90f1e6",
+      "targetTextDigest": "sha256:a9454b2d8ea84276d787c1506890c8aec98776ce85a5267822adf00bd0fe0814",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W10_RECEIVE",
+      "sourceExampleJcsSha256": "sha256:37625195210704308c55e0ec9b5ce8892b528295fecbc5e5c3f6e0df9dea13cb",
+      "sourceContentDigest": "sha256:55db44302072ff33d9f9ddee1bb75ede974eda820e4022cf4578d4bd0089fe93",
+      "targetContentDigest": "sha256:f2b908355af5eb5099a5164ce0acd736d01c99ccf37619403080eab8a34e35d5",
+      "sourceTextDigest": "sha256:aff0e8c200bd4747d59c6672e9c0d4322a6b2b26a6259fad49d8abc93f662bc8",
+      "targetTextDigest": "sha256:6f270f79e8bf20b44d54bdb79200a7af3329d57740f06a6cbcb29fa9b2401acd",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W11_RECLASSIFY",
+      "sourceExampleJcsSha256": "sha256:c8e73f8ccb0ae663b852047c38caad561a90da93106cc662b41c1fae5bc4ed04",
+      "sourceContentDigest": "sha256:5b37c47326d9cccd77122eac242f2a5001f598305b0e024d43520dc20d928c01",
+      "targetContentDigest": "sha256:f55e1c1dd89e08d23bb2fd0ab6be80f15640f74e963d9b69f168c42a18204bd4",
+      "sourceTextDigest": "sha256:96610b39f428010924b092d8ab72bcf5bd454274d4dba1ae6f0450779bc25e06",
+      "targetTextDigest": "sha256:9a1f3532d8627b1949a1af1ace258dd39f60d33d0dd8453202c628b263b90ead",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W12_DISPOSE",
+      "sourceExampleJcsSha256": "sha256:6bcf390daeabaf70df6e8c85b16703dc5d397c6b2620b38a114bae1883af6e3e",
+      "sourceContentDigest": "sha256:943d923e547669be5233a1e41afd1ef8905fd7f6ba20fc3ab8bb72ddc32a11ef",
+      "targetContentDigest": "sha256:37681fc49cb69d80c2c14b79c4eb17f16c25ff673d5aa41c746ad067e0ddf428",
+      "sourceTextDigest": "sha256:dcddeb2043ea06153fad9b97f325dd86ed3248997b5af12ddd9c62ea4a006907",
+      "targetTextDigest": "sha256:f52512dba2a1d86a109fdb2d4fc30ff4ae95b8549cbb9f391d464fdd61ce7bce",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W13_CREATE_LOT_ALLEGATION",
+      "sourceExampleJcsSha256": "sha256:e506677ca4ae6a9b89abdad3aa71a837f6dbbd4d5e1d18f53aadf7f2277fc72f",
+      "sourceContentDigest": "sha256:535e6a32f091161c53f7a2a9729851103c61e34b88938580968eda78faaee9cc",
+      "targetContentDigest": "sha256:4502033fd6a66d9eca8616ec4173cfe157805893d3a0aefc45eb6c1ca6f00f32",
+      "sourceTextDigest": "sha256:e2b7d5786c1e47ba73b2c91f9fbec14955f8a9cd1715542cf387ea78dfb17ced",
+      "targetTextDigest": "sha256:9fcfb2f0944bbbebef1e8ef466146f255c961fefd515c6cf959014561f03014c",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W14_MULTI_ROLE_APPLICATION",
+      "sourceExampleJcsSha256": "sha256:f61698f13fa35e2a7e14ca21235a75d0e2fc2c9e205be464c32f4f676a47f17e",
+      "sourceContentDigest": "sha256:70273bb0074937c5e8ff8da2afe52cfd839fda09abdb7f1a99ff2f112083f8d0",
+      "targetContentDigest": "sha256:8797046ed7e697f39fb4ac3f1ef7826b7b0cc728cb1476234cf9a262f7fb5eee",
+      "sourceTextDigest": "sha256:f894e2e772feb9da81b75b8de6b82a49606e88c46378f304d4a62e88dbc86946",
+      "targetTextDigest": "sha256:a6ae49479b2d18851db3100274523c41cf92b6b2c2828bc7fe87658a3d683b53",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W15_IRRIGATION_VOLUME_AND_FLOW",
+      "sourceExampleJcsSha256": "sha256:a0d145d34bc2520092217ef7cc389d5b7d7549c0a0401b1daa3da48497a70fef",
+      "sourceContentDigest": "sha256:cdef5cb86a17ea8f51b9b178b8311475884bb67e744ee871a89b6b0638db1688",
+      "targetContentDigest": "sha256:1ceff154da6fca398db91097085aedf244e7adcc6177521aafe78bf973e686dd",
+      "sourceTextDigest": "sha256:ee0c7aa9c30d3b641bfdeffaa899f670e672a37f6e754f77412978c9c5bb9a1f",
+      "targetTextDigest": "sha256:25a54505760475fed0a913826da4b9c98b8dcd9e501ca18ebc2aef9bf1b8e5fd",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W16_O22_INTENDED_WINDOW",
+      "sourceExampleJcsSha256": "sha256:7a07526f7a7a153396f351a63e1099d24ba2b10aaa8880bad58e9daaa8145044",
+      "sourceContentDigest": "sha256:a1346846dd7fc8008be68dbbb931130d86a2a13468f75529474b1ca52cff0339",
+      "targetContentDigest": "sha256:458c1a66617d8d5861ec23a26822f2f8dc592a04461d39bbf4c11cab4f7bd51f",
+      "sourceTextDigest": "sha256:b214ec89f733f800262459ef591c354bfb5ffe753ad330da7d508ed09407fb1a",
+      "targetTextDigest": "sha256:ae4d05c15fab7e6a8e7b705b4116d69b9ce2a6ee96e3dd77cd236fbfe6f270b2",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W17_O22_PERFORMED_INTERVAL",
+      "sourceExampleJcsSha256": "sha256:276d3edae02713cda9adc973c3db4c263ba525dc944016ebe0630ddd4e54d989",
+      "sourceContentDigest": "sha256:55589c072146c69db00279b01d9600368b4f281069881f86cf96058cc1dde37c",
+      "targetContentDigest": "sha256:4e4e12f62011a9381a58cc820ee7f1427404ff05baa600a6cf9b97a38bee5487",
+      "sourceTextDigest": "sha256:c004e1b32202c61f1b65db49ad0f35343c06a4fad2b159985a17faf9bc4a318f",
+      "targetTextDigest": "sha256:b290faa6ee2a031cf5318c88bcda5dcacfdbba31767463ea4c7bcdee763ad67a",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W18_O23_INTENDED_WINDOW",
+      "sourceExampleJcsSha256": "sha256:091e29e2fd817db0c82e70df2e0142387d2a2dc7e02e31bd306c12359dd01315",
+      "sourceContentDigest": "sha256:13ec3002be647eff01395f34b71ffbaf2926d0a12baa1717b879a834e536da86",
+      "targetContentDigest": "sha256:c0bb8c36e2b32a50240497438aac14c876f1f892599f5d7d124590f216ce04c5",
+      "sourceTextDigest": "sha256:b1572e8bb5bde680f1a64e61f16286b7e14dcb1723d265908475d8c83672efdb",
+      "targetTextDigest": "sha256:9906bf913ac60b1fd973c7ca1e584a2e14fcd26911d627d7ed56edc3b0c5ec0e",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W19_O23_PERFORMED_INTERVAL",
+      "sourceExampleJcsSha256": "sha256:f486756d0488991fffaa7a4e36c8f7823d06b50a70eef0b48778fd2fa83208d9",
+      "sourceContentDigest": "sha256:cc2eca3106107d2e9876f84de5a0951e3e3c6abf3748a737b4f4a2ff2f8c3a60",
+      "targetContentDigest": "sha256:6c2eb5ba0ce60bebd424570c8bbc97970d138dbd67dfd2f73717b459cca3192a",
+      "sourceTextDigest": "sha256:4c5fbf1605ee6b0af041d78d52690b85c057e18e301a86dfafc731beaed8ae6c",
+      "targetTextDigest": "sha256:0f6eebd73c1e02e4f5c26539e748221671454f012ec1f17a65cb5527b305eb38",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W20_O22_STARTED_PENDING_OUTPUT",
+      "sourceExampleJcsSha256": "sha256:27b6cae77877d2f76e67edd7c05232ee290a814f4ade62347cebc9eec215b8f3",
+      "sourceContentDigest": "sha256:e26d4abcdf36b7475699d1321fa444cf720ab478cff33f3a97055803566ad51e",
+      "targetContentDigest": "sha256:fbd057960d102f2368b9589e816c4e809eecb59ef9a2849c52013be3c541b8da",
+      "sourceTextDigest": "sha256:e4faba156936faf34b552c85e37637f73d1f4b20a02f35d2af9d527108d55ff5",
+      "targetTextDigest": "sha256:e17e46aef08be43d41d1abbfc733acd26fd441d6e4b9575aa2f8354c2cc54bda",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT",
+      "sourceExampleJcsSha256": "sha256:28f209f1f539a5330367b5e01554ef548f72fef045d1609d3792d483fe92883d",
+      "sourceContentDigest": "sha256:48624137843acb9543878a61b537ce489b28c53558d6a7b8b384e67a3e7e297b",
+      "targetContentDigest": "sha256:04bba62219bdf9bd1bb885d75fbb6aa59876b4d90fe9c260ba74cfb673e5d6b7",
+      "sourceTextDigest": "sha256:f99c44f7566a52c5b6780481b451db08ca8b1bbe3d157bce497ff55959f08265",
+      "targetTextDigest": "sha256:3a996a74a9cc90ac0e916c533faf715151c090575ad5dc011ca7d4362b2040cc",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT",
+      "sourceExampleJcsSha256": "sha256:b7da84c80e72965dc357161a6d4fea8e81fe08ac1280df802e38558b21360c4f",
+      "sourceContentDigest": "sha256:04479d1abb84e07d5fd09eb2b154f93efd31b2669c1f5048fe6f97fff1456124",
+      "targetContentDigest": "sha256:971fd536f02d7df8309629cb75099000775cb2396ef10cf35d6ffa7a403e0265",
+      "sourceTextDigest": "sha256:55b8ef756fe4c761b6727ef7507aa1edd9b9f40b048e4ee8a97a394f7a427f55",
+      "targetTextDigest": "sha256:0f1402b243d922fe62db7577fd55890898567d72fbc2d0a6ff63cf558157a8a4",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "PRESENT",
+            "envelope": {
+              "fixtureLogicalRef": "event:analysis-in-progress-fictional",
+              "fixtureRevision": "r1",
+              "admittedRuntimeBinding": false
+            },
+            "caseDefinition": "candidate:O22:act-event-instant:r4",
+            "timeSelector": "/timeSemantics/eventTime",
+            "ingressEvidence": {
+              "fixtureLogicalRef": "event-ingress:analysis-in-progress-fictional",
+              "fixtureRevision": "r1",
+              "admittedRuntimeBinding": false
+            }
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W23_O22_COMPLETED_ACTUAL_OUTPUT",
+      "sourceExampleJcsSha256": "sha256:72e0332eb479191882e8c9332b9e2d41f9d4b875aab2dfcc1b8e21ce0c9bd6b9",
+      "sourceContentDigest": "sha256:69bf8b06a0c33a5a6de93e1eb8f3ca6d579ed5810499ec1da330195e027331c4",
+      "targetContentDigest": "sha256:1945d5f88d979c3573fc5ac8c2a2f45f9030ff9a6489475a0b5c349f252ea01f",
+      "sourceTextDigest": "sha256:ccc2e8554b1d745bdf5deaacf177062a45fb36e6377d611c041eb342266900fc",
+      "targetTextDigest": "sha256:9e682839298e85112bdcbb04ede0a1404fa9aed05493b42aff18eac16154c357",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    },
+    {
+      "id": "W24_EXISTING_FARM_IDENTIFIER",
+      "sourceExampleJcsSha256": "sha256:24c54f3c638c76b081aff20310762505bac4f64beb87c91bcd5f4cd3dec42839",
+      "sourceContentDigest": "sha256:fdf4e3101409a079ca99d62bd0efda5d56a064cd08ef0381e75567a9cffaad65",
+      "targetContentDigest": "sha256:85ac724eab6dc9b4477805b7664e0dafce664a1662db9436b6e11ccda3f198d7",
+      "sourceTextDigest": "sha256:d918cbe15ebe0adf8da00767b9a749f6db8af9c3aa18ff50c523fcf0ff7bb548",
+      "targetTextDigest": "sha256:f368207d2e288c827e39a6bb9bf37a044b846474a3eb0be208fc9b4fd8bd6bab",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        }
+      ]
+    },
+    {
+      "id": "W25_OFFLINE_DIGEST_BOUND_PRUNING",
+      "sourceExampleJcsSha256": "sha256:fb7de8fd8f5514da5666f8aa48e3841c1b33c55afbed6d605a8c6a40dc5348e1",
+      "sourceContentDigest": "sha256:a1c712b1ec58a53dcabbf78530798397731d2dae29e8474b0ea1c75cc8c4c6b4",
+      "targetContentDigest": "sha256:f207688adf2e428d5e0f2b598c49d0144fbe2dbd94fbd1e699d67772570a8b18",
+      "sourceTextDigest": "sha256:4a07144c2dbe0acb853c26fc7c0138b6cd931e0c8d50fc4accd0e480089a5bf6",
+      "targetTextDigest": "sha256:715df6e20b0daa030ca09275cdf032424acefa1ec641a9122bb8338bc8cff0ad",
+      "operations": [
+        {
+          "op": "replace",
+          "path": "/claimContent/candidateGrammar",
+          "before": "local-candidate:complete-claims:2026-10-21:amendment-01",
+          "after": "local-candidate:complete-claims:2026-10-21:amendment-02"
+        },
+        {
+          "op": "move",
+          "from": "/claimContent/association",
+          "path": "/associationVerificationInputs",
+          "value": {
+            "presence": "ABSENT"
+          },
+          "meaning": "Verification-only association metadata; complete value preserved outside P."
+        }
+      ]
+    }
+  ],
+  "derivedCarrierChanges": [
+    "W24: replace claimText in intent/result",
+    "W25: replace rendered body, then hash act evidence, then bind it, then hash intent/result",
+    "H01/H02: regenerate from W25 with original isolated hostile change"
+  ],
+  "priorAmendmentMembers": [
+    {
+      "path": "AMENDMENT_MANIFEST.json",
+      "sha256": "3949f685c9e6ba8ec373c15b8e0eb08d3045b92ceb6725a8a7f8b3389dfb88a7"
+    },
+    {
+      "path": "README.md",
+      "sha256": "331d966f4a64da78082c2ea26c0d0ce15a33777fa8d2a6c968f4a0c90b7199ba"
+    },
+    {
+      "path": "candidate-examples-v2.json",
+      "sha256": "473a5a4a40877541ad71f9673776f5dee0631536dd52efda6973981d88f93065"
+    },
+    {
+      "path": "canonical-owner/resolution.md",
+      "sha256": "3707c1ec574a3f428706bb7465b56a6359e59b8a47eb7d7695e39da91b2eab48"
+    },
+    {
+      "path": "canonical-owner/source-checks.json",
+      "sha256": "7df21d47149b85efb16cccbc9df7f4d0aba53a6630fbfaa5ee219024ef539bd7"
+    },
+    {
+      "path": "check-results.json",
+      "sha256": "56bd6e9703246a9b72992fc592785faf005d15ed32bd3e4df3525b56ded49e37"
+    },
+    {
+      "path": "check_examples.py",
+      "sha256": "44b76849f5c4b5cfc30521965d48d0040c291001ba45b2defee5baca0bb9b3f2"
+    },
+    {
+      "path": "dependency-review/calendar-with-optional.json",
+      "sha256": "b64db891c5dbd242d4f21014deb9a909a3428ede67aca0d7eead8eef496cb880"
+    },
+    {
+      "path": "dependency-review/independent-probes.json",
+      "sha256": "47c72d7c453b5d2362988bdafb3af65cdfdbfe81acc79a3f56b06cb0c9a04991"
+    },
+    {
+      "path": "dependency-review/integrity-results.json",
+      "sha256": "d760c64e974af4bc70848a19dc717f394f5a21e03a2be60e66f1f95753155a47"
+    },
+    {
+      "path": "dependency-review/review.json",
+      "sha256": "7f9026e75139dcee8bb2a632d18e37662711dc334a60340ccc1398b255dd6461"
+    },
+    {
+      "path": "dependency-review/review.md",
+      "sha256": "46e5fb644fcdc8fb909b9c261f81d2562e729a527fb59aa9872eb588a58b6ade"
+    },
+    {
+      "path": "dependency-review/suite-results.json",
+      "sha256": "8b62ffd9488c43a86954f86a52ce4579526f828c4e34ef5ec981b4567a6a50a5"
+    },
+    {
+      "path": "dependency-review/transport.json",
+      "sha256": "65748b1c04e4289fa5958b904f590490bff1d4baf6747e6e2585c708d960d43e"
+    },
+    {
+      "path": "domain-owner-recommendation.md",
+      "sha256": "c826bbd59c97f61375edefcfb1966c1667e778d073837cab48d25764947a4194"
+    },
+    {
+      "path": "domain-owner-transport.json",
+      "sha256": "0dcd4ff444cf51575a67810074714d3008b098003aa2f859f67e8a5504628705"
+    },
+    {
+      "path": "evidence-repairs.json",
+      "sha256": "cc896d463e71b7cf36a1bfeb03a4aaa7f83f092ac89daab01ef84ebfc19b07d8"
+    },
+    {
+      "path": "evidence-selectors.json",
+      "sha256": "458f87216ef6ed7a4d0bd97a28b36ed2a6aa2cf1815dbff3c7f51aa19f3d9329"
+    },
+    {
+      "path": "projection-contract-v2.json",
+      "sha256": "cb12ded74875e3390a025889d4b0e3b5bb6bca4ddd6c6ab2401dce93e04d3017"
+    },
+    {
+      "path": "selector-map.json",
+      "sha256": "54a00b6b7d22466f248a7d84aec2c7786e4b49394ba96aa9daf1681484422614"
+    },
+    {
+      "path": "source-evidence/frozen-coordination.md",
+      "sha256": "5c41b79832e5edd687736faae58bf912acc3552011dfc55c5f073317bce81f62"
+    },
+    {
+      "path": "source-pin-resolution.json",
+      "sha256": "fcf72bf1695863aec2575e5df18107a1aee1df8520c66b4fd7b7f3d5355a5267"
+    }
+  ],
+  "frozenManifestSha256": "7aa1ff8ef084a88808717b93f23b83c06c5bc74801ae46cfae6d7fadb92384fc",
+  "preservation": "All 25 domain meanings remain; only grammar/explicit C04 extension, disclosed C04 bindings and removal of verification-only association from P are allowed. All source bytes remain untouched."
+}

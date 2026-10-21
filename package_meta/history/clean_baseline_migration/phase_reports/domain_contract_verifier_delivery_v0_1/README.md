@@ -5,7 +5,7 @@ outcome is a callable, deterministic offline verifier for complete typed
 AssertionRecord claims across structure, operation and compliance. Its primary
 trust boundary is **AssertionRecord domain meaning and validation integrity**.
 
-Start with [PHASE_A.md](PHASE_A.md) and the [review amendment](review-amendment/README.md). This is a design and reviewed-input packet;
+Start with [PHASE_A.md](PHASE_A.md) and the [second review amendment](review-amendment-02/README.md). This is a design and reviewed-input packet;
 the new schemas, protected-effect contract and verifier are not implemented.
 They belong in this same PR. Existing candidate code inherited from PR45 does
 not establish completion of the new capability.
@@ -48,7 +48,7 @@ installed as new verifier code. The input copies are evidence for this design,
 not a second editable vocabulary authority. Construction will produce one
 owned definition package with an explicit mapping to these frozen rows.
 
-## Review amendment
+## Review amendments
 
 The public reviews of PR47 at `e93cad876645799789956311ea091e82064cf981`
 identified online rendering ownership, offline self-attestation cycles, nested
@@ -56,7 +56,7 @@ evidence membership and example-coverage gaps. The amendment records their
 resolution, the work owners' source reasoning and review of the exact pinned
 dependency heads. It is candidate design work, not human semantic adoption.
 
-The corrected claim projection excludes the metadata authenticating this
+The first corrected claim projection excludes the metadata authenticating this
 assertion act. That metadata stays fully governed by its existing owner fields
 and checks. Domain supporting evidence, complete event/measurement meaning and
 exact body copying remain required. The historical originals and INPUT_MANIFEST
@@ -68,6 +68,25 @@ The focused amendment checks establish rendering, custody and design-example
 behavior only. The registered repository suite remains a regression check of
 inherited components; it does not validate this packet or execute a new full
 domain verifier.
+
+The next review at `8e86208f96756b8f271f490696e6aa7cf23605fe` closed those
+findings and identified B2 (technical event association rendered into the
+record) and F4 (a measured criterion operand without a source binding). The
+[second amendment](review-amendment-02/README.md) removes the complete technical
+association object from the projection while preserving the optional intent
+binding, every event compatibility obligation and trace evidence. It also
+requires explicit measurement source/pointer and independently pinned criterion
+expectations before citation membership can pass. Domain and Event Ingress
+owner responsibilities remain unchanged.
+
+Every original input and first-amendment file remains byte-identical. Earlier
+projections/examples and check results are historical construction evidence,
+superseded by the second amendment. The first AMENDMENT_MANIFEST's two
+relatedDesignFiles hashes resolve at its exact source commit `8e86208`, where
+that Phase A/README version lives; they do not describe the current documents.
+The second manifest records that historical source selection and binds the new
+documents separately. Historical checks must not be presented as validation of
+the latest construction inputs.
 
 ## Limits
 

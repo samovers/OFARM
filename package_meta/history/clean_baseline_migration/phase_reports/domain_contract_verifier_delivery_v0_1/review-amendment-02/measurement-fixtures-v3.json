@@ -1,0 +1,324 @@
+{
+  "status": "FICTIONAL_RESOLVED_BYTE_MAP_NOT_OWNER_RESOLVER",
+  "records": [
+    {
+      "role": "MEASUREMENT",
+      "binding": {
+        "fixtureLogicalRef": "nitrate-measurement:fictional",
+        "fixtureRevision": "r1",
+        "admittedRuntimeBinding": false
+      },
+      "contentDigest": "sha256:a687d9ad31155a01218ecc9d52b8bba584797d0c818452263838ec7d131f8743",
+      "record": {
+        "schemaVersion": "ofarm.measurementevidence.v0.1",
+        "measurementEvidenceId": "nitrate-measurement:fictional",
+        "evidenceClass": "LAB_RESULT",
+        "observedPropertyRef": "observed-property:soil-nitrate-n",
+        "resultTime": "2026-05-08T13:30:00Z",
+        "phenomenonTime": {
+          "timeType": "INSTANT",
+          "instant": "2026-05-06T10:05:00Z",
+          "timeBasis": "SAMPLE_TIME"
+        },
+        "sampleRef": "sample:W05-soil-fictional",
+        "source": {
+          "sourceType": "LAB_REPORT",
+          "sourceRef": "lab-report:W05-fictional",
+          "sourceSystemRef": "system:W05-fictional",
+          "sourceCapturedAt": "2026-05-08T13:32:00Z"
+        },
+        "samplingProtocol": {
+          "procedureRef": "protocol:soil-sampling:composite-topsoil:v1",
+          "procedureStatus": "DOCUMENTED_METHOD",
+          "issuerRef": "issuer:ofarm-example-profile",
+          "versionRef": "v1"
+        },
+        "measurementMethod": {
+          "procedureRef": "method:soil-nitrate-colorimetric:example-v2",
+          "procedureStatus": "DOCUMENTED_METHOD",
+          "issuerRef": "lab:soil-lab-alpha",
+          "versionRef": "v2"
+        },
+        "labContext": {
+          "labRef": "lab:soil-lab-alpha",
+          "labMethodRef": "method:soil-nitrate-colorimetric:example-v2",
+          "accreditationRef": "accreditation:lab-alpha:iso17025:example",
+          "matrixRef": "matrix:soil",
+          "analyteRefs": [
+            "analyte:nitrate-n"
+          ]
+        },
+        "result": {
+          "resultKind": "CENSORED_NUMERIC",
+          "quantityKindRef": "qudt:MassFraction",
+          "unitRef": "ucum:mg.kg-1",
+          "originalLexicalValue": "< 2 mg/kg",
+          "originalUnitText": "mg/kg",
+          "censoringQualifier": "BELOW_LOQ",
+          "detectionLimit": {
+            "limitType": "LOQ",
+            "quantityKindRef": "qudt:MassFraction",
+            "unitRef": "ucum:mg.kg-1",
+            "value": 2,
+            "qualifier": "below quantification limit"
+          },
+          "qualifierNote": "Censored result is not zero and must be displayed with qualifier."
+        },
+        "uncertainty": {
+          "uncertaintyClass": "QUALITATIVE",
+          "statement": "Below-LOQ result is analytically qualified; do not convert to exact zero."
+        },
+        "chainOfCustodyStatus": "PRESERVED",
+        "originalPayloadRef": "local-artifact:W05-fictional",
+        "originalPayloadHash": "sha256:fictional-unadmitted-payload",
+        "provenanceRefs": [
+          "provenance:W05-fictional"
+        ],
+        "evidenceStatus": "REVIEW_REQUIRED",
+        "notes": "Fictional W05 design operand only; not the original field-17 record and not admitted.",
+        "agronomicObservationContextRef": "observation-context:W05-nitrate-fictional"
+      }
+    },
+    {
+      "role": "OBSERVATION_CONTEXT",
+      "binding": {
+        "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+        "fixtureRevision": "r1",
+        "admittedRuntimeBinding": false
+      },
+      "contentDigest": "sha256:cad0dcd1c42e4e139c57bdcae8ba1f16aeb1addb222a898e890ee06e303eafd5",
+      "record": {
+        "schemaVersion": "ofarm.agronomicobservationcontext.v0.1",
+        "agronomicObservationContextId": "observation-context:W05-nitrate-fictional",
+        "contextState": "REPORTED",
+        "observationClass": "LAB_CONTEXT",
+        "subject": {
+          "subjectType": "SAMPLE",
+          "subjectRef": "sample:W05-soil-fictional"
+        },
+        "targetScope": {
+          "scopeType": "FIELD",
+          "scopeRef": "field:fictional"
+        },
+        "observedPropertyRef": "observed-property:soil-nitrate-n",
+        "phenomenonTime": {
+          "timeType": "INSTANT",
+          "instant": "2026-05-06T10:05:00Z",
+          "timeBasis": "SAMPLE_TIME"
+        },
+        "observationAgent": {
+          "agentType": "PARTY",
+          "agentRef": "lab:soil-lab-alpha"
+        },
+        "spatialContext": {
+          "scope": {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional"
+          },
+          "partialExtentRef": "extent:W05-composite-fictional",
+          "geometryBasisRef": "geometry:W05-composite-fictional",
+          "spatialBasis": "COMPOSITE_SAMPLE_SUPPORT",
+          "spatialQuality": "MEASURED"
+        },
+        "procedure": {
+          "procedureRef": "method:soil-nitrate-colorimetric:example-v2",
+          "procedureStatus": "DOCUMENTED_METHOD",
+          "samplingProtocolRef": "protocol:soil-sampling:composite-topsoil:v1",
+          "measurementMethodRef": "method:soil-nitrate-colorimetric:example-v2"
+        },
+        "measurementEvidenceRefs": [
+          "nitrate-measurement:fictional"
+        ],
+        "evidenceRefs": [
+          "sample-to-field:fictional"
+        ],
+        "uncertainty": {
+          "uncertaintyClass": "QUALITATIVE",
+          "statement": "Below-LOQ result is analytically qualified; do not convert to exact zero."
+        },
+        "contextCompleteness": "DEGRADED_REVIEW_REQUIRED",
+        "promotionUse": {
+          "allowedTwinScope": "COMPLIANCE_BLOCKED",
+          "highConsequenceUse": "REVIEW_REQUIRED",
+          "mustNotPromoteTo": [
+            "COMPLIANCE_FACT",
+            "CURRENT_STATE_DIRECTLY",
+            "ATTESTED_OUTPUT_DIRECTLY"
+          ]
+        },
+        "notes": "Fictional source context; composite support does not itself prove whole-field applicability."
+      }
+    },
+    {
+      "role": "SAMPLE_SUPPORT_RELATION",
+      "binding": {
+        "fixtureLogicalRef": "sample-to-field:fictional",
+        "fixtureRevision": "r1",
+        "admittedRuntimeBinding": false
+      },
+      "contentDigest": "sha256:f26302f2f3536bcf181167d7d7a9af3854522ad150b903f0337d4572fc66c378",
+      "record": {
+        "fixtureRecordType": "UNADOPTED_SAMPLE_SUPPORT_RELATION_EXAMPLE",
+        "sampleRef": "sample:W05-soil-fictional",
+        "contextBinding": {
+          "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "subject": {
+          "kind": "FIELD",
+          "binding": {
+            "fixtureLogicalRef": "field:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          }
+        },
+        "subjectTime": {
+          "profile": "COMPLIANCE_AS_OF",
+          "at": "2026-05-07T18:25:00Z"
+        },
+        "claimExtent": {
+          "posture": "FULL_TARGET_SCOPE",
+          "binding": {
+            "fixtureLogicalRef": "field:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          }
+        },
+        "supportExtentRef": "extent:W05-composite-fictional",
+        "geometryBasisRef": "geometry:W05-composite-fictional",
+        "criterionBinding": {
+          "fixtureLogicalRef": "criterion:W05-nitrate-fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "declaredUse": "PENDING_COMPLIANCE_ALLEGATION_ONLY",
+        "qualification": "FICTIONAL_OWNER_SCOPE_COMPARISON_ASSUMED_NOT_ADMITTED"
+      }
+    },
+    {
+      "role": "METHOD_USE_QUALIFICATION",
+      "binding": {
+        "fixtureLogicalRef": "method-use:W05-nitrate-fictional",
+        "fixtureRevision": "r1",
+        "admittedRuntimeBinding": false
+      },
+      "contentDigest": "sha256:8d6c7f8a0903af5760b765687c7e0eb14eb35e741dac8bcaa84aa661c1afbecf",
+      "record": {
+        "fixtureRecordType": "UNADOPTED_METHOD_USE_EXAMPLE",
+        "criterionBinding": {
+          "fixtureLogicalRef": "criterion:W05-nitrate-fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "method": {
+          "procedureRef": "method:soil-nitrate-colorimetric:example-v2",
+          "procedureStatus": "DOCUMENTED_METHOD",
+          "issuerRef": "lab:soil-lab-alpha",
+          "versionRef": "v2"
+        },
+        "propertyRef": "observed-property:soil-nitrate-n",
+        "matrixRef": "matrix:soil",
+        "analyteRefs": [
+          "analyte:nitrate-n"
+        ],
+        "limit": {
+          "limitType": "LOQ",
+          "quantityKindRef": "qudt:MassFraction",
+          "unitRef": "ucum:mg.kg-1",
+          "value": 2,
+          "qualifier": "below quantification limit"
+        },
+        "domainLowerBound": {
+          "decimal": "0",
+          "inclusive": true
+        },
+        "censoringUpperBound": "EXCLUSIVE_LOQ",
+        "statisticalConfidenceIsHardBound": false,
+        "declaredUse": "PENDING_COMPLIANCE_ALLEGATION_ONLY",
+        "status": "FICTIONAL_UNADMITTED"
+      }
+    }
+  ],
+  "sourceMeasurement": {
+    "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_MeasurementEvidence_example_soil_nitrate_below_loq_lab_result_v0_1.json",
+    "commit": "8e86208f96756b8f271f490696e6aa7cf23605fe",
+    "sha256": "8c72a8adb681407b39bc066505deef284f6c6e1322347a69216f2be3054b8e51"
+  },
+  "sourceTransform": [
+    {
+      "pointer": "/agronomicObservationContextRef",
+      "before": null,
+      "after": "observation-context:W05-nitrate-fictional",
+      "operation": "add"
+    },
+    {
+      "pointer": "/evidenceStatus",
+      "before": "ACCEPTED_SUPPORT",
+      "after": "REVIEW_REQUIRED",
+      "operation": "replace"
+    },
+    {
+      "pointer": "/measurementEvidenceId",
+      "before": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+      "after": "nitrate-measurement:fictional",
+      "operation": "replace"
+    },
+    {
+      "pointer": "/notes",
+      "before": "Shows the Phase 2 rule that qualified lab results must retain LOD/LOQ semantics instead of false precision.",
+      "after": "Fictional W05 design operand only; not the original field-17 record and not admitted.",
+      "operation": "replace"
+    },
+    {
+      "pointer": "/originalPayloadHash",
+      "before": "sha256:example-soil-lab-report-20260508",
+      "after": "sha256:fictional-unadmitted-payload",
+      "operation": "replace"
+    },
+    {
+      "pointer": "/originalPayloadRef",
+      "before": "local-artifact:field-17:soil-lab-report:2026-05-08",
+      "after": "local-artifact:W05-fictional",
+      "operation": "replace"
+    },
+    {
+      "pointer": "/provenanceRefs",
+      "before": [
+        "provenance:field-17:soil-sample-to-lab-result:2026-05-08"
+      ],
+      "after": [
+        "provenance:W05-fictional"
+      ],
+      "operation": "replace"
+    },
+    {
+      "pointer": "/sampleRef",
+      "before": "sample:field-17:soil:2026-05-06:composite-a",
+      "after": "sample:W05-soil-fictional",
+      "operation": "replace"
+    },
+    {
+      "pointer": "/source",
+      "before": {
+        "sourceType": "LAB_REPORT",
+        "sourceRef": "lab-report:soil-lab-alpha:field-17:2026-05-08",
+        "sourceSystemRef": "system:soil-lab-alpha:limes",
+        "sourceCapturedAt": "2026-05-08T13:32:00Z"
+      },
+      "after": {
+        "sourceType": "LAB_REPORT",
+        "sourceRef": "lab-report:W05-fictional",
+        "sourceSystemRef": "system:W05-fictional",
+        "sourceCapturedAt": "2026-05-08T13:32:00Z"
+      },
+      "operation": "replace"
+    },
+    {
+      "pointer": "/upgradeOfMeasurementEvidenceRef",
+      "before": "measurement-evidence:field-17:soil-sample:2026-05-06:pending-lab",
+      "after": null,
+      "operation": "remove"
+    }
+  ]
+}

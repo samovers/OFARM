@@ -1,0 +1,99 @@
+# V3 independent custody, role presence, source-semantic and event dependency checks.
+sys.path.insert(0,str(args.candidate_dir.resolve()))
+from measurement_checks_v3 import w05_errors, required_role_errors
+from event_checks_v3 import event_errors
+previous_dir=args.previous_amendment or args.candidate_dir.parent/'review-amendment'
+source_map=read('source-transform-map-v3.json')
+prior_raw=(previous_dir/'candidate-examples-v2.json').read_bytes()
+prior=json.loads(prior_raw)
+check('immediate source bundle pinned at 8e86208',sha(prior_raw)==bundle['source']['priorAmendment']['sha256'] and bundle['source']['priorAmendment']['commit']=='8e86208f96756b8f271f490696e6aa7cf23605fe')
+for member in source_map['priorAmendmentMembers']:
+    check('prior amendment bytes unchanged: '+member['path'],sha((previous_dir/member['path']).read_bytes())==member['sha256'])
+check('all 25 prior example IDs retained', [e['id'] for e in prior['examples']]==[e['id'] for e in bundle['examples']])
+expect=read('criterion-expectations-v3.json');contract=read('measurement-role-contract-v3.json')
+check('independent criterion expectation exact byte pin',sha((args.candidate_dir/'criterion-expectations-v3.json').read_bytes())==contract['independentExpectation']['sha256'])
+for old,e,mapping in zip(prior['examples'],bundle['examples'],source_map['examples']):
+    actual=copy.deepcopy(e['claimContent']);actual['candidateGrammar']=old['claimContent']['candidateGrammar']
+    if 'association' in old['claimContent']:actual['association']=copy.deepcopy(e['associationVerificationInputs'])
+    if e['id']=='W05_CENSORED_CRITERION':
+        actual['proposition']['definition']=old['claimContent']['proposition']['definition']
+        actual['proposition']['body'].pop('criterion');actual['proposition']['body']['operand'].pop('source');actual['proposition']['body']['operand'].pop('admissibleValues')
+        actual['evidenceBindings']=actual['evidenceBindings'][:-2]
+    check(e['id']+': v2 to v3 only permitted changes',actual==old['claimContent'])
+    check(e['id']+': exact immediate-source example digest',digest(old)==mapping['sourceExampleJcsSha256']==e['amendment02DerivedFrom']['sourceExampleJcsSha256'])
+    check(e['id']+': source and target render/content mapping',mapping['sourceContentDigest']==old['claimContentDigest'] and mapping['targetContentDigest']==e['claimContentDigest'] and mapping['sourceTextDigest']==old['renderedTextSha256'] and mapping['targetTextDigest']==e['renderedTextSha256'])
+    check(e['id']+': all association outside closed P','association' not in e['claimContent'])
+    if e.get('associationVerificationInputs',{}).get('presence')=='PRESENT':
+        assoc=e['associationVerificationInputs']
+        check(e['id']+': verification values do not leak through claimText',all(v not in e['exactRenderedText'] for v in [assoc['envelope']['fixtureLogicalRef'],assoc['ingressEvidence']['fixtureLogicalRef'],assoc['caseDefinition'],assoc['timeSelector']]))
+        changed=copy.deepcopy(e);changed['associationVerificationInputs']['ingressEvidence']['fixtureRevision']='later-valid-owner-proof'
+        check(e['id']+': owner proof cannot alter claimText',rendering(changed['claimContent'])==e['exactRenderedText'])
+check('projection closed to technical association','association' not in projection['conditionalRootMembers'] and not any(x.get('proposedSelector')=='/assertionBody/eventAssociationContext' for x in read('selector-map-v3.json')['newTypedBodyRequirements']))
+check('canonical timing has no pre-submission guarantee',projection['eventTiming']['preSubmissionProofGuaranteed'] is False and projection['timingStatus']=='SOURCE_OWNER_RESOLUTION_INTEGRATED_NO_PRODUCER_GUARANTEE')
+fixtures=read('measurement-fixtures-v3.json');mcases=read('measurement-hostiles-v3.json');w05=byid['W05_CENSORED_CRITERION']['claimContent']
+check('W05 all source and semantic comparisons',w05_errors(w05,fixtures['records'],expect)==[],errors=w05_errors(w05,fixtures['records'],expect))
+check('W05 original evidence prefix plus exact two new records',w05['evidenceBindings']==prior['examples'][4]['claimContent']['evidenceBindings']+[expect['contextBinding'],expect['methodUseBinding']])
+for case in mcases['cases']:
+    errors=w05_errors(case['claimContent'],case['records'],expect)
+    check(case['id']+': isolated source failure',errors==case['expectedErrors'],observedErrors=errors)
+wrong=mcases['cases'][0];wc=wrong['claimContent'];ws=wc['proposition']['body']['operand']['source']
+wm=next(x['record'] for x in wrong['records'] if x['binding']==ws['measurementBinding'])
+pm=next(x['record'] for x in fixtures['records'] if x['role']=='MEASUREMENT')
+check('wrong property has valid membership and unchanged complete result',ws['measurementBinding'] in wc['evidenceBindings'] and wm['result']==pm['result'] and wm['measurementEvidenceId']==ws['measurementBinding']['fixtureLogicalRef'])
+# Removing source and its table row/metadata still fails: independent presence oracle.
+missing=copy.deepcopy(w05);missing['proposition']['body']['operand'].pop('source')
+empty_table=copy.deepcopy(selector_table);empty_table['rowSelectors']=[x for x in empty_table['rowSelectors'] if x['definition']!='C04']
+check('omitted C04 selector and source still rejected without citation metadata',selected_by_table(missing,empty_table)==[] and 'MISSING_REQUIRED_ROLE:/operand/source' in required_role_errors('C04',missing['proposition']['body']))
+check('C04 table omission independently visible',any(x['definition']=='C04' and '/operand/source/measurementBinding' in x['selectors'] for x in selector_table['rowSelectors']))
+for case in read('compliance-role-cases-v3.json')['cases']:
+    errors=required_role_errors(case['definition'].split('#')[-1],case['body'],case.get('qualificationRequiredByOwner',False))
+    check(case['id']+': required role completeness',errors==case['expectedErrors'],observedErrors=errors)
+audit=read('compliance-role-audit-v3.json')
+check('all 17 compliance rows audited independently',[r['id'] for r in audit['rows']]==['C'+str(i).zfill(2) for i in range(1,18)])
+coverage=read('coverage-preservation-v3.json')
+check('58 domain and 41 canonical definitions retained',coverage['domainCount']==58 and coverage['canonicalCount']==41 and coverage['eventRows']==12 and coverage['measurementRows']==17)
+if args.frozen_root:
+    for key,filename in [('domainRows','domain/inventory.json'),('canonicalRows','canonical/inventory.json')]:
+        rs=json.loads((args.frozen_root/filename).read_text())['rows']
+        check('complete coverage source identity: '+key,coverage[key]==[{'id':r['id'],'jcsDigest':digest(r)} for r in rs])
+    check('compliance audit input pin',sha((args.frozen_root/'domain/inventory.json').read_bytes())==audit['sourceSha256'])
+events=read('event-cases-v3.json');ep=read('event-compatibility-package-v3.json')
+check('event compatibility package independently pinned',digest(ep)==events['packageDigest'])
+for case in events['positiveCases']+events['hostileCases']:
+    errors=event_errors(case,ep)
+    check(case.get('id',case['exampleId'])+': finite event input comparisons',errors==case['expectedErrors'],observedErrors=errors)
+for case in events['positiveCases']:
+    ei=case['intent'];er=case['result'];text=byid[case['exampleId']]['exactRenderedText']
+    check(case['exampleId']+': exact carrier intent/result text',ei['assertionBody']['claimText']==er['assertionBody']['claimText']==text)
+    check(case['exampleId']+': exact complete carrier digests',digest(ei)==case['effectIntentDigest'] and digest(er)==case['proposedResultDigest'])
+    check(case['exampleId']+': no association result or ordinary evidence alias','associatedSemanticEventBinding' not in er and ei['associatedSemanticEventBinding'] not in ei['evidenceBindings'] and case['proof']['binding'] not in ei['evidenceBindings'])
+    early=copy.deepcopy(case);early['proof']['availability']='ELIGIBLE_PRE_EXISTING_OWNER_PROOF'
+    check(case['exampleId']+': early and validation-phase proof keep fixed body/intent',event_errors(early,ep)==[] and early['intent']==case['intent'] and early['result']==case['result'])
+    absent=copy.deepcopy(case);absent['intent'].pop('associatedSemanticEventBinding');absent.update(envelope=None,proof=None)
+    check(case['exampleId']+': legitimate absent branch retains claim meaning',event_errors(absent,ep)==[] and absent['intent']['assertionBody']==ei['assertionBody'] and digest(absent['intent'])!=case['effectIntentDigest'])
+    check(case['exampleId']+': lowest direct indices retained',case['traceIllustration']['subjectIndex']==0 and case['traceIllustration']['anchorIndex']==0)
+if args.repo_root:
+    # Check real source schema shapes; this is explicitly not owner admission.
+    specs={
+      'MEASUREMENT':'03_machine_contracts/schemas/evidence/OFARM_MeasurementEvidence_schema_v0_1.json',
+      'OBSERVATION_CONTEXT':'03_machine_contracts/schemas/agronomic/OFARM_AgronomicObservationContext_schema_v0_1.json',
+      'ENVELOPE':'03_machine_contracts/schemas/event_ingress/OFARM_SemanticEventEnvelope_schema_v0_1.json'}
+    loaded={k:json.loads((args.repo_root/v).read_text()) for k,v in specs.items()}
+    for record in fixtures['records']+wrong['records']:
+        if record['role'] not in loaded:continue
+        errors=list(jsonschema.Draft202012Validator(loaded[record['role']],format_checker=jsonschema.FormatChecker()).iter_errors(record['record']))
+        check('actual source schema: '+record['binding']['fixtureLogicalRef'],not errors,errors=[e.message for e in errors])
+    for case in events['positiveCases']:
+        for label,item,schema in [('envelope',case['envelope'],loaded['ENVELOPE']),('intent',case['intent'],schemas[1]),('result',case['result'],schemas[0])]:
+            errors=list(jsonschema.Draft202012Validator(schema,registry=registry,format_checker=jsonschema.FormatChecker()).iter_errors(item))
+            check(case['exampleId']+': actual schema '+label,not errors,errors=[e.message for e in errors])
+    optional['v3SourceSchemaFiles']=[{'role':k,'path':v,'sha256':sha((args.repo_root/v).read_bytes())} for k,v in specs.items()]
+# Independent association alias and malformed measured-role controls.
+aliased=copy.deepcopy(events['positiveCases'][0]);aliased['intent']['evidenceBindings'].append({'ref':'ordinary:renamed-ingress-proof','revisionRef':'fixture-revision:alias:r1'});aliased['ordinaryEvidenceResolvedDigests']=[digest(aliased['proof'])]
+check('ingress proof alias cannot be ordinary assertion evidence','ASSOCIATION_EVIDENCE_ALIAS' in event_errors(aliased,ep))
+for case in events['positiveCases']:
+    tr=case['traceIllustration']
+    check(case['exampleId']+': actual fixture inputs bound in trace model',tr['ingressProofDigest']==digest(case['proof']) and tr['envelopeDigest']==digest(case['envelope']) and tr['envelopeBinding']==case['intent']['associatedSemanticEventBinding'])
+malformed=copy.deepcopy(w05['proposition']['body']);malformed['operand']['source']['measurementBinding']={}
+check('empty measurement binding rejected before citation enumeration',bool(required_role_errors('C04',malformed)))
+check('source roles are mandatory independently of the four citation entries',set(contract['sourceTuple']['required'])=={'role','measurementBinding','resultPointer','contextBinding','subjectRelationBinding','methodUseBinding','qualificationPointers'})
