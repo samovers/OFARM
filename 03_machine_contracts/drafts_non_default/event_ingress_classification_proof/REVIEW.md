@@ -8,4 +8,6 @@ The coordinator then made a mechanical source-layout repair so verbatim baseline
 
 All ten existing repository validation commands pass, including the transaction regression, hygiene, currentness, cross-reference and authority-order guardrails. The default validation suite, workflow files, active/default selections and source contracts remain unchanged. The new checker is opt-in. CI activation, runtime construction and merge remain separate.
 
+The diff whitespace check reports only inherited Markdown hard-break whitespace in the byte-identical constitution, platform and event-grammar source copies. Those bytes are retained to preserve their source hashes; authored files have no whitespace errors.
+
 Next: review this draft and let #47 bind its exact interfaces under the domain-owned contract; do not infer #47 completion from this prerequisite.
