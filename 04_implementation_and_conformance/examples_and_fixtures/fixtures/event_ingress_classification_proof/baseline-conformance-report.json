@@ -1,0 +1,5651 @@
+{
+  "status": "PASS",
+  "checks": 468,
+  "passed": 468,
+  "failed": [],
+  "familyCount": 7,
+  "commitClassCount": 9,
+  "allPairingsChecked": 63,
+  "runtimeAdmission": "NOT_ESTABLISHED",
+  "results": [
+    {
+      "id": "pruning-preexisting",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "pruning-preexisting-reevaluation",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "pruning-validation-phase",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "pruning-validation-phase-reevaluation",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "spot-spray-validation-phase",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "spot-spray-validation-phase-reevaluation",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "pruning-no-subtype",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "pruning-no-subtype-reevaluation",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "pruning-no-reuse",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "pruning-no-reuse-reevaluation",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "REUSE_NOT_ALLOWED",
+      "errorCodes": [
+        "REUSE_NOT_ALLOWED"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "proof-whitespace-same-immutable-value",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "envelope-whitespace",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_BYTES_MISMATCH",
+      "errorCodes": [
+        "SOURCE_BYTES_MISMATCH",
+        "SOURCE_BYTES_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "request-whitespace",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_BYTES_MISMATCH",
+      "errorCodes": [
+        "SOURCE_BYTES_MISMATCH",
+        "SOURCE_BYTES_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "context-whitespace",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "CONTEXT_PIN_MISMATCH",
+      "errorCodes": [
+        "CONTEXT_PIN_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "profile-whitespace",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "PROFILE_PIN_MISMATCH",
+      "errorCodes": [
+        "PROFILE_PIN_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "proof-missing",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT",
+      "errorCodes": [
+        "MISSING_OR_NONBYTE_INPUT"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "proof-duplicate",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME",
+      "errorCodes": [
+        "DUPLICATE_JSON_NAME"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "proof-deep",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT",
+      "errorCodes": [
+        "INPUT_DEPTH_LIMIT"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "proof-bad-utf8",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON",
+      "errorCodes": [
+        "INVALID_UTF8_JSON"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "proof-nan",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_JSON_NUMBER",
+      "errorCodes": [
+        "NON_JSON_NUMBER"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "proof-unsafe-integer",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE",
+      "errorCodes": [
+        "NON_CANONICAL_VALUE"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "proof-wrong-type",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "envelope-missing",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT",
+      "errorCodes": [
+        "MISSING_OR_NONBYTE_INPUT"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "envelope-duplicate",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME",
+      "errorCodes": [
+        "DUPLICATE_JSON_NAME"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "envelope-deep",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT",
+      "errorCodes": [
+        "INPUT_DEPTH_LIMIT"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "envelope-bad-utf8",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON",
+      "errorCodes": [
+        "INVALID_UTF8_JSON"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "envelope-nan",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_JSON_NUMBER",
+      "errorCodes": [
+        "NON_JSON_NUMBER"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "envelope-unsafe-integer",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE",
+      "errorCodes": [
+        "NON_CANONICAL_VALUE"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "envelope-wrong-type",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "request-missing",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT",
+      "errorCodes": [
+        "MISSING_OR_NONBYTE_INPUT"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "request-duplicate",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME",
+      "errorCodes": [
+        "DUPLICATE_JSON_NAME"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "request-deep",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT",
+      "errorCodes": [
+        "INPUT_DEPTH_LIMIT"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "request-bad-utf8",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON",
+      "errorCodes": [
+        "INVALID_UTF8_JSON"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "request-nan",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_JSON_NUMBER",
+      "errorCodes": [
+        "NON_JSON_NUMBER"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "request-unsafe-integer",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE",
+      "errorCodes": [
+        "NON_CANONICAL_VALUE"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "request-wrong-type",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "context-missing",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT",
+      "errorCodes": [
+        "MISSING_OR_NONBYTE_INPUT"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "context-duplicate",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME",
+      "errorCodes": [
+        "DUPLICATE_JSON_NAME"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "context-deep",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT",
+      "errorCodes": [
+        "INPUT_DEPTH_LIMIT"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "context-bad-utf8",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON",
+      "errorCodes": [
+        "INVALID_UTF8_JSON"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "context-nan",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_JSON_NUMBER",
+      "errorCodes": [
+        "NON_JSON_NUMBER"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "context-unsafe-integer",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE",
+      "errorCodes": [
+        "NON_CANONICAL_VALUE"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "context-wrong-type",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "CONTEXT_PIN_MISMATCH",
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "profile-missing",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT",
+      "errorCodes": [
+        "MISSING_OR_NONBYTE_INPUT"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "profile-duplicate",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME",
+      "errorCodes": [
+        "DUPLICATE_JSON_NAME"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "profile-deep",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT",
+      "errorCodes": [
+        "INPUT_DEPTH_LIMIT"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "profile-bad-utf8",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON",
+      "errorCodes": [
+        "INVALID_UTF8_JSON"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "profile-nan",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_JSON_NUMBER",
+      "errorCodes": [
+        "NON_JSON_NUMBER"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "profile-unsafe-integer",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE",
+      "errorCodes": [
+        "NON_CANONICAL_VALUE"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "profile-wrong-type",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "PROFILE_PIN_MISMATCH",
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "oversized-input",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_SIZE_LIMIT",
+      "errorCodes": [
+        "INPUT_SIZE_LIMIT"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "wrong-family-proof",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "CLASSIFICATION_MISMATCH",
+      "errorCodes": [
+        "CLASSIFICATION_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "wrong-family-envelope",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH",
+      "errorCodes": [
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "FAMILY_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "dominant-shortened",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "CLASSIFICATION_MISMATCH",
+      "errorCodes": [
+        "CLASSIFICATION_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "dominant-envelope-same-id",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "CLASSIFICATION_CASE_NOT_EXACT",
+      "errorCodes": [
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "CLASSIFICATION_CASE_NOT_EXACT"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "subtype-removed",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "CLASSIFICATION_MISMATCH",
+      "errorCodes": [
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "OWNER_CASE_SELECTION_MISMATCH",
+        "CLASSIFICATION_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "subtype-null",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "subtype-case-change",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "CLASSIFICATION_CASE_NOT_EXACT",
+      "errorCodes": [
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "CLASSIFICATION_CASE_NOT_EXACT"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "subtype-as-commit-class",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "wrong-commit-class",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "COMMIT_CLASS_MISMATCH",
+      "errorCodes": [
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "COMMIT_CLASS_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "changed-request-same-id",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "INPUT_BINDING_MISMATCH",
+      "errorCodes": [
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "changed-request-event",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "REQUEST_EVENT_MISMATCH",
+      "errorCodes": [
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "REQUEST_EVENT_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "changed-request-scope",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "REQUEST_SCOPE_MISMATCH",
+      "errorCodes": [
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "REQUEST_SCOPE_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-plus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-minus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-plus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-minus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-plus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-minus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-plus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-plus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-minus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-minus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-plus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-minus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-plus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-minus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-plus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-minus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-plus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-minus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-plus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-minus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-plus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-plus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-minus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-minus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-plus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-minus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-plus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-minus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-plus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-minus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-plus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-minus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-plus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-minus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-plus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-plus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-minus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-minus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-plus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-minus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-plus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-minus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-plus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-minus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-plus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-minus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-plus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-minus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-plus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-plus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-minus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-minus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-plus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-minus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-plus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-minus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-plus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-minus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-plus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-minus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-plus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-minus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-plus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-plus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-minus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-minus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-plus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-minus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-plus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-minus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-plus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-minus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-plus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-minus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-plus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-minus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-plus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-plus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-minus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-minus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-plus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-minus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-plus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-minus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-plus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-minus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-plus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-minus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-plus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-minus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-plus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-plus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-minus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-minus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-plus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-minus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-plus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-minus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-plus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-minus00-00",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-plus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-minus01-30",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-plus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-minus23-59",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-plus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-plus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-minus01-60",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-minus01-99",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-plus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-minus24-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-plus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-minus99-00",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-0",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-1",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-2",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-3",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-4",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-5",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-6",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-7",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-8",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-9",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-10",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-11",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-12",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-13",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-14",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-15",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-16",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-17",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-18",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-0",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-1",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-2",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-3",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-4",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-5",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-6",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-7",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-8",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-9",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-10",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-11",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-12",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-13",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-14",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-15",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-16",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-17",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-18",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-0",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-1",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-2",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-3",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-4",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-5",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-6",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-7",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-8",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-9",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-10",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-11",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-12",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-13",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-14",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-15",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-16",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-17",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-18",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-0",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-1",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-2",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-3",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-4",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-5",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-6",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-7",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-8",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-9",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-10",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-11",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-12",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-13",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-14",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-15",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-16",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-17",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-18",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-0",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-1",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-2",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-3",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-4",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-5",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-6",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-7",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-8",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-9",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-10",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-11",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-12",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-13",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-14",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-15",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-16",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-17",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-18",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-0",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-1",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-2",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-3",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-4",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-5",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-6",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-7",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-8",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-9",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-10",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-11",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-12",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-13",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-14",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-15",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-16",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-17",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-18",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-0",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-1",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-2",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-3",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-4",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-5",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-6",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-7",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-8",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-9",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-10",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-11",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-12",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-13",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-14",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-15",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-16",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-17",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-18",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-0",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-1",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-2",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-3",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-4",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-5",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-6",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-7",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-8",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-9",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-10",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-11",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-12",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-13",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-14",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-15",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-16",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-17",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-18",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "bad-calendar",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "bad-calendar-envelope",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "forged-owner-role",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "forged-admitted-boolean",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "late-domainVerdictBinding",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "late-traceBinding",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "late-finalAssertionEffect",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "late-attemptReceiptBinding",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "late-ingressResultBinding",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "wrong-production-mode",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "PRODUCTION_MODE_MISMATCH",
+      "errorCodes": [
+        "PRODUCTION_MODE_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "wrong-completion-milestone",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "missing-required-binding",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "wrong-context-binding",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "OWNER_CONTEXT_BINDING_MISMATCH",
+      "errorCodes": [
+        "OWNER_CONTEXT_BINDING_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "wrong-contract-binding",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "CONTRACT_BINDING_MISMATCH",
+      "errorCodes": [
+        "CONTRACT_BINDING_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "wrong-proof-id",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "OWNER_PROOF_ID_MISMATCH",
+      "errorCodes": [
+        "OWNER_PROOF_ID_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "proof-mutated-original-selector",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "PROOF_SELECTOR_MISMATCH",
+      "errorCodes": [
+        "PROOF_SELECTOR_MISMATCH",
+        "CLASSIFICATION_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "wrong-contextSha256",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "CONTEXT_PIN_MISMATCH",
+      "errorCodes": [
+        "CONTEXT_PIN_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "wrong-profileSha256",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "PROFILE_PIN_MISMATCH",
+      "errorCodes": [
+        "PROFILE_PIN_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "wrong-contractSha256",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "CONTRACT_PIN_MISMATCH",
+      "errorCodes": [
+        "CONTRACT_PIN_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "missing-pins",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_INDEPENDENT_PINS",
+      "errorCodes": [
+        "INVALID_INDEPENDENT_PINS"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "boolean-pins",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_INDEPENDENT_PINS",
+      "errorCodes": [
+        "INVALID_INDEPENDENT_PINS"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "pin-extra-field",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_INDEPENDENT_PINS",
+      "errorCodes": [
+        "INVALID_INDEPENDENT_PINS"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "selector-missing",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_PROOF_SELECTOR",
+      "errorCodes": [
+        "INVALID_PROOF_SELECTOR"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "selector-invalid-digest",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_PROOF_SELECTOR",
+      "errorCodes": [
+        "INVALID_PROOF_SELECTOR"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "selector-boolean",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_PROOF_SELECTOR",
+      "errorCodes": [
+        "INVALID_PROOF_SELECTOR"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "unsupported-reuse",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "UNKNOWN_USE_MODE",
+      "errorCodes": [
+        "UNKNOWN_USE_MODE"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "self-consistent-forgery-fixed-owner-pins",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "PROFILE_PIN_MISMATCH",
+      "errorCodes": [
+        "CONTEXT_PIN_MISMATCH",
+        "PROFILE_PIN_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "self-consistent-commit-forgery-fixed-context",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "COMMIT_CLASS_MISMATCH",
+      "errorCodes": [
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "INPUT_BINDING_MISMATCH",
+        "SOURCE_BYTES_MISMATCH",
+        "CLASSIFICATION_MISMATCH",
+        "COMMIT_CLASS_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "duplicate-owner-case-id",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "AMBIGUOUS_CLASSIFICATION_PROFILE",
+      "errorCodes": [
+        "AMBIGUOUS_CLASSIFICATION_PROFILE"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "duplicate-owner-case-signature",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "AMBIGUOUS_CLASSIFICATION_PROFILE",
+      "errorCodes": [
+        "AMBIGUOUS_CLASSIFICATION_PROFILE",
+        "CLASSIFICATION_CASE_NOT_EXACT"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "owner-source-pin-mismatch",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "CLASSIFICATION_SOURCE_MISMATCH",
+      "errorCodes": [
+        "CLASSIFICATION_SOURCE_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "no-owner-case",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "CLASSIFICATION_CASE_NOT_EXACT",
+      "errorCodes": [
+        "CLASSIFICATION_CASE_NOT_EXACT"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "wrong-independent-case-selection",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "OWNER_CASE_SELECTION_MISMATCH",
+      "errorCodes": [
+        "OWNER_CASE_SELECTION_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "reevaluation-without-initial-context",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "late-input-owner-context",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID",
+      "errorCodes": [
+        "SCHEMA_INVALID",
+        "SCHEMA_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "proof-reused-another-context",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "OWNER_CONTEXT_BINDING_MISMATCH",
+      "errorCodes": [
+        "OWNER_CONTEXT_BINDING_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-StructureEvent-NOTE",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-StructureEvent-OBSERVATION_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-StructureEvent-HYPOTHESIS_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-StructureEvent-STRUCTURE_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-StructureEvent-OPERATION_CLAIM",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-StructureEvent-EVIDENCE_RECORD",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-StructureEvent-COMPLIANCE_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-StructureEvent-GOVERNANCE_DECISION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-StructureEvent-ADVISORY_OUTPUT",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "owner-authority-StructureEvent",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH",
+      "errorCodes": [
+        "CLASSIFICATION_MISMATCH",
+        "FAMILY_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-ObservationEvent-NOTE",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-ObservationEvent-OBSERVATION_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-ObservationEvent-HYPOTHESIS_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-ObservationEvent-STRUCTURE_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-ObservationEvent-OPERATION_CLAIM",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-ObservationEvent-EVIDENCE_RECORD",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-ObservationEvent-COMPLIANCE_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-ObservationEvent-GOVERNANCE_DECISION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-ObservationEvent-ADVISORY_OUTPUT",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "owner-authority-ObservationEvent",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH",
+      "errorCodes": [
+        "CLASSIFICATION_MISMATCH",
+        "FAMILY_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-OccurrenceEvent-NOTE",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-OccurrenceEvent-OBSERVATION_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-OccurrenceEvent-HYPOTHESIS_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-OccurrenceEvent-STRUCTURE_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-OccurrenceEvent-OPERATION_CLAIM",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-OccurrenceEvent-EVIDENCE_RECORD",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-OccurrenceEvent-COMPLIANCE_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-OccurrenceEvent-GOVERNANCE_DECISION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-OccurrenceEvent-ADVISORY_OUTPUT",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "owner-authority-OccurrenceEvent",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH",
+      "errorCodes": [
+        "CLASSIFICATION_MISMATCH",
+        "FAMILY_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-InterventionEvent-NOTE",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-InterventionEvent-OBSERVATION_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-InterventionEvent-HYPOTHESIS_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-InterventionEvent-STRUCTURE_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-InterventionEvent-OPERATION_CLAIM",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-InterventionEvent-EVIDENCE_RECORD",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-InterventionEvent-COMPLIANCE_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-InterventionEvent-GOVERNANCE_DECISION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-InterventionEvent-ADVISORY_OUTPUT",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "owner-authority-InterventionEvent",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH",
+      "errorCodes": [
+        "CLASSIFICATION_MISMATCH",
+        "FAMILY_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-MaterialEvent-NOTE",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-MaterialEvent-OBSERVATION_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-MaterialEvent-HYPOTHESIS_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-MaterialEvent-STRUCTURE_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-MaterialEvent-OPERATION_CLAIM",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-MaterialEvent-EVIDENCE_RECORD",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-MaterialEvent-COMPLIANCE_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-MaterialEvent-GOVERNANCE_DECISION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-MaterialEvent-ADVISORY_OUTPUT",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "owner-authority-MaterialEvent",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH",
+      "errorCodes": [
+        "CLASSIFICATION_MISMATCH",
+        "FAMILY_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-EvidenceEvent-NOTE",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-EvidenceEvent-OBSERVATION_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-EvidenceEvent-HYPOTHESIS_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-EvidenceEvent-STRUCTURE_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-EvidenceEvent-OPERATION_CLAIM",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-EvidenceEvent-EVIDENCE_RECORD",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-EvidenceEvent-COMPLIANCE_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-EvidenceEvent-GOVERNANCE_DECISION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-EvidenceEvent-ADVISORY_OUTPUT",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "owner-authority-EvidenceEvent",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH",
+      "errorCodes": [
+        "CLASSIFICATION_MISMATCH",
+        "FAMILY_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-GovernanceEvent-NOTE",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-GovernanceEvent-OBSERVATION_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-GovernanceEvent-HYPOTHESIS_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-GovernanceEvent-STRUCTURE_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-GovernanceEvent-OPERATION_CLAIM",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-GovernanceEvent-EVIDENCE_RECORD",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-GovernanceEvent-COMPLIANCE_ASSERTION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-GovernanceEvent-GOVERNANCE_DECISION",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "support-GovernanceEvent-ADVISORY_OUTPUT",
+      "pass": true,
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "actualStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "owner-authority-GovernanceEvent",
+      "pass": true,
+      "expectedStatus": "FAIL",
+      "actualStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH",
+      "errorCodes": [
+        "CLASSIFICATION_MISMATCH",
+        "FAMILY_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "invalid-pinned-schema",
+      "pass": true,
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "actualStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "PACKAGE_UNAVAILABLE_OR_INVALID",
+      "errorCodes": [
+        "PACKAGE_UNAVAILABLE_OR_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "external-schema-reference",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "SCHEMA_ID_OR_REFERENCE_MISMATCH",
+      "errorCodes": [
+        "SCHEMA_ID_OR_REFERENCE_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "unexpected-local-reference",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "SCHEMA_ID_OR_REFERENCE_MISMATCH",
+      "errorCodes": [
+        "SCHEMA_ID_OR_REFERENCE_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "schema-bytes-changed",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "SCHEMA_PIN_MISMATCH",
+      "errorCodes": [
+        "SCHEMA_PIN_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "semantic-source-changed",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "SEMANTIC_SOURCE_PIN_MISMATCH",
+      "errorCodes": [
+        "SEMANTIC_SOURCE_PIN_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "incomplete-semantic-source-closure",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "SEMANTIC_SOURCE_CLOSURE_MISMATCH",
+      "errorCodes": [
+        "SEMANTIC_SOURCE_CLOSURE_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "deep-contract",
+      "pass": true,
+      "expectedStatus": "INPUT_ERROR",
+      "actualStatus": "INPUT_ERROR",
+      "requiredErrorCode": "CONTRACT_PIN_MISMATCH",
+      "errorCodes": [
+        "CONTRACT_PIN_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "missing-package",
+      "pass": true,
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "actualStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "PACKAGE_UNAVAILABLE_OR_INVALID",
+      "errorCodes": [
+        "PACKAGE_UNAVAILABLE_OR_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "deep-pinned-contract",
+      "pass": true,
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "actualStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "PACKAGE_UNAVAILABLE_OR_INVALID",
+      "errorCodes": [
+        "PACKAGE_UNAVAILABLE_OR_INVALID"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "frozen-report-schema-exact",
+      "pass": true
+    },
+    {
+      "id": "source-copy-source-contracts/SemanticEventEnvelope.v0.1.json",
+      "pass": true
+    },
+    {
+      "id": "source-copy-source-contracts/CommitIngressRequest.v0.1.json",
+      "pass": true
+    },
+    {
+      "id": "source-copy-sources/event-ingress-rfc.md",
+      "pass": true
+    },
+    {
+      "id": "source-copy-sources/event-grammar.md",
+      "pass": true
+    },
+    {
+      "id": "source-copy-sources/platform.md",
+      "pass": true
+    },
+    {
+      "id": "source-copy-sources/constitution.md",
+      "pass": true
+    },
+    {
+      "id": "source-copy-fixtures/envelopes/pruning.json",
+      "pass": true
+    },
+    {
+      "id": "source-copy-fixtures/envelopes/spot-spray.json",
+      "pass": true
+    },
+    {
+      "id": "source-copy-fixtures/requests/pruning.json",
+      "pass": true
+    },
+    {
+      "id": "jcs-vector-0",
+      "pass": true
+    },
+    {
+      "id": "jcs-vector-1",
+      "pass": true
+    },
+    {
+      "id": "jcs-vector-2",
+      "pass": true
+    },
+    {
+      "id": "jcs-invalid-0",
+      "pass": true
+    },
+    {
+      "id": "jcs-invalid-1",
+      "pass": true
+    },
+    {
+      "id": "jcs-invalid-2",
+      "pass": true
+    },
+    {
+      "id": "jcs-invalid-3",
+      "pass": true
+    },
+    {
+      "id": "portable-cli",
+      "pass": true
+    },
+    {
+      "id": "portable-cli-bad-use",
+      "pass": true
+    },
+    {
+      "id": "portable-cli-missing",
+      "pass": true
+    },
+    {
+      "id": "split-installation-cli",
+      "pass": true
+    },
+    {
+      "id": "helper-code-tamper",
+      "pass": true
+    },
+    {
+      "id": "portable-cli-missing-dependencies",
+      "pass": true
+    },
+    {
+      "id": "jcs-version-mismatch",
+      "pass": true,
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "actualStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "RFC8785_DEPENDENCY_MISMATCH",
+      "errorCodes": [
+        "RFC8785_DEPENDENCY_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "jcs-implementation-pin-mismatch",
+      "pass": true,
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "actualStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "RFC8785_DEPENDENCY_MISMATCH",
+      "errorCodes": [
+        "RFC8785_DEPENDENCY_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "jcs-behavior-mismatch",
+      "pass": true,
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "actualStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "RFC8785_DEPENDENCY_MISMATCH",
+      "errorCodes": [
+        "RFC8785_DEPENDENCY_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    }
+  ]
+}

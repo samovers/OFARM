@@ -1,0 +1,42 @@
+{
+  "verbatimCopies": [
+    {
+      "repository": "samovers/OFARM",
+      "commit": "4a3d88ea6eff4b3f8a2c521dc621595cbfd1657b",
+      "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_SemanticEventEnvelope_example_pruning_operation_v0_1.json",
+      "sha256": "bdbe24bfb7d602b65ef5b517c21b54f134b1539f12c35c428530d20f49971ac9",
+      "bytes": 918,
+      "copy": "fixtures/envelopes/pruning.json",
+      "transformation": "NONE_VERBATIM"
+    },
+    {
+      "repository": "samovers/OFARM",
+      "commit": "4a3d88ea6eff4b3f8a2c521dc621595cbfd1657b",
+      "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_SemanticEventEnvelope_example_field_17_contractor_spot_spray_late_sync_v0_1.json",
+      "sha256": "bfb02b92b2e3d642c715bb9865b6f39131b9a383848b52bbdf1add790b8f6ec8",
+      "bytes": 1608,
+      "copy": "fixtures/envelopes/spot-spray.json",
+      "transformation": "NONE_VERBATIM"
+    },
+    {
+      "repository": "samovers/OFARM",
+      "commit": "4a3d88ea6eff4b3f8a2c521dc621595cbfd1657b",
+      "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_CommitIngressRequest_example_pruning_operation_claim_v0_1.json",
+      "sha256": "e0d62ec92b25c6ece1e2f9eb4b1a1d6d8cc106a029edb3cd544eab0b8af1c3ad",
+      "bytes": 1006,
+      "copy": "fixtures/requests/pruning.json",
+      "transformation": "NONE_VERBATIM"
+    }
+  ],
+  "authoredRequest": "fixtures/requests/spot-spray.json",
+  "authoredVariation": {
+    "path": "fixtures/envelopes/pruning-no-subtype.json",
+    "source": "fixtures/envelopes/pruning.json",
+    "changes": [
+      "Remove eventSubtypeId only; all remaining semantic fields preserved."
+    ],
+    "runtimeSourceClaim": false
+  },
+  "method": "Expected families and exact cases are authored above from the pinned grammar and source examples. This script imports no verifier and reads no verifier report.",
+  "limits": "Profile matches exact declared descriptions and subtype posture; no universal event classifier or new family law."
+}

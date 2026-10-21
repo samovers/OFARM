@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "ofarm.eventClassificationContext.v0.1",
+  "contextId": "fixture:owner-context:spot-spray-validation-phase",
+  "ownerRole": "EVENT_INGRESS_CLASSIFICATION",
+  "contractBinding": {
+    "ref": "ofarm.event-ingress.pre-verdict-classification.v0.1",
+    "digest": "sha256:6efec48c1eab44ddae1161f85aea087f5bc13dd9ec550b0941e14ad4e47903b1"
+  },
+  "classificationProfileBinding": {
+    "ref": "profile:event-ingress:agronomic-examples",
+    "digest": "sha256:d835fac4497da6b3efde05291081f1d225f2f7a30fe74349d184b60e63f3c9f5"
+  },
+  "selectedCaseId": "case:spot-spray-late-sync",
+  "envelopeBinding": {
+    "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+    "digest": "sha256:74d635b5e80e273d4def4200782057798a6c3b4228f8abf246b7f5fab20a198f"
+  },
+  "ingressRequestBinding": {
+    "ref": "fixture:ingress:spot-spray:request",
+    "digest": "sha256:86896a2d8a412abb67e25d3aeb28a7d827ce8b5ff5063a8d4d6479453da0766e"
+  },
+  "envelopeBytesSha256": "bfb02b92b2e3d642c715bb9865b6f39131b9a383848b52bbdf1add790b8f6ec8",
+  "ingressRequestBytesSha256": "12dd24d0d56db40b3c0e754c7730f6f736bf337dd7d2a918eb2881e2c0024b58",
+  "expectedCommitClass": "OPERATION_CLAIM",
+  "expectedTargetScopes": [
+    {
+      "scopeType": "FIELD",
+      "scopeRef": "field:greenacre:17"
+    }
+  ],
+  "expectedProofId": "fixture:classification-proof:spot-spray-validation-phase",
+  "productionMode": "VALIDATION_PHASE_PROOF",
+  "permittedUseModes": [
+    "INITIAL_EVALUATION",
+    "EXACT_REEVALUATION"
+  ],
+  "reuseRule": "EXACT_ENVELOPE_REQUEST_PROFILE_CONTEXT_AND_PROOF",
+  "requiredMilestone": "CLASSIFICATION_COMPLETE_BEFORE_DEPENDENT_VERDICT",
+  "inputRoles": [
+    "PINNED_CONTRACT",
+    "SELECTED_CLASSIFICATION_PROFILE",
+    "FIXED_ENVELOPE",
+    "FIXED_INGRESS_REQUEST",
+    "INDEPENDENT_OWNER_CONTEXT"
+  ]
+}

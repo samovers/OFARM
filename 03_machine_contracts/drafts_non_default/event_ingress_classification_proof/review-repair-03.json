@@ -1,0 +1,20 @@
+{
+  "revision": "review-repair-03",
+  "primaryTrustBoundary": "Event Ingress classification and evidence admission",
+  "scopeStayedInsideBoundary": true,
+  "reason": "Repository steward guardrails reject verbatim baseline source text presented in the machine-contract lane. Preserve bytes in the implementation evidence lane instead.",
+  "changes": [
+    "Add optional source_root/--source-root selected by operator, never by proof; default remains portable package root.",
+    "Keep all four fixed semantic source paths and raw SHA pins; only their installed parent location changes.",
+    "Keep opt-in standalone conformance runner; default repository suite and workflow files remain unchanged."
+  ],
+  "priorSealSha256": "f76c39e3f4238926c14f361f96ef5cd98a70ec9e8dca532848722cf77eaac3b7",
+  "sourceBytesPreserved": true,
+  "portableChecksPassed": 468,
+  "portableReportSha256": "b708507f7f15b86ce932f292059c96ce271fc5936c5dfb07f03079d1b3c82225",
+  "installedChecksPassed": 468,
+  "independentTimestampChecksPassed": 96,
+  "installedReportSha256": "b708507f7f15b86ce932f292059c96ce271fc5936c5dfb07f03079d1b3c82225",
+  "independentReportSha256": "900c86c84273e7f42c7449aa865cfb8d610a6de5d1a31875f958f71a294beb28",
+  "existingRepositorySuitePassed": true
+}
