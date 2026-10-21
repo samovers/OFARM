@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "ofarm.assertionActVerificationContext.v0.1",
+  "contextId": "fixture:act-context:compliance-natural_person_self-online-typed",
+  "contractBinding": {
+    "ref": "ofarm.assertion-act-evidence.v0.1",
+    "digest": "sha256:c2a58cb910f95a99b8f37007623e62130bcd89403bc0441f3e70c0b0013b68b2"
+  },
+  "sourcePolicyBinding": {
+    "ref": "fixture:act-policy:compliance-natural_person_self-online-typed",
+    "digest": "sha256:702be89a4bc5b6f8dfb2557b542a99d5be72964159f150a94d05561f18134d09"
+  },
+  "actSelection": {
+    "binding": {
+      "ref": "fixture:assertion-act:compliance-natural_person_self-online-typed",
+      "digest": "sha256:978b447f2fd13fda5b7c9b064cd2fa0d8a22c68215426696da47e283f3230bb6"
+    },
+    "bytesSha256": "79f7ce7d759a23bb752f0563f14ce007351a506ed2f8954a8f31823a560e4eb0",
+    "valueDigest": "sha256:978b447f2fd13fda5b7c9b064cd2fa0d8a22c68215426696da47e283f3230bb6"
+  },
+  "submittedContentBinding": {
+    "ref": "fixture:submitted-content:compliance-natural_person_self-online-typed",
+    "digest": "sha256:b45dfa3f8d525cb0edef6db27f158a23db81a27e3a97518966d0939d74f4789b"
+  },
+  "submittedContentBytesSha256": "77af49b32d612d846011ad0e28c0a804f422eaf424d5316a327498ee517a7156",
+  "renderedContentBytesSha256": "f01ae3279ffc0c42f5b0bd890576e3d3492d8d3851e8a1b2f114646140745902",
+  "intentSchemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1",
+  "intentProfileBinding": {
+    "ref": "fixture:act-intent-profile:typed:compliance",
+    "digest": "sha256:1de34efd9ea7bfe80dae6cffc8ead9dc8b72080f031b6aed44c9dfba784fe44d"
+  },
+  "intentBytesSha256": "74c29c175b9267aba0c8887fc146177b1720e8b387c0b5e0ec447f2e5830abf5",
+  "intentDigest": "sha256:b507ced2a01d64a89efb09a3f55fb1de7b0b9083083ae7b86e14dd5726453eeb",
+  "expectedParty": {
+    "partyRef": "party:fictional:natural_person_self",
+    "authoritySubjectBasis": "NATURAL_PERSON_SELF",
+    "authoritySubjectBasisBindings": [
+      {
+        "ref": "basis:fictional:natural_person_self",
+        "revisionRef": "basis:fictional:natural_person_self:r1"
+      }
+    ]
+  },
+  "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+  "expectedPosture": "TRUSTED_ONLINE_SUBMISSION",
+  "expectedSourceKind": "TRUSTED_RUNTIME_SUBMISSION_OBSERVATION",
+  "selectedSourceInputs": [
+    {
+      "role": "MEASUREMENT_EVIDENCE",
+      "binding": {
+        "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+        "digest": "sha256:a0e74e8715bf08d2fc9c0c8218042c27d6498e75abc58bcb3a0879870f32f921"
+      },
+      "bytesSha256": "6c25dac7e1d0dfac5799bbd6bea1535be51d422416a19d13067ca0762848c2f6",
+      "valueDigest": "sha256:a0e74e8715bf08d2fc9c0c8218042c27d6498e75abc58bcb3a0879870f32f921"
+    },
+    {
+      "role": "MEASUREMENT_EVIDENCE",
+      "binding": {
+        "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+        "digest": "sha256:b8e2f24404326f37bdb106c606ab2c0ad24c139b408f6c79631ee61ed87e8429"
+      },
+      "bytesSha256": "8c72a8adb681407b39bc066505deef284f6c6e1322347a69216f2be3054b8e51",
+      "valueDigest": "sha256:b8e2f24404326f37bdb106c606ab2c0ad24c139b408f6c79631ee61ed87e8429"
+    }
+  ],
+  "expectationBasis": "INDEPENDENT_FICTIONAL_EXPECTATIONS",
+  "sourceAuthorityLimit": "No authorization-selected path source contract is identified by this candidate."
+}

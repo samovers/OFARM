@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/context/v0.1",
+  "title": "Non-default assertion act context",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionActVerificationContext.v0.1"
+    },
+    "contextId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+    },
+    "contractBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "ref",
+        "digest"
+      ]
+    },
+    "sourcePolicyBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "ref",
+        "digest"
+      ]
+    },
+    "actSelection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "bytesSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "valueDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "binding",
+        "bytesSha256",
+        "valueDigest"
+      ]
+    },
+    "submittedContentBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "ref",
+        "digest"
+      ]
+    },
+    "submittedContentBytesSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+    },
+    "renderedContentBytesSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+    },
+    "intentSchemaId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "intentProfileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "ref",
+        "digest"
+      ]
+    },
+    "intentBytesSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+    },
+    "intentDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+    },
+    "expectedParty": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "partyRef": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+        },
+        "authoritySubjectBasis": {
+          "enum": [
+            "NATURAL_PERSON_SELF",
+            "REPRESENTED_PARTY_AUTHORIZED_REPRESENTATION",
+            "AGENT_PARTY_DIRECT_GRANT",
+            "REPRESENTED_PARTY_EXPLICIT_DELEGATION"
+          ]
+        },
+        "authoritySubjectBasisBindings": {
+          "type": "array",
+          "items": {
+            "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "partyRef",
+        "authoritySubjectBasis",
+        "authoritySubjectBasisBindings"
+      ]
+    },
+    "expectedAssertedAt": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/canonicalTimestamp"
+    },
+    "expectedPosture": {
+      "enum": [
+        "TRUSTED_ONLINE_SUBMISSION",
+        "VERIFIED_OFFLINE_SUBMISSION"
+      ]
+    },
+    "expectedSourceKind": {
+      "enum": [
+        "TRUSTED_RUNTIME_SUBMISSION_OBSERVATION",
+        "IMMUTABLE_OFFLINE_ASSERTION_ACT"
+      ]
+    },
+    "selectedSourceInputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "role": {
+            "enum": [
+              "SEMANTIC_EVENT_ENVELOPE",
+              "MEASUREMENT_EVIDENCE"
+            ]
+          },
+          "binding": {
+            "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+          },
+          "bytesSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+          },
+          "valueDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+          }
+        },
+        "required": [
+          "role",
+          "binding",
+          "bytesSha256",
+          "valueDigest"
+        ]
+      },
+      "minItems": 0
+    },
+    "expectationBasis": {
+      "const": "INDEPENDENT_FICTIONAL_EXPECTATIONS"
+    },
+    "sourceAuthorityLimit": {
+      "const": "No authorization-selected path source contract is identified by this candidate."
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "contextId",
+    "contractBinding",
+    "sourcePolicyBinding",
+    "actSelection",
+    "submittedContentBinding",
+    "submittedContentBytesSha256",
+    "renderedContentBytesSha256",
+    "intentSchemaId",
+    "intentProfileBinding",
+    "intentBytesSha256",
+    "intentDigest",
+    "expectedParty",
+    "expectedAssertedAt",
+    "expectedPosture",
+    "expectedSourceKind",
+    "selectedSourceInputs",
+    "expectationBasis",
+    "sourceAuthorityLimit"
+  ]
+}

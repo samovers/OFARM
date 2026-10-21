@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "ofarm.assertionSubmittedContent.v0.1",
+  "contentId": "fixture:submitted-content:operation-natural_person_self-online-revision",
+  "intentSchemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+  "intentProfileBinding": {
+    "ref": "fixture:act-intent-profile:legacy:operation",
+    "digest": "sha256:f29a800d0d80975edef71ab5460207ea510fb5a6a4219120b3e9ad93afdf402b"
+  },
+  "renderedContentBytesSha256": "ba9164d1c704918d3a10bdc224b816b129c0639b4a7455839363673d247c9040",
+  "renderedContentDigest": "sha256:f2687076c72f979e39cb3082f895cd80ecf023f203bd2146386d39bdeb68021c",
+  "sourceInputs": [
+    {
+      "role": "MEASUREMENT_EVIDENCE",
+      "binding": {
+        "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+        "revisionRef": "fixture:source-revision:measurement-evidence:field-17:weed-patch-photo-count:2026-05-06:r1"
+      },
+      "bytesSha256": "6c25dac7e1d0dfac5799bbd6bea1535be51d422416a19d13067ca0762848c2f6",
+      "valueDigest": "sha256:a0e74e8715bf08d2fc9c0c8218042c27d6498e75abc58bcb3a0879870f32f921"
+    },
+    {
+      "role": "MEASUREMENT_EVIDENCE",
+      "binding": {
+        "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+        "revisionRef": "fixture:source-revision:measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq:r1"
+      },
+      "bytesSha256": "8c72a8adb681407b39bc066505deef284f6c6e1322347a69216f2be3054b8e51",
+      "valueDigest": "sha256:b8e2f24404326f37bdb106c606ab2c0ad24c139b408f6c79631ee61ed87e8429"
+    },
+    {
+      "role": "SEMANTIC_EVENT_ENVELOPE",
+      "binding": {
+        "ref": "event:intervention:pruning:field-17:2026-04-08",
+        "revisionRef": "fixture:source-revision:event:intervention:pruning:field-17:2026-04-08:r1"
+      },
+      "bytesSha256": "bdbe24bfb7d602b65ef5b517c21b54f134b1539f12c35c428530d20f49971ac9",
+      "valueDigest": "sha256:c841f61f6b4ba5c6d641ddd770dbd5458185e98a9e83fa0714cdfb1fc08269ec"
+    },
+    {
+      "role": "SEMANTIC_EVENT_ENVELOPE",
+      "binding": {
+        "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+        "revisionRef": "fixture:source-revision:semantic-event:field-17:spot-spray:late-sync:2026-05-08:r1"
+      },
+      "bytesSha256": "bfb02b92b2e3d642c715bb9865b6f39131b9a383848b52bbdf1add790b8f6ec8",
+      "valueDigest": "sha256:74d635b5e80e273d4def4200782057798a6c3b4228f8abf246b7f5fab20a198f"
+    }
+  ]
+}

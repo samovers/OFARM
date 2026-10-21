@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "ofarm.assertionActVerificationContext.v0.1",
+  "contextId": "fixture:act-context:operation-agent_party_direct_grant-offline-revision",
+  "contractBinding": {
+    "ref": "ofarm.assertion-act-evidence.v0.1",
+    "digest": "sha256:c2a58cb910f95a99b8f37007623e62130bcd89403bc0441f3e70c0b0013b68b2"
+  },
+  "sourcePolicyBinding": {
+    "ref": "fixture:act-policy:operation-agent_party_direct_grant-offline-revision",
+    "digest": "sha256:58176200d5927054e7fe76cb276ce29aa09d4eec92e238108516182aa6df6de5"
+  },
+  "actSelection": {
+    "binding": {
+      "ref": "fixture:assertion-act:operation-agent_party_direct_grant-offline-revision",
+      "digest": "sha256:96db0f3d582446adb8a485193ebe2abdc165f4991c877b6be27322dd4e4939b0"
+    },
+    "bytesSha256": "76874383409e730e1d097721e4aab0212e4ec25e04620933b6c6111789c77b40",
+    "valueDigest": "sha256:96db0f3d582446adb8a485193ebe2abdc165f4991c877b6be27322dd4e4939b0"
+  },
+  "submittedContentBinding": {
+    "ref": "fixture:submitted-content:operation-agent_party_direct_grant-offline-revision",
+    "digest": "sha256:d7452700dab5c3c8372b12777fcaf5c6c92179f1d186d972bf230c4b4399c0ef"
+  },
+  "submittedContentBytesSha256": "04212ba8e5b4576c234c6acf30bc3591fd18c83ebe1c26c15900f2a82fbf68a1",
+  "renderedContentBytesSha256": "ba9164d1c704918d3a10bdc224b816b129c0639b4a7455839363673d247c9040",
+  "intentSchemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+  "intentProfileBinding": {
+    "ref": "fixture:act-intent-profile:legacy:operation",
+    "digest": "sha256:f29a800d0d80975edef71ab5460207ea510fb5a6a4219120b3e9ad93afdf402b"
+  },
+  "intentBytesSha256": "a3e0fda56b3dab4f06cea9b3a00eb720c4915f1e7451947eb1cd5ccfa73cdf8b",
+  "intentDigest": "sha256:2bd2115a3a97b5ce343289ac3c416ed289f508d3cc53c7f264b28612b5ff1c4b",
+  "expectedParty": {
+    "partyRef": "party:fictional:agent_party_direct_grant",
+    "authoritySubjectBasis": "AGENT_PARTY_DIRECT_GRANT",
+    "authoritySubjectBasisBindings": [
+      {
+        "ref": "basis:fictional:agent_party_direct_grant",
+        "revisionRef": "basis:fictional:agent_party_direct_grant:r1"
+      }
+    ]
+  },
+  "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+  "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION",
+  "expectedSourceKind": "IMMUTABLE_OFFLINE_ASSERTION_ACT",
+  "selectedSourceInputs": [
+    {
+      "role": "MEASUREMENT_EVIDENCE",
+      "binding": {
+        "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+        "revisionRef": "fixture:source-revision:measurement-evidence:field-17:weed-patch-photo-count:2026-05-06:r1"
+      },
+      "bytesSha256": "6c25dac7e1d0dfac5799bbd6bea1535be51d422416a19d13067ca0762848c2f6",
+      "valueDigest": "sha256:a0e74e8715bf08d2fc9c0c8218042c27d6498e75abc58bcb3a0879870f32f921"
+    },
+    {
+      "role": "MEASUREMENT_EVIDENCE",
+      "binding": {
+        "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+        "revisionRef": "fixture:source-revision:measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq:r1"
+      },
+      "bytesSha256": "8c72a8adb681407b39bc066505deef284f6c6e1322347a69216f2be3054b8e51",
+      "valueDigest": "sha256:b8e2f24404326f37bdb106c606ab2c0ad24c139b408f6c79631ee61ed87e8429"
+    },
+    {
+      "role": "SEMANTIC_EVENT_ENVELOPE",
+      "binding": {
+        "ref": "event:intervention:pruning:field-17:2026-04-08",
+        "revisionRef": "fixture:source-revision:event:intervention:pruning:field-17:2026-04-08:r1"
+      },
+      "bytesSha256": "bdbe24bfb7d602b65ef5b517c21b54f134b1539f12c35c428530d20f49971ac9",
+      "valueDigest": "sha256:c841f61f6b4ba5c6d641ddd770dbd5458185e98a9e83fa0714cdfb1fc08269ec"
+    },
+    {
+      "role": "SEMANTIC_EVENT_ENVELOPE",
+      "binding": {
+        "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+        "revisionRef": "fixture:source-revision:semantic-event:field-17:spot-spray:late-sync:2026-05-08:r1"
+      },
+      "bytesSha256": "bfb02b92b2e3d642c715bb9865b6f39131b9a383848b52bbdf1add790b8f6ec8",
+      "valueDigest": "sha256:74d635b5e80e273d4def4200782057798a6c3b4228f8abf246b7f5fab20a198f"
+    }
+  ],
+  "expectationBasis": "INDEPENDENT_FICTIONAL_EXPECTATIONS",
+  "sourceAuthorityLimit": "No authorization-selected path source contract is identified by this candidate."
+}

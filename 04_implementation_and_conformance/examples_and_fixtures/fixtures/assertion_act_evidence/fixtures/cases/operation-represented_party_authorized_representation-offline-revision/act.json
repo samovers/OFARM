@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "ofarm.assertionActEvidence.v0.1",
+  "recordId": "fixture:assertion-act:operation-represented_party_authorized_representation-offline-revision",
+  "contractBinding": {
+    "ref": "ofarm.assertion-act-evidence.v0.1",
+    "digest": "sha256:c2a58cb910f95a99b8f37007623e62130bcd89403bc0441f3e70c0b0013b68b2"
+  },
+  "posture": "VERIFIED_OFFLINE_SUBMISSION",
+  "sourceKind": "IMMUTABLE_OFFLINE_ASSERTION_ACT",
+  "accountablePartyRef": "party:fictional:represented_party_authorized_representation",
+  "authoritySubjectBasis": "REPRESENTED_PARTY_AUTHORIZED_REPRESENTATION",
+  "authoritySubjectBasisBindings": [
+    {
+      "ref": "basis:fictional:represented_party_authorized_representation",
+      "revisionRef": "basis:fictional:represented_party_authorized_representation:r1"
+    }
+  ],
+  "assertedAt": "2026-10-20T12:34:56.123456789Z",
+  "sourcePolicyBinding": {
+    "ref": "fixture:act-policy:operation-represented_party_authorized_representation-offline-revision",
+    "digest": "sha256:8e06147d9eeb2fe3b0da377a738f6d2d2a70c8e5983d79ba0336781c40d0d40a"
+  },
+  "submittedContentBinding": {
+    "ref": "fixture:submitted-content:operation-represented_party_authorized_representation-offline-revision",
+    "digest": "sha256:0b808f5beb32bc4ef66a431f9fda604200e92be52db701617a7cfa831a753fa6"
+  },
+  "submittedContentBytesSha256": "907b1e25da1dfc2b2e51c565ca5c3814ceed7da18f7ddb34ae13c490d7010199",
+  "inputRoles": [
+    "PREEXISTING_SOURCE_POLICY",
+    "FIXED_SUBMITTED_CONTENT",
+    "PREEXISTING_PARTY_BASIS"
+  ]
+}

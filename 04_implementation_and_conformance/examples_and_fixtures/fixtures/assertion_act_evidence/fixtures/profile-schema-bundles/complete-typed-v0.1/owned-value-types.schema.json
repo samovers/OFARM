@@ -1,0 +1,1674 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1",
+  "title": "Explicit shared domain value types and qualified C16 variant v0.1",
+  "$comment": "Candidate claim-language types. No source resolution, admission, complete row semantics, calculation engine or foreign proof contract. Quantity kinds, units and named process phases require independent selected-definition checks; syntax alone does not interpret them. All nine subject-time profiles reuse the exact historical schema without changing it.",
+  "$defs": {
+    "binding": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+    },
+    "decimal": {
+      "type": "string",
+      "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$(?![\\s\\S])"
+    },
+    "pointer": {
+      "type": "string",
+      "pattern": "^(?:/(?:[^~/]|~[01])*)*$(?![\\s\\S])"
+    },
+    "subjectTime": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/subjectTime"
+    },
+    "operationTime": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationTime"
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "CONTAINER",
+            "CROP_CYCLE",
+            "EQUIPMENT",
+            "FACILITY",
+            "FARM",
+            "FIELD",
+            "INPUT",
+            "LOT",
+            "OPERATION",
+            "SITE",
+            "STORAGE_LOCATION",
+            "TOOL",
+            "ZONE"
+          ]
+        },
+        "binding": {
+          "$ref": "#/$defs/binding"
+        }
+      },
+      "required": [
+        "kind",
+        "binding"
+      ]
+    },
+    "extent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "posture": {
+          "enum": [
+            "FULL_TARGET_SCOPE",
+            "PARTIAL_TARGET_SCOPE"
+          ]
+        },
+        "binding": {
+          "$ref": "#/$defs/binding"
+        }
+      },
+      "required": [
+        "posture",
+        "binding"
+      ]
+    },
+    "scalarQuantity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "quantityKind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decimal": {
+          "$ref": "#/$defs/decimal"
+        }
+      },
+      "required": [
+        "quantityKind",
+        "unit",
+        "decimal"
+      ]
+    },
+    "materialComponent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "materialRole": {
+          "enum": [
+            "PRODUCT",
+            "ACTIVE_SUBSTANCE",
+            "CARRIER",
+            "WATER",
+            "SEED",
+            "FERTILIZER",
+            "NUTRIENT",
+            "OTHER_MATERIAL"
+          ]
+        },
+        "binding": {
+          "$ref": "#/$defs/binding"
+        }
+      },
+      "required": [
+        "materialRole",
+        "binding"
+      ]
+    },
+    "normalizedQuantity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "quantityKind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decimal": {
+          "$ref": "#/$defs/decimal"
+        },
+        "conversionBinding": {
+          "$ref": "#/$defs/binding"
+        }
+      },
+      "required": [
+        "quantityKind",
+        "unit",
+        "decimal",
+        "conversionBinding"
+      ]
+    },
+    "quantityReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "quantityParameterId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "quantityParameterId"
+      ]
+    },
+    "measurementResult": {
+      "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/result"
+    },
+    "measurementRecord": {
+      "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1"
+    },
+    "eventEnvelope": {
+      "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1"
+    },
+    "material": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "presence": {
+              "const": "PRESENT"
+            },
+            "materialRole": {
+              "enum": [
+                "PRODUCT",
+                "ACTIVE_SUBSTANCE",
+                "CARRIER",
+                "WATER",
+                "SEED",
+                "FERTILIZER",
+                "NUTRIENT",
+                "OTHER_MATERIAL"
+              ]
+            },
+            "binding": {
+              "$ref": "#/$defs/binding"
+            },
+            "materialDefinition": {
+              "$ref": "#/$defs/binding"
+            },
+            "components": {
+              "type": "array",
+              "minItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/materialComponent"
+              }
+            }
+          },
+          "required": [
+            "presence",
+            "materialRole",
+            "binding"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "required": [
+                  "materialRole"
+                ],
+                "properties": {
+                  "materialRole": {
+                    "const": "OTHER_MATERIAL"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "materialDefinition"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "presence": {
+              "enum": [
+                "UNREPORTED",
+                "NOT_APPLICABLE"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "presence",
+            "reason"
+          ]
+        }
+      ]
+    },
+    "basis": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "presence": {
+              "const": "PRESENT"
+            },
+            "quantity": {
+              "$ref": "#/$defs/scalarQuantity"
+            },
+            "subject": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/target"
+                },
+                {
+                  "$ref": "#/$defs/binding"
+                }
+              ]
+            },
+            "massBasis": {
+              "enum": [
+                "WET_BASIS",
+                "DRY_BASIS"
+              ]
+            }
+          },
+          "required": [
+            "presence",
+            "quantity",
+            "subject"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "presence": {
+              "enum": [
+                "UNREPORTED",
+                "NOT_APPLICABLE"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "presence",
+            "reason"
+          ]
+        }
+      ]
+    },
+    "originalQuantity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "presence": {
+          "enum": [
+            "PRESENT",
+            "UNREPORTED"
+          ]
+        },
+        "lexicalValue": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "unitText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "sourceBinding": {
+          "$ref": "#/$defs/binding"
+        },
+        "sourcePointer": {
+          "$ref": "#/$defs/pointer"
+        }
+      },
+      "required": [
+        "presence",
+        "lexicalValue",
+        "unitText",
+        "sourceBinding",
+        "sourcePointer"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "presence"
+            ],
+            "properties": {
+              "presence": {
+                "const": "UNREPORTED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "lexicalValue": {
+                "type": "null"
+              },
+              "unitText": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "anyOf": [
+              {
+                "properties": {
+                  "lexicalValue": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "unitText": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "quantityValue": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "state": {
+              "const": "STATED"
+            },
+            "quantity": {
+              "$ref": "#/$defs/scalarQuantity"
+            },
+            "qualifier": {
+              "enum": [
+                "EXACT",
+                "ESTIMATED",
+                "MINIMUM",
+                "MAXIMUM",
+                "RANGE_MIDPOINT",
+                "LABEL_LIMIT",
+                "MACHINE_REPORTED",
+                "HUMAN_REPORTED",
+                "UNKNOWN"
+              ]
+            },
+            "unitProfile": {
+              "$ref": "#/$defs/binding"
+            },
+            "original": {
+              "$ref": "#/$defs/originalQuantity"
+            },
+            "normalized": {
+              "$ref": "#/$defs/normalizedQuantity"
+            }
+          },
+          "required": [
+            "state",
+            "quantity",
+            "qualifier",
+            "unitProfile",
+            "original"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "state": {
+              "const": "UNREPORTED"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "state",
+            "reason"
+          ]
+        }
+      ]
+    },
+    "quantityScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/target"
+        },
+        "extent": {
+          "$ref": "#/$defs/extent"
+        },
+        "subjectTime": {
+          "$ref": "#/$defs/operationTime"
+        },
+        "processPoint": {
+          "$ref": "#/$defs/binding"
+        },
+        "phase": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "target",
+        "extent",
+        "subjectTime",
+        "processPoint",
+        "phase"
+      ]
+    },
+    "quantityParameter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "parameterId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parameterRole": {
+          "enum": [
+            "RATE",
+            "DOSE",
+            "CONCENTRATION",
+            "TOTAL_QUANTITY",
+            "CARRIER_VOLUME",
+            "WATER_VOLUME",
+            "SEED_RATE",
+            "NUTRIENT_RATE",
+            "PRESSURE",
+            "FLOW_RATE",
+            "SPEED",
+            "TIMING_INTERVAL",
+            "APPLICATION_VOLUME",
+            "OTHER_PARAMETER"
+          ]
+        },
+        "activityInstance": {
+          "$ref": "#/$defs/binding"
+        },
+        "valuePosture": {
+          "enum": [
+            "ACTUAL",
+            "PLANNED",
+            "LIMIT",
+            "TARGET"
+          ]
+        },
+        "material": {
+          "$ref": "#/$defs/material"
+        },
+        "basis": {
+          "$ref": "#/$defs/basis"
+        },
+        "value": {
+          "$ref": "#/$defs/quantityValue"
+        },
+        "appliesTo": {
+          "$ref": "#/$defs/quantityScope"
+        },
+        "otherRoleDefinition": {
+          "enum": [
+            "DEPTH",
+            "MOISTURE_TARGET",
+            "TREATED_AREA",
+            "TREATED_AMOUNT",
+            "MATERIAL_HANDLED"
+          ]
+        },
+        "sourceParameterBinding": {
+          "$ref": "#/$defs/binding"
+        },
+        "applicationMaterialInterpretation": {
+          "enum": [
+            "MIXTURE_AS_APPLIED",
+            "AS_IDENTIFIED_MATERIAL",
+            "UNRESOLVED_SOURCE_MATERIAL"
+          ]
+        }
+      },
+      "required": [
+        "parameterId",
+        "parameterRole",
+        "activityInstance",
+        "valuePosture",
+        "material",
+        "basis",
+        "value",
+        "appliesTo"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "parameterRole"
+            ],
+            "properties": {
+              "parameterRole": {
+                "const": "OTHER_PARAMETER"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "otherRoleDefinition"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "otherRoleDefinition"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "parameterRole"
+            ],
+            "properties": {
+              "parameterRole": {
+                "const": "APPLICATION_VOLUME"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "applicationMaterialInterpretation"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "applicationMaterialInterpretation"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "applicationMaterialInterpretation"
+            ],
+            "properties": {
+              "applicationMaterialInterpretation": {
+                "const": "MIXTURE_AS_APPLIED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "material": {
+                "required": [
+                  "presence",
+                  "materialRole",
+                  "binding",
+                  "materialDefinition",
+                  "components"
+                ],
+                "properties": {
+                  "presence": {
+                    "const": "PRESENT"
+                  },
+                  "materialRole": {
+                    "const": "OTHER_MATERIAL"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "applicationMaterialInterpretation"
+            ],
+            "properties": {
+              "applicationMaterialInterpretation": {
+                "const": "AS_IDENTIFIED_MATERIAL"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "material": {
+                "properties": {
+                  "presence": {
+                    "const": "PRESENT"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "applicationMaterialInterpretation"
+            ],
+            "properties": {
+              "applicationMaterialInterpretation": {
+                "const": "UNRESOLVED_SOURCE_MATERIAL"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "material": {
+                "properties": {
+                  "presence": {
+                    "const": "UNREPORTED"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "otherRoleDefinition"
+            ],
+            "properties": {
+              "otherRoleDefinition": {
+                "const": "MOISTURE_TARGET"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "basis": {
+                "if": {
+                  "properties": {
+                    "presence": {
+                      "const": "PRESENT"
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "massBasis"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "analysisOutput": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "role": {
+              "const": "PROSPECTIVE_OUTPUT_SPECIFICATION"
+            },
+            "specificationBinding": {
+              "$ref": "#/$defs/binding"
+            }
+          },
+          "required": [
+            "role",
+            "specificationBinding"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "role": {
+              "const": "PENDING_OUTPUT"
+            },
+            "specificationBinding": {
+              "$ref": "#/$defs/binding"
+            },
+            "outputState": {
+              "enum": [
+                "NOT_YET_PRODUCED",
+                "UNREPORTED"
+              ]
+            }
+          },
+          "required": [
+            "role",
+            "specificationBinding",
+            "outputState"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "role": {
+              "const": "ACTUAL_OUTPUT"
+            },
+            "specificationBinding": {
+              "$ref": "#/$defs/binding"
+            },
+            "binding": {
+              "$ref": "#/$defs/binding"
+            }
+          },
+          "required": [
+            "role",
+            "specificationBinding",
+            "binding"
+          ]
+        }
+      ]
+    },
+    "analysisWorkSpecification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "#/$defs/binding"
+        },
+        "activityInstance": {
+          "$ref": "#/$defs/binding"
+        },
+        "procedure": {
+          "$ref": "#/$defs/binding"
+        },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "OPERATION"
+            },
+            "binding": {
+              "$ref": "#/$defs/binding"
+            }
+          },
+          "required": [
+            "kind",
+            "binding"
+          ]
+        },
+        "extent": {
+          "$ref": "#/$defs/extent"
+        },
+        "startConditionIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "inProgressConditionIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "finishConditionIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "outputSpecification": {
+          "$ref": "#/$defs/binding"
+        }
+      },
+      "required": [
+        "binding",
+        "activityInstance",
+        "procedure",
+        "target",
+        "extent",
+        "startConditionIds",
+        "inProgressConditionIds",
+        "finishConditionIds",
+        "outputSpecification"
+      ]
+    },
+    "O22": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "form": {
+          "const": "ATOM"
+        },
+        "atomId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "definition": {
+          "const": "candidate:assertion-domain-construction:2026-10-21:O22"
+        },
+        "scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "subject": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "const": "OPERATION"
+                },
+                "binding": {
+                  "$ref": "#/$defs/binding"
+                }
+              },
+              "required": [
+                "kind",
+                "binding"
+              ]
+            },
+            "subjectTime": {
+              "$ref": "#/$defs/operationTime"
+            },
+            "extent": {
+              "$ref": "#/$defs/extent"
+            }
+          },
+          "required": [
+            "subject",
+            "subjectTime",
+            "extent"
+          ]
+        },
+        "body": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "activity": {
+              "const": "PRODUCE_ANALYSIS_RESULT"
+            },
+            "interventionKind": {
+              "const": "OTHER_INTERVENTION"
+            },
+            "claimPosture": {
+              "enum": [
+                "INTENDED",
+                "PERFORMED"
+              ]
+            },
+            "performanceFacet": {
+              "enum": [
+                "OCCURRENCE",
+                "STARTED",
+                "IN_PROGRESS",
+                "COMPLETED"
+              ]
+            },
+            "activityInstance": {
+              "$ref": "#/$defs/binding"
+            },
+            "target": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "const": "OPERATION"
+                },
+                "binding": {
+                  "$ref": "#/$defs/binding"
+                }
+              },
+              "required": [
+                "kind",
+                "binding"
+              ]
+            },
+            "performedBy": {
+              "$ref": "#/$defs/binding"
+            },
+            "extent": {
+              "$ref": "#/$defs/extent"
+            },
+            "parameters": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "method": {
+                  "$ref": "#/$defs/binding"
+                },
+                "sample": {
+                  "$ref": "#/$defs/binding"
+                },
+                "property": {
+                  "$ref": "#/$defs/binding"
+                },
+                "producedResult": {
+                  "$ref": "#/$defs/analysisOutput"
+                }
+              },
+              "required": [
+                "method",
+                "producedResult",
+                "property",
+                "sample"
+              ]
+            },
+            "quantityParameters": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/quantityParameter"
+              }
+            },
+            "workSpecification": {
+              "$ref": "#/$defs/analysisWorkSpecification"
+            }
+          },
+          "required": [
+            "activity",
+            "activityInstance",
+            "claimPosture",
+            "extent",
+            "interventionKind",
+            "parameters",
+            "performanceFacet",
+            "performedBy",
+            "quantityParameters",
+            "target",
+            "workSpecification"
+          ]
+        }
+      },
+      "required": [
+        "form",
+        "atomId",
+        "definition",
+        "scope",
+        "body"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "scope": {
+                "properties": {
+                  "subjectTime": {
+                    "properties": {
+                      "profile": {
+                        "const": "INTENDED_WINDOW"
+                      }
+                    }
+                  }
+                }
+              },
+              "body": {
+                "properties": {
+                  "performanceFacet": {
+                    "const": "OCCURRENCE"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "body": {
+                "properties": {
+                  "claimPosture": {
+                    "const": "INTENDED"
+                  },
+                  "parameters": {
+                    "properties": {
+                      "producedResult": {
+                        "properties": {
+                          "role": {
+                            "enum": [
+                              "PROSPECTIVE_OUTPUT_SPECIFICATION"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "scope": {
+                "properties": {
+                  "subjectTime": {
+                    "properties": {
+                      "profile": {
+                        "const": "INTENDED_WINDOW"
+                      }
+                    }
+                  }
+                }
+              },
+              "body": {
+                "properties": {
+                  "performanceFacet": {
+                    "const": "STARTED"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "body": {
+                "properties": {
+                  "claimPosture": {
+                    "const": "INTENDED"
+                  },
+                  "parameters": {
+                    "properties": {
+                      "producedResult": {
+                        "properties": {
+                          "role": {
+                            "enum": [
+                              "PROSPECTIVE_OUTPUT_SPECIFICATION"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "scope": {
+                "properties": {
+                  "subjectTime": {
+                    "properties": {
+                      "profile": {
+                        "const": "INTENDED_WINDOW"
+                      }
+                    }
+                  }
+                }
+              },
+              "body": {
+                "properties": {
+                  "performanceFacet": {
+                    "const": "IN_PROGRESS"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "body": {
+                "properties": {
+                  "claimPosture": {
+                    "const": "INTENDED"
+                  },
+                  "parameters": {
+                    "properties": {
+                      "producedResult": {
+                        "properties": {
+                          "role": {
+                            "enum": [
+                              "PROSPECTIVE_OUTPUT_SPECIFICATION"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "scope": {
+                "properties": {
+                  "subjectTime": {
+                    "properties": {
+                      "profile": {
+                        "const": "INTENDED_WINDOW"
+                      }
+                    }
+                  }
+                }
+              },
+              "body": {
+                "properties": {
+                  "performanceFacet": {
+                    "const": "COMPLETED"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "body": {
+                "properties": {
+                  "claimPosture": {
+                    "const": "INTENDED"
+                  },
+                  "parameters": {
+                    "properties": {
+                      "producedResult": {
+                        "properties": {
+                          "role": {
+                            "enum": [
+                              "PROSPECTIVE_OUTPUT_SPECIFICATION"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "scope": {
+                "properties": {
+                  "subjectTime": {
+                    "properties": {
+                      "profile": {
+                        "const": "PERFORMED_INSTANT"
+                      }
+                    }
+                  }
+                }
+              },
+              "body": {
+                "properties": {
+                  "performanceFacet": {
+                    "const": "OCCURRENCE"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "body": {
+                "properties": {
+                  "claimPosture": {
+                    "const": "PERFORMED"
+                  },
+                  "parameters": {
+                    "properties": {
+                      "producedResult": {
+                        "properties": {
+                          "role": {
+                            "enum": [
+                              "PENDING_OUTPUT",
+                              "ACTUAL_OUTPUT"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "scope": {
+                "properties": {
+                  "subjectTime": {
+                    "properties": {
+                      "profile": {
+                        "const": "PERFORMED_INSTANT"
+                      }
+                    }
+                  }
+                }
+              },
+              "body": {
+                "properties": {
+                  "performanceFacet": {
+                    "const": "STARTED"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "body": {
+                "properties": {
+                  "claimPosture": {
+                    "const": "PERFORMED"
+                  },
+                  "parameters": {
+                    "properties": {
+                      "producedResult": {
+                        "properties": {
+                          "role": {
+                            "enum": [
+                              "PENDING_OUTPUT",
+                              "ACTUAL_OUTPUT"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "scope": {
+                "properties": {
+                  "subjectTime": {
+                    "properties": {
+                      "profile": {
+                        "const": "PERFORMED_INSTANT"
+                      }
+                    }
+                  }
+                }
+              },
+              "body": {
+                "properties": {
+                  "performanceFacet": {
+                    "const": "IN_PROGRESS"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "body": {
+                "properties": {
+                  "claimPosture": {
+                    "const": "PERFORMED"
+                  },
+                  "parameters": {
+                    "properties": {
+                      "producedResult": {
+                        "properties": {
+                          "role": {
+                            "enum": [
+                              "PENDING_OUTPUT",
+                              "ACTUAL_OUTPUT"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "scope": {
+                "properties": {
+                  "subjectTime": {
+                    "properties": {
+                      "profile": {
+                        "const": "PERFORMED_INSTANT"
+                      }
+                    }
+                  }
+                }
+              },
+              "body": {
+                "properties": {
+                  "performanceFacet": {
+                    "const": "COMPLETED"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "body": {
+                "properties": {
+                  "claimPosture": {
+                    "const": "PERFORMED"
+                  },
+                  "parameters": {
+                    "properties": {
+                      "producedResult": {
+                        "properties": {
+                          "role": {
+                            "enum": [
+                              "ACTUAL_OUTPUT"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "scope": {
+                "properties": {
+                  "subjectTime": {
+                    "properties": {
+                      "profile": {
+                        "const": "PERFORMED_INTERVAL"
+                      }
+                    }
+                  }
+                }
+              },
+              "body": {
+                "properties": {
+                  "performanceFacet": {
+                    "const": "OCCURRENCE"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "body": {
+                "properties": {
+                  "claimPosture": {
+                    "const": "PERFORMED"
+                  },
+                  "parameters": {
+                    "properties": {
+                      "producedResult": {
+                        "properties": {
+                          "role": {
+                            "enum": [
+                              "PENDING_OUTPUT",
+                              "ACTUAL_OUTPUT"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "scope": {
+                "properties": {
+                  "subjectTime": {
+                    "properties": {
+                      "profile": {
+                        "const": "PERFORMED_INTERVAL"
+                      }
+                    }
+                  }
+                }
+              },
+              "body": {
+                "properties": {
+                  "performanceFacet": {
+                    "const": "STARTED"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "body": {
+                "properties": {
+                  "claimPosture": {
+                    "const": "PERFORMED"
+                  },
+                  "parameters": {
+                    "properties": {
+                      "producedResult": {
+                        "properties": {
+                          "role": {
+                            "enum": [
+                              "PENDING_OUTPUT",
+                              "ACTUAL_OUTPUT"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "scope": {
+                "properties": {
+                  "subjectTime": {
+                    "properties": {
+                      "profile": {
+                        "const": "PERFORMED_INTERVAL"
+                      }
+                    }
+                  }
+                }
+              },
+              "body": {
+                "properties": {
+                  "performanceFacet": {
+                    "const": "IN_PROGRESS"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "body": {
+                "properties": {
+                  "claimPosture": {
+                    "const": "PERFORMED"
+                  },
+                  "parameters": {
+                    "properties": {
+                      "producedResult": {
+                        "properties": {
+                          "role": {
+                            "enum": [
+                              "PENDING_OUTPUT",
+                              "ACTUAL_OUTPUT"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "scope": {
+                "properties": {
+                  "subjectTime": {
+                    "properties": {
+                      "profile": {
+                        "const": "PERFORMED_INTERVAL"
+                      }
+                    }
+                  }
+                }
+              },
+              "body": {
+                "properties": {
+                  "performanceFacet": {
+                    "const": "COMPLETED"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "body": {
+                "properties": {
+                  "claimPosture": {
+                    "const": "PERFORMED"
+                  },
+                  "parameters": {
+                    "properties": {
+                      "producedResult": {
+                        "properties": {
+                          "role": {
+                            "enum": [
+                              "ACTUAL_OUTPUT"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "nlQualifiedOrganicParcelBody": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "form": {
+          "const": "PROFILE_ROUTE_OUTCOME"
+        },
+        "profile": {
+          "const": "profile:nl.go-glmc7.2026.v0_1"
+        },
+        "claimYear": {
+          "const": 2026
+        },
+        "route": {
+          "const": "ORGANIC_OR_IN_CONVERSION"
+        },
+        "routeScope": {
+          "const": "PARCEL"
+        },
+        "parcel": {
+          "$ref": "#/$defs/binding"
+        },
+        "historyClaim": {
+          "$ref": "#/$defs/binding"
+        },
+        "soilCategory": {
+          "const": "SAND_OR_LOESS"
+        },
+        "soilEvidence": {
+          "$ref": "#/$defs/binding"
+        },
+        "rustgewasEvidence": {
+          "$ref": "#/$defs/binding"
+        },
+        "routeEvidence": {
+          "$ref": "#/$defs/binding"
+        },
+        "evaluationBasis": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "PROFILE_OWNER_EVALUATION"
+            },
+            "binding": {
+              "$ref": "#/$defs/binding"
+            }
+          },
+          "required": [
+            "kind",
+            "binding"
+          ]
+        },
+        "allegedOutcome": {
+          "const": "INDETERMINATE"
+        },
+        "reviewState": {
+          "const": "PENDING"
+        }
+      },
+      "required": [
+        "form",
+        "profile",
+        "claimYear",
+        "route",
+        "routeScope",
+        "parcel",
+        "historyClaim",
+        "soilCategory",
+        "soilEvidence",
+        "rustgewasEvidence",
+        "routeEvidence",
+        "evaluationBasis",
+        "allegedOutcome",
+        "reviewState"
+      ]
+    }
+  }
+}

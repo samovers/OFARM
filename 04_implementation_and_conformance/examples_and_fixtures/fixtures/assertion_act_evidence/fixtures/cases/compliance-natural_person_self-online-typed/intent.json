@@ -1,0 +1,189 @@
+{
+  "schemaVersion": "ofarm.complianceassertioneffectintent.typed.v0.1",
+  "resources": [
+    {
+      "resourceRole": "TARGET_SCOPE",
+      "resourcePosture": "AUTHORITY_TARGET",
+      "targetType": "SCOPE",
+      "scope": {
+        "scopeType": "FIELD",
+        "scopeRef": "field:fictional:target",
+        "revisionRef": "field:fictional:target:r1"
+      },
+      "tenantRef": "tenant:fictional:one",
+      "authorizationResourceProofBindings": [
+        {
+          "ref": "proof:fictional:target:field",
+          "revisionRef": "proof:fictional:target:field:r1"
+        }
+      ]
+    }
+  ],
+  "effectSubject": {
+    "subjectKind": "COMPLIANCE_ASSERTION",
+    "subjectRef": "assertion:fictional:compliance:field:as_of:base",
+    "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+    "effectSubjectProofBindings": [
+      {
+        "ref": "proof:fictional:prospective:compliance",
+        "revisionRef": "proof:fictional:prospective:compliance:r1"
+      }
+    ]
+  },
+  "subject": {
+    "subjectType": "FIELD",
+    "subjectRef": "field:fictional:target",
+    "subjectPosture": "EXISTING_SUBJECT",
+    "revisionRef": "field:fictional:target:r1"
+  },
+  "subjectTime": {
+    "profile": "COMPLIANCE_AS_OF",
+    "at": "2026-10-01T10:00:00Z"
+  },
+  "assertionBody": {
+    "assertionPosture": "INITIAL",
+    "claimText": "Fictional compliance statement. Exact wording is preserved.",
+    "applicability": {
+      "profile": "COMPLIANCE_AS_OF",
+      "at": "2026-10-01T10:00:00Z"
+    },
+    "claimLanguageRevision": "ofarm.complete-typed-claims.v0.1",
+    "proposition": {
+      "form": "ATOM",
+      "atomId": "atom:W05_CENSORED_CRITERION",
+      "definition": "candidate:assertion-domain-construction:2026-10-21:r2:C04",
+      "scope": {
+        "subject": {
+          "subjectPosture": "EXISTING_SUBJECT",
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional",
+          "revisionRef": "r1"
+        },
+        "subjectTime": {
+          "profile": "COMPLIANCE_AS_OF",
+          "at": "2026-05-07T18:25:00Z"
+        },
+        "extent": {
+          "posture": "FULL_TARGET_SCOPE",
+          "binding": {
+            "ref": "field:fictional",
+            "revisionRef": "r1"
+          }
+        }
+      },
+      "body": {
+        "form": "CRITERION_OUTCOME",
+        "operand": {
+          "resultKind": "CENSORED_NUMERIC",
+          "qualifier": "BELOW_LOQ",
+          "limit": {
+            "quantityKind": "qudt:MassFraction",
+            "unit": "ucum:mg.kg-1",
+            "decimal": "2",
+            "qualifier": "HUMAN_REPORTED",
+            "originalLexicalValue": "2",
+            "unitProfile": {
+              "ref": "unit-profile:example",
+              "revisionRef": "r1"
+            },
+            "provenance": {
+              "sourceBinding": {
+                "ref": "quantity-source:W05-lab-transcription-fictional",
+                "revisionRef": "r1"
+              },
+              "valuePointer": "/loq",
+              "lexicalPointer": "/loq/originalLexicalValue",
+              "qualifierPointer": "/loq/qualifier"
+            }
+          },
+          "nonnegative": true,
+          "source": {
+            "role": "MEASURED_COMPLIANCE_OPERAND",
+            "measurementBinding": {
+              "ref": "nitrate-measurement:fictional",
+              "revisionRef": "r1"
+            },
+            "resultPointer": "/result",
+            "contextBinding": {
+              "ref": "observation-context:W05-nitrate-fictional",
+              "revisionRef": "r1"
+            },
+            "subjectRelationBinding": {
+              "ref": "sample-to-field:fictional",
+              "revisionRef": "r1"
+            },
+            "methodUseBinding": {
+              "ref": "method-use:W05-nitrate-fictional",
+              "revisionRef": "r1"
+            },
+            "qualificationPointers": [
+              "/uncertainty"
+            ]
+          },
+          "admissibleValues": {
+            "kind": "INTERVAL",
+            "lower": {
+              "decimal": "0",
+              "inclusive": true
+            },
+            "upper": {
+              "decimal": "2",
+              "inclusive": false
+            },
+            "basis": "METHOD_NONNEGATIVE_BELOW_LOQ"
+          }
+        },
+        "operator": "LE",
+        "threshold": {
+          "quantityKind": "qudt:MassFraction",
+          "unit": "ucum:mg.kg-1",
+          "decimal": "1",
+          "qualifier": "HUMAN_REPORTED",
+          "originalLexicalValue": "1",
+          "unitProfile": {
+            "ref": "unit-profile:example",
+            "revisionRef": "r1"
+          },
+          "provenance": {
+            "sourceBinding": {
+              "ref": "criterion:W05-nitrate-fictional",
+              "revisionRef": "r1"
+            },
+            "valuePointer": "/threshold",
+            "lexicalPointer": "/threshold/originalLexicalValue",
+            "qualifierPointer": "/threshold/qualifier"
+          }
+        },
+        "allegedOutcome": "INDETERMINATE",
+        "criterion": {
+          "ref": "criterion:W05-nitrate-fictional",
+          "revisionRef": "r1"
+        }
+      }
+    }
+  },
+  "evidenceBindings": [
+    {
+      "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+      "digest": "sha256:a0e74e8715bf08d2fc9c0c8218042c27d6498e75abc58bcb3a0879870f32f921"
+    },
+    {
+      "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+      "digest": "sha256:b8e2f24404326f37bdb106c606ab2c0ad24c139b408f6c79631ee61ed87e8429"
+    }
+  ],
+  "ruleRevisionBindings": [
+    {
+      "ref": "rule:fictional:one",
+      "revisionRef": "rule:fictional:one:r1"
+    }
+  ],
+  "evidencePolicyRevisionBindings": [
+    {
+      "ref": "evidence-policy:fictional:one",
+      "revisionRef": "evidence-policy:fictional:one:r1"
+    }
+  ],
+  "assertedAt": "2026-10-20T12:34:56.123456789Z",
+  "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION"
+}

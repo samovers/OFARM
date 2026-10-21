@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/wire/v0.1",
+  "title": "Non-default assertion act wire",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "resources",
+    "effectSubject",
+    "subject",
+    "assertedAt",
+    "assertionActPosture",
+    "assertionBody",
+    "evidenceBindings"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "resources": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "resourceRole",
+          "resourcePosture",
+          "targetType",
+          "scope"
+        ],
+        "properties": {
+          "resourceRole": {
+            "const": "TARGET_SCOPE"
+          },
+          "resourcePosture": {
+            "const": "AUTHORITY_TARGET"
+          },
+          "targetType": {
+            "const": "SCOPE"
+          },
+          "scope": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "effectSubject": {
+      "type": "object",
+      "required": [
+        "subjectRef"
+      ],
+      "properties": {
+        "subjectRef": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "subject": {
+      "type": "object"
+    },
+    "assertedAt": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/canonicalTimestamp"
+    },
+    "assertionActPosture": {
+      "enum": [
+        "TRUSTED_ONLINE_SUBMISSION",
+        "VERIFIED_OFFLINE_SUBMISSION"
+      ]
+    },
+    "assertionBody": {
+      "type": "object"
+    },
+    "evidenceBindings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

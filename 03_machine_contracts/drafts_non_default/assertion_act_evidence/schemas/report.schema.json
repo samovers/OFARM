@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/report/v0.1",
+  "title": "Non-default assertion act report",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionActVerificationReport.v0.1"
+    },
+    "status": {
+      "enum": [
+        "CONDITIONAL_CONFORMANCE_PASS",
+        "FAIL",
+        "INPUT_ERROR",
+        "DEPENDENCY_UNAVAILABLE"
+      ]
+    },
+    "contractId": {
+      "const": "ofarm.assertion-act-evidence.v0.1"
+    },
+    "verificationMode": {
+      "const": "OFFLINE_CANDIDATE_CONFORMANCE"
+    },
+    "runtimeAdmission": {
+      "const": "NOT_ESTABLISHED"
+    },
+    "checkedRules": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "document": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pointer": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "document",
+          "pointer"
+        ]
+      },
+      "minItems": 0
+    },
+    "result": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "accountablePartyRef": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+            },
+            "assertedAt": {
+              "type": "string",
+              "minLength": 1
+            },
+            "posture": {
+              "enum": [
+                "TRUSTED_ONLINE_SUBMISSION",
+                "VERIFIED_OFFLINE_SUBMISSION"
+              ]
+            },
+            "intentDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "actDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "contentDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "accountablePartyRef",
+            "assertedAt",
+            "posture",
+            "intentDigest",
+            "actDigest",
+            "contentDigest"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "unestablishedClaims": {
+      "const": [
+        "AUTHORIZATION_SELECTED_PATH_SOURCE_CONTRACT_UNIDENTIFIED",
+        "RUNTIME_SOURCE_IDENTITY_NOT_ESTABLISHED",
+        "TIMESTAMP_TRUST_NOT_ESTABLISHED",
+        "RUNTIME_ADMISSION_NOT_ESTABLISHED"
+      ]
+    },
+    "qualification": {
+      "const": "Passing comparisons assume independently selected fictional expected Party/basis, policy and source bytes. They do not prove authorization selection, actor identity, clock trust, source execution or admission."
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "status",
+    "contractId",
+    "verificationMode",
+    "runtimeAdmission",
+    "checkedRules",
+    "errors",
+    "result",
+    "unestablishedClaims",
+    "qualification"
+  ]
+}

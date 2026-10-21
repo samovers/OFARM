@@ -1,0 +1,2656 @@
+{
+  "purpose": "Compact index; authored runner owns expectations and never uses captured reports as an oracle.",
+  "source": "run_act_conformance.py",
+  "checks": 543,
+  "rows": [
+    {
+      "id": "operation-natural_person_self-online",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-natural_person_self-offline",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-represented_party_authorized_representation-online",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-represented_party_authorized_representation-offline",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-agent_party_direct_grant-online",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-agent_party_direct_grant-offline",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-represented_party_explicit_delegation-online",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-represented_party_explicit_delegation-offline",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "structure-natural_person_self-online",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "structure-natural_person_self-offline",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "compliance-natural_person_self-online",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "compliance-natural_person_self-offline",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-natural_person_self-online-typed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-natural_person_self-offline-typed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "structure-natural_person_self-online-typed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "structure-natural_person_self-offline-typed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "compliance-natural_person_self-online-typed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "compliance-natural_person_self-offline-typed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-natural_person_self-online-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-natural_person_self-offline-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-represented_party_authorized_representation-online-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-represented_party_authorized_representation-offline-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-agent_party_direct_grant-online-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-agent_party_direct_grant-offline-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-represented_party_explicit_delegation-online-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-represented_party_explicit_delegation-offline-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "structure-natural_person_self-online-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "structure-natural_person_self-offline-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "compliance-natural_person_self-online-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "compliance-natural_person_self-offline-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-natural_person_self-online-typed-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-natural_person_self-offline-typed-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "structure-natural_person_self-online-typed-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "structure-natural_person_self-offline-typed-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "compliance-natural_person_self-online-typed-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "compliance-natural_person_self-offline-typed-revision",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-natural_person_self-online-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-natural_person_self-offline-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-represented_party_authorized_representation-online-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-represented_party_authorized_representation-offline-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-agent_party_direct_grant-online-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-agent_party_direct_grant-offline-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-represented_party_explicit_delegation-online-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-represented_party_explicit_delegation-offline-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "structure-natural_person_self-online-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "structure-natural_person_self-offline-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "compliance-natural_person_self-online-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "compliance-natural_person_self-offline-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-natural_person_self-online-typed-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "operation-natural_person_self-offline-typed-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "structure-natural_person_self-online-typed-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "structure-natural_person_self-offline-typed-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "compliance-natural_person_self-online-typed-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "compliance-natural_person_self-offline-typed-mixed",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "online-act-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "online-act-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "online-act-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "online-act-unsafe-number",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "online-act-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "online-content-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "online-content-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "online-content-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "online-content-unsafe-number",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "online-content-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "online-rendered-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "online-rendered-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "online-rendered-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "online-rendered-unsafe-number",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "online-rendered-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "online-intent-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "online-intent-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "online-intent-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "online-intent-unsafe-number",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "online-intent-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "online-context-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "online-context-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "online-context-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "online-context-unsafe-number",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "online-context-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "online-policy-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "online-policy-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "online-policy-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "online-policy-unsafe-number",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "online-policy-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "online-changed-body",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "online-changed-subject",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "online-changed-scope",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "online-changed-evidence",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "online-extra-submitted-field",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "online-act-metadata-in-rendered-body",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACT_METADATA_IN_RENDERED_CONTENT"
+    },
+    {
+      "id": "online-changed-intent-body",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "online-rerendered-intent",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "RENDERED_FIELD_BYTES_CHANGED"
+    },
+    {
+      "id": "online-wrong-party",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACCOUNTABLE_PARTY_OR_BASIS_MISMATCH"
+    },
+    {
+      "id": "online-wrong-basis",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACCOUNTABLE_PARTY_OR_BASIS_MISMATCH"
+    },
+    {
+      "id": "online-wrong-basis-record",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACCOUNTABLE_PARTY_OR_BASIS_MISMATCH"
+    },
+    {
+      "id": "online-wrong-time",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_TIME_MISMATCH"
+    },
+    {
+      "id": "online-wrong-policy",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_POLICY_BINDING_MISMATCH"
+    },
+    {
+      "id": "online-wrong-posture",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACT_POSTURE_MISMATCH"
+    },
+    {
+      "id": "online-wrong-source-kind",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACT_POSTURE_MISMATCH"
+    },
+    {
+      "id": "online-wrong-contract",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CONTRACT_BINDING_MISMATCH"
+    },
+    {
+      "id": "online-forged-admitted",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-late-selfBinding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-late-effectIntentDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-late-domainVerdictBinding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-late-domainTraceBinding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-late-finalAssertionEffect",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-late-receiptBinding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-late-verificationContextBinding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-late-dependencies",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-late-input-role",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-policy-as-admission",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-policy-fake-timestamp-rule",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-wrong-immutable-selector",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACT_SELECTOR_MISMATCH"
+    },
+    {
+      "id": "online-wrong-immutable-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACT_SELECTOR_MISMATCH"
+    },
+    {
+      "id": "online-missing-selector",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_ACT_SELECTION"
+    },
+    {
+      "id": "online-wrong-contextSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CONTEXT_PIN_MISMATCH"
+    },
+    {
+      "id": "online-wrong-policySha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "POLICY_PIN_MISMATCH"
+    },
+    {
+      "id": "online-wrong-contractSha256",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "CONTRACT_PIN_MISMATCH"
+    },
+    {
+      "id": "online-wrong-intentProfileSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "INTENT_PROFILE_PIN_MISMATCH"
+    },
+    {
+      "id": "online-missing-pins",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_INDEPENDENT_PINS"
+    },
+    {
+      "id": "online-forged-act-recomputed-selector",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACT_SELECTION_CONTEXT_MISMATCH"
+    },
+    {
+      "id": "online-bad-time-act-4a918c91",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-intent-4a918c91",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-context-4a918c91",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-act-71d7ba84",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-intent-71d7ba84",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-context-71d7ba84",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-act-87fbf2a4",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-intent-87fbf2a4",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-context-87fbf2a4",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-act-46315637",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-intent-46315637",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-context-46315637",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-act-c724d8b2",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-intent-c724d8b2",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-context-c724d8b2",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-act-68f5f8d0",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-intent-68f5f8d0",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-context-68f5f8d0",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-act-ba1af654",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-intent-ba1af654",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-context-ba1af654",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-act-e6fecb12",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-intent-e6fecb12",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-bad-time-context-e6fecb12",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-source-whitespace-391857cb",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "online-source-metadata-391857cb",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "online-source-whitespace-e0f8fa94",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "online-source-metadata-e0f8fa94",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "online-source-whitespace-4caece02",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "online-source-metadata-4caece02",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "online-source-whitespace-4b2b748e",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "online-source-metadata-4b2b748e",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "online-missing-source-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "online-extra-later-source",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "online-aliased-later-source-role",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-self-basis-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "online-later-context-basis-revision",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "online-source-self-alias",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "online-source-offset-plus01-30",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "online-source-offset-minus01-30",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "online-source-offset-plus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-source-offset-plus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-source-offset-minus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "online-source-offset-plus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-act-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "offline-act-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "offline-act-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "offline-act-unsafe-number",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "offline-act-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "offline-content-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "offline-content-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "offline-content-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "offline-content-unsafe-number",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "offline-content-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "offline-rendered-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "offline-rendered-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "offline-rendered-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "offline-rendered-unsafe-number",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "offline-rendered-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "offline-intent-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "offline-intent-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "offline-intent-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "offline-intent-unsafe-number",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "offline-intent-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "offline-context-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "offline-context-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "offline-context-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "offline-context-unsafe-number",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "offline-context-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "offline-policy-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "offline-policy-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "offline-policy-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "offline-policy-unsafe-number",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "offline-policy-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "offline-changed-body",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "offline-changed-subject",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "offline-changed-scope",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "offline-changed-evidence",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "offline-extra-submitted-field",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "offline-act-metadata-in-rendered-body",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACT_METADATA_IN_RENDERED_CONTENT"
+    },
+    {
+      "id": "offline-changed-intent-body",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "offline-rerendered-intent",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "RENDERED_FIELD_BYTES_CHANGED"
+    },
+    {
+      "id": "offline-wrong-party",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACCOUNTABLE_PARTY_OR_BASIS_MISMATCH"
+    },
+    {
+      "id": "offline-wrong-basis",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACCOUNTABLE_PARTY_OR_BASIS_MISMATCH"
+    },
+    {
+      "id": "offline-wrong-basis-record",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACCOUNTABLE_PARTY_OR_BASIS_MISMATCH"
+    },
+    {
+      "id": "offline-wrong-time",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_TIME_MISMATCH"
+    },
+    {
+      "id": "offline-wrong-policy",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_POLICY_BINDING_MISMATCH"
+    },
+    {
+      "id": "offline-wrong-posture",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACT_POSTURE_MISMATCH"
+    },
+    {
+      "id": "offline-wrong-source-kind",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACT_POSTURE_MISMATCH"
+    },
+    {
+      "id": "offline-wrong-contract",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CONTRACT_BINDING_MISMATCH"
+    },
+    {
+      "id": "offline-forged-admitted",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-late-selfBinding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-late-effectIntentDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-late-domainVerdictBinding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-late-domainTraceBinding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-late-finalAssertionEffect",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-late-receiptBinding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-late-verificationContextBinding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-late-dependencies",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-late-input-role",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-policy-as-admission",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-policy-fake-timestamp-rule",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-wrong-immutable-selector",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACT_SELECTOR_MISMATCH"
+    },
+    {
+      "id": "offline-wrong-immutable-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACT_SELECTOR_MISMATCH"
+    },
+    {
+      "id": "offline-missing-selector",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_ACT_SELECTION"
+    },
+    {
+      "id": "offline-wrong-contextSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CONTEXT_PIN_MISMATCH"
+    },
+    {
+      "id": "offline-wrong-policySha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "POLICY_PIN_MISMATCH"
+    },
+    {
+      "id": "offline-wrong-contractSha256",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "CONTRACT_PIN_MISMATCH"
+    },
+    {
+      "id": "offline-wrong-intentProfileSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "INTENT_PROFILE_PIN_MISMATCH"
+    },
+    {
+      "id": "offline-missing-pins",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_INDEPENDENT_PINS"
+    },
+    {
+      "id": "offline-forged-act-recomputed-selector",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACT_SELECTION_CONTEXT_MISMATCH"
+    },
+    {
+      "id": "offline-bad-time-act-4a918c91",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-intent-4a918c91",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-context-4a918c91",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-act-71d7ba84",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-intent-71d7ba84",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-context-71d7ba84",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-act-87fbf2a4",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-intent-87fbf2a4",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-context-87fbf2a4",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-act-46315637",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-intent-46315637",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-context-46315637",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-act-c724d8b2",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-intent-c724d8b2",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-context-c724d8b2",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-act-68f5f8d0",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-intent-68f5f8d0",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-context-68f5f8d0",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-act-ba1af654",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-intent-ba1af654",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-context-ba1af654",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-act-e6fecb12",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-intent-e6fecb12",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-bad-time-context-e6fecb12",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-source-whitespace-391857cb",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "offline-source-metadata-391857cb",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "offline-source-whitespace-e0f8fa94",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "offline-source-metadata-e0f8fa94",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "offline-source-whitespace-4caece02",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "offline-source-metadata-4caece02",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "offline-source-whitespace-4b2b748e",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "offline-source-metadata-4b2b748e",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "offline-missing-source-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "offline-extra-later-source",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "offline-aliased-later-source-role",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-self-basis-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "offline-later-context-basis-revision",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "offline-source-self-alias",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "offline-source-offset-plus01-30",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "offline-source-offset-minus01-30",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "offline-source-offset-plus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-source-offset-plus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-source-offset-minus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-source-offset-plus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-online-0-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-online-0-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-0-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-online-0-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-0-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-0-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-0-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-0-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-0-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-0-wrong-binding-digest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_BINDING_DIGEST_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-1-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-online-1-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-1-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-online-1-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-1-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-1-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-1-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-1-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-1-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-1-wrong-binding-digest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_BINDING_DIGEST_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-2-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-online-2-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-2-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-online-2-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-2-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-2-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-2-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-2-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-2-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-2-wrong-binding-digest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_BINDING_DIGEST_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-3-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-online-3-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-3-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-online-3-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-3-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-3-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-3-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-3-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-3-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-online-3-wrong-binding-digest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_BINDING_DIGEST_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-0-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-offline-0-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-0-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-offline-0-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-0-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-0-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-0-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-0-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-0-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-0-wrong-binding-digest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_BINDING_DIGEST_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-1-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-offline-1-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-1-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-offline-1-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-1-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-1-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-1-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-1-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-1-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-1-wrong-binding-digest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_BINDING_DIGEST_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-2-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-offline-2-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-2-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-offline-2-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-2-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-2-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-2-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-2-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-2-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-2-wrong-binding-digest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_BINDING_DIGEST_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-3-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-offline-3-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-3-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-digest-offline-3-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-3-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-3-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-3-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-3-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-3-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-digest-offline-3-wrong-binding-digest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_BINDING_DIGEST_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-0-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-online-0-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-0-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-online-0-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-0-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-0-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-0-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-0-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-0-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-0-unselected-revision",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-0-silently-translated-selector",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_NOT_IN_SUBMITTED_EVIDENCE"
+    },
+    {
+      "id": "r1-revision-online-0-revision-alias-act",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-online-0-revision-alias-context",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-online-0-revision-alias-content",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-online-0-revision-alias-policy",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-online-1-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-online-1-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-1-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-online-1-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-1-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-1-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-1-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-1-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-1-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-1-unselected-revision",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-1-silently-translated-selector",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_NOT_IN_SUBMITTED_EVIDENCE"
+    },
+    {
+      "id": "r1-revision-online-1-revision-alias-act",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-online-1-revision-alias-context",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-online-1-revision-alias-content",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-online-1-revision-alias-policy",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-online-2-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-online-2-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-2-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-online-2-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-2-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-2-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-2-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-2-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-2-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-2-unselected-revision",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-2-silently-translated-selector",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ASSOCIATED_EVENT_BYTES_MISSING"
+    },
+    {
+      "id": "r1-revision-online-2-revision-alias-act",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-online-2-revision-alias-context",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-online-2-revision-alias-content",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-online-2-revision-alias-policy",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-online-3-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-online-3-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-3-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-online-3-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-3-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-3-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-3-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-3-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-3-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-3-unselected-revision",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-online-3-revision-alias-act",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-online-3-revision-alias-context",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-online-3-revision-alias-content",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-online-3-revision-alias-policy",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-0-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-offline-0-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-0-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-offline-0-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-0-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-0-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-0-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-0-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-0-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-0-unselected-revision",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-0-silently-translated-selector",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_NOT_IN_SUBMITTED_EVIDENCE"
+    },
+    {
+      "id": "r1-revision-offline-0-revision-alias-act",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-0-revision-alias-context",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-0-revision-alias-content",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-0-revision-alias-policy",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-1-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-offline-1-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-1-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-offline-1-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-1-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-1-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-1-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-1-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-1-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-1-unselected-revision",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-1-silently-translated-selector",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_NOT_IN_SUBMITTED_EVIDENCE"
+    },
+    {
+      "id": "r1-revision-offline-1-revision-alias-act",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-1-revision-alias-context",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-1-revision-alias-content",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-1-revision-alias-policy",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-2-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-offline-2-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-2-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-offline-2-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-2-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-2-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-2-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-2-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-2-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-2-unselected-revision",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-2-silently-translated-selector",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ASSOCIATED_EVENT_BYTES_MISSING"
+    },
+    {
+      "id": "r1-revision-offline-2-revision-alias-act",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-2-revision-alias-context",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-2-revision-alias-content",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-2-revision-alias-policy",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-3-missing-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-offline-3-wrong-valueDigest",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-3-missing-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-revision-offline-3-wrong-bytesSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-3-changed-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-3-changed-original-value",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ORIGINAL_SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-3-missing-original-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-3-missing-independent-mapping",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-3-duplicate-ref",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SET_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-3-unselected-revision",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_INPUT_SELECTION_MISMATCH"
+    },
+    {
+      "id": "r1-revision-offline-3-revision-alias-act",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-3-revision-alias-context",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-3-revision-alias-content",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "r1-revision-offline-3-revision-alias-policy",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SELF_OR_LATER_IDENTITY_ALIAS"
+    },
+    {
+      "id": "operation-natural_person_self-online-typed-typed-content-changed",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "operation-natural_person_self-online-typed-schema-bytes-changed",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "PROFILE_SCHEMA_PIN_MISMATCH"
+    },
+    {
+      "id": "operation-natural_person_self-online-typed-schema-closure-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "PROFILE_SCHEMA_SET_MISMATCH"
+    },
+    {
+      "id": "operation-natural_person_self-online-typed-wrong-language-profile",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CLAIM_LANGUAGE_PROFILE_MISMATCH"
+    },
+    {
+      "id": "operation-natural_person_self-offline-typed-typed-content-changed",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "operation-natural_person_self-offline-typed-schema-bytes-changed",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "PROFILE_SCHEMA_PIN_MISMATCH"
+    },
+    {
+      "id": "operation-natural_person_self-offline-typed-schema-closure-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "PROFILE_SCHEMA_SET_MISMATCH"
+    },
+    {
+      "id": "operation-natural_person_self-offline-typed-wrong-language-profile",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CLAIM_LANGUAGE_PROFILE_MISMATCH"
+    },
+    {
+      "id": "structure-natural_person_self-online-typed-typed-content-changed",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "structure-natural_person_self-online-typed-schema-bytes-changed",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "PROFILE_SCHEMA_PIN_MISMATCH"
+    },
+    {
+      "id": "structure-natural_person_self-online-typed-schema-closure-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "PROFILE_SCHEMA_SET_MISMATCH"
+    },
+    {
+      "id": "structure-natural_person_self-online-typed-wrong-language-profile",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CLAIM_LANGUAGE_PROFILE_MISMATCH"
+    },
+    {
+      "id": "structure-natural_person_self-offline-typed-typed-content-changed",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "structure-natural_person_self-offline-typed-schema-bytes-changed",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "PROFILE_SCHEMA_PIN_MISMATCH"
+    },
+    {
+      "id": "structure-natural_person_self-offline-typed-schema-closure-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "PROFILE_SCHEMA_SET_MISMATCH"
+    },
+    {
+      "id": "structure-natural_person_self-offline-typed-wrong-language-profile",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CLAIM_LANGUAGE_PROFILE_MISMATCH"
+    },
+    {
+      "id": "compliance-natural_person_self-online-typed-typed-content-changed",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "compliance-natural_person_self-online-typed-schema-bytes-changed",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "PROFILE_SCHEMA_PIN_MISMATCH"
+    },
+    {
+      "id": "compliance-natural_person_self-online-typed-schema-closure-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "PROFILE_SCHEMA_SET_MISMATCH"
+    },
+    {
+      "id": "compliance-natural_person_self-online-typed-wrong-language-profile",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CLAIM_LANGUAGE_PROFILE_MISMATCH"
+    },
+    {
+      "id": "compliance-natural_person_self-offline-typed-typed-content-changed",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMPLETE_CONTENT_MISMATCH"
+    },
+    {
+      "id": "compliance-natural_person_self-offline-typed-schema-bytes-changed",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "PROFILE_SCHEMA_PIN_MISMATCH"
+    },
+    {
+      "id": "compliance-natural_person_self-offline-typed-schema-closure-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "PROFILE_SCHEMA_SET_MISMATCH"
+    },
+    {
+      "id": "compliance-natural_person_self-offline-typed-wrong-language-profile",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CLAIM_LANGUAGE_PROFILE_MISMATCH"
+    },
+    {
+      "id": "missing-intent-profile",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "unselected-profile-bytes",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "INTENT_PROFILE_PIN_MISMATCH"
+    },
+    {
+      "id": "online-has-offline-binding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-missing-binding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "offline-wrong-binding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "OFFLINE_ACT_BINDING_MISMATCH"
+    },
+    {
+      "id": "offline-independent-revision-selection",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "offline-revision-alias-changed",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "ACT_SELECTION_CONTEXT_MISMATCH"
+    },
+    {
+      "id": "malformed-selected-schema",
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "PACKAGE_UNAVAILABLE_OR_INVALID"
+    },
+    {
+      "id": "unregistered-remote-reference",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "UNPINNED_SCHEMA_REFERENCE"
+    },
+    {
+      "id": "unresolved-local-reference",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "UNPINNED_SCHEMA_REFERENCE"
+    },
+    {
+      "id": "missing-package",
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "PACKAGE_UNAVAILABLE_OR_INVALID"
+    },
+    {
+      "id": "frozen-report-schema"
+    },
+    {
+      "id": "source-byte-pin-sources/pr11-previous.md"
+    },
+    {
+      "id": "source-byte-pin-sources/pr23.md"
+    },
+    {
+      "id": "source-byte-pin-source-contracts/AssertionRecord.v0.2.json"
+    },
+    {
+      "id": "source-byte-pin-source-contracts/AuthorizationDecisionTrace.v0.1.json"
+    },
+    {
+      "id": "source-byte-pin-source-contracts/SemanticEventEnvelope.v0.1.json"
+    },
+    {
+      "id": "source-byte-pin-source-contracts/MeasurementEvidence.v0.1.json"
+    },
+    {
+      "id": "source-byte-pin-source-contracts/OperationAssertionEffectIntent.v0.2.json"
+    },
+    {
+      "id": "source-byte-pin-source-contracts/StructureAssertionEffectIntent.v0.2.json"
+    },
+    {
+      "id": "source-byte-pin-source-contracts/ComplianceAssertionEffectIntent.v0.2.json"
+    },
+    {
+      "id": "source-byte-pin-fixtures/source-events/pruning_operation.json"
+    },
+    {
+      "id": "source-byte-pin-fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+    },
+    {
+      "id": "source-byte-pin-sources/pr11.md"
+    },
+    {
+      "id": "source-byte-pin-fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+    },
+    {
+      "id": "source-byte-pin-fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+    },
+    {
+      "id": "source-byte-pin-sources/OFARM_AuthorizationEffectIntent_cases_v0_2.json"
+    },
+    {
+      "id": "source-byte-pin-sources/OFARM_StructureComplianceEffectIntent_cases_v0_2.json"
+    },
+    {
+      "id": "offset-helper-2026-05-08T08:20:00+01:30"
+    },
+    {
+      "id": "offset-helper-2026-05-08T08:20:00-01:30"
+    },
+    {
+      "id": "offset-helper-2026-05-08T08:20:00+23:59"
+    },
+    {
+      "id": "offset-helper-2026-05-08T08:20:00+01:99"
+    },
+    {
+      "id": "offset-helper-2026-05-08T08:20:00-01:60"
+    },
+    {
+      "id": "offset-helper-2026-05-08T08:20:00+24:00"
+    },
+    {
+      "id": "explicit-component-range-2026-05-08T24:00:00+01:30"
+    },
+    {
+      "id": "explicit-component-range-2026-05-08T23:60:00Z"
+    },
+    {
+      "id": "explicit-component-range-2026-05-08T23:59:60Z"
+    },
+    {
+      "id": "explicit-component-range-２０２６-05-08T00:00:00Z"
+    },
+    {
+      "id": "explicit-component-range-2026-05-08T00:00:00.١Z"
+    },
+    {
+      "id": "explicit-component-range-2026-05-08T00:00:00+٠١:00"
+    },
+    {
+      "id": "explicit-component-range-2026-05-08T23:59:59.123456789Z"
+    },
+    {
+      "id": "unsupported-jcs-version",
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "DEPENDENCY_UNAVAILABLE"
+    },
+    {
+      "id": "portable-split-cli"
+    },
+    {
+      "id": "portable-missing-act"
+    },
+    {
+      "id": "portable-missing-dependency"
+    }
+  ]
+}

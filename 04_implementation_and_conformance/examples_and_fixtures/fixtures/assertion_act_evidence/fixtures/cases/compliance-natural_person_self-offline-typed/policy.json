@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "ofarm.assertionActSourcePolicy.v0.1",
+  "policyId": "fixture:act-policy:compliance-natural_person_self-offline-typed",
+  "contractBinding": {
+    "ref": "ofarm.assertion-act-evidence.v0.1",
+    "digest": "sha256:c2a58cb910f95a99b8f37007623e62130bcd89403bc0441f3e70c0b0013b68b2"
+  },
+  "posture": "VERIFIED_OFFLINE_SUBMISSION",
+  "sourceKind": "IMMUTABLE_OFFLINE_ASSERTION_ACT",
+  "timestampRule": "PR23_6_3_CANONICAL_UTC_EXACT_COPY",
+  "contentRule": "EXACT_ORIGINAL_BYTES_AND_COMPLETE_INTENT_PROJECTION",
+  "partyRule": "COMPARE_INDEPENDENT_SELECTED_PARTY_AND_BASIS",
+  "claimLimit": "Source format and conditional comparison only; actual time trust and source identity remain external."
+}

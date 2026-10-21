@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "ofarm.assertionSubmittedContent.v0.1",
+  "contentId": "fixture:submitted-content:structure-natural_person_self-online-typed-revision",
+  "intentSchemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1",
+  "intentProfileBinding": {
+    "ref": "fixture:act-intent-profile:typed:structure",
+    "digest": "sha256:c2639b24a3a7de82c6f4aa5c1321588cea4dec62a362a944595fe4905aff64b0"
+  },
+  "renderedContentBytesSha256": "b86697e7627301b89ab028a8ef123e28977386ca9fca3fa38b71dbc521cce993",
+  "renderedContentDigest": "sha256:fc4d371366cda326bc71b7b2946d105bf5bc9814d6cc9202552800b0a4b92554",
+  "sourceInputs": [
+    {
+      "role": "MEASUREMENT_EVIDENCE",
+      "binding": {
+        "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+        "revisionRef": "fixture:source-revision:measurement-evidence:field-17:weed-patch-photo-count:2026-05-06:r1"
+      },
+      "bytesSha256": "6c25dac7e1d0dfac5799bbd6bea1535be51d422416a19d13067ca0762848c2f6",
+      "valueDigest": "sha256:a0e74e8715bf08d2fc9c0c8218042c27d6498e75abc58bcb3a0879870f32f921"
+    },
+    {
+      "role": "MEASUREMENT_EVIDENCE",
+      "binding": {
+        "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+        "revisionRef": "fixture:source-revision:measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq:r1"
+      },
+      "bytesSha256": "8c72a8adb681407b39bc066505deef284f6c6e1322347a69216f2be3054b8e51",
+      "valueDigest": "sha256:b8e2f24404326f37bdb106c606ab2c0ad24c139b408f6c79631ee61ed87e8429"
+    }
+  ]
+}

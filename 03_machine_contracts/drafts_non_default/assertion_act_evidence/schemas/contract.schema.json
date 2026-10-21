@@ -1,0 +1,479 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/contract/v0.1",
+  "title": "Non-default assertion act contract",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contractId": {
+      "const": "ofarm.assertion-act-evidence.v0.1"
+    },
+    "version": {
+      "const": "0.1"
+    },
+    "status": {
+      "const": "PROPOSED_NON_DEFAULT"
+    },
+    "primaryTrustBoundary": {
+      "const": "Trusted assertion-act identity, time and submitted-content evidence"
+    },
+    "schemas": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "act": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "schemaId"
+          ]
+        },
+        "content": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "schemaId"
+          ]
+        },
+        "context": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "schemaId"
+          ]
+        },
+        "policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "schemaId"
+          ]
+        },
+        "report": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "schemaId"
+          ]
+        },
+        "contract": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "schemaId"
+          ]
+        },
+        "intent_profile": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "schemaId"
+          ]
+        },
+        "wire": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "schemaId"
+          ]
+        },
+        "assertion": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "schemaId"
+          ]
+        },
+        "operationIntent": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "schemaId"
+          ]
+        },
+        "structureIntent": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "schemaId"
+          ]
+        },
+        "complianceIntent": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "schemaId"
+          ]
+        },
+        "event": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "schemaId"
+          ]
+        },
+        "measurement": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "schemaId"
+          ]
+        }
+      },
+      "required": [
+        "act",
+        "content",
+        "context",
+        "policy",
+        "report",
+        "contract",
+        "intent_profile",
+        "wire",
+        "assertion",
+        "operationIntent",
+        "structureIntent",
+        "complianceIntent",
+        "event",
+        "measurement"
+      ]
+    },
+    "verificationCode": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "verify_assertion_act.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "act_common.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "act_report_contract.py": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "verify_assertion_act.py",
+        "act_common.py",
+        "act_report_contract.py"
+      ]
+    },
+    "semanticSources": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sources/pr11.md": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "sources/pr23.md": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "sources/pr11.md",
+        "sources/pr23.md"
+      ]
+    },
+    "requiredRules": {
+      "const": [
+        "PACKAGE_CLOSURE",
+        "STRICT_JSON",
+        "INDEPENDENT_SELECTION",
+        "PINNED_INTENT_PROFILE",
+        "PINNED_SCHEMAS",
+        "CONTRACT_AND_POLICY",
+        "EXACT_ACT_SOURCE",
+        "ACCOUNTABLE_PARTY_AND_BASIS",
+        "CANONICAL_SOURCE_TIME",
+        "EXACT_RENDERED_CONTENT",
+        "COMPLETE_INTENT_PROJECTION",
+        "ORIGINAL_SOURCE_BYTES",
+        "POSTURE_AND_BINDING",
+        "CYCLE_FREE_DECLARED_INPUTS"
+      ]
+    },
+    "actFields": {
+      "const": [
+        "assertedAt",
+        "assertionActPosture",
+        "assertionActEvidenceBinding"
+      ]
+    },
+    "actInputRoles": {
+      "const": [
+        "PREEXISTING_SOURCE_POLICY",
+        "FIXED_SUBMITTED_CONTENT",
+        "PREEXISTING_PARTY_BASIS"
+      ]
+    },
+    "dependencyOrder": {
+      "const": [
+        "source policy and independently fixed content",
+        "online observation or offline act record",
+        "top-level intent act metadata and offline selector",
+        "complete intent digest",
+        "independent verification context and selected Party expectation",
+        "conditional comparison; dependent domain verdict later"
+      ]
+    },
+    "foreignInterfaceGaps": {
+      "const": [
+        "AUTHORIZATION_SELECTED_PATH_SOURCE_CONTRACT_UNIDENTIFIED",
+        "RUNTIME_SOURCE_IDENTITY_NOT_ESTABLISHED",
+        "TIMESTAMP_TRUST_NOT_ESTABLISHED",
+        "RUNTIME_ADMISSION_NOT_ESTABLISHED"
+      ]
+    },
+    "hashRules": {
+      "const": "Raw SHA256 for original bytes; RFC8785 for values; exclude only top-level contractDigest from contract self digest."
+    },
+    "contractDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+    }
+  },
+  "required": [
+    "contractId",
+    "version",
+    "status",
+    "primaryTrustBoundary",
+    "schemas",
+    "verificationCode",
+    "semanticSources",
+    "requiredRules",
+    "actFields",
+    "actInputRoles",
+    "dependencyOrder",
+    "foreignInterfaceGaps",
+    "hashRules",
+    "contractDigest"
+  ]
+}

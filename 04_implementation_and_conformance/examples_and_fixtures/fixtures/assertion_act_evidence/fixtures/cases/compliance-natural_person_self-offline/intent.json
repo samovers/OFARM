@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "ofarm.complianceassertioneffectintent.v0.2",
+  "resources": [
+    {
+      "resourceRole": "TARGET_SCOPE",
+      "resourcePosture": "AUTHORITY_TARGET",
+      "targetType": "SCOPE",
+      "scope": {
+        "scopeType": "FIELD",
+        "scopeRef": "field:fictional:target",
+        "revisionRef": "field:fictional:target:r1"
+      },
+      "tenantRef": "tenant:fictional:one",
+      "authorizationResourceProofBindings": [
+        {
+          "ref": "proof:fictional:target:field",
+          "revisionRef": "proof:fictional:target:field:r1"
+        }
+      ]
+    }
+  ],
+  "effectSubject": {
+    "subjectKind": "COMPLIANCE_ASSERTION",
+    "subjectRef": "assertion:fictional:compliance:field:as_of:base",
+    "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+    "effectSubjectProofBindings": [
+      {
+        "ref": "proof:fictional:prospective:compliance",
+        "revisionRef": "proof:fictional:prospective:compliance:r1"
+      }
+    ]
+  },
+  "subject": {
+    "subjectType": "FIELD",
+    "subjectRef": "field:fictional:target",
+    "subjectPosture": "EXISTING_SUBJECT",
+    "revisionRef": "field:fictional:target:r1"
+  },
+  "subjectTime": {
+    "profile": "COMPLIANCE_AS_OF",
+    "at": "2026-10-01T10:00:00Z"
+  },
+  "assertionBody": {
+    "assertionPosture": "INITIAL",
+    "claimText": "Fictional compliance statement. Exact wording is preserved.",
+    "applicability": {
+      "profile": "COMPLIANCE_AS_OF",
+      "at": "2026-10-01T10:00:00Z"
+    }
+  },
+  "evidenceBindings": [
+    {
+      "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+      "digest": "sha256:a0e74e8715bf08d2fc9c0c8218042c27d6498e75abc58bcb3a0879870f32f921"
+    },
+    {
+      "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+      "digest": "sha256:b8e2f24404326f37bdb106c606ab2c0ad24c139b408f6c79631ee61ed87e8429"
+    }
+  ],
+  "ruleRevisionBindings": [
+    {
+      "ref": "rule:fictional:one",
+      "revisionRef": "rule:fictional:one:r1"
+    }
+  ],
+  "evidencePolicyRevisionBindings": [
+    {
+      "ref": "evidence-policy:fictional:one",
+      "revisionRef": "evidence-policy:fictional:one:r1"
+    }
+  ],
+  "assertedAt": "2026-10-20T12:34:56.123456789Z",
+  "assertionActPosture": "VERIFIED_OFFLINE_SUBMISSION",
+  "assertionActEvidenceBinding": {
+    "ref": "fixture:assertion-act:compliance-natural_person_self-offline",
+    "digest": "sha256:4b9a13ad91a34614604da27bb0b51b1067bbf178fbf7ac70e9bd01e3a3fe0928"
+  }
+}
