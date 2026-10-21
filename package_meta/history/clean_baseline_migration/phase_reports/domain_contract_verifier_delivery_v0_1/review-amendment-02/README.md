@@ -43,7 +43,7 @@ source adoption, new schema completion or a full domain-verifier PASS.
 The [domain-owner recommendation](domain-owner-recommendation.md) records the
 source reasoning, audit and finite check limits. Its complete authored delivery,
 including reconstruction scripts, is copied with two prose-link adjustments
-declared in [the transport record](domain-owner-transport.json). The original
+and the subsequent F5 correction declared in [the transport record](domain-owner-transport.json). The original
 owner manifest describes the source filenames; use this amendment's manifest
 for the integrated filenames and bytes.
 
@@ -75,6 +75,30 @@ historical evidence. Reconstruction scripts are authoring aids, not installed
 verifier code; use their explicit source arguments and regenerate custody records
 after any intentional reconstruction. The [owner delivery notes](OWNER_DELIVERY_README.md)
 record their original execution context.
+
+## Fresh-review correction
+
+The independent review of `228b7f4` closed B2/F4 but found F5: both fictional
+event rules and proofs used the record subtype as the commit class. The
+[owner correction](review-repair-01/recommendation-fix01.md) changes those exact
+roles to `OPERATION_CLAIM`, preserving result subtype `OPERATION_CLAIM_ASSERTION`
+and effect-subject kind `OPERATION_ASSERTION`. All 25 claim examples and all
+12 existing event-case intent/result/envelope values remain unchanged.
+
+The [new source-backed checker](commit_class_checks_v3.py) reads the byte-pinned
+PR23 mapping and both ingress schema enums, independently of the fictional
+package. The files under `commit-class-sources/` are exact pinned source copies;
+their original navigation resolves at the recorded repository path and commit,
+not relative to this evidence folder. [Additional hostile cases](commit-class-cases-fix01.json) reject a
+package, proof and trace that agree on the same wrong value, including a valid
+enum token for the wrong action, and reject changing the correct result subtype.
+The [correction transport](review-repair-01/transport.json) records all six
+replacements and eight required additions.
+
+The original 655/603-check owner reports describe the initial amendment at
+`228b7f4`; they did not detect F5. The [corrected full run](review-repair-01/check-results-fix01.json)
+passes 723 checks and the [corrected portable run](review-repair-01/portable-check-results-fix01.json)
+passes 671. These remain finite fictional design checks with the same limits.
 
 The first [review amendment](../review-amendment/README.md) is preserved as
 historical evidence at source commit `8e86208f96756b8f271f490696e6aa7cf23605fe`.

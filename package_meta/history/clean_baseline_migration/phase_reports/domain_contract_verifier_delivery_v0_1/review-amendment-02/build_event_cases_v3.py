@@ -20,10 +20,10 @@ for e in bundle['examples']:
  scope={'scopeType':c['soleAuthorityAnchor']['kind'],'scopeRef':c['soleAuthorityAnchor']['binding']['fixtureLogicalRef'],'revisionRef':wire(c['soleAuthorityAnchor']['binding'])['revisionRef']};i['resources'][0]['scope']=scope;r['anchorScopes']=[copy.deepcopy(scope)]
  meaning=c['proposition'];atom=meaning['child'] if meaning['form']=='QUALIFIED' else meaning
  pruning=e['id'].startswith('W04');dominant='Observed completion of the specified pruning work on the west-edge extent.' if pruning else 'The specified analysis process is in progress for the bound sample and property; no analytical result has yet been produced.'
- rule={'caseDefinition':assoc['caseDefinition'],'timeSelector':'/timeSemantics/eventTime','commitClass':'OPERATION_CLAIM_ASSERTION','eventSubtypeId':'candidate/pruning-completion' if pruning else 'candidate/analysis-in-progress','dominantSemanticConsequence':dominant,'claimMeaningDigest':dg(meaning),'scope':'Only this fictional exact body/case. The immutable package, not caller hints, selects case and pointer.'};package['cases'][e['id']]=rule
+ rule={'caseDefinition':assoc['caseDefinition'],'timeSelector':'/timeSemantics/eventTime','commitClass':'OPERATION_CLAIM','eventSubtypeId':'candidate/pruning-completion' if pruning else 'candidate/analysis-in-progress','dominantSemanticConsequence':dominant,'claimMeaningDigest':dg(meaning),'scope':'Only this fictional exact body/case. The immutable package, not caller hints, selects case and pointer.'};package['cases'][e['id']]=rule
  env={'schemaVersion':'ofarm.semanticeventenvelope.v0.1','semanticEventId':assoc['envelope']['fixtureLogicalRef'],'primaryEventFamily':'InterventionEvent' if pruning else 'OccurrenceEvent','eventSubtypeId':rule['eventSubtypeId'],'dominantSemanticConsequence':dominant,'subjectRefs':[c['subject']['binding']['fixtureLogicalRef']],'anchorScopes':[{k:scope[k] for k in ['scopeType','scopeRef']}],'timeSemantics':{'eventTime':c['subjectTime']['at'],'recordTime':e['governedContextExample']['assertedAt']},'notes':'FICTIONAL owner-classification assumption only; family is not inferred by the domain checker.'}
- proof={'fixtureRecordType':'UNADOPTED_CLASSIFICATION_PROOF_MODEL','binding':wire(assoc['ingressEvidence']),'envelopeDigest':dg(env),'authoritativeFamily':env['primaryEventFamily'],'commitClass':'OPERATION_CLAIM_ASSERTION','classificationOutcome':'PASS','completedBeforeDomainVerdict':True,'availability':'VALIDATION_PHASE_BEFORE_DOMAIN_VERDICT','dependsOn':['fixed-envelope','fixed-commit-class'],'admission':'HYPOTHETICAL_OWNER_INPUT_NOT_ADMITTED'}
- case={'exampleId':e['id'],'intent':i,'result':r,'effectIntentDigest':dg(i),'proposedResultDigest':dg(r),'resolvedEnvelopeBinding':wire(assoc['envelope']),'fixedEnvelopeDigest':dg(env),'envelope':env,'proof':proof,'selectedCase':rule['caseDefinition'],'selectedTimeSelector':rule['timeSelector'],'claimMeaningDigest':dg(meaning),'expectedErrors':[],'traceIllustration':{'disposition':'ASSOCIATION_COMPARISONS_HYPOTHETICALLY_COHERENT_NOT_ADMITTED_PASS','envelopeBinding':wire(assoc['envelope']),'envelopeDigest':dg(env),'ingressProofBinding':proof['binding'],'ingressProofDigest':dg(proof),'caseDefinition':rule['caseDefinition'],'selectedTimeSelector':rule['timeSelector'],'subjectIndex':0,'anchorIndex':0,'comparedSubjectTime':c['subjectTime'],'commitClass':proof['commitClass'],'authoritativeFamily':proof['authoritativeFamily']}}
+ proof={'fixtureRecordType':'UNADOPTED_CLASSIFICATION_PROOF_MODEL','binding':wire(assoc['ingressEvidence']),'envelopeDigest':dg(env),'authoritativeFamily':env['primaryEventFamily'],'commitClass':'OPERATION_CLAIM','classificationOutcome':'PASS','completedBeforeDomainVerdict':True,'availability':'VALIDATION_PHASE_BEFORE_DOMAIN_VERDICT','dependsOn':['fixed-envelope','fixed-commit-class'],'admission':'HYPOTHETICAL_OWNER_INPUT_NOT_ADMITTED'}
+ case={'exampleId':e['id'],'selectedAction':c['selectedAction'],'intent':i,'result':r,'effectIntentDigest':dg(i),'proposedResultDigest':dg(r),'resolvedEnvelopeBinding':wire(assoc['envelope']),'fixedEnvelopeDigest':dg(env),'envelope':env,'proof':proof,'selectedCase':rule['caseDefinition'],'selectedTimeSelector':rule['timeSelector'],'claimMeaningDigest':dg(meaning),'expectedErrors':[],'traceIllustration':{'disposition':'ASSOCIATION_COMPARISONS_HYPOTHETICALLY_COHERENT_NOT_ADMITTED_PASS','envelopeBinding':wire(assoc['envelope']),'envelopeDigest':dg(env),'ingressProofBinding':proof['binding'],'ingressProofDigest':dg(proof),'caseDefinition':rule['caseDefinition'],'selectedTimeSelector':rule['timeSelector'],'subjectIndex':0,'anchorIndex':0,'comparedSubjectTime':c['subjectTime'],'commitClass':proof['commitClass'],'authoritativeFamily':proof['authoritativeFamily']}}
  cases.append(case)
 hostiles=[]
 for id,fn,code in [
@@ -37,7 +37,9 @@ for id,fn,code in [
  ('E08_UNFINISHED_PROOF',lambda x:x['proof'].update(completedBeforeDomainVerdict=False),'PROOF_UNAVAILABLE'),
  ('E09_PERMISSIVE_CASE_HINT',lambda x:x.update(selectedCase='caller:permissive-case'),'CASE_SELECTION_MISMATCH'),
  ('E10_NOT_PASSING_PROOF',lambda x:x['proof'].update(classificationOutcome='FAIL'),'PROOF_NOT_PASSING')]:
- x=copy.deepcopy(cases[0]);fn(x);x['id']=id;x['expectedErrors']=[code];hostiles.append(x)
+ x=copy.deepcopy(cases[0]);fn(x);x['id']=id;x['expectedErrors']=(['PROOF_COMMIT_CLASS_NOT_CANONICAL',code] if id=='E03_WRONG_COMMIT_CLASS' else [code])
+ if x.get('proof') is not None:x['traceIllustration']['ingressProofDigest']=dg(x['proof'])
+ hostiles.append(x)
 for x in cases+hostiles:
  if event_errors(x,package)!=x['expectedErrors']:raise ValueError((x.get('id'),event_errors(x,package)))
 write('event-compatibility-package-v3.json',package)
@@ -45,8 +47,9 @@ write('event-cases-v3.json',{'status':'FINITE_FICTIONAL_PLACEMENT_AND_DEPENDENCY
 # Complete all tuple source/qualification selectors; prior-only prefix remains valid.
 s=read('evidence-selectors-v3.json')
 for row in s['rowSelectors']:
- if row['definition']=='C03':row['selectors']+=['/measurementSource/'+k for k in ['measurementBinding','contextBinding','subjectRelationBinding','methodUseBinding']]
- if row['definition']=='C06':row['selectors']+=['/rateSource/measurementSource/'+k for k in ['measurementBinding','contextBinding','subjectRelationBinding','methodUseBinding']]
+ if row['definition']=='C03':row['selectors']=list(dict.fromkeys(row['selectors']+ ['/measurementSource/'+k for k in ['measurementBinding','contextBinding','subjectRelationBinding','methodUseBinding']]))
+ if row['definition']=='C06':row['selectors']=list(dict.fromkeys(row['selectors']+ ['/rateSource/measurementSource/'+k for k in ['measurementBinding','contextBinding','subjectRelationBinding','methodUseBinding']]))
+s['sharedSelectors']=[item for item in s['sharedSelectors'] if item['type']!='COMPLIANCE_MEASURED_QUALIFICATION']
 s['sharedSelectors'].append({'type':'COMPLIANCE_MEASURED_QUALIFICATION','selectors':['/measuredQualification/sourceBinding','/measuredQualification/methodUseBinding'],'guard':'Selected definition/use requires this qualification; presence is independently checked before selection. Applies on the exact atom, never inferred from a wrapper label.'})
 write('evidence-selectors-v3.json',s)
 print('Built 2 event carrier models and 10 isolated event negatives.')

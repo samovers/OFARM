@@ -1,10 +1,11 @@
 """Finite B2 dependency/placement model; no Event Ingress producer or verifier."""
 import hashlib
 import rfc8785
+from commit_class_checks_v3 import canonical_event_errors
 
 def dg(v):return 'sha256:'+hashlib.sha256(rfc8785.dumps(v)).hexdigest()
 def event_errors(case,package):
-    x=case;intent=x['intent'];errors=[]
+    x=case;intent=x['intent'];errors=canonical_event_errors(case,package)
     def bad(code,ok):
         if not ok:errors.append(code)
     b=intent.get('associatedSemanticEventBinding')

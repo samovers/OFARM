@@ -97,3 +97,41 @@ for case in events['positiveCases']:
 malformed=copy.deepcopy(w05['proposition']['body']);malformed['operand']['source']['measurementBinding']={}
 check('empty measurement binding rejected before citation enumeration',bool(required_role_errors('C04',malformed)))
 check('source roles are mandatory independently of the four citation entries',set(contract['sourceTuple']['required'])=={'role','measurementBinding','resultPointer','contextBinding','subjectRelationBinding','methodUseBinding','qualificationPointers'})
+# Fix01: canonical enums and action -> commit-class mapping are independent of
+# the fictional compatibility package and independently preserve result subtype.
+from commit_class_checks_v3 import canonical_roles, canonical_event_errors
+roles=canonical_roles(str(args.candidate_dir.resolve()))
+expected_map={
+ 'ASSERT_STRUCTURE':('STRUCTURE_ASSERTION','STRUCTURE_ASSERTION','STRUCTURE_ASSERTION'),
+ 'ASSERT_OPERATION_CLAIM':('OPERATION_CLAIM','OPERATION_ASSERTION','OPERATION_CLAIM_ASSERTION'),
+ 'ASSERT_COMPLIANCE':('COMPLIANCE_ASSERTION','COMPLIANCE_ASSERTION','COMPLIANCE_ASSERTION')}
+for action,(commit_class,effect_subject,result_subtype) in expected_map.items():
+    row=roles['actionMap'][action]
+    check('PR23 source table separate roles: '+action,(row['commitClass'],row['effectSubjectKind'],row['resultSubtype'])==(commit_class,effect_subject,result_subtype))
+    check('canonical ingress request/result enum: '+action,commit_class in roles['requestEnum'] and commit_class in roles['resultEnum'])
+check('operation result subtype is not an ingress commit class','OPERATION_CLAIM_ASSERTION' not in roles['requestEnum'] and 'OPERATION_CLAIM_ASSERTION' not in roles['resultEnum'])
+for case in events['positiveCases']+events['hostileCases']:
+    label=case.get('id',case['exampleId'])
+    check(label+': selected action equals preserved domain claim',case['selectedAction']==byid[case['exampleId']]['claimContent']['selectedAction'])
+    check(label+': operation result subtype remains unchanged',case['result']['assertionType']=='OPERATION_CLAIM_ASSERTION')
+    check(label+': package and trace canonical commit class',ep['cases'][case['exampleId']]['commitClass']=='OPERATION_CLAIM' and case['traceIllustration']['commitClass']=='OPERATION_CLAIM')
+    if case.get('proof') is not None:
+        check(label+': corrected proof digest matches trace model',case['traceIllustration']['ingressProofDigest']==digest(case['proof']))
+    if label=='E03_WRONG_COMMIT_CLASS':
+        check('original intentionally wrong-class negative retained',case['proof']['commitClass']=='STRUCTURE_ASSERTION' and 'FIXED_COMMIT_CLASS_MISMATCH' in event_errors(case,ep) and 'PROOF_COMMIT_CLASS_NOT_CANONICAL' in event_errors(case,ep))
+for test in read('commit-class-cases-fix01.json')['cases']:
+    case=test['case'];pkg=test['package'];errors=event_errors(case,pkg)
+    check(test['id']+': independent canonical rejection',errors==test['expectedErrors'],observedErrors=errors)
+    check(test['id']+': updated package/proof/result digests',digest(pkg)==test['packageDigest'] and digest(case['proof'])==case['traceIllustration']['ingressProofDigest'] and digest(case['result'])==case['proposedResultDigest'])
+    if test['id'].startswith(('CC01','CC02')):
+        check(test['id']+': self-consistency cannot bless wrong class',case['proof']['commitClass']==pkg['cases'][case['exampleId']]['commitClass']==case['traceIllustration']['commitClass'] and 'FIXED_COMMIT_CLASS_MISMATCH' not in errors and bool(errors))
+    if test['id'].startswith('CC02'):
+        check('valid enum membership alone cannot satisfy action mapping',case['proof']['commitClass'] in roles['requestEnum'] and bool(errors))
+# Use the two actual schema fragments as additional independent validation inputs.
+if args.repo_root:
+    for source_id in ['INGRESS_REQUEST','INGRESS_RESULT']:
+        pin=next(p for p in roles['sourcePins'] if p['id']==source_id)
+        schema=json.loads((args.candidate_dir/pin['file']).read_text())
+        validator=jsonschema.Draft202012Validator(schema['properties']['commitClass'])
+        check(source_id+': canonical token validates and result subtype token fails',validator.is_valid('OPERATION_CLAIM') and not validator.is_valid('OPERATION_CLAIM_ASSERTION'))
+        check(source_id+': bundled exact pin equals actual repository schema',sha((args.repo_root/pin['repositoryPath']).read_bytes())==pin['sha256'])

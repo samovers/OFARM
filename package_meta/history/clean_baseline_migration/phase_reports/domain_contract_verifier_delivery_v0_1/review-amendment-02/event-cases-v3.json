@@ -1,10 +1,11 @@
 {
   "status": "FINITE_FICTIONAL_PLACEMENT_AND_DEPENDENCY_MODEL_ONLY",
   "packageFile": "event-compatibility-package-v3.json",
-  "packageDigest": "sha256:d4a55ee25b17d2b42bb8f45e4ad206821e5b2c577d33ab56e65c594cdc6bc834",
+  "packageDigest": "sha256:ec98b1539dc4bd9ca1c5862d40a66ef22aba845b8a78d11826d27c1445120cee",
   "positiveCases": [
     {
       "exampleId": "W04_MEASURED_PRUNING_WITH_EVENT",
+      "selectedAction": "ASSERT_OPERATION_CLAIM",
       "intent": {
         "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
         "resources": [
@@ -194,7 +195,7 @@
         },
         "envelopeDigest": "sha256:dae0162821e6ab47d5fabab1cfbece220736f4fec070d32e8c397347a54dfdc1",
         "authoritativeFamily": "InterventionEvent",
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "classificationOutcome": "PASS",
         "completedBeforeDomainVerdict": true,
         "availability": "VALIDATION_PHASE_BEFORE_DOMAIN_VERDICT",
@@ -219,7 +220,7 @@
           "ref": "event-ingress:fictional",
           "revisionRef": "fixture-revision:event-ingress:fictional:r1"
         },
-        "ingressProofDigest": "sha256:bfb10cbdbb7f31e6fc85fe6f3f3824ef1727eaf504f34374a748ad626f6e79e5",
+        "ingressProofDigest": "sha256:2c6bf0e43d3d4b318eb1d5a112442e6c57fc4068af79f6686a6b2794be079aa6",
         "caseDefinition": "candidate:pruning-completion-event:r4",
         "selectedTimeSelector": "/timeSemantics/eventTime",
         "subjectIndex": 0,
@@ -228,12 +229,13 @@
           "profile": "PERFORMED_INSTANT",
           "at": "2026-05-07T18:25:00Z"
         },
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "authoritativeFamily": "InterventionEvent"
       }
     },
     {
       "exampleId": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT",
+      "selectedAction": "ASSERT_OPERATION_CLAIM",
       "intent": {
         "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
         "resources": [
@@ -415,7 +417,7 @@
         },
         "envelopeDigest": "sha256:f7c5db2d3b9a55501f546c79e7da975123bfea088dfb0253ca4fb90725a17f5a",
         "authoritativeFamily": "OccurrenceEvent",
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "classificationOutcome": "PASS",
         "completedBeforeDomainVerdict": true,
         "availability": "VALIDATION_PHASE_BEFORE_DOMAIN_VERDICT",
@@ -440,7 +442,7 @@
           "ref": "event-ingress:analysis-in-progress-fictional",
           "revisionRef": "fixture-revision:event-ingress:analysis-in-progress-fictional:r1"
         },
-        "ingressProofDigest": "sha256:769873f19918131a57953005e1440ad8a20e26288e50d454c3ba89ff7820bc17",
+        "ingressProofDigest": "sha256:04a0edd3ed5abcf97f322550982c4149c3c482e003f9a63480cb8de5223cd85f",
         "caseDefinition": "candidate:O22:act-event-instant:r4",
         "selectedTimeSelector": "/timeSemantics/eventTime",
         "subjectIndex": 0,
@@ -449,7 +451,7 @@
           "profile": "PERFORMED_INSTANT",
           "at": "2026-05-07T18:25:00Z"
         },
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "authoritativeFamily": "OccurrenceEvent"
       }
     }
@@ -457,6 +459,7 @@
   "hostileCases": [
     {
       "exampleId": "W04_MEASURED_PRUNING_WITH_EVENT",
+      "selectedAction": "ASSERT_OPERATION_CLAIM",
       "intent": {
         "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
         "resources": [
@@ -656,7 +659,7 @@
           "ref": "event-ingress:fictional",
           "revisionRef": "fixture-revision:event-ingress:fictional:r1"
         },
-        "ingressProofDigest": "sha256:bfb10cbdbb7f31e6fc85fe6f3f3824ef1727eaf504f34374a748ad626f6e79e5",
+        "ingressProofDigest": "sha256:2c6bf0e43d3d4b318eb1d5a112442e6c57fc4068af79f6686a6b2794be079aa6",
         "caseDefinition": "candidate:pruning-completion-event:r4",
         "selectedTimeSelector": "/timeSemantics/eventTime",
         "subjectIndex": 0,
@@ -665,13 +668,14 @@
           "profile": "PERFORMED_INSTANT",
           "at": "2026-05-07T18:25:00Z"
         },
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "authoritativeFamily": "InterventionEvent"
       },
       "id": "E01_MISSING_PROOF"
     },
     {
       "exampleId": "W04_MEASURED_PRUNING_WITH_EVENT",
+      "selectedAction": "ASSERT_OPERATION_CLAIM",
       "intent": {
         "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
         "resources": [
@@ -861,7 +865,7 @@
         },
         "envelopeDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
         "authoritativeFamily": "InterventionEvent",
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "classificationOutcome": "PASS",
         "completedBeforeDomainVerdict": true,
         "availability": "VALIDATION_PHASE_BEFORE_DOMAIN_VERDICT",
@@ -888,7 +892,7 @@
           "ref": "event-ingress:fictional",
           "revisionRef": "fixture-revision:event-ingress:fictional:r1"
         },
-        "ingressProofDigest": "sha256:bfb10cbdbb7f31e6fc85fe6f3f3824ef1727eaf504f34374a748ad626f6e79e5",
+        "ingressProofDigest": "sha256:f2d5d455e58ea181aef5a03e1f8933f3de370a01939e94fd866894cd498efdac",
         "caseDefinition": "candidate:pruning-completion-event:r4",
         "selectedTimeSelector": "/timeSemantics/eventTime",
         "subjectIndex": 0,
@@ -897,13 +901,14 @@
           "profile": "PERFORMED_INSTANT",
           "at": "2026-05-07T18:25:00Z"
         },
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "authoritativeFamily": "InterventionEvent"
       },
       "id": "E02_WRONG_ENVELOPE_DIGEST"
     },
     {
       "exampleId": "W04_MEASURED_PRUNING_WITH_EVENT",
+      "selectedAction": "ASSERT_OPERATION_CLAIM",
       "intent": {
         "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
         "resources": [
@@ -1107,6 +1112,7 @@
       "selectedTimeSelector": "/timeSemantics/eventTime",
       "claimMeaningDigest": "sha256:2cac7dc5584e34d4445658d406f409bcf5c2de6b148b7b6fae208dc44261702c",
       "expectedErrors": [
+        "PROOF_COMMIT_CLASS_NOT_CANONICAL",
         "FIXED_COMMIT_CLASS_MISMATCH"
       ],
       "traceIllustration": {
@@ -1120,7 +1126,7 @@
           "ref": "event-ingress:fictional",
           "revisionRef": "fixture-revision:event-ingress:fictional:r1"
         },
-        "ingressProofDigest": "sha256:bfb10cbdbb7f31e6fc85fe6f3f3824ef1727eaf504f34374a748ad626f6e79e5",
+        "ingressProofDigest": "sha256:4f4a4418268e1263ac32aaf35b328770be792179bc766aa84d265d40f2648b02",
         "caseDefinition": "candidate:pruning-completion-event:r4",
         "selectedTimeSelector": "/timeSemantics/eventTime",
         "subjectIndex": 0,
@@ -1129,13 +1135,14 @@
           "profile": "PERFORMED_INSTANT",
           "at": "2026-05-07T18:25:00Z"
         },
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "authoritativeFamily": "InterventionEvent"
       },
       "id": "E03_WRONG_COMMIT_CLASS"
     },
     {
       "exampleId": "W04_MEASURED_PRUNING_WITH_EVENT",
+      "selectedAction": "ASSERT_OPERATION_CLAIM",
       "intent": {
         "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
         "resources": [
@@ -1325,7 +1332,7 @@
         },
         "envelopeDigest": "sha256:dae0162821e6ab47d5fabab1cfbece220736f4fec070d32e8c397347a54dfdc1",
         "authoritativeFamily": "EvidenceEvent",
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "classificationOutcome": "PASS",
         "completedBeforeDomainVerdict": true,
         "availability": "VALIDATION_PHASE_BEFORE_DOMAIN_VERDICT",
@@ -1352,7 +1359,7 @@
           "ref": "event-ingress:fictional",
           "revisionRef": "fixture-revision:event-ingress:fictional:r1"
         },
-        "ingressProofDigest": "sha256:bfb10cbdbb7f31e6fc85fe6f3f3824ef1727eaf504f34374a748ad626f6e79e5",
+        "ingressProofDigest": "sha256:0e580daf4c98230aa809fdd8ec22056bec31a3dc9a54b44bad47387998ab590c",
         "caseDefinition": "candidate:pruning-completion-event:r4",
         "selectedTimeSelector": "/timeSemantics/eventTime",
         "subjectIndex": 0,
@@ -1361,13 +1368,14 @@
           "profile": "PERFORMED_INSTANT",
           "at": "2026-05-07T18:25:00Z"
         },
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "authoritativeFamily": "InterventionEvent"
       },
       "id": "E04_FAMILY_DIVERGENCE"
     },
     {
       "exampleId": "W04_MEASURED_PRUNING_WITH_EVENT",
+      "selectedAction": "ASSERT_OPERATION_CLAIM",
       "intent": {
         "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
         "resources": [
@@ -1557,7 +1565,7 @@
         },
         "envelopeDigest": "sha256:dae0162821e6ab47d5fabab1cfbece220736f4fec070d32e8c397347a54dfdc1",
         "authoritativeFamily": "InterventionEvent",
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "classificationOutcome": "PASS",
         "completedBeforeDomainVerdict": true,
         "availability": "VALIDATION_PHASE_BEFORE_DOMAIN_VERDICT",
@@ -1584,7 +1592,7 @@
           "ref": "event-ingress:fictional",
           "revisionRef": "fixture-revision:event-ingress:fictional:r1"
         },
-        "ingressProofDigest": "sha256:bfb10cbdbb7f31e6fc85fe6f3f3824ef1727eaf504f34374a748ad626f6e79e5",
+        "ingressProofDigest": "sha256:2c6bf0e43d3d4b318eb1d5a112442e6c57fc4068af79f6686a6b2794be079aa6",
         "caseDefinition": "candidate:pruning-completion-event:r4",
         "selectedTimeSelector": "/timeSemantics/eventTime",
         "subjectIndex": 0,
@@ -1593,13 +1601,14 @@
           "profile": "PERFORMED_INSTANT",
           "at": "2026-05-07T18:25:00Z"
         },
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "authoritativeFamily": "InterventionEvent"
       },
       "id": "E05_CALLER_TIME_SELECTOR"
     },
     {
       "exampleId": "W04_MEASURED_PRUNING_WITH_EVENT",
+      "selectedAction": "ASSERT_OPERATION_CLAIM",
       "intent": {
         "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
         "resources": [
@@ -1789,7 +1798,7 @@
         },
         "envelopeDigest": "sha256:dae0162821e6ab47d5fabab1cfbece220736f4fec070d32e8c397347a54dfdc1",
         "authoritativeFamily": "InterventionEvent",
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "classificationOutcome": "PASS",
         "completedBeforeDomainVerdict": true,
         "availability": "VALIDATION_PHASE_BEFORE_DOMAIN_VERDICT",
@@ -1815,7 +1824,7 @@
           "ref": "event-ingress:fictional",
           "revisionRef": "fixture-revision:event-ingress:fictional:r1"
         },
-        "ingressProofDigest": "sha256:bfb10cbdbb7f31e6fc85fe6f3f3824ef1727eaf504f34374a748ad626f6e79e5",
+        "ingressProofDigest": "sha256:a8252295f6c092e283639b89d348ed054d344302b283be1d72a3e4643c80679d",
         "caseDefinition": "candidate:pruning-completion-event:r4",
         "selectedTimeSelector": "/timeSemantics/eventTime",
         "subjectIndex": 0,
@@ -1824,13 +1833,14 @@
           "profile": "PERFORMED_INSTANT",
           "at": "2026-05-07T18:25:00Z"
         },
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "authoritativeFamily": "InterventionEvent"
       },
       "id": "E06_LATER_VERDICT_DEPENDENCY"
     },
     {
       "exampleId": "W04_MEASURED_PRUNING_WITH_EVENT",
+      "selectedAction": "ASSERT_OPERATION_CLAIM",
       "intent": {
         "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
         "resources": [
@@ -2020,7 +2030,7 @@
         },
         "envelopeDigest": "sha256:dae0162821e6ab47d5fabab1cfbece220736f4fec070d32e8c397347a54dfdc1",
         "authoritativeFamily": "InterventionEvent",
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "classificationOutcome": "PASS",
         "completedBeforeDomainVerdict": true,
         "availability": "VALIDATION_PHASE_BEFORE_DOMAIN_VERDICT",
@@ -2046,7 +2056,7 @@
           "ref": "event-ingress:fictional",
           "revisionRef": "fixture-revision:event-ingress:fictional:r1"
         },
-        "ingressProofDigest": "sha256:bfb10cbdbb7f31e6fc85fe6f3f3824ef1727eaf504f34374a748ad626f6e79e5",
+        "ingressProofDigest": "sha256:50e8b194fe33402a56822bc4eda9bb2c7c73000d398afd9d7c8afb38f660c84a",
         "caseDefinition": "candidate:pruning-completion-event:r4",
         "selectedTimeSelector": "/timeSemantics/eventTime",
         "subjectIndex": 0,
@@ -2055,13 +2065,14 @@
           "profile": "PERFORMED_INSTANT",
           "at": "2026-05-07T18:25:00Z"
         },
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "authoritativeFamily": "InterventionEvent"
       },
       "id": "E07_LATER_RECEIPT_DEPENDENCY"
     },
     {
       "exampleId": "W04_MEASURED_PRUNING_WITH_EVENT",
+      "selectedAction": "ASSERT_OPERATION_CLAIM",
       "intent": {
         "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
         "resources": [
@@ -2251,7 +2262,7 @@
         },
         "envelopeDigest": "sha256:dae0162821e6ab47d5fabab1cfbece220736f4fec070d32e8c397347a54dfdc1",
         "authoritativeFamily": "InterventionEvent",
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "classificationOutcome": "PASS",
         "completedBeforeDomainVerdict": false,
         "availability": "VALIDATION_PHASE_BEFORE_DOMAIN_VERDICT",
@@ -2278,7 +2289,7 @@
           "ref": "event-ingress:fictional",
           "revisionRef": "fixture-revision:event-ingress:fictional:r1"
         },
-        "ingressProofDigest": "sha256:bfb10cbdbb7f31e6fc85fe6f3f3824ef1727eaf504f34374a748ad626f6e79e5",
+        "ingressProofDigest": "sha256:f20fa85031e26f60e553b36520dd62d4415a0ed4a12e0ab510cfe66adba6772c",
         "caseDefinition": "candidate:pruning-completion-event:r4",
         "selectedTimeSelector": "/timeSemantics/eventTime",
         "subjectIndex": 0,
@@ -2287,13 +2298,14 @@
           "profile": "PERFORMED_INSTANT",
           "at": "2026-05-07T18:25:00Z"
         },
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "authoritativeFamily": "InterventionEvent"
       },
       "id": "E08_UNFINISHED_PROOF"
     },
     {
       "exampleId": "W04_MEASURED_PRUNING_WITH_EVENT",
+      "selectedAction": "ASSERT_OPERATION_CLAIM",
       "intent": {
         "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
         "resources": [
@@ -2483,7 +2495,7 @@
         },
         "envelopeDigest": "sha256:dae0162821e6ab47d5fabab1cfbece220736f4fec070d32e8c397347a54dfdc1",
         "authoritativeFamily": "InterventionEvent",
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "classificationOutcome": "PASS",
         "completedBeforeDomainVerdict": true,
         "availability": "VALIDATION_PHASE_BEFORE_DOMAIN_VERDICT",
@@ -2510,7 +2522,7 @@
           "ref": "event-ingress:fictional",
           "revisionRef": "fixture-revision:event-ingress:fictional:r1"
         },
-        "ingressProofDigest": "sha256:bfb10cbdbb7f31e6fc85fe6f3f3824ef1727eaf504f34374a748ad626f6e79e5",
+        "ingressProofDigest": "sha256:2c6bf0e43d3d4b318eb1d5a112442e6c57fc4068af79f6686a6b2794be079aa6",
         "caseDefinition": "candidate:pruning-completion-event:r4",
         "selectedTimeSelector": "/timeSemantics/eventTime",
         "subjectIndex": 0,
@@ -2519,13 +2531,14 @@
           "profile": "PERFORMED_INSTANT",
           "at": "2026-05-07T18:25:00Z"
         },
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "authoritativeFamily": "InterventionEvent"
       },
       "id": "E09_PERMISSIVE_CASE_HINT"
     },
     {
       "exampleId": "W04_MEASURED_PRUNING_WITH_EVENT",
+      "selectedAction": "ASSERT_OPERATION_CLAIM",
       "intent": {
         "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
         "resources": [
@@ -2715,7 +2728,7 @@
         },
         "envelopeDigest": "sha256:dae0162821e6ab47d5fabab1cfbece220736f4fec070d32e8c397347a54dfdc1",
         "authoritativeFamily": "InterventionEvent",
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "classificationOutcome": "FAIL",
         "completedBeforeDomainVerdict": true,
         "availability": "VALIDATION_PHASE_BEFORE_DOMAIN_VERDICT",
@@ -2742,7 +2755,7 @@
           "ref": "event-ingress:fictional",
           "revisionRef": "fixture-revision:event-ingress:fictional:r1"
         },
-        "ingressProofDigest": "sha256:bfb10cbdbb7f31e6fc85fe6f3f3824ef1727eaf504f34374a748ad626f6e79e5",
+        "ingressProofDigest": "sha256:011d5fd226a91097b39d3593dd7d92351e41ca58a680aa880d985aec30e2b86b",
         "caseDefinition": "candidate:pruning-completion-event:r4",
         "selectedTimeSelector": "/timeSemantics/eventTime",
         "subjectIndex": 0,
@@ -2751,7 +2764,7 @@
           "profile": "PERFORMED_INSTANT",
           "at": "2026-05-07T18:25:00Z"
         },
-        "commitClass": "OPERATION_CLAIM_ASSERTION",
+        "commitClass": "OPERATION_CLAIM",
         "authoritativeFamily": "InterventionEvent"
       },
       "id": "E10_NOT_PASSING_PROOF"
