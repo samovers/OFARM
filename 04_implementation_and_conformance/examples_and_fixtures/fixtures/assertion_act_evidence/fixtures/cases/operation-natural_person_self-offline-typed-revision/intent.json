@@ -1,0 +1,192 @@
+{
+  "subject": {
+    "subjectType": "FIELD",
+    "subjectRef": "field:fictional:1",
+    "subjectPosture": "EXISTING_SUBJECT",
+    "revisionRef": "field:fictional:1:r1"
+  },
+  "subjectTime": {
+    "profile": "PERFORMED_INTERVAL",
+    "start": "2026-09-19T10:00:00.000000001Z",
+    "end": "2026-09-19T10:00:00.000000002Z"
+  },
+  "assertionBody": {
+    "assertionPosture": "INITIAL",
+    "claimText": "Fictional claim. Exact wording is preserved.",
+    "allegesSoftwareAgentPerformance": false,
+    "temporalBasis": {
+      "sourceKind": "BODY_TIME",
+      "time": {
+        "profile": "PERFORMED_INTERVAL",
+        "start": "2026-09-19T10:00:00.000000001Z",
+        "end": "2026-09-19T10:00:00.000000002Z"
+      }
+    },
+    "claimLanguageRevision": "ofarm.complete-typed-claims.v0.1",
+    "proposition": {
+      "form": "QUALIFIED",
+      "appliesToAtomId": "atom:W03_MEASURED_PRUNING_NO_EVENT",
+      "child": {
+        "form": "ATOM",
+        "atomId": "atom:W03_MEASURED_PRUNING_NO_EVENT",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O08",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "FIELD",
+            "subjectRef": "field:fictional",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "PERFORMED_INSTANT",
+            "at": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "PARTIAL_TARGET_SCOPE",
+            "binding": {
+              "ref": "extent:west-edge-fictional",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "PRUNE",
+          "interventionKind": "PRUNING",
+          "claimPosture": "PERFORMED",
+          "performanceFacet": "COMPLETED",
+          "activityInstance": {
+            "ref": "work:O08:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "FIELD",
+            "binding": {
+              "ref": "field:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "PARTIAL_TARGET_SCOPE",
+            "binding": {
+              "ref": "extent:west-edge-fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "method": {
+              "ref": "method:row-selective-fictional",
+              "revisionRef": "r1"
+            },
+            "plantPart": {
+              "ref": "plant-part:canopy",
+              "revisionRef": "r1"
+            },
+            "workExtent": "WEST_EDGE_ONLY"
+          },
+          "quantityParameters": [],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O08:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O08:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "method:row-selective-fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "FIELD",
+              "binding": {
+                "ref": "field:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "PARTIAL_TARGET_SCOPE",
+              "binding": {
+                "ref": "extent:west-edge-fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O08"
+            ],
+            "inProgressConditionIds": [
+              "progress:O08"
+            ],
+            "finishConditionIds": [
+              "finish:O08"
+            ]
+          }
+        }
+      },
+      "qualifiers": {
+        "epistemicPosture": "ALLEGED"
+      }
+    },
+    "performedByBinding": {
+      "ref": "party:fictional:performer",
+      "revisionRef": "r1"
+    }
+  },
+  "evidenceBindings": [
+    {
+      "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+      "revisionRef": "fixture:source-revision:measurement-evidence:field-17:weed-patch-photo-count:2026-05-06:r1"
+    },
+    {
+      "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+      "revisionRef": "fixture:source-revision:measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq:r1"
+    }
+  ],
+  "schemaVersion": "ofarm.operationassertioneffectintent.typed.v0.1",
+  "resources": [
+    {
+      "resourceRole": "TARGET_SCOPE",
+      "resourcePosture": "AUTHORITY_TARGET",
+      "targetType": "SCOPE",
+      "scope": {
+        "scopeType": "FIELD",
+        "scopeRef": "field:fictional:1",
+        "revisionRef": "field:fictional:1:r1"
+      },
+      "tenantRef": "tenant:fictional:1",
+      "authorizationResourceProofBindings": [
+        {
+          "ref": "proof:resource:field",
+          "revisionRef": "proof:resource:field:r1"
+        }
+      ]
+    }
+  ],
+  "effectSubject": {
+    "subjectKind": "OPERATION_ASSERTION",
+    "subjectRef": "assertion:fictional:performed_interval",
+    "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+    "effectSubjectProofBindings": [
+      {
+        "ref": "proof:prospective:1",
+        "revisionRef": "proof:prospective:1:r1"
+      }
+    ]
+  },
+  "claimPosture": "PERFORMED",
+  "performedByPartyRef": "party:fictional:performer",
+  "associatedSemanticEventBinding": {
+    "ref": "event:intervention:pruning:field-17:2026-04-08",
+    "revisionRef": "fixture:source-revision:event:intervention:pruning:field-17:2026-04-08:r1"
+  },
+  "assertedAt": "2026-10-20T12:34:56.123456789Z",
+  "assertionActPosture": "VERIFIED_OFFLINE_SUBMISSION",
+  "assertionActEvidenceBinding": {
+    "ref": "fixture:assertion-act:operation-natural_person_self-offline-typed-revision",
+    "digest": "sha256:66a0369de205d1d04d026d5cf6d00d0158b90cc18c10daf4a438d532daa668d8"
+  }
+}

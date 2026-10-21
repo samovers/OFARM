@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/intent_profile/v0.1",
+  "title": "Non-default assertion act intent_profile",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionActIntentProfile.v0.1"
+    },
+    "profileId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+    },
+    "profileRevision": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+    },
+    "contractBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "ref",
+        "digest"
+      ]
+    },
+    "wireInterface": {
+      "const": "ofarm.assertion-act-top-level.v0.1"
+    },
+    "intentSchemaId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "intentSchemaVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claimLanguageRevision": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "actFields": {
+      "const": [
+        "assertedAt",
+        "assertionActPosture",
+        "assertionActEvidenceBinding"
+      ]
+    },
+    "extraSchemas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schemaId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+          }
+        },
+        "required": [
+          "schemaId",
+          "sha256"
+        ]
+      },
+      "minItems": 0
+    },
+    "contentRule": {
+      "const": "WHOLE_PRE_ACT_VALUE_AND_EXACT_FIELD_BYTES"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "profileId",
+    "profileRevision",
+    "contractBinding",
+    "wireInterface",
+    "intentSchemaId",
+    "intentSchemaVersion",
+    "claimLanguageRevision",
+    "actFields",
+    "extraSchemas",
+    "contentRule"
+  ]
+}

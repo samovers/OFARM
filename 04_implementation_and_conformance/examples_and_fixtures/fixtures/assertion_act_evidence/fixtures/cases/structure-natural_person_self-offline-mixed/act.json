@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "ofarm.assertionActEvidence.v0.1",
+  "recordId": "fixture:assertion-act:structure-natural_person_self-offline-mixed",
+  "contractBinding": {
+    "ref": "ofarm.assertion-act-evidence.v0.1",
+    "digest": "sha256:c2a58cb910f95a99b8f37007623e62130bcd89403bc0441f3e70c0b0013b68b2"
+  },
+  "posture": "VERIFIED_OFFLINE_SUBMISSION",
+  "sourceKind": "IMMUTABLE_OFFLINE_ASSERTION_ACT",
+  "accountablePartyRef": "party:fictional:natural_person_self",
+  "authoritySubjectBasis": "NATURAL_PERSON_SELF",
+  "authoritySubjectBasisBindings": [
+    {
+      "ref": "basis:fictional:natural_person_self",
+      "revisionRef": "basis:fictional:natural_person_self:r1"
+    }
+  ],
+  "assertedAt": "2026-10-20T12:34:56.123456789Z",
+  "sourcePolicyBinding": {
+    "ref": "fixture:act-policy:structure-natural_person_self-offline-mixed",
+    "digest": "sha256:1b59fae63e97be01a5d9a9a15cd931cc846f8428f643658cf1927c2a990ec03f"
+  },
+  "submittedContentBinding": {
+    "ref": "fixture:submitted-content:structure-natural_person_self-offline-mixed",
+    "digest": "sha256:e0ba60efaf6332b87eb280ceb0758d4a5abc15eaa2b9317c733cbb9b6c51798f"
+  },
+  "submittedContentBytesSha256": "27047b56cf41e75cc8cbdee2d375a399bf5d5369c54589a498ad8a6224d18bf5",
+  "inputRoles": [
+    "PREEXISTING_SOURCE_POLICY",
+    "FIXED_SUBMITTED_CONTENT",
+    "PREEXISTING_PARTY_BASIS"
+  ]
+}

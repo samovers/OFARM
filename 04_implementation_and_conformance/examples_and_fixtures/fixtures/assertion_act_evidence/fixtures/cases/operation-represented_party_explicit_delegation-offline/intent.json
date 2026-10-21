@@ -1,0 +1,79 @@
+{
+  "subject": {
+    "subjectType": "FIELD",
+    "subjectRef": "field:fictional:1",
+    "subjectPosture": "EXISTING_SUBJECT",
+    "revisionRef": "field:fictional:1:r1"
+  },
+  "subjectTime": {
+    "profile": "PERFORMED_INTERVAL",
+    "start": "2026-09-19T10:00:00.000000001Z",
+    "end": "2026-09-19T10:00:00.000000002Z"
+  },
+  "assertionBody": {
+    "assertionPosture": "INITIAL",
+    "claimText": "Fictional claim. Exact wording is preserved.",
+    "allegesSoftwareAgentPerformance": false,
+    "temporalBasis": {
+      "sourceKind": "BODY_TIME",
+      "time": {
+        "profile": "PERFORMED_INTERVAL",
+        "start": "2026-09-19T10:00:00.000000001Z",
+        "end": "2026-09-19T10:00:00.000000002Z"
+      }
+    }
+  },
+  "evidenceBindings": [
+    {
+      "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+      "digest": "sha256:a0e74e8715bf08d2fc9c0c8218042c27d6498e75abc58bcb3a0879870f32f921"
+    },
+    {
+      "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+      "digest": "sha256:b8e2f24404326f37bdb106c606ab2c0ad24c139b408f6c79631ee61ed87e8429"
+    }
+  ],
+  "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+  "resources": [
+    {
+      "resourceRole": "TARGET_SCOPE",
+      "resourcePosture": "AUTHORITY_TARGET",
+      "targetType": "SCOPE",
+      "scope": {
+        "scopeType": "FIELD",
+        "scopeRef": "field:fictional:1",
+        "revisionRef": "field:fictional:1:r1"
+      },
+      "tenantRef": "tenant:fictional:1",
+      "authorizationResourceProofBindings": [
+        {
+          "ref": "proof:resource:field",
+          "revisionRef": "proof:resource:field:r1"
+        }
+      ]
+    }
+  ],
+  "effectSubject": {
+    "subjectKind": "OPERATION_ASSERTION",
+    "subjectRef": "assertion:fictional:performed_interval",
+    "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+    "effectSubjectProofBindings": [
+      {
+        "ref": "proof:prospective:1",
+        "revisionRef": "proof:prospective:1:r1"
+      }
+    ]
+  },
+  "claimPosture": "PERFORMED",
+  "performedByPartyRef": "party:fictional:performer",
+  "associatedSemanticEventBinding": {
+    "ref": "event:intervention:pruning:field-17:2026-04-08",
+    "digest": "sha256:c841f61f6b4ba5c6d641ddd770dbd5458185e98a9e83fa0714cdfb1fc08269ec"
+  },
+  "assertedAt": "2026-10-20T12:34:56.123456789Z",
+  "assertionActPosture": "VERIFIED_OFFLINE_SUBMISSION",
+  "assertionActEvidenceBinding": {
+    "ref": "fixture:assertion-act:operation-represented_party_explicit_delegation-offline",
+    "digest": "sha256:bea03734c7ff2a8be1eec1166aefda98ce1e9e05e102dd83cb600c7f7d731ac0"
+  }
+}

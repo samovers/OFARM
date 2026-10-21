@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "ofarm.complianceassertioneffectintent.v0.2",
+  "resources": [
+    {
+      "resourceRole": "TARGET_SCOPE",
+      "resourcePosture": "AUTHORITY_TARGET",
+      "targetType": "SCOPE",
+      "scope": {
+        "scopeType": "FIELD",
+        "scopeRef": "field:fictional:target",
+        "revisionRef": "field:fictional:target:r1"
+      },
+      "tenantRef": "tenant:fictional:one",
+      "authorizationResourceProofBindings": [
+        {
+          "ref": "proof:fictional:target:field",
+          "revisionRef": "proof:fictional:target:field:r1"
+        }
+      ]
+    }
+  ],
+  "effectSubject": {
+    "subjectKind": "COMPLIANCE_ASSERTION",
+    "subjectRef": "assertion:fictional:compliance:field:as_of:base",
+    "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+    "effectSubjectProofBindings": [
+      {
+        "ref": "proof:fictional:prospective:compliance",
+        "revisionRef": "proof:fictional:prospective:compliance:r1"
+      }
+    ]
+  },
+  "subject": {
+    "subjectType": "FIELD",
+    "subjectRef": "field:fictional:target",
+    "subjectPosture": "EXISTING_SUBJECT",
+    "revisionRef": "field:fictional:target:r1"
+  },
+  "subjectTime": {
+    "profile": "COMPLIANCE_AS_OF",
+    "at": "2026-10-01T10:00:00Z"
+  },
+  "assertionBody": {
+    "assertionPosture": "INITIAL",
+    "claimText": "Fictional compliance statement. Exact wording is preserved.",
+    "applicability": {
+      "profile": "COMPLIANCE_AS_OF",
+      "at": "2026-10-01T10:00:00Z"
+    }
+  },
+  "evidenceBindings": [
+    {
+      "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+      "revisionRef": "fixture:source-revision:measurement-evidence:field-17:weed-patch-photo-count:2026-05-06:r1"
+    },
+    {
+      "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+      "revisionRef": "fixture:source-revision:measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq:r1"
+    }
+  ],
+  "ruleRevisionBindings": [
+    {
+      "ref": "rule:fictional:one",
+      "revisionRef": "rule:fictional:one:r1"
+    }
+  ],
+  "evidencePolicyRevisionBindings": [
+    {
+      "ref": "evidence-policy:fictional:one",
+      "revisionRef": "evidence-policy:fictional:one:r1"
+    }
+  ]
+}

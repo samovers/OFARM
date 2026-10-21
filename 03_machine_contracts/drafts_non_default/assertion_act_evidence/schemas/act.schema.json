@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/act/v0.1",
+  "title": "Non-default assertion act act",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionActEvidence.v0.1"
+    },
+    "recordId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+    },
+    "contractBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "ref",
+        "digest"
+      ]
+    },
+    "posture": {
+      "enum": [
+        "TRUSTED_ONLINE_SUBMISSION",
+        "VERIFIED_OFFLINE_SUBMISSION"
+      ]
+    },
+    "sourceKind": {
+      "enum": [
+        "TRUSTED_RUNTIME_SUBMISSION_OBSERVATION",
+        "IMMUTABLE_OFFLINE_ASSERTION_ACT"
+      ]
+    },
+    "accountablePartyRef": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+    },
+    "authoritySubjectBasis": {
+      "enum": [
+        "NATURAL_PERSON_SELF",
+        "REPRESENTED_PARTY_AUTHORIZED_REPRESENTATION",
+        "AGENT_PARTY_DIRECT_GRANT",
+        "REPRESENTED_PARTY_EXPLICIT_DELEGATION"
+      ]
+    },
+    "authoritySubjectBasisBindings": {
+      "type": "array",
+      "items": {
+        "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+      },
+      "minItems": 1
+    },
+    "assertedAt": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/canonicalTimestamp"
+    },
+    "sourcePolicyBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "ref",
+        "digest"
+      ]
+    },
+    "submittedContentBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "ref",
+        "digest"
+      ]
+    },
+    "submittedContentBytesSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+    },
+    "inputRoles": {
+      "const": [
+        "PREEXISTING_SOURCE_POLICY",
+        "FIXED_SUBMITTED_CONTENT",
+        "PREEXISTING_PARTY_BASIS"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "recordId",
+    "contractBinding",
+    "posture",
+    "sourceKind",
+    "accountablePartyRef",
+    "authoritySubjectBasis",
+    "authoritySubjectBasisBindings",
+    "assertedAt",
+    "sourcePolicyBinding",
+    "submittedContentBinding",
+    "submittedContentBytesSha256",
+    "inputRoles"
+  ]
+}

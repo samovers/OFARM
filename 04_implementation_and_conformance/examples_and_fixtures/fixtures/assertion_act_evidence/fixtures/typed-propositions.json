@@ -1,0 +1,265 @@
+{
+  "W01_EQUIPMENT": {
+    "form": "ATOM",
+    "atomId": "atom:W01_EQUIPMENT",
+    "definition": "candidate:assertion-domain-construction:2026-10-21:r2:S12",
+    "scope": {
+      "subject": {
+        "subjectPosture": "EXISTING_SUBJECT",
+        "subjectType": "EQUIPMENT",
+        "subjectRef": "equipment:sprayer-fictional",
+        "revisionRef": "r1"
+      },
+      "subjectTime": {
+        "profile": "STRUCTURE_EFFECTIVE_FROM",
+        "start": "2026-05-07T00:00:00Z"
+      },
+      "extent": {
+        "posture": "FULL_TARGET_SCOPE",
+        "binding": {
+          "ref": "equipment:sprayer-fictional",
+          "revisionRef": "r1"
+        }
+      }
+    },
+    "body": {
+      "property": "asset.configuration",
+      "assetKind": "EQUIPMENT",
+      "asset": {
+        "ref": "equipment:sprayer-fictional",
+        "revisionRef": "r1"
+      },
+      "configuration": {
+        "ref": "configuration:sprayer-C",
+        "revisionRef": "r1"
+      },
+      "inspectionEvidence": [
+        {
+          "ref": "inspection:fictional",
+          "revisionRef": "r1"
+        }
+      ]
+    }
+  },
+  "W03_MEASURED_PRUNING_NO_EVENT": {
+    "form": "QUALIFIED",
+    "appliesToAtomId": "atom:W03_MEASURED_PRUNING_NO_EVENT",
+    "child": {
+      "form": "ATOM",
+      "atomId": "atom:W03_MEASURED_PRUNING_NO_EVENT",
+      "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O08",
+      "scope": {
+        "subject": {
+          "subjectPosture": "EXISTING_SUBJECT",
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional",
+          "revisionRef": "r1"
+        },
+        "subjectTime": {
+          "profile": "PERFORMED_INSTANT",
+          "at": "2026-05-07T18:25:00Z"
+        },
+        "extent": {
+          "posture": "PARTIAL_TARGET_SCOPE",
+          "binding": {
+            "ref": "extent:west-edge-fictional",
+            "revisionRef": "r1"
+          }
+        }
+      },
+      "body": {
+        "activity": "PRUNE",
+        "interventionKind": "PRUNING",
+        "claimPosture": "PERFORMED",
+        "performanceFacet": "COMPLETED",
+        "activityInstance": {
+          "ref": "work:O08:fictional",
+          "revisionRef": "r1"
+        },
+        "target": {
+          "kind": "FIELD",
+          "binding": {
+            "ref": "field:fictional",
+            "revisionRef": "r1"
+          }
+        },
+        "performedBy": {
+          "ref": "party:performer-fictional",
+          "revisionRef": "r1"
+        },
+        "extent": {
+          "posture": "PARTIAL_TARGET_SCOPE",
+          "binding": {
+            "ref": "extent:west-edge-fictional",
+            "revisionRef": "r1"
+          }
+        },
+        "parameters": {
+          "method": {
+            "ref": "method:row-selective-fictional",
+            "revisionRef": "r1"
+          },
+          "plantPart": {
+            "ref": "plant-part:canopy",
+            "revisionRef": "r1"
+          },
+          "workExtent": "WEST_EDGE_ONLY"
+        },
+        "quantityParameters": [],
+        "workSpecification": {
+          "binding": {
+            "ref": "work-spec:O08:fictional",
+            "revisionRef": "r1"
+          },
+          "activityInstance": {
+            "ref": "work:O08:fictional",
+            "revisionRef": "r1"
+          },
+          "procedure": {
+            "ref": "method:row-selective-fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "FIELD",
+            "binding": {
+              "ref": "field:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "extent": {
+            "posture": "PARTIAL_TARGET_SCOPE",
+            "binding": {
+              "ref": "extent:west-edge-fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "startConditionIds": [
+            "start:O08"
+          ],
+          "inProgressConditionIds": [
+            "progress:O08"
+          ],
+          "finishConditionIds": [
+            "finish:O08"
+          ]
+        }
+      }
+    },
+    "qualifiers": {
+      "epistemicPosture": "ALLEGED"
+    }
+  },
+  "W05_CENSORED_CRITERION": {
+    "form": "ATOM",
+    "atomId": "atom:W05_CENSORED_CRITERION",
+    "definition": "candidate:assertion-domain-construction:2026-10-21:r2:C04",
+    "scope": {
+      "subject": {
+        "subjectPosture": "EXISTING_SUBJECT",
+        "subjectType": "FIELD",
+        "subjectRef": "field:fictional",
+        "revisionRef": "r1"
+      },
+      "subjectTime": {
+        "profile": "COMPLIANCE_AS_OF",
+        "at": "2026-05-07T18:25:00Z"
+      },
+      "extent": {
+        "posture": "FULL_TARGET_SCOPE",
+        "binding": {
+          "ref": "field:fictional",
+          "revisionRef": "r1"
+        }
+      }
+    },
+    "body": {
+      "form": "CRITERION_OUTCOME",
+      "operand": {
+        "resultKind": "CENSORED_NUMERIC",
+        "qualifier": "BELOW_LOQ",
+        "limit": {
+          "quantityKind": "qudt:MassFraction",
+          "unit": "ucum:mg.kg-1",
+          "decimal": "2",
+          "qualifier": "HUMAN_REPORTED",
+          "originalLexicalValue": "2",
+          "unitProfile": {
+            "ref": "unit-profile:example",
+            "revisionRef": "r1"
+          },
+          "provenance": {
+            "sourceBinding": {
+              "ref": "quantity-source:W05-lab-transcription-fictional",
+              "revisionRef": "r1"
+            },
+            "valuePointer": "/loq",
+            "lexicalPointer": "/loq/originalLexicalValue",
+            "qualifierPointer": "/loq/qualifier"
+          }
+        },
+        "nonnegative": true,
+        "source": {
+          "role": "MEASURED_COMPLIANCE_OPERAND",
+          "measurementBinding": {
+            "ref": "nitrate-measurement:fictional",
+            "revisionRef": "r1"
+          },
+          "resultPointer": "/result",
+          "contextBinding": {
+            "ref": "observation-context:W05-nitrate-fictional",
+            "revisionRef": "r1"
+          },
+          "subjectRelationBinding": {
+            "ref": "sample-to-field:fictional",
+            "revisionRef": "r1"
+          },
+          "methodUseBinding": {
+            "ref": "method-use:W05-nitrate-fictional",
+            "revisionRef": "r1"
+          },
+          "qualificationPointers": [
+            "/uncertainty"
+          ]
+        },
+        "admissibleValues": {
+          "kind": "INTERVAL",
+          "lower": {
+            "decimal": "0",
+            "inclusive": true
+          },
+          "upper": {
+            "decimal": "2",
+            "inclusive": false
+          },
+          "basis": "METHOD_NONNEGATIVE_BELOW_LOQ"
+        }
+      },
+      "operator": "LE",
+      "threshold": {
+        "quantityKind": "qudt:MassFraction",
+        "unit": "ucum:mg.kg-1",
+        "decimal": "1",
+        "qualifier": "HUMAN_REPORTED",
+        "originalLexicalValue": "1",
+        "unitProfile": {
+          "ref": "unit-profile:example",
+          "revisionRef": "r1"
+        },
+        "provenance": {
+          "sourceBinding": {
+            "ref": "criterion:W05-nitrate-fictional",
+            "revisionRef": "r1"
+          },
+          "valuePointer": "/threshold",
+          "lexicalPointer": "/threshold/originalLexicalValue",
+          "qualifierPointer": "/threshold/qualifier"
+        }
+      },
+      "allegedOutcome": "INDETERMINATE",
+      "criterion": {
+        "ref": "criterion:W05-nitrate-fictional",
+        "revisionRef": "r1"
+      }
+    }
+  }
+}

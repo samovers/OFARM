@@ -1,0 +1,2585 @@
+{
+  "status": "FICTIONAL_INDEPENDENT_EXPECTATIONS",
+  "cases": [
+    {
+      "id": "operation-natural_person_self-online",
+      "paths": {
+        "act": "fixtures/cases/operation-natural_person_self-online/act.json",
+        "content": "fixtures/cases/operation-natural_person_self-online/content.json",
+        "rendered": "fixtures/cases/operation-natural_person_self-online/rendered.json",
+        "intent": "fixtures/cases/operation-natural_person_self-online/intent.json",
+        "context": "fixtures/cases/operation-natural_person_self-online/context.json",
+        "policy": "fixtures/cases/operation-natural_person_self-online/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "afd923d4611a5eafa3476aa23da6a6bc70e28b353983bc327c61eb0aaf3f7ac6",
+        "policySha256": "d05f22243d2a1c9fa034c0f9f5f929a0df61bc667ce6a67e3daf22123502ef11",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-natural_person_self-online",
+          "digest": "sha256:d01555a280b99cc6b45de9e590d9de5fc31d3bee7f21b25b70bd5486cbaf2a3b"
+        },
+        "bytesSha256": "0009376c2363e7ce9e9119487d123675d56d6cb736925dafdffe449b6be0b151",
+        "valueDigest": "sha256:d01555a280b99cc6b45de9e590d9de5fc31d3bee7f21b25b70bd5486cbaf2a3b"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-natural_person_self-offline",
+      "paths": {
+        "act": "fixtures/cases/operation-natural_person_self-offline/act.json",
+        "content": "fixtures/cases/operation-natural_person_self-offline/content.json",
+        "rendered": "fixtures/cases/operation-natural_person_self-offline/rendered.json",
+        "intent": "fixtures/cases/operation-natural_person_self-offline/intent.json",
+        "context": "fixtures/cases/operation-natural_person_self-offline/context.json",
+        "policy": "fixtures/cases/operation-natural_person_self-offline/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "090141d2e7569b32d6c6a634e7a21322fd63ebe7a558dde969d95df9bf43e783",
+        "policySha256": "26df1319020efe35e8a88ff6a13cffcf0a6a25f962c5136449c24def8804182f",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-natural_person_self-offline",
+          "digest": "sha256:74edc7767ba9713eccc16ed3516453a2bc124a403aa4f03604fee402a7644c95"
+        },
+        "bytesSha256": "dff03089319ad71ae4641629a3c44a7b2851d96ff29ff407ae67a675f9ae7ed3",
+        "valueDigest": "sha256:74edc7767ba9713eccc16ed3516453a2bc124a403aa4f03604fee402a7644c95"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-represented_party_authorized_representation-online",
+      "paths": {
+        "act": "fixtures/cases/operation-represented_party_authorized_representation-online/act.json",
+        "content": "fixtures/cases/operation-represented_party_authorized_representation-online/content.json",
+        "rendered": "fixtures/cases/operation-represented_party_authorized_representation-online/rendered.json",
+        "intent": "fixtures/cases/operation-represented_party_authorized_representation-online/intent.json",
+        "context": "fixtures/cases/operation-represented_party_authorized_representation-online/context.json",
+        "policy": "fixtures/cases/operation-represented_party_authorized_representation-online/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "2ed9c4a6f7df8467fe2a48ab70c2baf2fc1683e648812208a1d676daa8a0233f",
+        "policySha256": "759c072795cd50dc0e1a3e85dcba9b55ff23469fc70a11438909d584dd9e3f24",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-represented_party_authorized_representation-online",
+          "digest": "sha256:546aae7361abb8afcfd385546240bd46126285df599ec1be1031a049e644afbb"
+        },
+        "bytesSha256": "4e03e8934b098786fdb9fc43216fc330c04fc5e4e6464fd28e80d36b6c89b140",
+        "valueDigest": "sha256:546aae7361abb8afcfd385546240bd46126285df599ec1be1031a049e644afbb"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:represented_party_authorized_representation",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-represented_party_authorized_representation-offline",
+      "paths": {
+        "act": "fixtures/cases/operation-represented_party_authorized_representation-offline/act.json",
+        "content": "fixtures/cases/operation-represented_party_authorized_representation-offline/content.json",
+        "rendered": "fixtures/cases/operation-represented_party_authorized_representation-offline/rendered.json",
+        "intent": "fixtures/cases/operation-represented_party_authorized_representation-offline/intent.json",
+        "context": "fixtures/cases/operation-represented_party_authorized_representation-offline/context.json",
+        "policy": "fixtures/cases/operation-represented_party_authorized_representation-offline/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "1d6a7f41dcb6a8d86d084a2a5536a335243922254ff269ea9d556da02741581a",
+        "policySha256": "2906240cb37f428a0c0ba9dad9666c8c2bca1cc2d538471617c8d6c07de7f33e",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-represented_party_authorized_representation-offline",
+          "digest": "sha256:a58739f46b99e174fdcaa8fa535cfe047b80965453572a2cad966ab4e693d46e"
+        },
+        "bytesSha256": "a70d8c40ba3f7f07018f9211139962e2141540c29188109b5be859c51833a20c",
+        "valueDigest": "sha256:a58739f46b99e174fdcaa8fa535cfe047b80965453572a2cad966ab4e693d46e"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:represented_party_authorized_representation",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-agent_party_direct_grant-online",
+      "paths": {
+        "act": "fixtures/cases/operation-agent_party_direct_grant-online/act.json",
+        "content": "fixtures/cases/operation-agent_party_direct_grant-online/content.json",
+        "rendered": "fixtures/cases/operation-agent_party_direct_grant-online/rendered.json",
+        "intent": "fixtures/cases/operation-agent_party_direct_grant-online/intent.json",
+        "context": "fixtures/cases/operation-agent_party_direct_grant-online/context.json",
+        "policy": "fixtures/cases/operation-agent_party_direct_grant-online/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "45d0600f63295d4e2013b900a28d75747c446e118d91e7c72769ecc702574089",
+        "policySha256": "62b445869d8b8f48290309965b5a1a333947ef7108800351778e0090a75d3991",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-agent_party_direct_grant-online",
+          "digest": "sha256:86258e64b9dd6599f07265f93c5934bf059f6c017fce2241b80f94b473199750"
+        },
+        "bytesSha256": "c49cf20592211b420554524cc05ac974ac6f8c29cb85cb8937d095cab23cf3ac",
+        "valueDigest": "sha256:86258e64b9dd6599f07265f93c5934bf059f6c017fce2241b80f94b473199750"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:agent_party_direct_grant",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-agent_party_direct_grant-offline",
+      "paths": {
+        "act": "fixtures/cases/operation-agent_party_direct_grant-offline/act.json",
+        "content": "fixtures/cases/operation-agent_party_direct_grant-offline/content.json",
+        "rendered": "fixtures/cases/operation-agent_party_direct_grant-offline/rendered.json",
+        "intent": "fixtures/cases/operation-agent_party_direct_grant-offline/intent.json",
+        "context": "fixtures/cases/operation-agent_party_direct_grant-offline/context.json",
+        "policy": "fixtures/cases/operation-agent_party_direct_grant-offline/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "3459c74f5548a98465b0f68f95698145b2fe4cb305a76e938f27c6d6f46bac72",
+        "policySha256": "12e3f8212a4a0a2abca5c4563067833634b6e6363da242e5dd6a248cd7b9fc57",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-agent_party_direct_grant-offline",
+          "digest": "sha256:30137a56d4692c7c78a35288a546c8b45021d118b5f373a525ea318d475b63eb"
+        },
+        "bytesSha256": "3f98bd2d68548c8aa746728fa47403fd253cb51c1b928fcc293b346046678626",
+        "valueDigest": "sha256:30137a56d4692c7c78a35288a546c8b45021d118b5f373a525ea318d475b63eb"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:agent_party_direct_grant",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-represented_party_explicit_delegation-online",
+      "paths": {
+        "act": "fixtures/cases/operation-represented_party_explicit_delegation-online/act.json",
+        "content": "fixtures/cases/operation-represented_party_explicit_delegation-online/content.json",
+        "rendered": "fixtures/cases/operation-represented_party_explicit_delegation-online/rendered.json",
+        "intent": "fixtures/cases/operation-represented_party_explicit_delegation-online/intent.json",
+        "context": "fixtures/cases/operation-represented_party_explicit_delegation-online/context.json",
+        "policy": "fixtures/cases/operation-represented_party_explicit_delegation-online/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "45bf81b7476eb93b236e666268728313272f735d17457d3b86b1f4a1e8c2c1df",
+        "policySha256": "18e93962f14efa4ad201a8a1c89327295f7cfd7144160d15b3f58496f19a7129",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-represented_party_explicit_delegation-online",
+          "digest": "sha256:e4f1e216163f91c55fdabde22037db1f022ba594f32dde3bd86cfcb056147b10"
+        },
+        "bytesSha256": "ff35cead23f768f22a32ba27c39a7ac940b382344f38f3f0586cdcb2f6aee16c",
+        "valueDigest": "sha256:e4f1e216163f91c55fdabde22037db1f022ba594f32dde3bd86cfcb056147b10"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:represented_party_explicit_delegation",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-represented_party_explicit_delegation-offline",
+      "paths": {
+        "act": "fixtures/cases/operation-represented_party_explicit_delegation-offline/act.json",
+        "content": "fixtures/cases/operation-represented_party_explicit_delegation-offline/content.json",
+        "rendered": "fixtures/cases/operation-represented_party_explicit_delegation-offline/rendered.json",
+        "intent": "fixtures/cases/operation-represented_party_explicit_delegation-offline/intent.json",
+        "context": "fixtures/cases/operation-represented_party_explicit_delegation-offline/context.json",
+        "policy": "fixtures/cases/operation-represented_party_explicit_delegation-offline/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "cb506df9d86911654ad09460d45b981a82d9636e6bbc0edc86c784e607cc4c0e",
+        "policySha256": "345f9db2ccf5cf6f08b45e1f5c6c666642188a59940c92ef9dcfc4956b38c17e",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-represented_party_explicit_delegation-offline",
+          "digest": "sha256:bea03734c7ff2a8be1eec1166aefda98ce1e9e05e102dd83cb600c7f7d731ac0"
+        },
+        "bytesSha256": "a60cf88bf77d29ff4d7ce08f9b8a49d18bc86cd47984b474b7b4da7b2f6dcdd8",
+        "valueDigest": "sha256:bea03734c7ff2a8be1eec1166aefda98ce1e9e05e102dd83cb600c7f7d731ac0"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:represented_party_explicit_delegation",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "structure-natural_person_self-online",
+      "paths": {
+        "act": "fixtures/cases/structure-natural_person_self-online/act.json",
+        "content": "fixtures/cases/structure-natural_person_self-online/content.json",
+        "rendered": "fixtures/cases/structure-natural_person_self-online/rendered.json",
+        "intent": "fixtures/cases/structure-natural_person_self-online/intent.json",
+        "context": "fixtures/cases/structure-natural_person_self-online/context.json",
+        "policy": "fixtures/cases/structure-natural_person_self-online/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-structure.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "4c575b74072d9c778ee94b588051eb4d556c851033ed48af1971e9c3903f5a30",
+        "policySha256": "8b54c843a8232d2e0735748c8f988bf573735adea34faa4552e56e75397045fd",
+        "intentProfileSha256": "f00876a42f69f759402c235fa59b36fcb9643efec34feb31f7979c5d2dff6304"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:structure-natural_person_self-online",
+          "digest": "sha256:5bd1175a8c4eb063680779a918ce88e9ff4fbc107bfacc26e285555ad9639b5a"
+        },
+        "bytesSha256": "16314290e634a2ad9ef4191cc18e2dcf1d0f4d55b23864c8499713b4e2c40f5d",
+        "valueDigest": "sha256:5bd1175a8c4eb063680779a918ce88e9ff4fbc107bfacc26e285555ad9639b5a"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "structure-natural_person_self-offline",
+      "paths": {
+        "act": "fixtures/cases/structure-natural_person_self-offline/act.json",
+        "content": "fixtures/cases/structure-natural_person_self-offline/content.json",
+        "rendered": "fixtures/cases/structure-natural_person_self-offline/rendered.json",
+        "intent": "fixtures/cases/structure-natural_person_self-offline/intent.json",
+        "context": "fixtures/cases/structure-natural_person_self-offline/context.json",
+        "policy": "fixtures/cases/structure-natural_person_self-offline/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-structure.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "de766fdebf6e12f17411c782f2338b2096f3775a901ca75021d5162c7ae72e15",
+        "policySha256": "5c14ced663bf7c70a68f44262aa1d95b78c560190965e34c6c7727ad86337ba8",
+        "intentProfileSha256": "f00876a42f69f759402c235fa59b36fcb9643efec34feb31f7979c5d2dff6304"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:structure-natural_person_self-offline",
+          "digest": "sha256:d88c2b690fd3e6bf2b4e44921ebb625bc2501d692ff00f6abf6919d2508618f8"
+        },
+        "bytesSha256": "1c7543cdc10b122f71e477d66bd3ca4cfc972fb4a343dc114b2015d0ea422e99",
+        "valueDigest": "sha256:d88c2b690fd3e6bf2b4e44921ebb625bc2501d692ff00f6abf6919d2508618f8"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "compliance-natural_person_self-online",
+      "paths": {
+        "act": "fixtures/cases/compliance-natural_person_self-online/act.json",
+        "content": "fixtures/cases/compliance-natural_person_self-online/content.json",
+        "rendered": "fixtures/cases/compliance-natural_person_self-online/rendered.json",
+        "intent": "fixtures/cases/compliance-natural_person_self-online/intent.json",
+        "context": "fixtures/cases/compliance-natural_person_self-online/context.json",
+        "policy": "fixtures/cases/compliance-natural_person_self-online/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-compliance.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "8556b5a025f61bc795f94a6fe773de04957f247547872d21d3ffe246743997fb",
+        "policySha256": "1776aa78be3102e15cbdd5c7db4dafd2806b9708aa2dcbb22484de28b488a7fd",
+        "intentProfileSha256": "2a986a98ed12ad1b78f532f01b77a7f6a8724a099528cb5417154c6938365b91"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:compliance-natural_person_self-online",
+          "digest": "sha256:7bd21a4b97bad8ee76ee4e0863d341a1204912a25f28bb2efc2ce169fdb4ba65"
+        },
+        "bytesSha256": "9aeec68c0841c7842c6242cb30d621e4f22d3afca6c8c03165878ad59138d11b",
+        "valueDigest": "sha256:7bd21a4b97bad8ee76ee4e0863d341a1204912a25f28bb2efc2ce169fdb4ba65"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "compliance-natural_person_self-offline",
+      "paths": {
+        "act": "fixtures/cases/compliance-natural_person_self-offline/act.json",
+        "content": "fixtures/cases/compliance-natural_person_self-offline/content.json",
+        "rendered": "fixtures/cases/compliance-natural_person_self-offline/rendered.json",
+        "intent": "fixtures/cases/compliance-natural_person_self-offline/intent.json",
+        "context": "fixtures/cases/compliance-natural_person_self-offline/context.json",
+        "policy": "fixtures/cases/compliance-natural_person_self-offline/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-compliance.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "81fde53d9c4ec0cf9505d7c1ba5f73498d692c7ef07ea34c6352c63860c9aa22",
+        "policySha256": "6308b670a5d702e8eac1155c088347411be1584a0c44e381cc60ccfb668a554a",
+        "intentProfileSha256": "2a986a98ed12ad1b78f532f01b77a7f6a8724a099528cb5417154c6938365b91"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:compliance-natural_person_self-offline",
+          "digest": "sha256:4b9a13ad91a34614604da27bb0b51b1067bbf178fbf7ac70e9bd01e3a3fe0928"
+        },
+        "bytesSha256": "c34846c102fefb19080e35e5424366260928a6aa031e5b48f02889fd82f779fe",
+        "valueDigest": "sha256:4b9a13ad91a34614604da27bb0b51b1067bbf178fbf7ac70e9bd01e3a3fe0928"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-natural_person_self-online-typed",
+      "paths": {
+        "act": "fixtures/cases/operation-natural_person_self-online-typed/act.json",
+        "content": "fixtures/cases/operation-natural_person_self-online-typed/content.json",
+        "rendered": "fixtures/cases/operation-natural_person_self-online-typed/rendered.json",
+        "intent": "fixtures/cases/operation-natural_person_self-online-typed/intent.json",
+        "context": "fixtures/cases/operation-natural_person_self-online-typed/context.json",
+        "policy": "fixtures/cases/operation-natural_person_self-online-typed/policy.json",
+        "intentProfile": "fixtures/profiles/typed-operation.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "71b49411c8845ef6635c14bdf690fdd951e5fcbf6ab274828dca455cc17927a8",
+        "policySha256": "bd5367d1697c72def92a129d69aa6c1fb79d6cb5970ed4d39bdba6287263929a",
+        "intentProfileSha256": "77ec6bdb9c0777e96da72253e3a87d3506b12ebdabe689cd198cca62910e456a"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-natural_person_self-online-typed",
+          "digest": "sha256:04a6fc310a30e471ca5e88e16abee9e0dcac86ad0730ea928544cf2b1a0f7c45"
+        },
+        "bytesSha256": "a356d9d5cc991ac3a106ed0246307a8c0a215409bd8ae22fc72aeecf855cf216",
+        "valueDigest": "sha256:04a6fc310a30e471ca5e88e16abee9e0dcac86ad0730ea928544cf2b1a0f7c45"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-natural_person_self-offline-typed",
+      "paths": {
+        "act": "fixtures/cases/operation-natural_person_self-offline-typed/act.json",
+        "content": "fixtures/cases/operation-natural_person_self-offline-typed/content.json",
+        "rendered": "fixtures/cases/operation-natural_person_self-offline-typed/rendered.json",
+        "intent": "fixtures/cases/operation-natural_person_self-offline-typed/intent.json",
+        "context": "fixtures/cases/operation-natural_person_self-offline-typed/context.json",
+        "policy": "fixtures/cases/operation-natural_person_self-offline-typed/policy.json",
+        "intentProfile": "fixtures/profiles/typed-operation.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "29c74c3026e8a8af5786e6f6ebb4cc46031a145f1e6f4096a79ec9d48177cdef",
+        "policySha256": "acdbd11f9f8e90dc39a1799c71a84c61fb422d41a66a3c70f90c47abca847851",
+        "intentProfileSha256": "77ec6bdb9c0777e96da72253e3a87d3506b12ebdabe689cd198cca62910e456a"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-natural_person_self-offline-typed",
+          "digest": "sha256:a351ee9d9170eb390155ea69d83043242dc7668da0be9893fcb77d26097afaad"
+        },
+        "bytesSha256": "136888f0ab6fd908ab9436e39badac532b2c7600777d268ef26f1d53916de859",
+        "valueDigest": "sha256:a351ee9d9170eb390155ea69d83043242dc7668da0be9893fcb77d26097afaad"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "structure-natural_person_self-online-typed",
+      "paths": {
+        "act": "fixtures/cases/structure-natural_person_self-online-typed/act.json",
+        "content": "fixtures/cases/structure-natural_person_self-online-typed/content.json",
+        "rendered": "fixtures/cases/structure-natural_person_self-online-typed/rendered.json",
+        "intent": "fixtures/cases/structure-natural_person_self-online-typed/intent.json",
+        "context": "fixtures/cases/structure-natural_person_self-online-typed/context.json",
+        "policy": "fixtures/cases/structure-natural_person_self-online-typed/policy.json",
+        "intentProfile": "fixtures/profiles/typed-structure.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "c0dbf523c873751c7a317526b1f75f53f86dc9db77ae0011adeec49db770087f",
+        "policySha256": "7902e53a0dcd18c01d1efedd00e0d9d7865f04f5f4f24852a6e3498a0d982671",
+        "intentProfileSha256": "9c979ab57d7661dcc62f815311b0931e27f22028a93078161587cd78725ee442"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:structure-natural_person_self-online-typed",
+          "digest": "sha256:0f74081e8024febd198bb4fda7f347745034ece56c41c50eadd2ec5750426e2c"
+        },
+        "bytesSha256": "2679e745fa3efb7423c2f8fba2c2224e447fa4c833c1d9712daefb40588e300c",
+        "valueDigest": "sha256:0f74081e8024febd198bb4fda7f347745034ece56c41c50eadd2ec5750426e2c"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "structure-natural_person_self-offline-typed",
+      "paths": {
+        "act": "fixtures/cases/structure-natural_person_self-offline-typed/act.json",
+        "content": "fixtures/cases/structure-natural_person_self-offline-typed/content.json",
+        "rendered": "fixtures/cases/structure-natural_person_self-offline-typed/rendered.json",
+        "intent": "fixtures/cases/structure-natural_person_self-offline-typed/intent.json",
+        "context": "fixtures/cases/structure-natural_person_self-offline-typed/context.json",
+        "policy": "fixtures/cases/structure-natural_person_self-offline-typed/policy.json",
+        "intentProfile": "fixtures/profiles/typed-structure.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "4cdb66390af9e314d849450333b1da4c21bfe196c1bc54e0f9ec8a0b9e6874b9",
+        "policySha256": "f98e40e69c7c34258cc7b88e5b45f093665e5609d9bf45a59443f9e5aa35d09f",
+        "intentProfileSha256": "9c979ab57d7661dcc62f815311b0931e27f22028a93078161587cd78725ee442"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:structure-natural_person_self-offline-typed",
+          "digest": "sha256:3b24c3e58dc23460e30c86905dc2b582043418b0a98b57bacfbd95242099077b"
+        },
+        "bytesSha256": "437d66cce455a076602fd25cb565ba1d1396f27cb5ae17b6b271591a411483ff",
+        "valueDigest": "sha256:3b24c3e58dc23460e30c86905dc2b582043418b0a98b57bacfbd95242099077b"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "compliance-natural_person_self-online-typed",
+      "paths": {
+        "act": "fixtures/cases/compliance-natural_person_self-online-typed/act.json",
+        "content": "fixtures/cases/compliance-natural_person_self-online-typed/content.json",
+        "rendered": "fixtures/cases/compliance-natural_person_self-online-typed/rendered.json",
+        "intent": "fixtures/cases/compliance-natural_person_self-online-typed/intent.json",
+        "context": "fixtures/cases/compliance-natural_person_self-online-typed/context.json",
+        "policy": "fixtures/cases/compliance-natural_person_self-online-typed/policy.json",
+        "intentProfile": "fixtures/profiles/typed-compliance.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "076b98bfe1355a2bd0f982c6afb30aa03f0614d2112bc0f8751a1e321008255d",
+        "policySha256": "569d531c5338d7f6989ef08473e359b681159366a8e2a1ccdaec9083576a307a",
+        "intentProfileSha256": "279f882ca2779b4d9248fad327e1c9a5462d3eabf4f0f4e0dd89b35be755a415"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:compliance-natural_person_self-online-typed",
+          "digest": "sha256:978b447f2fd13fda5b7c9b064cd2fa0d8a22c68215426696da47e283f3230bb6"
+        },
+        "bytesSha256": "79f7ce7d759a23bb752f0563f14ce007351a506ed2f8954a8f31823a560e4eb0",
+        "valueDigest": "sha256:978b447f2fd13fda5b7c9b064cd2fa0d8a22c68215426696da47e283f3230bb6"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "compliance-natural_person_self-offline-typed",
+      "paths": {
+        "act": "fixtures/cases/compliance-natural_person_self-offline-typed/act.json",
+        "content": "fixtures/cases/compliance-natural_person_self-offline-typed/content.json",
+        "rendered": "fixtures/cases/compliance-natural_person_self-offline-typed/rendered.json",
+        "intent": "fixtures/cases/compliance-natural_person_self-offline-typed/intent.json",
+        "context": "fixtures/cases/compliance-natural_person_self-offline-typed/context.json",
+        "policy": "fixtures/cases/compliance-natural_person_self-offline-typed/policy.json",
+        "intentProfile": "fixtures/profiles/typed-compliance.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "0a6c1ce4c3f83586d457e228799d952926b414c176079eff76a32de0c8f3609b",
+        "policySha256": "6aac27a22f93547f1e6c3201058900c062c2807785cf295a983bdabbf6e2948b",
+        "intentProfileSha256": "279f882ca2779b4d9248fad327e1c9a5462d3eabf4f0f4e0dd89b35be755a415"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:compliance-natural_person_self-offline-typed",
+          "digest": "sha256:7457b318e50012707b8e07864117c64c1b77b906a6c649e5548831e51ac3e682"
+        },
+        "bytesSha256": "675394803d44d81bb1cc37d4538e7f710f03488149a88ad63ad6569aff0ff4be",
+        "valueDigest": "sha256:7457b318e50012707b8e07864117c64c1b77b906a6c649e5548831e51ac3e682"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-natural_person_self-online-revision",
+      "paths": {
+        "act": "fixtures/cases/operation-natural_person_self-online-revision/act.json",
+        "content": "fixtures/cases/operation-natural_person_self-online-revision/content.json",
+        "rendered": "fixtures/cases/operation-natural_person_self-online-revision/rendered.json",
+        "intent": "fixtures/cases/operation-natural_person_self-online-revision/intent.json",
+        "context": "fixtures/cases/operation-natural_person_self-online-revision/context.json",
+        "policy": "fixtures/cases/operation-natural_person_self-online-revision/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "376991c76ccf1f070aeb4a8b14d8421f1f66e55fbf950127982dd24c01747d2d",
+        "policySha256": "244a670272e3dfa9c0467c1a57d874cdcbe375726359d8e7f71e7d603a990a16",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-natural_person_self-online-revision",
+          "digest": "sha256:10818130b5005620b8250ac1339cfb5b0f9b642bd6d12f23be414a630c77ea10"
+        },
+        "bytesSha256": "b781eacecc3f17d8dd63a9cc62c4d323649d50b2facc3ec4e9ba6ee2591cc31e",
+        "valueDigest": "sha256:10818130b5005620b8250ac1339cfb5b0f9b642bd6d12f23be414a630c77ea10"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-natural_person_self-offline-revision",
+      "paths": {
+        "act": "fixtures/cases/operation-natural_person_self-offline-revision/act.json",
+        "content": "fixtures/cases/operation-natural_person_self-offline-revision/content.json",
+        "rendered": "fixtures/cases/operation-natural_person_self-offline-revision/rendered.json",
+        "intent": "fixtures/cases/operation-natural_person_self-offline-revision/intent.json",
+        "context": "fixtures/cases/operation-natural_person_self-offline-revision/context.json",
+        "policy": "fixtures/cases/operation-natural_person_self-offline-revision/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "c5729253fd042cd7c62ded17cebeeb2d862b1780bece43f6f2be63ca9a7ee8c1",
+        "policySha256": "e89522537c6b9ac7365bc21c2c8904970576aaea7ad7cc8147d191e805ebcc27",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-natural_person_self-offline-revision",
+          "digest": "sha256:bf4fd085d2b12abb5facea86d13019e2382bdaac45cd0e519fc209bcb0e04e9e"
+        },
+        "bytesSha256": "bcb0aaa53d4e3717369137f91dfc3ecf05250da3110c8ae70b58f9efbc50473d",
+        "valueDigest": "sha256:bf4fd085d2b12abb5facea86d13019e2382bdaac45cd0e519fc209bcb0e04e9e"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-represented_party_authorized_representation-online-revision",
+      "paths": {
+        "act": "fixtures/cases/operation-represented_party_authorized_representation-online-revision/act.json",
+        "content": "fixtures/cases/operation-represented_party_authorized_representation-online-revision/content.json",
+        "rendered": "fixtures/cases/operation-represented_party_authorized_representation-online-revision/rendered.json",
+        "intent": "fixtures/cases/operation-represented_party_authorized_representation-online-revision/intent.json",
+        "context": "fixtures/cases/operation-represented_party_authorized_representation-online-revision/context.json",
+        "policy": "fixtures/cases/operation-represented_party_authorized_representation-online-revision/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "ca3f15363f2a2dca2fbf5999024c64aaae2a118c96c71319389523d982cc8549",
+        "policySha256": "3f984307d7c7598c271bb75e6d116fd1f7a989f19d0b2205d1f62f0f1a3ba091",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-represented_party_authorized_representation-online-revision",
+          "digest": "sha256:d77f057f2ead87cea64439200522201ed931d437678ac3523de669d9727c5d50"
+        },
+        "bytesSha256": "a31219dc64238481b99007511effa100ca26d37ffc0009b3667a925e8ba71025",
+        "valueDigest": "sha256:d77f057f2ead87cea64439200522201ed931d437678ac3523de669d9727c5d50"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:represented_party_authorized_representation",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-represented_party_authorized_representation-offline-revision",
+      "paths": {
+        "act": "fixtures/cases/operation-represented_party_authorized_representation-offline-revision/act.json",
+        "content": "fixtures/cases/operation-represented_party_authorized_representation-offline-revision/content.json",
+        "rendered": "fixtures/cases/operation-represented_party_authorized_representation-offline-revision/rendered.json",
+        "intent": "fixtures/cases/operation-represented_party_authorized_representation-offline-revision/intent.json",
+        "context": "fixtures/cases/operation-represented_party_authorized_representation-offline-revision/context.json",
+        "policy": "fixtures/cases/operation-represented_party_authorized_representation-offline-revision/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "f48593edac812056be106d9baf5a48bf36171583246146aa2464bf060a49c177",
+        "policySha256": "55d2953fc19c6cb16b97bb0f06eb0ce931d71e335452c78411eb5731d9dc188b",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-represented_party_authorized_representation-offline-revision",
+          "digest": "sha256:c1a163d0496fced28b92d80d73f1e84fb72e0e7bb1fc4271e36126d548d29ac9"
+        },
+        "bytesSha256": "1ce7ab16a69a8060b03ad6801f5bd20374993d93300094b0116940707d89a5b6",
+        "valueDigest": "sha256:c1a163d0496fced28b92d80d73f1e84fb72e0e7bb1fc4271e36126d548d29ac9"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:represented_party_authorized_representation",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-agent_party_direct_grant-online-revision",
+      "paths": {
+        "act": "fixtures/cases/operation-agent_party_direct_grant-online-revision/act.json",
+        "content": "fixtures/cases/operation-agent_party_direct_grant-online-revision/content.json",
+        "rendered": "fixtures/cases/operation-agent_party_direct_grant-online-revision/rendered.json",
+        "intent": "fixtures/cases/operation-agent_party_direct_grant-online-revision/intent.json",
+        "context": "fixtures/cases/operation-agent_party_direct_grant-online-revision/context.json",
+        "policy": "fixtures/cases/operation-agent_party_direct_grant-online-revision/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "e4197f0bc0a9fe9d168a75a6590016cd9b576e97ade65ccc57c41cb8b3324ad8",
+        "policySha256": "9f27770fa2e916f3564d60fe094b0dc67b1e5e44eb916ea4da6db5e930265d28",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-agent_party_direct_grant-online-revision",
+          "digest": "sha256:1eb88df37ebdced175e99525883e617f635abae66210c03224983be5e47a1378"
+        },
+        "bytesSha256": "47d801035bb294833cbd9251675ab9b3b136e2eb431adb0f6278f3f5e74f68d2",
+        "valueDigest": "sha256:1eb88df37ebdced175e99525883e617f635abae66210c03224983be5e47a1378"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:agent_party_direct_grant",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-agent_party_direct_grant-offline-revision",
+      "paths": {
+        "act": "fixtures/cases/operation-agent_party_direct_grant-offline-revision/act.json",
+        "content": "fixtures/cases/operation-agent_party_direct_grant-offline-revision/content.json",
+        "rendered": "fixtures/cases/operation-agent_party_direct_grant-offline-revision/rendered.json",
+        "intent": "fixtures/cases/operation-agent_party_direct_grant-offline-revision/intent.json",
+        "context": "fixtures/cases/operation-agent_party_direct_grant-offline-revision/context.json",
+        "policy": "fixtures/cases/operation-agent_party_direct_grant-offline-revision/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "0d10bb37edf32e9f1b01d1d2688ed74294c75f06c954b1b1acd37d1e7ba04cb1",
+        "policySha256": "4a386b8d931dce1ea450fbf40f05f525fdbe26c15442df48a2b168f95aa743dd",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-agent_party_direct_grant-offline-revision",
+          "digest": "sha256:96db0f3d582446adb8a485193ebe2abdc165f4991c877b6be27322dd4e4939b0"
+        },
+        "bytesSha256": "76874383409e730e1d097721e4aab0212e4ec25e04620933b6c6111789c77b40",
+        "valueDigest": "sha256:96db0f3d582446adb8a485193ebe2abdc165f4991c877b6be27322dd4e4939b0"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:agent_party_direct_grant",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-represented_party_explicit_delegation-online-revision",
+      "paths": {
+        "act": "fixtures/cases/operation-represented_party_explicit_delegation-online-revision/act.json",
+        "content": "fixtures/cases/operation-represented_party_explicit_delegation-online-revision/content.json",
+        "rendered": "fixtures/cases/operation-represented_party_explicit_delegation-online-revision/rendered.json",
+        "intent": "fixtures/cases/operation-represented_party_explicit_delegation-online-revision/intent.json",
+        "context": "fixtures/cases/operation-represented_party_explicit_delegation-online-revision/context.json",
+        "policy": "fixtures/cases/operation-represented_party_explicit_delegation-online-revision/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "18fa2f7cfe35fc9e78e6fe80138ca65872d4ebfa19a3da549a1b2e92b3843066",
+        "policySha256": "ac67d796a5fac43d79af6af3f06916456d0e2aa022dde9be2990d4f34bdcf5cb",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-represented_party_explicit_delegation-online-revision",
+          "digest": "sha256:7fe10138a960aca8fc3ec288254e5540b7b4839c8e30d74feccb031f10ddcaaa"
+        },
+        "bytesSha256": "faf94485a3e447e1e1007a19b9ef872a1af18d4f240d743c250c87bd3eace8d6",
+        "valueDigest": "sha256:7fe10138a960aca8fc3ec288254e5540b7b4839c8e30d74feccb031f10ddcaaa"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:represented_party_explicit_delegation",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-represented_party_explicit_delegation-offline-revision",
+      "paths": {
+        "act": "fixtures/cases/operation-represented_party_explicit_delegation-offline-revision/act.json",
+        "content": "fixtures/cases/operation-represented_party_explicit_delegation-offline-revision/content.json",
+        "rendered": "fixtures/cases/operation-represented_party_explicit_delegation-offline-revision/rendered.json",
+        "intent": "fixtures/cases/operation-represented_party_explicit_delegation-offline-revision/intent.json",
+        "context": "fixtures/cases/operation-represented_party_explicit_delegation-offline-revision/context.json",
+        "policy": "fixtures/cases/operation-represented_party_explicit_delegation-offline-revision/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "6199b0d924d8ba50fdd8dc9e1c0d7beb0c0d3979fd1a335b872c2064ecaa25d6",
+        "policySha256": "88d9fdaeb15d6a28b4e69e92aa711988f75902a1f708a579c4bc96c44f53cc2c",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-represented_party_explicit_delegation-offline-revision",
+          "digest": "sha256:709df377f3a92230ea81e31793bd204f7d6276cea10748eeb23b8975b6ecd5ba"
+        },
+        "bytesSha256": "03c3cc0366965f20c30820ce841c83b70bef464c464014c6afe10a1d53a3ab71",
+        "valueDigest": "sha256:709df377f3a92230ea81e31793bd204f7d6276cea10748eeb23b8975b6ecd5ba"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:represented_party_explicit_delegation",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "structure-natural_person_self-online-revision",
+      "paths": {
+        "act": "fixtures/cases/structure-natural_person_self-online-revision/act.json",
+        "content": "fixtures/cases/structure-natural_person_self-online-revision/content.json",
+        "rendered": "fixtures/cases/structure-natural_person_self-online-revision/rendered.json",
+        "intent": "fixtures/cases/structure-natural_person_self-online-revision/intent.json",
+        "context": "fixtures/cases/structure-natural_person_self-online-revision/context.json",
+        "policy": "fixtures/cases/structure-natural_person_self-online-revision/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-structure.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "32e80391a82cce72d128736106c7f9563d51d77845ee1b44f655584e898a38c2",
+        "policySha256": "cce0f88594ddae70f195e290fff58b9454ea50b143b44afaddbc749d978e2ff3",
+        "intentProfileSha256": "f00876a42f69f759402c235fa59b36fcb9643efec34feb31f7979c5d2dff6304"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:structure-natural_person_self-online-revision",
+          "digest": "sha256:45e2f3637c968d784d3fa86fccd9d80ff09953e02488d898be2930c9e1d051f2"
+        },
+        "bytesSha256": "c792aff89fe244fedd4b3fedc68c58bad1fed1e4b4b36cc831cdff5b7ad07136",
+        "valueDigest": "sha256:45e2f3637c968d784d3fa86fccd9d80ff09953e02488d898be2930c9e1d051f2"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "structure-natural_person_self-offline-revision",
+      "paths": {
+        "act": "fixtures/cases/structure-natural_person_self-offline-revision/act.json",
+        "content": "fixtures/cases/structure-natural_person_self-offline-revision/content.json",
+        "rendered": "fixtures/cases/structure-natural_person_self-offline-revision/rendered.json",
+        "intent": "fixtures/cases/structure-natural_person_self-offline-revision/intent.json",
+        "context": "fixtures/cases/structure-natural_person_self-offline-revision/context.json",
+        "policy": "fixtures/cases/structure-natural_person_self-offline-revision/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-structure.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "266872970f46852af0f8f63f6b35132f7125a7c6690ff330d4e7cc50f22ef0a6",
+        "policySha256": "e053597df19ebd238c6904a76cf4939a7786e7bb85cc5add8503388daa10942f",
+        "intentProfileSha256": "f00876a42f69f759402c235fa59b36fcb9643efec34feb31f7979c5d2dff6304"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:structure-natural_person_self-offline-revision",
+          "digest": "sha256:ede99fff26f4e7a3ab65cb528b4584f0879cbf70fc8f5b78bd1f8c11302ddc9c"
+        },
+        "bytesSha256": "76dbb98aab5ba024077bd0cf5522dbd10333f78fdf2dcdfd16237abf74a99071",
+        "valueDigest": "sha256:ede99fff26f4e7a3ab65cb528b4584f0879cbf70fc8f5b78bd1f8c11302ddc9c"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "compliance-natural_person_self-online-revision",
+      "paths": {
+        "act": "fixtures/cases/compliance-natural_person_self-online-revision/act.json",
+        "content": "fixtures/cases/compliance-natural_person_self-online-revision/content.json",
+        "rendered": "fixtures/cases/compliance-natural_person_self-online-revision/rendered.json",
+        "intent": "fixtures/cases/compliance-natural_person_self-online-revision/intent.json",
+        "context": "fixtures/cases/compliance-natural_person_self-online-revision/context.json",
+        "policy": "fixtures/cases/compliance-natural_person_self-online-revision/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-compliance.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "376f383bf6c7efac626b5f22eb6982df340fffc5732f0a719acf1fff00df7549",
+        "policySha256": "275128473b1b32e2b759507caa7eea196b28ea307593ac6ac0c531b18c26046e",
+        "intentProfileSha256": "2a986a98ed12ad1b78f532f01b77a7f6a8724a099528cb5417154c6938365b91"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:compliance-natural_person_self-online-revision",
+          "digest": "sha256:154da3424cca5eb61acdb180e8e27a7ed4e7c40ea1f280eae2184ce34c5f4ece"
+        },
+        "bytesSha256": "ce2d2f62c79a749ad19cc692b54a605725df3ff15af658add499ecec683eb860",
+        "valueDigest": "sha256:154da3424cca5eb61acdb180e8e27a7ed4e7c40ea1f280eae2184ce34c5f4ece"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "compliance-natural_person_self-offline-revision",
+      "paths": {
+        "act": "fixtures/cases/compliance-natural_person_self-offline-revision/act.json",
+        "content": "fixtures/cases/compliance-natural_person_self-offline-revision/content.json",
+        "rendered": "fixtures/cases/compliance-natural_person_self-offline-revision/rendered.json",
+        "intent": "fixtures/cases/compliance-natural_person_self-offline-revision/intent.json",
+        "context": "fixtures/cases/compliance-natural_person_self-offline-revision/context.json",
+        "policy": "fixtures/cases/compliance-natural_person_self-offline-revision/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-compliance.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "01c7e8f9d10061e6e303ff2cd2877b664225866290ec7aa1473b0f247428b844",
+        "policySha256": "0fe7c81bf5b84f2e3f5ee9f82e266e64b7d89e71628a062a8e744788ed69637a",
+        "intentProfileSha256": "2a986a98ed12ad1b78f532f01b77a7f6a8724a099528cb5417154c6938365b91"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:compliance-natural_person_self-offline-revision",
+          "digest": "sha256:0f72b6eeba8f8434fb9a8bacc12827a6432fe56aefbae5bebd1250c202897055"
+        },
+        "bytesSha256": "a49484de70940b6fc40e3e3127cc1da3b04aa73ebe62fd4754dba22a86fb3394",
+        "valueDigest": "sha256:0f72b6eeba8f8434fb9a8bacc12827a6432fe56aefbae5bebd1250c202897055"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-natural_person_self-online-typed-revision",
+      "paths": {
+        "act": "fixtures/cases/operation-natural_person_self-online-typed-revision/act.json",
+        "content": "fixtures/cases/operation-natural_person_self-online-typed-revision/content.json",
+        "rendered": "fixtures/cases/operation-natural_person_self-online-typed-revision/rendered.json",
+        "intent": "fixtures/cases/operation-natural_person_self-online-typed-revision/intent.json",
+        "context": "fixtures/cases/operation-natural_person_self-online-typed-revision/context.json",
+        "policy": "fixtures/cases/operation-natural_person_self-online-typed-revision/policy.json",
+        "intentProfile": "fixtures/profiles/typed-operation.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "93ad6f80be9675efff8e110850f83698f3250b96cccc38a86bab3e6adcea35ae",
+        "policySha256": "26fe34a727bdea35f76769a063b7b722e0726f65ae2ebced9f5949af8ed1745f",
+        "intentProfileSha256": "77ec6bdb9c0777e96da72253e3a87d3506b12ebdabe689cd198cca62910e456a"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-natural_person_self-online-typed-revision",
+          "digest": "sha256:20de651938b62e2280d083a3acc605fea90f9b54fbb61b1a1741354ad387943a"
+        },
+        "bytesSha256": "1e60badf13017c40f52b9b8bb6ac331a3c60fc05557b1deb18fd091315b9eb4c",
+        "valueDigest": "sha256:20de651938b62e2280d083a3acc605fea90f9b54fbb61b1a1741354ad387943a"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-natural_person_self-offline-typed-revision",
+      "paths": {
+        "act": "fixtures/cases/operation-natural_person_self-offline-typed-revision/act.json",
+        "content": "fixtures/cases/operation-natural_person_self-offline-typed-revision/content.json",
+        "rendered": "fixtures/cases/operation-natural_person_self-offline-typed-revision/rendered.json",
+        "intent": "fixtures/cases/operation-natural_person_self-offline-typed-revision/intent.json",
+        "context": "fixtures/cases/operation-natural_person_self-offline-typed-revision/context.json",
+        "policy": "fixtures/cases/operation-natural_person_self-offline-typed-revision/policy.json",
+        "intentProfile": "fixtures/profiles/typed-operation.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "2d81de9472284de38752248c73458d2ea13336e6aaaa9ca35b17941a673c8d2f",
+        "policySha256": "316885af6beb9a89297863deaba2ca70a05e4a0f2aadcec10fc17a55f22c6b97",
+        "intentProfileSha256": "77ec6bdb9c0777e96da72253e3a87d3506b12ebdabe689cd198cca62910e456a"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-natural_person_self-offline-typed-revision",
+          "digest": "sha256:66a0369de205d1d04d026d5cf6d00d0158b90cc18c10daf4a438d532daa668d8"
+        },
+        "bytesSha256": "0f1fa6a81f102f46547fc4d646bca6cb37ddc40b127925487f7c646a4764ddb6",
+        "valueDigest": "sha256:66a0369de205d1d04d026d5cf6d00d0158b90cc18c10daf4a438d532daa668d8"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "structure-natural_person_self-online-typed-revision",
+      "paths": {
+        "act": "fixtures/cases/structure-natural_person_self-online-typed-revision/act.json",
+        "content": "fixtures/cases/structure-natural_person_self-online-typed-revision/content.json",
+        "rendered": "fixtures/cases/structure-natural_person_self-online-typed-revision/rendered.json",
+        "intent": "fixtures/cases/structure-natural_person_self-online-typed-revision/intent.json",
+        "context": "fixtures/cases/structure-natural_person_self-online-typed-revision/context.json",
+        "policy": "fixtures/cases/structure-natural_person_self-online-typed-revision/policy.json",
+        "intentProfile": "fixtures/profiles/typed-structure.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "bb80815a8c6d654cc500c35dcdb74f88743a7256cb5bbf69c905058907740ef4",
+        "policySha256": "d759ffa243b8c104a052b384b1a1f24509c51df0e40d1686f476a57c7f39795e",
+        "intentProfileSha256": "9c979ab57d7661dcc62f815311b0931e27f22028a93078161587cd78725ee442"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:structure-natural_person_self-online-typed-revision",
+          "digest": "sha256:d12ed4a802fe6068391217bcb142f69652c0523764da25f0cb3aaf3bdbf63954"
+        },
+        "bytesSha256": "7123be5651d85ba2809fabc29d6445b91cd4977433c6efafd52954d88ae7005b",
+        "valueDigest": "sha256:d12ed4a802fe6068391217bcb142f69652c0523764da25f0cb3aaf3bdbf63954"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "structure-natural_person_self-offline-typed-revision",
+      "paths": {
+        "act": "fixtures/cases/structure-natural_person_self-offline-typed-revision/act.json",
+        "content": "fixtures/cases/structure-natural_person_self-offline-typed-revision/content.json",
+        "rendered": "fixtures/cases/structure-natural_person_self-offline-typed-revision/rendered.json",
+        "intent": "fixtures/cases/structure-natural_person_self-offline-typed-revision/intent.json",
+        "context": "fixtures/cases/structure-natural_person_self-offline-typed-revision/context.json",
+        "policy": "fixtures/cases/structure-natural_person_self-offline-typed-revision/policy.json",
+        "intentProfile": "fixtures/profiles/typed-structure.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "432285b0e6ead9f64dcfbd1339c4943f207ef0765f41df1b3f92c7021aeb24ae",
+        "policySha256": "2258f80f4004cbb4ddcee255dce8912e5fe02710a62c2103a72db1dc72630be6",
+        "intentProfileSha256": "9c979ab57d7661dcc62f815311b0931e27f22028a93078161587cd78725ee442"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:structure-natural_person_self-offline-typed-revision",
+          "digest": "sha256:8825aef97c6d67943e633ba939885cd7ef93df93bcc95b001c127951913d2abc"
+        },
+        "bytesSha256": "50c7280a14697262a62c663e727094c034c05288d6e5c899f78cf5f3cd48a9a4",
+        "valueDigest": "sha256:8825aef97c6d67943e633ba939885cd7ef93df93bcc95b001c127951913d2abc"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "compliance-natural_person_self-online-typed-revision",
+      "paths": {
+        "act": "fixtures/cases/compliance-natural_person_self-online-typed-revision/act.json",
+        "content": "fixtures/cases/compliance-natural_person_self-online-typed-revision/content.json",
+        "rendered": "fixtures/cases/compliance-natural_person_self-online-typed-revision/rendered.json",
+        "intent": "fixtures/cases/compliance-natural_person_self-online-typed-revision/intent.json",
+        "context": "fixtures/cases/compliance-natural_person_self-online-typed-revision/context.json",
+        "policy": "fixtures/cases/compliance-natural_person_self-online-typed-revision/policy.json",
+        "intentProfile": "fixtures/profiles/typed-compliance.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "400429da4e145d1694cfff69bf0834e038605c73d5c54314982cf09a38cca05a",
+        "policySha256": "d2a44b81e335c57462ce5e923014642137c1151e424066695f3fb588f441e7e5",
+        "intentProfileSha256": "279f882ca2779b4d9248fad327e1c9a5462d3eabf4f0f4e0dd89b35be755a415"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:compliance-natural_person_self-online-typed-revision",
+          "digest": "sha256:044737e0d1a3fd4f76cdd67de1bf42620d25eb6e554debb2d1ad7951ddd892a9"
+        },
+        "bytesSha256": "3b6e091ad6eab8ed71b964cdb4cff54c204abacac18bf628e1e49091759de15d",
+        "valueDigest": "sha256:044737e0d1a3fd4f76cdd67de1bf42620d25eb6e554debb2d1ad7951ddd892a9"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "compliance-natural_person_self-offline-typed-revision",
+      "paths": {
+        "act": "fixtures/cases/compliance-natural_person_self-offline-typed-revision/act.json",
+        "content": "fixtures/cases/compliance-natural_person_self-offline-typed-revision/content.json",
+        "rendered": "fixtures/cases/compliance-natural_person_self-offline-typed-revision/rendered.json",
+        "intent": "fixtures/cases/compliance-natural_person_self-offline-typed-revision/intent.json",
+        "context": "fixtures/cases/compliance-natural_person_self-offline-typed-revision/context.json",
+        "policy": "fixtures/cases/compliance-natural_person_self-offline-typed-revision/policy.json",
+        "intentProfile": "fixtures/profiles/typed-compliance.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "c09f3767f1942c2bd7ca8f815d5f2defb0f5bec7c5541fe01c36137128ee2c3f",
+        "policySha256": "dce16ef58bda9a0360ca2f35102661224ff06908a4ee0dff93b15f0e6d0e1992",
+        "intentProfileSha256": "279f882ca2779b4d9248fad327e1c9a5462d3eabf4f0f4e0dd89b35be755a415"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:compliance-natural_person_self-offline-typed-revision",
+          "digest": "sha256:e357b8cbd532b947124190285b56b34d80ea8886feff4e79b185434089dbce8d"
+        },
+        "bytesSha256": "4db686ddd24eb76bac4880bdfa9a64271e6c4f4ac8ead11eef7b2af63a966f0c",
+        "valueDigest": "sha256:e357b8cbd532b947124190285b56b34d80ea8886feff4e79b185434089dbce8d"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-natural_person_self-online-mixed",
+      "paths": {
+        "act": "fixtures/cases/operation-natural_person_self-online-mixed/act.json",
+        "content": "fixtures/cases/operation-natural_person_self-online-mixed/content.json",
+        "rendered": "fixtures/cases/operation-natural_person_self-online-mixed/rendered.json",
+        "intent": "fixtures/cases/operation-natural_person_self-online-mixed/intent.json",
+        "context": "fixtures/cases/operation-natural_person_self-online-mixed/context.json",
+        "policy": "fixtures/cases/operation-natural_person_self-online-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "3cb3e264592e8a1b829a09092eb6964eaf847b8201fd4420ae1998366d48a0f6",
+        "policySha256": "4fdd951f246a108fbf0034199ac04648f3d2cd181e0a741692c19f54f28e68ac",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-natural_person_self-online-mixed",
+          "digest": "sha256:77b4715b14a3a76c6b6031989562f842644bc3340cebaceb819b0b4cc7d19d79"
+        },
+        "bytesSha256": "73ff311d90b7a0fe031146dd23d48b6a99e604467e74d58045a155c110f2e4f6",
+        "valueDigest": "sha256:77b4715b14a3a76c6b6031989562f842644bc3340cebaceb819b0b4cc7d19d79"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-natural_person_self-offline-mixed",
+      "paths": {
+        "act": "fixtures/cases/operation-natural_person_self-offline-mixed/act.json",
+        "content": "fixtures/cases/operation-natural_person_self-offline-mixed/content.json",
+        "rendered": "fixtures/cases/operation-natural_person_self-offline-mixed/rendered.json",
+        "intent": "fixtures/cases/operation-natural_person_self-offline-mixed/intent.json",
+        "context": "fixtures/cases/operation-natural_person_self-offline-mixed/context.json",
+        "policy": "fixtures/cases/operation-natural_person_self-offline-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "78df0fd4f2520e1b7b300d58d51a097bc08bca7fa774afb3d3cedba604f35c04",
+        "policySha256": "e7cfc5835dc3445d2a84e53b9d4d005ae0a0bbab3773dbdcb7ba944b0b72994a",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-natural_person_self-offline-mixed",
+          "digest": "sha256:db91281885e43a1887b5c52eaaf15f2e021adaf71b1e0506d33fbfab11a028bf"
+        },
+        "bytesSha256": "86e31b4c1b3d68eb4017cc8eb4abbcbf0a3f20c766aee810080958ae7ce30e82",
+        "valueDigest": "sha256:db91281885e43a1887b5c52eaaf15f2e021adaf71b1e0506d33fbfab11a028bf"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-represented_party_authorized_representation-online-mixed",
+      "paths": {
+        "act": "fixtures/cases/operation-represented_party_authorized_representation-online-mixed/act.json",
+        "content": "fixtures/cases/operation-represented_party_authorized_representation-online-mixed/content.json",
+        "rendered": "fixtures/cases/operation-represented_party_authorized_representation-online-mixed/rendered.json",
+        "intent": "fixtures/cases/operation-represented_party_authorized_representation-online-mixed/intent.json",
+        "context": "fixtures/cases/operation-represented_party_authorized_representation-online-mixed/context.json",
+        "policy": "fixtures/cases/operation-represented_party_authorized_representation-online-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "b930a4d8a2e51dabf3d7d9e98dace8f55df181de1a4fc4fc398af4775a016774",
+        "policySha256": "d9947690040f27b9583e2c681a89b9a206cc4d05d9b189afec9ac3391a5e125f",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-represented_party_authorized_representation-online-mixed",
+          "digest": "sha256:8bf7532e88a1e2a2631812d48b812ce573248a4c7d4a0c3b96ef8a74069068e6"
+        },
+        "bytesSha256": "de299bddbf9e014ed2c50ebe3261e924a28c1ef51dacdf3d6b49d023481fd64f",
+        "valueDigest": "sha256:8bf7532e88a1e2a2631812d48b812ce573248a4c7d4a0c3b96ef8a74069068e6"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:represented_party_authorized_representation",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-represented_party_authorized_representation-offline-mixed",
+      "paths": {
+        "act": "fixtures/cases/operation-represented_party_authorized_representation-offline-mixed/act.json",
+        "content": "fixtures/cases/operation-represented_party_authorized_representation-offline-mixed/content.json",
+        "rendered": "fixtures/cases/operation-represented_party_authorized_representation-offline-mixed/rendered.json",
+        "intent": "fixtures/cases/operation-represented_party_authorized_representation-offline-mixed/intent.json",
+        "context": "fixtures/cases/operation-represented_party_authorized_representation-offline-mixed/context.json",
+        "policy": "fixtures/cases/operation-represented_party_authorized_representation-offline-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "7eebd42fddbc0aa9891976be04cd6d7e621bde291026ee82651e7282c7346207",
+        "policySha256": "642c67828e632bdfc90878982f23746a95779a45c38a1dedd19d5fd2ad4eb21f",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-represented_party_authorized_representation-offline-mixed",
+          "digest": "sha256:7768befedd3995b54e54c953cf13c030061cfa5aa2272233735019c64513760a"
+        },
+        "bytesSha256": "e2aef66d1d2f0249ac57587ca0109278226990f8b1c8cbf7009b4a86ca497d00",
+        "valueDigest": "sha256:7768befedd3995b54e54c953cf13c030061cfa5aa2272233735019c64513760a"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:represented_party_authorized_representation",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-agent_party_direct_grant-online-mixed",
+      "paths": {
+        "act": "fixtures/cases/operation-agent_party_direct_grant-online-mixed/act.json",
+        "content": "fixtures/cases/operation-agent_party_direct_grant-online-mixed/content.json",
+        "rendered": "fixtures/cases/operation-agent_party_direct_grant-online-mixed/rendered.json",
+        "intent": "fixtures/cases/operation-agent_party_direct_grant-online-mixed/intent.json",
+        "context": "fixtures/cases/operation-agent_party_direct_grant-online-mixed/context.json",
+        "policy": "fixtures/cases/operation-agent_party_direct_grant-online-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "48014db0fd2b283e8fb4f349ae0e484111f91469bdc8b294e4df150161d6340e",
+        "policySha256": "d78b6b9f0c977fbc7712797c738dccb24d085f4701b5e0456016b8cbe65910be",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-agent_party_direct_grant-online-mixed",
+          "digest": "sha256:db811a468feaca44a059cf40f36bb5116ff30969641c91068a1687654139b926"
+        },
+        "bytesSha256": "cf0a429abcf4e284d6fc6aef9e27c55cf7127eab6a6e89a1ebb0f9e5ee47790e",
+        "valueDigest": "sha256:db811a468feaca44a059cf40f36bb5116ff30969641c91068a1687654139b926"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:agent_party_direct_grant",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-agent_party_direct_grant-offline-mixed",
+      "paths": {
+        "act": "fixtures/cases/operation-agent_party_direct_grant-offline-mixed/act.json",
+        "content": "fixtures/cases/operation-agent_party_direct_grant-offline-mixed/content.json",
+        "rendered": "fixtures/cases/operation-agent_party_direct_grant-offline-mixed/rendered.json",
+        "intent": "fixtures/cases/operation-agent_party_direct_grant-offline-mixed/intent.json",
+        "context": "fixtures/cases/operation-agent_party_direct_grant-offline-mixed/context.json",
+        "policy": "fixtures/cases/operation-agent_party_direct_grant-offline-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "e40946a500f4fbcb166ba611feb4b3727f743365a1735a2c312e686b491104e6",
+        "policySha256": "45a7385a8872173ab7fdbe0080450b9dfe3b227fa9797f6a053a852a4c30b4d8",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-agent_party_direct_grant-offline-mixed",
+          "digest": "sha256:28e4b8b7e62550b7be2d795a13e017faf3aea7bf613821aff7604be72b8ffb67"
+        },
+        "bytesSha256": "dd562608039afb8ec365e7ea19ba8cf225a2f5180ca333a2cf0e58b76f2bec9b",
+        "valueDigest": "sha256:28e4b8b7e62550b7be2d795a13e017faf3aea7bf613821aff7604be72b8ffb67"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:agent_party_direct_grant",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-represented_party_explicit_delegation-online-mixed",
+      "paths": {
+        "act": "fixtures/cases/operation-represented_party_explicit_delegation-online-mixed/act.json",
+        "content": "fixtures/cases/operation-represented_party_explicit_delegation-online-mixed/content.json",
+        "rendered": "fixtures/cases/operation-represented_party_explicit_delegation-online-mixed/rendered.json",
+        "intent": "fixtures/cases/operation-represented_party_explicit_delegation-online-mixed/intent.json",
+        "context": "fixtures/cases/operation-represented_party_explicit_delegation-online-mixed/context.json",
+        "policy": "fixtures/cases/operation-represented_party_explicit_delegation-online-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "0ab8e5d579da6c2cf7d4a43eb488306284b7219a38b9321791e7100f900778f2",
+        "policySha256": "6872329532af9659c696b9fe10510213b7c6af7446bec92942c028f59f39d516",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-represented_party_explicit_delegation-online-mixed",
+          "digest": "sha256:f9c289811d53d8391da1cc9644001a7af5b6e2cb2fa0e4cd230f9d772158c83b"
+        },
+        "bytesSha256": "21498435e12708561d8d7c52a710cb4f42fc2b9c7af1b03c097979f3ded650e4",
+        "valueDigest": "sha256:f9c289811d53d8391da1cc9644001a7af5b6e2cb2fa0e4cd230f9d772158c83b"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:represented_party_explicit_delegation",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-represented_party_explicit_delegation-offline-mixed",
+      "paths": {
+        "act": "fixtures/cases/operation-represented_party_explicit_delegation-offline-mixed/act.json",
+        "content": "fixtures/cases/operation-represented_party_explicit_delegation-offline-mixed/content.json",
+        "rendered": "fixtures/cases/operation-represented_party_explicit_delegation-offline-mixed/rendered.json",
+        "intent": "fixtures/cases/operation-represented_party_explicit_delegation-offline-mixed/intent.json",
+        "context": "fixtures/cases/operation-represented_party_explicit_delegation-offline-mixed/context.json",
+        "policy": "fixtures/cases/operation-represented_party_explicit_delegation-offline-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-operation.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "f71e5c955986ade443658df22d2601eca70bc97921517b36f2dbbf79e122e605",
+        "policySha256": "dc954136b7a3dee883ff0ecf35ee094b434b108a06eeb1a45dc03c200a765ec2",
+        "intentProfileSha256": "a0d7febd49c4de3c7229e32ca7e44a2800a8248e7b39b2afc2583dbbf4543464"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-represented_party_explicit_delegation-offline-mixed",
+          "digest": "sha256:b90ed3bd81711ce78ab89817bafaf12ecf9ff757583cd5c84645eab9fc431e6f"
+        },
+        "bytesSha256": "7c7b3a867cee09c9a3744070856e1b2299f5a1a4a7443c23468fbd968b760a5e",
+        "valueDigest": "sha256:b90ed3bd81711ce78ab89817bafaf12ecf9ff757583cd5c84645eab9fc431e6f"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:represented_party_explicit_delegation",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "structure-natural_person_self-online-mixed",
+      "paths": {
+        "act": "fixtures/cases/structure-natural_person_self-online-mixed/act.json",
+        "content": "fixtures/cases/structure-natural_person_self-online-mixed/content.json",
+        "rendered": "fixtures/cases/structure-natural_person_self-online-mixed/rendered.json",
+        "intent": "fixtures/cases/structure-natural_person_self-online-mixed/intent.json",
+        "context": "fixtures/cases/structure-natural_person_self-online-mixed/context.json",
+        "policy": "fixtures/cases/structure-natural_person_self-online-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-structure.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "c8d89b95af216a73ac71d5cee3127494aad6a87d75d4369637b859a4df8707c4",
+        "policySha256": "aa056aaac549102bfe734e7decc04a23de52d9ebce3f80b94b5d52ebfcfbe677",
+        "intentProfileSha256": "f00876a42f69f759402c235fa59b36fcb9643efec34feb31f7979c5d2dff6304"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:structure-natural_person_self-online-mixed",
+          "digest": "sha256:6b1fe4cc6c5e1d6c9ff9cb2fe319fb3c72714d8c9a7afe40072a1204fb470740"
+        },
+        "bytesSha256": "fcb8512db77fc658e2cc2bbb6264df60edea5ed4b93ccae9249bcaba831a47a7",
+        "valueDigest": "sha256:6b1fe4cc6c5e1d6c9ff9cb2fe319fb3c72714d8c9a7afe40072a1204fb470740"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "structure-natural_person_self-offline-mixed",
+      "paths": {
+        "act": "fixtures/cases/structure-natural_person_self-offline-mixed/act.json",
+        "content": "fixtures/cases/structure-natural_person_self-offline-mixed/content.json",
+        "rendered": "fixtures/cases/structure-natural_person_self-offline-mixed/rendered.json",
+        "intent": "fixtures/cases/structure-natural_person_self-offline-mixed/intent.json",
+        "context": "fixtures/cases/structure-natural_person_self-offline-mixed/context.json",
+        "policy": "fixtures/cases/structure-natural_person_self-offline-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-structure.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "19f277b570aa805038afaa5185102b03202c882b7ec1948bd3d61abf096f29b0",
+        "policySha256": "acc2c794ac07552d0a12f6b68e7d8a186bdcb06214a3a503da7a62fd60b3b554",
+        "intentProfileSha256": "f00876a42f69f759402c235fa59b36fcb9643efec34feb31f7979c5d2dff6304"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:structure-natural_person_self-offline-mixed",
+          "digest": "sha256:0afd854fd4a23b9eec3ea36eefb6be434a4e735a89f9aa6eb634f72c5979ac20"
+        },
+        "bytesSha256": "75f8907a8376be142b1622e9da72cb2f6fc63360323e172c6cd650bca85278a6",
+        "valueDigest": "sha256:0afd854fd4a23b9eec3ea36eefb6be434a4e735a89f9aa6eb634f72c5979ac20"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "compliance-natural_person_self-online-mixed",
+      "paths": {
+        "act": "fixtures/cases/compliance-natural_person_self-online-mixed/act.json",
+        "content": "fixtures/cases/compliance-natural_person_self-online-mixed/content.json",
+        "rendered": "fixtures/cases/compliance-natural_person_self-online-mixed/rendered.json",
+        "intent": "fixtures/cases/compliance-natural_person_self-online-mixed/intent.json",
+        "context": "fixtures/cases/compliance-natural_person_self-online-mixed/context.json",
+        "policy": "fixtures/cases/compliance-natural_person_self-online-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-compliance.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "1c5b3cabe1e3c9c74ec03324e6b6f77196c9206a37dc4ac9843a44f34569320d",
+        "policySha256": "d9eeb6c9db74678e962c497e78025fcc641e1b4997570df7a3f17360c3071ce9",
+        "intentProfileSha256": "2a986a98ed12ad1b78f532f01b77a7f6a8724a099528cb5417154c6938365b91"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:compliance-natural_person_self-online-mixed",
+          "digest": "sha256:dda3b0f5409073dcb74fcb69ebb0fa907574c3727d4cf9136a1179187063a231"
+        },
+        "bytesSha256": "5c6442acbd490db0576aceb26c9ffa52caa1fc83123b8a0e3e8ac3dc873ffd8b",
+        "valueDigest": "sha256:dda3b0f5409073dcb74fcb69ebb0fa907574c3727d4cf9136a1179187063a231"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "compliance-natural_person_self-offline-mixed",
+      "paths": {
+        "act": "fixtures/cases/compliance-natural_person_self-offline-mixed/act.json",
+        "content": "fixtures/cases/compliance-natural_person_self-offline-mixed/content.json",
+        "rendered": "fixtures/cases/compliance-natural_person_self-offline-mixed/rendered.json",
+        "intent": "fixtures/cases/compliance-natural_person_self-offline-mixed/intent.json",
+        "context": "fixtures/cases/compliance-natural_person_self-offline-mixed/context.json",
+        "policy": "fixtures/cases/compliance-natural_person_self-offline-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/legacy-compliance.json"
+      },
+      "schemaBundle": {},
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "457c1ecca12c94d9679a8f7ac55160afb417bb8d69d3a5344a559bce4092c3ef",
+        "policySha256": "094cb6eb2c2334da2e00b10492c563c4659e67d1c4e0d235b3134fa04deddc0a",
+        "intentProfileSha256": "2a986a98ed12ad1b78f532f01b77a7f6a8724a099528cb5417154c6938365b91"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:compliance-natural_person_self-offline-mixed",
+          "digest": "sha256:3e684ea114a099da2b8621b676f24a8a1f58f038e1986173e94f451f86770110"
+        },
+        "bytesSha256": "8efb1bc93feac4b2e321342e57ca773b4c0538efd32ba593fc1dacad37a052d9",
+        "valueDigest": "sha256:3e684ea114a099da2b8621b676f24a8a1f58f038e1986173e94f451f86770110"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-natural_person_self-online-typed-mixed",
+      "paths": {
+        "act": "fixtures/cases/operation-natural_person_self-online-typed-mixed/act.json",
+        "content": "fixtures/cases/operation-natural_person_self-online-typed-mixed/content.json",
+        "rendered": "fixtures/cases/operation-natural_person_self-online-typed-mixed/rendered.json",
+        "intent": "fixtures/cases/operation-natural_person_self-online-typed-mixed/intent.json",
+        "context": "fixtures/cases/operation-natural_person_self-online-typed-mixed/context.json",
+        "policy": "fixtures/cases/operation-natural_person_self-online-typed-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/typed-operation.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "e763a522211637285765fe8ed0de18ca0d9fa4606409cf7eddf1375b273035db",
+        "policySha256": "90747be7c116c73abe29d38c8d66011c688a421c8ba1035adde0d52e0881a46e",
+        "intentProfileSha256": "77ec6bdb9c0777e96da72253e3a87d3506b12ebdabe689cd198cca62910e456a"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-natural_person_self-online-typed-mixed",
+          "digest": "sha256:3f4b103ae77967d2f2e27d2a62d22e9aef71fe5b5dfc310025848136ba12e61a"
+        },
+        "bytesSha256": "62aa118bc96d8612a2b226689c8c8f3d1d3945bf4e6bf6ca2bd394e376552931",
+        "valueDigest": "sha256:3f4b103ae77967d2f2e27d2a62d22e9aef71fe5b5dfc310025848136ba12e61a"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "operation-natural_person_self-offline-typed-mixed",
+      "paths": {
+        "act": "fixtures/cases/operation-natural_person_self-offline-typed-mixed/act.json",
+        "content": "fixtures/cases/operation-natural_person_self-offline-typed-mixed/content.json",
+        "rendered": "fixtures/cases/operation-natural_person_self-offline-typed-mixed/rendered.json",
+        "intent": "fixtures/cases/operation-natural_person_self-offline-typed-mixed/intent.json",
+        "context": "fixtures/cases/operation-natural_person_self-offline-typed-mixed/context.json",
+        "policy": "fixtures/cases/operation-natural_person_self-offline-typed-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/typed-operation.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        },
+        {
+          "ref": "event:intervention:pruning:field-17:2026-04-08",
+          "path": "fixtures/source-events/pruning_operation.json"
+        },
+        {
+          "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+          "path": "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "82c1678f7df195ed11b4db6d721a7268dec026a2dc6e1b49e4cadedb9e9a2ffc",
+        "policySha256": "c613568aca70372935d55b032f9de42180c1e8b91ef7a1137fa443e31ce203aa",
+        "intentProfileSha256": "77ec6bdb9c0777e96da72253e3a87d3506b12ebdabe689cd198cca62910e456a"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:operation-natural_person_self-offline-typed-mixed",
+          "digest": "sha256:e2d12e82e70fb6020ff337b764aff8f3d6cdd94c07c6c8ece76122a220f131e8"
+        },
+        "bytesSha256": "2f98c7bfbd223bcf479d3412a58269972d8b0a084b4996b4773810572da342f1",
+        "valueDigest": "sha256:e2d12e82e70fb6020ff337b764aff8f3d6cdd94c07c6c8ece76122a220f131e8"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "structure-natural_person_self-online-typed-mixed",
+      "paths": {
+        "act": "fixtures/cases/structure-natural_person_self-online-typed-mixed/act.json",
+        "content": "fixtures/cases/structure-natural_person_self-online-typed-mixed/content.json",
+        "rendered": "fixtures/cases/structure-natural_person_self-online-typed-mixed/rendered.json",
+        "intent": "fixtures/cases/structure-natural_person_self-online-typed-mixed/intent.json",
+        "context": "fixtures/cases/structure-natural_person_self-online-typed-mixed/context.json",
+        "policy": "fixtures/cases/structure-natural_person_self-online-typed-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/typed-structure.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "7e085397d90cc3f70c20615a9fdeac59c7cb1a72b5d8cca8d829be7009694089",
+        "policySha256": "61d6df30b45e6ac0ea6de556446b581cb96ef7721235bed29fff517e50fae21f",
+        "intentProfileSha256": "9c979ab57d7661dcc62f815311b0931e27f22028a93078161587cd78725ee442"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:structure-natural_person_self-online-typed-mixed",
+          "digest": "sha256:fb72e64d11ee278776e5a864c5eb0f4c5d14bca1bd0ec021616c19947075c6dc"
+        },
+        "bytesSha256": "03d194b0364b90f44b92997760bed1b914f031cab724d1cfd6922981e3d08e07",
+        "valueDigest": "sha256:fb72e64d11ee278776e5a864c5eb0f4c5d14bca1bd0ec021616c19947075c6dc"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "structure-natural_person_self-offline-typed-mixed",
+      "paths": {
+        "act": "fixtures/cases/structure-natural_person_self-offline-typed-mixed/act.json",
+        "content": "fixtures/cases/structure-natural_person_self-offline-typed-mixed/content.json",
+        "rendered": "fixtures/cases/structure-natural_person_self-offline-typed-mixed/rendered.json",
+        "intent": "fixtures/cases/structure-natural_person_self-offline-typed-mixed/intent.json",
+        "context": "fixtures/cases/structure-natural_person_self-offline-typed-mixed/context.json",
+        "policy": "fixtures/cases/structure-natural_person_self-offline-typed-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/typed-structure.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "3fbbd8c81e282fd611c2bd899eae8b2260c77702b420d5e5239941d1ed7895ac",
+        "policySha256": "ab64b91b3a1149b6bbf766128b5759996f45ca6037a6179ee48bc3bfb05048a4",
+        "intentProfileSha256": "9c979ab57d7661dcc62f815311b0931e27f22028a93078161587cd78725ee442"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:structure-natural_person_self-offline-typed-mixed",
+          "digest": "sha256:f48b8eebe3a7f337129aaefdd524455a89beaca0990a51ba7f3d21c9f4e0ae6f"
+        },
+        "bytesSha256": "91e5652ce42a9fbb060918cd4e34c6ae9d7be3a79b058a5867da999aeb1be06a",
+        "valueDigest": "sha256:f48b8eebe3a7f337129aaefdd524455a89beaca0990a51ba7f3d21c9f4e0ae6f"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    },
+    {
+      "id": "compliance-natural_person_self-online-typed-mixed",
+      "paths": {
+        "act": "fixtures/cases/compliance-natural_person_self-online-typed-mixed/act.json",
+        "content": "fixtures/cases/compliance-natural_person_self-online-typed-mixed/content.json",
+        "rendered": "fixtures/cases/compliance-natural_person_self-online-typed-mixed/rendered.json",
+        "intent": "fixtures/cases/compliance-natural_person_self-online-typed-mixed/intent.json",
+        "context": "fixtures/cases/compliance-natural_person_self-online-typed-mixed/context.json",
+        "policy": "fixtures/cases/compliance-natural_person_self-online-typed-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/typed-compliance.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "d446b75ebf4c55357f233dcb58fdd4b3a308c156cca5e59c51bb1dd3f9c0f883",
+        "policySha256": "ca7c0c9925f95f7942432d3f26ff3d506e62d1eb91a0e361ed70991684f2a1b4",
+        "intentProfileSha256": "279f882ca2779b4d9248fad327e1c9a5462d3eabf4f0f4e0dd89b35be755a415"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:compliance-natural_person_self-online-typed-mixed",
+          "digest": "sha256:68dd056a7c18a47ecb47fb085e4f0ba3a82a26c9f1e7e543787d19c05e425d5e"
+        },
+        "bytesSha256": "d4d84fd647fd9bbd070b578e5a2609104618931b760358b944739b4b75902be4",
+        "valueDigest": "sha256:68dd056a7c18a47ecb47fb085e4f0ba3a82a26c9f1e7e543787d19c05e425d5e"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "TRUSTED_ONLINE_SUBMISSION"
+    },
+    {
+      "id": "compliance-natural_person_self-offline-typed-mixed",
+      "paths": {
+        "act": "fixtures/cases/compliance-natural_person_self-offline-typed-mixed/act.json",
+        "content": "fixtures/cases/compliance-natural_person_self-offline-typed-mixed/content.json",
+        "rendered": "fixtures/cases/compliance-natural_person_self-offline-typed-mixed/rendered.json",
+        "intent": "fixtures/cases/compliance-natural_person_self-offline-typed-mixed/intent.json",
+        "context": "fixtures/cases/compliance-natural_person_self-offline-typed-mixed/context.json",
+        "policy": "fixtures/cases/compliance-natural_person_self-offline-typed-mixed/policy.json",
+        "intentProfile": "fixtures/profiles/typed-compliance.json"
+      },
+      "schemaBundle": {
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+        "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json"
+      },
+      "sourceInputs": [
+        {
+          "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+          "path": "fixtures/source-measurements/field_17_weed_patch_photo_count.json"
+        },
+        {
+          "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+          "path": "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+        }
+      ],
+      "trustedPins": {
+        "contractSha256": "d32a1f07a394c9fdc9d8144c047b1b3e1e30c6ff5409dde6f2046159a23bb255",
+        "contextSha256": "ca958a5aa1d19f114060035cd45844c57786b20e968599ec86a4f8271493cada",
+        "policySha256": "4cb7a79a9ce0519949fb4b51298ba4a0a2071afac2937a5bf377183cad59dbad",
+        "intentProfileSha256": "279f882ca2779b4d9248fad327e1c9a5462d3eabf4f0f4e0dd89b35be755a415"
+      },
+      "expectedActSelection": {
+        "binding": {
+          "ref": "fixture:assertion-act:compliance-natural_person_self-offline-typed-mixed",
+          "digest": "sha256:a55fe3554d192433d13dfe06ef3118c3245d413bcabce6449567a27f00902075"
+        },
+        "bytesSha256": "c36cc16a39d0e1e5a9652417ac45e1a76ef70a6ab6133b50bbdfa8bdc7b29872",
+        "valueDigest": "sha256:a55fe3554d192433d13dfe06ef3118c3245d413bcabce6449567a27f00902075"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedParty": "party:fictional:natural_person_self",
+      "expectedAssertedAt": "2026-10-20T12:34:56.123456789Z",
+      "expectedPosture": "VERIFIED_OFFLINE_SUBMISSION"
+    }
+  ]
+}

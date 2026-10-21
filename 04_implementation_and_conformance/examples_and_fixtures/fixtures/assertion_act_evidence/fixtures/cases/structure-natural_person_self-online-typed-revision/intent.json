@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "ofarm.structureassertioneffectintent.typed.v0.1",
+  "resources": [
+    {
+      "resourceRole": "TARGET_SCOPE",
+      "resourcePosture": "AUTHORITY_TARGET",
+      "targetType": "SCOPE",
+      "scope": {
+        "scopeType": "FIELD",
+        "scopeRef": "field:fictional:target",
+        "revisionRef": "field:fictional:target:r1"
+      },
+      "tenantRef": "tenant:fictional:one",
+      "authorizationResourceProofBindings": [
+        {
+          "ref": "proof:fictional:target:field",
+          "revisionRef": "proof:fictional:target:field:r1"
+        }
+      ]
+    }
+  ],
+  "effectSubject": {
+    "subjectKind": "STRUCTURE_ASSERTION",
+    "subjectRef": "assertion:fictional:structure:field:as_of:base",
+    "existencePosture": "PROSPECTIVE_TARGET_ALLOWED",
+    "effectSubjectProofBindings": [
+      {
+        "ref": "proof:fictional:prospective:structure",
+        "revisionRef": "proof:fictional:prospective:structure:r1"
+      }
+    ]
+  },
+  "subject": {
+    "subjectType": "FIELD",
+    "subjectRef": "field:fictional:target",
+    "subjectPosture": "EXISTING_SUBJECT",
+    "revisionRef": "field:fictional:target:r1"
+  },
+  "subjectTime": {
+    "profile": "STRUCTURE_AS_OF",
+    "at": "2026-10-01T10:00:00Z"
+  },
+  "assertionBody": {
+    "assertionPosture": "INITIAL",
+    "claimText": "Fictional structure statement. Exact wording is preserved.",
+    "applicability": {
+      "profile": "STRUCTURE_AS_OF",
+      "at": "2026-10-01T10:00:00Z"
+    },
+    "claimLanguageRevision": "ofarm.complete-typed-claims.v0.1",
+    "proposition": {
+      "form": "ATOM",
+      "atomId": "atom:W01_EQUIPMENT",
+      "definition": "candidate:assertion-domain-construction:2026-10-21:r2:S12",
+      "scope": {
+        "subject": {
+          "subjectPosture": "EXISTING_SUBJECT",
+          "subjectType": "EQUIPMENT",
+          "subjectRef": "equipment:sprayer-fictional",
+          "revisionRef": "r1"
+        },
+        "subjectTime": {
+          "profile": "STRUCTURE_EFFECTIVE_FROM",
+          "start": "2026-05-07T00:00:00Z"
+        },
+        "extent": {
+          "posture": "FULL_TARGET_SCOPE",
+          "binding": {
+            "ref": "equipment:sprayer-fictional",
+            "revisionRef": "r1"
+          }
+        }
+      },
+      "body": {
+        "property": "asset.configuration",
+        "assetKind": "EQUIPMENT",
+        "asset": {
+          "ref": "equipment:sprayer-fictional",
+          "revisionRef": "r1"
+        },
+        "configuration": {
+          "ref": "configuration:sprayer-C",
+          "revisionRef": "r1"
+        },
+        "inspectionEvidence": [
+          {
+            "ref": "inspection:fictional",
+            "revisionRef": "r1"
+          }
+        ]
+      }
+    }
+  },
+  "evidenceBindings": [
+    {
+      "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+      "revisionRef": "fixture:source-revision:measurement-evidence:field-17:weed-patch-photo-count:2026-05-06:r1"
+    },
+    {
+      "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+      "revisionRef": "fixture:source-revision:measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq:r1"
+    }
+  ],
+  "assertedAt": "2026-10-20T12:34:56.123456789Z",
+  "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION"
+}

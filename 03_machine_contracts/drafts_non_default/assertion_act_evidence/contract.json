@@ -1,0 +1,129 @@
+{
+  "contractId": "ofarm.assertion-act-evidence.v0.1",
+  "version": "0.1",
+  "status": "PROPOSED_NON_DEFAULT",
+  "primaryTrustBoundary": "Trusted assertion-act identity, time and submitted-content evidence",
+  "schemas": {
+    "act": {
+      "path": "schemas/act.schema.json",
+      "sha256": "844ebe7111ade587a4b513024e47cfaad86b89fff4134ef68cc9f0c21bbd94b5",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/act/v0.1"
+    },
+    "content": {
+      "path": "schemas/content.schema.json",
+      "sha256": "c5bb163fff4378e38e930179a1b3ae272cdc8c9a251b437010b85639eb3e208c",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/content/v0.1"
+    },
+    "context": {
+      "path": "schemas/context.schema.json",
+      "sha256": "a3cea25743dc64d46fbc3c45a926d235cb7841d75d6baeed496e682e0376771f",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/context/v0.1"
+    },
+    "policy": {
+      "path": "schemas/policy.schema.json",
+      "sha256": "488f43828f01dff18b23511967b215fd5bdefeb9f7657ea30a1b96e73c161d40",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/policy/v0.1"
+    },
+    "report": {
+      "path": "schemas/report.schema.json",
+      "sha256": "182e814a4c6142f8c5260b4cb51ceb51db49004cb54928facafd58b3127883ff",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/report/v0.1"
+    },
+    "contract": {
+      "path": "schemas/contract.schema.json",
+      "sha256": "dd891d8b4886ef4812fe520526114354a2971b53fe5ea92f28ea1d8c9a241ce4",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/contract/v0.1"
+    },
+    "intent_profile": {
+      "path": "schemas/intent_profile.schema.json",
+      "sha256": "d1b1023410fcf72fd16194dd691f9d747efa923bf7bcaef44e1c5c81ce2a60b4",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/intent_profile/v0.1"
+    },
+    "wire": {
+      "path": "schemas/wire.schema.json",
+      "sha256": "5e3ce7a23a736a9eefa377e80b2fe54f6de45468be186aaf307eb33497a491fb",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/wire/v0.1"
+    },
+    "assertion": {
+      "path": "source-contracts/AssertionRecord.v0.2.json",
+      "sha256": "3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+      "schemaId": "https://ofarm.dev/schema/assertionrecord/v0.2"
+    },
+    "operationIntent": {
+      "path": "source-contracts/OperationAssertionEffectIntent.v0.2.json",
+      "sha256": "66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2"
+    },
+    "structureIntent": {
+      "path": "source-contracts/StructureAssertionEffectIntent.v0.2.json",
+      "sha256": "56cf55fcb46cc39990b61261d62f307500e2da55dca1dd1ff831fb27997e93ad",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/structure-assertion-effect-intent/v0.2"
+    },
+    "complianceIntent": {
+      "path": "source-contracts/ComplianceAssertionEffectIntent.v0.2.json",
+      "sha256": "1dc0d24b909aaabd39ddea2df89bdea1184d5c727ba7cbd488c8489cd26fe722",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/compliance-assertion-effect-intent/v0.2"
+    },
+    "event": {
+      "path": "source-contracts/SemanticEventEnvelope.v0.1.json",
+      "sha256": "75662a6c4952a62b7e8f8e9de99c23c98899c692914a98ba4b752873f48bd1a4",
+      "schemaId": "https://ofarm.dev/schema/semanticeventenvelope/v0.1"
+    },
+    "measurement": {
+      "path": "source-contracts/MeasurementEvidence.v0.1.json",
+      "sha256": "90c4cf2d1387633172e772c970d0c76889ceec0fca4682a5053914375bdc9280",
+      "schemaId": "https://ofarm.dev/schema/measurementevidence/v0.1"
+    }
+  },
+  "verificationCode": {
+    "verify_assertion_act.py": "f11cb7ac4ccec68e2aaa6b7d96a20c3461deaac12e4586c7c697528da961f2c3",
+    "act_common.py": "23ec92ae1cdcfa4554be7ded6af254629ea86c3979781c2b22662160e609bd2f",
+    "act_report_contract.py": "06a027413c0f723f374e60a8b55e8422cdfbfcc10c98b78275d812f4fc7db7c2"
+  },
+  "semanticSources": {
+    "sources/pr11.md": "8c218df076fcf06aceb531173a854091e21bda7775ad1fe66dd06a772857691f",
+    "sources/pr23.md": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809"
+  },
+  "requiredRules": [
+    "PACKAGE_CLOSURE",
+    "STRICT_JSON",
+    "INDEPENDENT_SELECTION",
+    "PINNED_INTENT_PROFILE",
+    "PINNED_SCHEMAS",
+    "CONTRACT_AND_POLICY",
+    "EXACT_ACT_SOURCE",
+    "ACCOUNTABLE_PARTY_AND_BASIS",
+    "CANONICAL_SOURCE_TIME",
+    "EXACT_RENDERED_CONTENT",
+    "COMPLETE_INTENT_PROJECTION",
+    "ORIGINAL_SOURCE_BYTES",
+    "POSTURE_AND_BINDING",
+    "CYCLE_FREE_DECLARED_INPUTS"
+  ],
+  "actFields": [
+    "assertedAt",
+    "assertionActPosture",
+    "assertionActEvidenceBinding"
+  ],
+  "actInputRoles": [
+    "PREEXISTING_SOURCE_POLICY",
+    "FIXED_SUBMITTED_CONTENT",
+    "PREEXISTING_PARTY_BASIS"
+  ],
+  "dependencyOrder": [
+    "source policy and independently fixed content",
+    "online observation or offline act record",
+    "top-level intent act metadata and offline selector",
+    "complete intent digest",
+    "independent verification context and selected Party expectation",
+    "conditional comparison; dependent domain verdict later"
+  ],
+  "foreignInterfaceGaps": [
+    "AUTHORIZATION_SELECTED_PATH_SOURCE_CONTRACT_UNIDENTIFIED",
+    "RUNTIME_SOURCE_IDENTITY_NOT_ESTABLISHED",
+    "TIMESTAMP_TRUST_NOT_ESTABLISHED",
+    "RUNTIME_ADMISSION_NOT_ESTABLISHED"
+  ],
+  "hashRules": "Raw SHA256 for original bytes; RFC8785 for values; exclude only top-level contractDigest from contract self digest.",
+  "contractDigest": "sha256:c2a58cb910f95a99b8f37007623e62130bcd89403bc0441f3e70c0b0013b68b2"
+}

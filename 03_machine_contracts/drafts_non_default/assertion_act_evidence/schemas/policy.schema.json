@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/policy/v0.1",
+  "title": "Non-default assertion act policy",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionActSourcePolicy.v0.1"
+    },
+    "policyId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+    },
+    "contractBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "ref",
+        "digest"
+      ]
+    },
+    "posture": {
+      "enum": [
+        "TRUSTED_ONLINE_SUBMISSION",
+        "VERIFIED_OFFLINE_SUBMISSION"
+      ]
+    },
+    "sourceKind": {
+      "enum": [
+        "TRUSTED_RUNTIME_SUBMISSION_OBSERVATION",
+        "IMMUTABLE_OFFLINE_ASSERTION_ACT"
+      ]
+    },
+    "timestampRule": {
+      "const": "PR23_6_3_CANONICAL_UTC_EXACT_COPY"
+    },
+    "contentRule": {
+      "const": "EXACT_ORIGINAL_BYTES_AND_COMPLETE_INTENT_PROJECTION"
+    },
+    "partyRule": {
+      "const": "COMPARE_INDEPENDENT_SELECTED_PARTY_AND_BASIS"
+    },
+    "claimLimit": {
+      "const": "Source format and conditional comparison only; actual time trust and source identity remain external."
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "policyId",
+    "contractBinding",
+    "posture",
+    "sourceKind",
+    "timestampRule",
+    "contentRule",
+    "partyRule",
+    "claimLimit"
+  ]
+}

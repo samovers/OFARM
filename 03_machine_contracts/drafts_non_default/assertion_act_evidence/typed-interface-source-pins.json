@@ -1,0 +1,58 @@
+{
+  "sources": [
+    {
+      "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/domain-contract-verifier-20261021/construction-01/owned-contract/carriers/result.schema.json",
+      "copy": "fixtures/profile-schema-bundles/complete-typed-v0.1/result.schema.json",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1",
+      "sha256": "f3362cbbb135584f8d7c96dcf01c27c60e727b48b1b1f8700f9f57ec0bbe9f05",
+      "status": "EXACT_UNSEALED_DOMAIN_CANDIDATE_SNAPSHOT_NOT_APPROVED"
+    },
+    {
+      "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/domain-contract-verifier-20261021/construction-01/owned-contract/carriers/structure-intent.schema.json",
+      "copy": "fixtures/profile-schema-bundles/complete-typed-v0.1/structure-intent.schema.json",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1",
+      "sha256": "e1f2388d8a277a0083bdd6c68549a674280d14449d7d83e74c237a137eb83817",
+      "status": "EXACT_UNSEALED_DOMAIN_CANDIDATE_SNAPSHOT_NOT_APPROVED"
+    },
+    {
+      "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/domain-contract-verifier-20261021/construction-01/owned-contract/carriers/operation-intent.schema.json",
+      "copy": "fixtures/profile-schema-bundles/complete-typed-v0.1/operation-intent.schema.json",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1",
+      "sha256": "bacf7bc27ae430e79fc5c5c084a7fe1bef529ef8d6a5487c384ee5e69b485c71",
+      "status": "EXACT_UNSEALED_DOMAIN_CANDIDATE_SNAPSHOT_NOT_APPROVED"
+    },
+    {
+      "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/domain-contract-verifier-20261021/construction-01/owned-contract/carriers/compliance-intent.schema.json",
+      "copy": "fixtures/profile-schema-bundles/complete-typed-v0.1/compliance-intent.schema.json",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1",
+      "sha256": "91dcf0b8764762dd494fb082c7fa341320f90fddce9674af4feadd1fec474cac",
+      "status": "EXACT_UNSEALED_DOMAIN_CANDIDATE_SNAPSHOT_NOT_APPROVED"
+    },
+    {
+      "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/domain-contract-verifier-20261021/construction-01/domain-owner/revision-02/proposition.schema.json",
+      "copy": "fixtures/profile-schema-bundles/complete-typed-v0.1/proposition.schema.json",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1",
+      "sha256": "6e70efe34b44805a96037350175ffaa76741c8ce8a02500c0c7f7422a3eeb4cc",
+      "status": "EXACT_UNSEALED_DOMAIN_CANDIDATE_SNAPSHOT_NOT_APPROVED"
+    },
+    {
+      "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/domain-contract-verifier-20261021/construction-01/domain-owner/owned-value-types.schema.json",
+      "copy": "fixtures/profile-schema-bundles/complete-typed-v0.1/owned-value-types.schema.json",
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1",
+      "sha256": "0b337234dd36e686f819455d352ec417a877d8483b7395a39897ce3cc5679582",
+      "status": "EXACT_UNSEALED_DOMAIN_CANDIDATE_SNAPSHOT_NOT_APPROVED"
+    }
+  ],
+  "propositions": {
+    "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/domain-contract-verifier-20261021/construction-01/domain-owner/revision-02/adapted-propositions.json",
+    "sha256": "41d560aeda877d1c99e7ec31b3bd390e790ba390f31ea8eee4a04c8099781d80",
+    "copy": "fixtures/typed-propositions.json",
+    "selectedExampleIds": [
+      "W01_EQUIPMENT",
+      "W03_MEASURED_PRUNING_NO_EVENT",
+      "W05_CENSORED_CRITERION"
+    ],
+    "transformation": "Extract complete proposition objects by explicit example ID; no body editing.",
+    "claimLimit": "Schema/profile byte compatibility only; no domain approval or complete carrier implementation claim."
+  }
+}

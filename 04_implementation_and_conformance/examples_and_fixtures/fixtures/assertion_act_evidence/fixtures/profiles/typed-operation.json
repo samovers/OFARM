@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "ofarm.assertionActIntentProfile.v0.1",
+  "profileId": "fixture:act-intent-profile:typed:operation",
+  "profileRevision": "complete-typed-claims-v0.1",
+  "contractBinding": {
+    "ref": "ofarm.assertion-act-evidence.v0.1",
+    "digest": "sha256:c2a58cb910f95a99b8f37007623e62130bcd89403bc0441f3e70c0b0013b68b2"
+  },
+  "wireInterface": "ofarm.assertion-act-top-level.v0.1",
+  "intentSchemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1",
+  "intentSchemaVersion": "ofarm.operationassertioneffectintent.typed.v0.1",
+  "claimLanguageRevision": "ofarm.complete-typed-claims.v0.1",
+  "actFields": [
+    "assertedAt",
+    "assertionActPosture",
+    "assertionActEvidenceBinding"
+  ],
+  "extraSchemas": [
+    {
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1",
+      "sha256": "f3362cbbb135584f8d7c96dcf01c27c60e727b48b1b1f8700f9f57ec0bbe9f05"
+    },
+    {
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1",
+      "sha256": "e1f2388d8a277a0083bdd6c68549a674280d14449d7d83e74c237a137eb83817"
+    },
+    {
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1",
+      "sha256": "bacf7bc27ae430e79fc5c5c084a7fe1bef529ef8d6a5487c384ee5e69b485c71"
+    },
+    {
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1",
+      "sha256": "91dcf0b8764762dd494fb082c7fa341320f90fddce9674af4feadd1fec474cac"
+    },
+    {
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1",
+      "sha256": "6e70efe34b44805a96037350175ffaa76741c8ce8a02500c0c7f7422a3eeb4cc"
+    },
+    {
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1",
+      "sha256": "0b337234dd36e686f819455d352ec417a877d8483b7395a39897ce3cc5679582"
+    }
+  ],
+  "contentRule": "WHOLE_PRE_ACT_VALUE_AND_EXACT_FIELD_BYTES"
+}

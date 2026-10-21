@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "ofarm.assertionActIntentProfile.v0.1",
+  "profileId": "fixture:act-intent-profile:legacy:operation",
+  "profileRevision": "legacy-v0.2",
+  "contractBinding": {
+    "ref": "ofarm.assertion-act-evidence.v0.1",
+    "digest": "sha256:c2a58cb910f95a99b8f37007623e62130bcd89403bc0441f3e70c0b0013b68b2"
+  },
+  "wireInterface": "ofarm.assertion-act-top-level.v0.1",
+  "intentSchemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+  "intentSchemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+  "claimLanguageRevision": null,
+  "actFields": [
+    "assertedAt",
+    "assertionActPosture",
+    "assertionActEvidenceBinding"
+  ],
+  "extraSchemas": [],
+  "contentRule": "WHOLE_PRE_ACT_VALUE_AND_EXACT_FIELD_BYTES"
+}

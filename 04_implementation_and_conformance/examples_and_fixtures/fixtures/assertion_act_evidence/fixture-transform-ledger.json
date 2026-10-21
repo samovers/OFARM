@@ -1,0 +1,983 @@
+{
+  "transformations": [
+    {
+      "case": "operation-natural_person_self-online",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-natural_person_self-offline",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-represented_party_authorized_representation-online",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-represented_party_authorized_representation-offline",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-agent_party_direct_grant-online",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-agent_party_direct_grant-offline",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-represented_party_explicit_delegation-online",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-represented_party_explicit_delegation-offline",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "structure-natural_person_self-online",
+      "intentProfile": "fixtures/profiles/legacy-structure.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "structure_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "structure-natural_person_self-offline",
+      "intentProfile": "fixtures/profiles/legacy-structure.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "structure_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "compliance-natural_person_self-online",
+      "intentProfile": "fixtures/profiles/legacy-compliance.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "compliance_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "compliance-natural_person_self-offline",
+      "intentProfile": "fixtures/profiles/legacy-compliance.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "compliance_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "operation-natural_person_self-online-typed",
+      "intentProfile": "fixtures/profiles/typed-operation.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-natural_person_self-offline-typed",
+      "intentProfile": "fixtures/profiles/typed-operation.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "structure-natural_person_self-online-typed",
+      "intentProfile": "fixtures/profiles/typed-structure.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "structure_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "structure-natural_person_self-offline-typed",
+      "intentProfile": "fixtures/profiles/typed-structure.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "structure_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "compliance-natural_person_self-online-typed",
+      "intentProfile": "fixtures/profiles/typed-compliance.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "compliance_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "compliance-natural_person_self-offline-typed",
+      "intentProfile": "fixtures/profiles/typed-compliance.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "compliance_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: digest.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "operation-natural_person_self-online-revision",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-natural_person_self-offline-revision",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-represented_party_authorized_representation-online-revision",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-represented_party_authorized_representation-offline-revision",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-agent_party_direct_grant-online-revision",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-agent_party_direct_grant-offline-revision",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-represented_party_explicit_delegation-online-revision",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-represented_party_explicit_delegation-offline-revision",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "structure-natural_person_self-online-revision",
+      "intentProfile": "fixtures/profiles/legacy-structure.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "structure_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "structure-natural_person_self-offline-revision",
+      "intentProfile": "fixtures/profiles/legacy-structure.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "structure_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "compliance-natural_person_self-online-revision",
+      "intentProfile": "fixtures/profiles/legacy-compliance.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "compliance_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "compliance-natural_person_self-offline-revision",
+      "intentProfile": "fixtures/profiles/legacy-compliance.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "compliance_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "operation-natural_person_self-online-typed-revision",
+      "intentProfile": "fixtures/profiles/typed-operation.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-natural_person_self-offline-typed-revision",
+      "intentProfile": "fixtures/profiles/typed-operation.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "structure-natural_person_self-online-typed-revision",
+      "intentProfile": "fixtures/profiles/typed-structure.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "structure_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "structure-natural_person_self-offline-typed-revision",
+      "intentProfile": "fixtures/profiles/typed-structure.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "structure_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "compliance-natural_person_self-online-typed-revision",
+      "intentProfile": "fixtures/profiles/typed-compliance.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "compliance_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "compliance-natural_person_self-offline-typed-revision",
+      "intentProfile": "fixtures/profiles/typed-compliance.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "compliance_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: revision.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "operation-natural_person_self-online-mixed",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-natural_person_self-offline-mixed",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-represented_party_authorized_representation-online-mixed",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-represented_party_authorized_representation-offline-mixed",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-agent_party_direct_grant-online-mixed",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-agent_party_direct_grant-offline-mixed",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-represented_party_explicit_delegation-online-mixed",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-represented_party_explicit_delegation-offline-mixed",
+      "intentProfile": "fixtures/profiles/legacy-operation.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "structure-natural_person_self-online-mixed",
+      "intentProfile": "fixtures/profiles/legacy-structure.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "structure_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "structure-natural_person_self-offline-mixed",
+      "intentProfile": "fixtures/profiles/legacy-structure.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "structure_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "compliance-natural_person_self-online-mixed",
+      "intentProfile": "fixtures/profiles/legacy-compliance.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "compliance_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "compliance-natural_person_self-offline-mixed",
+      "intentProfile": "fixtures/profiles/legacy-compliance.json",
+      "typedPropositionSource": null,
+      "baseSourceFixture": "compliance_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "operation-natural_person_self-online-typed-mixed",
+      "intentProfile": "fixtures/profiles/typed-operation.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "operation-natural_person_self-offline-typed-mixed",
+      "intentProfile": "fixtures/profiles/typed-operation.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "op_PERFORMED_INTERVAL",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json",
+        "fixtures/source-events/pruning_operation.json",
+        "fixtures/source-events/field_17_contractor_spot_spray_late_sync.json"
+      ]
+    },
+    {
+      "case": "structure-natural_person_self-online-typed-mixed",
+      "intentProfile": "fixtures/profiles/typed-structure.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "structure_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "structure-natural_person_self-offline-typed-mixed",
+      "intentProfile": "fixtures/profiles/typed-structure.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "structure_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "compliance-natural_person_self-online-typed-mixed",
+      "intentProfile": "fixtures/profiles/typed-compliance.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "compliance_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    },
+    {
+      "case": "compliance-natural_person_self-offline-typed-mixed",
+      "intentProfile": "fixtures/profiles/typed-compliance.json",
+      "typedPropositionSource": "fixtures/typed-propositions.json",
+      "baseSourceFixture": "compliance_FIELD",
+      "changes": [
+        "Remove exactly the three act metadata fields to fix rendered pre-act content.",
+        "Preserve the exact digest or revision source selector in rendered/final intent and content/context mappings; bind full original MeasurementEvidence/Event bytes by raw SHA256 and whole-object JCS; selector mode: mixed.",
+        "Preserve every claim-body field and its text. Preserve original event/measurement bytes separately.",
+        "Author the explicit fictional Party/basis/policy/time and immutable act record, then append top-level intent act metadata.",
+        "Select the final verification context last; the act never binds that context or final intent."
+      ],
+      "sourceInputsVerbatim": [
+        "fixtures/source-measurements/field_17_weed_patch_photo_count.json",
+        "fixtures/source-measurements/soil_nitrate_below_loq_lab_result.json"
+      ]
+    }
+  ],
+  "limit": "Conditional act/content comparison only. No complete domain, event/time, measurement, authorization or runtime admission claim."
+}

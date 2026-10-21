@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-act-evidence/content/v0.1",
+  "title": "Non-default assertion act content",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionSubmittedContent.v0.1"
+    },
+    "contentId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+    },
+    "intentSchemaId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "intentProfileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._:/-]+$(?![\\s\\S])"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "ref",
+        "digest"
+      ]
+    },
+    "renderedContentBytesSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+    },
+    "renderedContentDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+    },
+    "sourceInputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "role": {
+            "enum": [
+              "SEMANTIC_EVENT_ENVELOPE",
+              "MEASUREMENT_EVIDENCE"
+            ]
+          },
+          "binding": {
+            "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+          },
+          "bytesSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+          },
+          "valueDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+          }
+        },
+        "required": [
+          "role",
+          "binding",
+          "bytesSha256",
+          "valueDigest"
+        ]
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "contentId",
+    "intentSchemaId",
+    "intentProfileBinding",
+    "renderedContentBytesSha256",
+    "renderedContentDigest",
+    "sourceInputs"
+  ]
+}
