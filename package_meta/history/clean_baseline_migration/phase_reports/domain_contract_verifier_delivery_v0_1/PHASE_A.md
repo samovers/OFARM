@@ -1,4 +1,4 @@
-# Complete typed AssertionRecord contract and verifier — Phase A v3
+# Complete typed AssertionRecord contract and verifier — Phase A v4
 
 Status: proposed canonical, draft/non-default Delivery design. Prepared on
 21 October 2026 from the reviewed inventory. This design does not adopt semantic
@@ -89,8 +89,11 @@ V02 27 operation rows, V03 17 compliance rows, V04 12 event rows, V05 17 measure
 performance rows and V06 12 relationship rows. V07 maps all 42 requirements to
 those 99 definitions. Preserve all 23 original whole-claim meanings, the two
 additional offline/FARM examples and original source pins. The second review
-amendment versions the corrected event-role placement and measurement-source
-requirements separately from every immutable historical example.
+amendment versions event-role placement and measurement-source requirements.
+The third versions the exact scalar provenance bindings and typed source checks;
+all historical examples remain immutable. W05 retains its numeric limit,
+threshold, censoring meaning and outcome while its provenance links and exact
+rendered text are explicitly versioned.
 
 | ID | Required invariant and hostile counterexample |
 | --- | --- |
@@ -99,7 +102,7 @@ requirements separately from every immutable historical example.
 | DV03 | All 29 AR and 20 PC duties have contract-owned predicates, explicit foreign-owner dependencies and ordered dispositions. Omission, unknown rules or required NOT_EVALUATED cannot become full PASS; an independent FAIL must survive another missing prerequisite. |
 | DV04 | Nine time profiles and 17 eligible event-presence cells remain. INTENDED_WINDOW works without an event and rejects envelope-v0.1 association. A physical interval cannot become an instant because eventTime equals its end. Capture, assertion, result and record times cannot substitute for the required selected time. |
 | DV05 | Event cases bind subtype presence/value, full consequence literal, pack/vocabulary revision and body concept; subtype absence differs from null. Family is independently supplied by Event Ingress. Wrong dominant consequence fails even when family and time match. Direct exact subject membership wins at the lowest matching index; only its absence allows the specific relationship proof. The anchor always requires direct exact membership. Technical association presence, envelope, case/selector and ingress-proof data stay outside the rendered body and AssertionRecord; the intent binds the optional envelope and the protected-effect trace binds the complete association verification. |
-| DV06 | Performed instants use actual INSTANT MeasurementEvidence /phenomenonTime/instant with exact subjectTime equality and an operation-specific property/result/context/method/use predicate, identically with and without an event. Soil nitrate at the same time cannot establish spraying. Preserve five result kinds and five qualifier meanings plus omission; RESULT_TIME/RECORD_TIME refer to separate evidenced acts, not fallback clock fields. A measured compliance operand also requires its exact measurement binding and value pointer, selected criterion and independently fixed property/context/method/time/unit/bound expectations. Missing source roles fail completeness even when citation membership is vacuously satisfied; a valid-shaped source of the wrong property fails. |
+| DV06 | Performed instants use actual INSTANT MeasurementEvidence /phenomenonTime/instant with exact subjectTime equality and an operation-specific property/result/context/method/use predicate, identically with and without an event. Soil nitrate at the same time cannot establish spraying. Preserve five result kinds and five qualifier meanings plus omission; RESULT_TIME/RECORD_TIME refer to separate evidenced acts, not fallback clock fields. A measured compliance operand also requires its exact measurement binding and value pointer, selected criterion and independently fixed property/context/method/time/unit/bound expectations. Missing, empty or non-object source roles fail completeness before dependent member or alias checks; a placeholder cannot satisfy a required tuple or cause an uncaught type exception. A valid-shaped source of the wrong property fails. Quantity provenance qualifiers must belong to the pinned closed set and match the selected source role; scalar lexical evidence must match its exact resolved source, separately from full censored-result text. |
 | DV07 | Fourteen quantity roles and eight material roles retain exact activity, material, role, basis, time and extent. Simultaneous rate/volume/flow/dose values stay separate. WATER at 200 L/ha in the pinned source remains WATER; an applied mixture needs its own OTHER_MATERIAL identity, definition and constituents. Do not infer additive volume or replace missing actual values with planned ones. |
 | DV08 | Sampling, analysis and reporting are distinct acts. O22 occurrence/start/progress can bind PENDING_OUTPUT and an expected specification without an actual result; NOT_YET_PRODUCED differs from UNREPORTED. Completion needs the actual matching output, independent provenance and every finish condition. A work-facet measurement does not invent an analysis output. |
 | DV09 | Relationships bind exact typed endpoints, direction, applicable time/extent and owner proof. Tenant match, ID similarity, arbitrary inverse or transitive shortcut fails. Retain the nine kinds plus proposed EQUIPMENT, TOOL, STORAGE_LOCATION and CONTAINER, with explicit owned interfaces and unchanged authority anchors. |
@@ -222,7 +225,30 @@ retaining uncertainty rather than replacing a censored value with zero. Neither
 the measurement itself nor caller-supplied matching flags may choose the
 expectations. The second amendment audits analogous measured compliance roles;
 its exact selectors and completeness rules remain construction inputs for the
-new closed schemas, not a new evidence-admission mechanism.
+new closed schemas, not a new evidence-admission mechanism. The third amendment
+requires actual objects for measured sources, rate sources and owner-required
+qualifications, validates the existing closed bindings and pointers, and guards
+dependent access. A missing role and a role with the wrong JSON type both
+produce explicit errors; neither becomes an empty successful citation set.
+
+A quantity provenance qualifier describes its selected source role. LAB_RESULT
+alone does not establish machine reporting. The W05 candidate explicitly models
+a fictional human transcription of the laboratory LOQ and a separately authored
+fictional human criterion; both quantities retain HUMAN_REPORTED under those
+exact source roles. Neither a statutory label limit nor machine reporting is
+inferred. The scalar source record links the exact measurement and selected
+detection-limit value; its immutable binding is ordinary claim evidence. The
+criterion record stays an exact definition/owner input. Real source schemas,
+producer facts and admission remain with the existing owners.
+
+Compare the claim qualifier with the closed source-backed qualifier set and the
+resolved source role. Compare the LOQ scalar lexical text with the selected
+scalar source field, retaining the full measurement result lexical text in its
+separate field. The text "< 2 mg/kg" expresses the censored result and is not the
+scalar lexical value "2". No hard-coded claim literal, silent normalization or
+matching caller-controlled qualifier establishes that linkage. The criterion
+owner record independently fixes the threshold, operator and provenance; the
+claim cannot choose those expected values.
 
 All historical input and review bytes remain immutable. Corrected examples
 explicitly supersede the historical rendering/projection as construction input,
@@ -231,9 +257,9 @@ They remain fictional candidate material, not adopted schemas or admitted proof.
 
 The concrete versioned projection, typed reference-role table, corrected
 examples, offline evidence construction and source mappings are specified in
-[the second review amendment](review-amendment-02/README.md). The original and
-first-amendment renderings
-remain historical evidence. They are superseded as construction examples by
+[the third review amendment](review-amendment-03/README.md), which inherits
+the pinned second amendment without changing its historical files. The original
+and earlier amended renderings remain historical evidence. They are superseded as construction examples by
 the newest version, not silently rewritten or accepted as executable positives.
 No trimming, Unicode normalization, arbitrary notes field or post-authorization
 translation is permitted. The complete authorized body is copied unchanged into
@@ -332,7 +358,13 @@ metadata never rewrites or enters the exact claim text. Exercise event-present
 and absent paths with association verification outside the body, altered
 envelope bindings, missing/mismatched ingress proof and a cyclic late-proof
 dependency. Exercise required measured-citation omission and a wrong-property
-source that otherwise has valid binding membership and value shape. Include
+source that otherwise has valid binding membership and value shape. Reject
+string, array, number, Boolean, null, empty and missing required source objects,
+including nested rate sources and required qualifications, with structured
+errors. Exercise unknown and source-inconsistent provenance qualifiers, missing
+source bindings and lexical mismatches. A positive with a different owner-supplied
+scalar lexical form must demonstrate source comparison rather than a fixed
+literal. Preserve the separate full measurement lexical field. Include
 successful measured-instant cases with and without events,
 early-analysis pending-output cases and actual-result completion. Test each
 contract prerequisite edge, missing required leaf, independent failure,

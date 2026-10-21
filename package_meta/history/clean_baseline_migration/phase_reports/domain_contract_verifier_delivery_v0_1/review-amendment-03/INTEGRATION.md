@@ -1,0 +1,17 @@
+# Amendment 03 integration and historical custody
+
+This integrates the [sealed domain-owner proposal](README.md) for the two follow-ups at PR47 head `1a2583d24aa7d280e257e2d54d1c7c3708b623b6`. The primary trust boundary and intended PR boundary remain **AssertionRecord domain meaning and validation integrity**; scope stays within candidate examples, checks and supporting design/evidence. The complete public domain verifier remains construction work.
+
+The [owner decision](owner-decision.md) resolves F6 through explicit fictional human transcription and criterion records, role-aware closed qualifiers and exact selected lexical comparisons. It resolves the separate P2 through typed required-object validation and guarded dependent access. [Source-resolution evidence](source-resolution-trace-v4.json) includes the new ordinary evidence and criterion definition roles without treating either as actual admitted proof.
+
+The current construction inputs are the v4 files in this directory plus exact pinned inherited files from [amendment 02](../review-amendment-02/README.md). The v4 entry point checks those hashes and reruns all inherited checks over the declared current overlay; old result files are never counted as current passes. The owner full run passes 1,638 checks, including 725 inherited and 913 focused controls; the portable run passes 1,586 without the 52 optional original-freeze controls. These are finite design/example checks, not a complete verifier or actual owner admission.
+
+All 29 sealed owner members and their source manifest were copied byte-for-byte. [The transport record](domain-owner-transport.json) records every source/destination hash; no owner member was renamed or rewritten. Only this integration record, that transport record and the current amendment manifest are coordinator additions. [AMENDMENT_MANIFEST.json](AMENDMENT_MANIFEST.json) binds these current files and the current Phase A/packet README.
+
+All earlier packet files except the two current design/navigation documents remain unchanged. The first amendment manifest's related Phase A/README hashes resolve at `8e86208f96756b8f271f490696e6aa7cf23605fe`; the second amendment manifest's related hashes resolve at `1a2583d24aa7d280e257e2d54d1c7c3708b623b6`. Historical READMEs and reports describe those source versions. They are preserved evidence, not assertions that old hashes describe today's documents or that historical checks validate v4.
+
+Twenty-four whole examples are unchanged. W05 retains its numeric limit, threshold, qualifiers, censoring and INDETERMINATE outcome, adding exact provenance links, one ordinary evidence binding and corresponding text/digests. The [transformation ledger](transformation-ledger-v4.json) and [artifact transformations](artifact-transforms-v4.json) describe the changes. All 99 definitions, 42 requirements, 49 AR/PC duties, nine time profiles and 17 eligible event/profile cells remain required. Full event and measurement support, offline evidence and all prior review corrections remain.
+
+Actual source schemas, producers, admission and use retain their owner dependencies. No source adoption, authority change, runtime construction, CI activation or merge is introduced. OFARM2 #392/#396 remain parked and #421 remains separate.
+
+Next: review the exact integrated commit, then continue construction of the complete candidate contract/verifier in the same draft under the documented source and owner-evidence dependencies. CI activation and merge remain separate.

@@ -5,7 +5,7 @@ outcome is a callable, deterministic offline verifier for complete typed
 AssertionRecord claims across structure, operation and compliance. Its primary
 trust boundary is **AssertionRecord domain meaning and validation integrity**.
 
-Start with [PHASE_A.md](PHASE_A.md) and the [second review amendment](review-amendment-02/README.md). This is a design and reviewed-input packet;
+Start with [PHASE_A.md](PHASE_A.md) and the [third review amendment](review-amendment-03/README.md). This is a design and reviewed-input packet;
 the new schemas, protected-effect contract and verifier are not implemented.
 They belong in this same PR. Existing candidate code inherited from PR45 does
 not establish completion of the new capability.
@@ -81,12 +81,29 @@ owner responsibilities remain unchanged.
 
 Every original input and first-amendment file remains byte-identical. Earlier
 projections/examples and check results are historical construction evidence,
-superseded by the second amendment. The first AMENDMENT_MANIFEST's two
+superseded as current construction inputs by the newest amendment. The first AMENDMENT_MANIFEST's two
 relatedDesignFiles hashes resolve at its exact source commit `8e86208`, where
 that Phase A/README version lives; they do not describe the current documents.
-The second manifest records that historical source selection and binds the new
-documents separately. Historical checks must not be presented as validation of
-the latest construction inputs.
+The second manifest records that earlier historical selection; its own related
+design hashes resolve at `1a2583d`. The [third integration record](review-amendment-03/INTEGRATION.md) and manifest
+bind the current design documents and record both historical source commits. Historical checks must
+not be presented as validation of the latest construction inputs.
+
+The reviews at `1a2583d24aa7d280e257e2d54d1c7c3708b623b6` accepted B2, F4 and
+the bounded F5 commit-class correction, and identified two follow-ups: unchecked
+quantity provenance/lexical meaning (F6), and malformed required source objects
+that could pass or raise an exception. The [third amendment](review-amendment-03/README.md)
+adds explicit scalar-source and criterion-owner bindings, compares closed
+qualifiers and selected lexical values, and returns structured errors for
+malformed measured sources, rate sources and required qualifications.
+
+W05 explicitly models a human transcription of a lab report and an independently
+authored fictional human criterion. A lab result does not automatically mean
+machine-reported, and a fictional criterion does not establish a statutory label
+limit. The limit, threshold, censoring and INDETERMINATE outcome remain unchanged;
+new source links and exact text are versioned. The 24 other whole-claim examples
+and all earlier packet files remain unchanged. Current checks must exercise the
+corrected examples together with all inherited event and measurement controls.
 
 ## Limits
 

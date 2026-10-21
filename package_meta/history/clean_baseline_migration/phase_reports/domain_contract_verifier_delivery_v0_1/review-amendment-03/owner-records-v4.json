@@ -1,0 +1,40 @@
+{
+  "status": "INDEPENDENTLY_AUTHORED_FICTIONAL_OWNER_INPUTS_NOT_ADMITTED",
+  "quantityProvenance": {
+    "binding": {"fixtureLogicalRef": "quantity-source:W05-lab-transcription-fictional", "fixtureRevision": "r1", "admittedRuntimeBinding": false},
+    "record": {
+      "fixtureRecordType": "UNADOPTED_QUANTITY_SOURCE_EXAMPLE",
+      "reportingMethod": "HUMAN_TRANSCRIPTION_OF_LAB_REPORT",
+      "reportedByPartyRef": "party:fictional-lab-report-transcriber",
+      "measurementBinding": {"fixtureLogicalRef": "nitrate-measurement:fictional", "fixtureRevision": "r1", "admittedRuntimeBinding": false},
+      "measurementSourceRef": "lab-report:W05-fictional",
+      "selectedMeasurementPointer": "/result/detectionLimit",
+      "loq": {
+        "quantityKind": "qudt:MassFraction", "unit": "ucum:mg.kg-1", "decimal": "2",
+        "qualifier": "HUMAN_REPORTED", "originalLexicalValue": "2",
+        "unitProfile": {"fixtureLogicalRef": "unit-profile:example", "fixtureRevision": "r1", "admittedRuntimeBinding": false}
+      },
+      "scope": "This record explicitly models a person transcribing the reported LOQ scalar. LAB_RESULT alone establishes neither human nor machine reporting. It does not change the laboratory method, censoring qualifier or result meaning.",
+      "status": "FICTIONAL_UNADMITTED"
+    }
+  },
+  "criterionOwner": {
+    "binding": {"fixtureLogicalRef": "criterion:W05-nitrate-fictional", "fixtureRevision": "r1", "admittedRuntimeBinding": false},
+    "record": {
+      "fixtureRecordType": "UNADOPTED_CRITERION_OWNER_EXAMPLE",
+      "authoringMethod": "HUMAN_AUTHORED_FICTIONAL_CRITERION",
+      "authoredByPartyRef": "party:fictional-criterion-author",
+      "ruleBinding": {"fixtureLogicalRef": "rule:fictional", "fixtureRevision": "r1", "admittedRuntimeBinding": false},
+      "evidencePolicyBinding": {"fixtureLogicalRef": "policy:fictional", "fixtureRevision": "r1", "admittedRuntimeBinding": false},
+      "observedPropertyRef": "observed-property:soil-nitrate-n",
+      "operator": "LE",
+      "threshold": {
+        "quantityKind": "qudt:MassFraction", "unit": "ucum:mg.kg-1", "decimal": "1",
+        "qualifier": "HUMAN_REPORTED", "originalLexicalValue": "1",
+        "unitProfile": {"fixtureLogicalRef": "unit-profile:example", "fixtureRevision": "r1", "admittedRuntimeBinding": false}
+      },
+      "sourceBasis": "Independently authored example criterion with threshold <=1 mg/kg. It is a fictional human-authored design rule, not a statutory label limit and not copied from the candidate claim by a builder.",
+      "status": "FICTIONAL_UNADMITTED_NO_REGULATORY_AUTHORITY"
+    }
+  }
+}
