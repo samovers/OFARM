@@ -5,7 +5,7 @@ outcome is a callable, deterministic offline verifier for complete typed
 AssertionRecord claims across structure, operation and compliance. Its primary
 trust boundary is **AssertionRecord domain meaning and validation integrity**.
 
-Start with [PHASE_A.md](PHASE_A.md). This is a design and reviewed-input packet;
+Start with [PHASE_A.md](PHASE_A.md) and the [review amendment](review-amendment/README.md). This is a design and reviewed-input packet;
 the new schemas, protected-effect contract and verifier are not implemented.
 They belong in this same PR. Existing candidate code inherited from PR45 does
 not establish completion of the new capability.
@@ -29,7 +29,10 @@ The final [inventory review](inventory-review/review-03.json) closes candidate
 completeness with zero Blockers; its [verification record](inventory-review/verification-03.json)
 records 946 passing checks, including 42 focused cases. These prior recorded
 checks concern inventory, rendering and provenance; they did not run the future
-domain verifier. The candidate's frozen pre-review labels are historical.
+domain verifier. The candidate's frozen pre-review labels are historical. The original example
+renderings are also historical after the review amendment: the corrected
+projection and examples are separately versioned construction inputs, preserving
+all 23 domain meanings and all event/measurement coverage.
 
 Only two provenance copies have transport changes: absolute workstation paths
 in the final review and the independent requirement-source pins were replaced
@@ -44,6 +47,27 @@ Historical builders, repair scripts and old review rounds are deliberately not
 installed as new verifier code. The input copies are evidence for this design,
 not a second editable vocabulary authority. Construction will produce one
 owned definition package with an explicit mapping to these frozen rows.
+
+## Review amendment
+
+The public reviews of PR47 at `e93cad876645799789956311ea091e82064cf981`
+identified online rendering ownership, offline self-attestation cycles, nested
+evidence membership and example-coverage gaps. The amendment records their
+resolution, the work owners' source reasoning and review of the exact pinned
+dependency heads. It is candidate design work, not human semantic adoption.
+
+The corrected claim projection excludes the metadata authenticating this
+assertion act. That metadata stays fully governed by its existing owner fields
+and checks. Domain supporting evidence, complete event/measurement meaning and
+exact body copying remain required. The historical originals and INPUT_MANIFEST
+are unchanged. The [L01 resolution](review-amendment/source-pin-resolution.json)
+selects the byte-identical frozen coordination copy rather than its changed
+working path; the earlier 946-check report remains historical evidence.
+
+The focused amendment checks establish rendering, custody and design-example
+behavior only. The registered repository suite remains a regression check of
+inherited components; it does not validate this packet or execute a new full
+domain verifier.
 
 ## Limits
 

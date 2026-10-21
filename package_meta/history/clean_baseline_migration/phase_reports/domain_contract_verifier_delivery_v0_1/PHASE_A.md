@@ -1,4 +1,4 @@
-# Complete typed AssertionRecord contract and verifier — Phase A v1
+# Complete typed AssertionRecord contract and verifier — Phase A v2
 
 Status: proposed canonical, draft/non-default Delivery design. Prepared on
 21 October 2026 from the reviewed inventory. This design does not adopt semantic
@@ -87,7 +87,9 @@ The acceptance denominator is [the reviewed requirement register](reviewed-input
 not an arbitrary count of convenient fixtures. V01 contains 14 structure rows,
 V02 27 operation rows, V03 17 compliance rows, V04 12 event rows, V05 17 measured
 performance rows and V06 12 relationship rows. V07 maps all 42 requirements to
-those 99 definitions. Preserve all 23 whole-claim examples and source pins.
+those 99 definitions. Preserve all 23 whole-claim meanings and original source pins. The review
+amendment versions the corrected rendering and evidence membership separately
+from the immutable historical examples.
 
 | ID | Required invariant and hostile counterexample |
 | --- | --- |
@@ -101,7 +103,7 @@ those 99 definitions. Preserve all 23 whole-claim examples and source pins.
 | DV08 | Sampling, analysis and reporting are distinct acts. O22 occurrence/start/progress can bind PENDING_OUTPUT and an expected specification without an actual result; NOT_YET_PRODUCED differs from UNREPORTED. Completion needs the actual matching output, independent provenance and every finish condition. A work-facet measurement does not invent an analysis output. |
 | DV09 | Relationships bind exact typed endpoints, direction, applicable time/extent and owner proof. Tenant match, ID similarity, arbitrary inverse or transitive shortcut fails. Retain the nine kinds plus proposed EQUIPMENT, TOOL, STORAGE_LOCATION and CONTAINER, with explicit owned interfaces and unchanged authority anchors. |
 | DV10 | Result/body/intent, assertion act, accountable reporter, alleged performer, branch content, correction and absence rules remain exact. A pending material receipt, disposal, reclassification or lot-formation allegation does not perform that identity/lifecycle effect. Historical narrative and lexical evidence remain preserved and unaltered. |
-| DV11 | Actual owner records and their admission must establish every relied-on external fact. Caller valid/admitted flags, a forged rehashed report, a schema stub or an unprotected proposed-write list cannot establish it. DC-01 concerns protected proposed state through commit, not proof of a future durable commit. |
+| DV11 | The exact typed evidence-role map requires every relied-on supporting reference to occur with its complete immutable binding in the authoritative slot for its role. Nested assertion-support citations belong in /evidenceBindings; scope proofs and Event Ingress inputs retain their separate owner slots. Unknown roles and missing or wrong-revision members prevent PASS. Assertion-act self-attestation stays outside P and ordinary claim evidence. Actual owner records and their admission must establish every relied-on external fact. Caller valid/admitted flags, a forged rehashed report, a schema stub or an unprotected proposed-write list cannot establish it. DC-01 concerns protected proposed state through commit, not proof of a future durable commit. |
 | DV12 | Core meaning is profile-neutral. BE locality, SI record-keeping exclusions, RS production hold and the narrow NL scope remain. A source-bounded inventory is not universal coverage, live legal truth or implemented NL calculation semantics. |
 
 ## Callable design and exact rendering
@@ -126,31 +128,72 @@ one owned semantic package, not a second generic rule registry. `owner_inputs`
 is an immutable snapshot of exact independently supplied records, expected
 bindings and the existing owner-specific verification/admission evidence.
 
-The rendering rule is `claimText = "Pending claim: " + JCS(P) + "."`.
-P is the complete typed claim projection selected by the exact package binding.
-It includes the selected action; typed subject and sole anchor; assertion act,
-reporter and posture; subject time; every selected body/proposition field except
-claimText itself; evidence and relationship bindings; and applicable performer,
-operation, compliance, correction and event information. Optional absence and
-array order remain material. The contract must enumerate the exact selectors
-and presence rules while materializing its schema, rather than infer them from
-examples or accept an arbitrary caller projection. Authorization-only tenant,
-challenge, finalization and receipt metadata stay with their existing owners.
+The rendering rule remains `claimText = "Pending claim: " + JCS(P) + "."`.
+P represents the complete alleged domain content, not the metadata that
+authenticates this submission act. The exact package fixes its closed selector
+map, field presence and array order. All body qualifications, subject and scope,
+subject time, alleged performers, quantities/materials, ordinary supporting
+evidence, relationship proofs and associated event information remain covered.
 
-Construct P from the complete proposed claim and the independently established
-pre-hash author/context inputs, render it, then hash the complete intent.
-Later validation must compare reporter/context to the actual authority-owner
-facts; it may not regenerate different authorized bytes. If the exact required
-pre-hash binding is unavailable, construction cannot invent it or depend on
-this attempt's future authorization-result/payload/trace digest. This interface
-must be closed with its existing owner before claiming an implemented positive.
+The submission's assertedAt, authorization-selected asserting Party,
+assertionActPosture and assertionActEvidenceBinding do not enter P. Removing
+these selectors from P does not remove them from the governed assertion: the
+complete intent retains its actual act fields and binding, the result retains
+its required fields, and verification compares them to their existing owners'
+facts. The asserting Party is still resolved by the existing authorization
+path; the candidate does not add a caller-selected Party field to that path.
+Alleged performer Parties and domain time remain material claim content.
 
-Copy the resulting complete authorized body unchanged into the pending result.
-No trimming, Unicode normalization, notes escape hatch or post-authorization
-translation is permitted. The 23 reviewed examples retain their exact original
-renderings as design evidence. New executable fixtures additionally bind the
-real candidate projection/schema; they do not relabel illustrative fixture
-references as adopted runtime bindings.
+These exclusions apply to exact submission roles and selectors, not to every
+similarly named field. Body INITIAL/CORRECTION posture, operation
+INTENDED/PERFORMED posture, an alleged reporting act, its domain timestamp and
+all measured/qualified times remain material. The act-evidence record or any
+alias/descendant that depends on the rendered body cannot be relabelled as
+ordinary evidence to recreate self-attestation through another path.
+
+For online submission, the submitting author renders and fixes the complete
+claim body before submission. The trusted runtime supplies the top-level
+assertedAt before intent validation and hashing, as PR23 requires. It does not
+write or rewrite claimText. Later approval, authorization and result mapping
+use exactly those body bytes. Invalid text is rejected, not repaired in place.
+
+For offline submission, the author first fixes the complete rendered claim,
+subject/scope and ordinary evidence content. The existing act-evidence owner
+then authenticates that exact content with its source time and Party/basis.
+Only then can the immutable act-evidence digest be calculated and attached at
+the complete intent's assertionActEvidenceBinding. The owner-sourced assertedAt
+and exact content must match; the act record does not include its own digest or
+the later intent digest. No digest-bound record can be included in the content
+it authenticates. The owner still governs admission, proof and time trust.
+
+The package must classify every immutable reference by an explicit typed role.
+Assertion-support citations inside the proposition, qualifiers, quantity sources
+and actual output evidence must occur with the same complete binding in
+`/evidenceBindings`. Scope/relationship proof and Event Ingress inputs retain
+their own exact owner slots; they are not forced into the ordinary assertion
+list merely because they are immutable references. The complete validation
+trace binds every resolved input across those typed roles. Logical-ref equality
+alone is insufficient, and identity/value references do not become evidence
+merely by occurring in a proposition. No field-name suffix scan or permissive
+unknown-reference fallback may define these sets. The assertion-act
+self-attestation is a separate required owner input outside P and ordinary
+claim evidence. Every declared evidence member must be resolved, checked and
+represented in the validation report. The concrete role map is part of the
+versioned amendment and must be materialized in the future closed schemas.
+
+All historical input and review bytes remain immutable. Corrected examples
+explicitly supersede the historical rendering/projection as construction input,
+retain all existing domain meanings and preserve a before/after source map.
+They remain fictional candidate material, not adopted schemas or admitted proof.
+
+The concrete versioned projection, typed reference-role table, corrected
+examples, offline evidence construction and source mappings are specified in
+[the review amendment](review-amendment/README.md). Frozen original renderings
+remain historical evidence. They are superseded as construction examples by the
+amended version, not silently rewritten or accepted as executable positives.
+No trimming, Unicode normalization, arbitrary notes field or post-authorization
+translation is permitted. The complete authorized body is copied unchanged into
+the pending result.
 
 ## Evaluation, report and hash order
 
@@ -201,7 +244,7 @@ not verification: reproduce it from original inputs.
 
 | Slot | Concrete interface that must be closed in construction | Boundary retained |
 | --- | --- | --- |
-| Actor/authorization | Expected accountable Party and pre-hash author context, exact selected action/rule, actual trusted online or admitted offline assertion-act evidence. Compare against later actual authority facts. | Authorization, input and act/time owners. |
+| Actor/authorization | Expected accountable Party through its existing authorization path, exact selected action/rule, actual trusted online or admitted offline assertion-act evidence. Keep submission metadata outside P; compare intent/result and actual owner facts without rewriting the body. | Authorization, input and act/time owners. |
 | Identity/relationships | Exact endpoint-kind schemas and bindings, direction, interval/instant/extent coverage and admitted relation proof; actual interfaces for four proposed kinds. | Existing identity/resolution/relationship owners. |
 | Measurement | Actual property/result/method/context/provenance/use schema and binding closure; actual work-facet evidence distinct from analysis output. | Measurement and evidence-use owners. |
 | Event | Full actual envelope and separate passing Event Ingress evidence for the fixed assertion commit class; domain-specific meaning/subject/time predicates. | Event Ingress retains primary-family classification. |
@@ -237,8 +280,11 @@ closure and ownership must satisfy this design before source adoption.
 Construction must map every one of the 42 requirements and 99 definitions to
 its owning schema/predicate and independently authored public-entry-point tests.
 Exercise all 49 obligations, nine profiles, 17 eligible event/profile cells,
-all result/qualifier branches, all 23 whole meanings and the DV01–DV12 hostile
-cases. Include successful measured-instant cases with and without events,
+all result/qualifier branches, all 23 preserved whole meanings, the added
+offline and existing-kind structure examples, and the DV01–DV12 hostile cases.
+Exercise digest-bound offline evidence with changed-body and wrong-digest
+negatives, reject missing/wrong-revision nested evidence, and show online act
+metadata never rewrites or enters the exact claim text. Include successful measured-instant cases with and without events,
 early-analysis pending-output cases and actual-result completion. Test each
 contract prerequisite edge, missing required leaf, independent failure,
 forged-report subject/digest substitution, unknown recursive object member and

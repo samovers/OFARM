@@ -1,0 +1,33 @@
+{
+  "id": "local-candidate:claim-render-projection:2026-10-21:v2",
+  "status": "PROPOSED_DOMAIN_RENDER_CONTRACT_NOT_ADOPTED_SCHEMA",
+  "formula": "claimText = 'Pending claim: ' + UTF8_DECODE(RFC8785_JCS(P)) + '.'",
+  "projectionSource": "candidate-examples-v2.json /examples/*/claimContent; exact package-owned projection from the corresponding future typed intent/body, never an arbitrary caller projection",
+  "requiredRootMembers": ["candidateGrammar", "selectedAction", "subject", "soleAuthorityAnchor", "assertionPosture", "subjectTime", "proposition", "evidenceBindings", "claimState"],
+  "conditionalRootMembers": ["subjectScopeProofBindings", "claimPosture", "performedBy", "allegesSoftwareAgentPerformance", "softwareAgentActorshipBindings", "performerAuthorityEvidenceBindings", "temporalBasis", "association", "ruleRevisionBindings", "evidencePolicyRevisionBindings", "supersedesAssertionRecordBinding", "contextBindings", "interventionIntentPayloadBindings", "executionRecordPayloadBindings"],
+  "presenceRules": {
+    "claimState": "Exactly PENDING_REVIEW; a contract constant, not caller-selected truth.",
+    "operation": "claimPosture, performedBy, allegesSoftwareAgentPerformance and temporalBasis required only for ASSERT_OPERATION_CLAIM. Agent and performer-authority arrays obey the exact existing PERFORMED conditional presence rules.",
+    "compliance": "ruleRevisionBindings and evidencePolicyRevisionBindings required only for ASSERT_COMPLIANCE.",
+    "structure": "No operation or compliance-only member.",
+    "correction": "supersedesAssertionRecordBinding required only for CORRECTION.",
+    "scopeProof": "subjectScopeProofBindings required when exact subject/anchor identity and revision do not establish the relationship; remain separately verified typed proof inputs.",
+    "association": "When the candidate association object is present its exact ABSENT/PRESENT value and all specified fields are rendered. ABSENT maps to absence of the canonical associatedSemanticEventBinding, never null. PRESENT requires envelope, meaning case, allowed time selectors and independently supplied ingress evidence. INTENDED_WINDOW plus envelope-v0.1 PRESENT remains prohibited.",
+    "extensions": "Any new body member or binding role needs a closed selector and branch rule in the versioned package before use. Unknown members are rejected, never silently dropped. Existing complete body fields such as context/payload bindings are included whenever the selected body permits them."
+  },
+  "excludedExactRoles": [
+    {"candidateLocation": "governedContextExample/assertedAt", "wireLocation": "/assertedAt", "reason": "Trusted runtime injection for online; independently resolved/admitted act evidence for offline. Not caller-authored claim content."},
+    {"candidateLocation": "governedContextExample/authoritySubjectPartyRef", "wireLocation": "selected authorization path /authoritySubjectPartyRef -> result /assertedByPartyRef", "reason": "Authorization chooses the accountable asserting Party. Caller mirrors cannot supply it; there is no intent assertedByPartyRef field."},
+    {"candidateLocation": "governedContextExample/assertionActPosture", "wireLocation": "/assertionActPosture", "reason": "Submission-act posture stays in complete governed input validation, outside the reporter's domain proposition for both postures."},
+    {"candidateLocation": "governedContextExample/assertionActEvidenceBinding", "wireLocation": "/assertionActEvidenceBinding", "reason": "Required offline, absent online. Excluded from P and the rendered ordinary evidence list to avoid self-attestation recursion; remains covered by the whole effectIntentDigest."},
+    {"candidateLocation": "exactRenderedText", "wireLocation": "/assertionBody/claimText", "reason": "Exclude only this rendered output itself from its input projection."}
+  ],
+  "exclusionSemantics": "Exclusions are exact owned roles/paths, never a recursive field-name or string filter. Do not remove an alleged performer, a historical reporting act, measured time, qualifier or other domain value merely because it uses a similar label. No self-act record or descendant depending on the final body may be laundered into ordinary evidence to recreate the cycle.",
+  "authorship": {
+    "online": "The submitting author or their authoring client renders the complete claim before authenticated submission. The runtime verifies that text, leaves the body unchanged and supplies top-level assertedAt before intent validation/hash. Independently selected authorization Party is compared to result assertedByPartyRef; it is not inserted into claimText.",
+    "offline": "The author fixes the same claim projection and rendered body first. The separate act-evidence owner records exactly that submitted subject, scope, body and evidence content, source timestamp and Party/basis. Finalize and hash that record, bind it at assertionActEvidenceBinding, then finalize/hash the complete intent. No effectIntentDigest or later evidence digest appears in the earlier act record.",
+    "humanApproval": "The existing fresh-approval process approves the exact final complete intent where applicable; no runtime body-authoring permission or new approval rule is introduced."
+  },
+  "preservation": "Every non-act claim field is projected completely with exact strings, qualifications, optional absence and array order. Rendering does not normalize, summarize, establish truth or erase the independent validation of excluded governed fields.",
+  "next": "Integrate this explicit projection into Phase A and the later new body-schema binding; do not mutate pinned v0.2 schema bytes."
+}
