@@ -1,0 +1,2301 @@
+{
+  "revision": "review-repair-03",
+  "purpose": "Compact authored expectation index; the runner does not read saved reports as an oracle.",
+  "checks": 468,
+  "rows": [
+    {
+      "id": "pruning-preexisting",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "pruning-preexisting-reevaluation",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "pruning-validation-phase",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "pruning-validation-phase-reevaluation",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "spot-spray-validation-phase",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "spot-spray-validation-phase-reevaluation",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "pruning-no-subtype",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "pruning-no-subtype-reevaluation",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "pruning-no-reuse",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "pruning-no-reuse-reevaluation",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "REUSE_NOT_ALLOWED"
+    },
+    {
+      "id": "proof-whitespace-same-immutable-value",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "envelope-whitespace",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "request-whitespace",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SOURCE_BYTES_MISMATCH"
+    },
+    {
+      "id": "context-whitespace",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CONTEXT_PIN_MISMATCH"
+    },
+    {
+      "id": "profile-whitespace",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "PROFILE_PIN_MISMATCH"
+    },
+    {
+      "id": "proof-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "proof-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "proof-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "proof-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "proof-nan",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_JSON_NUMBER"
+    },
+    {
+      "id": "proof-unsafe-integer",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "proof-wrong-type",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "envelope-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "envelope-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "envelope-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "envelope-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "envelope-nan",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_JSON_NUMBER"
+    },
+    {
+      "id": "envelope-unsafe-integer",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "envelope-wrong-type",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "request-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "request-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "request-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "request-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "request-nan",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_JSON_NUMBER"
+    },
+    {
+      "id": "request-unsafe-integer",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "request-wrong-type",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "context-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "context-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "context-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "context-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "context-nan",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_JSON_NUMBER"
+    },
+    {
+      "id": "context-unsafe-integer",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "context-wrong-type",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "profile-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "MISSING_OR_NONBYTE_INPUT"
+    },
+    {
+      "id": "profile-duplicate",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "DUPLICATE_JSON_NAME"
+    },
+    {
+      "id": "profile-deep",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_DEPTH_LIMIT"
+    },
+    {
+      "id": "profile-bad-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_UTF8_JSON"
+    },
+    {
+      "id": "profile-nan",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_JSON_NUMBER"
+    },
+    {
+      "id": "profile-unsafe-integer",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "NON_CANONICAL_VALUE"
+    },
+    {
+      "id": "profile-wrong-type",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "oversized-input",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INPUT_SIZE_LIMIT"
+    },
+    {
+      "id": "wrong-family-proof",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CLASSIFICATION_MISMATCH"
+    },
+    {
+      "id": "wrong-family-envelope",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH"
+    },
+    {
+      "id": "dominant-shortened",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CLASSIFICATION_MISMATCH"
+    },
+    {
+      "id": "dominant-envelope-same-id",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CLASSIFICATION_CASE_NOT_EXACT"
+    },
+    {
+      "id": "subtype-removed",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CLASSIFICATION_MISMATCH"
+    },
+    {
+      "id": "subtype-null",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "subtype-case-change",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CLASSIFICATION_CASE_NOT_EXACT"
+    },
+    {
+      "id": "subtype-as-commit-class",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "wrong-commit-class",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMMIT_CLASS_MISMATCH"
+    },
+    {
+      "id": "changed-request-same-id",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "INPUT_BINDING_MISMATCH"
+    },
+    {
+      "id": "changed-request-event",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "REQUEST_EVENT_MISMATCH"
+    },
+    {
+      "id": "changed-request-scope",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "REQUEST_SCOPE_MISMATCH"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-plus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-minus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-plus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-minus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-plus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-minus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-plus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-plus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-minus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-minus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-plus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-minus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-plus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-request-ingestedAt-minus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-plus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-minus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-plus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-minus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-plus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-minus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-plus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-plus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-minus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-minus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-plus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-minus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-plus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-observationTime-minus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-plus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-minus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-plus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-minus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-plus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-minus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-plus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-plus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-minus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-minus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-plus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-minus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-plus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-eventTime-minus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-plus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-minus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-plus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-minus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-plus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-minus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-plus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-plus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-minus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-minus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-plus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-minus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-plus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-assertionTime-minus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-plus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-minus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-plus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-minus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-plus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-minus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-plus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-plus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-minus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-minus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-plus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-minus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-plus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-recordTime-minus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-plus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-minus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-plus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-minus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-plus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-minus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-plus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-plus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-minus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-minus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-plus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-minus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-plus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveFrom-minus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-plus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-minus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-plus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-minus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-plus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-minus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-plus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-plus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-minus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-minus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-plus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-minus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-plus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-effectiveUntil-minus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-plus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-minus00-00",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-plus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-minus01-30",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-plus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-minus23-59",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-plus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-plus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-minus01-60",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-minus01-99",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-plus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-minus24-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-plus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r1-offset-envelope-decisionTime-minus99-00",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-0",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-request-ingestedAt-1",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-request-ingestedAt-2",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-request-ingestedAt-3",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-4",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-5",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-6",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-7",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-8",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-9",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-10",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-11",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-12",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-13",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-14",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-15",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-16",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-17",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-request-ingestedAt-18",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-0",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-observationTime-1",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-observationTime-2",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-observationTime-3",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-4",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-5",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-6",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-7",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-8",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-9",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-10",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-11",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-12",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-13",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-14",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-15",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-16",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-17",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-observationTime-18",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-0",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-eventTime-1",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-eventTime-2",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-eventTime-3",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-4",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-5",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-6",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-7",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-8",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-9",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-10",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-11",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-12",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-13",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-14",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-15",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-16",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-17",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-eventTime-18",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-0",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-1",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-2",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-3",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-4",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-5",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-6",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-7",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-8",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-9",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-10",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-11",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-12",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-13",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-14",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-15",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-16",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-17",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-assertionTime-18",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-0",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-recordTime-1",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-recordTime-2",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-recordTime-3",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-4",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-5",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-6",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-7",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-8",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-9",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-10",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-11",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-12",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-13",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-14",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-15",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-16",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-17",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-recordTime-18",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-0",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-1",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-2",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-3",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-4",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-5",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-6",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-7",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-8",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-9",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-10",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-11",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-12",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-13",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-14",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-15",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-16",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-17",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveFrom-18",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-0",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-1",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-2",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-3",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-4",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-5",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-6",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-7",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-8",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-9",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-10",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-11",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-12",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-13",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-14",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-15",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-16",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-17",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-effectiveUntil-18",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-0",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-1",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-2",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-3",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-4",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-5",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-6",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-7",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-8",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-9",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-10",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-11",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-12",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-13",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-14",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-15",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-16",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-17",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "r2-time-envelope-decisionTime-18",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "bad-calendar",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "bad-calendar-envelope",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "forged-owner-role",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "forged-admitted-boolean",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "late-domainVerdictBinding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "late-traceBinding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "late-finalAssertionEffect",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "late-attemptReceiptBinding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "late-ingressResultBinding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "wrong-production-mode",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "PRODUCTION_MODE_MISMATCH"
+    },
+    {
+      "id": "wrong-completion-milestone",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "missing-required-binding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "wrong-context-binding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "OWNER_CONTEXT_BINDING_MISMATCH"
+    },
+    {
+      "id": "wrong-contract-binding",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CONTRACT_BINDING_MISMATCH"
+    },
+    {
+      "id": "wrong-proof-id",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "OWNER_PROOF_ID_MISMATCH"
+    },
+    {
+      "id": "proof-mutated-original-selector",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "PROOF_SELECTOR_MISMATCH"
+    },
+    {
+      "id": "wrong-contextSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CONTEXT_PIN_MISMATCH"
+    },
+    {
+      "id": "wrong-profileSha256",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "PROFILE_PIN_MISMATCH"
+    },
+    {
+      "id": "wrong-contractSha256",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "CONTRACT_PIN_MISMATCH"
+    },
+    {
+      "id": "missing-pins",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_INDEPENDENT_PINS"
+    },
+    {
+      "id": "boolean-pins",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_INDEPENDENT_PINS"
+    },
+    {
+      "id": "pin-extra-field",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_INDEPENDENT_PINS"
+    },
+    {
+      "id": "selector-missing",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_PROOF_SELECTOR"
+    },
+    {
+      "id": "selector-invalid-digest",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_PROOF_SELECTOR"
+    },
+    {
+      "id": "selector-boolean",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "INVALID_PROOF_SELECTOR"
+    },
+    {
+      "id": "unsupported-reuse",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "UNKNOWN_USE_MODE"
+    },
+    {
+      "id": "self-consistent-forgery-fixed-owner-pins",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "PROFILE_PIN_MISMATCH"
+    },
+    {
+      "id": "self-consistent-commit-forgery-fixed-context",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "COMMIT_CLASS_MISMATCH"
+    },
+    {
+      "id": "duplicate-owner-case-id",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "AMBIGUOUS_CLASSIFICATION_PROFILE"
+    },
+    {
+      "id": "duplicate-owner-case-signature",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "AMBIGUOUS_CLASSIFICATION_PROFILE"
+    },
+    {
+      "id": "owner-source-pin-mismatch",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CLASSIFICATION_SOURCE_MISMATCH"
+    },
+    {
+      "id": "no-owner-case",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "CLASSIFICATION_CASE_NOT_EXACT"
+    },
+    {
+      "id": "wrong-independent-case-selection",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "OWNER_CASE_SELECTION_MISMATCH"
+    },
+    {
+      "id": "reevaluation-without-initial-context",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "late-input-owner-context",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "SCHEMA_INVALID"
+    },
+    {
+      "id": "proof-reused-another-context",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "OWNER_CONTEXT_BINDING_MISMATCH"
+    },
+    {
+      "id": "support-StructureEvent-NOTE",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-StructureEvent-OBSERVATION_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-StructureEvent-HYPOTHESIS_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-StructureEvent-STRUCTURE_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-StructureEvent-OPERATION_CLAIM",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-StructureEvent-EVIDENCE_RECORD",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-StructureEvent-COMPLIANCE_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-StructureEvent-GOVERNANCE_DECISION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-StructureEvent-ADVISORY_OUTPUT",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "owner-authority-StructureEvent",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH"
+    },
+    {
+      "id": "support-ObservationEvent-NOTE",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-ObservationEvent-OBSERVATION_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-ObservationEvent-HYPOTHESIS_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-ObservationEvent-STRUCTURE_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-ObservationEvent-OPERATION_CLAIM",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-ObservationEvent-EVIDENCE_RECORD",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-ObservationEvent-COMPLIANCE_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-ObservationEvent-GOVERNANCE_DECISION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-ObservationEvent-ADVISORY_OUTPUT",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "owner-authority-ObservationEvent",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH"
+    },
+    {
+      "id": "support-OccurrenceEvent-NOTE",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-OccurrenceEvent-OBSERVATION_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-OccurrenceEvent-HYPOTHESIS_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-OccurrenceEvent-STRUCTURE_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-OccurrenceEvent-OPERATION_CLAIM",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-OccurrenceEvent-EVIDENCE_RECORD",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-OccurrenceEvent-COMPLIANCE_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-OccurrenceEvent-GOVERNANCE_DECISION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-OccurrenceEvent-ADVISORY_OUTPUT",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "owner-authority-OccurrenceEvent",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH"
+    },
+    {
+      "id": "support-InterventionEvent-NOTE",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-InterventionEvent-OBSERVATION_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-InterventionEvent-HYPOTHESIS_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-InterventionEvent-STRUCTURE_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-InterventionEvent-OPERATION_CLAIM",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-InterventionEvent-EVIDENCE_RECORD",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-InterventionEvent-COMPLIANCE_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-InterventionEvent-GOVERNANCE_DECISION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-InterventionEvent-ADVISORY_OUTPUT",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "owner-authority-InterventionEvent",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH"
+    },
+    {
+      "id": "support-MaterialEvent-NOTE",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-MaterialEvent-OBSERVATION_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-MaterialEvent-HYPOTHESIS_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-MaterialEvent-STRUCTURE_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-MaterialEvent-OPERATION_CLAIM",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-MaterialEvent-EVIDENCE_RECORD",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-MaterialEvent-COMPLIANCE_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-MaterialEvent-GOVERNANCE_DECISION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-MaterialEvent-ADVISORY_OUTPUT",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "owner-authority-MaterialEvent",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH"
+    },
+    {
+      "id": "support-EvidenceEvent-NOTE",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-EvidenceEvent-OBSERVATION_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-EvidenceEvent-HYPOTHESIS_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-EvidenceEvent-STRUCTURE_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-EvidenceEvent-OPERATION_CLAIM",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-EvidenceEvent-EVIDENCE_RECORD",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-EvidenceEvent-COMPLIANCE_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-EvidenceEvent-GOVERNANCE_DECISION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-EvidenceEvent-ADVISORY_OUTPUT",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "owner-authority-EvidenceEvent",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH"
+    },
+    {
+      "id": "support-GovernanceEvent-NOTE",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-GovernanceEvent-OBSERVATION_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-GovernanceEvent-HYPOTHESIS_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-GovernanceEvent-STRUCTURE_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-GovernanceEvent-OPERATION_CLAIM",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-GovernanceEvent-EVIDENCE_RECORD",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-GovernanceEvent-COMPLIANCE_ASSERTION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-GovernanceEvent-GOVERNANCE_DECISION",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "support-GovernanceEvent-ADVISORY_OUTPUT",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredErrorCode": null
+    },
+    {
+      "id": "owner-authority-GovernanceEvent",
+      "expectedStatus": "FAIL",
+      "requiredErrorCode": "FAMILY_MISMATCH"
+    },
+    {
+      "id": "invalid-pinned-schema",
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "PACKAGE_UNAVAILABLE_OR_INVALID"
+    },
+    {
+      "id": "external-schema-reference",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "SCHEMA_ID_OR_REFERENCE_MISMATCH"
+    },
+    {
+      "id": "unexpected-local-reference",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "SCHEMA_ID_OR_REFERENCE_MISMATCH"
+    },
+    {
+      "id": "schema-bytes-changed",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "SCHEMA_PIN_MISMATCH"
+    },
+    {
+      "id": "semantic-source-changed",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "SEMANTIC_SOURCE_PIN_MISMATCH"
+    },
+    {
+      "id": "incomplete-semantic-source-closure",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "SEMANTIC_SOURCE_CLOSURE_MISMATCH"
+    },
+    {
+      "id": "deep-contract",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredErrorCode": "CONTRACT_PIN_MISMATCH"
+    },
+    {
+      "id": "missing-package",
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "PACKAGE_UNAVAILABLE_OR_INVALID"
+    },
+    {
+      "id": "deep-pinned-contract",
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "PACKAGE_UNAVAILABLE_OR_INVALID"
+    },
+    {
+      "id": "frozen-report-schema-exact"
+    },
+    {
+      "id": "source-copy-source-contracts/SemanticEventEnvelope.v0.1.json"
+    },
+    {
+      "id": "source-copy-source-contracts/CommitIngressRequest.v0.1.json"
+    },
+    {
+      "id": "source-copy-sources/event-ingress-rfc.md"
+    },
+    {
+      "id": "source-copy-sources/event-grammar.md"
+    },
+    {
+      "id": "source-copy-sources/platform.md"
+    },
+    {
+      "id": "source-copy-sources/constitution.md"
+    },
+    {
+      "id": "source-copy-fixtures/envelopes/pruning.json"
+    },
+    {
+      "id": "source-copy-fixtures/envelopes/spot-spray.json"
+    },
+    {
+      "id": "source-copy-fixtures/requests/pruning.json"
+    },
+    {
+      "id": "jcs-vector-0"
+    },
+    {
+      "id": "jcs-vector-1"
+    },
+    {
+      "id": "jcs-vector-2"
+    },
+    {
+      "id": "jcs-invalid-0"
+    },
+    {
+      "id": "jcs-invalid-1"
+    },
+    {
+      "id": "jcs-invalid-2"
+    },
+    {
+      "id": "jcs-invalid-3"
+    },
+    {
+      "id": "portable-cli"
+    },
+    {
+      "id": "portable-cli-bad-use"
+    },
+    {
+      "id": "portable-cli-missing"
+    },
+    {
+      "id": "split-installation-cli"
+    },
+    {
+      "id": "helper-code-tamper"
+    },
+    {
+      "id": "portable-cli-missing-dependencies"
+    },
+    {
+      "id": "jcs-version-mismatch",
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "RFC8785_DEPENDENCY_MISMATCH"
+    },
+    {
+      "id": "jcs-implementation-pin-mismatch",
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "RFC8785_DEPENDENCY_MISMATCH"
+    },
+    {
+      "id": "jcs-behavior-mismatch",
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "RFC8785_DEPENDENCY_MISMATCH"
+    }
+  ]
+}

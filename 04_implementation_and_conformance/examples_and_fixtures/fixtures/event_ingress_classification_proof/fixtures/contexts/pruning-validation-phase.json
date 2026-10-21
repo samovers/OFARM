@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "ofarm.eventClassificationContext.v0.1",
+  "contextId": "fixture:owner-context:pruning-validation-phase",
+  "ownerRole": "EVENT_INGRESS_CLASSIFICATION",
+  "contractBinding": {
+    "ref": "ofarm.event-ingress.pre-verdict-classification.v0.1",
+    "digest": "sha256:6efec48c1eab44ddae1161f85aea087f5bc13dd9ec550b0941e14ad4e47903b1"
+  },
+  "classificationProfileBinding": {
+    "ref": "profile:event-ingress:agronomic-examples",
+    "digest": "sha256:d835fac4497da6b3efde05291081f1d225f2f7a30fe74349d184b60e63f3c9f5"
+  },
+  "selectedCaseId": "case:deliberate-pruning",
+  "envelopeBinding": {
+    "ref": "event:intervention:pruning:field-17:2026-04-08",
+    "digest": "sha256:c841f61f6b4ba5c6d641ddd770dbd5458185e98a9e83fa0714cdfb1fc08269ec"
+  },
+  "ingressRequestBinding": {
+    "ref": "ingress:req:field-17:pruning-operation-claim:2026-04-08T14:25:00Z",
+    "digest": "sha256:7619ce325865c90289678a2dcd9d9dbff6a73421778df5a83bd53589c4e4ff34"
+  },
+  "envelopeBytesSha256": "bdbe24bfb7d602b65ef5b517c21b54f134b1539f12c35c428530d20f49971ac9",
+  "ingressRequestBytesSha256": "e0d62ec92b25c6ece1e2f9eb4b1a1d6d8cc106a029edb3cd544eab0b8af1c3ad",
+  "expectedCommitClass": "OPERATION_CLAIM",
+  "expectedTargetScopes": [
+    {
+      "scopeType": "FIELD",
+      "scopeRef": "field:17"
+    }
+  ],
+  "expectedProofId": "fixture:classification-proof:pruning-validation-phase",
+  "productionMode": "VALIDATION_PHASE_PROOF",
+  "permittedUseModes": [
+    "INITIAL_EVALUATION",
+    "EXACT_REEVALUATION"
+  ],
+  "reuseRule": "EXACT_ENVELOPE_REQUEST_PROFILE_CONTEXT_AND_PROOF",
+  "requiredMilestone": "CLASSIFICATION_COMPLETE_BEFORE_DEPENDENT_VERDICT",
+  "inputRoles": [
+    "PINNED_CONTRACT",
+    "SELECTED_CLASSIFICATION_PROFILE",
+    "FIXED_ENVELOPE",
+    "FIXED_INGRESS_REQUEST",
+    "INDEPENDENT_OWNER_CONTEXT"
+  ]
+}

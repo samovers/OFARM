@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "ofarm.eventClassificationProfile.v0.1",
+  "profileId": "profile:event-ingress:agronomic-examples",
+  "profileRevision": "candidate-v0.1",
+  "contractBinding": {
+    "ref": "ofarm.event-ingress.pre-verdict-classification.v0.1",
+    "digest": "sha256:6efec48c1eab44ddae1161f85aea087f5bc13dd9ec550b0941e14ad4e47903b1"
+  },
+  "ownerRole": "EVENT_INGRESS_CLASSIFICATION",
+  "selectionMethod": "EXACT_DOMINANT_CONSEQUENCE_AND_SUBTYPE",
+  "cases": [
+    {
+      "caseId": "case:deliberate-pruning",
+      "dominantSemanticConsequence": "Deliberate pruning action intended to change canopy structure in field 17.",
+      "subtype": {
+        "presence": "PRESENT",
+        "value": "intervention/pruning-action"
+      },
+      "authoritativePrimaryFamily": "InterventionEvent",
+      "semanticSourceBinding": {
+        "ref": "ofarm:event-grammar:v0.1",
+        "digest": "sha256:47784169916b66fec510a7a95c86b19b5c222ef987c6d29c26f9a250632a61b3"
+      },
+      "sourceClause": "3.4; 4; 5",
+      "classificationReason": "Deliberate pruning is the described intervention. Its later structural result and evidence do not replace its primary event family."
+    },
+    {
+      "caseId": "case:spot-spray-late-sync",
+      "dominantSemanticConsequence": "operation claim and retained as-applied evidence; accepted execution requires review",
+      "subtype": {
+        "presence": "PRESENT",
+        "value": "crop-protection/spot-spray/late-sync"
+      },
+      "authoritativePrimaryFamily": "InterventionEvent",
+      "semanticSourceBinding": {
+        "ref": "ofarm:event-grammar:v0.1",
+        "digest": "sha256:47784169916b66fec510a7a95c86b19b5c222ef987c6d29c26f9a250632a61b3"
+      },
+      "sourceClause": "3.4; 4; 5",
+      "classificationReason": "The source envelope describes deliberate spraying. Offline synchronization and retained evidence do not reclassify that described act or establish accepted execution."
+    },
+    {
+      "caseId": "case:deliberate-pruning-without-subtype",
+      "dominantSemanticConsequence": "Deliberate pruning action intended to change canopy structure in field 17.",
+      "subtype": {
+        "presence": "ABSENT"
+      },
+      "authoritativePrimaryFamily": "InterventionEvent",
+      "semanticSourceBinding": {
+        "ref": "ofarm:event-grammar:v0.1",
+        "digest": "sha256:47784169916b66fec510a7a95c86b19b5c222ef987c6d29c26f9a250632a61b3"
+      },
+      "sourceClause": "3.4; 4; 5",
+      "classificationReason": "The explicitly authored subtype-absent fixture still describes deliberate pruning. Absence is distinct from null."
+    }
+  ],
+  "limits": "Classification of the supplied event description only; no occurrence, acceptance, authority or runtime admission."
+}

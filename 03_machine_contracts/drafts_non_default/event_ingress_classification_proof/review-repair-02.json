@@ -1,0 +1,30 @@
+{
+  "revision": "review-repair-02",
+  "primaryTrustBoundary": "Event Ingress classification and evidence admission",
+  "scopeStayedInsideBoundary": true,
+  "finding": "P2: Python 3.14 datetime parsing normalizes hour 24; numeric ranges cannot be delegated to it.",
+  "previousSealSha256": "7af19cdf769abd0ec15d7604eba10e942161de37d5b883baf52132b39c705431",
+  "originalSealSha256": "9c7d17b998dd826618d0ea978dac644ac56643b51c2c0d2d2e1f88bfc8351ac8",
+  "repair": "Explicit ASCII [0-9] ranges for year/month/day, time hour/minute/second, fractional digits and offset hour/minute. Calendar validity remains checked separately. Leap-second exclusion is unchanged.",
+  "independentEvidence": [
+    {
+      "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/event-ingress-proof-20261021/integration-review/independent-repair-report.json",
+      "copy": "review-evidence/repair-02/independent-repair-report.json",
+      "sha256": "ac53ae2e65c71b34c70c784699356367e3bf63ba0fe7f4a9428b536242fde12f"
+    },
+    {
+      "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/event-ingress-proof-20261021/integration-review/review_repair.py",
+      "copy": "review-evidence/repair-02/review_repair.py",
+      "sha256": "0958ac839c7b65f4e5ac01cb17aed36ac1160d3709e0bf79a57051b4c8547057"
+    }
+  ],
+  "addedBoundaryCases": 152,
+  "integrationPolicy": "Full replacement integration map retaining both repair ledgers. Earlier sealed packets remain unchanged.",
+  "conformanceChecksPassed": 468,
+  "conformanceChecksTotal": 468,
+  "coordinatorAuthoredCasesReplayed": 96,
+  "coordinatorAuthoredCasesPassed": 96,
+  "replayChanges": "Only directory assignments and execution attribution; case inputs, expected outcomes and comparisons unchanged.",
+  "replayReportSha256": "2ef13c4b6db1ff3290677b0e90fdc13ec30c60a65c4d8b547db83f99b3a2ac4f",
+  "conformanceReportSha256": "b708507f7f15b86ce932f292059c96ce271fc5936c5dfb07f03079d1b3c82225"
+}
