@@ -33,6 +33,7 @@ def owner_error_codes(body,content,measurement,records,expect,digest):
     bad('QUANTITY_SOURCE_BINDING_MISMATCH',lp['sourceBinding']==expect['quantityProvenanceBinding'])
     bad('CRITERION_SOURCE_BINDING_MISMATCH',tp['sourceBinding']==body['criterion']==expect['criterionOwnerBinding'])
     bad('CRITERION_OWNER_PIN_MISMATCH',digest(criterion)==expect['criterionOwnerDigest'])
+    bad('QUANTITY_OWNER_PIN_MISMATCH',digest(q)==expect['quantityProvenanceDigest'])
     bad('QUANTITY_SOURCE_LINK_MISMATCH',q.get('measurementBinding')==body['operand']['source']['measurementBinding'] and q.get('measurementSourceRef')==measurement.get('source',{}).get('sourceRef') and q.get('selectedMeasurementPointer')=='/result/detectionLimit')
     bad('QUANTITY_SOURCE_POINTER_MISMATCH',lp['valuePointer']=='/loq' and lp['lexicalPointer']=='/loq/originalLexicalValue' and lp['qualifierPointer']=='/loq/qualifier')
     bad('CRITERION_SOURCE_POINTER_MISMATCH',tp['valuePointer']=='/threshold' and tp['lexicalPointer']=='/threshold/originalLexicalValue' and tp['qualifierPointer']=='/threshold/qualifier')

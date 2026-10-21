@@ -32,6 +32,14 @@
     {
       "exactSource": "selected_by_table(missing,empty_table)==[]",
       "replacement": "selected_by_table(missing,empty_table)==[]"
+    },
+    {
+      "exactSource": "w05_errors(case['claimContent'],case['records'],expect)",
+      "replacement": "w05_errors(case['claimContent'],case['records'],{**expect,**case.get('ownerProfileSelection',{})})"
+    },
+    {
+      "exactSource": "': isolated source failure'",
+      "replacement": "': source semantic and independent pin comparisons'"
     }
   ],
   "rule": "The full current suite is rerun over the v4 overlay. No historical pass is counted as current."

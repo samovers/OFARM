@@ -15,6 +15,8 @@ replacements=[
 ("[expect['contextBinding'],expect['methodUseBinding']]","[expect['contextBinding'],expect['methodUseBinding'],expect['quantityProvenanceBinding']]"),
 ("W05 original evidence prefix plus exact two new records","W05 original evidence prefix plus exact three new records"),
 ("selected_by_table(missing,empty_table)==[]", "selected_by_table(missing,empty_table)==[]"),
+("w05_errors(case['claimContent'],case['records'],expect)","w05_errors(case['claimContent'],case['records'],{**expect,**case.get('ownerProfileSelection',{})})"),
+("': isolated source failure'","': source semantic and independent pin comparisons'"),
 ]
 ledger=[]
 for before,after in replacements:

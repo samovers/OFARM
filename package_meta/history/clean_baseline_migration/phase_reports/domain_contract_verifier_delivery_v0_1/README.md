@@ -5,7 +5,7 @@ outcome is a callable, deterministic offline verifier for complete typed
 AssertionRecord claims across structure, operation and compliance. Its primary
 trust boundary is **AssertionRecord domain meaning and validation integrity**.
 
-Start with [PHASE_A.md](PHASE_A.md) and the [third review amendment](review-amendment-03/README.md). This is a design and reviewed-input packet;
+Start with [PHASE_A.md](PHASE_A.md) and the [third review amendment](review-amendment-03/INTEGRATION.md). This is a design and reviewed-input packet;
 the new schemas, protected-effect contract and verifier are not implemented.
 They belong in this same PR. Existing candidate code inherited from PR45 does
 not establish completion of the new capability.
@@ -92,7 +92,7 @@ not be presented as validation of the latest construction inputs.
 The reviews at `1a2583d24aa7d280e257e2d54d1c7c3708b623b6` accepted B2, F4 and
 the bounded F5 commit-class correction, and identified two follow-ups: unchecked
 quantity provenance/lexical meaning (F6), and malformed required source objects
-that could pass or raise an exception. The [third amendment](review-amendment-03/README.md)
+that could pass or raise an exception. The [third amendment](review-amendment-03/INTEGRATION.md)
 adds explicit scalar-source and criterion-owner bindings, compares closed
 qualifiers and selected lexical values, and returns structured errors for
 malformed measured sources, rate sources and required qualifications.
@@ -104,6 +104,14 @@ limit. The limit, threshold, censoring and INDETERMINATE outcome remain unchange
 new source links and exact text are versioned. The 24 other whole-claim examples
 and all earlier packet files remain unchanged. Current checks must exercise the
 corrected examples together with all inherited event and measurement controls.
+
+A fresh local review at `37d680d` found two residual gaps in the first amendment-03
+checkpoint: an unenforced independent quantity-source digest and result-tag-driven
+scalar guards. The [bounded owner correction](review-amendment-03/review-repair-01/FIX01_DECISION.md)
+adds exact source pins, profile-selected required roles and 532 regression controls.
+All 25 candidate examples remain byte-identical to that checkpoint. Current
+validation and custody are described in the integration record; the original
+owner README, reports and manifest remain historical records of `37d680d`.
 
 ## Limits
 

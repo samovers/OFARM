@@ -104,5 +104,28 @@
     "wrongOrUnknownProvenance": "Reject unknown tokens and tokens inconsistent with the resolved source reporting role, including UNKNOWN for this known reporting role. A broader carrier enum is not semantic permission.",
     "traceClosure": "Bind the exact quantity-source and criterion-owner record digests, immutable bindings and selected value/lexical/qualifier pointers in the domain payload. Ordinary quantity evidence additionally requires exact root evidence membership; the criterion record remains a definition input.",
     "typeChecks": "Require object shapes before any member or alias access. Required missing/null/empty/wrong types return structured {code,pointer,...}; closed bindings and absolute RFC6901 pointer strings are checked. This does not expand into the complete domain verifier."
+  },
+  "fix01SourceProfile": {
+    "id": "fictional-owner-profile:W05:amendment-03:fix01",
+    "status": "UNADOPTED_FINITE_OWNER_PROFILE_NOT_RUNTIME_AUTHORITY",
+    "file": "w05-owner-profile-fix01.json",
+    "sha256": "121888545efeb28fd2e8f6be8d099c93727edb7a42e57d00eed3b74c1bcb1dc4",
+    "requiredResultKind": "CENSORED_NUMERIC",
+    "requiredScalarProvenance": [
+      "/operand/limit/provenance",
+      "/threshold/provenance"
+    ],
+    "rule": "The selected finite owner profile fixes required W05 source roles before dependent access. Claimant discriminator changes cannot remove them. Exact immutable source bytes are checked against independent approved pins, not only self-reported contentDigest.",
+    "separateApprovedFixtures": [
+      {
+        "file": "owner-approved-lexical-r2-fix01.json",
+        "sha256": "9b4d64a0cf434c110ccc2949643615f582841e0f53a4b2d260210a1cee748c06"
+      },
+      {
+        "file": "owner-approved-h03-fix01.json",
+        "sha256": "49882dbea62e61d75e4798d62621564224e6676e3c1cda8d7a9a8b48f5aba955"
+      }
+    ],
+    "limits": "Fictional non-adopted design fixtures only; no runtime source authority, producer, or general numeric branch engine."
   }
 }

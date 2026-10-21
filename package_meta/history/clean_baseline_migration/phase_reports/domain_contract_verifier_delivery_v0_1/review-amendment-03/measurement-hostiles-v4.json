@@ -74,7 +74,7 @@
                 },
                 "provenance": {
                   "sourceBinding": {
-                    "fixtureLogicalRef": "quantity-source:W05-lab-transcription-fictional",
+                    "fixtureLogicalRef": "quantity-source:W05-wrong-property-transcription-fictional",
                     "fixtureRevision": "r1",
                     "admittedRuntimeBinding": false
                   },
@@ -94,12 +94,12 @@
                 "resultPointer": "/result",
                 "contextBinding": {
                   "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
-                  "fixtureRevision": "r1",
+                  "fixtureRevision": "h03-r1",
                   "admittedRuntimeBinding": false
                 },
                 "subjectRelationBinding": {
                   "fixtureLogicalRef": "sample-to-field:fictional",
-                  "fixtureRevision": "r1",
+                  "fixtureRevision": "h03-r1",
                   "admittedRuntimeBinding": false
                 },
                 "methodUseBinding": {
@@ -163,12 +163,12 @@
           },
           {
             "fixtureLogicalRef": "sample-to-field:fictional",
-            "fixtureRevision": "r1",
+            "fixtureRevision": "h03-r1",
             "admittedRuntimeBinding": false
           },
           {
             "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
-            "fixtureRevision": "r1",
+            "fixtureRevision": "h03-r1",
             "admittedRuntimeBinding": false
           },
           {
@@ -177,7 +177,7 @@
             "admittedRuntimeBinding": false
           },
           {
-            "fixtureLogicalRef": "quantity-source:W05-lab-transcription-fictional",
+            "fixtureLogicalRef": "quantity-source:W05-wrong-property-transcription-fictional",
             "fixtureRevision": "r1",
             "admittedRuntimeBinding": false
           }
@@ -288,7 +288,7 @@
           "role": "OBSERVATION_CONTEXT",
           "binding": {
             "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
-            "fixtureRevision": "r1",
+            "fixtureRevision": "h03-r1",
             "admittedRuntimeBinding": false
           },
           "contentDigest": "sha256:60136566d5be6f044e5ab9ec346fa1d7b98095b1ff390713a758c505414b5895",
@@ -358,16 +358,16 @@
           "role": "SAMPLE_SUPPORT_RELATION",
           "binding": {
             "fixtureLogicalRef": "sample-to-field:fictional",
-            "fixtureRevision": "r1",
+            "fixtureRevision": "h03-r1",
             "admittedRuntimeBinding": false
           },
-          "contentDigest": "sha256:f26302f2f3536bcf181167d7d7a9af3854522ad150b903f0337d4572fc66c378",
+          "contentDigest": "sha256:112a9df659af6d14eb0801886c528402f5aabdc836611118b1fa1121a48c56fd",
           "record": {
             "fixtureRecordType": "UNADOPTED_SAMPLE_SUPPORT_RELATION_EXAMPLE",
             "sampleRef": "sample:W05-soil-fictional",
             "contextBinding": {
               "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
-              "fixtureRevision": "r1",
+              "fixtureRevision": "h03-r1",
               "admittedRuntimeBinding": false
             },
             "subject": {
@@ -447,7 +447,7 @@
         {
           "role": "QUANTITY_PROVENANCE",
           "binding": {
-            "fixtureLogicalRef": "quantity-source:W05-lab-transcription-fictional",
+            "fixtureLogicalRef": "quantity-source:W05-wrong-property-transcription-fictional",
             "fixtureRevision": "r1",
             "admittedRuntimeBinding": false
           },
@@ -519,7 +519,30 @@
             "status": "FICTIONAL_UNADMITTED_NO_REGULATORY_AUTHORITY"
           }
         }
-      ]
+      ],
+      "ownerProfileSelection": {
+        "quantityProvenanceBinding": {
+          "fixtureLogicalRef": "quantity-source:W05-wrong-property-transcription-fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "quantityProvenanceDigest": "sha256:8bef05d46ebb6f0756cd39f9208802a90ed5248822fde6316832c76b8f2e6391",
+        "measurementBinding": {
+          "fixtureLogicalRef": "measurement:wrong-property-fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "contextBinding": {
+          "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+          "fixtureRevision": "h03-r1",
+          "admittedRuntimeBinding": false
+        },
+        "subjectRelationBinding": {
+          "fixtureLogicalRef": "sample-to-field:fictional",
+          "fixtureRevision": "h03-r1",
+          "admittedRuntimeBinding": false
+        }
+      }
     },
     {
       "id": "H04_MISSING_SOURCE_ROLE",
@@ -2057,6 +2080,7 @@
     {
       "id": "H07_WRONG_TARGET",
       "expectedErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH",
         "TARGET_SUPPORT_MISMATCH"
       ],
       "claimContent": {
@@ -2577,6 +2601,7 @@
     {
       "id": "H08_WRONG_METHOD_REVISION",
       "expectedErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH",
         "METHOD_MISMATCH"
       ],
       "claimContent": {
@@ -3097,6 +3122,7 @@
     {
       "id": "H09_LOD_NOT_LOQ",
       "expectedErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH",
         "LOQ_VALUE_UNIT_MISMATCH"
       ],
       "claimContent": {
@@ -3617,6 +3643,7 @@
     {
       "id": "H10_WRONG_PHENOMENON_TIME",
       "expectedErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH",
         "PHENOMENON_TIME_MISMATCH"
       ],
       "claimContent": {
@@ -4657,6 +4684,7 @@
     {
       "id": "H12_CONFIDENCE_USED_AS_HARD_BOUND",
       "expectedErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH",
         "METHOD_DOMAIN_BOUNDS_MISMATCH"
       ],
       "claimContent": {
@@ -7249,6 +7277,7 @@
     {
       "id": "H17_WRONG_SAMPLE",
       "expectedErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH",
         "SAMPLE_MISMATCH"
       ],
       "claimContent": {
@@ -7769,6 +7798,7 @@
     {
       "id": "H18_WRONG_MATRIX",
       "expectedErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH",
         "MATRIX_ANALYTE_MISMATCH"
       ],
       "claimContent": {
@@ -8289,6 +8319,7 @@
     {
       "id": "H19_WRONG_LEXICAL_RESULT",
       "expectedErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH",
         "LEXICAL_RESULT_MISMATCH"
       ],
       "claimContent": {
@@ -8809,6 +8840,7 @@
     {
       "id": "H20_UNCERTAINTY_ERASED",
       "expectedErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH",
         "QUALIFICATION_SOURCE_MISMATCH",
         "QUALIFICATION_POINTER_UNRESOLVED"
       ],
@@ -9326,6 +9358,7 @@
     {
       "id": "H21_DISPUTED_AS_UNQUALIFIED",
       "expectedErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH",
         "SOURCE_POSTURE_MISMATCH"
       ],
       "claimContent": {

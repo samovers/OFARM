@@ -250,6 +250,14 @@ matching caller-controlled qualifier establishes that linkage. The criterion
 owner record independently fixes the threshold, operator and provenance; the
 claim cannot choose those expected values.
 
+Compare each resolved scalar source with its independently selected exact digest,
+not only a digest supplied beside that record. A different lexical source revision
+requires a distinct binding and independently pinned bytes. Select required source
+roles from the definition/use profile before reading claimant discriminators; a
+changed result tag cannot remove scalar-source obligations. The finite W05
+profile and its r2/H03 contexts are fictional non-adopted check inputs, not a
+new runtime authority or a reduction of supported result branches.
+
 All historical input and review bytes remain immutable. Corrected examples
 explicitly supersede the historical rendering/projection as construction input,
 retain all existing domain meanings and preserve a before/after source map.
@@ -257,7 +265,7 @@ They remain fictional candidate material, not adopted schemas or admitted proof.
 
 The concrete versioned projection, typed reference-role table, corrected
 examples, offline evidence construction and source mappings are specified in
-[the third review amendment](review-amendment-03/README.md), which inherits
+[the third review amendment](review-amendment-03/INTEGRATION.md), which inherits
 the pinned second amendment without changing its historical files. The original
 and earlier amended renderings remain historical evidence. They are superseded as construction examples by
 the newest version, not silently rewritten or accepted as executable positives.

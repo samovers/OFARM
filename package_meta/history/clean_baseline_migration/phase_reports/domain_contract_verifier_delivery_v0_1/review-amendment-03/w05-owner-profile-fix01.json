@@ -1,0 +1,115 @@
+{
+  "id": "fictional-owner-profile:W05:amendment-03:fix01",
+  "status": "UNADOPTED_FINITE_OWNER_PROFILE_NOT_RUNTIME_AUTHORITY",
+  "sourceHead": "37d680d598af0cd321c6d06e91af6aba60a73c8d",
+  "criterionBinding": {
+    "fixtureLogicalRef": "criterion:W05-nitrate-fictional",
+    "fixtureRevision": "r1",
+    "admittedRuntimeBinding": false
+  },
+  "criterionOwnerDigest": "sha256:429e7fe73b7099ebbc81c582b7062b33ba9b8c9829102ed73ae6d34e80c14278",
+  "requiredResultKind": "CENSORED_NUMERIC",
+  "requiredScalarProvenance": [
+    "/operand/limit/provenance",
+    "/threshold/provenance"
+  ],
+  "requiredScalarReportingQualifier": "HUMAN_REPORTED",
+  "approvedQuantitySources": [
+    {
+      "binding": {
+        "fixtureLogicalRef": "quantity-source:W05-lab-transcription-fictional",
+        "fixtureRevision": "r1",
+        "admittedRuntimeBinding": false
+      },
+      "recordDigest": "sha256:1615847aee93447ca908976182e3ef1d4ba8c3585e97cb0beeb41105359a8d70",
+      "ownerRecordSource": "37d680d:review-amendment-03/owner-records-v4.json#/quantityProvenance"
+    },
+    {
+      "binding": {
+        "fixtureLogicalRef": "quantity-source:W05-lab-transcription-fictional",
+        "fixtureRevision": "r2",
+        "admittedRuntimeBinding": false
+      },
+      "recordDigest": "sha256:234b6a8264f04fa7fbfaa34fa1aa0f76d582ec52a4373edbd3409642fafff1de",
+      "ownerRecordSource": "owner-approved-lexical-r2-fix01.json#/quantityProvenance"
+    },
+    {
+      "binding": {
+        "fixtureLogicalRef": "quantity-source:W05-wrong-property-transcription-fictional",
+        "fixtureRevision": "r1",
+        "admittedRuntimeBinding": false
+      },
+      "recordDigest": "sha256:8bef05d46ebb6f0756cd39f9208802a90ed5248822fde6316832c76b8f2e6391",
+      "ownerRecordSource": "owner-approved-h03-fix01.json#/records/QUANTITY_PROVENANCE"
+    }
+  ],
+  "measurementSources": [
+    {
+      "role": "MEASUREMENT",
+      "binding": {
+        "fixtureLogicalRef": "nitrate-measurement:fictional",
+        "fixtureRevision": "r1",
+        "admittedRuntimeBinding": false
+      },
+      "recordDigest": "sha256:a687d9ad31155a01218ecc9d52b8bba584797d0c818452263838ec7d131f8743"
+    },
+    {
+      "role": "OBSERVATION_CONTEXT",
+      "binding": {
+        "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+        "fixtureRevision": "r1",
+        "admittedRuntimeBinding": false
+      },
+      "recordDigest": "sha256:cad0dcd1c42e4e139c57bdcae8ba1f16aeb1addb222a898e890ee06e303eafd5"
+    },
+    {
+      "role": "SAMPLE_SUPPORT_RELATION",
+      "binding": {
+        "fixtureLogicalRef": "sample-to-field:fictional",
+        "fixtureRevision": "r1",
+        "admittedRuntimeBinding": false
+      },
+      "recordDigest": "sha256:f26302f2f3536bcf181167d7d7a9af3854522ad150b903f0337d4572fc66c378"
+    },
+    {
+      "role": "METHOD_USE_QUALIFICATION",
+      "binding": {
+        "fixtureLogicalRef": "method-use:W05-nitrate-fictional",
+        "fixtureRevision": "r1",
+        "admittedRuntimeBinding": false
+      },
+      "recordDigest": "sha256:8d6c7f8a0903af5760b765687c7e0eb14eb35e741dac8bcaa84aa661c1afbecf"
+    },
+    {
+      "role": "MEASUREMENT",
+      "binding": {
+        "fixtureLogicalRef": "measurement:wrong-property-fictional",
+        "fixtureRevision": "r1",
+        "admittedRuntimeBinding": false
+      },
+      "recordDigest": "sha256:5f4420318f6b5e2bbf05782225c1e4411c66a87a27cd0d764256284aecf2400d",
+      "ownerRecordSource": "owner-approved-h03-fix01.json#/records/MEASUREMENT"
+    },
+    {
+      "role": "OBSERVATION_CONTEXT",
+      "binding": {
+        "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+        "fixtureRevision": "h03-r1",
+        "admittedRuntimeBinding": false
+      },
+      "recordDigest": "sha256:60136566d5be6f044e5ab9ec346fa1d7b98095b1ff390713a758c505414b5895",
+      "ownerRecordSource": "owner-approved-h03-fix01.json#/records/OBSERVATION_CONTEXT"
+    },
+    {
+      "role": "SAMPLE_SUPPORT_RELATION",
+      "binding": {
+        "fixtureLogicalRef": "sample-to-field:fictional",
+        "fixtureRevision": "h03-r1",
+        "admittedRuntimeBinding": false
+      },
+      "recordDigest": "sha256:112a9df659af6d14eb0801886c528402f5aabdc836611118b1fa1121a48c56fd",
+      "ownerRecordSource": "owner-approved-h03-fix01.json#/records/SAMPLE_SUPPORT_RELATION"
+    }
+  ],
+  "next": "Resolve the selected exact source bytes; claimant discriminators cannot remove this profile’s obligations."
+}

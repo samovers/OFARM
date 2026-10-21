@@ -283,8 +283,8 @@ fixtures=read('measurement-fixtures-v3.json');mcases=read('measurement-hostiles-
 check('W05 all source and semantic comparisons',w05_errors(w05,fixtures['records'],expect)==[],errors=w05_errors(w05,fixtures['records'],expect))
 check('W05 original evidence prefix plus exact three new records',w05['evidenceBindings']==prior['examples'][4]['claimContent']['evidenceBindings']+[expect['contextBinding'],expect['methodUseBinding'],expect['quantityProvenanceBinding']])
 for case in mcases['cases']:
-    errors=w05_errors(case['claimContent'],case['records'],expect)
-    check(case['id']+': isolated source failure',errors==case['expectedErrors'],observedErrors=errors)
+    errors=w05_errors(case['claimContent'],case['records'],{**expect,**case.get('ownerProfileSelection',{})})
+    check(case['id']+': source semantic and independent pin comparisons',errors==case['expectedErrors'],observedErrors=errors)
 wrong=mcases['cases'][0];wc=wrong['claimContent'];ws=wc['proposition']['body']['operand']['source']
 wm=next(x['record'] for x in wrong['records'] if x['binding']==ws['measurementBinding'])
 pm=next(x['record'] for x in fixtures['records'] if x['role']=='MEASUREMENT')

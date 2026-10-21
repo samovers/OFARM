@@ -4,17 +4,18 @@ import hashlib
 import rfc8785
 from role_checks_v4 import pointer,required_role_errors,required_role_error_codes,error_codes
 from provenance_checks_v4 import owner_error_codes,scalar_without_provenance,source_roles
+from w05_profile_checks_fix01 import PROFILE,profile_errors,claim_container_errors,record_errors
 def digest(x):return 'sha256:'+hashlib.sha256(rfc8785.dumps(x)).hexdigest()
 def _semantic_error_codes(content,records,expect):
     """Only the pinned W05 hypothetical owner expectations are evaluated here."""
-    b=content['proposition']['body'];errors=required_role_error_codes('C04',b)
+    b=content['proposition']['body'];errors=required_role_error_codes('C04',b,expected_result_kind=PROFILE['requiredResultKind'])
     if errors:return errors
     s=b['operand']['source'];op=b['operand']
     def bad(code,condition):
         if not condition and code not in errors:errors.append(code)
     def resolve(k):
         binding=s[k]
-        hits=[x for x in records if x['binding']==binding]
+        hits=[x for x in records if isinstance(x,dict) and x.get('binding')==binding]
         if len(hits)!=1:raise ValueError('RESOLUTION_NOT_EXACT:'+k)
         rec=hits[0];bad('RESOLVED_DIGEST_MISMATCH',digest(rec['record'])==rec['contentDigest'])
         bad('MISSING_ASSERTION_EVIDENCE:'+k,binding in content['evidenceBindings'])
@@ -64,14 +65,12 @@ def w05_errors(content,records,expect):
     try:
         body=content['proposition']['body']
     except (KeyError,TypeError):return [{'code':'INVALID_CLAIM_SHAPE','pointer':'/proposition/body'}]
-    structural=required_role_errors('C04',body)
-    if structural:return structural
-    # Guard the scalar containers before the finite semantic comparisons.
-    for key,path in [('limit','/operand/limit'),('threshold','/threshold')]:
-        try:value=pointer(body,path)
-        except (KeyError,TypeError,ValueError,IndexError):return [{'code':'MISSING_REQUIRED_ROLE','pointer':path}]
-        if not isinstance(value,dict):return [{'code':'INVALID_TYPE','pointer':path,'expected':'object'}]
-    result=[]
+    selected_profile_errors=profile_errors(expect)
+    structural=required_role_errors('C04',body,expected_result_kind=PROFILE['requiredResultKind'])
+    structural+=claim_container_errors(content)
+    if selected_profile_errors or structural:return selected_profile_errors+structural
+    result,unsafe=record_errors(body,records,expect,digest)
+    if unsafe:return result
     for code in _semantic_error_codes(content,records,expect):
         if ':' in code and code.split(':',1)[1].startswith('/'):
             name,ptr=code.split(':',1);result.append({'code':name,'pointer':ptr})

@@ -26,7 +26,7 @@ def pointer(value,path):
 def valid_pointer(value):
     return isinstance(value,str) and value.startswith('/') and not re.search(r'~(?![01])',value)
 
-def required_role_errors(row,body,required_qualification=False):
+def required_role_errors(row,body,required_qualification=False,expected_result_kind=None):
     errors=[]
     def err(code,path,**details):errors.append({'code':code,'pointer':path,**details})
     def get(path):
@@ -86,12 +86,21 @@ def required_role_errors(row,body,required_qualification=False):
         binding('/criterion');op=obj('/operand',[])
         if op is not None:
             measured('/operand/source');text('/operand/resultKind');obj('/operand/admissibleValues',[])
-            if op.get('resultKind')=='CENSORED_NUMERIC':
+            selected_kind=expected_result_kind or op.get('resultKind')
+            if expected_result_kind is not None and op.get('resultKind')!=expected_result_kind:err('RESULT_KIND_QUALIFIER_MISMATCH','/operand/resultKind',expected=expected_result_kind)
+            if selected_kind=='CENSORED_NUMERIC':
                 unknown=sorted(set(op)-{'resultKind','qualifier','limit','nonnegative','admissibleValues','source'})
                 if unknown:err('UNKNOWN_MEMBERS','/operand',members=unknown)
                 text('/operand/qualifier');obj('/operand/limit',[]);require('/operand/nonnegative','boolean')
-            if op.get('resultKind')=='CENSORED_NUMERIC':scalar_provenance('/operand/limit/provenance')
+            if selected_kind=='CENSORED_NUMERIC':scalar_provenance('/operand/limit/provenance')
         scalar_provenance('/threshold/provenance')
+        if expected_result_kind is not None:
+            # The selected owner profile, not the claim discriminator, requires these scalars.
+            text('/operator');text('/allegedOutcome')
+            for path in ['/operand/limit','/threshold']:
+                if obj(path,[]) is not None:
+                    for field in ['quantityKind','unit','decimal','qualifier','originalLexicalValue']:text(path+'/'+field)
+                    binding(path+'/unitProfile')
     elif row=='C06':
         s=obj('/rateSource',[])
         if s is not None:
