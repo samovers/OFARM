@@ -1,0 +1,1020 @@
+{
+  "status": "PASS",
+  "checks": 94,
+  "passed": 94,
+  "results": [
+    {
+      "id": "assert_structure-initial",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-actual-validation-phase-event-proof",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-changed-event-proof-version",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "FIXED_INPUT_VERSION_event-proof",
+      "errorCodes": [
+        "FIXED_INPUT_VERSION_event-proof"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-legacy_immutable_ingress-baseline",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-legacy_immutable_ingress-new-extraction-old-sources",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-legacy_immutable_ingress-fixed-prior-record",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "PRIOR_READ_record",
+      "errorCodes": [
+        "PRIOR_READ_record"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-legacy_immutable_ingress-fixed-prior-source",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_SOURCE_COMMITTED_fixture:prior-creation-source:assert_structure-correction-legacy_immutable_ingress",
+      "errorCodes": [
+        "CREATION_SOURCE_COMMITTED_fixture:prior-creation-source:assert_structure-correction-legacy_immutable_ingress"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-legacy_immutable_ingress-missing-source-priorRecordBinding",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_priorRecordBinding",
+      "errorCodes": [
+        "CREATION_DERIVATION_priorRecordBinding"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-legacy_immutable_ingress-missing-source-governanceContext",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_governanceContext",
+      "errorCodes": [
+        "CREATION_DERIVATION_governanceContext"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-legacy_immutable_ingress-missing-source-recordedAnchorScopes",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_recordedAnchorScopes",
+      "errorCodes": [
+        "CREATION_DERIVATION_recordedAnchorScopes"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-legacy_immutable_ingress-extraction-admitted-flag",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-legacy_immutable_ingress-wrong-twin-presence",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "GOVERNANCE_CONTEXT",
+      "errorCodes": [
+        "GOVERNANCE_CONTEXT",
+        "CREATION_DERIVATION_governanceContext"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-legacy_immutable_ingress-attempt-without-source-selector",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-legacy_immutable_ingress-selector-without-attempt",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-prior_governed_receipt-baseline",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-prior_governed_receipt-new-extraction-old-sources",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-prior_governed_receipt-fixed-prior-record",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "PRIOR_READ_record",
+      "errorCodes": [
+        "PRIOR_READ_record"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-prior_governed_receipt-fixed-prior-source",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_SOURCE_COMMITTED_fixture:prior-creation-source:assert_structure-correction-prior_governed_receipt",
+      "errorCodes": [
+        "CREATION_SOURCE_COMMITTED_fixture:prior-creation-source:assert_structure-correction-prior_governed_receipt"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-prior_governed_receipt-missing-source-priorRecordBinding",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_priorRecordBinding",
+      "errorCodes": [
+        "CREATION_DERIVATION_priorRecordBinding"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-prior_governed_receipt-missing-source-governanceContext",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_governanceContext",
+      "errorCodes": [
+        "CREATION_DERIVATION_governanceContext"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-prior_governed_receipt-missing-source-recordedAnchorScopes",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_recordedAnchorScopes",
+      "errorCodes": [
+        "CREATION_DERIVATION_recordedAnchorScopes"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-prior_governed_receipt-extraction-admitted-flag",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-prior_governed_receipt-wrong-twin-presence",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "GOVERNANCE_CONTEXT",
+      "errorCodes": [
+        "GOVERNANCE_CONTEXT",
+        "CREATION_DERIVATION_governanceContext"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-prior_governed_receipt-missing-original-attempt",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA",
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_structure-prior_governed_receipt-missing-attempt-derivation",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-initial",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-actual-validation-phase-event-proof",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-changed-event-proof-version",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "FIXED_INPUT_VERSION_event-proof",
+      "errorCodes": [
+        "FIXED_INPUT_VERSION_event-proof"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-legacy_immutable_ingress-baseline",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-legacy_immutable_ingress-new-extraction-old-sources",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-legacy_immutable_ingress-fixed-prior-record",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "PRIOR_READ_record",
+      "errorCodes": [
+        "PRIOR_READ_record"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-legacy_immutable_ingress-fixed-prior-source",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_SOURCE_COMMITTED_fixture:prior-creation-source:assert_operation_claim-correction-legacy_immutable_ingress",
+      "errorCodes": [
+        "CREATION_SOURCE_COMMITTED_fixture:prior-creation-source:assert_operation_claim-correction-legacy_immutable_ingress"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-legacy_immutable_ingress-missing-source-priorRecordBinding",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_priorRecordBinding",
+      "errorCodes": [
+        "CREATION_DERIVATION_priorRecordBinding"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-legacy_immutable_ingress-missing-source-governanceContext",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_governanceContext",
+      "errorCodes": [
+        "CREATION_DERIVATION_governanceContext"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-legacy_immutable_ingress-missing-source-recordedAnchorScopes",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_recordedAnchorScopes",
+      "errorCodes": [
+        "CREATION_DERIVATION_recordedAnchorScopes"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-legacy_immutable_ingress-extraction-admitted-flag",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-legacy_immutable_ingress-wrong-twin-presence",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "GOVERNANCE_CONTEXT",
+      "errorCodes": [
+        "GOVERNANCE_CONTEXT",
+        "CREATION_DERIVATION_governanceContext"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-legacy_immutable_ingress-attempt-without-source-selector",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-legacy_immutable_ingress-selector-without-attempt",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-prior_governed_receipt-baseline",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-prior_governed_receipt-new-extraction-old-sources",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-prior_governed_receipt-fixed-prior-record",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "PRIOR_READ_record",
+      "errorCodes": [
+        "PRIOR_READ_record"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-prior_governed_receipt-fixed-prior-source",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_SOURCE_COMMITTED_fixture:prior-creation-source:assert_operation_claim-correction-prior_governed_receipt",
+      "errorCodes": [
+        "CREATION_SOURCE_COMMITTED_fixture:prior-creation-source:assert_operation_claim-correction-prior_governed_receipt"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-prior_governed_receipt-missing-source-priorRecordBinding",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_priorRecordBinding",
+      "errorCodes": [
+        "CREATION_DERIVATION_priorRecordBinding"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-prior_governed_receipt-missing-source-governanceContext",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_governanceContext",
+      "errorCodes": [
+        "CREATION_DERIVATION_governanceContext"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-prior_governed_receipt-missing-source-recordedAnchorScopes",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_recordedAnchorScopes",
+      "errorCodes": [
+        "CREATION_DERIVATION_recordedAnchorScopes"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-prior_governed_receipt-extraction-admitted-flag",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-prior_governed_receipt-wrong-twin-presence",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "GOVERNANCE_CONTEXT",
+      "errorCodes": [
+        "GOVERNANCE_CONTEXT",
+        "CREATION_DERIVATION_governanceContext"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-prior_governed_receipt-missing-original-attempt",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA",
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_operation_claim-prior_governed_receipt-missing-attempt-derivation",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-initial",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-actual-validation-phase-event-proof",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-changed-event-proof-version",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "FIXED_INPUT_VERSION_event-proof",
+      "errorCodes": [
+        "FIXED_INPUT_VERSION_event-proof"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-legacy_immutable_ingress-baseline",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-legacy_immutable_ingress-new-extraction-old-sources",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-legacy_immutable_ingress-fixed-prior-record",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "PRIOR_READ_record",
+      "errorCodes": [
+        "PRIOR_READ_record"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-legacy_immutable_ingress-fixed-prior-source",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_SOURCE_COMMITTED_fixture:prior-creation-source:assert_compliance-correction-legacy_immutable_ingress",
+      "errorCodes": [
+        "CREATION_SOURCE_COMMITTED_fixture:prior-creation-source:assert_compliance-correction-legacy_immutable_ingress"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-legacy_immutable_ingress-missing-source-priorRecordBinding",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_priorRecordBinding",
+      "errorCodes": [
+        "CREATION_DERIVATION_priorRecordBinding"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-legacy_immutable_ingress-missing-source-governanceContext",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_governanceContext",
+      "errorCodes": [
+        "CREATION_DERIVATION_governanceContext"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-legacy_immutable_ingress-missing-source-recordedAnchorScopes",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_recordedAnchorScopes",
+      "errorCodes": [
+        "CREATION_DERIVATION_recordedAnchorScopes"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-legacy_immutable_ingress-extraction-admitted-flag",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-legacy_immutable_ingress-wrong-twin-presence",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "GOVERNANCE_CONTEXT",
+      "errorCodes": [
+        "GOVERNANCE_CONTEXT",
+        "CREATION_DERIVATION_governanceContext"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-legacy_immutable_ingress-attempt-without-source-selector",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-legacy_immutable_ingress-selector-without-attempt",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-prior_governed_receipt-baseline",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-prior_governed_receipt-new-extraction-old-sources",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-prior_governed_receipt-fixed-prior-record",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "PRIOR_READ_record",
+      "errorCodes": [
+        "PRIOR_READ_record"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-prior_governed_receipt-fixed-prior-source",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_SOURCE_COMMITTED_fixture:prior-creation-source:assert_compliance-correction-prior_governed_receipt",
+      "errorCodes": [
+        "CREATION_SOURCE_COMMITTED_fixture:prior-creation-source:assert_compliance-correction-prior_governed_receipt"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-prior_governed_receipt-missing-source-priorRecordBinding",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_priorRecordBinding",
+      "errorCodes": [
+        "CREATION_DERIVATION_priorRecordBinding"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-prior_governed_receipt-missing-source-governanceContext",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_governanceContext",
+      "errorCodes": [
+        "CREATION_DERIVATION_governanceContext"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-prior_governed_receipt-missing-source-recordedAnchorScopes",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_recordedAnchorScopes",
+      "errorCodes": [
+        "CREATION_DERIVATION_recordedAnchorScopes"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-prior_governed_receipt-extraction-admitted-flag",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-prior_governed_receipt-wrong-twin-presence",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "GOVERNANCE_CONTEXT",
+      "errorCodes": [
+        "GOVERNANCE_CONTEXT",
+        "CREATION_DERIVATION_governanceContext"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-prior_governed_receipt-missing-original-attempt",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA",
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "assert_compliance-prior_governed_receipt-missing-attempt-derivation",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "duplicate-readGuards",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "DUPLICATE_KEY",
+      "errorCodes": [
+        "DUPLICATE_KEY"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "duplicate-negativeGuards",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "DUPLICATE_KEY",
+      "errorCodes": [
+        "DUPLICATE_KEY"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "duplicate-setGuards",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "DUPLICATE_KEY",
+      "errorCodes": [
+        "DUPLICATE_KEY"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "missing-positiveRecords",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "READ_COVERAGE",
+      "errorCodes": [
+        "READ_COVERAGE",
+        "SET_MEMBERS_fixture:eligibility-set:one"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "missing-negativeRecords",
+      "pass": true,
+      "expected": "INPUT_ERROR",
+      "actual": "INPUT_ERROR",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "missing-setRecords",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "SET_COVERAGE",
+      "errorCodes": [
+        "SET_COVERAGE"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "extra-write-SemanticEventEnvelope",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "ONE_EXACT_INSERT",
+      "errorCodes": [
+        "ONE_EXACT_INSERT"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "extra-write-CurrentState",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "ONE_EXACT_INSERT",
+      "errorCodes": [
+        "ONE_EXACT_INSERT"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "extra-write-AssertionRecord",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "ONE_EXACT_INSERT",
+      "errorCodes": [
+        "ONE_EXACT_INSERT"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "future-currentAttemptReceipt",
+      "pass": true,
+      "expected": "INPUT_ERROR",
+      "actual": "INPUT_ERROR",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "future-domainVerdict",
+      "pass": true,
+      "expected": "INPUT_ERROR",
+      "actual": "INPUT_ERROR",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "future-checkpoint",
+      "pass": true,
+      "expected": "INPUT_ERROR",
+      "actual": "INPUT_ERROR",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "future-consumptionRecord",
+      "pass": true,
+      "expected": "INPUT_ERROR",
+      "actual": "INPUT_ERROR",
+      "requiredCode": "SCHEMA",
+      "errorCodes": [
+        "SCHEMA"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "independent-pin-contextRawSha256",
+      "pass": true,
+      "expected": "INPUT_ERROR",
+      "actual": "INPUT_ERROR",
+      "requiredCode": "INPUT_ERROR",
+      "errorCodes": [
+        "INPUT_ERROR"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "independent-pin-policyRawSha256",
+      "pass": true,
+      "expected": "INPUT_ERROR",
+      "actual": "INPUT_ERROR",
+      "requiredCode": "INPUT_ERROR",
+      "errorCodes": [
+        "INPUT_ERROR"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "independent-pin-contractRawSha256",
+      "pass": true,
+      "expected": "INPUT_ERROR",
+      "actual": "INPUT_ERROR",
+      "requiredCode": "INPUT_ERROR",
+      "errorCodes": [
+        "INPUT_ERROR"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "escaped-source-pointer",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "original-source-whitespace-substitution",
+      "pass": true,
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "requiredCode": "BYTES_prior-source",
+      "errorCodes": [
+        "BYTES_prior-source",
+        "BYTES_CREATION_SOURCE",
+        "CREATION_DERIVATION_priorRecordBinding",
+        "CREATION_DERIVATION_governanceContext",
+        "CREATION_DERIVATION_recordedAnchorScopes",
+        "CREATION_DERIVATION_creatorAttemptId"
+      ],
+      "reportSchemaValid": true
+    },
+    {
+      "id": "opaque-source-admitted-flag-not-a-gate",
+      "pass": true,
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "errorCodes": [],
+      "reportSchemaValid": true
+    }
+  ],
+  "limits": [
+    "Fictional independent storage selections; no actual source receipt validity, authority, database isolation or runtime admission established.",
+    "The consuming domain contract must independently derive and compare its entire required input set."
+  ]
+}

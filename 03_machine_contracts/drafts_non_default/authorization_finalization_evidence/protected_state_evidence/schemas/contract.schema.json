@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/protected-state-evidence/contract/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.preVerdictProtectedStateContract.v0.1"
+    },
+    "contractId": {
+      "const": "ofarm.pre-verdict-protected-state.v0.1"
+    },
+    "contractDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "primaryTrustBoundary": {
+      "const": "Transaction and history evidence for protected proposed state"
+    },
+    "status": {
+      "const": "DRAFT_NON_DEFAULT"
+    },
+    "schemas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "rawSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "path",
+          "rawSha256"
+        ]
+      },
+      "minItems": 9,
+      "maxItems": 4096
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "rawSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "path",
+          "rawSha256"
+        ]
+      },
+      "minItems": 4,
+      "maxItems": 4096
+    },
+    "checker": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "rawSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "path",
+          "rawSha256"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 4096
+    },
+    "dependencies": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rfc8785": {
+          "const": "0.1.4"
+        },
+        "jsonschema": {
+          "const": "4.26.0"
+        }
+      },
+      "required": [
+        "rfc8785",
+        "jsonschema"
+      ]
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "maxInputBytes": {
+          "const": 2097152
+        },
+        "maxBundleBytes": {
+          "const": 16777216
+        },
+        "maxDepth": {
+          "const": 64
+        }
+      },
+      "required": [
+        "maxInputBytes",
+        "maxBundleBytes",
+        "maxDepth"
+      ]
+    },
+    "interpretation": {
+      "const": "CONDITIONAL_OWNER_EVIDENCE_CONFORMANCE_ONLY"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "contractId",
+    "contractDigest",
+    "primaryTrustBoundary",
+    "status",
+    "schemas",
+    "sources",
+    "checker",
+    "dependencies",
+    "limits",
+    "interpretation"
+  ]
+}

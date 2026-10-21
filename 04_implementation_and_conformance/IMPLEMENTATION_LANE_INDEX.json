@@ -1,6 +1,6 @@
 {
   "schemaVersion": "ofarm.implementationLaneIndex.v0.2.cleanBaseline",
-  "generatedAt": "2026-09-24T00:00:00Z",
+  "generatedAt": "2026-10-21T00:00:00Z",
   "currentPackageIdentity": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "package": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "latestControlledAmendment": "CP15",
@@ -11,12 +11,12 @@
     "04_implementation_and_conformance/IMPLEMENTATION_LANE_INDEX.json",
     "04_implementation_and_conformance/IMPLEMENTATION_LANE_INDEX.md"
   ],
-  "fileCountExcludingSelf": 3226,
+  "fileCountExcludingSelf": 3352,
   "records": [
     {
       "path": "04_implementation_and_conformance/IMPLEMENTATION_SUBFOLDER_INDEX.json",
       "bytes": 3233,
-      "sha256": "8de8919e0766136a9d24d604465c3511f57780bcba246ec0856a98688df5c88d",
+      "sha256": "8dce393f1b6d2ab6ae7825c70dec2ceb5c2d4a1e25176ae72578916dbccf8da7",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -31,8 +31,8 @@
     },
     {
       "path": "04_implementation_and_conformance/NON_ACTIVE_SCHEMA_COPY_INDEX.json",
-      "bytes": 48290,
-      "sha256": "3f67b8d6c0aef3dd289859b35e97f1567e91ccb851eca177ca695b73b56abc4a",
+      "bytes": 48751,
+      "sha256": "92101b0ddd5040d0c81baf8a0552d242a2da44aa388f66ad3044178df1101d84",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -5481,6 +5481,38 @@
       "path": "04_implementation_and_conformance/conformance_runners/ofarm_not_required_transaction_evidence_v0_1.py",
       "bytes": 26280,
       "sha256": "62e2f9626d08d1cac58b1b62b222b5008f2ade5a90c90af20a25b6b4c8810201",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/conformance_runners/ofarm_preverdict_protected_state_v0_1.py",
+      "bytes": 1026,
+      "sha256": "04cc3520784af785c6f4d8d144a1b5d37aab1a9969724ebebf25fa3f9bb2e0f1",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/conformance_runners/preverdict_protected_state_evidence/package_contract.py",
+      "bytes": 6636,
+      "sha256": "80b64ed3e82e3a9e1c8a4fc645dcd9f0465941032c259e9f0ebe515ba0d983be",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/conformance_runners/preverdict_protected_state_evidence/run_conformance.py",
+      "bytes": 17845,
+      "sha256": "853606e407b294ea282e64f2ce57c6aa920e40272649580edf0d5e89179a3f71",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/conformance_runners/preverdict_protected_state_evidence/verify_state.py",
+      "bytes": 27940,
+      "sha256": "052905fb60bbebfffb4395026f896b9330e69422cca555c0d1a941dac32a1284",
       "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -12887,24 +12919,24 @@
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/examples/EXAMPLE_INDEX.json",
-      "bytes": 275712,
-      "sha256": "b8ff690d6acc3602063f8643b2fb4fe2297a0220d157f483587ac826e2333474",
+      "bytes": 276236,
+      "sha256": "f197923311d388c50556ad8b272600a3d570e5436bfb0bb1bef4b17a0836e0f1",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/examples/EXAMPLE_INDEX.md",
-      "bytes": 150,
-      "sha256": "e9ff96ba054e6361ef7a77591bb85cf7dfa5084c71bbd9ec722fa29a6f84e907",
+      "bytes": 160,
+      "sha256": "d8ff8388e31bba6d4f9c2d9acda390b8a2f8933a1760a06360a16acc8c82194b",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/examples/README.md",
-      "bytes": 1304,
-      "sha256": "998f08e1b2cb8ef8bfb9a1ca0832b122a58204e7a7575c9cfd16a66e6c325081",
+      "bytes": 1362,
+      "sha256": "37e6ddcb74fe23c1265814c936dab928cd3b61cc377360fe4c565a23aa493e6f",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -12919,8 +12951,8 @@
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/README.md",
-      "bytes": 3289,
-      "sha256": "18c4c858c75c6e51281b99dac97b5d1971f34cdb3878eeb7c0205b7644cdd32a",
+      "bytes": 3347,
+      "sha256": "9c15528cf08c0aa48bc956ef4380c50e6de6fe7ef08332e6e67d8cd1df55f440",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -13423,8 +13455,8 @@
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agentic_software_delivery_model_deployment/README.md",
-      "bytes": 274,
-      "sha256": "98cc3c950090ea5700593f389eba53dc8e15d02af8882770bb9f220878eab616",
+      "bytes": 284,
+      "sha256": "49c298b1397846614472d6eb862374913d3c4d9993cb0fc86dc68cce8c61ff10",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -17967,24 +17999,24 @@
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/FIXTURE_INDEX.json",
-      "bytes": 11242,
-      "sha256": "d41205b99a3ae91ada88eefcbd1c7791972203fb7ff9dbdc91d9800d964e34dc",
+      "bytes": 48515,
+      "sha256": "2137fab8a178067b970906c6aedde5cbc27d8abbd352a560eca37ad9a1533e56",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/FIXTURE_INDEX.md",
-      "bytes": 159,
-      "sha256": "6c2f4de7e1a58e0489449776932540790a88faed857324ae1c0bce9d499695d7",
+      "bytes": 160,
+      "sha256": "ecbc2d987ec69e99103924b9ce34eb526bb1a6971578d7090e64837b8648e520",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/README.md",
-      "bytes": 1134,
-      "sha256": "0723dc80009d9b3dcc1c1ea317433b8bb01f4595a1cb6a2c0650802597c17651",
+      "bytes": 1192,
+      "sha256": "350a6b13c0b2afbdaccddfcaab35ea5023c4617e20c2ad627ee6000c7ef813ba",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -18007,8 +18039,8 @@
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/README.md",
-      "bytes": 1826,
-      "sha256": "2671c87cdac3d78b2ed3dbb8cf301bd22a4beb9042fa40d5a60bff16ad5746e3",
+      "bytes": 1884,
+      "sha256": "47e4b2b1126e9359d863335278b340d12a52ecf7de8ffcd941200d09e23ced3f",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -18306,6 +18338,982 @@
       "bytes": 2185,
       "sha256": "936e45cb2e873d2f8d8a90cbe14159fc6565041459087215899aab45c4d2756c",
       "status": "PACKAGE_METADATA",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/baseline-conformance-report.json",
+      "bytes": 24683,
+      "sha256": "8645a52177f0ff7db7a21bfe992bb0a5c3b6b9f29eb411165566e6047282f29c",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixture-provenance.json",
+      "bytes": 701,
+      "sha256": "0fb9160ea68d2b6066476805f404029de5dc26c7f2fd2f58047b21b7b526b5d3",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-legacy_immutable_ingress/context.json",
+      "bytes": 6779,
+      "sha256": "cb076c28f19dc81bf9760ab9bd113557d5137d8344bc0f5a4db966a52421a1f8",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-legacy_immutable_ingress/policy.json",
+      "bytes": 587,
+      "sha256": "0723c97e6c6bd08ce57cf74242126aaf23ae400b64aa92708b955924e5d9e5e3",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-legacy_immutable_ingress/proof.json",
+      "bytes": 5432,
+      "sha256": "f7ff273e79695e011e4f218ff0c9e1e4bffe7167f03fb01244b675c3dbc83ed0",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-legacy_immutable_ingress/records.json",
+      "bytes": 641,
+      "sha256": "669293224744512b2bd0da7aff0f48bb3b5215a68d074703bf3c8de8d68bad0b",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-legacy_immutable_ingress/records/0.json",
+      "bytes": 1482,
+      "sha256": "a69980c17db996b434629f948757951454a9379ecfc479da6012bd3358d08663",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-legacy_immutable_ingress/records/1.json",
+      "bytes": 231,
+      "sha256": "f482b794fa55b8351966054dbfa10a5d48a72edec8c0862b4c03cbda1804fd15",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-legacy_immutable_ingress/records/2.json",
+      "bytes": 164,
+      "sha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-legacy_immutable_ingress/records/3.json",
+      "bytes": 901,
+      "sha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-legacy_immutable_ingress/records/4.json",
+      "bytes": 1752,
+      "sha256": "37d00ae9924a74141a1bf8cf29a8529f3cd1f93933b39999384809dda629d451",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-legacy_immutable_ingress/records/5.json",
+      "bytes": 510,
+      "sha256": "c6ce2bac4d4b4e4859a032837ca462136a8e038eb2b489c4a2199f7df21b4d53",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-legacy_immutable_ingress/records/6.json",
+      "bytes": 929,
+      "sha256": "35a53bb072aceea37aa92b4a98d1082914b1cf7d13f9dd2706d4b66c03a56ab7",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-legacy_immutable_ingress/selected.json",
+      "bytes": 474,
+      "sha256": "21331f9ca79937fbc085871314464b55f8921573e0bd4e990c0f25d133fe7c6a",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-legacy_immutable_ingress/snapshot.json",
+      "bytes": 4051,
+      "sha256": "56d6b362aab5fd8ec905ba19cc40713757acec53230b70c88283549adc2fce85",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-prior_governed_receipt/context.json",
+      "bytes": 6747,
+      "sha256": "0d03d6a6df420029707a291ae705ca4d567c9f268f7f85df6be5aa38f3d485f8",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-prior_governed_receipt/policy.json",
+      "bytes": 587,
+      "sha256": "0723c97e6c6bd08ce57cf74242126aaf23ae400b64aa92708b955924e5d9e5e3",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-prior_governed_receipt/proof.json",
+      "bytes": 5408,
+      "sha256": "4c7958eccd6785691e7932db8daa250e4cffec13b8fda3cc2c491f7a9f65c694",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-prior_governed_receipt/records.json",
+      "bytes": 631,
+      "sha256": "0f15e26b01e6e955b058e85ffc0c1764260b6ab5365e36b56e4c383bf1b6e70e",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-prior_governed_receipt/records/0.json",
+      "bytes": 1480,
+      "sha256": "95a2bf91db18f5494cdf5517880e16d101a77fcb4e66052a7ab66d82bab88953",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-prior_governed_receipt/records/1.json",
+      "bytes": 231,
+      "sha256": "f482b794fa55b8351966054dbfa10a5d48a72edec8c0862b4c03cbda1804fd15",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-prior_governed_receipt/records/2.json",
+      "bytes": 164,
+      "sha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-prior_governed_receipt/records/3.json",
+      "bytes": 901,
+      "sha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-prior_governed_receipt/records/4.json",
+      "bytes": 1961,
+      "sha256": "15e7f940161d449736d2aa6f585314c8ca4b327b9b3528c7f51b4d088cbfb005",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-prior_governed_receipt/records/5.json",
+      "bytes": 557,
+      "sha256": "404375c50da94c62490e4cf384998b6b5eb97e3003b6bbfde87dcabc54114f89",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-prior_governed_receipt/records/6.json",
+      "bytes": 927,
+      "sha256": "00a68a6f4d09620c32c37de93a45fb55191f8072b849c4ba27f6146499a380f2",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-prior_governed_receipt/selected.json",
+      "bytes": 472,
+      "sha256": "d59fd1788eec71ad4a8373b3e5f21fd027bf611d30a107067f7507b1db472de7",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-correction-prior_governed_receipt/snapshot.json",
+      "bytes": 4033,
+      "sha256": "915df4f76ebac47b83240e5ade9b2267c8de4937dd124057bec7887ba04f3276",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-initial/context.json",
+      "bytes": 4439,
+      "sha256": "7b07c2d5919aa03eda2619ebec4f824215021676b51374fd3e230fd24b4e4a1f",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-initial/policy.json",
+      "bytes": 587,
+      "sha256": "0723c97e6c6bd08ce57cf74242126aaf23ae400b64aa92708b955924e5d9e5e3",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-initial/proof.json",
+      "bytes": 3588,
+      "sha256": "2a68eeccb14d7703f796ccd7a7a1d7f99f61c0a5f3821536e6a075d6a7c58855",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-initial/records.json",
+      "bytes": 262,
+      "sha256": "7d5283ea10b11770b50c3076890f1c9008c96ffc2c44a1f3d1dd4fcc1ea39e89",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-initial/records/0.json",
+      "bytes": 1454,
+      "sha256": "e8a3868eaa07a03c9a48a1ca313ae4f932131874d53cb072c6310287424f560e",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-initial/records/1.json",
+      "bytes": 231,
+      "sha256": "f482b794fa55b8351966054dbfa10a5d48a72edec8c0862b4c03cbda1804fd15",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-initial/records/2.json",
+      "bytes": 164,
+      "sha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-initial/records/3.json",
+      "bytes": 901,
+      "sha256": "c1c3a8794bb5814164adfa5a5cf2bb870e27ac44ab06ebaba96e25ad8f5728a2",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-initial/selected.json",
+      "bytes": 446,
+      "sha256": "2aecf30546dbb3f0a0e87d1f6e8be80043ce7a28fde2d2fa4756524a4c3e0cbd",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_compliance-initial/snapshot.json",
+      "bytes": 2497,
+      "sha256": "6d428c55525cdaa46d1bf0879173849014e141d5425f5fc1217349a5ffd73110",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-legacy_immutable_ingress/context.json",
+      "bytes": 6864,
+      "sha256": "0be19c0268846b18bc7bf6a8891d59bca94a1df16548c268a72200c88936bf7d",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-legacy_immutable_ingress/policy.json",
+      "bytes": 587,
+      "sha256": "0723c97e6c6bd08ce57cf74242126aaf23ae400b64aa92708b955924e5d9e5e3",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-legacy_immutable_ingress/proof.json",
+      "bytes": 5492,
+      "sha256": "2ca8334edbd98ff9eab0004d65f4a14b4efba697b4a28ef89884291c036e4d9f",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-legacy_immutable_ingress/records.json",
+      "bytes": 666,
+      "sha256": "4f6330a525b646c7c652c296d42c8f0104d2932ef806ae9bba998a75d7a8a229",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-legacy_immutable_ingress/records/0.json",
+      "bytes": 1492,
+      "sha256": "6c38acde5db50df12569b09e8baea6288fd070972cf5443609e1da609f847c88",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-legacy_immutable_ingress/records/1.json",
+      "bytes": 236,
+      "sha256": "e76d1587e1993486a79703ac1e9994fefe0fce9507774d1099a6fce7e96c50c0",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-legacy_immutable_ingress/records/2.json",
+      "bytes": 164,
+      "sha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-legacy_immutable_ingress/records/3.json",
+      "bytes": 901,
+      "sha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-legacy_immutable_ingress/records/4.json",
+      "bytes": 1777,
+      "sha256": "3618d86e05530c5768e644619ee424543341f968e5a97b13ce183898f8643f36",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-legacy_immutable_ingress/records/5.json",
+      "bytes": 510,
+      "sha256": "c6ce2bac4d4b4e4859a032837ca462136a8e038eb2b489c4a2199f7df21b4d53",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-legacy_immutable_ingress/records/6.json",
+      "bytes": 934,
+      "sha256": "90130e56c593b5d722054ee670c36fc83586b9546cb6f2cdde6fa4f7b3fcc403",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-legacy_immutable_ingress/selected.json",
+      "bytes": 479,
+      "sha256": "84f67cf4d850e51cf5e064a8238d8b787b96c25ea9f283d712b5fbe840f52ce6",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-legacy_immutable_ingress/snapshot.json",
+      "bytes": 4096,
+      "sha256": "67d8b1e75883596f32d7d91f83df7aa04ec27a48344c9a0d6343f143b67cbf2d",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-prior_governed_receipt/context.json",
+      "bytes": 6832,
+      "sha256": "e0a6010780b3e04209ea94ac5d1c8addac23035b429a04c7a58639c22757200a",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-prior_governed_receipt/policy.json",
+      "bytes": 587,
+      "sha256": "0723c97e6c6bd08ce57cf74242126aaf23ae400b64aa92708b955924e5d9e5e3",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-prior_governed_receipt/proof.json",
+      "bytes": 5468,
+      "sha256": "50bd6a9aa29651304901de8ab80b8a99bd2056568b7248a6d684d6615ea39402",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-prior_governed_receipt/records.json",
+      "bytes": 656,
+      "sha256": "217b7d61553e78a61007835ac55d64e57254c418f0d1e95c6827628682de597c",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-prior_governed_receipt/records/0.json",
+      "bytes": 1490,
+      "sha256": "f7f7849c9ad8a0861a52ea976786c8537f55069f7beb3fabff8f52c26141a678",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-prior_governed_receipt/records/1.json",
+      "bytes": 236,
+      "sha256": "e76d1587e1993486a79703ac1e9994fefe0fce9507774d1099a6fce7e96c50c0",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-prior_governed_receipt/records/2.json",
+      "bytes": 164,
+      "sha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-prior_governed_receipt/records/3.json",
+      "bytes": 901,
+      "sha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-prior_governed_receipt/records/4.json",
+      "bytes": 1991,
+      "sha256": "43895a3407d1216a0f420aa638dce290381a0ece84a454773edac78edf630d63",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-prior_governed_receipt/records/5.json",
+      "bytes": 557,
+      "sha256": "404375c50da94c62490e4cf384998b6b5eb97e3003b6bbfde87dcabc54114f89",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-prior_governed_receipt/records/6.json",
+      "bytes": 932,
+      "sha256": "38c2c7581bc44416b4af92403476a58d1556840558b5401f49e7a06878d3e4f9",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-prior_governed_receipt/selected.json",
+      "bytes": 477,
+      "sha256": "df5df965e0beec2a6a172518c164a6596a8c0a4128681ccb2cb230386e2ccece",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-correction-prior_governed_receipt/snapshot.json",
+      "bytes": 4078,
+      "sha256": "38b33049556c5053853ed65f672863e11c02e66df6ac66e9508f0b6398958bcb",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-initial/context.json",
+      "bytes": 4509,
+      "sha256": "725a5cb2adce7e6d4482a018804b46be0369e1470512abba09ab11b3cf4ca15d",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-initial/policy.json",
+      "bytes": 587,
+      "sha256": "0723c97e6c6bd08ce57cf74242126aaf23ae400b64aa92708b955924e5d9e5e3",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-initial/proof.json",
+      "bytes": 3638,
+      "sha256": "2624fe792a51df9bc00dd9cf298ae50dec5c5520683c0d4662de835dbfc2f151",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-initial/records.json",
+      "bytes": 277,
+      "sha256": "1030eb082ccf008229bc3cd63f7e1758e8494d4065dc96ca2135939318237869",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-initial/records/0.json",
+      "bytes": 1464,
+      "sha256": "d6013b5cdd9b37845e3c1a7209b9a3fb00654443a8277f2bea376b9f482ffe29",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-initial/records/1.json",
+      "bytes": 236,
+      "sha256": "e76d1587e1993486a79703ac1e9994fefe0fce9507774d1099a6fce7e96c50c0",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-initial/records/2.json",
+      "bytes": 164,
+      "sha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-initial/records/3.json",
+      "bytes": 906,
+      "sha256": "12f6f8f1b58aed622d01cc14c0cfffe18a40b978df0c0e2c48e6a7539810cd55",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-initial/selected.json",
+      "bytes": 451,
+      "sha256": "377274c0837057016b7bd6879c2edb1b1394e8be73618eb93fbac800618b9fdc",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_operation_claim-initial/snapshot.json",
+      "bytes": 2532,
+      "sha256": "82a88b076195f7b367d1686215f4a0137b94648cd91af69b20ac8dd610c179d1",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-legacy_immutable_ingress/context.json",
+      "bytes": 6762,
+      "sha256": "52fefbc38fbc981f384b674999e630a4bbcef0c53a518d38060500d0d3b325e8",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-legacy_immutable_ingress/policy.json",
+      "bytes": 587,
+      "sha256": "0723c97e6c6bd08ce57cf74242126aaf23ae400b64aa92708b955924e5d9e5e3",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-legacy_immutable_ingress/proof.json",
+      "bytes": 5420,
+      "sha256": "ab9c8bc04a9139386411294b6a7bb9e16553f9adca4718b83465a90f693b8610",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-legacy_immutable_ingress/records.json",
+      "bytes": 636,
+      "sha256": "05b6c058b34b95193042886eba61c102bff773faaa519bea8a5db510366ff5f4",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-legacy_immutable_ingress/records/0.json",
+      "bytes": 1480,
+      "sha256": "f41c54c7843ee326ec3badd85da9454f19d3a156b24068cd85fea5a2b1bfe9ab",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-legacy_immutable_ingress/records/1.json",
+      "bytes": 230,
+      "sha256": "00df4bcc07d31e55c58a0cbe741421cc67c7e4d9732662453c1da349240edccd",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-legacy_immutable_ingress/records/2.json",
+      "bytes": 164,
+      "sha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-legacy_immutable_ingress/records/3.json",
+      "bytes": 901,
+      "sha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-legacy_immutable_ingress/records/4.json",
+      "bytes": 1747,
+      "sha256": "b9ba4c56fb132e69f94e51cda8d034b244d4313bdb5199557778fe834f9b3a9f",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-legacy_immutable_ingress/records/5.json",
+      "bytes": 510,
+      "sha256": "c6ce2bac4d4b4e4859a032837ca462136a8e038eb2b489c4a2199f7df21b4d53",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-legacy_immutable_ingress/records/6.json",
+      "bytes": 928,
+      "sha256": "041c030054fb754fa9555c058cf68bc0a66948930ffbb5bc0bbb675bc401116c",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-legacy_immutable_ingress/selected.json",
+      "bytes": 473,
+      "sha256": "9920123124c114f998585aff0250f151581e3609051b202040638b635bafae9a",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-legacy_immutable_ingress/snapshot.json",
+      "bytes": 4042,
+      "sha256": "59a26bfa659a43626ca65d7245d10207cea17cfaf975bd2ab3574cb463fba132",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-prior_governed_receipt/context.json",
+      "bytes": 6730,
+      "sha256": "e19866b3c9b6a043d6637a11cf571cefc261e7e1a18292f6087489b09406be6c",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-prior_governed_receipt/policy.json",
+      "bytes": 587,
+      "sha256": "0723c97e6c6bd08ce57cf74242126aaf23ae400b64aa92708b955924e5d9e5e3",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-prior_governed_receipt/proof.json",
+      "bytes": 5396,
+      "sha256": "3aeeb49a0bd0b223b6f7fcc849806bda42382ace5b8a833fdb3a3e064c09d092",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-prior_governed_receipt/records.json",
+      "bytes": 626,
+      "sha256": "75156cf5749d2224142ac07178b7eecad090c17cc5070e5f22b6dc811ffe45dc",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-prior_governed_receipt/records/0.json",
+      "bytes": 1478,
+      "sha256": "e791767341824b035c4c8785764a39b6d7ff33cb1d631bd76cf2ea488eaa7e36",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-prior_governed_receipt/records/1.json",
+      "bytes": 230,
+      "sha256": "00df4bcc07d31e55c58a0cbe741421cc67c7e4d9732662453c1da349240edccd",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-prior_governed_receipt/records/2.json",
+      "bytes": 164,
+      "sha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-prior_governed_receipt/records/3.json",
+      "bytes": 901,
+      "sha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-prior_governed_receipt/records/4.json",
+      "bytes": 1955,
+      "sha256": "53071ef314059862d81bcaada129ef3b264d58229f17da7ad74fb3ebbaa91d97",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-prior_governed_receipt/records/5.json",
+      "bytes": 557,
+      "sha256": "404375c50da94c62490e4cf384998b6b5eb97e3003b6bbfde87dcabc54114f89",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-prior_governed_receipt/records/6.json",
+      "bytes": 926,
+      "sha256": "7c2b200df9c2bc88927155d5e4b93cef10d9e860991de24345813df35c4d7bbc",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-prior_governed_receipt/selected.json",
+      "bytes": 471,
+      "sha256": "4feaf96244a40f97f92c5434cf81c266f960cb213e81b1d1849ce28c5f5a1545",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-correction-prior_governed_receipt/snapshot.json",
+      "bytes": 4024,
+      "sha256": "66a4fbf549fe20d837fbb004b6fdc6f8c18e7c85ae89a84bf0b5a817136f6b01",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-initial/context.json",
+      "bytes": 4425,
+      "sha256": "50b2790e334e3034e57fe1771d0e65f31f8bb54189e4770bb6c368766331dcba",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-initial/policy.json",
+      "bytes": 587,
+      "sha256": "0723c97e6c6bd08ce57cf74242126aaf23ae400b64aa92708b955924e5d9e5e3",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-initial/proof.json",
+      "bytes": 3578,
+      "sha256": "92f3b8178b0497c20544cc0a2fa50cbc81c71f469c3978e3928b88307669d1da",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-initial/records.json",
+      "bytes": 259,
+      "sha256": "f8904ae697edc503cd1f08092d1cbe7c967e353d41ee4d9008902718191152d1",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-initial/records/0.json",
+      "bytes": 1452,
+      "sha256": "3afb677648acbba98433b12c06e1ed0ae3787aa99ced747410b15e3765f32f62",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-initial/records/1.json",
+      "bytes": 230,
+      "sha256": "00df4bcc07d31e55c58a0cbe741421cc67c7e4d9732662453c1da349240edccd",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-initial/records/2.json",
+      "bytes": 164,
+      "sha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-initial/records/3.json",
+      "bytes": 900,
+      "sha256": "c3d5004e15c754e5796748237ddf943c9539e2c216408e69b1bbc2e69740b892",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-initial/selected.json",
+      "bytes": 445,
+      "sha256": "1b747517146e24db12d41e2feac977207d7d74f3056f0fab6a6c27ac25bed9cc",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/cases/assert_structure-initial/snapshot.json",
+      "bytes": 2490,
+      "sha256": "256b66882d9754740484a3b20faff4a0ee3724e735fe78b91a0874360bdacb66",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/positive-cases.json",
+      "bytes": 1991,
+      "sha256": "8a9bfebd3d9f0a6e0facbd80172219f30211f9bf9039faa8e322db5617d1eb0d",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/fixtures/source-assertion.json",
+      "bytes": 901,
+      "sha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/independent-review/publication-selection.json",
+      "bytes": 1883,
+      "sha256": "f054b9d694a5edb8300517c45764c1a489754c01f5fdac870feb2c5fdafb0238",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/independent-review/review.json",
+      "bytes": 2847,
+      "sha256": "e04ec7987fdad255c5e9253ddbace6a3811be89db4404f19087f515577cbee23",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/independent-review/review.md",
+      "bytes": 4811,
+      "sha256": "379322ea00f0dac4d6aa6cd5d080c3cd80e52b46c7a418fcce5b7a6d928f5ac3",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/independent-review/revision01-checks/independent-results.json",
+      "bytes": 29664,
+      "sha256": "99d9177c6b0971a4ff7783f4dba0944579b8996348fe80365963094af84ad588",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/independent-review/revision01-custody-after.json",
+      "bytes": 230,
+      "sha256": "20d4968ccdc34b13d127b037870330b46feb8b4b2ad635f48f954fb23bc9f42b",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/independent-review/revision01-custody-before.json",
+      "bytes": 225,
+      "sha256": "1158f9e491551647a45fe75a2964d0d40fbfca2f593dc2a1d01993d9a6e4ddf4",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/sources/assertion-rfc.md",
+      "bytes": 90964,
+      "sha256": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/sources/time-policy.md",
+      "bytes": 21227,
+      "sha256": "732d1b8740d03f3835903fa4b3f31b8752a953739b6a748f95ee1fc4d0d33433",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/sources/transaction-rfc.md",
+      "bytes": 154067,
+      "sha256": "dcae358c76742f93964a9aa348808351a763d355b51fab3707994a3bd0714165",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence/sources/write-boundary.md",
+      "bytes": 19378,
+      "sha256": "657065d9ec482fe9a9d07b6fffb7b26cc55a185b9b2d0409ddbd6af10145c672",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
     },

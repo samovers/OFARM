@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "ofarm.preVerdictProtectedStateContext.v0.1",
+  "contextId": "fixture:state-context:assert_compliance-correction-prior_governed_receipt",
+  "storageOwnerRef": "fixture:storage-owner:one",
+  "attempt": {
+    "transactionAttemptId": "fixture:attempt:assert_compliance-correction-prior_governed_receipt",
+    "attemptSequence": 1,
+    "transactionStartedAt": "2026-10-21T08:00:00Z",
+    "transactionDeadline": "2026-10-21T08:00:05Z",
+    "transactionSnapshot": {
+      "ref": "fixture:snapshot:assert_compliance-correction-prior_governed_receipt",
+      "digest": "sha256:fe66b503166286c40644a714f99075f0bce5491c1f5d9b09a0935ac531f08c8f"
+    },
+    "atomicPersistenceBoundaryRef": "fixture:atomic-boundary:one",
+    "guardPolicyBinding": {
+      "ref": "fixture:guard-policy:one",
+      "digest": "sha256:e08f11a96b1db5c02c7243d23913dfada23983ea0444c969d6792207e26606bf"
+    },
+    "transactionStatusLookupKey": "fixture:lookup:assert_compliance-correction-prior_governed_receipt",
+    "transactionTimePolicyBinding": {
+      "ref": "fixture:time-policy:one",
+      "digest": "sha256:3b0a158a8354924fd19aa850ee0a69e0db2d37326739c2eaa65a722d7bddde67"
+    }
+  },
+  "actionClass": "ASSERT_COMPLIANCE",
+  "effectIntent": {
+    "binding": {
+      "ref": "fixture:intent:assert_compliance-correction-prior_governed_receipt",
+      "digest": "sha256:9a5d0f14267001be2aff922bb86b36127fb445a70fc744b82fcf65aa7bd752d8"
+    },
+    "rawSha256": "95a2bf91db18f5494cdf5517880e16d101a77fcb4e66052a7ab66d82bab88953"
+  },
+  "proposedAssertion": {
+    "binding": {
+      "ref": "fixture:assertion:new:assert_compliance-correction-prior_governed_receipt",
+      "digest": "sha256:76efa9b910aeecfa814a51e82a64d7a4c96801fff7337cb0bb0f2d52ef4fbd38"
+    },
+    "rawSha256": "00a68a6f4d09620c32c37de93a45fb55191f8072b849c4ba27f6146499a380f2"
+  },
+  "proposedAssertionId": "fixture:assertion:new:assert_compliance-correction-prior_governed_receipt",
+  "transactionProfile": {
+    "binding": {
+      "ref": "fixture:transaction-profile:assert_compliance-correction-prior_governed_receipt",
+      "digest": "sha256:09d68ab12d80c8562f7e436e92933232d50ef8b6239d167e2275fc348c4e8a4a"
+    },
+    "rawSha256": "f482b794fa55b8351966054dbfa10a5d48a72edec8c0862b4c03cbda1804fd15"
+  },
+  "transactionTimePolicy": {
+    "binding": {
+      "ref": "fixture:time-policy:one",
+      "digest": "sha256:3b0a158a8354924fd19aa850ee0a69e0db2d37326739c2eaa65a722d7bddde67"
+    },
+    "rawSha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244"
+  },
+  "requiredReads": [
+    {
+      "key": "intent",
+      "role": "EFFECT_INTENT",
+      "binding": {
+        "ref": "fixture:intent:assert_compliance-correction-prior_governed_receipt",
+        "digest": "sha256:9a5d0f14267001be2aff922bb86b36127fb445a70fc744b82fcf65aa7bd752d8"
+      },
+      "rawSha256": "95a2bf91db18f5494cdf5517880e16d101a77fcb4e66052a7ab66d82bab88953",
+      "availability": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "transaction-profile",
+      "role": "TRANSACTION_PROFILE",
+      "binding": {
+        "ref": "fixture:transaction-profile:assert_compliance-correction-prior_governed_receipt",
+        "digest": "sha256:09d68ab12d80c8562f7e436e92933232d50ef8b6239d167e2275fc348c4e8a4a"
+      },
+      "rawSha256": "f482b794fa55b8351966054dbfa10a5d48a72edec8c0862b4c03cbda1804fd15",
+      "availability": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "time-policy",
+      "role": "TRANSACTION_TIME_POLICY",
+      "binding": {
+        "ref": "fixture:time-policy:one",
+        "digest": "sha256:3b0a158a8354924fd19aa850ee0a69e0db2d37326739c2eaa65a722d7bddde67"
+      },
+      "rawSha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "availability": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "prior-record",
+      "role": "PRIOR_ASSERTION",
+      "binding": {
+        "ref": "assertion:field-17:pruning-operation-claim:2026-04-08",
+        "digest": "sha256:6c999d55e809d37e97b3bb82e850717c440be5f128b7c81b6ee542b7dc8914b3"
+      },
+      "rawSha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404",
+      "availability": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "prior-creation",
+      "role": "PRIOR_CREATION_EVIDENCE",
+      "binding": {
+        "ref": "fixture:prior-creation-extraction:assert_compliance-correction-prior_governed_receipt",
+        "digest": "sha256:276c2d03ba05468a5060a8dfae67c05d64d4f7b956d56a6bfb568c4899962de0"
+      },
+      "rawSha256": "15e7f940161d449736d2aa6f585314c8ca4b327b9b3528c7f51b4d088cbfb005",
+      "availability": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "prior-source",
+      "role": "OTHER_DOMAIN_INPUT",
+      "binding": {
+        "ref": "fixture:prior-creation-source:assert_compliance-correction-prior_governed_receipt",
+        "digest": "sha256:22998bf97563fb1e3036b49baef8a0c3a3418b70b2fa3043958dfd1a13935c0f"
+      },
+      "rawSha256": "404375c50da94c62490e4cf384998b6b5eb97e3003b6bbfde87dcabc54114f89",
+      "availability": "COMMITTED_AT_TRANSACTION_START"
+    }
+  ],
+  "requiredNegativeReads": [
+    {
+      "key": "fixture:assertion:new:assert_compliance-correction-prior_governed_receipt",
+      "predicateDigest": "sha256:42ec0418e08d1846ab0911564ee2db2e70a44510cfe06eecee2374e22f4ced1a",
+      "purpose": "ASSERTION_ID_ABSENCE"
+    }
+  ],
+  "requiredSetReads": [
+    {
+      "key": "fixture:eligibility-set:one",
+      "predicateDigest": "sha256:5dc6d33d2d3bf6baf5ffec0391f231cb153c7f710da674090bb39d194261f93d",
+      "members": [
+        {
+          "ref": "fixture:intent:assert_compliance-correction-prior_governed_receipt",
+          "digest": "sha256:9a5d0f14267001be2aff922bb86b36127fb445a70fc744b82fcf65aa7bd752d8"
+        }
+      ]
+    }
+  ],
+  "governanceContext": {
+    "boundaryKind": "TENANT",
+    "boundaryRef": "fixture:tenant:one",
+    "twin": {
+      "posture": "APPLICABLE",
+      "twinRef": "fixture:twin:one"
+    }
+  },
+  "proofId": "fixture:state-proof:assert_compliance-correction-prior_governed_receipt",
+  "priorAssertion": {
+    "record": {
+      "binding": {
+        "ref": "assertion:field-17:pruning-operation-claim:2026-04-08",
+        "digest": "sha256:6c999d55e809d37e97b3bb82e850717c440be5f128b7c81b6ee542b7dc8914b3"
+      },
+      "rawSha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404"
+    },
+    "creationEvidence": {
+      "binding": {
+        "ref": "fixture:prior-creation-extraction:assert_compliance-correction-prior_governed_receipt",
+        "digest": "sha256:276c2d03ba05468a5060a8dfae67c05d64d4f7b956d56a6bfb568c4899962de0"
+      },
+      "rawSha256": "15e7f940161d449736d2aa6f585314c8ca4b327b9b3528c7f51b4d088cbfb005"
+    }
+  }
+}

@@ -1,0 +1,349 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/protected-state-evidence/creation/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.priorAssertionCreationContextEvidence.v0.1"
+    },
+    "creationEvidenceId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "storageOwnerRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "creationKind": {
+      "enum": [
+        "PRIOR_GOVERNED_RECEIPT",
+        "LEGACY_IMMUTABLE_INGRESS"
+      ]
+    },
+    "creatorAttemptId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "priorRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "ref",
+            "digest"
+          ]
+        },
+        "rawSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "binding",
+        "rawSha256"
+      ]
+    },
+    "sourceRecords": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "binding": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ref": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "ref",
+              "digest"
+            ]
+          },
+          "rawSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "binding",
+          "rawSha256"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 4096
+    },
+    "governanceContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "boundaryKind": {
+          "enum": [
+            "TENANT",
+            "DEPLOYMENT"
+          ]
+        },
+        "boundaryRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "twin": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "posture": {
+                  "const": "NOT_APPLICABLE"
+                }
+              },
+              "required": [
+                "posture"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "posture": {
+                  "const": "APPLICABLE"
+                },
+                "twinRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                }
+              },
+              "required": [
+                "posture",
+                "twinRef"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "boundaryKind",
+        "boundaryRef",
+        "twin"
+      ]
+    },
+    "recordedAnchorScopes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "scopeType": {
+            "enum": [
+              "FARM",
+              "SITE",
+              "FIELD",
+              "ZONE",
+              "CROP_CYCLE",
+              "LOT",
+              "FACILITY",
+              "OPERATION",
+              "DEPLOYMENT",
+              "TENANT"
+            ]
+          },
+          "scopeRef": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "revisionRef": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "digest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "scopeType",
+          "scopeRef"
+        ],
+        "not": {
+          "required": [
+            "revisionRef",
+            "digest"
+          ]
+        }
+      },
+      "minItems": 1,
+      "maxItems": 4096
+    },
+    "sourceDerivations": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "priorRecordBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "sourceRef": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "pointer": {
+              "type": "string",
+              "pattern": "^(?:/(?:[^~]|~[01])*)?$"
+            }
+          },
+          "required": [
+            "sourceRef",
+            "pointer"
+          ]
+        },
+        "governanceContext": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "sourceRef": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "pointer": {
+              "type": "string",
+              "pattern": "^(?:/(?:[^~]|~[01])*)?$"
+            }
+          },
+          "required": [
+            "sourceRef",
+            "pointer"
+          ]
+        },
+        "recordedAnchorScopes": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "sourceRef": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "pointer": {
+              "type": "string",
+              "pattern": "^(?:/(?:[^~]|~[01])*)?$"
+            }
+          },
+          "required": [
+            "sourceRef",
+            "pointer"
+          ]
+        },
+        "creatorAttemptId": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "sourceRef": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "pointer": {
+              "type": "string",
+              "pattern": "^(?:/(?:[^~]|~[01])*)?$"
+            }
+          },
+          "required": [
+            "sourceRef",
+            "pointer"
+          ]
+        }
+      },
+      "required": [
+        "priorRecordBinding",
+        "governanceContext",
+        "recordedAnchorScopes"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "creationEvidenceId",
+    "storageOwnerRef",
+    "creationKind",
+    "priorRecord",
+    "sourceRecords",
+    "governanceContext",
+    "recordedAnchorScopes",
+    "sourceDerivations"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "creationKind": {
+            "const": "PRIOR_GOVERNED_RECEIPT"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "creatorAttemptId"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "creatorAttemptId"
+        ]
+      },
+      "then": {
+        "properties": {
+          "sourceDerivations": {
+            "required": [
+              "creatorAttemptId"
+            ]
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "sourceDerivations": {
+            "not": {
+              "required": [
+                "creatorAttemptId"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/protected-state-evidence/snapshot/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.transactionStartSnapshotEvidence.v0.1"
+    },
+    "snapshotId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "storageOwnerRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "transactionAttemptId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "atomicPersistenceBoundaryRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "snapshotToken": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "capturePhase": {
+      "const": "TRANSACTION_START"
+    },
+    "positiveRecords": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "binding": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ref": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "ref",
+              "digest"
+            ]
+          },
+          "rawSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "rowVersion": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "visibility": {
+            "const": "COMMITTED_AT_TRANSACTION_START"
+          }
+        },
+        "required": [
+          "key",
+          "binding",
+          "rawSha256",
+          "rowVersion",
+          "visibility"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 4096
+    },
+    "negativeRecords": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "predicateDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "purpose": {
+            "enum": [
+              "ASSERTION_ID_ABSENCE",
+              "OTHER_REQUIRED_ABSENCE"
+            ]
+          },
+          "guardVersion": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "observation": {
+            "const": "ABSENT_AT_TRANSACTION_START"
+          }
+        },
+        "required": [
+          "key",
+          "predicateDigest",
+          "purpose",
+          "guardVersion",
+          "observation"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 4096
+    },
+    "setRecords": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "predicateDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ref": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "digest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "ref",
+                "digest"
+              ]
+            },
+            "minItems": 0,
+            "maxItems": 4096
+          },
+          "guardVersion": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "required": [
+          "key",
+          "predicateDigest",
+          "members",
+          "guardVersion"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 4096
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "snapshotId",
+    "storageOwnerRef",
+    "transactionAttemptId",
+    "atomicPersistenceBoundaryRef",
+    "snapshotToken",
+    "capturePhase",
+    "positiveRecords",
+    "negativeRecords",
+    "setRecords"
+  ]
+}

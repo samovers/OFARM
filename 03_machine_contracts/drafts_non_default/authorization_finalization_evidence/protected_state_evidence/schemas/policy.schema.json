@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/protected-state-evidence/policy/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.preVerdictGuardPolicy.v0.1"
+    },
+    "policyId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "storageOwnerRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "atomicPersistenceBoundaryRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "proofMode": {
+      "const": "OPTIMISTIC_COMPARE_COMMIT"
+    },
+    "observationPhase": {
+      "const": "AFTER_PROPOSED_WRITES_BEFORE_DOMAIN_VERDICT"
+    },
+    "writeBoundary": {
+      "const": "ONE_ASSERTION_INSERT_ONLY"
+    },
+    "guardContinuity": {
+      "const": "RECHECK_ALL_READ_NEGATIVE_SET_AND_WRITE_GUARDS_THROUGH_COMMIT"
+    },
+    "reuse": {
+      "const": "IDENTICAL_INPUTS_SAME_ATTEMPT_REEVALUATION_ONLY"
+    },
+    "domainInputCompletenessOwner": {
+      "const": "CONSUMING_DOMAIN_CONTRACT"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "policyId",
+    "storageOwnerRef",
+    "atomicPersistenceBoundaryRef",
+    "proofMode",
+    "observationPhase",
+    "writeBoundary",
+    "guardContinuity",
+    "reuse",
+    "domainInputCompletenessOwner"
+  ]
+}

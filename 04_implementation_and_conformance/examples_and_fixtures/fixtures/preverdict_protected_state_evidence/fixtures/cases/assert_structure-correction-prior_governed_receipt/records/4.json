@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "ofarm.priorAssertionCreationContextEvidence.v0.1",
+  "creationEvidenceId": "fixture:prior-creation-extraction:assert_structure-correction-prior_governed_receipt",
+  "storageOwnerRef": "fixture:storage-owner:one",
+  "creationKind": "PRIOR_GOVERNED_RECEIPT",
+  "creatorAttemptId": "fixture:attempt:prior",
+  "priorRecord": {
+    "binding": {
+      "ref": "assertion:field-17:pruning-operation-claim:2026-04-08",
+      "digest": "sha256:6c999d55e809d37e97b3bb82e850717c440be5f128b7c81b6ee542b7dc8914b3"
+    },
+    "rawSha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404"
+  },
+  "sourceRecords": [
+    {
+      "binding": {
+        "ref": "fixture:prior-creation-source:assert_structure-correction-prior_governed_receipt",
+        "digest": "sha256:22998bf97563fb1e3036b49baef8a0c3a3418b70b2fa3043958dfd1a13935c0f"
+      },
+      "rawSha256": "404375c50da94c62490e4cf384998b6b5eb97e3003b6bbfde87dcabc54114f89"
+    }
+  ],
+  "governanceContext": {
+    "boundaryKind": "TENANT",
+    "boundaryRef": "fixture:tenant:one",
+    "twin": {
+      "posture": "APPLICABLE",
+      "twinRef": "fixture:twin:one"
+    }
+  },
+  "recordedAnchorScopes": [
+    {
+      "scopeType": "FIELD",
+      "scopeRef": "field:17"
+    }
+  ],
+  "sourceDerivations": {
+    "priorRecordBinding": {
+      "sourceRef": "fixture:prior-creation-source:assert_structure-correction-prior_governed_receipt",
+      "pointer": "/record"
+    },
+    "governanceContext": {
+      "sourceRef": "fixture:prior-creation-source:assert_structure-correction-prior_governed_receipt",
+      "pointer": "/governance"
+    },
+    "recordedAnchorScopes": {
+      "sourceRef": "fixture:prior-creation-source:assert_structure-correction-prior_governed_receipt",
+      "pointer": "/anchors"
+    },
+    "creatorAttemptId": {
+      "sourceRef": "fixture:prior-creation-source:assert_structure-correction-prior_governed_receipt",
+      "pointer": "/creatorAttemptId"
+    }
+  }
+}
