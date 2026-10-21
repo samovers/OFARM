@@ -1,0 +1,2168 @@
+{
+  "revision": "local-requirements:assertion-crop-core:2026-10-20:r4",
+  "name": "Sourced crop-core plus BE reference, SI FFS, RS organic and NL GO/GLMC7 AssertionRecord claim requirements",
+  "status": "SOURCE_BOUNDED_CANDIDATE_DENOMINATOR_NOT_UNIVERSAL_PRODUCT_SIGNOFF",
+  "sourceHead": "2110f6d78451b50712264dba87d0b8989f134907",
+  "selectionRule": "Include sourced required distinctions in the three pending assertion branches, their actual active agronomic/identity/lot carriers and product/profile examples; retain cross-cutting and linked-domain boundaries. Do not convert unrelated governed artifact creation into this assertion contract.",
+  "requirements": [
+    {
+      "id": "R01",
+      "requirement": "Preserve durable identity versus geometry revision and explicit successor lineage for field and other governed scope changes.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "IDENTITY",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Identity_and_Lifecycle_RFC_v0_1.md",
+          "sha256": "85b6ccbd0a70dea3db7e2347685d770354efa49b91602b386f1e08193190fde2",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "2–3,7–8"
+        },
+        {
+          "id": "CONSTITUTION",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "00_active_baseline/OFARM_Reference_Model_and_Artifact_Constitution_RC2_1.md",
+          "sha256": "7079e66ab160e2f79bc1a2a6f2c37726c0bea2af921312fcd93b434b9f9c4e3d",
+          "sourceStatus": "ACTIVE_BASELINE",
+          "clause": "7.19–7.25"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S01",
+        "S09",
+        "S10"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V04-boundary",
+        "V06-lineage"
+      ]
+    },
+    {
+      "id": "R02",
+      "requirement": "Represent recurring zone purpose, geometry and explicit overlap without converting ephemeral masks into durable identities.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "IDENTITY",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Identity_and_Lifecycle_RFC_v0_1.md",
+          "sha256": "85b6ccbd0a70dea3db7e2347685d770354efa49b91602b386f1e08193190fde2",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "4"
+        },
+        {
+          "id": "PARTIAL",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Partial_Extent_and_Geometry_Basis_RFC_v0_1.md",
+          "sha256": "61c0c18d0128010b62cc0473a180233ad940f84208950c10cfc3ad9d7687b5bc",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "2"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S03",
+        "S11"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": []
+    },
+    {
+      "id": "R03",
+      "requirement": "Preserve cultivation attempt, crop/variety/scope, failure versus re-establishment, and explicit concurrent/split cycles.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "IDENTITY",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Identity_and_Lifecycle_RFC_v0_1.md",
+          "sha256": "85b6ccbd0a70dea3db7e2347685d770354efa49b91602b386f1e08193190fde2",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "5"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S04",
+        "S09",
+        "O03"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V06-lineage",
+        "V06-parent-scope"
+      ]
+    },
+    {
+      "id": "R04",
+      "requirement": "Keep facility, place, container, occupant and configuration identities distinct.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "IDENTITY",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Identity_and_Lifecycle_RFC_v0_1.md",
+          "sha256": "85b6ccbd0a70dea3db7e2347685d770354efa49b91602b386f1e08193190fde2",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "7"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S05",
+        "S09"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V06-occupancy"
+      ]
+    },
+    {
+      "id": "R05",
+      "requirement": "Represent exact governed parent/target/context relations without granting authority.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "S23",
+          "commit": "6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f",
+          "path": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+          "sha256": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809",
+          "sourceStatus": "DRAFT_OWNER_SOURCE",
+          "clause": "5.2"
+        },
+        {
+          "id": "CONSTITUTION",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "00_active_baseline/OFARM_Reference_Model_and_Artifact_Constitution_RC2_1.md",
+          "sha256": "7079e66ab160e2f79bc1a2a6f2c37726c0bea2af921312fcd93b434b9f9c4e3d",
+          "sourceStatus": "ACTIVE_BASELINE",
+          "clause": "7.24–7.25"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S02",
+        "S08"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V06-operation-target",
+        "V06-parent-scope",
+        "V06-proof-interface"
+      ]
+    },
+    {
+      "id": "R06",
+      "requirement": "Preserve lot cohort, traceability model, physical-continuity class and governing claim basis.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "LOT",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Lot_Traceability_and_Claim_Basis_RFC_v0_1.md",
+          "sha256": "cfa920d0b968b0448172c360b5fdde8e81d21494a1b8425441132e933c523a04",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "4,6"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S06",
+        "C07"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V04-harvest"
+      ]
+    },
+    {
+      "id": "R07",
+      "requirement": "Represent split, merge, commingling, transformation and claim-basis reset with explicit lineage, not hidden same-lot continuity.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "LOT",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Lot_Traceability_and_Claim_Basis_RFC_v0_1.md",
+          "sha256": "cfa920d0b968b0448172c360b5fdde8e81d21494a1b8425441132e933c523a04",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "5,7–8"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S09",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "C07"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V04-lot-split",
+        "V06-lineage"
+      ]
+    },
+    {
+      "id": "R08",
+      "requirement": "Do not turn shipment/commercial references or storage movement into new-lot or compliance truth.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "LOT",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Lot_Traceability_and_Claim_Basis_RFC_v0_1.md",
+          "sha256": "cfa920d0b968b0448172c360b5fdde8e81d21494a1b8425441132e933c523a04",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "5.5"
+        },
+        {
+          "id": "EXCHANGE",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "07_linked_domain_architectures/OFARM_Exchange_Constitutional_Tenets_v0_1.md",
+          "sha256": "e701530d31c10127deee4432d8a10875b2899d4d9cd57efcddea6fc0596ffe9a",
+          "sourceStatus": "SUPPORTING_TENETS_NOT_IMPLEMENTATION_LAW",
+          "clause": "Tenet 5"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S10",
+        "O15",
+        "C07"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V04-lot-split",
+        "V06-occupancy"
+      ]
+    },
+    {
+      "id": "R09",
+      "requirement": "Preserve product/input, active substance, crop, variety, pest/target, method and threshold roles with exact source/profile bindings.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "CODE",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Agronomic_Code_Binding_and_Standards_Profile_RFC_v0_1.md",
+          "sha256": "2f558af001a25f49d6242f026e3f91f541ab618dfb1242a3ee895c3f58b6d4b7",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "3–5"
+        },
+        {
+          "id": "INTENT_PAYLOAD",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "03_machine_contracts/schemas/agronomic/OFARM_InterventionIntentPayload_schema_v0_1.json",
+          "sha256": "72e4603d3cc98fcd99439f8a06c80724e14d4961031ff3b0a1774f3407725ec0",
+          "sourceStatus": "ACTIVE_CARRIER",
+          "clause": "binding arrays"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S07",
+        "O01",
+        "O02",
+        "O03",
+        "O09",
+        "C02",
+        "C05",
+        "C06"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V05-code-bindings"
+      ]
+    },
+    {
+      "id": "R10",
+      "requirement": "Keep recommendation, prescription, plan, pending performance allegation and accepted execution meanings distinct.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "QUANTITY",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Quantity_Bearing_Intervention_and_As_Applied_RFC_v0_1.md",
+          "sha256": "f12e6fc8e14977890f3fbf8ec5131e219b088bdb3554baa80c5a63bde79656fb",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "2.1–2.2,6"
+        },
+        {
+          "id": "LOCAL_KNOWLEDGE",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Local_Knowledge_and_Planning_Closure_RFC_v0_1.md",
+          "sha256": "31544aa0bd89c0f67ba13276800f05e5ba62937088233d159d4292be96dcffd4",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "2.3,5"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S08",
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O07",
+        "O08",
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": []
+    },
+    {
+      "id": "R11",
+      "requirement": "Cover each declared action enum and intervention kind, with defined activity meaning behind OTHER branches.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "INTENT_PAYLOAD",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "03_machine_contracts/schemas/agronomic/OFARM_InterventionIntentPayload_schema_v0_1.json",
+          "sha256": "72e4603d3cc98fcd99439f8a06c80724e14d4961031ff3b0a1774f3407725ec0",
+          "sourceStatus": "ACTIVE_CARRIER",
+          "clause": "/properties/intendedAction,/properties/interventionKind"
+        },
+        {
+          "id": "EXECUTION_PAYLOAD",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "03_machine_contracts/schemas/agronomic/OFARM_ExecutionRecordPayload_schema_v0_1.json",
+          "sha256": "ca62f01d056794ee588d55c3f5df652fc039124b76af5631d417714bc7059ff0",
+          "sourceStatus": "ACTIVE_CARRIER",
+          "clause": "/properties/actualAction"
+        }
+      ],
+      "mappedCandidateRows": [
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O07",
+        "O08",
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O24",
+        "O25",
+        "O26",
+        "O27"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V04-action-families",
+        "V04-harvest",
+        "V04-prune",
+        "V04-spray"
+      ],
+      "meaningMappings": [
+        {
+          "sourceMeaning": "plant",
+          "definingRow": "O03",
+          "selector": "SEED",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O03",
+          "meaning": "Place specified seed/planting material to establish the named cultivation attempt, preserving seed lot, crop/variety, seed rate, extent and replant lineage."
+        },
+        {
+          "sourceMeaning": "till",
+          "definingRow": "O05",
+          "selector": "CULTIVATE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O05",
+          "meaning": "Perform the named soil/crop cultivation method on the exact extent; depth, passes and equipment parameters are retained when alleged."
+        },
+        {
+          "sourceMeaning": "fertilize",
+          "definingRow": "O02",
+          "selector": "APPLY_INPUT/FERTILIZATION",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O02",
+          "meaning": "Apply a specified fertilizer/material with explicit nutrient versus product quantity and extent; active nutrient and whole product are not interchangeable."
+        },
+        {
+          "sourceMeaning": "spray",
+          "definingRow": "O01",
+          "selector": "APPLY_INPUT/CROP_PROTECTION",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "meaning": "Apply the specified crop-protection product to the stated target/extent by the stated method, preserving product, pest/target, dose/rate and application-volume meaning."
+        },
+        {
+          "sourceMeaning": "irrigate",
+          "definingRow": "O04",
+          "selector": "IRRIGATE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O04",
+          "meaning": "Deliver water through a named method to a specified target/extent, preserving water amount, rate/flow or depth interpretation and relevant time."
+        },
+        {
+          "sourceMeaning": "prune",
+          "definingRow": "O08",
+          "selector": "PRUNE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O08",
+          "meaning": "Remove selected canopy/plant material by a named pruning method on an explicit target/extent, retaining intent versus performance, occurrence facet and partial-work qualifications."
+        },
+        {
+          "sourceMeaning": "harvest",
+          "definingRow": "O06",
+          "selector": "HARVEST",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O06",
+          "meaning": "Remove crop material from the specified field/cycle/extent, naming output lot/material links and quantities when claimed; removal and accepted lot creation are separate."
+        },
+        {
+          "sourceMeaning": "cleanout",
+          "definingRow": "O17",
+          "selector": "parameters.sanitationKind=CLEANOUT",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O17",
+          "meaning": "Apply a specified cleaning/sanitation procedure to named equipment, tool, container, facility or extent; the performed procedure and its achieved hygiene criterion are separate."
+        },
+        {
+          "sourceMeaning": "sanitize",
+          "definingRow": "O17",
+          "selector": "parameters.sanitationKind=SANITIZE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O17",
+          "meaning": "Apply a specified cleaning/sanitation procedure to named equipment, tool, container, facility or extent; the performed procedure and its achieved hygiene criterion are separate."
+        },
+        {
+          "sourceMeaning": "maintain",
+          "definingRow": "O18",
+          "selector": "MAINTAIN",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O18",
+          "meaning": "Perform a specified maintenance task on an exact equipment/tool/facility/container asset, preserving replaced parts, configuration and task-completion facet; this need not change durable identity."
+        },
+        {
+          "sourceMeaning": "create-lot",
+          "definingRow": "O27",
+          "selector": "parameters.specificActivity=LOT_CREATION_ALLEGATION; no creation effect",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O27",
+          "meaning": "Allege that a specified traceability cohort was established, or is intended to be established, by a named origin process. The prospective lot is a described output; the claim does not allocate a canonical identity, create an accepted MaterialEvent consequence, or write inventory."
+        },
+        {
+          "sourceMeaning": "split-lot",
+          "definingRow": "O11",
+          "selector": "parameters.specificActivity=LOT_SPLIT",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O11",
+          "meaning": "Separate one coherent cohort into two or more successor cohorts, preserving predecessor/successors and quantities where alleged."
+        },
+        {
+          "sourceMeaning": "merge-lots",
+          "definingRow": "O12",
+          "selector": "parameters.specificActivity=LOT_MERGE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O12",
+          "meaning": "Governedly unite distinct lots into one successor cohort with explicit source lineage; this meaning differs from physical commingling."
+        },
+        {
+          "sourceMeaning": "move-material",
+          "definingRow": "O15",
+          "selector": "parameters.movementPhase=MOVE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O15",
+          "meaning": "Move named material from source to destination, with custody/possession roles and commercial references separately stated; location change alone does not create a new lot."
+        },
+        {
+          "sourceMeaning": "dispatch",
+          "definingRow": "O15",
+          "selector": "parameters.movementPhase=DISPATCH",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O15",
+          "meaning": "Move named material from source to destination, with custody/possession roles and commercial references separately stated; location change alone does not create a new lot."
+        },
+        {
+          "sourceMeaning": "receive",
+          "definingRow": "O24",
+          "selector": "parameters.specificActivity=MATERIAL_RECEIPT",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O24",
+          "meaning": "The identified receiver takes physical delivery of the specified material/cohort at the receiving location for the declared extent. Receipt, dispatch, commercial acceptance, custody and title are distinct allegations."
+        },
+        {
+          "sourceMeaning": "reclassify-material",
+          "definingRow": "O25",
+          "selector": "parameters.specificActivity=MATERIAL_RECLASSIFICATION",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O25",
+          "meaning": "An actor alleges reassignment of a material classification under an exact versioned scheme and procedure, retaining before/after class and traceability claim basis. A label change does not silently create, transform or continue a cohort."
+        },
+        {
+          "sourceMeaning": "dispose-material",
+          "definingRow": "O26",
+          "selector": "parameters.specificActivity=MATERIAL_DISPOSAL",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O26",
+          "meaning": "An actor alleges removal of a specified material extent from its declared use/inventory route by the named disposal procedure and destination. Disposal is not movement, reclassification, or a successor-producing transformation."
+        }
+      ]
+    },
+    {
+      "id": "R12",
+      "requirement": "Preserve quantity roles, units, material basis, original lexical values, normalised values and actual-versus-planned differences.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "QUANTITY",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Quantity_Bearing_Intervention_and_As_Applied_RFC_v0_1.md",
+          "sha256": "f12e6fc8e14977890f3fbf8ec5131e219b088bdb3554baa80c5a63bde79656fb",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "2.3,4–5,7"
+        },
+        {
+          "id": "SPRAY_MACHINE",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_ExecutionRecordPayload_example_field_17_machine_log_partial_application_v0_1.json",
+          "sha256": "d4fcf8feceb1fc93cb908f1555520dbd2f5955344795cde196a7ef597978d535",
+          "sourceStatus": "ILLUSTRATIVE_EXAMPLE",
+          "clause": "/actualQuantityParameters"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C03",
+        "C04",
+        "C06",
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O07",
+        "O08",
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O19",
+        "O20",
+        "O21",
+        "O22",
+        "O23",
+        "O24",
+        "O25",
+        "O26",
+        "O27"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V05-code-bindings",
+        "V05-context",
+        "V05-result-numeric"
+      ],
+      "contractFiles": [
+        "quantity-contract.json"
+      ]
+    },
+    {
+      "id": "R13",
+      "requirement": "Retain missing-rate claims as qualified claims and do not fill missing actual data from intended values.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "QUANTITY",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Quantity_Bearing_Intervention_and_As_Applied_RFC_v0_1.md",
+          "sha256": "f12e6fc8e14977890f3fbf8ec5131e219b088bdb3554baa80c5a63bde79656fb",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "7.4"
+        },
+        {
+          "id": "SPRAY_REPORT",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_ExecutionRecordPayload_example_field_17_contractor_spot_spray_claim_late_sync_v0_1.json",
+          "sha256": "1cc9eb42260acacffb4738e3dc586f96fd1f34668788b0af75b9f8ff9085bb15",
+          "sourceStatus": "ILLUSTRATIVE_EXAMPLE",
+          "clause": "/actualVsPlannedDeltas"
+        }
+      ],
+      "mappedCandidateRows": [
+        "O01",
+        "O02"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V04-spray"
+      ]
+    },
+    {
+      "id": "R14",
+      "requirement": "Preserve partial, failed, re-treatment, replant, damage and disputed extent roles and their quality; no whole-field expansion.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "PARTIAL",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Partial_Extent_and_Geometry_Basis_RFC_v0_1.md",
+          "sha256": "61c0c18d0128010b62cc0473a180233ad940f84208950c10cfc3ad9d7687b5bc",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "3–8"
+        },
+        {
+          "id": "EXECUTION_PAYLOAD",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "03_machine_contracts/schemas/agronomic/OFARM_ExecutionRecordPayload_schema_v0_1.json",
+          "sha256": "ca62f01d056794ee588d55c3f5df652fc039124b76af5631d417714bc7059ff0",
+          "sourceStatus": "ACTIVE_CARRIER",
+          "clause": "/properties/executionExtent"
+        },
+        {
+          "id": "SPRAY_MACHINE",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_ExecutionRecordPayload_example_field_17_machine_log_partial_application_v0_1.json",
+          "sha256": "d4fcf8feceb1fc93cb908f1555520dbd2f5955344795cde196a7ef597978d535",
+          "sourceStatus": "ILLUSTRATIVE_EXAMPLE",
+          "clause": "/executionExtent"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S11",
+        "O01",
+        "O03",
+        "O08"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V04-hail",
+        "V04-spray",
+        "V06-extent",
+        "V06-sample-target"
+      ]
+    },
+    {
+      "id": "R15",
+      "requirement": "Keep source/capture, reporter/import adapter, intended/alleged performer, contractor and machine roles distinct.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "S23",
+          "commit": "6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f",
+          "path": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+          "sha256": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809",
+          "sourceStatus": "DRAFT_OWNER_SOURCE",
+          "clause": "5.3,6.5"
+        },
+        {
+          "id": "SPRAY_MACHINE",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_ExecutionRecordPayload_example_field_17_machine_log_partial_application_v0_1.json",
+          "sha256": "d4fcf8feceb1fc93cb908f1555520dbd2f5955344795cde196a7ef597978d535",
+          "sourceStatus": "ILLUSTRATIVE_EXAMPLE",
+          "clause": "/actor,/sourcePayload"
+        },
+        {
+          "id": "PRUNING_PAYLOAD",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_ExecutionRecordPayload_example_field_17_canopy_pruning_operation_claim_from_local_rule_v0_1.json",
+          "sha256": "f8bcf3dda485247c39831a83703eb631a23d99a9f4915c98d58afa75aa69899e",
+          "sourceStatus": "ILLUSTRATIVE_EXAMPLE",
+          "clause": "/actor"
+        }
+      ],
+      "mappedCandidateRows": [
+        "O01",
+        "O08",
+        "O09",
+        "O16"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V04-prune",
+        "V05-context",
+        "V06-equipment-use",
+        "V06-operation-target",
+        "V06-party-context"
+      ]
+    },
+    {
+      "id": "R16",
+      "requirement": "Preserve all nine subject-time profiles and source-eligible optional event associations; measured performed instants work with and without events.",
+      "category": "CROSS_CUTTING_REQUIRED_INVARIANT",
+      "sourceBasis": [
+        {
+          "id": "S23",
+          "commit": "6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f",
+          "path": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+          "sha256": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809",
+          "sourceStatus": "DRAFT_OWNER_SOURCE",
+          "clause": "6.4,7.3"
+        },
+        {
+          "id": "BODY",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json",
+          "sha256": "3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "sourceStatus": "NON_DEFAULT_DRAFT",
+          "clause": "/$defs/performedInstantEvidenceBasis"
+        }
+      ],
+      "mappedCandidateRows": [
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O07",
+        "O08",
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O19",
+        "O20",
+        "O21",
+        "O22",
+        "O23",
+        "O24",
+        "O25",
+        "O26",
+        "O27"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V04-profiles",
+        "V04-prune",
+        "V05-time-observed",
+        "V06-proof-interface"
+      ],
+      "contractFiles": [
+        "atom-contract.json",
+        "quantity-contract.json",
+        "operation-profile-contract.json"
+      ]
+    },
+    {
+      "id": "R17",
+      "requirement": "Separate observation/monitoring/sample collection from results and claims about unrelated performance.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "OBSERVATION",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Agronomic_Observation_and_Measurement_Context_RFC_v0_1.md",
+          "sha256": "6903d30cbf6bc0a89c56a24d281d270f25dad84c4bfebd50930df757f284b7d0",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "2–6"
+        },
+        {
+          "id": "MEASUREMENT",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "03_machine_contracts/schemas/evidence/OFARM_MeasurementEvidence_schema_v0_1.json",
+          "sha256": "90c4cf2d1387633172e772c970d0c76889ceec0fca4682a5053914375bdc9280",
+          "sourceStatus": "ACTIVE_CARRIER_NOT_OPERATION_COMPATIBILITY_DEFINITION",
+          "clause": "phenomenonTime/result/source"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C03",
+        "C04",
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O07",
+        "O08",
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O19",
+        "O20",
+        "O21",
+        "O22",
+        "O23",
+        "O24",
+        "O25",
+        "O26",
+        "O27"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V04-stand-count",
+        "V05-context",
+        "V05-result-absent_pending",
+        "V05-source-sample_pending",
+        "V05-source-weeds",
+        "V05-source-wetness",
+        "V05-time-observed",
+        "V05-time-sample",
+        "V06-report-about",
+        "V06-sample-target"
+      ],
+      "contractFiles": [
+        "atom-contract.json",
+        "quantity-contract.json",
+        "operation-profile-contract.json"
+      ]
+    },
+    {
+      "id": "R18",
+      "requirement": "Keep reporting an operation distinct from the alleged world operation and preserve delayed-sync times.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "S23",
+          "commit": "6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f",
+          "path": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+          "sha256": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809",
+          "sourceStatus": "DRAFT_OWNER_SOURCE",
+          "clause": "6.5,7.3"
+        },
+        {
+          "id": "SPRAY_REPORT",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_ExecutionRecordPayload_example_field_17_contractor_spot_spray_claim_late_sync_v0_1.json",
+          "sha256": "1cc9eb42260acacffb4738e3dc586f96fd1f34668788b0af75b9f8ff9085bb15",
+          "sourceStatus": "ILLUSTRATIVE_EXAMPLE",
+          "clause": "/effectiveTimeInterval,/sourcePayload"
+        }
+      ],
+      "mappedCandidateRows": [
+        "O01",
+        "O16"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V04-report-ingest",
+        "V04-spray",
+        "V05-time-record",
+        "V06-report-about"
+      ]
+    },
+    {
+      "id": "R19",
+      "requirement": "Distinguish compliance relevance, rule applicability and criterion/outcome allegations.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "S23",
+          "commit": "6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f",
+          "path": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+          "sha256": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809",
+          "sourceStatus": "DRAFT_OWNER_SOURCE",
+          "clause": "5.4,7.3"
+        },
+        {
+          "id": "GRAMMAR",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "01_companion_artifacts/OFARM_Event_Grammar_and_Commit_Matrix_v0_1.md",
+          "sha256": "47784169916b66fec510a7a95c86b19b5c222ef987c6d29c26f9a250632a61b3",
+          "sourceStatus": "ACTIVE_COMPANION",
+          "clause": "EvidenceEvent/GovernanceEvent"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C01",
+        "C02",
+        "C03",
+        "C08"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V04-hail",
+        "V04-report-ingest",
+        "V06-report-about"
+      ]
+    },
+    {
+      "id": "R20",
+      "requirement": "Preserve numeric/coded/censored/qualitative results, method, uncertainty and original lexical basis without pretending censored values are zero.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "MEASUREMENT",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "03_machine_contracts/schemas/evidence/OFARM_MeasurementEvidence_schema_v0_1.json",
+          "sha256": "90c4cf2d1387633172e772c970d0c76889ceec0fca4682a5053914375bdc9280",
+          "sourceStatus": "ACTIVE_CARRIER_NOT_OPERATION_COMPATIBILITY_DEFINITION",
+          "clause": "/properties/result,/properties/uncertainty"
+        },
+        {
+          "id": "NITRATE",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_MeasurementEvidence_example_soil_nitrate_below_loq_lab_result_v0_1.json",
+          "sha256": "8c72a8adb681407b39bc066505deef284f6c6e1322347a69216f2be3054b8e51",
+          "sourceStatus": "ILLUSTRATIVE_EXAMPLE",
+          "clause": "/result"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C03",
+        "C04",
+        "C10"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V04-report-ingest",
+        "V04-stand-count",
+        "V05-code-bindings",
+        "V05-context",
+        "V05-result-absent_pending",
+        "V05-result-censored_numeric",
+        "V05-result-coded",
+        "V05-result-numeric",
+        "V05-result-qualitative",
+        "V05-source-nitrate",
+        "V05-source-weeds",
+        "V05-source-wetness"
+      ]
+    },
+    {
+      "id": "R21",
+      "requirement": "For the sourced BE profile, preserve official product identity, jurisdiction, snapshot/currentness, status, candidate uniqueness, label correlation and prescription/as-applied mismatch.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "BE_RFC",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_External_Code_Binding_Currentness_and_Verification_RFC_v0_1.md",
+          "sha256": "f136a736ee04ca5042ab5d11ce7a1f556c78f4523ae93af457243e0fc36c92f6",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "4–7"
+        },
+        {
+          "id": "BE_PROFILE",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_AgronomicCodeBindingProfile_example_be_crop_protection_authorisation_currentness_v0_1.json",
+          "sha256": "e9e844945af6603e11bcd602b0848f3a11bde8e959c7d50b32f70abfa911b34f",
+          "sourceStatus": "EXAMPLE_PROFILE_REFERENCED_BY_ACCEPTED_RFC_NOT_LIVE_REGISTRY",
+          "clause": "/bindingRequirements,/packMergePolicy"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S07",
+        "C05",
+        "C06"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": []
+    },
+    {
+      "id": "R22",
+      "requirement": "Represent actual rule/label criteria with exact operands, units, crop/target/stage and time, rather than inferring compliance from product names or report attachment.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "BE_RFC",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_External_Code_Binding_Currentness_and_Verification_RFC_v0_1.md",
+          "sha256": "f136a736ee04ca5042ab5d11ce7a1f556c78f4523ae93af457243e0fc36c92f6",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "5–7"
+        },
+        {
+          "id": "BE_PROFILE",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_AgronomicCodeBindingProfile_example_be_crop_protection_authorisation_currentness_v0_1.json",
+          "sha256": "e9e844945af6603e11bcd602b0848f3a11bde8e959c7d50b32f70abfa911b34f",
+          "sourceStatus": "EXAMPLE_PROFILE_REFERENCED_BY_ACCEPTED_RFC_NOT_LIVE_REGISTRY",
+          "clause": "binding roles"
+        },
+        {
+          "id": "QUANTITY",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Quantity_Bearing_Intervention_and_As_Applied_RFC_v0_1.md",
+          "sha256": "f12e6fc8e14977890f3fbf8ec5131e219b088bdb3554baa80c5a63bde79656fb",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "4–7"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C02",
+        "C03",
+        "C06"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": []
+    },
+    {
+      "id": "R23",
+      "requirement": "Represent inspection/review findings and corrections without creating or replacing the governed decision.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "S23",
+          "commit": "6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f",
+          "path": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+          "sha256": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809",
+          "sourceStatus": "DRAFT_OWNER_SOURCE",
+          "clause": "5.4,7.3,10"
+        },
+        {
+          "id": "GRAMMAR",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "01_companion_artifacts/OFARM_Event_Grammar_and_Commit_Matrix_v0_1.md",
+          "sha256": "47784169916b66fec510a7a95c86b19b5c222ef987c6d29c26f9a250632a61b3",
+          "sourceStatus": "ACTIVE_COMPANION",
+          "clause": "GovernanceEvent"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C08"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V04-inspection",
+        "V06-decision-applies"
+      ]
+    },
+    {
+      "id": "R24",
+      "requirement": "Preserve sustainability hard-constraint/objective distinction, evidence posture, metrics, claim-basis and freshness limits.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "CONSTITUTION",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "00_active_baseline/OFARM_Reference_Model_and_Artifact_Constitution_RC2_1.md",
+          "sha256": "7079e66ab160e2f79bc1a2a6f2c37726c0bea2af921312fcd93b434b9f9c4e3d",
+          "sourceStatus": "ACTIVE_BASELINE",
+          "clause": "CP11-C.3–C.5"
+        },
+        {
+          "id": "PRODUCT",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "00_active_baseline/OFARM_Platform_Runtime_and_Product_Architecture_RC2_1.md",
+          "sha256": "76357c6c7c184893f80219720f6343a682a859098f3703eb84c282fba0c02256",
+          "sourceStatus": "ACTIVE_BASELINE_PRODUCT_ARCHITECTURE",
+          "clause": "CP11-P.4–P.7"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C03",
+        "C04",
+        "C09",
+        "C10"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": []
+    },
+    {
+      "id": "R25",
+      "requirement": "Preserve explicit evidence-policy insufficiency and prevent evidence/carrier validity from becoming accepted truth.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "QUANTITY",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Quantity_Bearing_Intervention_and_As_Applied_RFC_v0_1.md",
+          "sha256": "f12e6fc8e14977890f3fbf8ec5131e219b088bdb3554baa80c5a63bde79656fb",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "6.5,7"
+        },
+        {
+          "id": "OBSERVATION",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Agronomic_Observation_and_Measurement_Context_RFC_v0_1.md",
+          "sha256": "6903d30cbf6bc0a89c56a24d281d270f25dad84c4bfebd50930df757f284b7d0",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "quality/promotion"
+        },
+        {
+          "id": "S23",
+          "commit": "6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f",
+          "path": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+          "sha256": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809",
+          "sourceStatus": "DRAFT_OWNER_SOURCE",
+          "clause": "11.2"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C10"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V05-context"
+      ]
+    },
+    {
+      "id": "R26",
+      "requirement": "Preserve original narrative, local heuristics, uncertainty, provenance and planning rationale; do not invent certainty or silently compile old authorized text.",
+      "category": "CROSS_CUTTING_REQUIRED_INVARIANT",
+      "sourceBasis": [
+        {
+          "id": "LOCAL_KNOWLEDGE",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Local_Knowledge_and_Planning_Closure_RFC_v0_1.md",
+          "sha256": "31544aa0bd89c0f67ba13276800f05e5ba62937088233d159d4292be96dcffd4",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "2.2,4"
+        },
+        {
+          "id": "CONSTITUTION",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "00_active_baseline/OFARM_Reference_Model_and_Artifact_Constitution_RC2_1.md",
+          "sha256": "7079e66ab160e2f79bc1a2a6f2c37726c0bea2af921312fcd93b434b9f9c4e3d",
+          "sourceStatus": "ACTIVE_BASELINE",
+          "clause": "14"
+        },
+        {
+          "id": "S23",
+          "commit": "6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f",
+          "path": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+          "sha256": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809",
+          "sourceStatus": "DRAFT_OWNER_SOURCE",
+          "clause": "8.1"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S08",
+        "O08",
+        "O09",
+        "C04"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V05-result-qualitative",
+        "V05-time-estimated"
+      ]
+    },
+    {
+      "id": "R27",
+      "requirement": "Preserve every draft subject/context kind, subject posture, assertion act posture, correction lineage and all 49 AR/PC obligations.",
+      "category": "CROSS_CUTTING_REQUIRED_INVARIANT",
+      "sourceBasis": [
+        {
+          "id": "BODY",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json",
+          "sha256": "3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "sourceStatus": "NON_DEFAULT_DRAFT",
+          "clause": "/$defs/subject"
+        },
+        {
+          "id": "S23",
+          "commit": "6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f",
+          "path": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+          "sha256": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809",
+          "sourceStatus": "DRAFT_OWNER_SOURCE",
+          "clause": "5–11"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S02",
+        "S09",
+        "S10"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V06-proof-interface"
+      ]
+    },
+    {
+      "id": "R28",
+      "requirement": "Respect crop-only scope and linked-domain boundaries: commercial/social/payment status does not become farm execution, lot identity, authority or compliance truth.",
+      "category": "BOUNDARY_REQUIREMENT",
+      "sourceBasis": [
+        {
+          "id": "CONSTITUTION",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "00_active_baseline/OFARM_Reference_Model_and_Artifact_Constitution_RC2_1.md",
+          "sha256": "7079e66ab160e2f79bc1a2a6f2c37726c0bea2af921312fcd93b434b9f9c4e3d",
+          "sourceStatus": "ACTIVE_BASELINE",
+          "clause": "1.2a"
+        },
+        {
+          "id": "LINKED",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "07_linked_domain_architectures/OFARM_Linked_Domain_Family_Map_v0_1.md",
+          "sha256": "854a0346e7fac31497b77cddbf02d028d09fa4bf18bc70f5f190516db9a8b734",
+          "sourceStatus": "SUPPORTING_CONTEXT_NOT_LAW",
+          "clause": "2,6"
+        },
+        {
+          "id": "EXCHANGE",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "07_linked_domain_architectures/OFARM_Exchange_Constitutional_Tenets_v0_1.md",
+          "sha256": "e701530d31c10127deee4432d8a10875b2899d4d9cd57efcddea6fc0596ffe9a",
+          "sourceStatus": "SUPPORTING_TENETS_NOT_IMPLEMENTATION_LAW",
+          "clause": "Tenets 2–7"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S10",
+        "O15",
+        "C07"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": []
+    },
+    {
+      "id": "R29",
+      "requirement": "Retain extensibility without inferring meaning from OTHER, an unversioned free-text label or an arbitrary executable caller predicate.",
+      "category": "EXTENSION_REQUIREMENT",
+      "sourceBasis": [
+        {
+          "id": "INTENT_PAYLOAD",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "03_machine_contracts/schemas/agronomic/OFARM_InterventionIntentPayload_schema_v0_1.json",
+          "sha256": "72e4603d3cc98fcd99439f8a06c80724e14d4961031ff3b0a1774f3407725ec0",
+          "sourceStatus": "ACTIVE_CARRIER",
+          "clause": "OTHER_ACTION/OTHER_INTERVENTION/OTHER_PARAMETER"
+        },
+        {
+          "id": "LOT",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Lot_Traceability_and_Claim_Basis_RFC_v0_1.md",
+          "sha256": "cfa920d0b968b0448172c360b5fdde8e81d21494a1b8425441132e933c523a04",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "DECLARED_OTHER"
+        },
+        {
+          "id": "GRAMMAR",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "01_companion_artifacts/OFARM_Event_Grammar_and_Commit_Matrix_v0_1.md",
+          "sha256": "47784169916b66fec510a7a95c86b19b5c222ef987c6d29c26f9a250632a61b3",
+          "sourceStatus": "ACTIVE_COMPANION",
+          "clause": "pack subtypes"
+        },
+        {
+          "id": "CODE",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Agronomic_Code_Binding_and_Standards_Profile_RFC_v0_1.md",
+          "sha256": "2f558af001a25f49d6242f026e3f91f541ab618dfb1242a3ee895c3f58b6d4b7",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "external bindings are not OFARM law"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C07",
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O08",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O24",
+        "O25",
+        "O26",
+        "O27",
+        "S10"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V04-action-families",
+        "V04-extension"
+      ],
+      "meaningMappings": [
+        {
+          "sourceMeaning": "plant",
+          "definingRow": "O03",
+          "selector": "SEED",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O03",
+          "meaning": "Place specified seed/planting material to establish the named cultivation attempt, preserving seed lot, crop/variety, seed rate, extent and replant lineage."
+        },
+        {
+          "sourceMeaning": "till",
+          "definingRow": "O05",
+          "selector": "CULTIVATE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O05",
+          "meaning": "Perform the named soil/crop cultivation method on the exact extent; depth, passes and equipment parameters are retained when alleged."
+        },
+        {
+          "sourceMeaning": "fertilize",
+          "definingRow": "O02",
+          "selector": "APPLY_INPUT/FERTILIZATION",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O02",
+          "meaning": "Apply a specified fertilizer/material with explicit nutrient versus product quantity and extent; active nutrient and whole product are not interchangeable."
+        },
+        {
+          "sourceMeaning": "spray",
+          "definingRow": "O01",
+          "selector": "APPLY_INPUT/CROP_PROTECTION",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "meaning": "Apply the specified crop-protection product to the stated target/extent by the stated method, preserving product, pest/target, dose/rate and application-volume meaning."
+        },
+        {
+          "sourceMeaning": "irrigate",
+          "definingRow": "O04",
+          "selector": "IRRIGATE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O04",
+          "meaning": "Deliver water through a named method to a specified target/extent, preserving water amount, rate/flow or depth interpretation and relevant time."
+        },
+        {
+          "sourceMeaning": "prune",
+          "definingRow": "O08",
+          "selector": "PRUNE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O08",
+          "meaning": "Remove selected canopy/plant material by a named pruning method on an explicit target/extent, retaining intent versus performance, occurrence facet and partial-work qualifications."
+        },
+        {
+          "sourceMeaning": "harvest",
+          "definingRow": "O06",
+          "selector": "HARVEST",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O06",
+          "meaning": "Remove crop material from the specified field/cycle/extent, naming output lot/material links and quantities when claimed; removal and accepted lot creation are separate."
+        },
+        {
+          "sourceMeaning": "cleanout",
+          "definingRow": "O17",
+          "selector": "parameters.sanitationKind=CLEANOUT",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O17",
+          "meaning": "Apply a specified cleaning/sanitation procedure to named equipment, tool, container, facility or extent; the performed procedure and its achieved hygiene criterion are separate."
+        },
+        {
+          "sourceMeaning": "sanitize",
+          "definingRow": "O17",
+          "selector": "parameters.sanitationKind=SANITIZE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O17",
+          "meaning": "Apply a specified cleaning/sanitation procedure to named equipment, tool, container, facility or extent; the performed procedure and its achieved hygiene criterion are separate."
+        },
+        {
+          "sourceMeaning": "maintain",
+          "definingRow": "O18",
+          "selector": "MAINTAIN",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O18",
+          "meaning": "Perform a specified maintenance task on an exact equipment/tool/facility/container asset, preserving replaced parts, configuration and task-completion facet; this need not change durable identity."
+        },
+        {
+          "sourceMeaning": "create-lot",
+          "definingRow": "O27",
+          "selector": "parameters.specificActivity=LOT_CREATION_ALLEGATION; no creation effect",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O27",
+          "meaning": "Allege that a specified traceability cohort was established, or is intended to be established, by a named origin process. The prospective lot is a described output; the claim does not allocate a canonical identity, create an accepted MaterialEvent consequence, or write inventory."
+        },
+        {
+          "sourceMeaning": "split-lot",
+          "definingRow": "O11",
+          "selector": "parameters.specificActivity=LOT_SPLIT",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O11",
+          "meaning": "Separate one coherent cohort into two or more successor cohorts, preserving predecessor/successors and quantities where alleged."
+        },
+        {
+          "sourceMeaning": "merge-lots",
+          "definingRow": "O12",
+          "selector": "parameters.specificActivity=LOT_MERGE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O12",
+          "meaning": "Governedly unite distinct lots into one successor cohort with explicit source lineage; this meaning differs from physical commingling."
+        },
+        {
+          "sourceMeaning": "move-material",
+          "definingRow": "O15",
+          "selector": "parameters.movementPhase=MOVE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O15",
+          "meaning": "Move named material from source to destination, with custody/possession roles and commercial references separately stated; location change alone does not create a new lot."
+        },
+        {
+          "sourceMeaning": "dispatch",
+          "definingRow": "O15",
+          "selector": "parameters.movementPhase=DISPATCH",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O15",
+          "meaning": "Move named material from source to destination, with custody/possession roles and commercial references separately stated; location change alone does not create a new lot."
+        },
+        {
+          "sourceMeaning": "receive",
+          "definingRow": "O24",
+          "selector": "parameters.specificActivity=MATERIAL_RECEIPT",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O24",
+          "meaning": "The identified receiver takes physical delivery of the specified material/cohort at the receiving location for the declared extent. Receipt, dispatch, commercial acceptance, custody and title are distinct allegations."
+        },
+        {
+          "sourceMeaning": "reclassify-material",
+          "definingRow": "O25",
+          "selector": "parameters.specificActivity=MATERIAL_RECLASSIFICATION",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O25",
+          "meaning": "An actor alleges reassignment of a material classification under an exact versioned scheme and procedure, retaining before/after class and traceability claim basis. A label change does not silently create, transform or continue a cohort."
+        },
+        {
+          "sourceMeaning": "dispose-material",
+          "definingRow": "O26",
+          "selector": "parameters.specificActivity=MATERIAL_DISPOSAL",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O26",
+          "meaning": "An actor alleges removal of a specified material extent from its declared use/inventory route by the named disposal procedure and destination. Disposal is not movement, reclassification, or a successor-producing transformation."
+        }
+      ]
+    },
+    {
+      "id": "R30",
+      "requirement": "Represent compound qualified claims without losing negation, explicit alternatives, extent/time quantification or parameter uncertainty.",
+      "category": "CANDIDATE_LANGUAGE_REQUIREMENT_DERIVED_FROM_SOURCE_DISTINCTIONS",
+      "sourceBasis": [
+        {
+          "id": "QUANTITY",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Quantity_Bearing_Intervention_and_As_Applied_RFC_v0_1.md",
+          "sha256": "f12e6fc8e14977890f3fbf8ec5131e219b088bdb3554baa80c5a63bde79656fb",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "partial work and actual/planned deltas"
+        },
+        {
+          "id": "PARTIAL",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Partial_Extent_and_Geometry_Basis_RFC_v0_1.md",
+          "sha256": "61c0c18d0128010b62cc0473a180233ad940f84208950c10cfc3ad9d7687b5bc",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "quality/dispute rules"
+        },
+        {
+          "id": "CONSTITUTION",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "00_active_baseline/OFARM_Reference_Model_and_Artifact_Constitution_RC2_1.md",
+          "sha256": "7079e66ab160e2f79bc1a2a6f2c37726c0bea2af921312fcd93b434b9f9c4e3d",
+          "sourceStatus": "ACTIVE_BASELINE",
+          "clause": "14"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C03",
+        "C04",
+        "C06",
+        "C09",
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O07",
+        "O08",
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O19",
+        "O20",
+        "O21",
+        "O22",
+        "O23",
+        "O24",
+        "O25",
+        "O26",
+        "O27",
+        "S01",
+        "S11"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning and lossless field inventory; governed adoption and runtime evidence remain separate.",
+      "canonicalContributionRows": [
+        "V05-time-estimated"
+      ],
+      "contractFiles": [
+        "atom-contract.json",
+        "quantity-contract.json",
+        "operation-profile-contract.json"
+      ]
+    },
+    {
+      "id": "R31",
+      "requirement": "Retain equipment/tool, storage-location and container meanings as exact typed subjects/endpoints; do not alias them to the draft nine kinds.",
+      "category": "REQUIRES_PROPOSED_BODY_KIND_AMENDMENT",
+      "sourceBasis": [
+        {
+          "id": "IDENTITY",
+          "repository": "samovers/OFARM",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Identity_and_Lifecycle_RFC_v0_1.md",
+          "sha256": "85b6ccbd0a70dea3db7e2347685d770354efa49b91602b386f1e08193190fde2",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "7.1–7.4"
+        },
+        {
+          "id": "GRAMMAR",
+          "repository": "samovers/OFARM",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "01_companion_artifacts/OFARM_Event_Grammar_and_Commit_Matrix_v0_1.md",
+          "sha256": "47784169916b66fec510a7a95c86b19b5c222ef987c6d29c26f9a250632a61b3",
+          "sourceStatus": "ACTIVE_COMPANION",
+          "clause": "3.1"
+        },
+        {
+          "id": "P01",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "CORE.md",
+          "sha256": "c39d38f26cf4fee1e67a1c8224669d1fb2cf0bf0446f40e509f1eba008e1c908",
+          "sourceStatus": "Implementation/package scope and candidate payload requirements; not canonical law",
+          "clause": "Domain identities"
+        }
+      ],
+      "mappedCandidateRows": [
+        "S12",
+        "S13",
+        "S14",
+        "S09",
+        "O17",
+        "O18"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning/representation only; existing profile status, evidence, evaluation and authority requirements remain.",
+      "canonicalContributionRows": [
+        "V06-endpoints",
+        "V06-equipment-use",
+        "V06-occupancy"
+      ]
+    },
+    {
+      "id": "R32",
+      "requirement": "Cover the event grammar’s sanitation and maintenance activities with actual procedure/target/facet semantics.",
+      "category": "CLAIM_MEANING",
+      "sourceBasis": [
+        {
+          "id": "GRAMMAR",
+          "repository": "samovers/OFARM",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "01_companion_artifacts/OFARM_Event_Grammar_and_Commit_Matrix_v0_1.md",
+          "sha256": "47784169916b66fec510a7a95c86b19b5c222ef987c6d29c26f9a250632a61b3",
+          "sourceStatus": "ACTIVE_COMPANION",
+          "clause": "3.2"
+        },
+        {
+          "id": "IDENTITY",
+          "repository": "samovers/OFARM",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Identity_and_Lifecycle_RFC_v0_1.md",
+          "sha256": "85b6ccbd0a70dea3db7e2347685d770354efa49b91602b386f1e08193190fde2",
+          "sourceStatus": "ACCEPTED_RFC",
+          "clause": "7.1"
+        }
+      ],
+      "mappedCandidateRows": [
+        "O17",
+        "O18"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning/representation only; existing profile status, evidence, evaluation and authority requirements remain.",
+      "canonicalContributionRows": [
+        "V04-action-families"
+      ]
+    },
+    {
+      "id": "R33",
+      "requirement": "Preserve SI surface-area record product, conditional date/start, dose/unit, location/fraction, area, crop/stage, user/holding/training and equipment evidence.",
+      "category": "PROFILE_LOCAL_REQUIREMENT",
+      "sourceBasis": [
+        {
+          "id": "P02",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_si_ffs/SI_RECORD_FIELDS.md",
+          "sha256": "a6a3c7b84c09fb189b77679e30c785c9c81eb371e314ae090812b316d0e1574f",
+          "sourceStatus": "Frozen profile field requirements; not fresh legal verification or universal Core law",
+          "clause": "A–D"
+        },
+        {
+          "id": "P10",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_si_ffs/PROFILE.md",
+          "sha256": "e478186b29691259c37d194a90ce7790cb4a8d80d229869602ab4b1d7e991ffe",
+          "sourceStatus": "Candidate SI record-keeping profile; existing profile inputs, not new promotion or actor authority",
+          "clause": "Scheme role map and evidence policy"
+        }
+      ],
+      "mappedCandidateRows": [
+        "O19",
+        "S10",
+        "S12",
+        "C17"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning/representation only; existing profile status, evidence, evaluation and authority requirements remain.",
+      "canonicalContributionRows": [
+        "V04-spray",
+        "V06-equipment-use",
+        "V06-parent-scope"
+      ]
+    },
+    {
+      "id": "R34",
+      "requirement": "Keep SI closed-space and seed-treatment field sets representable but explicitly outside pilot v1.",
+      "category": "SOURCE_DECLARED_PROFILE_LIMIT",
+      "sourceBasis": [
+        {
+          "id": "P02",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_si_ffs/SI_RECORD_FIELDS.md",
+          "sha256": "a6a3c7b84c09fb189b77679e30c785c9c81eb371e314ae090812b316d0e1574f",
+          "sourceStatus": "Frozen profile field requirements; not fresh legal verification or universal Core law",
+          "clause": "A and D.1"
+        }
+      ],
+      "mappedCandidateRows": [
+        "O20",
+        "O21"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "The candidate language represents these future requirements; the current SI pilot remains explicitly unsupported for them. No silent activation or universal exclusion.",
+      "canonicalContributionRows": []
+    },
+    {
+      "id": "R35",
+      "requirement": "Preserve RS dated official holding registration, active/passive/submission/renewal and actor/authority/review evidence.",
+      "category": "PROFILE_LOCAL_REQUIREMENT",
+      "sourceBasis": [
+        {
+          "id": "P07",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_rs_organic_crop/commit_classes/rs_farm_holding_registration_assertion.md",
+          "sha256": "4f31e9752fae951315833417a1d02bbe544a469b5c101020bf2cecc3dfffc8d1",
+          "sourceStatus": "Candidate profile-local registration contract; production hold",
+          "clause": "Contract fields"
+        },
+        {
+          "id": "P08",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_rs_organic_crop/evidence/farm_registration_and_organic_certificate_evidence_floor.md",
+          "sha256": "efd12c2e07fc6ee9caab39b80998a99086fef30f994792c9bd01c0444eb46778",
+          "sourceStatus": "Profile-local evidence requirements; not generic domain/evidence authority",
+          "clause": "Registration floor"
+        },
+        {
+          "id": "P03",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_rs_organic_crop/README.md",
+          "sha256": "f633f72e0595f9216cf4f1daaa358ff21c9affe47457eb36f3eb542bedf5d85e",
+          "sourceStatus": "Profile implementation candidate; production hold",
+          "clause": "Production Hold"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C11",
+        "S10"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning/representation only; existing profile status, evidence, evaluation and authority requirements remain.",
+      "canonicalContributionRows": [
+        "V06-parent-scope",
+        "V06-party-context"
+      ]
+    },
+    {
+      "id": "R36",
+      "requirement": "Preserve RS certificate subject/date/category/scope/issuer, adverse status and Ministry/accreditation source alignment.",
+      "category": "PROFILE_LOCAL_REQUIREMENT",
+      "sourceBasis": [
+        {
+          "id": "P04",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_rs_organic_crop/commit_classes/rs_organic_certification_status_assertion.md",
+          "sha256": "e38cf1c1fda839872c1a28885a53e5e373bca88c6eaa7624bf39b435056212ab",
+          "sourceStatus": "Candidate profile-local contract; production hold",
+          "clause": "Contract fields"
+        },
+        {
+          "id": "P08",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_rs_organic_crop/evidence/farm_registration_and_organic_certificate_evidence_floor.md",
+          "sha256": "efd12c2e07fc6ee9caab39b80998a99086fef30f994792c9bd01c0444eb46778",
+          "sourceStatus": "Profile-local evidence requirements; not generic domain/evidence authority",
+          "clause": "Certificate and certifier floors"
+        },
+        {
+          "id": "P03",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_rs_organic_crop/README.md",
+          "sha256": "f633f72e0595f9216cf4f1daaa358ff21c9affe47457eb36f3eb542bedf5d85e",
+          "sourceStatus": "Profile implementation candidate; production hold",
+          "clause": "Production Hold"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C12",
+        "C13"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning/representation only; existing profile status, evidence, evaluation and authority requirements remain.",
+      "canonicalContributionRows": [
+        "V06-party-context"
+      ]
+    },
+    {
+      "id": "R37",
+      "requirement": "Preserve challenged act, review artifact, authority addressed and pending/waived/final/court/unknown status without creating governance decisions.",
+      "category": "PROFILE_LOCAL_REQUIREMENT",
+      "sourceBasis": [
+        {
+          "id": "P08",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_rs_organic_crop/evidence/farm_registration_and_organic_certificate_evidence_floor.md",
+          "sha256": "efd12c2e07fc6ee9caab39b80998a99086fef30f994792c9bd01c0444eb46778",
+          "sourceStatus": "Profile-local evidence requirements; not generic domain/evidence authority",
+          "clause": "Review/appeal floor"
+        },
+        {
+          "id": "P03",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_rs_organic_crop/README.md",
+          "sha256": "f633f72e0595f9216cf4f1daaa358ff21c9affe47457eb36f3eb542bedf5d85e",
+          "sourceStatus": "Profile implementation candidate; production hold",
+          "clause": "Slice Boundary"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C14",
+        "C08"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning/representation only; existing profile status, evidence, evaluation and authority requirements remain.",
+      "canonicalContributionRows": [
+        "V04-inspection",
+        "V06-decision-applies",
+        "V06-party-context"
+      ]
+    },
+    {
+      "id": "R38",
+      "requirement": "Preserve NL filed 2026 GO/parcel scope, 2023–2025 history, versioned codes, lineage, soil and rustgewas evidence.",
+      "category": "PROFILE_LOCAL_REQUIREMENT",
+      "sourceBasis": [
+        {
+          "id": "P06",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_nl_go_glmc7_2026/commit_classes/nl_glmc7_crop_rotation_compliance_assertion.md",
+          "sha256": "8eb6983702fdb62d4d750631bd8fd37eeecd0dce8ab8a8bf4404511ac91542d4",
+          "sourceStatus": "Profile-local contract; calculation semantics explicitly incomplete",
+          "clause": "Contract fields"
+        },
+        {
+          "id": "P09",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_nl_go_glmc7_2026/evidence/go_glmc7_evidence_floor.md",
+          "sha256": "a2f6f798c732b7f9c33edb5a9889a03c7c31cec41e58d1115d277abb2dc44f3e",
+          "sourceStatus": "Narrow profile evidence floor; no runtime or legal re-verification",
+          "clause": "Hard Floor"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C15",
+        "C16",
+        "S01",
+        "S09"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning/representation only; existing profile status, evidence, evaluation and authority requirements remain.",
+      "canonicalContributionRows": [
+        "V06-lineage",
+        "V06-parent-scope"
+      ]
+    },
+    {
+      "id": "R39",
+      "requirement": "Preserve NL route/exemption/organic/deemed-compliance, parcel-versus-holding scope and review state; keep missing deterministic calculations explicit and reject unsupported 30-hectare carve-out.",
+      "category": "PROFILE_EVALUATOR_DEPENDENCY",
+      "sourceBasis": [
+        {
+          "id": "P06",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_nl_go_glmc7_2026/commit_classes/nl_glmc7_crop_rotation_compliance_assertion.md",
+          "sha256": "8eb6983702fdb62d4d750631bd8fd37eeecd0dce8ab8a8bf4404511ac91542d4",
+          "sourceStatus": "Profile-local contract; calculation semantics explicitly incomplete",
+          "clause": "Unsupported carve-out and final paragraph"
+        },
+        {
+          "id": "P09",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_nl_go_glmc7_2026/evidence/go_glmc7_evidence_floor.md",
+          "sha256": "a2f6f798c732b7f9c33edb5a9889a03c7c31cec41e58d1115d277abb2dc44f3e",
+          "sourceStatus": "Narrow profile evidence floor; no runtime or legal re-verification",
+          "clause": "Conditional evidence"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C16",
+        "C02",
+        "C08"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Representation and meaning are defined; no deterministic GLMC7 computation is claimed. Actual calculation decisions remain the named profile-owner prerequisite with a concrete proposed evaluation-record resolution.",
+      "canonicalContributionRows": [
+        "V06-decision-applies"
+      ]
+    },
+    {
+      "id": "R40",
+      "requirement": "Retain jurisdiction-local identifiers, code-binding/currentness, scope and promotion postures; none of BE, SI, RS or NL becomes universal Core law.",
+      "category": "BOUNDARY_REQUIREMENT",
+      "sourceBasis": [
+        {
+          "id": "P01",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "CORE.md",
+          "sha256": "c39d38f26cf4fee1e67a1c8224669d1fb2cf0bf0446f40e509f1eba008e1c908",
+          "sourceStatus": "Implementation/package scope and candidate payload requirements; not canonical law",
+          "clause": "Country-neutral boundary"
+        },
+        {
+          "id": "P03",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_rs_organic_crop/README.md",
+          "sha256": "f633f72e0595f9216cf4f1daaa358ff21c9affe47457eb36f3eb542bedf5d85e",
+          "sourceStatus": "Profile implementation candidate; production hold",
+          "clause": "Claim limits"
+        },
+        {
+          "id": "P05",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_nl_go_glmc7_2026/README.md",
+          "sha256": "d9a5f2a6a9b2f3b07f782cfcddb115b8620c93003d78e866a9867465a771cb9f",
+          "sourceStatus": "Narrow profile conformance-ready source posture; no runtime or whole-country readiness",
+          "clause": "Slice Boundary"
+        },
+        {
+          "id": "P10",
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "profile_si_ffs/PROFILE.md",
+          "sha256": "e478186b29691259c37d194a90ce7790cb4a8d80d229869602ab4b1d7e991ffe",
+          "sourceStatus": "Candidate SI record-keeping profile; existing profile inputs, not new promotion or actor authority",
+          "clause": "Status and claim scope"
+        }
+      ],
+      "mappedCandidateRows": [
+        "C05",
+        "C11",
+        "C12",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "O19",
+        "O20",
+        "O21"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Candidate meaning/representation only; existing profile status, evidence, evaluation and authority requirements remain.",
+      "canonicalContributionRows": []
+    },
+    {
+      "id": "R41",
+      "requirement": "Represent result production and report ingestion as their own acts, separately from collection, analytic result value and reported physical work.",
+      "category": "CANDIDATE_INTERPRETATION_OF_SOURCE_CARRIER_CAPABILITIES",
+      "sourceBasis": [
+        {
+          "id": "C03",
+          "repository": "samovers/OFARM",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Agronomic_Observation_and_Measurement_Context_RFC_v0_1.md",
+          "sha256": "6903d30cbf6bc0a89c56a24d281d270f25dad84c4bfebd50930df757f284b7d0",
+          "authority": "Accepted carrier RFC; no complete operation/measurement predicate",
+          "clause": "sections 2-6"
+        },
+        {
+          "id": "C09",
+          "repository": "samovers/OFARM",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "03_machine_contracts/schemas/evidence/OFARM_MeasurementEvidence_schema_v0_1.json",
+          "sha256": "90c4cf2d1387633172e772c970d0c76889ceec0fca4682a5053914375bdc9280",
+          "authority": "Active carrier schema; string references do not establish semantic bindings",
+          "clause": "/properties/evidenceClass; /properties/result; /$defs/timeObject; /$defs/procedureRef"
+        },
+        {
+          "id": "CONTEXT",
+          "repository": "samovers/OFARM",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "03_machine_contracts/schemas/agronomic/OFARM_AgronomicObservationContext_schema_v0_1.json",
+          "sha256": "9b7919083305f7fa3739580f9a8cd2b63ec7938c4cf5a75249ea32f991556ebe",
+          "authority": "Active carrier; syntax is not admitted evidence",
+          "clause": "/properties/subject; /properties/phenomenonTime; /properties/spatialContext; /properties/procedure; /properties/promotionUse"
+        },
+        {
+          "id": "D02",
+          "repository": "samovers/OFARM",
+          "commit": "bfd15b98c48f70e679824005c62adf4241dd8b22",
+          "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json",
+          "sha256": "3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "authority": "Draft non-default schema; syntax is not full domain validation",
+          "clause": "/$defs/contextBinding; /$defs/performedInstantEvidenceBasis; /$defs/subject; /$defs/assertionRecord"
+        },
+        {
+          "id": "TEMPORAL",
+          "repository": "samovers/OFARM",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "01_companion_artifacts/OFARM_Temporal_Field_Conformance_Matrix_v0_1.md",
+          "sha256": "81a39fc5cf84c1606a9544d56d54141a3fa2bbcb6c6156401cf8195c136aa270",
+          "authority": "Active companion",
+          "clause": "Core rule; Matrix; Delayed-sync minimum"
+        }
+      ],
+      "canonicalContributionRows": [
+        "V05-time-record",
+        "V05-time-result"
+      ],
+      "mappedCandidateRows": [
+        "O10",
+        "O16",
+        "O22",
+        "O23",
+        "C01",
+        "C03",
+        "C04"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Concrete meaning proposal, not a claim of adopted governed property/method bindings or real admitted positive."
+    },
+    {
+      "id": "R42",
+      "requirement": "Preserve all five foreign measurement time qualifiers plus omitted qualifier, and all five result branches, under explicit activity/result/method semantics rather than defaults or blanket refusal.",
+      "category": "CANDIDATE_INTERPRETATION_OF_SOURCE_CARRIER_CAPABILITIES",
+      "sourceBasis": [
+        {
+          "id": "C03",
+          "repository": "samovers/OFARM",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "02_accepted_rfcs/OFARM_Agronomic_Observation_and_Measurement_Context_RFC_v0_1.md",
+          "sha256": "6903d30cbf6bc0a89c56a24d281d270f25dad84c4bfebd50930df757f284b7d0",
+          "authority": "Accepted carrier RFC; no complete operation/measurement predicate",
+          "clause": "sections 2-6"
+        },
+        {
+          "id": "C09",
+          "repository": "samovers/OFARM",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "03_machine_contracts/schemas/evidence/OFARM_MeasurementEvidence_schema_v0_1.json",
+          "sha256": "90c4cf2d1387633172e772c970d0c76889ceec0fca4682a5053914375bdc9280",
+          "authority": "Active carrier schema; string references do not establish semantic bindings",
+          "clause": "/properties/evidenceClass; /properties/result; /$defs/timeObject; /$defs/procedureRef"
+        },
+        {
+          "id": "CONTEXT",
+          "repository": "samovers/OFARM",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "03_machine_contracts/schemas/agronomic/OFARM_AgronomicObservationContext_schema_v0_1.json",
+          "sha256": "9b7919083305f7fa3739580f9a8cd2b63ec7938c4cf5a75249ea32f991556ebe",
+          "authority": "Active carrier; syntax is not admitted evidence",
+          "clause": "/properties/subject; /properties/phenomenonTime; /properties/spatialContext; /properties/procedure; /properties/promotionUse"
+        },
+        {
+          "id": "D02",
+          "repository": "samovers/OFARM",
+          "commit": "bfd15b98c48f70e679824005c62adf4241dd8b22",
+          "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json",
+          "sha256": "3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+          "authority": "Draft non-default schema; syntax is not full domain validation",
+          "clause": "/$defs/contextBinding; /$defs/performedInstantEvidenceBasis; /$defs/subject; /$defs/assertionRecord"
+        },
+        {
+          "id": "TEMPORAL",
+          "repository": "samovers/OFARM",
+          "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+          "path": "01_companion_artifacts/OFARM_Temporal_Field_Conformance_Matrix_v0_1.md",
+          "sha256": "81a39fc5cf84c1606a9544d56d54141a3fa2bbcb6c6156401cf8195c136aa270",
+          "authority": "Active companion",
+          "clause": "Core rule; Matrix; Delayed-sync minimum"
+        }
+      ],
+      "canonicalContributionRows": [
+        "V05-result-coded",
+        "V05-result-qualitative",
+        "V05-time-estimated",
+        "V05-time-omitted"
+      ],
+      "mappedCandidateRows": [
+        "O09",
+        "O10",
+        "O16",
+        "O22",
+        "O23",
+        "C03",
+        "C04",
+        "C10"
+      ],
+      "mappingStatus": "CONCRETE_CANDIDATE_MAPPING",
+      "coverageLimit": "Concrete meaning proposal, not a claim of adopted governed property/method bindings or real admitted positive."
+    }
+  ],
+  "counts": {
+    "requirements": 42,
+    "mappedRepresentationRequirements": 42,
+    "unmappedRepresentationRequirements": 0,
+    "domainCandidateRows": 58,
+    "canonicalCandidateRows": 41,
+    "totalCandidateRowsAcrossOwners": 99,
+    "knownSemanticEvaluatorDependencies": [
+      "Actual owner review/adoption of candidate predicates and exact bindings",
+      "NL deterministic calculation contract",
+      "Real admitted measurement/Event Ingress/relationship producers",
+      "New subject/context typed resolution interfaces"
+    ]
+  },
+  "explicitlySeparateCarriers": [
+    {
+      "surface": "Ordinary weather/soil/phenology observations and rich narrative",
+      "handling": "MeasurementEvidence/AgronomicObservationContext/NarrativeObservation remain evidence carriers. They may supply typed operation/compliance context; no fourth assertion branch or fabricated structural property is introduced."
+    },
+    {
+      "surface": "Accepted execution, lifecycle creation, review, current-state update, certification, mission dispatch, charter exceptions, software deployment",
+      "handling": "Retain existing independently governed records, gates and authority. Pending typed claims may describe a sourced fact or criterion but do not perform these effects."
+    },
+    {
+      "surface": "Exchange commerce/social/payment facts",
+      "handling": "Retain external/boundary evidence and references. No automatic farm-truth adoption."
+    }
+  ],
+  "openWorldBoundary": {
+    "id": "PILOT_SCOPE_01",
+    "preciseGap": "SI surface-area pilot and held RS/NL profile requirements are now inspected and mapped. No complete tenant-specific crop/product catalogue, selected pack/version set beyond those named source slices, or external customer acceptance backlog was supplied. Those unseen requirements cannot truthfully be claimed covered.",
+    "proposedResolution": "Use this named source-bounded crop-core + BE/SI/RS/NL requirement revision; require explicit additive mappings for each newly selected tenant/pack requirement. Preserve source-declared pilot exclusions/production holds and complete pending-claim representation; do not confuse candidate completeness with profile evaluator or runtime readiness.",
+    "blocks": "Universal or pilot-specific completeness claim, not completion of this substantive source-backed candidate inventory."
+  },
+  "next": "Freeze r4 for final bounded check of B02-R1/B04-R1 and affected invariants.",
+  "searchedProfileScopes": [
+    "BE authorisation-currentness source example and accepted RFC",
+    "SI surface-area recordkeeping pilot, plus explicitly excluded closed-space/seed-treatment field sets",
+    "RS registration/certification/certifier-reference/review source slice, production hold retained",
+    "NL 2026 GO/GLMC7 source slice, no whole-country or deterministic calculation readiness claim"
+  ],
+  "unsearchedLimits": [
+    "Live or current legal/regulatory state; no external legal verification was performed",
+    "Other jurisdictions, unspecified farm/customer product backlog and future unselected pack versions",
+    "Detailed CP12–CP15 mission/learning/sharing/delivery artifact internals outside this pending-claim inventory; their independent effects remain outside the boundary",
+    "A universal vocabulary of all possible qualitative human statements; original narrative remains in its carrier and additional typed meanings require explicit definitions"
+  ],
+  "subjectKindDecision": {
+    "status": "CONCRETE_PROPOSED_BODY_SCHEMA_AMENDMENT_NOT_ADOPTED",
+    "retainAllExistingKinds": [
+      "FARM",
+      "SITE",
+      "FIELD",
+      "ZONE",
+      "CROP_CYCLE",
+      "LOT",
+      "FACILITY",
+      "OPERATION",
+      "INPUT"
+    ],
+    "addKinds": [
+      "EQUIPMENT",
+      "TOOL",
+      "STORAGE_LOCATION",
+      "CONTAINER"
+    ],
+    "rationale": "Accepted identity law and event grammar require equipment/tool, storage-place and container meanings; OFARM2 Core has an equipment payload. None is aliased to INPUT, FACILITY or OPERATION.",
+    "typedEndpointRule": "The claim subject and any such context endpoint carry their exact new kind and immutable identity binding. Equipment participation remains a separate role even when another object is the claim subject. A storage location is related to a FACILITY; it is not the facility. A CONTAINER is not its LOT occupant.",
+    "anchorRule": "Keep the existing sole authority-anchor kinds and exact source extraction. An EQUIPMENT/TOOL/STORAGE_LOCATION/CONTAINER subject needs actual admitted relation to a valid FARM/SITE/FACILITY or other already admitted anchor. No new authority anchor, authorization action or implicit permission is introduced.",
+    "proposedFiles": [
+      "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_<new-version>.json: $defs/subject and context role/body definitions",
+      "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_{Structure,Operation,Compliance}AssertionEffectIntent_schema_<new-version>.json: subject/body references",
+      "future domain contract and payload/trace schemas: typed subject/context and evidence predicates"
+    ],
+    "dependentWork": "Existing identity and relationship owners must provide exact typed resolution/proof interfaces; mechanical input/body repins follow in separate owner work. No identity is created or revised by this inventory or by a pending assertion. Physical identity registry writes/authority remain their own trust boundary.",
+    "equipmentVersusTool": "Use EQUIPMENT for an equipment asset, TOOL for a tool asset. Their common durable-asset continuity rule is shared; type is not silently inferred from an ID prefix.",
+    "sourceEvidence": [
+      {
+        "id": "IDENTITY",
+        "repository": "samovers/OFARM",
+        "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+        "path": "02_accepted_rfcs/OFARM_Identity_and_Lifecycle_RFC_v0_1.md",
+        "sha256": "85b6ccbd0a70dea3db7e2347685d770354efa49b91602b386f1e08193190fde2",
+        "sourceStatus": "ACCEPTED_RFC",
+        "clause": "7.1–7.4"
+      },
+      {
+        "id": "CONSTITUTION",
+        "repository": "samovers/OFARM",
+        "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+        "path": "00_active_baseline/OFARM_Reference_Model_and_Artifact_Constitution_RC2_1.md",
+        "sha256": "7079e66ab160e2f79bc1a2a6f2c37726c0bea2af921312fcd93b434b9f9c4e3d",
+        "sourceStatus": "ACTIVE_BASELINE",
+        "clause": "7.23–7.25"
+      },
+      {
+        "id": "GRAMMAR",
+        "repository": "samovers/OFARM",
+        "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+        "path": "01_companion_artifacts/OFARM_Event_Grammar_and_Commit_Matrix_v0_1.md",
+        "sha256": "47784169916b66fec510a7a95c86b19b5c222ef987c6d29c26f9a250632a61b3",
+        "sourceStatus": "ACTIVE_COMPANION",
+        "clause": "3.1"
+      },
+      {
+        "id": "P01",
+        "repository": "samovers/OFARM2",
+        "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+        "path": "CORE.md",
+        "sha256": "c39d38f26cf4fee1e67a1c8224669d1fb2cf0bf0446f40e509f1eba008e1c908",
+        "sourceStatus": "Implementation/package scope and candidate payload requirements; not canonical law",
+        "clause": "Domain identities"
+      }
+    ]
+  },
+  "canonicalReconciliation": {
+    "file": "integration.json",
+    "rowsMapped": 41,
+    "sourceInventorySha256": "4aec570ad05349924218a1ccef4d9c2e017f27f8ca986a274779f1fe8a970557",
+    "status": "ALL_41_ROWS_MAPPED_AT_OBSERVED_BYTES"
+  }
+}
