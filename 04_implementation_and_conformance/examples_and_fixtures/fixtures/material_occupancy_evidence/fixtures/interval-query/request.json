@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "ofarm.materialOccupancyRequest.v0.1",
+  "selection": {
+    "place": {
+      "kind": "CONTAINER",
+      "binding": {
+        "ref": "fixture:place",
+        "revisionRef": "fixture:place/r1"
+      }
+    },
+    "applicability": {
+      "mode": "INTERVAL",
+      "start": "2026-10-15T00:00:00Z",
+      "end": "2026-10-20T00:00:00Z",
+      "startInclusive": true,
+      "endInclusive": false
+    },
+    "inventoryPosture": "COMPLETE_FOR_SELECTED_PLACE_AND_APPLICABILITY",
+    "selectionBasis": [
+      {
+        "ref": "fixture:inventory-selection",
+        "revisionRef": "fixture:inventory-selection/r1"
+      }
+    ]
+  },
+  "episodes": [
+    {
+      "binding": {
+        "ref": "fixture:occupancy/source-0",
+        "digest": "sha256:56c79a29c81d72f08f82ca55936a718d593a2c8b442563a6d0d3b389d3a01c06"
+      },
+      "expectedFacts": {
+        "episodeId": "fixture:occupancy/episode-1",
+        "direction": "MATERIAL_TO_PLACE",
+        "relationKind": "OCCUPIES",
+        "relationConcept": {
+          "ref": "fixture:occupies-relation-r1",
+          "revisionRef": "fixture:occupies-relation-r1/r1"
+        },
+        "occupant": {
+          "kind": "LOT",
+          "binding": {
+            "ref": "fixture:occupant",
+            "digest": "sha256:356911199f54aaee576e9134b33217226d81eb7b6d16f7aad1e4688888ae32a0"
+          }
+        },
+        "place": {
+          "kind": "CONTAINER",
+          "binding": {
+            "ref": "fixture:place",
+            "revisionRef": "fixture:place/r1"
+          }
+        },
+        "interval": {
+          "start": {
+            "posture": "KNOWN",
+            "at": "2026-10-01T00:00:00Z",
+            "inclusive": true
+          },
+          "end": {
+            "posture": "KNOWN",
+            "at": "2026-11-01T00:00:00Z",
+            "inclusive": false
+          }
+        },
+        "applicability": {
+          "mode": "INTERVAL",
+          "start": "2026-10-15T00:00:00Z",
+          "end": "2026-10-20T00:00:00Z",
+          "startInclusive": true,
+          "endInclusive": false
+        },
+        "occupiedQuantity": {
+          "posture": "REPORTED",
+          "quantityKind": {
+            "ref": "fixture:quantity-mass",
+            "digest": "sha256:93ebaba1df6fbdd03b5a1c8b18c0e7a1f106a2144e931620d47ecc6515f82ddf"
+          },
+          "decimal": "25.00",
+          "unitIdentity": {
+            "ref": "fixture:unit-kilogram",
+            "digest": "sha256:fbf596fa7a2b5a99277a0b648b7255c727cc6c9995efb452a86f5b325999c702"
+          },
+          "originalLexicalValue": "25.00",
+          "originalUnitText": "kg",
+          "qualifier": "EXACT"
+        },
+        "occupiedCohort": {
+          "posture": "IDENTIFIED",
+          "binding": {
+            "ref": "fixture:cohort-1",
+            "revisionRef": "fixture:cohort-1/r1"
+          }
+        },
+        "relevantExtent": {
+          "posture": "WHOLE"
+        },
+        "sourcePosture": {
+          "validity": "VALID",
+          "dispute": "UNDISPUTED",
+          "revision": "CURRENT",
+          "assessedAt": "2026-10-20T11:00:00Z",
+          "ownerEvidence": [
+            {
+              "ref": "fixture:source-status-assessment",
+              "revisionRef": "fixture:source-status-assessment/r1"
+            }
+          ],
+          "supersededBy": []
+        },
+        "sourceEvidence": [
+          {
+            "ref": "fixture:source-observation",
+            "digest": "sha256:4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff"
+          }
+        ],
+        "lifecycleEvidence": []
+      }
+    }
+  ]
+}

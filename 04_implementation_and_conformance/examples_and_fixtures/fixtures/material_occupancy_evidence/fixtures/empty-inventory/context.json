@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "ofarm.materialOccupancyOwnerContext.v0.1",
+  "contractId": "ofarm.material-occupancy-evidence.v0.1",
+  "ownerContextId": "fixture:owner-context/empty-inventory",
+  "ownerIdentity": {
+    "ref": "fixture:source-owner",
+    "digest": "sha256:5253e2a95473f7109e90a4a492a9cd63737ac26fac9591a58c9c624d0783bb98"
+  },
+  "fixedAt": "2026-10-21T00:00:00Z",
+  "selection": {
+    "place": {
+      "kind": "CONTAINER",
+      "binding": {
+        "ref": "fixture:place",
+        "revisionRef": "fixture:place/r1"
+      }
+    },
+    "applicability": {
+      "mode": "AS_OF",
+      "at": "2026-10-20T10:00:00Z"
+    },
+    "inventoryPosture": "COMPLETE_FOR_SELECTED_PLACE_AND_APPLICABILITY",
+    "selectionBasis": [
+      {
+        "ref": "fixture:inventory-selection",
+        "revisionRef": "fixture:inventory-selection/r1"
+      }
+    ]
+  },
+  "episodeBindings": [],
+  "records": [
+    {
+      "binding": {
+        "ref": "fixture:place",
+        "revisionRef": "fixture:place/r1"
+      },
+      "bytesSha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+      "valueDigest": "sha256:42a0d666b332ed936c9e357f5965a7d979a588e57f022e277e5a5e3f116a3c9e",
+      "digestMode": "JCS_JSON",
+      "role": "SUPPORTING_SOURCE"
+    },
+    {
+      "binding": {
+        "ref": "fixture:source-owner",
+        "digest": "sha256:5253e2a95473f7109e90a4a492a9cd63737ac26fac9591a58c9c624d0783bb98"
+      },
+      "bytesSha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+      "valueDigest": "sha256:5253e2a95473f7109e90a4a492a9cd63737ac26fac9591a58c9c624d0783bb98",
+      "digestMode": "JCS_JSON",
+      "role": "SUPPORTING_SOURCE"
+    },
+    {
+      "binding": {
+        "ref": "fixture:inventory-selection",
+        "revisionRef": "fixture:inventory-selection/r1"
+      },
+      "bytesSha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+      "valueDigest": "sha256:091be04e94d81c148fcf2b3bc4339dacdd0113812bfee85be62b847bb062f9c4",
+      "digestMode": "JCS_JSON",
+      "role": "SUPPORTING_SOURCE"
+    }
+  ]
+}

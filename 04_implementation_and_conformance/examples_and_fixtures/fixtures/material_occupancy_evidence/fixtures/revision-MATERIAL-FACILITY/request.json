@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "ofarm.materialOccupancyRequest.v0.1",
+  "selection": {
+    "place": {
+      "kind": "FACILITY",
+      "binding": {
+        "ref": "fixture:place",
+        "revisionRef": "fixture:place/r1"
+      }
+    },
+    "applicability": {
+      "mode": "AS_OF",
+      "at": "2026-10-20T10:00:00Z"
+    },
+    "inventoryPosture": "COMPLETE_FOR_SELECTED_PLACE_AND_APPLICABILITY",
+    "selectionBasis": [
+      {
+        "ref": "fixture:inventory-selection",
+        "revisionRef": "fixture:inventory-selection/r1"
+      }
+    ]
+  },
+  "episodes": [
+    {
+      "binding": {
+        "ref": "fixture:occupancy/source-0",
+        "revisionRef": "fixture:occupancy/source-0/r1"
+      },
+      "expectedFacts": {
+        "episodeId": "fixture:occupancy/episode-1",
+        "direction": "MATERIAL_TO_PLACE",
+        "relationKind": "OCCUPIES",
+        "relationConcept": {
+          "ref": "fixture:occupies-relation-r1",
+          "revisionRef": "fixture:occupies-relation-r1/r1"
+        },
+        "occupant": {
+          "kind": "MATERIAL",
+          "binding": {
+            "ref": "fixture:occupant",
+            "revisionRef": "fixture:occupant/r1"
+          }
+        },
+        "place": {
+          "kind": "FACILITY",
+          "binding": {
+            "ref": "fixture:place",
+            "revisionRef": "fixture:place/r1"
+          }
+        },
+        "interval": {
+          "start": {
+            "posture": "KNOWN",
+            "at": "2026-10-01T00:00:00Z",
+            "inclusive": true
+          },
+          "end": {
+            "posture": "KNOWN",
+            "at": "2026-11-01T00:00:00Z",
+            "inclusive": false
+          }
+        },
+        "applicability": {
+          "mode": "AS_OF",
+          "at": "2026-10-20T10:00:00Z"
+        },
+        "occupiedQuantity": {
+          "posture": "REPORTED",
+          "quantityKind": {
+            "ref": "fixture:quantity-mass",
+            "revisionRef": "fixture:quantity-mass/r1"
+          },
+          "decimal": "25.00",
+          "unitIdentity": {
+            "ref": "fixture:unit-kilogram",
+            "revisionRef": "fixture:unit-kilogram/r1"
+          },
+          "originalLexicalValue": "25.00",
+          "originalUnitText": "kg",
+          "qualifier": "EXACT"
+        },
+        "occupiedCohort": {
+          "posture": "IDENTIFIED",
+          "binding": {
+            "ref": "fixture:cohort-1",
+            "revisionRef": "fixture:cohort-1/r1"
+          }
+        },
+        "relevantExtent": {
+          "posture": "WHOLE"
+        },
+        "sourcePosture": {
+          "validity": "VALID",
+          "dispute": "UNDISPUTED",
+          "revision": "CURRENT",
+          "assessedAt": "2026-10-20T11:00:00Z",
+          "ownerEvidence": [
+            {
+              "ref": "fixture:source-status-assessment",
+              "revisionRef": "fixture:source-status-assessment/r1"
+            }
+          ],
+          "supersededBy": []
+        },
+        "sourceEvidence": [
+          {
+            "ref": "fixture:source-observation",
+            "revisionRef": "fixture:source-observation/r1"
+          }
+        ],
+        "lifecycleEvidence": []
+      }
+    }
+  ]
+}

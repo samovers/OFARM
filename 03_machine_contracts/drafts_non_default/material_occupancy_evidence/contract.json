@@ -1,0 +1,35 @@
+{
+  "contractId": "ofarm.material-occupancy-evidence.v0.1",
+  "version": "0.1",
+  "primaryTrustBoundary": "Material occupancy source evidence",
+  "status": "DRAFT_NON_DEFAULT",
+  "interpretation": "CONDITIONAL_SELECTED_SOURCE_EVIDENCE_ONLY",
+  "schemas": {
+    "context": "e69c67bec85452c4bdce3f28a333cce2d8bf56041b906bcb65c0c4792da9e2d2",
+    "record": "06574075c045a2c2225797940d23bcebbbaed3fcef946077e1f43fa0a54fe8f3",
+    "request": "69f08563ea4320ddfe03a64d042ce8e80a2fe0c3ee784d4ed05f81b37dfc34be"
+  },
+  "sources": {
+    "sources/constitution.md": "7079e66ab160e2f79bc1a2a6f2c37726c0bea2af921312fcd93b434b9f9c4e3d",
+    "sources/container-continuity-example.json": "58a84a2f6c43d3f7671c37cd41a782c56b0a5f126b7f0b85c83ad42bdc98774e",
+    "sources/identity-lifecycle.md": "85b6ccbd0a70dea3db7e2347685d770354efa49b91602b386f1e08193190fde2",
+    "sources/identity-lifecycle.schema.json": "1802c9593400e2016339d41c50eb8286455b3061f0fd6418a6f3a62c33cd0be1"
+  },
+  "checker": {
+    "verify_occupancy.py": "7d7fbd1dff052538d60df157da5f24ea56d9955a2f29a5d72f059ea77d8e868b"
+  },
+  "dependencies": {
+    "rfc8785": "0.1.4",
+    "jsonschema": "4.26.0"
+  },
+  "scopeExcluded": [
+    "Runtime admission",
+    "Identity or occupancy writes",
+    "Lifecycle law changes",
+    "Authorization",
+    "Current/default promotion",
+    "CI activation",
+    "Merge"
+  ],
+  "contractDigest": "sha256:9926133a866e3f6ef69fe3bef0b386646ef6cfe88e07dc2bfa214a1ea55f670a"
+}

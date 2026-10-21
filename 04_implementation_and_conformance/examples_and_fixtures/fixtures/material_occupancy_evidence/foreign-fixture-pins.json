@@ -1,0 +1,47 @@
+{
+  "scope": "Foreign fixture bytes, not occupancy-owned schemas or proof of source admission. Test transforms retain full bodies and only change the disclosed result/family fields.",
+  "sources": [
+    {
+      "path": "foreign-fixtures/measurement.schema.json",
+      "repository": "samovers/OFARM",
+      "commit": "4a3d88ea6eff4b3f8a2c521dc621595cbfd1657b",
+      "repositoryPath": "03_machine_contracts/schemas/evidence/OFARM_MeasurementEvidence_schema_v0_1.json",
+      "sha256": "90c4cf2d1387633172e772c970d0c76889ceec0fca4682a5053914375bdc9280"
+    },
+    {
+      "path": "foreign-fixtures/event.schema.json",
+      "repository": "samovers/OFARM",
+      "commit": "4a3d88ea6eff4b3f8a2c521dc621595cbfd1657b",
+      "repositoryPath": "03_machine_contracts/schemas/event_ingress/OFARM_SemanticEventEnvelope_schema_v0_1.json",
+      "sha256": "75662a6c4952a62b7e8f8e9de99c23c98899c692914a98ba4b752873f48bd1a4"
+    },
+    {
+      "path": "foreign-fixtures/measurement-numeric.json",
+      "repository": "samovers/OFARM",
+      "commit": "4a3d88ea6eff4b3f8a2c521dc621595cbfd1657b",
+      "repositoryPath": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/evidence/OFARM_MeasurementEvidence_example_leaf_wetness_sensor_calibrated_v0_1.json",
+      "sha256": "d0486ee7117c219cfcf61b8f44d94e7d6ffb4305c46873b16de337caf9891789"
+    },
+    {
+      "path": "foreign-fixtures/measurement-censored.json",
+      "repository": "samovers/OFARM",
+      "commit": "4a3d88ea6eff4b3f8a2c521dc621595cbfd1657b",
+      "repositoryPath": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_MeasurementEvidence_example_soil_nitrate_below_loq_lab_result_v0_1.json",
+      "sha256": "8c72a8adb681407b39bc066505deef284f6c6e1322347a69216f2be3054b8e51"
+    },
+    {
+      "path": "foreign-fixtures/measurement-pending.json",
+      "repository": "samovers/OFARM",
+      "commit": "4a3d88ea6eff4b3f8a2c521dc621595cbfd1657b",
+      "repositoryPath": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_MeasurementEvidence_example_soil_sample_collected_pending_lab_v0_1.json",
+      "sha256": "e4f8497175683a1ab5c6bf91f619ebc6acf844de88dedb4f2dd5ebc25b9dacd2"
+    },
+    {
+      "path": "foreign-fixtures/event-intervention.json",
+      "repository": "samovers/OFARM",
+      "commit": "4a3d88ea6eff4b3f8a2c521dc621595cbfd1657b",
+      "repositoryPath": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agronomic/OFARM_SemanticEventEnvelope_example_pruning_operation_v0_1.json",
+      "sha256": "bdbe24bfb7d602b65ef5b517c21b54f134b1539f12c35c428530d20f49971ac9"
+    }
+  ]
+}

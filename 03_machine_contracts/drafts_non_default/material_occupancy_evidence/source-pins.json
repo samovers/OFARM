@@ -1,0 +1,47 @@
+{
+  "primaryTrustBoundary": "Material occupancy source evidence",
+  "sources": [
+    {
+      "path": "sources/constitution.md",
+      "repository": "samovers/OFARM",
+      "commit": "4a3d88ea6eff4b3f8a2c521dc621595cbfd1657b",
+      "repositoryPath": "00_active_baseline/OFARM_Reference_Model_and_Artifact_Constitution_RC2_1.md",
+      "sha256": "7079e66ab160e2f79bc1a2a6f2c37726c0bea2af921312fcd93b434b9f9c4e3d",
+      "sections": [
+        "7.23"
+      ]
+    },
+    {
+      "path": "sources/identity-lifecycle.md",
+      "repository": "samovers/OFARM",
+      "commit": "4a3d88ea6eff4b3f8a2c521dc621595cbfd1657b",
+      "repositoryPath": "02_accepted_rfcs/OFARM_Identity_and_Lifecycle_RFC_v0_1.md",
+      "sha256": "85b6ccbd0a70dea3db7e2347685d770354efa49b91602b386f1e08193190fde2",
+      "sections": [
+        "7.4",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "path": "sources/identity-lifecycle.schema.json",
+      "repository": "samovers/OFARM",
+      "commit": "4a3d88ea6eff4b3f8a2c521dc621595cbfd1657b",
+      "repositoryPath": "03_machine_contracts/schemas/identity_lifecycle/OFARM_IdentityLifecycleChange_schema_v0_1.json",
+      "sha256": "1802c9593400e2016339d41c50eb8286455b3061f0fd6418a6f3a62c33cd0be1",
+      "sections": [
+        "OCCUPANCY_EPISODE is continuity evidence, not this full occupancy interface"
+      ]
+    },
+    {
+      "path": "sources/container-continuity-example.json",
+      "repository": "samovers/OFARM",
+      "commit": "4a3d88ea6eff4b3f8a2c521dc621595cbfd1657b",
+      "repositoryPath": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/identity_lifecycle/OFARM_IdentityLifecycleChange_example_container_occupancy_episode_v0_1.json",
+      "sha256": "58a84a2f6c43d3f7671c37cd41a782c56b0a5f126b7f0b85c83ad42bdc98774e",
+      "sections": [
+        "same container old/new refs do not name the occupant"
+      ]
+    }
+  ]
+}

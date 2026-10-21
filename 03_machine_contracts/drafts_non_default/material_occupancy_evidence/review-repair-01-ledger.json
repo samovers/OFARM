@@ -1,0 +1,21 @@
+{
+  "revision": "review-repair-01",
+  "originalCandidateSealSha256": "2edf92528297c2b0571480c18bff8cba073ac7bbee398ef1e909ce0ab07a7cac",
+  "primaryTrustBoundary": "Material occupancy source evidence",
+  "scopeStayedInsideBoundary": true,
+  "findings": [
+    {
+      "id": "SELF-01",
+      "problem": "Typed occupant and place could reuse one logical identity.",
+      "repair": "Reject equal logical endpoint refs even when revision selectors differ.",
+      "validation": "Two source-consistent semantic regressions."
+    },
+    {
+      "id": "SELF-02",
+      "problem": "minItems=1 excluded complete selected empty inventories.",
+      "repair": "Allow zero episodes while retaining exact place/query/owner/basis closure.",
+      "validation": "Complete empty inventory positive; nonempty inventory omission stays rejected."
+    }
+  ],
+  "next": "Independently review this revision; original candidate stays immutable."
+}

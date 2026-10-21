@@ -1,0 +1,380 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/material-occupancy-evidence/context/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.materialOccupancyOwnerContext.v0.1"
+    },
+    "contractId": {
+      "const": "ofarm.material-occupancy-evidence.v0.1"
+    },
+    "ownerContextId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+      "maxLength": 1024
+    },
+    "ownerIdentity": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+              "maxLength": 1024
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "ref",
+            "digest"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+              "maxLength": 1024
+            },
+            "revisionRef": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+              "maxLength": 1024
+            }
+          },
+          "required": [
+            "ref",
+            "revisionRef"
+          ]
+        }
+      ]
+    },
+    "fixedAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?Z$",
+      "format": "occupancy-timestamp"
+    },
+    "selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "place": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "enum": [
+                "CONTAINER",
+                "STORAGE_LOCATION",
+                "FACILITY"
+              ]
+            },
+            "binding": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                      "maxLength": 1024
+                    },
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    }
+                  },
+                  "required": [
+                    "ref",
+                    "digest"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                      "maxLength": 1024
+                    },
+                    "revisionRef": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                      "maxLength": 1024
+                    }
+                  },
+                  "required": [
+                    "ref",
+                    "revisionRef"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "binding"
+          ]
+        },
+        "applicability": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "mode": {
+                  "const": "AS_OF"
+                },
+                "at": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?Z$",
+                  "format": "occupancy-timestamp"
+                }
+              },
+              "required": [
+                "mode",
+                "at"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "mode": {
+                  "const": "INTERVAL"
+                },
+                "start": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?Z$",
+                  "format": "occupancy-timestamp"
+                },
+                "end": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?Z$",
+                  "format": "occupancy-timestamp"
+                },
+                "startInclusive": {
+                  "type": "boolean"
+                },
+                "endInclusive": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "mode",
+                "start",
+                "end",
+                "startInclusive",
+                "endInclusive"
+              ]
+            }
+          ]
+        },
+        "inventoryPosture": {
+          "const": "COMPLETE_FOR_SELECTED_PLACE_AND_APPLICABILITY"
+        },
+        "selectionBasis": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                    "maxLength": 1024
+                  },
+                  "digest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "ref",
+                  "digest"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                    "maxLength": 1024
+                  },
+                  "revisionRef": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                    "maxLength": 1024
+                  }
+                },
+                "required": [
+                  "ref",
+                  "revisionRef"
+                ]
+              }
+            ]
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "place",
+        "applicability",
+        "inventoryPosture",
+        "selectionBasis"
+      ]
+    },
+    "episodeBindings": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ref": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                "maxLength": 1024
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "ref",
+              "digest"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ref": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                "maxLength": 1024
+              },
+              "revisionRef": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                "maxLength": 1024
+              }
+            },
+            "required": [
+              "ref",
+              "revisionRef"
+            ]
+          }
+        ]
+      },
+      "minItems": 0
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "binding": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                    "maxLength": 1024
+                  },
+                  "digest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "ref",
+                  "digest"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                    "maxLength": 1024
+                  },
+                  "revisionRef": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                    "maxLength": 1024
+                  }
+                },
+                "required": [
+                  "ref",
+                  "revisionRef"
+                ]
+              }
+            ]
+          },
+          "bytesSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "valueDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "digestMode": {
+            "enum": [
+              "JCS_JSON",
+              "RAW_BYTES"
+            ]
+          },
+          "role": {
+            "enum": [
+              "EPISODE",
+              "SUPPORTING_SOURCE"
+            ]
+          }
+        },
+        "required": [
+          "binding",
+          "bytesSha256",
+          "valueDigest",
+          "digestMode",
+          "role"
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "contractId",
+    "ownerContextId",
+    "ownerIdentity",
+    "fixedAt",
+    "selection",
+    "episodeBindings",
+    "records"
+  ]
+}
