@@ -1,0 +1,2965 @@
+{
+  "status": "FICTIONAL_OFFLINE_CONFORMANCE_ONLY",
+  "cases": 332,
+  "matched": 332,
+  "failed": 0,
+  "results": [
+    {
+      "id": "basis-1-party-baseline",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 0
+    },
+    {
+      "id": "basis-1-party-digest-party",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-digest-profile",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-retained-other-path",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-evidence-authoritySubjectPartyRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-evidence-pathId",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-evidence-authoritySubjectBasis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-coherent-mirrored-party",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 1
+    },
+    {
+      "id": "basis-1-party-missing-AUTHENTICATED_PRINCIPAL",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-missing-PRINCIPAL_RESOLUTION",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-missing-SOURCE_AUTHORITY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-missing-AUTHORITY_SUBJECT_PARTY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-wrong-canonical-tuple",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-source-target-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "AUTHORITY_TARGET_PARTY_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-unresolved-tuple-source",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-wrong-REQUEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-wrong-RESULT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-wrong-TRACE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-wrong-RULE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-wrong-BINDING_MANIFEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-wrong-DERIVED_VIEW",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-wrong-EVALUATION_SNAPSHOT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-intent-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-nested-bundle-field",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-wrong-visibility-snapshot",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-missing-snapshot-basis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-missing-snapshot-historyPosition",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-missing-snapshot-indexWatermarks",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-missing-snapshot-evidencePolicyRegistryBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-missing-snapshot-sovereigntyPolicyBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-mutable-selector",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-consumer-report-profile",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-changed-original-byte",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_BYTES_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-duplicate-json-name",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "DUPLICATE_JSON_MEMBER"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-nonfinite-json",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-unpaired-surrogate",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-party-depth-limit",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "JSON_DEPTH_LIMIT"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-baseline",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 0
+    },
+    {
+      "id": "basis-1-role-digest-party",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-digest-profile",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-retained-other-path",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-evidence-authoritySubjectPartyRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-evidence-pathId",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-evidence-authoritySubjectBasis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-coherent-mirrored-party",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 1
+    },
+    {
+      "id": "basis-1-role-missing-AUTHENTICATED_PRINCIPAL",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-missing-PRINCIPAL_RESOLUTION",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-missing-SOURCE_AUTHORITY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-missing-AUTHORITY_SUBJECT_PARTY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-wrong-canonical-tuple",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-source-target-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "ROLE_PARTY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-unresolved-tuple-source",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-wrong-REQUEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-wrong-RESULT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-wrong-TRACE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-wrong-RULE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-wrong-BINDING_MANIFEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-wrong-DERIVED_VIEW",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-wrong-EVALUATION_SNAPSHOT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-intent-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-nested-bundle-field",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-wrong-visibility-snapshot",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-missing-snapshot-basis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-missing-snapshot-historyPosition",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-missing-snapshot-indexWatermarks",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-missing-snapshot-evidencePolicyRegistryBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-missing-snapshot-sovereigntyPolicyBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-mutable-selector",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-consumer-report-profile",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-changed-original-byte",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_BYTES_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-duplicate-json-name",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "DUPLICATE_JSON_MEMBER"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-nonfinite-json",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-unpaired-surrogate",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-1-role-depth-limit",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "JSON_DEPTH_LIMIT"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-baseline",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 0
+    },
+    {
+      "id": "basis-2-party-digest-party",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-digest-profile",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-retained-other-path",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-evidence-authoritySubjectPartyRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-evidence-pathId",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-evidence-authoritySubjectBasis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-coherent-mirrored-party",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 1
+    },
+    {
+      "id": "basis-2-party-missing-AUTHENTICATED_PRINCIPAL",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-missing-PRINCIPAL_RESOLUTION",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-missing-SOURCE_AUTHORITY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-missing-AUTHORITY_SUBJECT_PARTY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-wrong-canonical-tuple",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-source-target-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "AUTHORITY_TARGET_PARTY_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-unresolved-tuple-source",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-wrong-REQUEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-wrong-RESULT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-wrong-TRACE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-wrong-RULE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-wrong-BINDING_MANIFEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-wrong-DERIVED_VIEW",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-wrong-EVALUATION_SNAPSHOT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-intent-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-nested-bundle-field",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-wrong-visibility-snapshot",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-missing-snapshot-basis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-missing-snapshot-historyPosition",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-missing-snapshot-indexWatermarks",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-missing-snapshot-evidencePolicyRegistryBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-missing-snapshot-sovereigntyPolicyBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-mutable-selector",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-consumer-report-profile",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-changed-original-byte",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_BYTES_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-duplicate-json-name",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "DUPLICATE_JSON_MEMBER"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-nonfinite-json",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-unpaired-surrogate",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-depth-limit",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "JSON_DEPTH_LIMIT"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-party-representation-party-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REPRESENTATION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-baseline",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 0
+    },
+    {
+      "id": "basis-2-role-digest-party",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-digest-profile",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-retained-other-path",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-evidence-authoritySubjectPartyRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-evidence-pathId",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-evidence-authoritySubjectBasis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-coherent-mirrored-party",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 1
+    },
+    {
+      "id": "basis-2-role-missing-AUTHENTICATED_PRINCIPAL",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-missing-PRINCIPAL_RESOLUTION",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-missing-SOURCE_AUTHORITY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-missing-AUTHORITY_SUBJECT_PARTY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-wrong-canonical-tuple",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-source-target-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "ROLE_PARTY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-unresolved-tuple-source",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-wrong-REQUEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-wrong-RESULT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-wrong-TRACE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-wrong-RULE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-wrong-BINDING_MANIFEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-wrong-DERIVED_VIEW",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-wrong-EVALUATION_SNAPSHOT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-intent-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-nested-bundle-field",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-wrong-visibility-snapshot",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-missing-snapshot-basis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-missing-snapshot-historyPosition",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-missing-snapshot-indexWatermarks",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-missing-snapshot-evidencePolicyRegistryBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-missing-snapshot-sovereigntyPolicyBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-mutable-selector",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-consumer-report-profile",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-changed-original-byte",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_BYTES_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-duplicate-json-name",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "DUPLICATE_JSON_MEMBER"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-nonfinite-json",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-unpaired-surrogate",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-depth-limit",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "JSON_DEPTH_LIMIT"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-2-role-representation-party-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REPRESENTATION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-baseline",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 0
+    },
+    {
+      "id": "basis-3-party-digest-party",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-digest-profile",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-retained-other-path",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-evidence-authoritySubjectPartyRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-evidence-pathId",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-evidence-authoritySubjectBasis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-coherent-mirrored-party",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 1
+    },
+    {
+      "id": "basis-3-party-missing-AUTHENTICATED_PRINCIPAL",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-missing-PRINCIPAL_RESOLUTION",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-missing-SOURCE_AUTHORITY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-missing-AUTHORITY_SUBJECT_PARTY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-wrong-canonical-tuple",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-source-target-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "AUTHORITY_TARGET_PARTY_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-unresolved-tuple-source",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-wrong-REQUEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-wrong-RESULT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-wrong-TRACE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-wrong-RULE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-wrong-BINDING_MANIFEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-wrong-DERIVED_VIEW",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-wrong-EVALUATION_SNAPSHOT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-intent-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-nested-bundle-field",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-wrong-visibility-snapshot",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-missing-snapshot-basis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-missing-snapshot-historyPosition",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-missing-snapshot-indexWatermarks",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-missing-snapshot-evidencePolicyRegistryBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-missing-snapshot-sovereigntyPolicyBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-mutable-selector",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-consumer-report-profile",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-changed-original-byte",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_BYTES_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-duplicate-json-name",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "DUPLICATE_JSON_MEMBER"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-nonfinite-json",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-unpaired-surrogate",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-depth-limit",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "JSON_DEPTH_LIMIT"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-mismatch-AGENT_IDENTITY-agentPartyRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "AGENT_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-party-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_REVOCATION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-baseline",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 0
+    },
+    {
+      "id": "basis-3-role-digest-party",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-digest-profile",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-retained-other-path",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-evidence-authoritySubjectPartyRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-evidence-pathId",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-evidence-authoritySubjectBasis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-coherent-mirrored-party",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 1
+    },
+    {
+      "id": "basis-3-role-missing-AUTHENTICATED_PRINCIPAL",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-missing-PRINCIPAL_RESOLUTION",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-missing-SOURCE_AUTHORITY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-missing-AUTHORITY_SUBJECT_PARTY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-wrong-canonical-tuple",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-source-target-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "ROLE_PARTY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-unresolved-tuple-source",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-wrong-REQUEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-wrong-RESULT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-wrong-TRACE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-wrong-RULE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-wrong-BINDING_MANIFEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-wrong-DERIVED_VIEW",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-wrong-EVALUATION_SNAPSHOT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-intent-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-nested-bundle-field",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-wrong-visibility-snapshot",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-missing-snapshot-basis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-missing-snapshot-historyPosition",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-missing-snapshot-indexWatermarks",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-missing-snapshot-evidencePolicyRegistryBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-missing-snapshot-sovereigntyPolicyBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-mutable-selector",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-consumer-report-profile",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-changed-original-byte",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_BYTES_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-duplicate-json-name",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "DUPLICATE_JSON_MEMBER"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-nonfinite-json",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-unpaired-surrogate",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-depth-limit",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "JSON_DEPTH_LIMIT"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-mismatch-AGENT_IDENTITY-agentPartyRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "AGENT_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-3-role-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_REVOCATION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-baseline",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 0
+    },
+    {
+      "id": "basis-4-party-digest-party",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-digest-profile",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-retained-other-path",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-evidence-authoritySubjectPartyRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-evidence-pathId",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-evidence-authoritySubjectBasis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-coherent-mirrored-party",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 1
+    },
+    {
+      "id": "basis-4-party-missing-AUTHENTICATED_PRINCIPAL",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-missing-PRINCIPAL_RESOLUTION",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-missing-SOURCE_AUTHORITY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-missing-AUTHORITY_SUBJECT_PARTY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-wrong-canonical-tuple",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-source-target-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "AUTHORITY_TARGET_PARTY_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-unresolved-tuple-source",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-wrong-REQUEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-wrong-RESULT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-wrong-TRACE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-wrong-RULE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-wrong-BINDING_MANIFEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-wrong-DERIVED_VIEW",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-wrong-EVALUATION_SNAPSHOT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-intent-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-nested-bundle-field",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-wrong-visibility-snapshot",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-missing-snapshot-basis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-missing-snapshot-historyPosition",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-missing-snapshot-indexWatermarks",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-missing-snapshot-evidencePolicyRegistryBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-missing-snapshot-sovereigntyPolicyBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-mutable-selector",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-consumer-report-profile",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-changed-original-byte",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_BYTES_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-duplicate-json-name",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "DUPLICATE_JSON_MEMBER"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-nonfinite-json",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-unpaired-surrogate",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-depth-limit",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "JSON_DEPTH_LIMIT"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-mismatch-AGENT_IDENTITY-agentPartyRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "AGENT_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_REVOCATION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-party-delegation-agent-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DELEGATION_PARTY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-baseline",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 0
+    },
+    {
+      "id": "basis-4-role-digest-party",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-digest-profile",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-retained-other-path",
+      "expected": "PASS",
+      "actual": "PASS",
+      "codes": [],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-evidence-authoritySubjectPartyRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-evidence-pathId",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-evidence-authoritySubjectBasis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-coherent-mirrored-party",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ],
+      "matched": true,
+      "cliMatchesApi": true,
+      "cliExitCode": 1
+    },
+    {
+      "id": "basis-4-role-missing-AUTHENTICATED_PRINCIPAL",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-missing-PRINCIPAL_RESOLUTION",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-missing-SOURCE_AUTHORITY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-missing-AUTHORITY_SUBJECT_PARTY",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-wrong-canonical-tuple",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-source-target-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "ROLE_PARTY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-unresolved-tuple-source",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-wrong-REQUEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-wrong-RESULT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-wrong-TRACE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-wrong-RULE",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SELECTED_ACTION_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-wrong-BINDING_MANIFEST",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-wrong-DERIVED_VIEW",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-wrong-EVALUATION_SNAPSHOT",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-intent-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-nested-bundle-field",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-wrong-visibility-snapshot",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-missing-snapshot-basis",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-missing-snapshot-historyPosition",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-missing-snapshot-indexWatermarks",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-missing-snapshot-evidencePolicyRegistryBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-missing-snapshot-sovereigntyPolicyBinding",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-mutable-selector",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-consumer-report-profile",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "SCHEMA_INVALID"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-changed-original-byte",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_BYTES_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-duplicate-json-name",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "DUPLICATE_JSON_MEMBER"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-nonfinite-json",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-unpaired-surrogate",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-depth-limit",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "codes": [
+        "JSON_DEPTH_LIMIT"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-mismatch-AGENT_IDENTITY-agentPartyRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "AGENT_IDENTITY_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "CP3_REVOCATION_LINK_MISMATCH"
+      ],
+      "matched": true
+    },
+    {
+      "id": "basis-4-role-delegation-agent-substitution",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "codes": [
+        "DELEGATION_PARTY_LINK_MISMATCH"
+      ],
+      "matched": true
+    }
+  ],
+  "next": "Independent review of the exact sealed interface; no authorization, canonical-selection or runtime admission is established."
+}

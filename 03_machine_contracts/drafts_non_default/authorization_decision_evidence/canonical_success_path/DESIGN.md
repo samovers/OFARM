@@ -1,0 +1,17 @@
+# Canonical successful authorization-path evidence
+
+Status: authorized separate, non-default owner-interface construction. This is one narrow profile of AuthorizationDecisionEvidence v0.2, not the whole v0.2 decision package.
+
+The sole trust/PR boundary is canonical authorization decision evidence integrity. No principal resolution, eligibility, policy, CP3 contract, candidate discovery, canonical path selection algorithm, runtime, transaction, signing or CI behavior is implemented or changed.
+
+The evidence record binds a complete original-byte request, successful result, full trace, policy, rule, binding manifest, effect intent and its exact schema closure, derived view, evaluation snapshot, and every selected-path basis and visibility record. An independently selected context pins the source profile and every source's exact raw and JCS digests. The checker does not accept a Party expectation or an admitted Boolean in that context. It obtains the Party and basis from the selected owner's actual result/trace projections and then compares all source bindings and relationships.
+
+The source profile selects exact complete source schemas and fixed projection locations. The result and trace projections use this package's closed output vocabulary; they are parts of the actual complete owner records, not consumer-generated validation reports. Full original records are schema-validated and hashed before projection. Existing v0.1 decision/trace records lack this vocabulary and cannot substitute. A producer can embed these fields within its separately selected complete output contract. The fixture profile is explicitly fictional and cannot attest a live producer's output or migration eligibility.
+
+The selected path carries PR11's path-type order, primary immutable source record identifier, and code-point-ordered delegation/source identifiers. It retains one of the four existing authority-subject bases and complete typed basis bindings. The checker verifies the supplied tuple's encoding and source closure and compares the selected path identity across actual result and trace. It never discovers candidate paths, establishes that the trace contains every candidate, selects the lowest eligible path, or changes an authorization outcome.
+
+Basis roles and source relationship fields are explicit. Self paths link the resolved natural-person Party to source authority. Represented natural-person paths additionally link immutable representation. Agent paths preserve the existing CP3 actorship inputs and link the recognized agent Party. Explicit delegation links that agent to the represented Party and exact source authority. Sponsor identity cannot substitute for the authority subject. Role-targeted source references resolve an exact RoleAssignment Party. Source validity, currentness, completeness, eligibility, migration and CP3 admission remain authorization-owner duties.
+
+A passing report means only SELECTED_OWNER_OUTPUT_INTEGRITY_COMPARED. It explicitly leaves authorization validity, candidate-set completeness, canonical selection, trusted runtime origin and runtime protection NOT_ESTABLISHED. No output is permission to perform an effect. No later effect, receipt or decision consumption is an input prerequisite.
+
+Next: materialize the closed schemas and byte-bound API/CLI, exercise independent positive and hostile fixtures, then seal the exact integration delivery for independent review.

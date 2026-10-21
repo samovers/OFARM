@@ -1,0 +1,37 @@
+{
+  "id": "invalid-schema",
+  "expected": "FAIL",
+  "actual": "FAIL",
+  "matched": true,
+  "report": {
+    "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+    "disposition": "FAIL",
+    "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+    "established": [],
+    "notEstablished": [
+      "AUTHORIZATION_ELIGIBILITY",
+      "PRINCIPAL_RESOLUTION_TRUST",
+      "CANDIDATE_SET_COMPLETENESS",
+      "CANONICAL_SELECTION_CORRECTNESS",
+      "OWNER_OUTPUT_RUNTIME_ORIGIN",
+      "SOURCE_CURRENTNESS_AND_MIGRATION",
+      "CP3_ADMISSION",
+      "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+    ],
+    "errors": [
+      {
+        "code": "MALFORMED_SOURCE_OR_DEPENDENCY",
+        "pointer": "",
+        "detail": "'nonsense' is not valid under any of the given schemas\n\nFailed validating 'anyOf' in metaschema['allOf'][3]['properties']['type']:\n    {'anyOf': [{'$ref': '#/$defs/simpleTypes'},\n               {'type': 'array',\n                'items': {'$ref': '#/$defs/simpleTypes'},\n                'minItems': 1,\n                'uniqueItems': True}]}\n\nOn schema['type']:\n    'nonsense'"
+      }
+    ],
+    "selectedParty": null,
+    "sourceOrigin": "FICTIONAL_CONFORMANCE",
+    "inputDigests": {
+      "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
+      "profile": "62a3fb1e7c704e87fb5271be1f14b59a81e077cc5d665c31fc1257b111c10964",
+      "context": "1aa646643d22e8a96b274ae20201e647cc95f1921d8f36a3f1ad96ea84211c51"
+    },
+    "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+  }
+}

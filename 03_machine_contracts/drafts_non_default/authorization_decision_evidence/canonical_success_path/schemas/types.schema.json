@@ -1,0 +1,1619 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1",
+  "$defs": {
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revisionRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "ref"
+      ],
+      "oneOf": [
+        {
+          "required": [
+            "revisionRef"
+          ],
+          "not": {
+            "required": [
+              "digest"
+            ]
+          }
+        },
+        {
+          "required": [
+            "digest"
+          ],
+          "not": {
+            "required": [
+              "revisionRef"
+            ]
+          }
+        }
+      ]
+    },
+    "path": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pathId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pathType": {
+          "enum": [
+            "DIRECT_PARTY_GRANT",
+            "ROLE_TARGETED_GRANT",
+            "DELEGATED_GRANT",
+            "SHARING_GRANT_ACCESS"
+          ]
+        },
+        "pathDisposition": {
+          "enum": [
+            "PATH_ALLOW",
+            "PATH_REQUIRE_HUMAN_APPROVAL",
+            "PATH_REQUIRE_REVIEW",
+            "PATH_DENY",
+            "PATH_INAPPLICABLE"
+          ]
+        },
+        "sourceRecordBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "delegationSourceBindings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revisionRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+              }
+            },
+            "required": [
+              "ref"
+            ],
+            "oneOf": [
+              {
+                "required": [
+                  "revisionRef"
+                ],
+                "not": {
+                  "required": [
+                    "digest"
+                  ]
+                }
+              },
+              {
+                "required": [
+                  "digest"
+                ],
+                "not": {
+                  "required": [
+                    "revisionRef"
+                  ]
+                }
+              }
+            ]
+          },
+          "minItems": 0
+        },
+        "canonicalTuple": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "pathTypeOrder": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            },
+            "sourceRecordId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "delegationSourceRecordIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 0
+            }
+          },
+          "required": [
+            "pathTypeOrder",
+            "sourceRecordId",
+            "delegationSourceRecordIds"
+          ]
+        },
+        "authoritySubjectPartyRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authoritySubjectBasis": {
+          "enum": [
+            "NATURAL_PERSON_SELF",
+            "REPRESENTED_PARTY_AUTHORIZED_REPRESENTATION",
+            "AGENT_PARTY_DIRECT_GRANT",
+            "REPRESENTED_PARTY_EXPLICIT_DELEGATION"
+          ]
+        },
+        "authoritySubjectBasisRefs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revisionRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+              }
+            },
+            "required": [
+              "ref"
+            ],
+            "oneOf": [
+              {
+                "required": [
+                  "revisionRef"
+                ],
+                "not": {
+                  "required": [
+                    "digest"
+                  ]
+                }
+              },
+              {
+                "required": [
+                  "digest"
+                ],
+                "not": {
+                  "required": [
+                    "revisionRef"
+                  ]
+                }
+              }
+            ]
+          },
+          "minItems": 1
+        },
+        "basis": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "role": {
+                "enum": [
+                  "AUTHENTICATED_PRINCIPAL",
+                  "PRINCIPAL_RESOLUTION",
+                  "NATURAL_PERSON_PARTY",
+                  "AUTHORITY_SUBJECT_PARTY",
+                  "REPRESENTED_PARTY",
+                  "REPRESENTATION_BASIS",
+                  "AGENT_PARTY",
+                  "AGENT_IDENTITY",
+                  "CP3_ACTORSHIP_BINDING",
+                  "CP3_AUTHORITY_ENVELOPE",
+                  "CP3_AUTHORITY_SNAPSHOT",
+                  "CP3_REVOCATION_STATE",
+                  "SOFTWARE_AGENT_PROFILE",
+                  "SPONSOR_PARTY",
+                  "SOURCE_AUTHORITY",
+                  "DELEGATION_GRANT",
+                  "ROLE_ASSIGNMENT",
+                  "SHARING_GRANT",
+                  "ADDITIONAL_AUTHORITY_BASIS"
+                ]
+              },
+              "sourceKey": {
+                "type": "string",
+                "minLength": 1
+              },
+              "artifactFamily": {
+                "type": "string",
+                "minLength": 1
+              },
+              "binding": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "revisionRef": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "digest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+                  }
+                },
+                "required": [
+                  "ref"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "revisionRef"
+                    ],
+                    "not": {
+                      "required": [
+                        "digest"
+                      ]
+                    }
+                  },
+                  {
+                    "required": [
+                      "digest"
+                    ],
+                    "not": {
+                      "required": [
+                        "revisionRef"
+                      ]
+                    }
+                  }
+                ]
+              },
+              "visibilitySourceKey": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "role",
+              "sourceKey",
+              "artifactFamily",
+              "binding",
+              "visibilitySourceKey"
+            ]
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "pathId",
+        "pathType",
+        "pathDisposition",
+        "sourceRecordBinding",
+        "delegationSourceBindings",
+        "canonicalTuple",
+        "authoritySubjectPartyRef",
+        "authoritySubjectBasis",
+        "authoritySubjectBasisRefs",
+        "basis"
+      ]
+    },
+    "basisEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "role": {
+          "enum": [
+            "AUTHENTICATED_PRINCIPAL",
+            "PRINCIPAL_RESOLUTION",
+            "NATURAL_PERSON_PARTY",
+            "AUTHORITY_SUBJECT_PARTY",
+            "REPRESENTED_PARTY",
+            "REPRESENTATION_BASIS",
+            "AGENT_PARTY",
+            "AGENT_IDENTITY",
+            "CP3_ACTORSHIP_BINDING",
+            "CP3_AUTHORITY_ENVELOPE",
+            "CP3_AUTHORITY_SNAPSHOT",
+            "CP3_REVOCATION_STATE",
+            "SOFTWARE_AGENT_PROFILE",
+            "SPONSOR_PARTY",
+            "SOURCE_AUTHORITY",
+            "DELEGATION_GRANT",
+            "ROLE_ASSIGNMENT",
+            "SHARING_GRANT",
+            "ADDITIONAL_AUTHORITY_BASIS"
+          ]
+        },
+        "sourceKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifactFamily": {
+          "type": "string",
+          "minLength": 1
+        },
+        "binding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "visibilitySourceKey": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "role",
+        "sourceKey",
+        "artifactFamily",
+        "binding",
+        "visibilitySourceKey"
+      ]
+    },
+    "intentSchema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schemaVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schemaDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "schemaId",
+        "schemaVersion",
+        "schemaDigest"
+      ]
+    },
+    "resultProjection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "requestId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actionClass": {
+          "type": "string",
+          "minLength": 1
+        },
+        "intentBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "intentSchema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "schemaVersion": {
+              "type": "string",
+              "minLength": 1
+            },
+            "schemaDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "schemaId",
+            "schemaVersion",
+            "schemaDigest"
+          ]
+        },
+        "policyBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "ruleBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "manifestBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "derivedViewBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "snapshotBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "policyId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policyVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policyDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+        },
+        "selectedRuleId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ruleRevision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ruleDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+        },
+        "authorizationEvaluatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "decisionValidUntil": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "selectedPathId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decisionOutcome": {
+          "const": "ALLOW"
+        },
+        "winningDisposition": {
+          "const": "PATH_ALLOW"
+        },
+        "resultId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "traceId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "selectedPath": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/path"
+        },
+        "effectIntentDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+        },
+        "effectIntentCanonicalization": {
+          "const": "JCS_RFC8785_SHA256"
+        },
+        "derivedViewDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "requestId",
+        "actionClass",
+        "intentBinding",
+        "intentSchema",
+        "policyBinding",
+        "ruleBinding",
+        "manifestBinding",
+        "derivedViewBinding",
+        "snapshotBinding",
+        "policyId",
+        "policyVersion",
+        "policyDigest",
+        "selectedRuleId",
+        "ruleRevision",
+        "ruleDigest",
+        "authorizationEvaluatedAt",
+        "decisionValidUntil",
+        "selectedPathId",
+        "decisionOutcome",
+        "winningDisposition",
+        "resultId",
+        "traceId",
+        "selectedPath",
+        "effectIntentDigest",
+        "effectIntentCanonicalization",
+        "derivedViewDigest"
+      ]
+    },
+    "traceProjection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "requestId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actionClass": {
+          "type": "string",
+          "minLength": 1
+        },
+        "intentBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "intentSchema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "schemaId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "schemaVersion": {
+              "type": "string",
+              "minLength": 1
+            },
+            "schemaDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "schemaId",
+            "schemaVersion",
+            "schemaDigest"
+          ]
+        },
+        "policyBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "ruleBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "manifestBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "derivedViewBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "snapshotBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "policyId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policyVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policyDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+        },
+        "selectedRuleId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ruleRevision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ruleDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+        },
+        "authorizationEvaluatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "decisionValidUntil": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "selectedPathId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decisionOutcome": {
+          "const": "ALLOW"
+        },
+        "winningDisposition": {
+          "const": "PATH_ALLOW"
+        },
+        "traceId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "resultId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/path"
+          },
+          "minItems": 1
+        },
+        "effectIntentDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+        },
+        "effectIntentCanonicalization": {
+          "const": "JCS_RFC8785_SHA256"
+        },
+        "derivedViewDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "requestId",
+        "actionClass",
+        "intentBinding",
+        "intentSchema",
+        "policyBinding",
+        "ruleBinding",
+        "manifestBinding",
+        "derivedViewBinding",
+        "snapshotBinding",
+        "policyId",
+        "policyVersion",
+        "policyDigest",
+        "selectedRuleId",
+        "ruleRevision",
+        "ruleDigest",
+        "authorizationEvaluatedAt",
+        "decisionValidUntil",
+        "selectedPathId",
+        "decisionOutcome",
+        "winningDisposition",
+        "traceId",
+        "resultId",
+        "paths",
+        "effectIntentDigest",
+        "effectIntentCanonicalization",
+        "derivedViewDigest"
+      ]
+    },
+    "snapshotProjection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "policyBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "authorizationEvaluatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "principalResolutionBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "historyPosition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "indexWatermarks": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "roleGrant": {
+              "type": "string",
+              "minLength": 1
+            },
+            "delegationSharing": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revocation": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "roleGrant",
+            "delegationSharing",
+            "revocation"
+          ]
+        },
+        "evidencePolicyRegistryBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "sovereigntyPolicyBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "cp3AuthoritySnapshotBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "visibleBasis": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "binding": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "revisionRef": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "digest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+                  }
+                },
+                "required": [
+                  "ref"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "revisionRef"
+                    ],
+                    "not": {
+                      "required": [
+                        "digest"
+                      ]
+                    }
+                  },
+                  {
+                    "required": [
+                      "digest"
+                    ],
+                    "not": {
+                      "required": [
+                        "revisionRef"
+                      ]
+                    }
+                  }
+                ]
+              },
+              "artifactFamily": {
+                "type": "string",
+                "minLength": 1
+              },
+              "visibilityBinding": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "revisionRef": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "digest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+                  }
+                },
+                "required": [
+                  "ref"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "revisionRef"
+                    ],
+                    "not": {
+                      "required": [
+                        "digest"
+                      ]
+                    }
+                  },
+                  {
+                    "required": [
+                      "digest"
+                    ],
+                    "not": {
+                      "required": [
+                        "revisionRef"
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "required": [
+              "binding",
+              "artifactFamily",
+              "visibilityBinding"
+            ]
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "policyBinding",
+        "authorizationEvaluatedAt",
+        "principalResolutionBinding",
+        "historyPosition",
+        "indexWatermarks",
+        "evidencePolicyRegistryBinding",
+        "sovereigntyPolicyBinding",
+        "visibleBasis"
+      ]
+    }
+  }
+}

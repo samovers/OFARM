@@ -1,0 +1,60 @@
+{
+  "cases": [
+    {
+      "id": "basis-1-party",
+      "basis": "NATURAL_PERSON_SELF",
+      "target": "PARTY",
+      "expected": "PASS",
+      "scope": "FICTIONAL_SELECTED_OUTPUT_INTEGRITY_ONLY"
+    },
+    {
+      "id": "basis-1-role",
+      "basis": "NATURAL_PERSON_SELF",
+      "target": "ROLE_ASSIGNMENT",
+      "expected": "PASS",
+      "scope": "FICTIONAL_SELECTED_OUTPUT_INTEGRITY_ONLY"
+    },
+    {
+      "id": "basis-2-party",
+      "basis": "REPRESENTED_PARTY_AUTHORIZED_REPRESENTATION",
+      "target": "PARTY",
+      "expected": "PASS",
+      "scope": "FICTIONAL_SELECTED_OUTPUT_INTEGRITY_ONLY"
+    },
+    {
+      "id": "basis-2-role",
+      "basis": "REPRESENTED_PARTY_AUTHORIZED_REPRESENTATION",
+      "target": "ROLE_ASSIGNMENT",
+      "expected": "PASS",
+      "scope": "FICTIONAL_SELECTED_OUTPUT_INTEGRITY_ONLY"
+    },
+    {
+      "id": "basis-3-party",
+      "basis": "AGENT_PARTY_DIRECT_GRANT",
+      "target": "PARTY",
+      "expected": "PASS",
+      "scope": "FICTIONAL_SELECTED_OUTPUT_INTEGRITY_ONLY"
+    },
+    {
+      "id": "basis-3-role",
+      "basis": "AGENT_PARTY_DIRECT_GRANT",
+      "target": "ROLE_ASSIGNMENT",
+      "expected": "PASS",
+      "scope": "FICTIONAL_SELECTED_OUTPUT_INTEGRITY_ONLY"
+    },
+    {
+      "id": "basis-4-party",
+      "basis": "REPRESENTED_PARTY_EXPLICIT_DELEGATION",
+      "target": "PARTY",
+      "expected": "PASS",
+      "scope": "FICTIONAL_SELECTED_OUTPUT_INTEGRITY_ONLY"
+    },
+    {
+      "id": "basis-4-role",
+      "basis": "REPRESENTED_PARTY_EXPLICIT_DELEGATION",
+      "target": "ROLE_ASSIGNMENT",
+      "expected": "PASS",
+      "scope": "FICTIONAL_SELECTED_OUTPUT_INTEGRITY_ONLY"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/report/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1"
+    },
+    "disposition": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "INPUT_ERROR"
+      ]
+    },
+    "verificationScope": {
+      "const": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY"
+    },
+    "established": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "notEstablished": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pointer": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "pointer",
+          "detail"
+        ]
+      },
+      "minItems": 0
+    },
+    "selectedParty": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sourceOrigin": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "inputDigests": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+      }
+    },
+    "next": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "disposition",
+    "verificationScope",
+    "established",
+    "notEstablished",
+    "errors",
+    "selectedParty",
+    "sourceOrigin",
+    "inputDigests",
+    "next"
+  ]
+}

@@ -1,0 +1,477 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/evidence/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.canonicalSuccessfulPathEvidence.v0.1"
+    },
+    "evidenceId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceProfileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revisionRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "ref"
+      ],
+      "oneOf": [
+        {
+          "required": [
+            "revisionRef"
+          ],
+          "not": {
+            "required": [
+              "digest"
+            ]
+          }
+        },
+        {
+          "required": [
+            "digest"
+          ],
+          "not": {
+            "required": [
+              "revisionRef"
+            ]
+          }
+        }
+      ]
+    },
+    "sources": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "REQUEST": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "RESULT": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "TRACE": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "POLICY": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "RULE": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "BINDING_MANIFEST": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "EFFECT_INTENT": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "DERIVED_VIEW": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        },
+        "EVALUATION_SNAPSHOT": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "REQUEST",
+        "RESULT",
+        "TRACE",
+        "POLICY",
+        "RULE",
+        "BINDING_MANIFEST",
+        "EFFECT_INTENT",
+        "DERIVED_VIEW",
+        "EVALUATION_SNAPSHOT"
+      ]
+    },
+    "decisionBundleDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+    },
+    "selectedPath": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/path"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "evidenceId",
+    "sourceProfileBinding",
+    "sources",
+    "decisionBundleDigest",
+    "selectedPath"
+  ]
+}

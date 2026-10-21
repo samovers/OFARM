@@ -208,3 +208,5 @@ CP14 adds `03_machine_contracts/CONTRACT_FAMILY_CURRENTNESS_CP14_FINAL_DRAFT_ADD
 AuthorizationFinalizationEvidence adds one draft component schema under
 `drafts_non_default/authorization_finalization_evidence/`. It has no current/default
 schema and does not complete the selected release or enable runtime use.
+
+CanonicalSuccessfulAuthorizationPathEvidence adds six draft/non-default schemas for selected successful owner-output integrity within AuthorizationDecisionEvidence v0.2. It changes no current/default selection and does not implement authorization eligibility, canonical selection, principal resolution or runtime admission.

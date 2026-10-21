@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/profile/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.canonicalSuccessfulPathSourceProfile.v0.1"
+    },
+    "profileId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profileRevision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authorizationLawSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+    },
+    "outputKind": {
+      "const": "AUTHORIZATION_OWNER_SUCCESSFUL_PATH_OUTPUT"
+    },
+    "schemaDigests": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+      }
+    },
+    "formats": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schemaId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "schemaSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+          },
+          "identityPointer": {
+            "oneOf": [
+              {
+                "type": "string",
+                "pattern": "^/(?:[^~]|~[01])*(?![\\s\\S])"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "projectionPointer": {
+            "type": "string",
+            "pattern": "^(?:|/(?:[^~]|~[01])*)(?![\\s\\S])"
+          },
+          "digestMode": {
+            "enum": [
+              "FULL_VALUE",
+              "SOURCE_RECORD_EXCLUDING_TOP_DIGEST"
+            ]
+          }
+        },
+        "required": [
+          "schemaId",
+          "schemaSha256",
+          "identityPointer",
+          "projectionPointer",
+          "digestMode"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "profileId",
+    "profileRevision",
+    "authorizationLawSha256",
+    "outputKind",
+    "schemaDigests",
+    "formats"
+  ]
+}

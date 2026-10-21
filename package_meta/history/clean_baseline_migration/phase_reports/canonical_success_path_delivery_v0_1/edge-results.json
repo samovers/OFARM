@@ -1,0 +1,862 @@
+{
+  "cases": 31,
+  "matched": 31,
+  "failed": 0,
+  "results": [
+    {
+      "id": "invalid-utf8",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "INPUT_ERROR",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "INVALID_JSON_OR_CANONICAL_VALUE",
+            "pointer": "",
+            "detail": "'utf-8' codec can't decode byte 0xff in position 0: invalid start byte"
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": null,
+        "inputDigests": {},
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "utf8-bom",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "INPUT_ERROR",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "INVALID_JSON_OR_CANONICAL_VALUE",
+            "pointer": "",
+            "detail": "Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)"
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": null,
+        "inputDigests": {},
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "duplicate-key",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "INPUT_ERROR",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "DUPLICATE_JSON_MEMBER",
+            "pointer": "",
+            "detail": ""
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": null,
+        "inputDigests": {},
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "unsafe-integer",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "INPUT_ERROR",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "INVALID_JSON_OR_CANONICAL_VALUE",
+            "pointer": "",
+            "detail": "9007199254740993 exceeds safe integer domain for JSON floats"
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": null,
+        "inputDigests": {},
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "oversize",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "INPUT_ERROR",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "INVALID_INPUT_BYTES",
+            "pointer": "",
+            "detail": ""
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": null,
+        "inputDigests": {},
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "array-instead-of-object",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "INPUT_ERROR",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "SCHEMA_INVALID",
+            "pointer": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/evidence/v0.1",
+            "detail": "[] is not of type 'object'"
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": null,
+        "inputDigests": {
+          "evidence": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "profile": "0fb36b92e5a7352684cd0780625fd88864b0090e467c24eecbe3f49cd90e43ae",
+          "context": "c80f6639782bf7b05c9bc103a3cf06e9e97c5a68f6e904f6a19be088844b7e32"
+        },
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "independent-context-digest-required",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "INPUT_ERROR",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "INDEPENDENT_CONTEXT_DIGEST_REQUIRED",
+            "pointer": "",
+            "detail": ""
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": null,
+        "inputDigests": {},
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "independent-context-raw-mismatch",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "INPUT_ERROR",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "INDEPENDENT_CONTEXT_BYTES_MISMATCH",
+            "pointer": "",
+            "detail": ""
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": null,
+        "inputDigests": {},
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "mirrored-party-in-context",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "INPUT_ERROR",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "SCHEMA_INVALID",
+            "pointer": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/context/v0.1",
+            "detail": "Additional properties are not allowed ('expectedParty' was unexpected)"
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": null,
+        "inputDigests": {
+          "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
+          "profile": "0fb36b92e5a7352684cd0780625fd88864b0090e467c24eecbe3f49cd90e43ae",
+          "context": "948d1856698e689d3b725608cc59e5028a9f75b58c9b7cccc9a6dc2fa2a1884f"
+        },
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "admitted-boolean-in-context",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "INPUT_ERROR",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "SCHEMA_INVALID",
+            "pointer": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/context/v0.1",
+            "detail": "Additional properties are not allowed ('admitted' was unexpected)"
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": null,
+        "inputDigests": {
+          "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
+          "profile": "0fb36b92e5a7352684cd0780625fd88864b0090e467c24eecbe3f49cd90e43ae",
+          "context": "3a072aa581eb170315f01dd27ee97e8fe0089430437cbff5defabe6f979d324e"
+        },
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "duplicate-source-key",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "FAIL",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "DUPLICATE_SOURCE_KEY",
+            "pointer": "",
+            "detail": ""
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": "FICTIONAL_CONFORMANCE",
+        "inputDigests": {
+          "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
+          "profile": "0fb36b92e5a7352684cd0780625fd88864b0090e467c24eecbe3f49cd90e43ae",
+          "context": "b6422d797080819631df45133020e52d514add3fe20d15229ebf4040fee56d39"
+        },
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "wrong-source-value-digest",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "FAIL",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "SOURCE_VALUE_DIGEST_MISMATCH",
+            "pointer": "AUTHENTICATED_PRINCIPAL",
+            "detail": ""
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": "FICTIONAL_CONFORMANCE",
+        "inputDigests": {
+          "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
+          "profile": "0fb36b92e5a7352684cd0780625fd88864b0090e467c24eecbe3f49cd90e43ae",
+          "context": "0f5ff603990158a0adcd3aca647e8118b3cd4366c763bdf5685ef3b6fce95b98"
+        },
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "missing-source-bytes",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "FAIL",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "SOURCE_SET_MISMATCH",
+            "pointer": "",
+            "detail": ""
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": "FICTIONAL_CONFORMANCE",
+        "inputDigests": {
+          "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
+          "profile": "0fb36b92e5a7352684cd0780625fd88864b0090e467c24eecbe3f49cd90e43ae",
+          "context": "c80f6639782bf7b05c9bc103a3cf06e9e97c5a68f6e904f6a19be088844b7e32"
+        },
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "extra-source-bytes",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "FAIL",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "SOURCE_SET_MISMATCH",
+            "pointer": "",
+            "detail": ""
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": "FICTIONAL_CONFORMANCE",
+        "inputDigests": {
+          "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
+          "profile": "0fb36b92e5a7352684cd0780625fd88864b0090e467c24eecbe3f49cd90e43ae",
+          "context": "c80f6639782bf7b05c9bc103a3cf06e9e97c5a68f6e904f6a19be088844b7e32"
+        },
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "malformed-selector",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "INPUT_ERROR",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "SCHEMA_INVALID",
+            "pointer": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/profile/v0.1",
+            "detail": "'/projection/resultId~2' is not valid under any of the given schemas"
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": null,
+        "inputDigests": {
+          "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
+          "profile": "5369228c5706988498c3b5398511b994a07308a69144e34d71e1e297fdc63789",
+          "context": "52dc71e16c2369b24d7914f6c71dfa6b5f6754a25670ba54aa41ebc69381bb58"
+        },
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "unresolved-selector",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "FAIL",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "UNRESOLVED_POINTER",
+            "pointer": "/missing",
+            "detail": ""
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": "FICTIONAL_CONFORMANCE",
+        "inputDigests": {
+          "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
+          "profile": "ce897383e243cf8bb427dfaae80d33c4c12e718b51873c452b8cfa7ec7265904",
+          "context": "6cb66e6d4345561a435a478b9eb601b435559796ae13d2b82944e1f17898daec"
+        },
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "unresolved-unused-schema-ref",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "FAIL",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "UNRESOLVED_SCHEMA_REFERENCE",
+            "pointer": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHORITY_SUBJECT_PARTY/v0.1",
+            "detail": "https://unselected.invalid/schema"
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": "FICTIONAL_CONFORMANCE",
+        "inputDigests": {
+          "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
+          "profile": "f2e747104ae09183e4309d4ce715f0aa6b69dd33ca507cfb0bf8a9d0886e7007",
+          "context": "ff7414421721e838c87f796b8a2e6f7eb28c6f18d8e2276e816c33be3eac3139"
+        },
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "nested-schema-id",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "FAIL",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "NESTED_SCHEMA_ID_NOT_SUPPORTED",
+            "pointer": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHORITY_SUBJECT_PARTY/v0.1",
+            "detail": ""
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": "FICTIONAL_CONFORMANCE",
+        "inputDigests": {
+          "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
+          "profile": "73261617ebb653b9305dfdbd9ad15595ecf3a1eebacb4bfc765b58ef3204ef41",
+          "context": "8efdb5320742aea72667e45407878887c3e06222b6525d3153e6ec1654d885e2"
+        },
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "invalid-schema",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "FAIL",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "MALFORMED_SOURCE_OR_DEPENDENCY",
+            "pointer": "",
+            "detail": "'nonsense' is not valid under any of the given schemas\n\nFailed validating 'anyOf' in metaschema['allOf'][3]['properties']['type']:\n    {'anyOf': [{'$ref': '#/$defs/simpleTypes'},\n               {'type': 'array',\n                'items': {'$ref': '#/$defs/simpleTypes'},\n                'minItems': 1,\n                'uniqueItems': True}]}\n\nOn schema['type']:\n    'nonsense'"
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": "FICTIONAL_CONFORMANCE",
+        "inputDigests": {
+          "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
+          "profile": "62a3fb1e7c704e87fb5271be1f14b59a81e077cc5d665c31fc1257b111c10964",
+          "context": "1aa646643d22e8a96b274ae20201e647cc95f1921d8f36a3f1ad96ea84211c51"
+        },
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "dynamic-schema-ref",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "FAIL",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "DYNAMIC_SCHEMA_REFERENCE_NOT_SUPPORTED",
+            "pointer": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHORITY_SUBJECT_PARTY/v0.1",
+            "detail": ""
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": "FICTIONAL_CONFORMANCE",
+        "inputDigests": {
+          "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
+          "profile": "bc69a7f81c16733dda602fb18fa18742ceccfe2c453bbfe7d5944ee7f2e53908",
+          "context": "3eafbad3bdd266cd142e3b9979bbd5dde68139821f2fd37d456d31b8598db359"
+        },
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "content-bound-complete-intent",
+      "expected": "PASS",
+      "actual": "PASS",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "PASS",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [
+          "ORIGINAL_SOURCE_BYTES_AND_SCHEMAS",
+          "COMPLETE_SELECTED_PATH_BASIS_CLOSURE",
+          "RESULT_TRACE_REQUEST_RULE_INTENT_SNAPSHOT_AGREEMENT",
+          "SELECTED_OWNER_OUTPUT_INTEGRITY_COMPARED"
+        ],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [],
+        "selectedParty": "party:natural",
+        "sourceOrigin": "FICTIONAL_CONFORMANCE",
+        "inputDigests": {
+          "evidence": "f029ac7950efb7a0675d4de7e9f95b77415a8b747e0008e45b007b33793cb330",
+          "profile": "47245b0ef75909c711fed871974b1088ce4c02c88e4a02591bf60baa31ab0cfb",
+          "context": "12db4475afc71e8dfc6191eaf8c2a66bdb64074ac34536e8f64c5ababc5c3df1"
+        },
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "installed-basis-1-party",
+      "matched": true,
+      "actual": "PASS"
+    },
+    {
+      "id": "installed-basis-1-role",
+      "matched": true,
+      "actual": "PASS"
+    },
+    {
+      "id": "installed-basis-2-party",
+      "matched": true,
+      "actual": "PASS"
+    },
+    {
+      "id": "installed-basis-2-role",
+      "matched": true,
+      "actual": "PASS"
+    },
+    {
+      "id": "installed-basis-3-party",
+      "matched": true,
+      "actual": "PASS"
+    },
+    {
+      "id": "installed-basis-3-role",
+      "matched": true,
+      "actual": "PASS"
+    },
+    {
+      "id": "installed-basis-4-party",
+      "matched": true,
+      "actual": "PASS"
+    },
+    {
+      "id": "installed-basis-4-role",
+      "matched": true,
+      "actual": "PASS"
+    },
+    {
+      "id": "missing-installed-source-root",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "INPUT_ERROR",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "PACKAGE_CLOSURE_MISMATCH",
+            "pointer": "sources/pr11.md",
+            "detail": ""
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": null,
+        "inputDigests": {},
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    },
+    {
+      "id": "changed-installed-source-law",
+      "expected": "FAIL",
+      "actual": "INPUT_ERROR",
+      "matched": true,
+      "report": {
+        "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+        "disposition": "INPUT_ERROR",
+        "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+        "established": [],
+        "notEstablished": [
+          "AUTHORIZATION_ELIGIBILITY",
+          "PRINCIPAL_RESOLUTION_TRUST",
+          "CANDIDATE_SET_COMPLETENESS",
+          "CANONICAL_SELECTION_CORRECTNESS",
+          "OWNER_OUTPUT_RUNTIME_ORIGIN",
+          "SOURCE_CURRENTNESS_AND_MIGRATION",
+          "CP3_ADMISSION",
+          "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+        ],
+        "errors": [
+          {
+            "code": "PACKAGE_CLOSURE_MISMATCH",
+            "pointer": "sources/pr11.md",
+            "detail": ""
+          }
+        ],
+        "selectedParty": null,
+        "sourceOrigin": null,
+        "inputDigests": {},
+        "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+      }
+    }
+  ],
+  "next": "Independent review; all successful results remain conditional source comparisons."
+}

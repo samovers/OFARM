@@ -1,0 +1,45 @@
+{
+  "contractId": "ofarm.authorizationDecisionEvidence.canonicalSuccessfulPath.v0.1",
+  "packageFamily": "AuthorizationDecisionEvidence.v0.2",
+  "status": "DRAFT_NON_DEFAULT",
+  "primaryTrustBoundary": "Canonical authorization decision evidence",
+  "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+  "authorizationLawSha256": "8c218df076fcf06aceb531173a854091e21bda7775ad1fe66dd06a772857691f",
+  "files": {
+    "schemas/context.schema.json": "e35f806b269b5bdebcd82e7955c4fa75d657fead5367bd42ca06d369386a398c",
+    "schemas/evidence.schema.json": "bfa4427c27fee982c80c2c85086395ba81691d0a1f0317a0489083cb11d2cb8b",
+    "schemas/profile.schema.json": "3d67181f8f45368892a54d22405df90b087128c1663069e8f437a754cba5e8df",
+    "schemas/report.schema.json": "99c4beed8c8ee33d222a6406de089dae2a4047e52632000d0abf7b3a43611b0b",
+    "schemas/types.schema.json": "e5569da498ef8e51213fa068aad8820f84e0680e53d56a3b2c8693a04203ab41",
+    "schemas/wire.schema.json": "217cede939eba57a91210bd526adeab96c73779d05eccc1d920e8c542d951e02",
+    "source-pins.json": "caeb2b13202bcb56748f451dcbc9733c83b8cc479916e073d1a9c8f3baf8826a",
+    "sources/pr11.md": "8c218df076fcf06aceb531173a854091e21bda7775ad1fe66dd06a772857691f"
+  },
+  "dependencyVersions": {
+    "rfc8785": "0.1.4",
+    "jsonschema": "4.26.0"
+  },
+  "sourceTupleOrder": [
+    "DIRECT_PARTY_GRANT",
+    "ROLE_TARGETED_GRANT",
+    "DELEGATED_GRANT",
+    "SHARING_GRANT_ACCESS"
+  ],
+  "sourceReferencePolicy": "Grant/delegation/sharing source IDs require one-record source digests; other records require a revision or digest and independently pinned original bytes.",
+  "notEstablished": [
+    "Authorization eligibility",
+    "Principal resolution trust",
+    "Candidate completeness",
+    "Canonical selection correctness",
+    "Runtime source origin and admission",
+    "Source currentness and migration",
+    "CP3 admission",
+    "Runtime protection"
+  ],
+  "next": "Independent review before use; no default activation or effect permission.",
+  "verificationCode": {
+    "verify_success_path.py": "1397e75ee07e1a3eeb59b24b44101d9a87d58b30211117a0c5acf52d429630b6",
+    "path_common.py": "0e2e8e9bf184dd451fdf9fd1a8f44054e43ea495d818f769f2580f4eec0696c1"
+  },
+  "contractDigest": "sha256:9762c695d692c9b865d48c938dc7ac8baa91232dbb84cb7e16542c006b864de5"
+}
