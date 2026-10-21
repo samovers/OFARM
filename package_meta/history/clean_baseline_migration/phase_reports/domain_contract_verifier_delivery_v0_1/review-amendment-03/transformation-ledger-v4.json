@@ -1,0 +1,46 @@
+{
+  "sourceHead": "1a2583d24aa7d280e257e2d54d1c7c3708b623b6",
+  "sourceBundleSha256": "008826ce9ef8f538342e6ebdd382ceef3ef58b05f0c6910c3c2c25e324214a5c",
+  "sourceW05Digest": "sha256:9dca70afd25ced7b76094a19e6252e479c562df08f72cd83b4a493f1c09ba55a",
+  "targetW05Digest": "sha256:7c2b8a6d60749cb36cc582bde89f330f1040a25173e8051d0bc5e5e96704347a",
+  "unchangedExampleIds": [
+    "W01_EQUIPMENT",
+    "W02_SI_QUALIFIED_PARTIAL_USE",
+    "W03_MEASURED_PRUNING_NO_EVENT",
+    "W04_MEASURED_PRUNING_WITH_EVENT",
+    "W06_RS_SUSPENDED_CERTIFICATE",
+    "W07_NL_ROUTE_QUALIFIED",
+    "W08_SI_COMPLETE_TYPED_USE",
+    "W09_COLLECTION_WITH_PENDING_ANALYSIS",
+    "W10_RECEIVE",
+    "W11_RECLASSIFY",
+    "W12_DISPOSE",
+    "W13_CREATE_LOT_ALLEGATION",
+    "W14_MULTI_ROLE_APPLICATION",
+    "W15_IRRIGATION_VOLUME_AND_FLOW",
+    "W16_O22_INTENDED_WINDOW",
+    "W17_O22_PERFORMED_INTERVAL",
+    "W18_O23_INTENDED_WINDOW",
+    "W19_O23_PERFORMED_INTERVAL",
+    "W20_O22_STARTED_PENDING_OUTPUT",
+    "W21_O22_IN_PROGRESS_PENDING_NO_EVENT",
+    "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT",
+    "W23_O22_COMPLETED_ACTUAL_OUTPUT",
+    "W24_EXISTING_FARM_IDENTIFIER",
+    "W25_OFFLINE_DIGEST_BOUND_PRUNING"
+  ],
+  "W05Changes": [
+    "candidateGrammar and C04 definition version",
+    "operand.limit.provenance and threshold.provenance",
+    "append one exact ordinary quantity-source binding",
+    "typed citation metadata and exact JCS/text/content digests"
+  ],
+  "unchangedScalarMeaning": {
+    "limit": "2 mg/kg",
+    "threshold": "<= 1 mg/kg",
+    "allegedOutcome": "INDETERMINATE",
+    "limitQualifier": "HUMAN_REPORTED",
+    "thresholdQualifier": "HUMAN_REPORTED"
+  },
+  "ownerInputs": "New explicit fictional source records; no producer or source-adoption claim."
+}

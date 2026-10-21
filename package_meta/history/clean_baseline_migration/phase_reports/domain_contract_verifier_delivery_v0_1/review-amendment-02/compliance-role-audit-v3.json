@@ -1,0 +1,206 @@
+{
+  "status": "SOURCE_ROW_AUDIT_NOT_FULL_VERIFIER",
+  "sourceFile": "reviewed-input/domain/inventory.json",
+  "sourceSha256": "56997a2e844fa3384d19ae75c89317cde5b1245bee44a62d8bd6beab02128d0c",
+  "rows": [
+    {
+      "id": "C01",
+      "sourceRowDigest": "sha256:11897173084be726ca8a046943e62ec0365361410e7cd50708a0b5a056fda912",
+      "name": "Rule/evidence relevance",
+      "evidencePredicates": [
+        "Bind actual report/event and subject link; the selected rule must define the stated relevance role."
+      ],
+      "classification": "SOURCE_RELEVANCE",
+      "disposition": "Report/event basis is evidence, not a numeric operand. If the selected relevance use relies on measured content, the exact report-to-measurement link and measured role are required by that use."
+    },
+    {
+      "id": "C02",
+      "sourceRowDigest": "sha256:c6f55812163a5a8b6bb516e888adf4f0eb69b384039f84bd4450e86ecfe10c19",
+      "name": "Rule applicability",
+      "evidencePredicates": [
+        "Use the actual applicability conditions of R; match exact jurisdiction, time and context.",
+        "A negative applicability allegation requires an explicit exclusion or evaluated contrary condition, not missing evidence."
+      ],
+      "classification": "CONDITIONAL_OWNER_OPERAND",
+      "disposition": "Applicability conditions can depend on measured context. Required roles come from the pinned rule; absent measured conditions may not be silently skipped."
+    },
+    {
+      "id": "C03",
+      "sourceRowDigest": "sha256:d41b1538b75b2d061ef780d5868d3ab6965c4152d91856dfec93107a824c8bfc",
+      "name": "Measured numeric criterion and alleged outcome",
+      "evidencePredicates": [
+        "Criterion supplies operator, bound and unit semantics; no invented statutory threshold.",
+        "Resolve measurement/property/method/subject context and compare compatible units under the actual conversion profile; preserve original lexical value.",
+        "For an exact point x and threshold b, LE is true iff x<=b; alleged SATISFIED must agree."
+      ],
+      "classification": "DIRECT_MEASURED_OPERAND_REPAIRED",
+      "disposition": "Existing measurement and operandPointer now have mandatory presence, exact tuple consistency and an evidence selector. New supplementary role fixture checks deletion even when citation table omits the role."
+    },
+    {
+      "id": "C04",
+      "sourceRowDigest": "sha256:43e4f06dbc88d8bb1dafa3581954a19f00c575e53ac5786a73f790fe74a752b6",
+      "name": "Censored and uncertain criterion",
+      "evidencePredicates": [
+        "Use the stated detection/quantification limit and bounds, with method domain constraints.",
+        "SATISFIED requires all admissible values satisfy the predicate; NOT_SATISFIED requires all fail; otherwise INDETERMINATE.",
+        "Do not turn statistical confidence into a hard interval without the method’s explicit rule."
+      ],
+      "classification": "DIRECT_MEASURED_OPERAND_REPAIRED",
+      "disposition": "W05 adds exact source tuple, criterion, admissible bounds and independently pinned expectations. Uncertainty/censoring qualifiers are linked to exact source pointers and method use."
+    },
+    {
+      "id": "C05",
+      "sourceRowDigest": "sha256:ba27d56b1dfe2221ded1f8d55c7892aa01b41f606370aae984b6b4aa8d15dbc5",
+      "name": "Belgian product-authorisation identity allegation",
+      "evidencePredicates": [
+        "Require exact product/permit mapping, one unambiguous candidate, matching BE jurisdiction, access/currentness basis and actual owner verification trace.",
+        "Required label/certificate evidence is conditional on the exact claim; active-substance-only or GTIN-only data cannot supply product authorisation.",
+        "An allegation does not issue a permit or promote a current-compliance output."
+      ],
+      "classification": "NO_MEASURED_OPERAND_IN_ROW",
+      "disposition": "Registry identity/currentness is separate owner verification; do not infer measurement from status."
+    },
+    {
+      "id": "C06",
+      "sourceRowDigest": "sha256:b8e06651b1cd356b5324961704f4b73b2e4fd581cdeee7bb99d867a6023ab1e7",
+      "name": "Label/use restriction allegation",
+      "evidencePredicates": [
+        "Resolve the actual condition and exact product/label version; rate, target and window predicates are those of that condition.",
+        "Preserve planned versus as-applied product identity and any partial extent; no registry status alone proves correct use."
+      ],
+      "classification": "REPORTED_RATE_SOURCE_REPAIRED",
+      "disposition": "HUMAN_REPORTED rate remains that posture. Required rateSource links the exact reported value; measured branch uses complete tuple. Label-bound thresholds and actual/planned material/basis/scope remain independent."
+    },
+    {
+      "id": "C07",
+      "sourceRowDigest": "sha256:7e1c643bcb11e4220fe2618db27b441228469a22d0111b7207ddbf8046231a79",
+      "name": "Traceability claim-model allegation",
+      "evidencePredicates": [
+        "Use exact governing basis and lineage/accounting evidence appropriate to that model.",
+        "DECLARED_OTHER needs the fully bound model definition; no implication of physical continuity from accounting."
+      ],
+      "classification": "CONDITIONAL_OWNER_OPERAND",
+      "disposition": "Mass-balance/accounting owner may require measured inputs. The row is a model allegation, not an unbound numeric total; preserve exact owner evaluation and require its operands under its pinned contract."
+    },
+    {
+      "id": "C08",
+      "sourceRowDigest": "sha256:a325b20417518a41cc4d6269e6ac23dafd06cdabc046edce7fce1e76f9a31b9c",
+      "name": "Inspection/review determination allegation",
+      "evidencePredicates": [
+        "Match actual decision finding, subject applicability and time; distinguish closure of a review from substantive compliance satisfaction.",
+        "A claimed in-force correction must bind the actual separately governed result; no result is created here."
+      ],
+      "classification": "NO_MEASURED_OPERAND_IN_ROW",
+      "disposition": "Report exact inspection decision; do not reinterpret its finding as a raw measurement."
+    },
+    {
+      "id": "C09",
+      "sourceRowDigest": "sha256:2a882f9ae394a406d8afe3a9fbebae702f5c379e13a1f90f09df109c24ea2cab",
+      "name": "Sustainability constraint/metric allegation",
+      "evidencePredicates": [
+        "Use the exact charter’s constraint class, operand/method and evidence requirement; no objective/AI score can substitute.",
+        "Retain claim-basis, freshness and disputed posture; pending submission never makes a sustainability output claim-ready."
+      ],
+      "classification": "MEASURED_BRANCH_REPAIRED",
+      "disposition": "MODELLED baseline retains model basis. MEASURED branch requires tuple and qualification provenance; qualifier/branch deletion cannot bypass selected metric requirements."
+    },
+    {
+      "id": "C10",
+      "sourceRowDigest": "sha256:b3c1dd37513780adf0fc05fa4ffe97f4dde94963c6c6b0ea4d960a54e77c2259",
+      "name": "Evidence sufficiency allegation",
+      "evidencePredicates": [
+        "The actual policy defines required kinds and status; bind admitted owner sufficiency evidence if alleging sufficiency.",
+        "No generic evidenceStatus string, source-provided Boolean or this assertion’s own text proves policy satisfaction."
+      ],
+      "classification": "MEASUREMENT_QUALIFICATION_USE",
+      "disposition": "Policy sufficiency may depend on calibration/custody or other measurement qualification. Required-use owner determines fields; qualify exact records/pointers, never generic ACCEPTED_SUPPORT labels."
+    },
+    {
+      "id": "C11",
+      "sourceRowDigest": "sha256:54da157df7101296016faa27e152a154bfcab36e8c8a8c731af62eb57cd9d02a",
+      "name": "RS holding registration/status allegation",
+      "evidencePredicates": [
+        "Reconcile official transaction-date/year artifact and holding ID; live lookup alone cannot replace history.",
+        "ACTIVE, PASSIVE, SUBMITTED, RENEWED and UNKNOWN are distinct assertions, not interchangeable success labels.",
+        "Authentication does not establish submitter/delegate authority."
+      ],
+      "classification": "NO_MEASURED_OPERAND_IN_ROW",
+      "disposition": "Official registration/status source, not measured quantity."
+    },
+    {
+      "id": "C12",
+      "sourceRowDigest": "sha256:97652c673777dacef7a8026965f7abb34cfa5f01fc5e1e1ae576e14a27946d75",
+      "name": "RS organic-certificate status allegation",
+      "evidencePredicates": [
+        "Resolve certificate, subject relation, scope/date and issuer; both Ministry and accreditation scope/date must be evidenced where the profile requires them.",
+        "Suspended/withdrawn/expired/unknown states remain explicit. A validity date alone does not overcome adverse status.",
+        "This profile’s official evidence gaps and production hold remain; candidate bindings are not supplied live evidence."
+      ],
+      "classification": "NO_MEASURED_OPERAND_IN_ROW",
+      "disposition": "Certificate/issuer/scope/date/adverse status evidence remains exact; no measured quantity."
+    },
+    {
+      "id": "C13",
+      "sourceRowDigest": "sha256:e61f1ff460249b827746ac7f97a46518988a3c797d753132206ef2df1c1aaf82",
+      "name": "RS certifier-authority-reference allegation",
+      "evidencePredicates": [
+        "Require both source records, matching certifier identity, date and scope; different accreditation scope cannot prove this one.",
+        "Party is a typed issuer/reference role inside the allegation about the FARM, not an added authority subject or permission grant."
+      ],
+      "classification": "NO_MEASURED_OPERAND_IN_ROW",
+      "disposition": "Ministry/accreditation scope/date reports remain owner references."
+    },
+    {
+      "id": "C14",
+      "sourceRowDigest": "sha256:d9a6c9d7d850ebabed1b8c92740cdd32970e72d303717915b9d940159b31c5f0",
+      "name": "RS review/appeal status allegation",
+      "evidencePredicates": [
+        "Require exact challenged act and official artifact; finality requires resolved review-window/status evidence.",
+        "An event of lodging an appeal is distinct from this allegation of its status and from the actual governance decision."
+      ],
+      "classification": "NO_MEASURED_OPERAND_IN_ROW",
+      "disposition": "Review/appeal state remains official artifact meaning."
+    },
+    {
+      "id": "C15",
+      "sourceRowDigest": "sha256:ca1404ce067596023459f47aae067f418c44eb7d53e4a3c1fac528fe455697a5",
+      "name": "NL filed parcel/year/crop-history allegation",
+      "evidencePredicates": [
+        "Use source-preserved filing and year-specific snapshots; public current parcel state cannot replace history.",
+        "Each history fact retains its own code revision and parcel lineage; no unstated cross-year code equivalence or area math."
+      ],
+      "classification": "NO_MEASURED_OPERAND_IN_ROW",
+      "disposition": "Source-preserved filing/history and year-code lineage; cannot insert measured area arithmetic without a defined owner role."
+    },
+    {
+      "id": "C16",
+      "sourceRowDigest": "sha256:8776d8dacb60f9ff43751760f93b48574663a7e0f80a2e634c1af6513057ceed",
+      "name": "NL rotation/exemption/deemed-compliance allegation",
+      "evidencePredicates": [
+        "Bind the actual route definition, scope and owner evaluation; organic/in-conversion route requires actual profile-recognized proof.",
+        "Preserve the absent calculation semantics as an unresolved profile-evaluator dependency, not a generic boolean, 30-hectare carve-out or invented formula.",
+        "Candidate representation of a computed route records denominator numerator, exact rational/decimal operands, rounding rule, year-code crosswalk and lineage allocation as named, versioned evaluation inputs. These fields make the missing decisions explicit; they do not choose statutory rules."
+      ],
+      "classification": "CONDITIONAL_OWNER_OPERAND",
+      "disposition": "Any measured/calculated profile operand must be explicitly sourced in the pinned profile-owner evaluation. Do not manufacture missing NL calculation rules; current INDETERMINATE example remains unchanged."
+    },
+    {
+      "id": "C17",
+      "sourceRowDigest": "sha256:cafb6ea8d01d42f9527425be4e3219982af3f69d146d419fcd1722706372f387",
+      "name": "SI use-record completeness allegation",
+      "evidencePredicates": [
+        "Check source-required/conditional fields and exact units/roles; resolve profile use type and conditional stage/start-time rules.",
+        "Profile advisory warning is not a compliance FAIL or accepted fact; external regulatory currentness and recordkeeping remain distinct."
+      ],
+      "classification": "NO_MEASURED_OPERAND_IN_ROW",
+      "disposition": "Record completeness checks presence/units/roles of the use record, distinct from proving measured actual quantities or lawful use."
+    }
+  ],
+  "crossCutting": [
+    "C04 source/result and method-derived bound qualifiers",
+    "QUALIFIED sourceQuality on an atom that alleges a measured/uncertain basis",
+    "C06 source posture and C09 MEASURED vs MODELLED/ESTIMATED/DISPUTED",
+    "Required measured inputs inside C02/C07/C10/C16 selected owner evaluations"
+  ],
+  "limit": "Conditional owner roles are identified as required construction obligations, not claimed materialized or admitted here."
+}

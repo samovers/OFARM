@@ -1,0 +1,26 @@
+{
+  "status": "OWNER_AMENDMENT_READY_FOR_COORDINATOR_INTEGRATION_AND_FRESH_REVIEW",
+  "primaryTrustBoundary": "AssertionRecord domain meaning and validation integrity",
+  "scopeStayedInsideBoundary": true,
+  "immediateSourceHead": "8e86208f96756b8f271f490696e6aa7cf23605fe",
+  "recommendation": "recommendation.md",
+  "examples": "candidate-examples-v3.json",
+  "sourceMap": "source-transform-map-v3.json",
+  "fullChecks": {
+    "file": "check-results-v3.json",
+    "passed": 655,
+    "failed": 0
+  },
+  "portableChecks": {
+    "file": "portable-check-results-v3.json",
+    "passed": 603,
+    "failed": 0
+  },
+  "sourceFilesVerifiedAtExactCommit": 26,
+  "historicalWholeExamplesPreserved": 25,
+  "frozenDomainRowsPreserved": 58,
+  "frozenCanonicalRowsPreserved": 41,
+  "limits": "Finite fictional design checks only; no verifier implementation, owner admission, CI or fresh independent PR approval.",
+  "writes": "Only this owner-domain directory. Shared coordinator edits were observed but not modified.",
+  "next": "Coordinator integrates the final manifest contents in review-amendment-02 and obtains exact-head fresh review."
+}

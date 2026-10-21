@@ -1,0 +1,62 @@
+{
+  "status": "SEALED_CORRECTION_READY_FOR_INTEGRATION_AND_FRESH_REVIEW",
+  "sourceHead": "37d680d598af0cd321c6d06e91af6aba60a73c8d",
+  "primaryTrustBoundary": "AssertionRecord domain meaning and validation integrity",
+  "scopeStayedInsideBoundary": true,
+  "completedReviewConsulted": true,
+  "findingsAddressed": [
+    "F6-R1",
+    "P2-R1"
+  ],
+  "declaredCurrentFileCorrections": {
+    "replacements": 11,
+    "additions": 7,
+    "map": "correction-files-fix01.json",
+    "ledger": "source-transform-ledger-fix01.json"
+  },
+  "validation": {
+    "full": {
+      "checks": 2170,
+      "passed": 2170,
+      "failed": 0,
+      "currentInherited": 725,
+      "currentAmendment03": 913,
+      "currentRepair": 532
+    },
+    "portable": {
+      "checks": 2118,
+      "passed": 2118,
+      "failed": 0,
+      "currentInherited": 673,
+      "currentAmendment03": 913,
+      "currentRepair": 532
+    },
+    "generatedArtifactsReproduced": 12,
+    "checkerRecipeTransforms": 10,
+    "declaredPatchTargetsReproduced": 18,
+    "directReviewControlResults": "review-reproductions-fix01.json"
+  },
+  "preservation": {
+    "all25Meanings": true,
+    "all25CandidateExampleBytes": true,
+    "baselineMeasurementAndOwnerRecords": true,
+    "fullEventAndMeasurementSupport": true,
+    "originalThresholdsAndOutcome": true,
+    "originalHUMAN_REPORTEDSemantics": true,
+    "other18HostileClaimAndRecordBytes": true,
+    "H03SoleError": "PROPERTY_MISMATCH",
+    "lexicalR2": "Independent approved binding/digest and exact 2.00 text; separate from baseline r1.",
+    "originalOwnerDeliveryMembersUnchanged": 29,
+    "reviewedPacketFilesUnchanged": 33
+  },
+  "writeBoundary": "Only plans/domain-contract-verifier-20261021/amendment-03/owner-domain-fix01/",
+  "sharedWorktree": "Clean and unchanged at 37d680d598af0cd321c6d06e91af6aba60a73c8d",
+  "integration": "Apply only declared current-file corrections. Preserve original owner manifest/reports as historical evidence of 37d680d, retain this sealed delivery in review-repair-01, and explicitly update current transport/custody records.",
+  "limits": [
+    "Fictional non-adopted finite profile; no new runtime or foreign-owner authority.",
+    "Independent acceptance pending; no complete verifier or production PASS.",
+    "No shared-worktree/Git/GitHub/CI/merge/agent/chat mutation.",
+    "#392/#396 remain parked."
+  ],
+  "next": "Coordinator integrates the declared corrections and obtains review of the exact corrected commit. CI activation and merge remain separate."
+}

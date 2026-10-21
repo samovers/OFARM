@@ -1,0 +1,2884 @@
+{
+  "status": "DESIGN_EXAMPLE_CHECKS_PASS",
+  "checks": 671,
+  "passed": 671,
+  "failed": 0,
+  "results": [
+    {
+      "check": "original examples file bytes unchanged",
+      "passed": true
+    },
+    {
+      "check": "23 originals and two new examples",
+      "passed": true
+    },
+    {
+      "check": "original IDs preserved in order",
+      "passed": true
+    },
+    {
+      "check": "real RFC8785 implementation",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W03_MEASURED_PRUNING_NO_EVENT: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W16_O22_INTENDED_WINDOW: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W18_O23_INTENDED_WINDOW: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W20_O22_STARTED_PENDING_OUTPUT: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W24_EXISTING_FARM_IDENTIFIER: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "W25_OFFLINE_DIGEST_BOUND_PRUNING: authored selector table equals recorded citations",
+      "passed": true
+    },
+    {
+      "check": "dropping configuration selector detected despite unchanged citation metadata",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: exact typed citation at /proposition/body/configuration",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: wrong revision rejected at /proposition/body/configuration",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: exact typed citation at /proposition/body/inspectionEvidence/0",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: wrong revision rejected at /proposition/body/inspectionEvidence/0",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: omission rejected at /proposition/body/configuration",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: exact typed citation at /proposition/child/body/parameters/officialIdentity",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: wrong revision rejected at /proposition/child/body/parameters/officialIdentity",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: exact typed citation at /proposition/child/body/parameters/parcel/snapshot",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: wrong revision rejected at /proposition/child/body/parameters/parcel/snapshot",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: exact typed citation at /proposition/child/body/parameters/stage/basis",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: wrong revision rejected at /proposition/child/body/parameters/stage/basis",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: exact typed citation at /proposition/child/body/parameters/trainingEvidence",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: wrong revision rejected at /proposition/child/body/parameters/trainingEvidence",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: exact typed citation at /proposition/child/body/parameters/equipment/inspection",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: wrong revision rejected at /proposition/child/body/parameters/equipment/inspection",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: exact typed citation at /proposition/child/body/quantityParameters/1/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: wrong revision rejected at /proposition/child/body/quantityParameters/1/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: exact typed citation at /proposition/child/body/quantityParameters/2/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: wrong revision rejected at /proposition/child/body/quantityParameters/2/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: omission rejected at /proposition/child/body/parameters/officialIdentity",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: omission rejected at /proposition/child/body/parameters/parcel/snapshot",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: omission rejected at /proposition/child/body/parameters/stage/basis",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: omission rejected at /proposition/child/body/parameters/trainingEvidence",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: omission rejected at /proposition/child/body/parameters/equipment/inspection",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: omission rejected at /proposition/child/body/quantityParameters/1/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: omission rejected at /proposition/child/body/quantityParameters/2/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W03_MEASURED_PRUNING_NO_EVENT: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W03_MEASURED_PRUNING_NO_EVENT: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W03_MEASURED_PRUNING_NO_EVENT: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W03_MEASURED_PRUNING_NO_EVENT: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W03_MEASURED_PRUNING_NO_EVENT: exact typed citation at /temporalBasis/binding",
+      "passed": true
+    },
+    {
+      "check": "W03_MEASURED_PRUNING_NO_EVENT: wrong revision rejected at /temporalBasis/binding",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: exact typed citation at /temporalBasis/binding",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: wrong revision rejected at /temporalBasis/binding",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: exact typed citation at /proposition/body/operand/source/measurementBinding",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: wrong revision rejected at /proposition/body/operand/source/measurementBinding",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: exact typed citation at /proposition/body/operand/source/contextBinding",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: wrong revision rejected at /proposition/body/operand/source/contextBinding",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: exact typed citation at /proposition/body/operand/source/subjectRelationBinding",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: wrong revision rejected at /proposition/body/operand/source/subjectRelationBinding",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: exact typed citation at /proposition/body/operand/source/methodUseBinding",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: wrong revision rejected at /proposition/body/operand/source/methodUseBinding",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: exact typed citation at /proposition/body/certificate",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: wrong revision rejected at /proposition/body/certificate",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: exact typed citation at /proposition/body/ministrySnapshot",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: wrong revision rejected at /proposition/body/ministrySnapshot",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: exact typed citation at /proposition/body/accreditationSnapshot",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: wrong revision rejected at /proposition/body/accreditationSnapshot",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: exact typed citation at /proposition/body/historyClaim",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: wrong revision rejected at /proposition/body/historyClaim",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: exact typed citation at /proposition/body/soilEvidence",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: wrong revision rejected at /proposition/body/soilEvidence",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: exact typed citation at /proposition/body/rustgewasEvidence",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: wrong revision rejected at /proposition/body/rustgewasEvidence",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: exact typed citation at /proposition/body/routeEvidence",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: wrong revision rejected at /proposition/body/routeEvidence",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: exact typed citation at /proposition/body/evaluationBasis/binding",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: wrong revision rejected at /proposition/body/evaluationBasis/binding",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: omission rejected at /proposition/body/historyClaim",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: omission rejected at /proposition/body/soilEvidence",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: omission rejected at /proposition/body/rustgewasEvidence",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: omission rejected at /proposition/body/routeEvidence",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: omission rejected at /proposition/body/evaluationBasis/binding",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: exact typed citation at /proposition/child/body/parameters/officialIdentity",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: wrong revision rejected at /proposition/child/body/parameters/officialIdentity",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: exact typed citation at /proposition/child/body/parameters/parcel/snapshot",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: wrong revision rejected at /proposition/child/body/parameters/parcel/snapshot",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: exact typed citation at /proposition/child/body/parameters/stage/basis",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: wrong revision rejected at /proposition/child/body/parameters/stage/basis",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: exact typed citation at /proposition/child/body/parameters/trainingEvidence",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: wrong revision rejected at /proposition/child/body/parameters/trainingEvidence",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: exact typed citation at /proposition/child/body/parameters/equipment/inspection",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: wrong revision rejected at /proposition/child/body/parameters/equipment/inspection",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: exact typed citation at /proposition/child/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: wrong revision rejected at /proposition/child/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: exact typed citation at /proposition/child/body/quantityParameters/1/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: wrong revision rejected at /proposition/child/body/quantityParameters/1/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: omission rejected at /proposition/child/body/parameters/officialIdentity",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: omission rejected at /proposition/child/body/parameters/parcel/snapshot",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: omission rejected at /proposition/child/body/parameters/stage/basis",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: omission rejected at /proposition/child/body/parameters/trainingEvidence",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: omission rejected at /proposition/child/body/parameters/equipment/inspection",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: omission rejected at /proposition/child/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: omission rejected at /proposition/child/body/quantityParameters/1/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: exact typed citation at /temporalBasis/binding",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: wrong revision rejected at /temporalBasis/binding",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: exact typed citation at /temporalBasis/collectionProvenance",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: wrong revision rejected at /temporalBasis/collectionProvenance",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: exact typed citation at /proposition/body/parameters/deliveryReference",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: wrong revision rejected at /proposition/body/parameters/deliveryReference",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: exact typed citation at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: wrong revision rejected at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: omission rejected at /proposition/body/parameters/deliveryReference",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: omission rejected at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: exact typed citation at /proposition/body/parameters/classificationBasis",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: wrong revision rejected at /proposition/body/parameters/classificationBasis",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: exact typed citation at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: wrong revision rejected at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: omission rejected at /proposition/body/parameters/classificationBasis",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: omission rejected at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: exact typed citation at /proposition/body/parameters/disposalRecord",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: wrong revision rejected at /proposition/body/parameters/disposalRecord",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: exact typed citation at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: wrong revision rejected at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: omission rejected at /proposition/body/parameters/disposalRecord",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: omission rejected at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: exact typed citation at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: wrong revision rejected at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: omission rejected at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: exact typed citation at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: wrong revision rejected at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: exact typed citation at /proposition/body/quantityParameters/1/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: wrong revision rejected at /proposition/body/quantityParameters/1/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: exact typed citation at /proposition/body/quantityParameters/2/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: wrong revision rejected at /proposition/body/quantityParameters/2/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: exact typed citation at /proposition/body/quantityParameters/3/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: wrong revision rejected at /proposition/body/quantityParameters/3/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: exact typed citation at /proposition/body/quantityParameters/4/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: wrong revision rejected at /proposition/body/quantityParameters/4/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: exact typed citation at /proposition/body/quantityParameters/5/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: wrong revision rejected at /proposition/body/quantityParameters/5/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: exact typed citation at /proposition/body/quantityParameters/6/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: wrong revision rejected at /proposition/body/quantityParameters/6/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: exact typed citation at /proposition/body/quantityParameters/7/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: wrong revision rejected at /proposition/body/quantityParameters/7/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: exact typed citation at /proposition/body/quantityParameters/8/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: wrong revision rejected at /proposition/body/quantityParameters/8/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: omission rejected at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: omission rejected at /proposition/body/quantityParameters/1/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: omission rejected at /proposition/body/quantityParameters/2/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: omission rejected at /proposition/body/quantityParameters/3/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: omission rejected at /proposition/body/quantityParameters/4/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: omission rejected at /proposition/body/quantityParameters/5/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: omission rejected at /proposition/body/quantityParameters/6/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: omission rejected at /proposition/body/quantityParameters/7/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: omission rejected at /proposition/body/quantityParameters/8/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: exact typed citation at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: wrong revision rejected at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: exact typed citation at /proposition/body/quantityParameters/1/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: wrong revision rejected at /proposition/body/quantityParameters/1/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: omission rejected at /proposition/body/quantityParameters/0/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: omission rejected at /proposition/body/quantityParameters/1/value/original/sourceBinding",
+      "passed": true
+    },
+    {
+      "check": "W16_O22_INTENDED_WINDOW: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W16_O22_INTENDED_WINDOW: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W16_O22_INTENDED_WINDOW: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W16_O22_INTENDED_WINDOW: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: exact typed citation at /proposition/body/parameters/producedResult/binding",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: wrong revision rejected at /proposition/body/parameters/producedResult/binding",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: omission rejected at /proposition/body/parameters/producedResult/binding",
+      "passed": true
+    },
+    {
+      "check": "W18_O23_INTENDED_WINDOW: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W18_O23_INTENDED_WINDOW: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W18_O23_INTENDED_WINDOW: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W18_O23_INTENDED_WINDOW: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: exact typed citation at /proposition/body/parameters/report/binding",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: wrong revision rejected at /proposition/body/parameters/report/binding",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: omission rejected at /proposition/body/parameters/report/binding",
+      "passed": true
+    },
+    {
+      "check": "W20_O22_STARTED_PENDING_OUTPUT: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W20_O22_STARTED_PENDING_OUTPUT: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W20_O22_STARTED_PENDING_OUTPUT: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W20_O22_STARTED_PENDING_OUTPUT: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT: exact typed citation at /temporalBasis/binding",
+      "passed": true
+    },
+    {
+      "check": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT: wrong revision rejected at /temporalBasis/binding",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: exact typed citation at /temporalBasis/binding",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: wrong revision rejected at /temporalBasis/binding",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: all original domain fields preserved",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: full historical example digest",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: original evidence array remains exact prefix",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: independently expected evidence additions",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: exact typed citation at /proposition/body/parameters/producedResult/binding",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: wrong revision rejected at /proposition/body/parameters/producedResult/binding",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: exact typed citation at /temporalBasis/binding",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: wrong revision rejected at /temporalBasis/binding",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W03_MEASURED_PRUNING_NO_EVENT: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W03_MEASURED_PRUNING_NO_EVENT: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W03_MEASURED_PRUNING_NO_EVENT: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W03_MEASURED_PRUNING_NO_EVENT: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: event inputs preserve distinct roles",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W16_O22_INTENDED_WINDOW: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W16_O22_INTENDED_WINDOW: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W16_O22_INTENDED_WINDOW: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W16_O22_INTENDED_WINDOW: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W18_O23_INTENDED_WINDOW: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W18_O23_INTENDED_WINDOW: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W18_O23_INTENDED_WINDOW: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W18_O23_INTENDED_WINDOW: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W20_O22_STARTED_PENDING_OUTPUT: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W20_O22_STARTED_PENDING_OUTPUT: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W20_O22_STARTED_PENDING_OUTPUT: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W20_O22_STARTED_PENDING_OUTPUT: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: event inputs preserve distinct roles",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W24_EXISTING_FARM_IDENTIFIER: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W24_EXISTING_FARM_IDENTIFIER: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W24_EXISTING_FARM_IDENTIFIER: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W24_EXISTING_FARM_IDENTIFIER: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "W25_OFFLINE_DIGEST_BOUND_PRUNING: exact JCS rendering",
+      "passed": true
+    },
+    {
+      "check": "W25_OFFLINE_DIGEST_BOUND_PRUNING: exact render and content digests",
+      "passed": true
+    },
+    {
+      "check": "W25_OFFLINE_DIGEST_BOUND_PRUNING: explicit root projection and no act metadata",
+      "passed": true
+    },
+    {
+      "check": "W25_OFFLINE_DIGEST_BOUND_PRUNING: changed governed context cannot change text",
+      "passed": true
+    },
+    {
+      "check": "40 occurrence repairs / 33 bindings / 12 originals",
+      "passed": true
+    },
+    {
+      "check": "offline digest-bound content positive",
+      "passed": true
+    },
+    {
+      "check": "offline same domain claim and text as W03",
+      "passed": true
+    },
+    {
+      "check": "offline evidence has no later intent digest",
+      "passed": true
+    },
+    {
+      "check": "offline exact rendered body is attested",
+      "passed": true
+    },
+    {
+      "check": "H01_OFFLINE_ALTERED_ATTESTED_BODY_REHASHED: isolated hostile outcome",
+      "passed": true,
+      "observedErrors": [
+        "ATTESTED_BODY_MISMATCH"
+      ]
+    },
+    {
+      "check": "H02_OFFLINE_EVIDENCE_DIGEST_MISMATCH: isolated hostile outcome",
+      "passed": true,
+      "observedErrors": [
+        "ACT_EVIDENCE_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "check": "excluded metadata still verified: assertedAt",
+      "passed": true
+    },
+    {
+      "check": "excluded metadata still verified: assertedByPartyRef",
+      "passed": true
+    },
+    {
+      "check": "self-attestation alias into ordinary evidence rejected",
+      "passed": true
+    },
+    {
+      "check": "ordinary distinct evidence not rejected as self-attestation",
+      "passed": true
+    },
+    {
+      "check": "self-attestation alias prevention is explicit contract rule",
+      "passed": true
+    },
+    {
+      "check": "existing-kind structure example",
+      "passed": true
+    },
+    {
+      "check": "same identity/revision subject and sole anchor",
+      "passed": true
+    },
+    {
+      "check": "runtime time injection changes whole intent digest but not body",
+      "passed": true
+    },
+    {
+      "check": "no caller-selected reporter in base intent",
+      "passed": true
+    },
+    {
+      "check": "real base-v0.2 schema: offline intent",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "real base-v0.2 schema: offline result",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "real base-v0.2 schema: existing-kind structure intent",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "real base-v0.2 schema: existing-kind structure result",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "immediate source bundle pinned at 8e86208",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: AMENDMENT_MANIFEST.json",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: README.md",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: candidate-examples-v2.json",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: canonical-owner/resolution.md",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: canonical-owner/source-checks.json",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: check-results.json",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: check_examples.py",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: dependency-review/calendar-with-optional.json",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: dependency-review/independent-probes.json",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: dependency-review/integrity-results.json",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: dependency-review/review.json",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: dependency-review/review.md",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: dependency-review/suite-results.json",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: dependency-review/transport.json",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: domain-owner-recommendation.md",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: domain-owner-transport.json",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: evidence-repairs.json",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: evidence-selectors.json",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: projection-contract-v2.json",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: selector-map.json",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: source-evidence/frozen-coordination.md",
+      "passed": true
+    },
+    {
+      "check": "prior amendment bytes unchanged: source-pin-resolution.json",
+      "passed": true
+    },
+    {
+      "check": "all 25 prior example IDs retained",
+      "passed": true
+    },
+    {
+      "check": "independent criterion expectation exact byte pin",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W01_EQUIPMENT: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W02_SI_QUALIFIED_PARTIAL_USE: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W03_MEASURED_PRUNING_NO_EVENT: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W03_MEASURED_PRUNING_NO_EVENT: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W03_MEASURED_PRUNING_NO_EVENT: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W03_MEASURED_PRUNING_NO_EVENT: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: verification values do not leak through claimText",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: owner proof cannot alter claimText",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W05_CENSORED_CRITERION: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W06_RS_SUSPENDED_CERTIFICATE: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W07_NL_ROUTE_QUALIFIED: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W08_SI_COMPLETE_TYPED_USE: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W09_COLLECTION_WITH_PENDING_ANALYSIS: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W10_RECEIVE: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W11_RECLASSIFY: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W12_DISPOSE: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W13_CREATE_LOT_ALLEGATION: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W14_MULTI_ROLE_APPLICATION: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W15_IRRIGATION_VOLUME_AND_FLOW: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W16_O22_INTENDED_WINDOW: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W16_O22_INTENDED_WINDOW: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W16_O22_INTENDED_WINDOW: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W16_O22_INTENDED_WINDOW: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W17_O22_PERFORMED_INTERVAL: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W18_O23_INTENDED_WINDOW: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W18_O23_INTENDED_WINDOW: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W18_O23_INTENDED_WINDOW: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W18_O23_INTENDED_WINDOW: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W19_O23_PERFORMED_INTERVAL: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W20_O22_STARTED_PENDING_OUTPUT: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W20_O22_STARTED_PENDING_OUTPUT: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W20_O22_STARTED_PENDING_OUTPUT: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W20_O22_STARTED_PENDING_OUTPUT: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: verification values do not leak through claimText",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: owner proof cannot alter claimText",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W23_O22_COMPLETED_ACTUAL_OUTPUT: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W24_EXISTING_FARM_IDENTIFIER: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W24_EXISTING_FARM_IDENTIFIER: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W24_EXISTING_FARM_IDENTIFIER: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W24_EXISTING_FARM_IDENTIFIER: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "W25_OFFLINE_DIGEST_BOUND_PRUNING: v2 to v3 only permitted changes",
+      "passed": true
+    },
+    {
+      "check": "W25_OFFLINE_DIGEST_BOUND_PRUNING: exact immediate-source example digest",
+      "passed": true
+    },
+    {
+      "check": "W25_OFFLINE_DIGEST_BOUND_PRUNING: source and target render/content mapping",
+      "passed": true
+    },
+    {
+      "check": "W25_OFFLINE_DIGEST_BOUND_PRUNING: all association outside closed P",
+      "passed": true
+    },
+    {
+      "check": "projection closed to technical association",
+      "passed": true
+    },
+    {
+      "check": "canonical timing has no pre-submission guarantee",
+      "passed": true
+    },
+    {
+      "check": "W05 all source and semantic comparisons",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "W05 original evidence prefix plus exact two new records",
+      "passed": true
+    },
+    {
+      "check": "H03_WRONG_PROPERTY_VALID_SOURCE_AND_MEMBERSHIP: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "PROPERTY_MISMATCH"
+      ]
+    },
+    {
+      "check": "H04_MISSING_SOURCE_ROLE: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "MISSING_REQUIRED_ROLE:/operand/source"
+      ]
+    },
+    {
+      "check": "H05_MISSING_VALUE_POINTER: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "MISSING_REQUIRED_ROLE:/operand/source/resultPointer"
+      ]
+    },
+    {
+      "check": "H06_WRONG_POINTER_VALID_SCALAR: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "SOURCE_POINTER_MISMATCH",
+        "SOURCE_VALUE_SHAPE_MISMATCH"
+      ]
+    },
+    {
+      "check": "H07_WRONG_TARGET: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "TARGET_SUPPORT_MISMATCH"
+      ]
+    },
+    {
+      "check": "H08_WRONG_METHOD_REVISION: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "METHOD_MISMATCH"
+      ]
+    },
+    {
+      "check": "H09_LOD_NOT_LOQ: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "LOQ_VALUE_UNIT_MISMATCH"
+      ]
+    },
+    {
+      "check": "H10_WRONG_PHENOMENON_TIME: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "PHENOMENON_TIME_MISMATCH"
+      ]
+    },
+    {
+      "check": "H11_LOQ_UPPER_MADE_INCLUSIVE: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "METHOD_DOMAIN_BOUNDS_MISMATCH"
+      ]
+    },
+    {
+      "check": "H12_CONFIDENCE_USED_AS_HARD_BOUND: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "METHOD_DOMAIN_BOUNDS_MISMATCH"
+      ]
+    },
+    {
+      "check": "H13_CONTEXT_NOT_IN_EVIDENCE: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "MISSING_ASSERTION_EVIDENCE:contextBinding"
+      ]
+    },
+    {
+      "check": "H14_MISSING_QUALIFICATION_POINTER: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "MISSING_REQUIRED_ROLE:/operand/source/qualificationPointers"
+      ]
+    },
+    {
+      "check": "H15_WRONG_THRESHOLD: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "THRESHOLD_RULE_MISMATCH"
+      ]
+    },
+    {
+      "check": "H16_FALSE_SATISFIED: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "OUTCOME_MISMATCH"
+      ]
+    },
+    {
+      "check": "H17_WRONG_SAMPLE: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "SAMPLE_MISMATCH"
+      ]
+    },
+    {
+      "check": "H18_WRONG_MATRIX: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "MATRIX_ANALYTE_MISMATCH"
+      ]
+    },
+    {
+      "check": "H19_WRONG_LEXICAL_RESULT: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "LEXICAL_RESULT_MISMATCH"
+      ]
+    },
+    {
+      "check": "H20_UNCERTAINTY_ERASED: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "QUALIFICATION_SOURCE_MISMATCH",
+        "QUALIFICATION_POINTER_UNRESOLVED"
+      ]
+    },
+    {
+      "check": "H21_DISPUTED_AS_UNQUALIFIED: isolated source failure",
+      "passed": true,
+      "observedErrors": [
+        "SOURCE_POSTURE_MISMATCH"
+      ]
+    },
+    {
+      "check": "wrong property has valid membership and unchanged complete result",
+      "passed": true
+    },
+    {
+      "check": "omitted C04 selector and source still rejected without citation metadata",
+      "passed": true
+    },
+    {
+      "check": "C04 table omission independently visible",
+      "passed": true
+    },
+    {
+      "check": "C03_ROLE_COMPLETE: required role completeness",
+      "passed": true,
+      "observedErrors": []
+    },
+    {
+      "check": "C03_MISSING_measurement: required role completeness",
+      "passed": true,
+      "observedErrors": [
+        "MISSING_REQUIRED_ROLE:/measurement"
+      ]
+    },
+    {
+      "check": "C03_MISSING_operandPointer: required role completeness",
+      "passed": true,
+      "observedErrors": [
+        "MISSING_REQUIRED_ROLE:/operandPointer"
+      ]
+    },
+    {
+      "check": "C03_MISSING_measurementSource: required role completeness",
+      "passed": true,
+      "observedErrors": [
+        "MISSING_REQUIRED_ROLE:/measurementSource"
+      ]
+    },
+    {
+      "check": "C06_ROLE_COMPLETE: required role completeness",
+      "passed": true,
+      "observedErrors": []
+    },
+    {
+      "check": "C06_MISSING_rateSource: required role completeness",
+      "passed": true,
+      "observedErrors": [
+        "MISSING_REQUIRED_ROLE:/rateSource"
+      ]
+    },
+    {
+      "check": "C09_ROLE_COMPLETE: required role completeness",
+      "passed": true,
+      "observedErrors": []
+    },
+    {
+      "check": "C09_MISSING_measurementSource: required role completeness",
+      "passed": true,
+      "observedErrors": [
+        "MISSING_REQUIRED_ROLE:/measurementSource"
+      ]
+    },
+    {
+      "check": "C03_REQUIRED_QUALIFICATION_COMPLETE: required role completeness",
+      "passed": true,
+      "observedErrors": []
+    },
+    {
+      "check": "C03_REQUIRED_QUALIFICATION_REMOVED: required role completeness",
+      "passed": true,
+      "observedErrors": [
+        "MISSING_REQUIRED_ROLE:/measuredQualification"
+      ]
+    },
+    {
+      "check": "all 17 compliance rows audited independently",
+      "passed": true
+    },
+    {
+      "check": "58 domain and 41 canonical definitions retained",
+      "passed": true
+    },
+    {
+      "check": "event compatibility package independently pinned",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: finite event input comparisons",
+      "passed": true,
+      "observedErrors": []
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: finite event input comparisons",
+      "passed": true,
+      "observedErrors": []
+    },
+    {
+      "check": "E01_MISSING_PROOF: finite event input comparisons",
+      "passed": true,
+      "observedErrors": [
+        "MISSING_INGRESS_PROOF"
+      ]
+    },
+    {
+      "check": "E02_WRONG_ENVELOPE_DIGEST: finite event input comparisons",
+      "passed": true,
+      "observedErrors": [
+        "PROOF_ENVELOPE_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "check": "E03_WRONG_COMMIT_CLASS: finite event input comparisons",
+      "passed": true,
+      "observedErrors": [
+        "PROOF_COMMIT_CLASS_NOT_CANONICAL",
+        "FIXED_COMMIT_CLASS_MISMATCH"
+      ]
+    },
+    {
+      "check": "E04_FAMILY_DIVERGENCE: finite event input comparisons",
+      "passed": true,
+      "observedErrors": [
+        "AUTHORITATIVE_FAMILY_MISMATCH"
+      ]
+    },
+    {
+      "check": "E05_CALLER_TIME_SELECTOR: finite event input comparisons",
+      "passed": true,
+      "observedErrors": [
+        "TIME_SELECTOR_NOT_PACKAGE_OWNED"
+      ]
+    },
+    {
+      "check": "E06_LATER_VERDICT_DEPENDENCY: finite event input comparisons",
+      "passed": true,
+      "observedErrors": [
+        "CYCLIC_PROOF_DEPENDENCY"
+      ]
+    },
+    {
+      "check": "E07_LATER_RECEIPT_DEPENDENCY: finite event input comparisons",
+      "passed": true,
+      "observedErrors": [
+        "CYCLIC_PROOF_DEPENDENCY"
+      ]
+    },
+    {
+      "check": "E08_UNFINISHED_PROOF: finite event input comparisons",
+      "passed": true,
+      "observedErrors": [
+        "PROOF_UNAVAILABLE"
+      ]
+    },
+    {
+      "check": "E09_PERMISSIVE_CASE_HINT: finite event input comparisons",
+      "passed": true,
+      "observedErrors": [
+        "CASE_SELECTION_MISMATCH"
+      ]
+    },
+    {
+      "check": "E10_NOT_PASSING_PROOF: finite event input comparisons",
+      "passed": true,
+      "observedErrors": [
+        "PROOF_NOT_PASSING"
+      ]
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: exact carrier intent/result text",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: exact complete carrier digests",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: no association result or ordinary evidence alias",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: early and validation-phase proof keep fixed body/intent",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: legitimate absent branch retains claim meaning",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: lowest direct indices retained",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: exact carrier intent/result text",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: exact complete carrier digests",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: no association result or ordinary evidence alias",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: early and validation-phase proof keep fixed body/intent",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: legitimate absent branch retains claim meaning",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: lowest direct indices retained",
+      "passed": true
+    },
+    {
+      "check": "actual source schema: nitrate-measurement:fictional",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "actual source schema: observation-context:W05-nitrate-fictional",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "actual source schema: measurement:wrong-property-fictional",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "actual source schema: observation-context:W05-nitrate-fictional",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: actual schema envelope",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: actual schema intent",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: actual schema result",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: actual schema envelope",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: actual schema intent",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: actual schema result",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "ingress proof alias cannot be ordinary assertion evidence",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: actual fixture inputs bound in trace model",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: actual fixture inputs bound in trace model",
+      "passed": true
+    },
+    {
+      "check": "empty measurement binding rejected before citation enumeration",
+      "passed": true
+    },
+    {
+      "check": "source roles are mandatory independently of the four citation entries",
+      "passed": true
+    },
+    {
+      "check": "PR23 source table separate roles: ASSERT_STRUCTURE",
+      "passed": true
+    },
+    {
+      "check": "canonical ingress request/result enum: ASSERT_STRUCTURE",
+      "passed": true
+    },
+    {
+      "check": "PR23 source table separate roles: ASSERT_OPERATION_CLAIM",
+      "passed": true
+    },
+    {
+      "check": "canonical ingress request/result enum: ASSERT_OPERATION_CLAIM",
+      "passed": true
+    },
+    {
+      "check": "PR23 source table separate roles: ASSERT_COMPLIANCE",
+      "passed": true
+    },
+    {
+      "check": "canonical ingress request/result enum: ASSERT_COMPLIANCE",
+      "passed": true
+    },
+    {
+      "check": "operation result subtype is not an ingress commit class",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: selected action equals preserved domain claim",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: operation result subtype remains unchanged",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: package and trace canonical commit class",
+      "passed": true
+    },
+    {
+      "check": "W04_MEASURED_PRUNING_WITH_EVENT: corrected proof digest matches trace model",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: selected action equals preserved domain claim",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: operation result subtype remains unchanged",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: package and trace canonical commit class",
+      "passed": true
+    },
+    {
+      "check": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT: corrected proof digest matches trace model",
+      "passed": true
+    },
+    {
+      "check": "E01_MISSING_PROOF: selected action equals preserved domain claim",
+      "passed": true
+    },
+    {
+      "check": "E01_MISSING_PROOF: operation result subtype remains unchanged",
+      "passed": true
+    },
+    {
+      "check": "E01_MISSING_PROOF: package and trace canonical commit class",
+      "passed": true
+    },
+    {
+      "check": "E02_WRONG_ENVELOPE_DIGEST: selected action equals preserved domain claim",
+      "passed": true
+    },
+    {
+      "check": "E02_WRONG_ENVELOPE_DIGEST: operation result subtype remains unchanged",
+      "passed": true
+    },
+    {
+      "check": "E02_WRONG_ENVELOPE_DIGEST: package and trace canonical commit class",
+      "passed": true
+    },
+    {
+      "check": "E02_WRONG_ENVELOPE_DIGEST: corrected proof digest matches trace model",
+      "passed": true
+    },
+    {
+      "check": "E03_WRONG_COMMIT_CLASS: selected action equals preserved domain claim",
+      "passed": true
+    },
+    {
+      "check": "E03_WRONG_COMMIT_CLASS: operation result subtype remains unchanged",
+      "passed": true
+    },
+    {
+      "check": "E03_WRONG_COMMIT_CLASS: package and trace canonical commit class",
+      "passed": true
+    },
+    {
+      "check": "E03_WRONG_COMMIT_CLASS: corrected proof digest matches trace model",
+      "passed": true
+    },
+    {
+      "check": "original intentionally wrong-class negative retained",
+      "passed": true
+    },
+    {
+      "check": "E04_FAMILY_DIVERGENCE: selected action equals preserved domain claim",
+      "passed": true
+    },
+    {
+      "check": "E04_FAMILY_DIVERGENCE: operation result subtype remains unchanged",
+      "passed": true
+    },
+    {
+      "check": "E04_FAMILY_DIVERGENCE: package and trace canonical commit class",
+      "passed": true
+    },
+    {
+      "check": "E04_FAMILY_DIVERGENCE: corrected proof digest matches trace model",
+      "passed": true
+    },
+    {
+      "check": "E05_CALLER_TIME_SELECTOR: selected action equals preserved domain claim",
+      "passed": true
+    },
+    {
+      "check": "E05_CALLER_TIME_SELECTOR: operation result subtype remains unchanged",
+      "passed": true
+    },
+    {
+      "check": "E05_CALLER_TIME_SELECTOR: package and trace canonical commit class",
+      "passed": true
+    },
+    {
+      "check": "E05_CALLER_TIME_SELECTOR: corrected proof digest matches trace model",
+      "passed": true
+    },
+    {
+      "check": "E06_LATER_VERDICT_DEPENDENCY: selected action equals preserved domain claim",
+      "passed": true
+    },
+    {
+      "check": "E06_LATER_VERDICT_DEPENDENCY: operation result subtype remains unchanged",
+      "passed": true
+    },
+    {
+      "check": "E06_LATER_VERDICT_DEPENDENCY: package and trace canonical commit class",
+      "passed": true
+    },
+    {
+      "check": "E06_LATER_VERDICT_DEPENDENCY: corrected proof digest matches trace model",
+      "passed": true
+    },
+    {
+      "check": "E07_LATER_RECEIPT_DEPENDENCY: selected action equals preserved domain claim",
+      "passed": true
+    },
+    {
+      "check": "E07_LATER_RECEIPT_DEPENDENCY: operation result subtype remains unchanged",
+      "passed": true
+    },
+    {
+      "check": "E07_LATER_RECEIPT_DEPENDENCY: package and trace canonical commit class",
+      "passed": true
+    },
+    {
+      "check": "E07_LATER_RECEIPT_DEPENDENCY: corrected proof digest matches trace model",
+      "passed": true
+    },
+    {
+      "check": "E08_UNFINISHED_PROOF: selected action equals preserved domain claim",
+      "passed": true
+    },
+    {
+      "check": "E08_UNFINISHED_PROOF: operation result subtype remains unchanged",
+      "passed": true
+    },
+    {
+      "check": "E08_UNFINISHED_PROOF: package and trace canonical commit class",
+      "passed": true
+    },
+    {
+      "check": "E08_UNFINISHED_PROOF: corrected proof digest matches trace model",
+      "passed": true
+    },
+    {
+      "check": "E09_PERMISSIVE_CASE_HINT: selected action equals preserved domain claim",
+      "passed": true
+    },
+    {
+      "check": "E09_PERMISSIVE_CASE_HINT: operation result subtype remains unchanged",
+      "passed": true
+    },
+    {
+      "check": "E09_PERMISSIVE_CASE_HINT: package and trace canonical commit class",
+      "passed": true
+    },
+    {
+      "check": "E09_PERMISSIVE_CASE_HINT: corrected proof digest matches trace model",
+      "passed": true
+    },
+    {
+      "check": "E10_NOT_PASSING_PROOF: selected action equals preserved domain claim",
+      "passed": true
+    },
+    {
+      "check": "E10_NOT_PASSING_PROOF: operation result subtype remains unchanged",
+      "passed": true
+    },
+    {
+      "check": "E10_NOT_PASSING_PROOF: package and trace canonical commit class",
+      "passed": true
+    },
+    {
+      "check": "E10_NOT_PASSING_PROOF: corrected proof digest matches trace model",
+      "passed": true
+    },
+    {
+      "check": "CC01_SELF_CONSISTENT_SUBTYPE_AS_COMMIT_CLASS: independent canonical rejection",
+      "passed": true,
+      "observedErrors": [
+        "PACKAGE_COMMIT_CLASS_NOT_IN_INGRESS_ENUM",
+        "PACKAGE_COMMIT_CLASS_NOT_CANONICAL",
+        "TRACE_COMMIT_CLASS_NOT_IN_INGRESS_ENUM",
+        "TRACE_COMMIT_CLASS_NOT_CANONICAL",
+        "PROOF_COMMIT_CLASS_NOT_IN_INGRESS_ENUM",
+        "PROOF_COMMIT_CLASS_NOT_CANONICAL"
+      ]
+    },
+    {
+      "check": "CC01_SELF_CONSISTENT_SUBTYPE_AS_COMMIT_CLASS: updated package/proof/result digests",
+      "passed": true
+    },
+    {
+      "check": "CC01_SELF_CONSISTENT_SUBTYPE_AS_COMMIT_CLASS: self-consistency cannot bless wrong class",
+      "passed": true
+    },
+    {
+      "check": "CC02_SELF_CONSISTENT_WRONG_VALID_ENUM_CLASS: independent canonical rejection",
+      "passed": true,
+      "observedErrors": [
+        "PACKAGE_COMMIT_CLASS_NOT_CANONICAL",
+        "TRACE_COMMIT_CLASS_NOT_CANONICAL",
+        "PROOF_COMMIT_CLASS_NOT_CANONICAL"
+      ]
+    },
+    {
+      "check": "CC02_SELF_CONSISTENT_WRONG_VALID_ENUM_CLASS: updated package/proof/result digests",
+      "passed": true
+    },
+    {
+      "check": "CC02_SELF_CONSISTENT_WRONG_VALID_ENUM_CLASS: self-consistency cannot bless wrong class",
+      "passed": true
+    },
+    {
+      "check": "valid enum membership alone cannot satisfy action mapping",
+      "passed": true
+    },
+    {
+      "check": "CC03_COMMIT_CLASS_AS_RESULT_SUBTYPE: independent canonical rejection",
+      "passed": true,
+      "observedErrors": [
+        "RESULT_SUBTYPE_MISMATCH"
+      ]
+    },
+    {
+      "check": "CC03_COMMIT_CLASS_AS_RESULT_SUBTYPE: updated package/proof/result digests",
+      "passed": true
+    },
+    {
+      "check": "INGRESS_REQUEST: canonical token validates and result subtype token fails",
+      "passed": true
+    },
+    {
+      "check": "INGRESS_REQUEST: bundled exact pin equals actual repository schema",
+      "passed": true
+    },
+    {
+      "check": "INGRESS_RESULT: canonical token validates and result subtype token fails",
+      "passed": true
+    },
+    {
+      "check": "INGRESS_RESULT: bundled exact pin equals actual repository schema",
+      "passed": true
+    }
+  ],
+  "optionalChecks": {
+    "baseSchemaFiles": [
+      {
+        "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json",
+        "sha256": "3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e"
+      },
+      {
+        "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_OperationAssertionEffectIntent_schema_v0_2.json",
+        "sha256": "66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6"
+      },
+      {
+        "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_StructureAssertionEffectIntent_schema_v0_2.json",
+        "sha256": "56cf55fcb46cc39990b61261d62f307500e2da55dca1dd1ff831fb27997e93ad"
+      }
+    ],
+    "v3SourceSchemaFiles": [
+      {
+        "role": "MEASUREMENT",
+        "path": "03_machine_contracts/schemas/evidence/OFARM_MeasurementEvidence_schema_v0_1.json",
+        "sha256": "90c4cf2d1387633172e772c970d0c76889ceec0fca4682a5053914375bdc9280"
+      },
+      {
+        "role": "OBSERVATION_CONTEXT",
+        "path": "03_machine_contracts/schemas/agronomic/OFARM_AgronomicObservationContext_schema_v0_1.json",
+        "sha256": "9b7919083305f7fa3739580f9a8cd2b63ec7938c4cf5a75249ea32f991556ebe"
+      },
+      {
+        "role": "ENVELOPE",
+        "path": "03_machine_contracts/schemas/event_ingress/OFARM_SemanticEventEnvelope_schema_v0_1.json",
+        "sha256": "75662a6c4952a62b7e8f8e9de99c23c98899c692914a98ba4b752873f48bd1a4"
+      }
+    ]
+  },
+  "limits": [
+    "No complete domain verifier was implemented or executed; W05 and event checks are finite fictional models.",
+    "Offline positive means content/digest consistency of fictional inputs only; no owner evidence admission or real signature was verified.",
+    "The alias check uses explicit fictional resolved-byte identity; production must obtain that identity and dependency closure from the existing evidence owner.",
+    "Base-v0.2 carrier schema checks do not validate the proposed new typed-proposition language or establish any predicate/admission result.",
+    "No claim of a new 946-check inventory review, base-PR approval, CI success, runtime conformance or merge."
+  ],
+  "next": "Integrate the versioned design/examples, then obtain fresh review of the amended PR head."
+}

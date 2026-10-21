@@ -1,0 +1,409 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+  "title": "OFARM operation-claim effect intent v0.2 draft",
+  "$comment": "DRAFT_NON_DEFAULT, INCOMPLETE, NON_EXECUTABLE. Proposed authorization-input integrity component from PR11 2b46dbed647981a55704fd69fe06b92b7240be37 and PR23 a0a06ad99516790d5b908d5de330591691dd0dcd. Validate with a local registry whose exact dependency bytes match x-ofarm-schemaDependencies. No remote/latest resolution, authority evaluation, foreign-proof validation, admission or promotion is implied.",
+  "x-ofarm-schemaDependencies": [
+    {
+      "schemaRef": "https://ofarm.dev/schema/assertionrecord/v0.2",
+      "schemaVersion": "ofarm.assertionrecord.v0.2",
+      "schemaDigest": "sha256:3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+      "digestBasis": "EXACT_FILE_BYTES_SHA256",
+      "repositoryPath": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json"
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "resources",
+    "effectSubject",
+    "subject",
+    "assertedAt",
+    "assertionActPosture",
+    "subjectTime",
+    "assertionBody",
+    "evidenceBindings",
+    "claimPosture",
+    "performedByPartyRef"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.operationassertioneffectintent.v0.2"
+    },
+    "resources": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "prefixItems": [
+        {
+          "$ref": "#/$defs/targetScope"
+        }
+      ],
+      "items": false
+    },
+    "effectSubject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subjectKind",
+        "subjectRef",
+        "existencePosture",
+        "effectSubjectProofBindings"
+      ],
+      "properties": {
+        "subjectKind": {
+          "const": "OPERATION_ASSERTION"
+        },
+        "subjectRef": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/logicalRef"
+        },
+        "existencePosture": {
+          "const": "PROSPECTIVE_TARGET_ALLOWED"
+        },
+        "effectSubjectProofBindings": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+          }
+        }
+      }
+    },
+    "subject": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/subject"
+    },
+    "assertedAt": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/canonicalTimestamp",
+      "$comment": "Trusted online injection or resolved immutable offline evidence, before validation/digest. JSON Schema validates shape, not origin."
+    },
+    "assertionActPosture": {
+      "enum": [
+        "TRUSTED_ONLINE_SUBMISSION",
+        "VERIFIED_OFFLINE_SUBMISSION"
+      ]
+    },
+    "assertionActEvidenceBinding": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+    },
+    "subjectTime": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationTime"
+    },
+    "assertionBody": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimBody"
+    },
+    "evidenceBindings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+      }
+    },
+    "subjectScopeProofBindings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+      }
+    },
+    "claimPosture": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimContext/properties/claimPosture"
+    },
+    "performedByPartyRef": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimContext/properties/performedByPartyRef"
+    },
+    "softwareAgentActorshipBindings": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimContext/properties/softwareAgentActorshipBindings"
+    },
+    "performerAuthorityEvidenceBindings": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/operationClaimContext/properties/performerAuthorityEvidenceBindings"
+    },
+    "supersedesAssertionRecordBinding": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+    },
+    "associatedSemanticEventBinding": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding",
+      "$comment": "Exact PR23 \u00a77.3 binding shape only; foreign Event Ingress and domain compatibility are separately required. Never derive event family here."
+    },
+    "authorizationUsePurpose": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]{0,127}(?![\\s\\S])"
+    },
+    "scopeProofBindings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+      }
+    },
+    "dataSovereigntyBoundaryBindings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+      }
+    }
+  },
+  "$defs": {
+    "targetScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resourceRole",
+        "resourcePosture",
+        "targetType",
+        "scope",
+        "tenantRef",
+        "authorizationResourceProofBindings"
+      ],
+      "properties": {
+        "resourceRole": {
+          "const": "TARGET_SCOPE"
+        },
+        "resourcePosture": {
+          "const": "AUTHORITY_TARGET"
+        },
+        "targetType": {
+          "const": "SCOPE"
+        },
+        "scope": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/anchorScope"
+        },
+        "tenantRef": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/logicalRef"
+        },
+        "twin": {
+          "enum": [
+            "COMPLIANCE",
+            "ADVISORY"
+          ],
+          "$comment": "Encoding only. Governed immutable resource/context proof determines applicability. Omission is not a claim of NOT_APPLICABLE."
+        },
+        "authorizationResourceProofBindings": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "assertionActPosture"
+        ],
+        "properties": {
+          "assertionActPosture": {
+            "const": "VERIFIED_OFFLINE_SUBMISSION"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "assertionActEvidenceBinding"
+        ]
+      },
+      "else": {
+        "properties": {
+          "assertionActEvidenceBinding": false
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "assertionBody"
+        ],
+        "properties": {
+          "assertionBody": {
+            "required": [
+              "assertionPosture"
+            ],
+            "properties": {
+              "assertionPosture": {
+                "const": "CORRECTION"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "supersedesAssertionRecordBinding"
+        ]
+      },
+      "else": {
+        "properties": {
+          "supersedesAssertionRecordBinding": false
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "subject"
+        ],
+        "properties": {
+          "subject": {
+            "required": [
+              "subjectPosture"
+            ],
+            "properties": {
+              "subjectPosture": {
+                "const": "PROSPECTIVE_SUBJECT"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "subjectScopeProofBindings"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "claimPosture"
+        ],
+        "properties": {
+          "claimPosture": {
+            "const": "INTENDED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "subjectTime": {
+            "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/INTENDED_WINDOW"
+          },
+          "assertionBody": {
+            "properties": {
+              "temporalBasis": {
+                "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/intendedTimeBasis"
+              },
+              "allegesSoftwareAgentPerformance": {
+                "const": false
+              }
+            }
+          },
+          "softwareAgentActorshipBindings": false,
+          "performerAuthorityEvidenceBindings": false,
+          "associatedSemanticEventBinding": false
+        }
+      },
+      "else": {
+        "properties": {
+          "subjectTime": {
+            "oneOf": [
+              {
+                "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/PERFORMED_INSTANT"
+              },
+              {
+                "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/PERFORMED_INTERVAL"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "assertionBody"
+        ],
+        "properties": {
+          "assertionBody": {
+            "required": [
+              "allegesSoftwareAgentPerformance"
+            ],
+            "properties": {
+              "allegesSoftwareAgentPerformance": {
+                "const": true
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "softwareAgentActorshipBindings"
+        ],
+        "properties": {
+          "claimPosture": {
+            "const": "PERFORMED"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "softwareAgentActorshipBindings": false
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "subjectTime"
+        ],
+        "properties": {
+          "subjectTime": {
+            "required": [
+              "profile"
+            ],
+            "properties": {
+              "profile": {
+                "const": "PERFORMED_INSTANT"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "assertionBody": {
+            "properties": {
+              "temporalBasis": {
+                "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/performedInstantEvidenceBasis"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "subjectTime"
+        ],
+        "properties": {
+          "subjectTime": {
+            "required": [
+              "profile"
+            ],
+            "properties": {
+              "profile": {
+                "const": "PERFORMED_INTERVAL"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "assertionBody": {
+            "properties": {
+              "temporalBasis": {
+                "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/performedIntervalBasis"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

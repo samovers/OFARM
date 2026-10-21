@@ -1,0 +1,2330 @@
+{
+  "status": "CONCRETE_LOCAL_CANDIDATE_DEFINITIONS_NOT_GOVERNED_BINDINGS",
+  "revision": "local-candidate:complete-claims:2026-10-20:r4",
+  "rows": [
+    {
+      "activityRow": "O01",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O01:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O01:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O01:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O01:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Apply the specified crop-protection product to the stated target/extent by the stated method, preserving product, pest/target, dose/rate and application-volume meaning.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O02",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O02:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O02:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O02:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O02:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Apply a specified fertilizer/material with explicit nutrient versus product quantity and extent; active nutrient and whole product are not interchangeable.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O03",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O03:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O03:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O03:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O03:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Place specified seed/planting material to establish the named cultivation attempt, preserving seed lot, crop/variety, seed rate, extent and replant lineage.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O04",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O04:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O04:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O04:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O04:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Deliver water through a named method to a specified target/extent, preserving water amount, rate/flow or depth interpretation and relevant time.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O05",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O05:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O05:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O05:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O05:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Perform the named soil/crop cultivation method on the exact extent; depth, passes and equipment parameters are retained when alleged.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O06",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O06:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O06:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O06:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O06:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Remove crop material from the specified field/cycle/extent, naming output lot/material links and quantities when claimed; removal and accepted lot creation are separate.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O07",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O07:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O07:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O07:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O07:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Apply a drying process to named material/lot; input/output material, moisture basis, method and any mass change remain explicit.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O08",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O08:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O08:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O08:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O08:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Remove selected canopy/plant material by a named pruning method on an explicit target/extent, retaining intent versus performance, occurrence facet and partial-work qualifications.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O09",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O09:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O09:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O09:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O09:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Perform a defined observation procedure for a specified phenomenon on a target; the act of monitoring, the observed result and any inference are separate.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O10",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O10:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O10:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O10:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O10:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "The act is collection of the exact sample under the bound sampling procedure. STARTED is commencement of specimen collection, not ordering a test; IN_PROGRESS is actual ongoing collection/assembly of that specimen. Finish is completion of the specified specimen/support collection, independent of analysis availability.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O11",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O11:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O11:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O11:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O11:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Separate one coherent cohort into two or more successor cohorts, preserving predecessor/successors and quantities where alleged.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O12",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O12:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O12:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O12:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O12:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Governedly unite distinct lots into one successor cohort with explicit source lineage; this meaning differs from physical commingling.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O13",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O13:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O13:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O13:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O13:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Physically mix material from separate cohorts into a successor cohort, explicitly changing the physical-continuity and claim-basis interpretation.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O14",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O14:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O14:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O14:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O14:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Process named input material into a successor cohort where the prior cohort identity no longer holds; preserve derivation and transformation method.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O15",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O15:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O15:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O15:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O15:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Move named material from source to destination, with custody/possession roles and commercial references separately stated; location change alone does not create a new lot.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O16",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O16:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O16:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O16:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O16:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "The act is communicating the exact allegation by the stated channel. STARTED is commencement of that communication, IN_PROGRESS is its ongoing transmission, COMPLETED is delivery/recording under the bound reporting procedure; none is the reported physical work.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O17",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O17:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O17:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O17:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O17:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Apply a specified cleaning/sanitation procedure to named equipment, tool, container, facility or extent; the performed procedure and its achieved hygiene criterion are separate.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O18",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O18:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O18:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O18:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O18:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Perform a specified maintenance task on an exact equipment/tool/facility/container asset, preserving replaced parts, configuration and task-completion facet; this need not change durable identity.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O19",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O19:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O19:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O19:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O19:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Record a claimed individual surface-area product use with the profile-specific identity, date/time relevance, dose, treated fraction/area, crop/stage, user/equipment and source context. It alleges recorded performance, not lawful use.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O20",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O20:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O20:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O20:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O20:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Represent the sourced non-pilot use type with its own dose denominator, treated amount and location/material identity. This preserves future expressiveness without activating the excluded SI pilot flow.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O21",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O21:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O21:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O21:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O21:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Represent the sourced non-pilot use type with its own dose denominator, treated amount and location/material identity. This preserves future expressiveness without activating the excluded SI pilot flow.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O22",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O22:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O22:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O22:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O22:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Analysis result production denotes the process for the exact analysis work, method, specimen/property and output specification. INTENDED_WINDOW uses PROSPECTIVE_OUTPUT_SPECIFICATION for every requested facet. PERFORMED OCCURRENCE, STARTED and IN_PROGRESS allow PENDING_OUTPUT without an actual result, or an explicitly evidenced ACTUAL_OUTPUT; neither proves completion. PERFORMED COMPLETED requires actual result/output evidence and all finish conditions. Both performed time profiles use this facet guard. Only PERFORMED_INSTANT selects MeasurementEvidence /phenomenonTime/instant; RESULT_TIME needs exact compatible work/facet meaning and never means the ordinary resultTime field or sample time.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O23",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O23:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O23:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O23:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O23:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "The act is importing/attaching the specified report into the named destination context from the identified source system. Intended window binds the intended report/selection and destination; no existing ingestion result is required. Performed interval describes this ingestion process, not the report subject or sampling/spray interval. STARTED commences the import, IN_PROGRESS means ongoing transfer/attachment, COMPLETED satisfies defined attachment/verification finish conditions. For performed instant only, RECORD_TIME describes an independently evidenced recording phenomenon selected at phenomenonTime/instant; capture/sync fields alone cannot prove it.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O24",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O24:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O24:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O24:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O24:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "The identified receiver takes physical delivery of the specified material/cohort at the receiving location for the declared extent. Receipt, dispatch, commercial acceptance, custody and title are distinct allegations.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O25",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O25:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O25:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O25:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O25:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "An actor alleges reassignment of a material classification under an exact versioned scheme and procedure, retaining before/after class and traceability claim basis. A label change does not silently create, transform or continue a cohort.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O26",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O26:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O26:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O26:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O26:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "An actor alleges removal of a specified material extent from its declared use/inventory route by the named disposal procedure and destination. Disposal is not movement, reclassification, or a successor-producing transformation.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    },
+    {
+      "activityRow": "O27",
+      "revision": "local-candidate:complete-claims:2026-10-20:r4",
+      "propertyDefinitions": [
+        {
+          "localConceptId": "candidate:operation:O27:OCCURRENCE:r4",
+          "facet": "OCCURRENCE",
+          "definition": "The exact activity occurs at the selected instant on the stated target/extent; no start or finish conclusion follows.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O27:STARTED:r4",
+          "facet": "STARTED",
+          "definition": "The exact bound startConditionIds transition to satisfied at the selected instant for this activityInstance; a command, request or order alone is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O27:IN_PROGRESS:r4",
+          "facet": "IN_PROGRESS",
+          "definition": "The bound inProgressConditionIds hold at the selected instant for this activityInstance; start time and finish are not implied.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        },
+        {
+          "localConceptId": "candidate:operation:O27:COMPLETED:r4",
+          "facet": "COMPLETED",
+          "definition": "Every finishConditionId in the bound workSpecification is satisfied at the selected instant over its entire target/extent; stopping, one partial observation or an interval end is insufficient.",
+          "profileGuard": "PERFORMED_INSTANT",
+          "requiredBodyBindings": [
+            "activityInstance",
+            "target",
+            "extent",
+            "workSpecification",
+            "performedBy"
+          ]
+        }
+      ],
+      "resultDefinition": {
+        "scheme": "candidate:occurrence-result:r4",
+        "codes": {
+          "OBSERVED_TRUE": "Complete applicable witness satisfies the selected facet.",
+          "OBSERVED_FALSE": "Complete applicable observation establishes the selected facet does not hold.",
+          "INDETERMINATE": "Incomplete/conflicting observation cannot substantiate the affirmative predicate."
+        }
+      },
+      "methodDefinition": {
+        "id": "candidate:structured-activity-witness:r4",
+        "requiredRecordedFields": [
+          "activityInstance",
+          "activity and row revision",
+          "target and extent",
+          "performer and identification basis",
+          "workSpecification binding and selected condition IDs/results",
+          "phenomenon instant and qualifier interpretation",
+          "observer/source and provenance",
+          "result with original bytes and limitations"
+        ],
+        "predicate": "Compare all required fields to the exact ATOM body/scope. Resolve every condition in the versioned work specification; a free Boolean or generic label is not a witness. A source-specific sampling procedure/provenance may establish collection while its analytic result remains ABSENT_PENDING; never rewrite that source into this proposed result scheme.",
+        "ownerBoundary": "Candidate semantics only; actual method/provenance admission remains with existing evidence owner."
+      },
+      "specialization": "Allege that a specified traceability cohort was established, or is intended to be established, by a named origin process. The prospective lot is a described output; the claim does not allocate a canonical identity, create an accepted MaterialEvent consequence, or write inventory.",
+      "nonInstantRules": "operation-profile-contract.json supplies intended/interval semantics; these instant property definitions do not impose an instant source on those branches.",
+      "governedBinding": null,
+      "admittedPositiveEstablished": false,
+      "status": "CONCRETE_CANDIDATE_VOCABULARY_FOR_OWNER_ADOPTION"
+    }
+  ],
+  "count": 27,
+  "next": "Bounded review, then separate owner adoption and actual admitted evidence."
+}

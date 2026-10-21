@@ -1,0 +1,239 @@
+{
+  "id": "local-candidate:typed-evidence-closure:2026-10-21:v3",
+  "status": "PROPOSED_TYPED_ROLES_FOR_THE_EXAMPLE_AMENDMENT_NOT_AN_ADMISSION_MECHANISM",
+  "authoritativeAssertionEvidence": "/evidenceBindings",
+  "rule": "Every binding selected as ASSERTION_EVIDENCE must be an exact member of the complete intent /evidenceBindings, copied unchanged to result /evidenceBindings. Match complete logical identity plus exactly one immutable selector, not just a logical name. Resolve every member and cited selector under its owning contract and bind every resolved digest in the domain payload. Membership does not prove relevance, eligibility or admission.",
+  "wireEquality": "At actual v0.2 selectors compare the entire immutable binding {ref, revisionRef XOR digest}. A specialized MeasurementEvidenceBinding additionally contains schemaRef/schemaVersion/schemaDigest: validate all three against its pinned owner schema and retain them in the trace, while matching its exact immutable binding portion to the generic evidenceBindings entry. Do not insert forbidden schema fields into the generic immutableBinding schema, omit their independent check, or equate different selectors merely because they resolve similarly. The candidate fixtureLogicalRef/fixtureRevision encoding is illustrative only.",
+  "selectorSemantics": "Selectors are relative to the exact definition's atom body. Traverse complete ATOM bodies through ALL/ANY/SEQUENCE children and NOT/QUALIFIED child; '*' traverses an array only. No field-name regex or arbitrary recursive 'Evidence' search defines the set. Missing required roles fail the selected row schema; guards suppress only genuinely inapplicable branches.",
+  "rowSelectors": [
+    {
+      "definition": "S12",
+      "selectors": [
+        "/configuration",
+        "/inspectionEvidence/*"
+      ],
+      "meaning": "Configuration is the cited configuration record; inspection entries are source evidence. The asset identity itself remains typed identity context."
+    },
+    {
+      "definition": "O19",
+      "selectors": [
+        "/parameters/officialIdentity",
+        "/parameters/parcel/snapshot",
+        "/parameters/stage/basis",
+        "/parameters/trainingEvidence",
+        "/parameters/equipment/inspection"
+      ],
+      "meaning": "Exact official identity/source, parcel snapshot, source for the stage applicability claim, training and inspection. These do not confer authority or override the profile."
+    },
+    {
+      "definition": "C12",
+      "selectors": [
+        "/certificate",
+        "/ministrySnapshot",
+        "/accreditationSnapshot"
+      ],
+      "meaning": "Certificate and reference snapshots used as evidence; adverse status evidence declared at the top remains separately evaluated."
+    },
+    {
+      "definition": "C16",
+      "selectors": [
+        "/historyClaim",
+        "/soilEvidence",
+        "/rustgewasEvidence",
+        "/routeEvidence",
+        "/evaluationBasis/binding"
+      ],
+      "meaning": "The historical claim is cited evidence, not accepted history. The profile evaluation remains a foreign owner result, not invented NL calculation semantics."
+    },
+    {
+      "definition": "O24",
+      "selectors": [
+        "/parameters/deliveryReference"
+      ],
+      "guard": "Supplied cited receipt/document binding, as in W10; the permitted UNREPORTED-with-reason branch selects no citation",
+      "meaning": "W10's supplied binding denotes the cited delivery receipt/document. Preserve the frozen row's UNREPORTED branch. A mere commercial identifier cannot substitute for a supporting document."
+    },
+    {
+      "definition": "O25",
+      "selectors": [
+        "/parameters/classificationBasis"
+      ],
+      "meaning": "Evidence supporting the proposed reclassification."
+    },
+    {
+      "definition": "O26",
+      "selectors": [
+        "/parameters/disposalRecord"
+      ],
+      "meaning": "Exact cited disposal record."
+    },
+    {
+      "definition": "O22",
+      "selectors": [
+        "/parameters/producedResult/binding"
+      ],
+      "guard": {
+        "pointer": "/parameters/producedResult/role",
+        "equals": "ACTUAL_OUTPUT"
+      },
+      "meaning": "Actual output evidence only. PROSPECTIVE_OUTPUT_SPECIFICATION and PENDING_OUTPUT have no actual-result binding; their specification remains a separate definition input."
+    },
+    {
+      "definition": "O23",
+      "selectors": [
+        "/parameters/report/binding"
+      ],
+      "guard": {
+        "pointer": "/parameters/report/role",
+        "equals": "ACTUAL_REPORT"
+      },
+      "meaning": "The existing report used as input to alleged ingestion; intended report selection does not prove an existing report or ingestion."
+    },
+    {
+      "definition": "C03",
+      "selectors": [
+        "/measurement",
+        "/measurementSource/measurementBinding",
+        "/measurementSource/contextBinding",
+        "/measurementSource/subjectRelationBinding",
+        "/measurementSource/methodUseBinding"
+      ],
+      "meaning": "Required measured numeric operand; operandPointer and criterion are separately mandatory."
+    },
+    {
+      "definition": "C04",
+      "selectors": [
+        "/operand/source/measurementBinding",
+        "/operand/source/contextBinding",
+        "/operand/source/subjectRelationBinding",
+        "/operand/source/methodUseBinding"
+      ],
+      "meaning": "Four required source roles exist before membership is checked; resultPointer and qualificationPointers select exact source content."
+    },
+    {
+      "definition": "C06",
+      "selectors": [
+        "/rateSource/sourceBinding",
+        "/rateSource/measurementSource/measurementBinding",
+        "/rateSource/measurementSource/contextBinding",
+        "/rateSource/measurementSource/subjectRelationBinding",
+        "/rateSource/measurementSource/methodUseBinding"
+      ],
+      "guard": "Required for a relied-on rate; sourceKind selects MEASUREMENT_EVIDENCE or exact report/operation-parameter source. The measured branch also needs complete measurementSource.",
+      "meaning": "Rate cannot become an unbound measured fact."
+    },
+    {
+      "definition": "C09",
+      "selectors": [
+        "/measurementSource/measurementBinding",
+        "/measurementSource/contextBinding",
+        "/measurementSource/subjectRelationBinding",
+        "/measurementSource/methodUseBinding"
+      ],
+      "guard": {
+        "pointer": "/evidencePosture",
+        "equals": "MEASURED"
+      },
+      "meaning": "Measured branch requires source completeness; MODELLED remains an explicit model-owner branch."
+    }
+  ],
+  "sharedSelectors": [
+    {
+      "type": "OPERATION_QUANTITY_PARAMETER",
+      "selector": "/quantityParameters/*/value/original/sourceBinding",
+      "guards": [
+        "value.state == STATED",
+        "value.original.presence == PRESENT"
+      ],
+      "meaning": "Exact original quantity source for each parameter. Repeated source identity is permitted but every sourcePointer/value/role/material/basis/scope comparison remains independent."
+    },
+    {
+      "type": "MEASUREMENT_TEMPORAL_BASIS",
+      "selectors": [
+        "/temporalBasis/binding"
+      ],
+      "guard": "temporalBasis.kind == MEASUREMENT_EVIDENCE",
+      "meaning": "Observation or work-facet evidence, with or without an event."
+    },
+    {
+      "type": "SAMPLE_COLLECTION_TEMPORAL_BASIS",
+      "selectors": [
+        "/temporalBasis/collectionProvenance"
+      ],
+      "guard": "typed sampling branch supplies collectionProvenance",
+      "meaning": "Exact collection provenance, separate from any pending analytical result."
+    },
+    {
+      "type": "COMPLIANCE_MEASURED_QUALIFICATION",
+      "selectors": [
+        "/measuredQualification/sourceBinding",
+        "/measuredQualification/methodUseBinding"
+      ],
+      "guard": "Selected definition/use requires this qualification; presence is independently checked before selection. Applies on the exact atom, never inferred from a wrapper label."
+    }
+  ],
+  "separateCompleteInputRoles": [
+    {
+      "role": "SUBJECT_SCOPE_RELATION_PROOF",
+      "selectors": [
+        "/subjectScopeProofBindings/*"
+      ],
+      "ownerDuty": "AR_SUBJECT_SCOPE_PROOF",
+      "includeInAssertionEvidenceByDefault": false
+    },
+    {
+      "role": "SEMANTIC_EVENT",
+      "selectors": [
+        "associationVerificationInputs/envelope"
+      ],
+      "ownerDuty": "AR_EVENT_ASSOCIATION",
+      "includeInAssertionEvidenceByDefault": false,
+      "includeInRender": false
+    },
+    {
+      "role": "EVENT_INGRESS_PROOF",
+      "selectors": [
+        "associationVerificationInputs/ingressEvidence"
+      ],
+      "ownerDuty": "AR_EVENT_ASSOCIATION",
+      "includeInAssertionEvidenceByDefault": false,
+      "includeInRender": false
+    },
+    {
+      "role": "ASSERTION_ACT_EVIDENCE",
+      "selectors": [
+        "governedContextExample/assertionActEvidenceBinding"
+      ],
+      "ownerDuty": "AR_ASSERTION_ACT_EVIDENCE / PC_ASSERTION_ACT",
+      "includeInRender": false,
+      "includeInAssertionEvidenceByDefault": false
+    },
+    {
+      "role": "DEFINITION_OR_CONTEXT_INPUT",
+      "types": [
+        "subject identity",
+        "asset",
+        "material/component",
+        "performer",
+        "sample",
+        "method/procedure",
+        "observed property",
+        "crop/classification code",
+        "work/output specification",
+        "quantity basis/process-point",
+        "rule revision",
+        "evidence-policy revision",
+        "unit profile"
+      ],
+      "includeInAssertionEvidenceByDefault": false,
+      "requirement": "Resolve and bind under the exact containing schema role. They are not automatically proof of occurrence or authority. A role explicitly cited as evidence must instead be declared in the evidence selector map."
+    }
+  ],
+  "coverageLimit": "All cited roles in the 25 whole examples; required measured-compliance role rules additionally cover C03/C04 and analogous C06/C09 branches plus qualifications and owner-evaluated inputs. This does not materialize all 99 definitions or establish production admission.",
+  "next": "Carry typed role selection and all exact reference repairs into the design; implement owner resolution separately from structural membership.",
+  "definitionPrefixes": [
+    "local-candidate:complete-claims:2026-10-20:r4#",
+    "local-candidate:complete-claims:2026-10-21:amendment-02#"
+  ],
+  "completenessContract": "measurement-role-contract-v3.json; check required roles from the selected definition/criterion before enumerating citations. Missing source or value pointer is a failure even when table and recorded citations both omit it."
+}

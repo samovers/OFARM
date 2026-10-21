@@ -1,0 +1,1484 @@
+{
+  "status": "V07_CANDIDATE_MEANING_RECONCILIATION_NOT_ADOPTION",
+  "canonicalInput": {
+    "path": "plans/claim-language-coverage-20261020/inventory-02/canonical/inventory.json",
+    "sha256": "4aec570ad05349924218a1ccef4d9c2e017f27f8ca986a274779f1fe8a970557",
+    "revision": "canonical-claim-inventory-02.1-proposed",
+    "canonicalRowsMapped": 41,
+    "file": "integration.json",
+    "status": "INTEGRATED_AT_RECORDED_BYTES; coordinator must verify unchanged before freeze"
+  },
+  "canonicalInputFiles": [
+    {
+      "path": "plans/claim-language-coverage-20261020/inventory-02/canonical/inventory.json",
+      "bytes": 337577,
+      "sha256": "4aec570ad05349924218a1ccef4d9c2e017f27f8ca986a274779f1fe8a970557"
+    },
+    {
+      "path": "plans/claim-language-coverage-20261020/inventory-02/canonical/source-map.json",
+      "bytes": 40407,
+      "sha256": "43e4d4087598454df16ea1dbebf5f966d03935fdabe2855e341970dff6de0916"
+    },
+    {
+      "path": "plans/claim-language-coverage-20261020/inventory-02/canonical/render-specimens.json",
+      "bytes": 24527,
+      "sha256": "6ee35075baa244181e1d9b42f7c40cc59c6ca06dd2ad62dab355e2a068a98751"
+    },
+    {
+      "path": "plans/claim-language-coverage-20261020/inventory-02/canonical/verification.json",
+      "bytes": 2759,
+      "sha256": "2f2f8f1159104ea8a0f97d4b3e39ff156b93aadf25c2ddc7436b44dff2174c47"
+    }
+  ],
+  "rows": [
+    {
+      "canonicalRow": "V04-boundary",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "a017dee7da2b1d62c2dbe22a6a6ced2524f8c30883271f7fe4e5fbcea3fd41c8",
+      "domainRows": [
+        "S01",
+        "S09",
+        "S10"
+      ],
+      "requirementIds": [
+        "R01"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "A claim about a field geometry revision and its filing scope; the assertion does not create or accept that revision.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "EVENT",
+        "RELATION",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V04-stand-count",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "7462998b0817617912055112c1ad21ecee5af52638a501a680aa8bd91962ee3f",
+      "domainRows": [
+        "O09",
+        "C03",
+        "C04"
+      ],
+      "requirementIds": [
+        "R17",
+        "R20"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "A measured stand-count/emergence observation may support a typed compliance criterion; an operation claim requires evidence that counting was performed, not merely that a count exists.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "EVENT",
+        "RELATION",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V04-hail",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "62115882809953d929c6d853ecb9b8f066e2efa9b590e3d63cd5f8c540318f01",
+      "domainRows": [
+        "C01",
+        "C02",
+        "C03",
+        "S11"
+      ],
+      "requirementIds": [
+        "R14",
+        "R19"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "Hail damage is a non-deliberate occurrence. A compliance claim may describe its scope or relevance without alleging a deliberate hail operation.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "EVENT",
+        "RELATION",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V04-harvest",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "6ace1bc57f1dc0396bd8f93344fab68e880d7e790fde59223d18d898b881b483",
+      "domainRows": [
+        "O06",
+        "S06"
+      ],
+      "requirementIds": [
+        "R06",
+        "R11"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "Deliberate crop removal; produced-lot creation remains a linked material consequence and does not replace the harvest meaning.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "EVENT",
+        "RELATION",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V04-lot-split",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "26b5f41444f84539234a3e84b5f835579257251b0d3be7fd643279bafe110c5b",
+      "domainRows": [
+        "O11",
+        "O15",
+        "S09"
+      ],
+      "requirementIds": [
+        "R07",
+        "R08"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "Separate typed split and dispatch propositions, joined conjunctively if both alleged; old/new lot lineage and dispatch movement are distinct facts.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "EVENT",
+        "RELATION",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V04-report-ingest",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "3064350052c45c7ccc1b2ccfe54d729547d6d44b0a11a601e26c240eda23005a",
+      "domainRows": [
+        "O23",
+        "C01",
+        "C03",
+        "C04"
+      ],
+      "requirementIds": [
+        "R18",
+        "R19",
+        "R20"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "Evidentiary receipt/attachment of a lab report; it says nothing by itself about the analyte result, compliance, or when sampling occurred.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "EVENT",
+        "RELATION",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V04-inspection",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "e520ed8f0ffb805de15c8b73073529ab85d1bd584be0b8457aeb4217b6ac3364",
+      "domainRows": [
+        "C08",
+        "C14"
+      ],
+      "requirementIds": [
+        "R23",
+        "R37"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "A formal inspection closure/correction act may be context for a pending allegation about decision applicability; the allegation does not issue or change a decision.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "EVENT",
+        "RELATION",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V04-prune",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "f47bac7fec8183a52abb381dc311634eedd343cf5e8502e24207367eafda3462",
+      "domainRows": [
+        "O08"
+      ],
+      "requirementIds": [
+        "R11",
+        "R15",
+        "R16"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "Physical action described by the source; report/capture/as-applied status is retained as a qualification, not substituted for the world action.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "EVENT",
+        "RELATION",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V04-spray",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "dac064f9a0bb76d53be861e48e521587f322c321897c1c7410574a8e379f6cc0",
+      "domainRows": [
+        "O01",
+        "O19"
+      ],
+      "requirementIds": [
+        "R11",
+        "R13",
+        "R14",
+        "R18",
+        "R33"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "Physical action described by the source; report/capture/as-applied status is retained as a qualification, not substituted for the world action.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "EVENT",
+        "RELATION",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V04-extension",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "330875fdb039f4c7ade6f7ce6d7ee00c880be3c20122badaa9ebb9be8ff947db",
+      "domainRows": [
+        "S10",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O22",
+        "O23"
+      ],
+      "requirementIds": [
+        "R29"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "An envelope can legitimately omit subtype. New pack meanings remain expressible through an explicit revisioned case; omission, null, unknown and a changed sentence are distinct inputs.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "EVENT",
+        "PROFILE",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V04-action-families",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "ef404369e0186610bd8b5b8224c312b712babbc170ac33ad8bab6af3694f78b7",
+      "domainRows": [
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O08",
+        "O11",
+        "O12",
+        "O15",
+        "O17",
+        "O18",
+        "O24",
+        "O25",
+        "O26",
+        "O27"
+      ],
+      "requirementIds": [
+        "R11",
+        "R29",
+        "R32"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "The language must express planting, tillage, fertilization, spraying, irrigation, pruning, harvest, sanitation/cleanout, maintenance and material handling with exact target, material, equipment, quantity, extent and qualifiers.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "ENDPOINTS",
+        "EVENT",
+        "PROFILE",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false,
+      "meaningMappings": [
+        {
+          "sourceMeaning": "plant",
+          "definingRow": "O03",
+          "selector": "SEED",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O03",
+          "meaning": "Place specified seed/planting material to establish the named cultivation attempt, preserving seed lot, crop/variety, seed rate, extent and replant lineage."
+        },
+        {
+          "sourceMeaning": "till",
+          "definingRow": "O05",
+          "selector": "CULTIVATE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O05",
+          "meaning": "Perform the named soil/crop cultivation method on the exact extent; depth, passes and equipment parameters are retained when alleged."
+        },
+        {
+          "sourceMeaning": "fertilize",
+          "definingRow": "O02",
+          "selector": "APPLY_INPUT/FERTILIZATION",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O02",
+          "meaning": "Apply a specified fertilizer/material with explicit nutrient versus product quantity and extent; active nutrient and whole product are not interchangeable."
+        },
+        {
+          "sourceMeaning": "spray",
+          "definingRow": "O01",
+          "selector": "APPLY_INPUT/CROP_PROTECTION",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "meaning": "Apply the specified crop-protection product to the stated target/extent by the stated method, preserving product, pest/target, dose/rate and application-volume meaning."
+        },
+        {
+          "sourceMeaning": "irrigate",
+          "definingRow": "O04",
+          "selector": "IRRIGATE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O04",
+          "meaning": "Deliver water through a named method to a specified target/extent, preserving water amount, rate/flow or depth interpretation and relevant time."
+        },
+        {
+          "sourceMeaning": "prune",
+          "definingRow": "O08",
+          "selector": "PRUNE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O08",
+          "meaning": "Remove selected canopy/plant material by a named pruning method on an explicit target/extent, retaining intent versus performance, occurrence facet and partial-work qualifications."
+        },
+        {
+          "sourceMeaning": "harvest",
+          "definingRow": "O06",
+          "selector": "HARVEST",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O06",
+          "meaning": "Remove crop material from the specified field/cycle/extent, naming output lot/material links and quantities when claimed; removal and accepted lot creation are separate."
+        },
+        {
+          "sourceMeaning": "cleanout",
+          "definingRow": "O17",
+          "selector": "parameters.sanitationKind=CLEANOUT",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O17",
+          "meaning": "Apply a specified cleaning/sanitation procedure to named equipment, tool, container, facility or extent; the performed procedure and its achieved hygiene criterion are separate."
+        },
+        {
+          "sourceMeaning": "sanitize",
+          "definingRow": "O17",
+          "selector": "parameters.sanitationKind=SANITIZE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O17",
+          "meaning": "Apply a specified cleaning/sanitation procedure to named equipment, tool, container, facility or extent; the performed procedure and its achieved hygiene criterion are separate."
+        },
+        {
+          "sourceMeaning": "maintain",
+          "definingRow": "O18",
+          "selector": "MAINTAIN",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O18",
+          "meaning": "Perform a specified maintenance task on an exact equipment/tool/facility/container asset, preserving replaced parts, configuration and task-completion facet; this need not change durable identity."
+        },
+        {
+          "sourceMeaning": "create-lot",
+          "definingRow": "O27",
+          "selector": "parameters.specificActivity=LOT_CREATION_ALLEGATION; no creation effect",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O27",
+          "meaning": "Allege that a specified traceability cohort was established, or is intended to be established, by a named origin process. The prospective lot is a described output; the claim does not allocate a canonical identity, create an accepted MaterialEvent consequence, or write inventory."
+        },
+        {
+          "sourceMeaning": "split-lot",
+          "definingRow": "O11",
+          "selector": "parameters.specificActivity=LOT_SPLIT",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O11",
+          "meaning": "Separate one coherent cohort into two or more successor cohorts, preserving predecessor/successors and quantities where alleged."
+        },
+        {
+          "sourceMeaning": "merge-lots",
+          "definingRow": "O12",
+          "selector": "parameters.specificActivity=LOT_MERGE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O12",
+          "meaning": "Governedly unite distinct lots into one successor cohort with explicit source lineage; this meaning differs from physical commingling."
+        },
+        {
+          "sourceMeaning": "move-material",
+          "definingRow": "O15",
+          "selector": "parameters.movementPhase=MOVE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O15",
+          "meaning": "Move named material from source to destination, with custody/possession roles and commercial references separately stated; location change alone does not create a new lot."
+        },
+        {
+          "sourceMeaning": "dispatch",
+          "definingRow": "O15",
+          "selector": "parameters.movementPhase=DISPATCH",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O15",
+          "meaning": "Move named material from source to destination, with custody/possession roles and commercial references separately stated; location change alone does not create a new lot."
+        },
+        {
+          "sourceMeaning": "receive",
+          "definingRow": "O24",
+          "selector": "parameters.specificActivity=MATERIAL_RECEIPT",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O24",
+          "meaning": "The identified receiver takes physical delivery of the specified material/cohort at the receiving location for the declared extent. Receipt, dispatch, commercial acceptance, custody and title are distinct allegations."
+        },
+        {
+          "sourceMeaning": "reclassify-material",
+          "definingRow": "O25",
+          "selector": "parameters.specificActivity=MATERIAL_RECLASSIFICATION",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O25",
+          "meaning": "An actor alleges reassignment of a material classification under an exact versioned scheme and procedure, retaining before/after class and traceability claim basis. A label change does not silently create, transform or continue a cohort."
+        },
+        {
+          "sourceMeaning": "dispose-material",
+          "definingRow": "O26",
+          "selector": "parameters.specificActivity=MATERIAL_DISPOSAL",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O26",
+          "meaning": "An actor alleges removal of a specified material extent from its declared use/inventory route by the named disposal procedure and destination. Disposal is not movement, reclassification, or a successor-producing transformation."
+        }
+      ]
+    },
+    {
+      "canonicalRow": "V04-profiles",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "6da977b3fcafad914da2c7640cfd903f0d58481a2a5cdad4c2dc1fb761c7af28",
+      "domainRows": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11",
+        "C12",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O07",
+        "O08",
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O19",
+        "O20",
+        "O21",
+        "O22",
+        "O23",
+        "O24",
+        "O25",
+        "O26",
+        "O27",
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S08",
+        "S09",
+        "S10",
+        "S11",
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "requirementIds": [
+        "R16"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "Retain all nine profiles and seventeen eligible event-presence/profile cells. Exact time selectors follow the body meaning; neither a report timestamp nor a conveniently equal number chooses the perspective.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "EVENT",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-time-observed",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "32ac8339b9dbea6bfea4e55e5cbdd2a6a4fe7969c28db07af50620a948e2ba80",
+      "domainRows": [
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O07",
+        "O08",
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O19",
+        "O20",
+        "O21",
+        "O22",
+        "O23",
+        "O24",
+        "O25",
+        "O26",
+        "O27"
+      ],
+      "requirementIds": [
+        "R16",
+        "R17"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "A sampled observation of the action itself, with a result defined as occurred/not occurred or a method-defined process measurement tied to that action.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "RELATION",
+        "EVENT",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-time-sample",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "2251122e010b2cf5a44fcc76de95d052a1581daebf2fe38f303af3a34b6b90f4",
+      "domainRows": [
+        "O10"
+      ],
+      "requirementIds": [
+        "R17"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "Collection of the identified specimen under a named sampling protocol on the stated support; pending analysis can coexist with a retained collection allegation.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "RELATION",
+        "EVENT",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-time-result",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "59c47536d6982e71551f1dcb699600e68256caedfa3a32c85f7cc45c1f8adf80",
+      "domainRows": [
+        "O22"
+      ],
+      "requirementIds": [
+        "R41"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "A result-production act may be alleged only when the property/context explicitly describes producing that result at the selected phenomenon instant. This is a proposed compatibility definition, not a reinterpretation of every measurement resultTime.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "RELATION",
+        "EVENT",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-time-record",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "989d141ec9e7fc9986d95965877c3a4f2cfd35430ddf6349ac045b74dfedd11c",
+      "domainRows": [
+        "O16",
+        "O23"
+      ],
+      "requirementIds": [
+        "R18",
+        "R41"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "Recording/ingesting can be the intended meaning of an operation allegation when the measurement property describes that recording act; it cannot establish the time of the reported physical work.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "RELATION",
+        "EVENT",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-time-estimated",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "a4c89260304aad1fc2fd1a3b9e4c95620a4843dc84b8afce9ff513efc9f20ddd",
+      "domainRows": [
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O07",
+        "O08",
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O19",
+        "O20",
+        "O21",
+        "O22",
+        "O23",
+        "O24",
+        "O25",
+        "O26",
+        "O27"
+      ],
+      "requirementIds": [
+        "R26",
+        "R30",
+        "R42"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "An allegation may retain an estimated instant only as an explicitly qualified estimate with its uncertainty basis. It is not an exact observed-time assertion.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "RELATION",
+        "EVENT",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-time-omitted",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "714332c96d6614fa986fb02172cd726785127eb4f73fad003d2954e3757fb9ea",
+      "domainRows": [
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O07",
+        "O08",
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O19",
+        "O20",
+        "O21",
+        "O22",
+        "O23",
+        "O24",
+        "O25",
+        "O26",
+        "O27"
+      ],
+      "requirementIds": [
+        "R42"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "An omitted optional foreign qualifier is not OBSERVED_TIME by default. An exact method/profile interpretation may define a unique phenomenon-time role for these bytes; otherwise the performance basis is unresolved.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "RELATION",
+        "EVENT",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-result-numeric",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "13880f5d00881518de9e0ed8949907d594d9a969ea029452879714bc2335456a",
+      "domainRows": [
+        "C03",
+        "O01",
+        "O02",
+        "O04",
+        "O05",
+        "O06",
+        "O07"
+      ],
+      "requirementIds": [
+        "R12",
+        "R20"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "Quantified measurement with explicit kind and unit; a number does not intrinsically signify an operation.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "PROFILE",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-result-coded",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "0b7d08301ff9549f6ce47e810e6e87a1a0380abb13b5922e735f8b801491f286",
+      "domainRows": [
+        "C02",
+        "C03",
+        "C05",
+        "C11",
+        "C12",
+        "C16"
+      ],
+      "requirementIds": [
+        "R20",
+        "R42"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "An exact result code under an identified revisioned concept scheme.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "PROFILE",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-result-qualitative",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "c935a06c4b08aa42e4d9352fb751989327b851eab82dea613e3545c81819dddb",
+      "domainRows": [
+        "C04",
+        "C10",
+        "O09"
+      ],
+      "requirementIds": [
+        "R20",
+        "R26",
+        "R42"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "Preserved qualitative content with a bounded interpretation for the selected use.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "PROFILE",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-result-censored_numeric",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "7e9d7c0fafc22508a43686dbfd1e10c3481293bd0043ba4d950f642d6bdc95c6",
+      "domainRows": [
+        "C04"
+      ],
+      "requirementIds": [
+        "R20"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "A qualified detection/quantification result, not a precise substituted number.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "PROFILE",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-result-absent_pending",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "f4f8883f50e9f6a8864e1ababad395f3e5a99e5a1a8bf5cba17b3f280118ebfd",
+      "domainRows": [
+        "O10",
+        "C10"
+      ],
+      "requirementIds": [
+        "R17",
+        "R20"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "No result yet; may preserve a separately evidenced sample collection.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "PROFILE",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-source-sample_pending",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "90e5d9bc4b193662c653f5b671670f2891ad1424916ae106df0c569d79ae4482",
+      "domainRows": [
+        "O10"
+      ],
+      "requirementIds": [
+        "R17"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "collect-sample at 2026-05-06T10:05:00Z on composite support; analysis pending",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "RELATION",
+        "PROFILE",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-source-nitrate",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "08ab6c748d5e99d0c14515c94da1884306ca581e3b87c00efaf053f7f934060b",
+      "domainRows": [
+        "C03",
+        "C04"
+      ],
+      "requirementIds": [
+        "R20"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "qualified sample nitrate result, BELOW_LOQ 2 mg/kg; result issued May 8 about May 6 sample",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "RELATION",
+        "PROFILE",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-source-weeds",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "6c6f13dc060054a258055e06a37a9639b61f93a3dd448aa5a214e47723548bf6",
+      "domainRows": [
+        "O09",
+        "C03",
+        "C04"
+      ],
+      "requirementIds": [
+        "R17",
+        "R20"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "18 weeds/m2 over the observed patch and observation interval; local method/uncertainty retained",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "RELATION",
+        "PROFILE",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-source-wetness",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "c450fd9384dab8a71bad0182b5668b0d025c5def0ffb6c86670f29d204f450e3",
+      "domainRows": [
+        "C03",
+        "C04"
+      ],
+      "requirementIds": [
+        "R17",
+        "R20"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "7.5 hours leaf wetness over a stated observation interval with instrument and calibration context",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "RELATION",
+        "PROFILE",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-context",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "c668ba8b3af7fe68b61f248ca83d3f867cc7f222da7b6c29e32dc2df71dccd6c",
+      "domainRows": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11",
+        "C12",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O07",
+        "O08",
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O19",
+        "O20",
+        "O21",
+        "O22",
+        "O23",
+        "O24",
+        "O25",
+        "O26",
+        "O27"
+      ],
+      "requirementIds": [
+        "R12",
+        "R15",
+        "R17",
+        "R20",
+        "R25"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "A coherent measured claim retains all context that changes what was measured, where, when, by whom, how and with what limitations. Schema validity is not evidence sufficiency or authority.",
+      "ownerDependenciesRetained": [
+        "MEASUREMENT",
+        "RELATION",
+        "PROFILE",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V05-code-bindings",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "72d9f6468798809592621cae664752e9393ddc3950c09ec9905437e586a06920",
+      "domainRows": [
+        "S07",
+        "O01",
+        "O02",
+        "O03",
+        "O09",
+        "O10",
+        "C03",
+        "C04",
+        "C05",
+        "C06"
+      ],
+      "requirementIds": [
+        "R09",
+        "R12",
+        "R20"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "Use existing method/unit/profile machinery without pretending that example refs are governed observed-operation concepts.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "MEASUREMENT",
+        "PROFILE",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V06-operation-target",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "c59b703fa17c980458bb645a3d5e1207fece33a807c7f231c6c87cfb7ac7db52",
+      "domainRows": [
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O07",
+        "O08",
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O19",
+        "O20",
+        "O21",
+        "O22",
+        "O23",
+        "O24",
+        "O25",
+        "O26",
+        "O27",
+        "S08"
+      ],
+      "requirementIds": [
+        "R05",
+        "R15"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "An operation mentioned by the event targets the field/crop-cycle/lot stated in its exact linked execution payload.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "PAYLOAD",
+        "RELATION",
+        "EVENT"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V06-sample-target",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "7d1374252c74b16a5f219d6c615019a298700b0c74a49edd4096cda3d33e7077",
+      "domainRows": [
+        "O10",
+        "C03",
+        "C04"
+      ],
+      "requirementIds": [
+        "R14",
+        "R17"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "The identified specimen was collected from a precisely identified support within a target, not necessarily representative of all of that target.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "PAYLOAD",
+        "RELATION",
+        "MEASUREMENT"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V06-extent",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "38f931e43cd0fea5c1f4ac579f55fe869cb5bbc2593a420146a001fdb03d774d",
+      "domainRows": [
+        "S01",
+        "S11",
+        "O01",
+        "O03",
+        "O08",
+        "O19"
+      ],
+      "requirementIds": [
+        "R14"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "A sampled, observed, treated, failed-pass, retreatment, replant or damage extent relates to its parent for a declared time/use without becoming a new durable identity.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "PAYLOAD",
+        "RELATION"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V06-report-about",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "32f863334798dac93d2cc3a5dd3ad6385b08363cce1dfd466d809e93aee15b4f",
+      "domainRows": [
+        "O16",
+        "O22",
+        "O23",
+        "C01",
+        "C03",
+        "C04"
+      ],
+      "requirementIds": [
+        "R17",
+        "R18",
+        "R19"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "A report concerns a specimen, measured property and supported target via declared report/sample/context relations. Report ingestion is not the result itself.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "PAYLOAD",
+        "RELATION",
+        "MEASUREMENT"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V06-decision-applies",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "ea3c873021f07c24040b4633bcc3c37b42657b3c60a4ff656245be4629d87eff",
+      "domainRows": [
+        "C08",
+        "C14",
+        "C16"
+      ],
+      "requirementIds": [
+        "R23",
+        "R37",
+        "R39"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "A formal decision concerns an exact reviewed artifact, whose typed subject and applicable scope must then be resolved; anchors alone do not identify the reviewed domain subject.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "PAYLOAD",
+        "RELATION",
+        "PROFILE"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V06-lineage",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "6aa5a0d384f8bfc533ca8159268207c9ed01a0acde1765663554e2259858676e",
+      "domainRows": [
+        "C15",
+        "C16",
+        "O03",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O25",
+        "O27",
+        "S04",
+        "S06",
+        "S09"
+      ],
+      "requirementIds": [
+        "R01",
+        "R03",
+        "R07",
+        "R38"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "Revision, split, merge, replacement, succession, overlap and derivation retain their different directions and identity implications.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "PAYLOAD",
+        "RELATION",
+        "PROFILE"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V06-equipment-use",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "b66786a7fc7d6ab3a94cfe495fa3f1411d068c1106658dac7ef59127e0e144aa",
+      "domainRows": [
+        "S12",
+        "O01",
+        "O05",
+        "O17",
+        "O18",
+        "O19"
+      ],
+      "requirementIds": [
+        "R15",
+        "R31",
+        "R33"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "The same real asset may participate in many operations; maintenance/configuration changes do not replace its identity. Equipment evidence is not performer authority.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "PAYLOAD",
+        "RELATION",
+        "ENDPOINTS",
+        "PROFILE"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V06-occupancy",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "030c64cabd6a868d99593522fcc4226ce00415654c64a67e32dadbcdb313b165",
+      "domainRows": [
+        "O15",
+        "O24",
+        "O26",
+        "S05",
+        "S13",
+        "S14"
+      ],
+      "requirementIds": [
+        "R04",
+        "R08",
+        "R31"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "A lot may occupy a reusable container or storage location for one episode; changing occupancy does not create a new container or automatically create a new lot.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "PAYLOAD",
+        "RELATION",
+        "ENDPOINTS"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V06-party-context",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "a05d3f9ff2042d758e126cb2bd05630aa900bf16abbde9aefba6a2bd272407a8",
+      "domainRows": [
+        "O01",
+        "O16",
+        "C11",
+        "C12",
+        "C13",
+        "C14"
+      ],
+      "requirementIds": [
+        "R15",
+        "R35",
+        "R36",
+        "R37"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "Party-to-party, party-to-scope and external-document links retain their enumerated context/basis meanings and never grant permission or prove physical operation performance.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "PAYLOAD",
+        "RELATION",
+        "PROFILE"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V06-parent-scope",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "2be6e032f44cbe78541b9280fe71a947cf6c4749549e14a54475acf208b17664",
+      "domainRows": [
+        "S02",
+        "S04",
+        "S10",
+        "O19",
+        "C11",
+        "C15",
+        "C16"
+      ],
+      "requirementIds": [
+        "R03",
+        "R05",
+        "R33",
+        "R35",
+        "R38"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "A Field belongs to its explicitly bound parent Farm; a CropCycle is one cultivation attempt on its explicit parent scope set. These are directed domain links, not permission inheritance.",
+      "ownerDependenciesRetained": [
+        "RELATION",
+        "PROFILE",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V06-endpoints",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "5a44daef493899ce28f57c428ff8a1fe3649cbdeeb79a242059a739cc57b0a08",
+      "domainRows": [
+        "S12",
+        "S13",
+        "S14",
+        "O17",
+        "O18"
+      ],
+      "requirementIds": [
+        "R31"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "The nine-kind draft cannot losslessly carry all accepted identity requirements. Preserve the nine existing kinds and propose explicit additional subject/context kinds rather than mislabel assets or containment units.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "ENDPOINTS",
+        "RELATION",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    },
+    {
+      "canonicalRow": "V06-proof-interface",
+      "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+      "canonicalRowDefinitionSha256": "acc63b7f5488d8b33c9de1b6a2fd1c0689dbb8c85f3710447a064bbaf5ec9876",
+      "domainRows": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "C11",
+        "C12",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O07",
+        "O08",
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O19",
+        "O20",
+        "O21",
+        "O22",
+        "O23",
+        "O24",
+        "O25",
+        "O26",
+        "O27",
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S08",
+        "S09",
+        "S10",
+        "S11",
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "requirementIds": [
+        "R05",
+        "R16",
+        "R27"
+      ],
+      "status": "MEANING_RECONCILED_AS_CANDIDATE",
+      "sourceMeaning": "The existing draft binds proofs immutably but does not define their truth. Consume actual owner-produced evidence under its own contract; do not add a generic compatible flag or parallel evidence ledger.",
+      "ownerDependenciesRetained": [
+        "SEMANTICS",
+        "RELATION",
+        "PAYLOAD"
+      ],
+      "actualAdmittedBindingEstablished": false
+    }
+  ],
+  "resolutions": [
+    "The supplied spot-spray event is reconciled as physical spraying described by a late report. O01/O19 consume V04-spray; O16 reporting and O23 ingestion require their own act evidence/event. No old frozen file is rewritten.",
+    "Sample collection with pending analysis is O10 + V05-time-sample + V05-source-sample_pending + V06-sample-target. The analyte remains soil nitrate; collection provenance supplies the collection meaning. No synthetic occurrence code replaces ABSENT_PENDING.",
+    "S12–S14 and V06-endpoints agree on four additional subject/context kinds and separate SAMPLE/PARTIAL_EXTENT/DOCUMENT/REVIEW_DECISION/INSPECTION_RECORD evidence endpoints. Existing authority anchors remain unchanged.",
+    "Completion-at-an-instant is a newly explicit facet in this domain candidate. V05 observed occurrence must be specialized by the exact bound work/procedure completion criterion and extent; an interval end or progress observation alone cannot establish it. W03/W04 are fictional dedicated completion observations, not a conversion of the actual pruning/spraying interval examples.",
+    "No actual governed/admitted measured-performance positive is established. Candidate definition hashes identify review text only; they never fill governedBinding or replace actual proof authority.",
+    "B01–B04 repaired under candidate r3: exact material-action mapping, scoped quantity collection, unified atoms and guarded profile/facet definitions. Canonical source bytes unchanged.",
+    "r4 repairs only application-material interpretation/identity and the O22 output-by-facet guard. Canonical contribution and all mappings remain unchanged."
+  ],
+  "remainingExactDependencies": {
+    "SEMANTICS": {
+      "owner": "AssertionRecord body/domain owner with relevant evidence/pack owner",
+      "deliverable": "Review and adopt exact candidate concept, predicate and body revision; materialize its actual immutable bytes/hash. Current identifiers below are local proposal identifiers only.",
+      "boundary": "Domain meaning; no new authority granted"
+    },
+    "EVENT": {
+      "owner": "Existing Event Ingress owner",
+      "deliverable": "Actual separately passing evidence binds exact envelope bytes, dominant-consequence classification, authoritative primary family and selected assertion commit class. Pair with the adopted body meaning case; neither substitutes for the other.",
+      "boundary": "Event classification; separate producer dependency"
+    },
+    "MEASUREMENT": {
+      "owner": "Existing measurement/evidence-time and code-binding/profile owners",
+      "deliverable": "Actual immutable property/result/method interpretation, qualified observation or collection provenance, time/extent/subject links and eligible-use evidence. No admitted operation-occurrence dictionary or complete governed positive is present in the inspected sources.",
+      "boundary": "Evidence provenance/admission; separate producer dependency"
+    },
+    "RELATION": {
+      "owner": "Existing identity/lifecycle and subject-context evidence owners",
+      "deliverable": "Admitted relation evidence for the row-specific carrier endpoints, direction, applicability and extent; exact producer/contract revision and digest must be supplied, not inferred from a ref or flag.",
+      "boundary": "Identity/evidence validity; separate producer dependency"
+    },
+    "ENDPOINTS": {
+      "owner": "AssertionRecord body/domain owner; authority scope owner only if scope law must change",
+      "deliverable": "Proposed explicit EQUIPMENT, TOOL, STORAGE_LOCATION, CONTAINER subject/context kinds and SAMPLE/PARTIAL_EXTENT evidence endpoints. Revise the draft body/intent constraints consistently; do not alias them to INPUT, LOT, FIELD or FACILITY. Keep the one existing authority anchor. Any new authority-scope kind is a separate decision.",
+      "boundary": "Domain typing; authority expansion excluded"
+    },
+    "PROFILE": {
+      "owner": "Existing SI, RS or NL profile owner as applicable",
+      "deliverable": "Real jurisdiction/year-specific concept, method, rule, threshold, reference snapshot and evidence eligibility bindings. Listing a requirement imports no legal rule or producer authority into Core.",
+      "boundary": "Profile-owned semantics and evidence"
+    },
+    "PAYLOAD": {
+      "owner": "Existing complete domain payload/PR43 envelope owner",
+      "deliverable": "Full 49-obligation domain payload with actual contract/schema/intent/result digests and selected body binding; observed relationships/measurements feed named leaves. PR45 copy MATCH and a self-authored boolean are not substitutes.",
+      "boundary": "Domain-validation evidence integrity; implementation separate"
+    }
+  },
+  "actualGovernedPositiveStatus": {
+    "measurementWithEvent": false,
+    "measurementWithoutEvent": false,
+    "reason": "Source carriers and examples exist; complete adopted occurrence/collection interpretation plus real admitted owner/provenance/relationship/Event Ingress evidence do not. Concrete candidate predicates and positives are supplied without claiming those missing facts."
+  },
+  "next": "Freeze r4 for final bounded check of B02-R1/B04-R1 and affected invariants.",
+  "domainRevision": "local-candidate:complete-claims:2026-10-20:r4",
+  "repairContracts": [
+    "atom-contract.json",
+    "quantity-contract.json",
+    "operation-profile-contract.json"
+  ]
+}

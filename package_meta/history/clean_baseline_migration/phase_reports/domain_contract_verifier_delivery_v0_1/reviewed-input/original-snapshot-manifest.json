@@ -1,0 +1,273 @@
+{
+  "status": "FROZEN_R4_CORRECTION_FOR_FINAL_BOUNDED_REVIEW",
+  "frozenAtUtc": "2026-10-20T21:43:49.250551+00:00",
+  "primaryTrustBoundary": "AssertionRecord domain meaning and validation integrity",
+  "domainRevision": "local-candidate:complete-claims:2026-10-20:r4",
+  "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+  "priorFreezeManifestSha256": "463ea26e44f2d2c1c30b96a67b36e3b804aa0f20dc0f2944913a51cda9c2e4c6",
+  "reviewScope": [
+    "B02-R1",
+    "B04-R1",
+    "affected invariants"
+  ],
+  "counts": {
+    "requirements": 42,
+    "mappedRepresentationRequirements": 42,
+    "unmappedRepresentationRequirements": 0,
+    "domainCandidateRows": 58,
+    "canonicalCandidateRows": 41,
+    "totalCandidateRowsAcrossOwners": 99,
+    "knownSemanticEvaluatorDependencies": [
+      "Actual owner review/adoption of candidate predicates and exact bindings",
+      "NL deterministic calculation contract",
+      "Real admitted measurement/Event Ingress/relationship producers",
+      "New subject/context typed resolution interfaces"
+    ]
+  },
+  "wholeExamples": 23,
+  "members": [
+    {
+      "path": "canonical/README.md",
+      "bytes": 14039,
+      "sha256": "7479074a3860868442f983e5b2063d37d3bc0ee68f93b97e091d7cd60fe53801"
+    },
+    {
+      "path": "canonical/build_inventory.py",
+      "bytes": 71705,
+      "sha256": "ff31fc1e5cc1f46e9ac266db0cafb6da9b15bf26538837ba34dfe34ef98ab2af"
+    },
+    {
+      "path": "canonical/handoff.json",
+      "bytes": 2900,
+      "sha256": "200bac8eaf1c9ac7d530e208756dc28f8454d984c1cf5b64faa7b287e9666e5b"
+    },
+    {
+      "path": "canonical/inventory.json",
+      "bytes": 337577,
+      "sha256": "4aec570ad05349924218a1ccef4d9c2e017f27f8ca986a274779f1fe8a970557"
+    },
+    {
+      "path": "canonical/manifest.json",
+      "bytes": 1190,
+      "sha256": "967681878b884727363b6739821d2190e47c762c3e051cf2de61346cbc1b0bbb"
+    },
+    {
+      "path": "canonical/render-specimens.json",
+      "bytes": 24527,
+      "sha256": "6ee35075baa244181e1d9b42f7c40cc59c6ca06dd2ad62dab355e2a068a98751"
+    },
+    {
+      "path": "canonical/source-map.json",
+      "bytes": 40407,
+      "sha256": "43e4d4087598454df16ea1dbebf5f966d03935fdabe2855e341970dff6de0916"
+    },
+    {
+      "path": "canonical/verification.json",
+      "bytes": 2759,
+      "sha256": "2f2f8f1159104ea8a0f97d4b3e39ff156b93aadf25c2ddc7436b44dff2174c47"
+    },
+    {
+      "path": "coordination.md",
+      "bytes": 3770,
+      "sha256": "5c41b79832e5edd687736faae58bf912acc3552011dfc55c5f073317bce81f62"
+    },
+    {
+      "path": "domain/README.md",
+      "bytes": 5903,
+      "sha256": "9f7157d6e948bde8c6c10d09911c3c30525e1e85e5950b1d38b72c39cb0fd98d"
+    },
+    {
+      "path": "domain/assemble_inventory.py",
+      "bytes": 62322,
+      "sha256": "1bbe1b756a53bd96208f37520f66a16bb155ffe45e3bb38f3fb2f58dc7087328"
+    },
+    {
+      "path": "domain/atom-contract.json",
+      "bytes": 5007,
+      "sha256": "c70566d0fe6a066a63d3dc4c3a30e7d8c54139494b5505a38169abb8139258d9"
+    },
+    {
+      "path": "domain/handoff.md",
+      "bytes": 3157,
+      "sha256": "2edbc6309fb79872c95aeb6584a4377a4b7c7d7128c2df6259ff1ed2940f4db1"
+    },
+    {
+      "path": "domain/integrate_canonical.py",
+      "bytes": 22253,
+      "sha256": "87522b523013e0906256c77f4a5ee9c29c9dbbe0fdca9412357b864e736d9776"
+    },
+    {
+      "path": "domain/integration.json",
+      "bytes": 50926,
+      "sha256": "20f961ff1ac3185763fcc0aa1406e761a8c7f3bfba1709d6e64e11a57c5c9dfd"
+    },
+    {
+      "path": "domain/inventory.json",
+      "bytes": 1006288,
+      "sha256": "56997a2e844fa3384d19ae75c89317cde5b1245bee44a62d8bd6beab02128d0c"
+    },
+    {
+      "path": "domain/manifest.json",
+      "bytes": 5171,
+      "sha256": "c2cce46ee8f0e9f4e9df72619f9fed4f84877471619202ef50cf290d9b771535"
+    },
+    {
+      "path": "domain/occurrence-definitions.json",
+      "bytes": 116067,
+      "sha256": "f33204fc3167b8b6db6fa5d1f9f0ff84500f3bb913377ca6fa35947133ffabf0"
+    },
+    {
+      "path": "domain/operation-profile-contract.json",
+      "bytes": 10807,
+      "sha256": "677fd66b099cc8560f41b38f4b218674a312a4b06e18437c72146d181c2e83b7"
+    },
+    {
+      "path": "domain/quantity-contract.json",
+      "bytes": 10479,
+      "sha256": "0860eda17b83e48e500557391b5b96754856e1438aa271f4ead8d11fa8712973"
+    },
+    {
+      "path": "domain/reconcile_checklist.py",
+      "bytes": 45317,
+      "sha256": "b474679fb66d1c0fc502e37674a24a0877c9fd06a83b61e74c197096461a399f"
+    },
+    {
+      "path": "domain/repair-verification.json",
+      "bytes": 159864,
+      "sha256": "bbe6d9377854519021b719ebe8370d10e9aaa3fbcc893d9604c2529f288bec81"
+    },
+    {
+      "path": "domain/repair_review_01.py",
+      "bytes": 70858,
+      "sha256": "732637c90127be74d72db13ff0647b598b7aa3d7b27d3ea85d1b1e394b48aac0"
+    },
+    {
+      "path": "domain/repair_review_02.py",
+      "bytes": 20767,
+      "sha256": "5fe1aeece546ecbe7923757a43dda58de744304d92735326c34185cefa67dbf6"
+    },
+    {
+      "path": "domain/requirements.json",
+      "bytes": 96049,
+      "sha256": "2f61281b5ede98a6774785f592e303a4237f49e7c318bffc44724f7a4850ec19"
+    },
+    {
+      "path": "domain/review-response-01.json",
+      "bytes": 9489,
+      "sha256": "a285fc65c8b90aa50c531021df568e057f2903a9c0222094753dc5b4a6ac413a"
+    },
+    {
+      "path": "domain/review-response-01.md",
+      "bytes": 7468,
+      "sha256": "a0332894e439568a7cebf16062721190545622129d7d290ca469b2df03445398"
+    },
+    {
+      "path": "domain/review-response-02.json",
+      "bytes": 6859,
+      "sha256": "a3eab54b167c2b1fcd8e9225592815f93bb0f4e9a5f8841d10eb445b34809685"
+    },
+    {
+      "path": "domain/review-response-02.md",
+      "bytes": 6100,
+      "sha256": "a92eee99714e0f11b6e191d2da989daf216612e0acc0c755318d7338990ab4fc"
+    },
+    {
+      "path": "domain/sources.json",
+      "bytes": 24514,
+      "sha256": "7e144dd1d706961754ecf8dc28fb10fa79058e219ff6acf8e748c364fe3afb4f"
+    },
+    {
+      "path": "domain/verification.json",
+      "bytes": 2239,
+      "sha256": "70072d4c3696138d2498fd54eaad1274ff17f2c8263d9b9b7f5398aa65669573"
+    },
+    {
+      "path": "domain/verify_review_01_repairs.py",
+      "bytes": 25000,
+      "sha256": "9de6e01a0cefcf5585e12c5ebfdc446fa2f7059c99b1308a2bc9145fc26c8c25"
+    },
+    {
+      "path": "domain/verify_review_02_repairs.py",
+      "bytes": 36686,
+      "sha256": "a107da2282579f0cb7e5a092dddf360f7916b2dbdc8750116f9d2412b6f8bd2d"
+    },
+    {
+      "path": "domain/whole-claim-examples.json",
+      "bytes": 427618,
+      "sha256": "e07a03c585e25050280573f04b69033834b136e47dd48437e4b1a79d48b25d7f"
+    },
+    {
+      "path": "domain/work-condition-definitions.json",
+      "bytes": 22289,
+      "sha256": "3334642f506968c8970945bd27be3b569946e5453b75757af31f32e61064dd11"
+    },
+    {
+      "path": "overview.md",
+      "bytes": 6882,
+      "sha256": "4ccdbee6689aa7628f93986020281f67881e8d564de2e30555df6c4dca083edc"
+    },
+    {
+      "path": "review/canonical-fix-context-01.md",
+      "bytes": 9308,
+      "sha256": "0d064803da6651533446a3dcc3a613c768350a0492a5d096039a4f01af626454"
+    },
+    {
+      "path": "review/canonical-fix-context-02.md",
+      "bytes": 6152,
+      "sha256": "80741d6e4d8d28900df782fbb269d562c532cf279e8f287f8124d718121da155"
+    },
+    {
+      "path": "review/inventory-review-01.json",
+      "bytes": 26363,
+      "sha256": "522d21b89bf878dfd1cc59057d47986e28acfeb1ef2ad42e0173a0b42ed725a8"
+    },
+    {
+      "path": "review/inventory-review-01.md",
+      "bytes": 14052,
+      "sha256": "43850aa37c1d78fe6c71c41d544bb09c56da1d7730e15bf588c67db90e0cc0bc"
+    },
+    {
+      "path": "review/inventory-review-02.json",
+      "bytes": 14165,
+      "sha256": "d268fc75e8b3d3765eec7cf748ca08715b4b7ef1759665349ccbd6424a1aee2d"
+    },
+    {
+      "path": "review/inventory-review-02.md",
+      "bytes": 8404,
+      "sha256": "64741fc466fcc2cff5442205f9a3bc75a16fb8ed163c6773eee5dcd480bc0753"
+    },
+    {
+      "path": "review/inventory-verification-01.json",
+      "bytes": 117225,
+      "sha256": "a2c69dfdb867515c56177dbe8898da60481c578900c124b1f3f507ae4166feea"
+    },
+    {
+      "path": "review/inventory-verification-02.json",
+      "bytes": 137417,
+      "sha256": "d237712dfad2de031a1384266f02b4edd55b1e688ada98eb49c5da4e4fc96121"
+    },
+    {
+      "path": "review/requirements-checklist.md",
+      "bytes": 13551,
+      "sha256": "bc7f0b699c55e158189d1b7d4996f4cd81acb91dffdd94e60ce96e172592c35e"
+    },
+    {
+      "path": "review/requirements-source-pins.json",
+      "bytes": 16441,
+      "sha256": "b8d259555fdfcb307e5ae3fa46321e25899022ddee43d7c0f95df251c048e08a"
+    },
+    {
+      "path": "selection-and-baseline.json",
+      "bytes": 2807,
+      "sha256": "71b7f9312d44820ea7686c2bef5193d9f72e0fca056f4f58468e2c78e7f412d1"
+    },
+    {
+      "path": "source-verification-03.json",
+      "bytes": 38393,
+      "sha256": "bdb09a441888ef663190aa2be941721797295670caea7cbd9c21649d46924ab5"
+    }
+  ],
+  "sourcePinEntriesVerified": 119,
+  "uniqueGitSourcesVerified": 67,
+  "limits": "Source-bounded candidate inventory only; final review pending. No canonical adoption, admitted runtime PASS, source edits, CI activation or merge."
+}

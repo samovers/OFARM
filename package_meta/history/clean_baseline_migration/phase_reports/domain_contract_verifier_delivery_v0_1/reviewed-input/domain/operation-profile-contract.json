@@ -1,0 +1,187 @@
+{
+  "revision": "local-candidate:complete-claims:2026-10-20:r4#operation-profile-contract",
+  "INTENDED_WINDOW": {
+    "claimPosture": "INTENDED",
+    "timeFields": [
+      "start",
+      "end"
+    ],
+    "temporalSources": [
+      "BODY_TIME",
+      "INTERVENTION_INTENT_PAYLOAD"
+    ],
+    "requiresMeasurement": false,
+    "eventPresence": [
+      "ABSENT"
+    ],
+    "predicates": [
+      "Require start < end and exact endpoints equal to the explicitly designated body window or intent payload intendedTimeWindow.",
+      "A designated intent payload must have PRESCRIPTION_WINDOW/PLANNED_WINDOW or the unique exact versioned interpretation of omitted/UNKNOWN under currentProposedQualifierRules. Reject execution/observation time as intent.",
+      "Facet is the requested milestone for the named activity/work specification in this window, not evidence it already happened. Preserve planned/target quantities separately from any historical comparison values.",
+      "An event is prohibited by retained v0.1 INTENDED_WINDOW rule. No instant observation, subjectTime.at, or already produced result/ingested record is required."
+    ]
+  },
+  "PERFORMED_INSTANT": {
+    "claimPosture": "PERFORMED",
+    "timeFields": [
+      "at"
+    ],
+    "temporalSources": [
+      "MEASUREMENT_EVIDENCE"
+    ],
+    "requiresMeasurement": true,
+    "eventPresence": [
+      "ABSENT",
+      "PRESENT"
+    ],
+    "predicates": [
+      "Require designated MeasurementEvidence phenomenonTime.timeType INSTANT and exact /phenomenonTime/instant == subjectTime.at. No resultTime, sourceCapturedAt, recordTime or interval endpoint fallback.",
+      "The exact activity/facet, work, target, extent, performer and property/result/method/qualifier interpretation must agree; occurrence definitions apply only to this profile. Collection may use separate provenance with an unchanged ABSENT_PENDING assay, never manufacture an occurrence result.",
+      "With event absent, evaluate all same measurement and relationship predicates. With event present, independently require exact body case, Event Ingress, and fixed compatible selector from eventTime/observationTime/decisionTime/effectiveFrom equal to at; equal timestamp/family is insufficient."
+    ]
+  },
+  "PERFORMED_INTERVAL": {
+    "claimPosture": "PERFORMED",
+    "timeFields": [
+      "start",
+      "end"
+    ],
+    "temporalSources": [
+      "BODY_TIME",
+      "EXECUTION_RECORD_PAYLOAD"
+    ],
+    "requiresMeasurement": false,
+    "eventPresence": [
+      "ABSENT",
+      "PRESENT"
+    ],
+    "predicates": [
+      "Require start < end and exact endpoints equal to the designated body interval or execution payload effectiveTimeInterval. Optional payloads are not made mandatory by this branch.",
+      "Designated execution payload uses EXECUTION_INTERVAL/EFFECTIVE_INTERVAL; OBSERVED_INTERVAL requires the exact method to establish the full action interval. Omitted/UNKNOWN requires its unique versioned interpretation. Planned windows cannot prove performance.",
+      "OCCURRENCE alleges the activity over this declared interval; STARTED asserts the work start condition at start and the described interval; IN_PROGRESS asserts progress throughout the stated interval under the method; COMPLETED requires all finish conditions satisfied by end over the specified extent. An interval end alone is not completion evidence.",
+      "Event absent retains the same allegation/evidence rules. Event present requires the exact body case and both effectiveFrom == start and effectiveUntil == end, plus Event Ingress and target/extent compatibility. Missing event end cannot be invented.",
+      "Supporting interval/instant measurements may supply evidence but do not replace the designated temporal source or collapse an interval to subjectTime.at."
+    ]
+  },
+  "rowSpecializations": {
+    "O10": "The act is collection of the exact sample under the bound sampling procedure. STARTED is commencement of specimen collection, not ordering a test; IN_PROGRESS is actual ongoing collection/assembly of that specimen. Finish is completion of the specified specimen/support collection, independent of analysis availability.",
+    "O16": "The act is communicating the exact allegation by the stated channel. STARTED is commencement of that communication, IN_PROGRESS is its ongoing transmission, COMPLETED is delivery/recording under the bound reporting procedure; none is the reported physical work.",
+    "O22": "Analysis result production denotes the process for the exact analysis work, method, specimen/property and output specification. INTENDED_WINDOW uses PROSPECTIVE_OUTPUT_SPECIFICATION for every requested facet. PERFORMED OCCURRENCE, STARTED and IN_PROGRESS allow PENDING_OUTPUT without an actual result, or an explicitly evidenced ACTUAL_OUTPUT; neither proves completion. PERFORMED COMPLETED requires actual result/output evidence and all finish conditions. Both performed time profiles use this facet guard. Only PERFORMED_INSTANT selects MeasurementEvidence /phenomenonTime/instant; RESULT_TIME needs exact compatible work/facet meaning and never means the ordinary resultTime field or sample time.",
+    "O23": "The act is importing/attaching the specified report into the named destination context from the identified source system. Intended window binds the intended report/selection and destination; no existing ingestion result is required. Performed interval describes this ingestion process, not the report subject or sampling/spray interval. STARTED commences the import, IN_PROGRESS means ongoing transfer/attachment, COMPLETED satisfies defined attachment/verification finish conditions. For performed instant only, RECORD_TIME describes an independently evidenced recording phenomenon selected at phenomenonTime/instant; capture/sync fields alone cannot prove it."
+  },
+  "eventCaseRule": "The exact associated case fixes family/subtype presence, dominant consequence, selected activity/facet/work/extent and time selector before evaluation. O22 analysis-result-production and O23 report-ingestion require their own case; neither borrows collection, spraying or historical pruning. Existing V04-report-ingest can support only its actual evidenced meaning. A new exact event case remains a candidate for existing-owner adoption, not admission.",
+  "qualifierRules": "All five qualifiers plus omission remain available under the existing canonical activity/method semantics. OBSERVED_TIME means direct act evidence; SAMPLE_TIME collection; RESULT_TIME result production; RECORD_TIME recording; ESTIMATED_TIME explicit estimate qualification; omission only unique versioned interpretation. They are not interchangeable. Source context and result branches remain unchanged.",
+  "payloadPointers": {
+    "INTENDED_WINDOW": [
+      "/intendedTimeWindow/start",
+      "/intendedTimeWindow/end"
+    ],
+    "PERFORMED_INTERVAL": [
+      "/effectiveTimeInterval/start",
+      "/effectiveTimeInterval/end"
+    ]
+  },
+  "O22OutputContract": {
+    "selector": [
+      "subjectTime.profile",
+      "claimPosture",
+      "performanceFacet"
+    ],
+    "byProfileAndFacet": {
+      "INTENDED_WINDOW": {
+        "OCCURRENCE": [
+          "PROSPECTIVE_OUTPUT_SPECIFICATION"
+        ],
+        "STARTED": [
+          "PROSPECTIVE_OUTPUT_SPECIFICATION"
+        ],
+        "IN_PROGRESS": [
+          "PROSPECTIVE_OUTPUT_SPECIFICATION"
+        ],
+        "COMPLETED": [
+          "PROSPECTIVE_OUTPUT_SPECIFICATION"
+        ]
+      },
+      "PERFORMED_INSTANT": {
+        "OCCURRENCE": [
+          "PENDING_OUTPUT",
+          "ACTUAL_OUTPUT"
+        ],
+        "STARTED": [
+          "PENDING_OUTPUT",
+          "ACTUAL_OUTPUT"
+        ],
+        "IN_PROGRESS": [
+          "PENDING_OUTPUT",
+          "ACTUAL_OUTPUT"
+        ],
+        "COMPLETED": [
+          "ACTUAL_OUTPUT"
+        ]
+      },
+      "PERFORMED_INTERVAL": {
+        "OCCURRENCE": [
+          "PENDING_OUTPUT",
+          "ACTUAL_OUTPUT"
+        ],
+        "STARTED": [
+          "PENDING_OUTPUT",
+          "ACTUAL_OUTPUT"
+        ],
+        "IN_PROGRESS": [
+          "PENDING_OUTPUT",
+          "ACTUAL_OUTPUT"
+        ],
+        "COMPLETED": [
+          "ACTUAL_OUTPUT"
+        ]
+      }
+    },
+    "variants": {
+      "PROSPECTIVE_OUTPUT_SPECIFICATION": {
+        "required": [
+          "role",
+          "specificationBinding"
+        ],
+        "forbidden": [
+          "binding",
+          "outputState"
+        ],
+        "meaning": "The intended output specification for this analysis work, sample, property and method. No result exists by implication, including when the requested milestone is COMPLETED."
+      },
+      "PENDING_OUTPUT": {
+        "required": [
+          "role",
+          "specificationBinding",
+          "outputState"
+        ],
+        "forbidden": [
+          "binding"
+        ],
+        "outputStates": [
+          "NOT_YET_PRODUCED",
+          "UNREPORTED"
+        ],
+        "meaning": "The process is alleged to occur, start or be in progress against the exact output specification. NOT_YET_PRODUCED asserts no produced result yet; UNREPORTED asserts no result-availability fact. Neither carries an actual-result reference or supplies completion evidence."
+      },
+      "ACTUAL_OUTPUT": {
+        "required": [
+          "role",
+          "specificationBinding",
+          "binding"
+        ],
+        "forbidden": [
+          "outputState"
+        ],
+        "meaning": "An actual result is explicitly alleged and independently evidenced as output of this exact work/specification for its sample/property/method. Its existence alone does not prove STARTED, IN_PROGRESS or every finish condition."
+      }
+    },
+    "commonPredicates": [
+      "specificationBinding must equal workSpecification.outputSpecification and resolve the expected output for this exact sample, property, method and activityInstance. It is a specification binding, never a fabricated result identity.",
+      "The selected profile supplies temporal source rules independently. Actual evidence about the selected work facet is always required for performed claims; pending output does not waive that evidence.",
+      "PERFORMED COMPLETED requires ACTUAL_OUTPUT with actual result binding and independent output/provenance evidence plus every bound finish condition. PENDING_OUTPUT/PROSPECTIVE_OUTPUT_SPECIFICATION, an interval end, or a start/progress witness cannot satisfy completion.",
+      "For PERFORMED OCCURRENCE/STARTED/IN_PROGRESS, PENDING_OUTPUT is valid without an actual output. An independently existing partial/early output may instead be explicitly alleged as ACTUAL_OUTPUT, but it does not establish completion."
+    ],
+    "profilePosture": "INTENDED_WINDOW requires INTENDED; PERFORMED_INSTANT/PERFORMED_INTERVAL require PERFORMED. These guards are unchanged."
+  }
+}

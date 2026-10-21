@@ -1,0 +1,31 @@
+{
+  "status": "EXACT_REBUILD_PASS",
+  "runs": [
+    {
+      "script": "build_event_cases_v3.py",
+      "exitCode": 0,
+      "output": "Built 2 event carrier models and 10 isolated event negatives."
+    },
+    {
+      "script": "build_commit_class_cases_fix01.py",
+      "exitCode": 0,
+      "output": "Built 3 independent canonical-token negatives with recomputed package/proof/result digests."
+    },
+    {
+      "script": "prepare_checker_v3.py",
+      "exitCode": 0,
+      "output": ""
+    }
+  ],
+  "artifactHashesBeforeAndAfter": {
+    "event-compatibility-package-v3.json": "54513a2a42b2c4eeaad6d1b29f87bf8ce1b50d68ab1b5d392e9badd03b3b2fac",
+    "event-cases-v3.json": "ed477ecd8a027075286bfd503bd18aa88284e68d38b32b26e8e7f629155b09fd",
+    "evidence-selectors-v3.json": "75cc366b4f4c20331dfeeedd559877abe7330b26bd5372265e2c41222a42f2da",
+    "commit-class-cases-fix01.json": "39d00b60356cad2246e9a2ce20d3a74f56710200c4c8ea0ad2124dfda907b74e",
+    "check_examples_v3.py": "3e303e01cd2eba8dfea3bd5443f0baacfbb0ee0781b6df0fbc888754562a5edc"
+  },
+  "allArtifactsByteIdenticalAfterRebuild": true,
+  "allRootJsonParses": true,
+  "allRootPythonCompilesWithoutBytecodeWrites": true,
+  "next": "Integrate the exact corrected bytes and renew independent review."
+}
