@@ -444,6 +444,49 @@
               }
             }
           ]
+        },
+        "AUTHORIZATION_VIEW_EXTRACTOR": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisionRef": {
+              "type": "string",
+              "minLength": 1
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+            }
+          },
+          "required": [
+            "ref"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "revisionRef"
+              ],
+              "not": {
+                "required": [
+                  "digest"
+                ]
+              }
+            },
+            {
+              "required": [
+                "digest"
+              ],
+              "not": {
+                "required": [
+                  "revisionRef"
+                ]
+              }
+            }
+          ]
         }
       },
       "required": [
@@ -455,7 +498,8 @@
         "BINDING_MANIFEST",
         "EFFECT_INTENT",
         "DERIVED_VIEW",
-        "EVALUATION_SNAPSHOT"
+        "EVALUATION_SNAPSHOT",
+        "AUTHORIZATION_VIEW_EXTRACTOR"
       ]
     },
     "decisionBundleDigest": {

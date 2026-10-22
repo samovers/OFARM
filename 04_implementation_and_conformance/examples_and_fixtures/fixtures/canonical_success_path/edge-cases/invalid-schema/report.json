@@ -1,6 +1,9 @@
 {
   "id": "invalid-schema",
   "expected": "FAIL",
+  "expectedCodes": [
+    "MALFORMED_SOURCE_OR_DEPENDENCY"
+  ],
   "actual": "FAIL",
   "matched": true,
   "report": {
@@ -28,9 +31,9 @@
     "selectedParty": null,
     "sourceOrigin": "FICTIONAL_CONFORMANCE",
     "inputDigests": {
-      "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
-      "profile": "62a3fb1e7c704e87fb5271be1f14b59a81e077cc5d665c31fc1257b111c10964",
-      "context": "1aa646643d22e8a96b274ae20201e647cc95f1921d8f36a3f1ad96ea84211c51"
+      "evidence": "66f2ed8d0a070f32ed71b40612557920707c78ce011cfd6afb56582f3d4ace76",
+      "profile": "35566a2012667fa8e65cba9457d29f5f52a6ba07a388b6f4c2cd968de49fa84a",
+      "context": "412e2e16b4bd288fd19c1b4cba529b7b2f0be09687383395273eda51128f4443"
     },
     "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
   }

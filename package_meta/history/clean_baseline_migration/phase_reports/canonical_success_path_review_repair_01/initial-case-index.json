@@ -1,0 +1,4329 @@
+{
+  "scope": "FICTIONAL_SELECTED_OUTPUT_INTEGRITY_ONLY",
+  "cases": [
+    {
+      "id": "basis-1-party-baseline",
+      "wire": "cases/basis-1-party-baseline/wire.json",
+      "contextPin": "cases/basis-1-party-baseline/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-1-party-digest-party",
+      "wire": "cases/basis-1-party-digest-party/wire.json",
+      "contextPin": "cases/basis-1-party-digest-party/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-1-party-digest-profile",
+      "wire": "cases/basis-1-party-digest-profile/wire.json",
+      "contextPin": "cases/basis-1-party-digest-profile/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-1-party-retained-other-path",
+      "wire": "cases/basis-1-party-retained-other-path/wire.json",
+      "contextPin": "cases/basis-1-party-retained-other-path/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-1-party-evidence-authoritySubjectPartyRef",
+      "wire": "cases/basis-1-party-evidence-authoritySubjectPartyRef/wire.json",
+      "contextPin": "cases/basis-1-party-evidence-authoritySubjectPartyRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-evidence-pathId",
+      "wire": "cases/basis-1-party-evidence-pathId/wire.json",
+      "contextPin": "cases/basis-1-party-evidence-pathId/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-evidence-authoritySubjectBasis",
+      "wire": "cases/basis-1-party-evidence-authoritySubjectBasis/wire.json",
+      "contextPin": "cases/basis-1-party-evidence-authoritySubjectBasis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-coherent-mirrored-party",
+      "wire": "cases/basis-1-party-coherent-mirrored-party/wire.json",
+      "contextPin": "cases/basis-1-party-coherent-mirrored-party/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-missing-AUTHENTICATED_PRINCIPAL",
+      "wire": "cases/basis-1-party-missing-AUTHENTICATED_PRINCIPAL/wire.json",
+      "contextPin": "cases/basis-1-party-missing-AUTHENTICATED_PRINCIPAL/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-1-party-missing-PRINCIPAL_RESOLUTION",
+      "wire": "cases/basis-1-party-missing-PRINCIPAL_RESOLUTION/wire.json",
+      "contextPin": "cases/basis-1-party-missing-PRINCIPAL_RESOLUTION/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-1-party-missing-SOURCE_AUTHORITY",
+      "wire": "cases/basis-1-party-missing-SOURCE_AUTHORITY/wire.json",
+      "contextPin": "cases/basis-1-party-missing-SOURCE_AUTHORITY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-1-party-missing-AUTHORITY_SUBJECT_PARTY",
+      "wire": "cases/basis-1-party-missing-AUTHORITY_SUBJECT_PARTY/wire.json",
+      "contextPin": "cases/basis-1-party-missing-AUTHORITY_SUBJECT_PARTY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-1-party-wrong-canonical-tuple",
+      "wire": "cases/basis-1-party-wrong-canonical-tuple/wire.json",
+      "contextPin": "cases/basis-1-party-wrong-canonical-tuple/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-source-target-substitution",
+      "wire": "cases/basis-1-party-source-target-substitution/wire.json",
+      "contextPin": "cases/basis-1-party-source-target-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "AUTHORITY_TARGET_PARTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-unresolved-tuple-source",
+      "wire": "cases/basis-1-party-unresolved-tuple-source/wire.json",
+      "contextPin": "cases/basis-1-party-unresolved-tuple-source/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-1-party-wrong-REQUEST",
+      "wire": "cases/basis-1-party-wrong-REQUEST/wire.json",
+      "contextPin": "cases/basis-1-party-wrong-REQUEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-wrong-RESULT",
+      "wire": "cases/basis-1-party-wrong-RESULT/wire.json",
+      "contextPin": "cases/basis-1-party-wrong-RESULT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-wrong-TRACE",
+      "wire": "cases/basis-1-party-wrong-TRACE/wire.json",
+      "contextPin": "cases/basis-1-party-wrong-TRACE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-wrong-RULE",
+      "wire": "cases/basis-1-party-wrong-RULE/wire.json",
+      "contextPin": "cases/basis-1-party-wrong-RULE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-wrong-BINDING_MANIFEST",
+      "wire": "cases/basis-1-party-wrong-BINDING_MANIFEST/wire.json",
+      "contextPin": "cases/basis-1-party-wrong-BINDING_MANIFEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-wrong-DERIVED_VIEW",
+      "wire": "cases/basis-1-party-wrong-DERIVED_VIEW/wire.json",
+      "contextPin": "cases/basis-1-party-wrong-DERIVED_VIEW/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-wrong-EVALUATION_SNAPSHOT",
+      "wire": "cases/basis-1-party-wrong-EVALUATION_SNAPSHOT/wire.json",
+      "contextPin": "cases/basis-1-party-wrong-EVALUATION_SNAPSHOT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-intent-substitution",
+      "wire": "cases/basis-1-party-intent-substitution/wire.json",
+      "contextPin": "cases/basis-1-party-intent-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-nested-bundle-field",
+      "wire": "cases/basis-1-party-nested-bundle-field/wire.json",
+      "contextPin": "cases/basis-1-party-nested-bundle-field/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-wrong-visibility-snapshot",
+      "wire": "cases/basis-1-party-wrong-visibility-snapshot/wire.json",
+      "contextPin": "cases/basis-1-party-wrong-visibility-snapshot/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-missing-snapshot-basis",
+      "wire": "cases/basis-1-party-missing-snapshot-basis/wire.json",
+      "contextPin": "cases/basis-1-party-missing-snapshot-basis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-1-party-missing-snapshot-historyPosition",
+      "wire": "cases/basis-1-party-missing-snapshot-historyPosition/wire.json",
+      "contextPin": "cases/basis-1-party-missing-snapshot-historyPosition/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-1-party-missing-snapshot-indexWatermarks",
+      "wire": "cases/basis-1-party-missing-snapshot-indexWatermarks/wire.json",
+      "contextPin": "cases/basis-1-party-missing-snapshot-indexWatermarks/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-1-party-missing-snapshot-evidencePolicyRegistryBinding",
+      "wire": "cases/basis-1-party-missing-snapshot-evidencePolicyRegistryBinding/wire.json",
+      "contextPin": "cases/basis-1-party-missing-snapshot-evidencePolicyRegistryBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-1-party-missing-snapshot-sovereigntyPolicyBinding",
+      "wire": "cases/basis-1-party-missing-snapshot-sovereigntyPolicyBinding/wire.json",
+      "contextPin": "cases/basis-1-party-missing-snapshot-sovereigntyPolicyBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-1-party-mutable-selector",
+      "wire": "cases/basis-1-party-mutable-selector/wire.json",
+      "contextPin": "cases/basis-1-party-mutable-selector/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-1-party-consumer-report-profile",
+      "wire": "cases/basis-1-party-consumer-report-profile/wire.json",
+      "contextPin": "cases/basis-1-party-consumer-report-profile/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-1-party-changed-original-byte",
+      "wire": "cases/basis-1-party-changed-original-byte/wire.json",
+      "contextPin": "cases/basis-1-party-changed-original-byte/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-duplicate-json-name",
+      "wire": "cases/basis-1-party-duplicate-json-name/wire.json",
+      "contextPin": "cases/basis-1-party-duplicate-json-name/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DUPLICATE_JSON_MEMBER"
+      ]
+    },
+    {
+      "id": "basis-1-party-nonfinite-json",
+      "wire": "cases/basis-1-party-nonfinite-json/wire.json",
+      "contextPin": "cases/basis-1-party-nonfinite-json/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-1-party-unpaired-surrogate",
+      "wire": "cases/basis-1-party-unpaired-surrogate/wire.json",
+      "contextPin": "cases/basis-1-party-unpaired-surrogate/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-1-party-depth-limit",
+      "wire": "cases/basis-1-party-depth-limit/wire.json",
+      "contextPin": "cases/basis-1-party-depth-limit/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "JSON_DEPTH_LIMIT"
+      ]
+    },
+    {
+      "id": "basis-1-role-baseline",
+      "wire": "cases/basis-1-role-baseline/wire.json",
+      "contextPin": "cases/basis-1-role-baseline/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-1-role-digest-party",
+      "wire": "cases/basis-1-role-digest-party/wire.json",
+      "contextPin": "cases/basis-1-role-digest-party/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-1-role-digest-profile",
+      "wire": "cases/basis-1-role-digest-profile/wire.json",
+      "contextPin": "cases/basis-1-role-digest-profile/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-1-role-retained-other-path",
+      "wire": "cases/basis-1-role-retained-other-path/wire.json",
+      "contextPin": "cases/basis-1-role-retained-other-path/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-1-role-evidence-authoritySubjectPartyRef",
+      "wire": "cases/basis-1-role-evidence-authoritySubjectPartyRef/wire.json",
+      "contextPin": "cases/basis-1-role-evidence-authoritySubjectPartyRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-evidence-pathId",
+      "wire": "cases/basis-1-role-evidence-pathId/wire.json",
+      "contextPin": "cases/basis-1-role-evidence-pathId/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-evidence-authoritySubjectBasis",
+      "wire": "cases/basis-1-role-evidence-authoritySubjectBasis/wire.json",
+      "contextPin": "cases/basis-1-role-evidence-authoritySubjectBasis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-coherent-mirrored-party",
+      "wire": "cases/basis-1-role-coherent-mirrored-party/wire.json",
+      "contextPin": "cases/basis-1-role-coherent-mirrored-party/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-missing-AUTHENTICATED_PRINCIPAL",
+      "wire": "cases/basis-1-role-missing-AUTHENTICATED_PRINCIPAL/wire.json",
+      "contextPin": "cases/basis-1-role-missing-AUTHENTICATED_PRINCIPAL/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-1-role-missing-PRINCIPAL_RESOLUTION",
+      "wire": "cases/basis-1-role-missing-PRINCIPAL_RESOLUTION/wire.json",
+      "contextPin": "cases/basis-1-role-missing-PRINCIPAL_RESOLUTION/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-1-role-missing-SOURCE_AUTHORITY",
+      "wire": "cases/basis-1-role-missing-SOURCE_AUTHORITY/wire.json",
+      "contextPin": "cases/basis-1-role-missing-SOURCE_AUTHORITY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-1-role-missing-AUTHORITY_SUBJECT_PARTY",
+      "wire": "cases/basis-1-role-missing-AUTHORITY_SUBJECT_PARTY/wire.json",
+      "contextPin": "cases/basis-1-role-missing-AUTHORITY_SUBJECT_PARTY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-1-role-wrong-canonical-tuple",
+      "wire": "cases/basis-1-role-wrong-canonical-tuple/wire.json",
+      "contextPin": "cases/basis-1-role-wrong-canonical-tuple/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-source-target-substitution",
+      "wire": "cases/basis-1-role-source-target-substitution/wire.json",
+      "contextPin": "cases/basis-1-role-source-target-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "ROLE_PARTY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-unresolved-tuple-source",
+      "wire": "cases/basis-1-role-unresolved-tuple-source/wire.json",
+      "contextPin": "cases/basis-1-role-unresolved-tuple-source/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-1-role-wrong-REQUEST",
+      "wire": "cases/basis-1-role-wrong-REQUEST/wire.json",
+      "contextPin": "cases/basis-1-role-wrong-REQUEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-wrong-RESULT",
+      "wire": "cases/basis-1-role-wrong-RESULT/wire.json",
+      "contextPin": "cases/basis-1-role-wrong-RESULT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-wrong-TRACE",
+      "wire": "cases/basis-1-role-wrong-TRACE/wire.json",
+      "contextPin": "cases/basis-1-role-wrong-TRACE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-wrong-RULE",
+      "wire": "cases/basis-1-role-wrong-RULE/wire.json",
+      "contextPin": "cases/basis-1-role-wrong-RULE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-wrong-BINDING_MANIFEST",
+      "wire": "cases/basis-1-role-wrong-BINDING_MANIFEST/wire.json",
+      "contextPin": "cases/basis-1-role-wrong-BINDING_MANIFEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-wrong-DERIVED_VIEW",
+      "wire": "cases/basis-1-role-wrong-DERIVED_VIEW/wire.json",
+      "contextPin": "cases/basis-1-role-wrong-DERIVED_VIEW/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-wrong-EVALUATION_SNAPSHOT",
+      "wire": "cases/basis-1-role-wrong-EVALUATION_SNAPSHOT/wire.json",
+      "contextPin": "cases/basis-1-role-wrong-EVALUATION_SNAPSHOT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-intent-substitution",
+      "wire": "cases/basis-1-role-intent-substitution/wire.json",
+      "contextPin": "cases/basis-1-role-intent-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-nested-bundle-field",
+      "wire": "cases/basis-1-role-nested-bundle-field/wire.json",
+      "contextPin": "cases/basis-1-role-nested-bundle-field/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-wrong-visibility-snapshot",
+      "wire": "cases/basis-1-role-wrong-visibility-snapshot/wire.json",
+      "contextPin": "cases/basis-1-role-wrong-visibility-snapshot/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-missing-snapshot-basis",
+      "wire": "cases/basis-1-role-missing-snapshot-basis/wire.json",
+      "contextPin": "cases/basis-1-role-missing-snapshot-basis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-1-role-missing-snapshot-historyPosition",
+      "wire": "cases/basis-1-role-missing-snapshot-historyPosition/wire.json",
+      "contextPin": "cases/basis-1-role-missing-snapshot-historyPosition/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-1-role-missing-snapshot-indexWatermarks",
+      "wire": "cases/basis-1-role-missing-snapshot-indexWatermarks/wire.json",
+      "contextPin": "cases/basis-1-role-missing-snapshot-indexWatermarks/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-1-role-missing-snapshot-evidencePolicyRegistryBinding",
+      "wire": "cases/basis-1-role-missing-snapshot-evidencePolicyRegistryBinding/wire.json",
+      "contextPin": "cases/basis-1-role-missing-snapshot-evidencePolicyRegistryBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-1-role-missing-snapshot-sovereigntyPolicyBinding",
+      "wire": "cases/basis-1-role-missing-snapshot-sovereigntyPolicyBinding/wire.json",
+      "contextPin": "cases/basis-1-role-missing-snapshot-sovereigntyPolicyBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-1-role-mutable-selector",
+      "wire": "cases/basis-1-role-mutable-selector/wire.json",
+      "contextPin": "cases/basis-1-role-mutable-selector/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-1-role-consumer-report-profile",
+      "wire": "cases/basis-1-role-consumer-report-profile/wire.json",
+      "contextPin": "cases/basis-1-role-consumer-report-profile/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-1-role-changed-original-byte",
+      "wire": "cases/basis-1-role-changed-original-byte/wire.json",
+      "contextPin": "cases/basis-1-role-changed-original-byte/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-role-duplicate-json-name",
+      "wire": "cases/basis-1-role-duplicate-json-name/wire.json",
+      "contextPin": "cases/basis-1-role-duplicate-json-name/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DUPLICATE_JSON_MEMBER"
+      ]
+    },
+    {
+      "id": "basis-1-role-nonfinite-json",
+      "wire": "cases/basis-1-role-nonfinite-json/wire.json",
+      "contextPin": "cases/basis-1-role-nonfinite-json/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-1-role-unpaired-surrogate",
+      "wire": "cases/basis-1-role-unpaired-surrogate/wire.json",
+      "contextPin": "cases/basis-1-role-unpaired-surrogate/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-1-role-depth-limit",
+      "wire": "cases/basis-1-role-depth-limit/wire.json",
+      "contextPin": "cases/basis-1-role-depth-limit/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "JSON_DEPTH_LIMIT"
+      ]
+    },
+    {
+      "id": "basis-2-party-baseline",
+      "wire": "cases/basis-2-party-baseline/wire.json",
+      "contextPin": "cases/basis-2-party-baseline/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-2-party-digest-party",
+      "wire": "cases/basis-2-party-digest-party/wire.json",
+      "contextPin": "cases/basis-2-party-digest-party/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-2-party-digest-profile",
+      "wire": "cases/basis-2-party-digest-profile/wire.json",
+      "contextPin": "cases/basis-2-party-digest-profile/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-2-party-retained-other-path",
+      "wire": "cases/basis-2-party-retained-other-path/wire.json",
+      "contextPin": "cases/basis-2-party-retained-other-path/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-2-party-evidence-authoritySubjectPartyRef",
+      "wire": "cases/basis-2-party-evidence-authoritySubjectPartyRef/wire.json",
+      "contextPin": "cases/basis-2-party-evidence-authoritySubjectPartyRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-evidence-pathId",
+      "wire": "cases/basis-2-party-evidence-pathId/wire.json",
+      "contextPin": "cases/basis-2-party-evidence-pathId/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-evidence-authoritySubjectBasis",
+      "wire": "cases/basis-2-party-evidence-authoritySubjectBasis/wire.json",
+      "contextPin": "cases/basis-2-party-evidence-authoritySubjectBasis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-coherent-mirrored-party",
+      "wire": "cases/basis-2-party-coherent-mirrored-party/wire.json",
+      "contextPin": "cases/basis-2-party-coherent-mirrored-party/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-missing-AUTHENTICATED_PRINCIPAL",
+      "wire": "cases/basis-2-party-missing-AUTHENTICATED_PRINCIPAL/wire.json",
+      "contextPin": "cases/basis-2-party-missing-AUTHENTICATED_PRINCIPAL/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-2-party-missing-PRINCIPAL_RESOLUTION",
+      "wire": "cases/basis-2-party-missing-PRINCIPAL_RESOLUTION/wire.json",
+      "contextPin": "cases/basis-2-party-missing-PRINCIPAL_RESOLUTION/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-2-party-missing-SOURCE_AUTHORITY",
+      "wire": "cases/basis-2-party-missing-SOURCE_AUTHORITY/wire.json",
+      "contextPin": "cases/basis-2-party-missing-SOURCE_AUTHORITY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-2-party-missing-AUTHORITY_SUBJECT_PARTY",
+      "wire": "cases/basis-2-party-missing-AUTHORITY_SUBJECT_PARTY/wire.json",
+      "contextPin": "cases/basis-2-party-missing-AUTHORITY_SUBJECT_PARTY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-2-party-wrong-canonical-tuple",
+      "wire": "cases/basis-2-party-wrong-canonical-tuple/wire.json",
+      "contextPin": "cases/basis-2-party-wrong-canonical-tuple/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-source-target-substitution",
+      "wire": "cases/basis-2-party-source-target-substitution/wire.json",
+      "contextPin": "cases/basis-2-party-source-target-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "AUTHORITY_TARGET_PARTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-unresolved-tuple-source",
+      "wire": "cases/basis-2-party-unresolved-tuple-source/wire.json",
+      "contextPin": "cases/basis-2-party-unresolved-tuple-source/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-2-party-wrong-REQUEST",
+      "wire": "cases/basis-2-party-wrong-REQUEST/wire.json",
+      "contextPin": "cases/basis-2-party-wrong-REQUEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-wrong-RESULT",
+      "wire": "cases/basis-2-party-wrong-RESULT/wire.json",
+      "contextPin": "cases/basis-2-party-wrong-RESULT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-wrong-TRACE",
+      "wire": "cases/basis-2-party-wrong-TRACE/wire.json",
+      "contextPin": "cases/basis-2-party-wrong-TRACE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-wrong-RULE",
+      "wire": "cases/basis-2-party-wrong-RULE/wire.json",
+      "contextPin": "cases/basis-2-party-wrong-RULE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-wrong-BINDING_MANIFEST",
+      "wire": "cases/basis-2-party-wrong-BINDING_MANIFEST/wire.json",
+      "contextPin": "cases/basis-2-party-wrong-BINDING_MANIFEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-wrong-DERIVED_VIEW",
+      "wire": "cases/basis-2-party-wrong-DERIVED_VIEW/wire.json",
+      "contextPin": "cases/basis-2-party-wrong-DERIVED_VIEW/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-wrong-EVALUATION_SNAPSHOT",
+      "wire": "cases/basis-2-party-wrong-EVALUATION_SNAPSHOT/wire.json",
+      "contextPin": "cases/basis-2-party-wrong-EVALUATION_SNAPSHOT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-intent-substitution",
+      "wire": "cases/basis-2-party-intent-substitution/wire.json",
+      "contextPin": "cases/basis-2-party-intent-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-nested-bundle-field",
+      "wire": "cases/basis-2-party-nested-bundle-field/wire.json",
+      "contextPin": "cases/basis-2-party-nested-bundle-field/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-wrong-visibility-snapshot",
+      "wire": "cases/basis-2-party-wrong-visibility-snapshot/wire.json",
+      "contextPin": "cases/basis-2-party-wrong-visibility-snapshot/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-missing-snapshot-basis",
+      "wire": "cases/basis-2-party-missing-snapshot-basis/wire.json",
+      "contextPin": "cases/basis-2-party-missing-snapshot-basis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-2-party-missing-snapshot-historyPosition",
+      "wire": "cases/basis-2-party-missing-snapshot-historyPosition/wire.json",
+      "contextPin": "cases/basis-2-party-missing-snapshot-historyPosition/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-2-party-missing-snapshot-indexWatermarks",
+      "wire": "cases/basis-2-party-missing-snapshot-indexWatermarks/wire.json",
+      "contextPin": "cases/basis-2-party-missing-snapshot-indexWatermarks/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-2-party-missing-snapshot-evidencePolicyRegistryBinding",
+      "wire": "cases/basis-2-party-missing-snapshot-evidencePolicyRegistryBinding/wire.json",
+      "contextPin": "cases/basis-2-party-missing-snapshot-evidencePolicyRegistryBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-2-party-missing-snapshot-sovereigntyPolicyBinding",
+      "wire": "cases/basis-2-party-missing-snapshot-sovereigntyPolicyBinding/wire.json",
+      "contextPin": "cases/basis-2-party-missing-snapshot-sovereigntyPolicyBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-2-party-mutable-selector",
+      "wire": "cases/basis-2-party-mutable-selector/wire.json",
+      "contextPin": "cases/basis-2-party-mutable-selector/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-2-party-consumer-report-profile",
+      "wire": "cases/basis-2-party-consumer-report-profile/wire.json",
+      "contextPin": "cases/basis-2-party-consumer-report-profile/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-2-party-changed-original-byte",
+      "wire": "cases/basis-2-party-changed-original-byte/wire.json",
+      "contextPin": "cases/basis-2-party-changed-original-byte/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-duplicate-json-name",
+      "wire": "cases/basis-2-party-duplicate-json-name/wire.json",
+      "contextPin": "cases/basis-2-party-duplicate-json-name/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DUPLICATE_JSON_MEMBER"
+      ]
+    },
+    {
+      "id": "basis-2-party-nonfinite-json",
+      "wire": "cases/basis-2-party-nonfinite-json/wire.json",
+      "contextPin": "cases/basis-2-party-nonfinite-json/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-2-party-unpaired-surrogate",
+      "wire": "cases/basis-2-party-unpaired-surrogate/wire.json",
+      "contextPin": "cases/basis-2-party-unpaired-surrogate/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-2-party-depth-limit",
+      "wire": "cases/basis-2-party-depth-limit/wire.json",
+      "contextPin": "cases/basis-2-party-depth-limit/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "JSON_DEPTH_LIMIT"
+      ]
+    },
+    {
+      "id": "basis-2-party-representation-party-substitution",
+      "wire": "cases/basis-2-party-representation-party-substitution/wire.json",
+      "contextPin": "cases/basis-2-party-representation-party-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REPRESENTATION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-baseline",
+      "wire": "cases/basis-2-role-baseline/wire.json",
+      "contextPin": "cases/basis-2-role-baseline/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-2-role-digest-party",
+      "wire": "cases/basis-2-role-digest-party/wire.json",
+      "contextPin": "cases/basis-2-role-digest-party/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-2-role-digest-profile",
+      "wire": "cases/basis-2-role-digest-profile/wire.json",
+      "contextPin": "cases/basis-2-role-digest-profile/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-2-role-retained-other-path",
+      "wire": "cases/basis-2-role-retained-other-path/wire.json",
+      "contextPin": "cases/basis-2-role-retained-other-path/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-2-role-evidence-authoritySubjectPartyRef",
+      "wire": "cases/basis-2-role-evidence-authoritySubjectPartyRef/wire.json",
+      "contextPin": "cases/basis-2-role-evidence-authoritySubjectPartyRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-evidence-pathId",
+      "wire": "cases/basis-2-role-evidence-pathId/wire.json",
+      "contextPin": "cases/basis-2-role-evidence-pathId/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-evidence-authoritySubjectBasis",
+      "wire": "cases/basis-2-role-evidence-authoritySubjectBasis/wire.json",
+      "contextPin": "cases/basis-2-role-evidence-authoritySubjectBasis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-coherent-mirrored-party",
+      "wire": "cases/basis-2-role-coherent-mirrored-party/wire.json",
+      "contextPin": "cases/basis-2-role-coherent-mirrored-party/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-missing-AUTHENTICATED_PRINCIPAL",
+      "wire": "cases/basis-2-role-missing-AUTHENTICATED_PRINCIPAL/wire.json",
+      "contextPin": "cases/basis-2-role-missing-AUTHENTICATED_PRINCIPAL/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-2-role-missing-PRINCIPAL_RESOLUTION",
+      "wire": "cases/basis-2-role-missing-PRINCIPAL_RESOLUTION/wire.json",
+      "contextPin": "cases/basis-2-role-missing-PRINCIPAL_RESOLUTION/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-2-role-missing-SOURCE_AUTHORITY",
+      "wire": "cases/basis-2-role-missing-SOURCE_AUTHORITY/wire.json",
+      "contextPin": "cases/basis-2-role-missing-SOURCE_AUTHORITY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-2-role-missing-AUTHORITY_SUBJECT_PARTY",
+      "wire": "cases/basis-2-role-missing-AUTHORITY_SUBJECT_PARTY/wire.json",
+      "contextPin": "cases/basis-2-role-missing-AUTHORITY_SUBJECT_PARTY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-2-role-wrong-canonical-tuple",
+      "wire": "cases/basis-2-role-wrong-canonical-tuple/wire.json",
+      "contextPin": "cases/basis-2-role-wrong-canonical-tuple/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-source-target-substitution",
+      "wire": "cases/basis-2-role-source-target-substitution/wire.json",
+      "contextPin": "cases/basis-2-role-source-target-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "ROLE_PARTY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-unresolved-tuple-source",
+      "wire": "cases/basis-2-role-unresolved-tuple-source/wire.json",
+      "contextPin": "cases/basis-2-role-unresolved-tuple-source/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-2-role-wrong-REQUEST",
+      "wire": "cases/basis-2-role-wrong-REQUEST/wire.json",
+      "contextPin": "cases/basis-2-role-wrong-REQUEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-wrong-RESULT",
+      "wire": "cases/basis-2-role-wrong-RESULT/wire.json",
+      "contextPin": "cases/basis-2-role-wrong-RESULT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-wrong-TRACE",
+      "wire": "cases/basis-2-role-wrong-TRACE/wire.json",
+      "contextPin": "cases/basis-2-role-wrong-TRACE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-wrong-RULE",
+      "wire": "cases/basis-2-role-wrong-RULE/wire.json",
+      "contextPin": "cases/basis-2-role-wrong-RULE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-wrong-BINDING_MANIFEST",
+      "wire": "cases/basis-2-role-wrong-BINDING_MANIFEST/wire.json",
+      "contextPin": "cases/basis-2-role-wrong-BINDING_MANIFEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-wrong-DERIVED_VIEW",
+      "wire": "cases/basis-2-role-wrong-DERIVED_VIEW/wire.json",
+      "contextPin": "cases/basis-2-role-wrong-DERIVED_VIEW/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-wrong-EVALUATION_SNAPSHOT",
+      "wire": "cases/basis-2-role-wrong-EVALUATION_SNAPSHOT/wire.json",
+      "contextPin": "cases/basis-2-role-wrong-EVALUATION_SNAPSHOT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-intent-substitution",
+      "wire": "cases/basis-2-role-intent-substitution/wire.json",
+      "contextPin": "cases/basis-2-role-intent-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-nested-bundle-field",
+      "wire": "cases/basis-2-role-nested-bundle-field/wire.json",
+      "contextPin": "cases/basis-2-role-nested-bundle-field/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-wrong-visibility-snapshot",
+      "wire": "cases/basis-2-role-wrong-visibility-snapshot/wire.json",
+      "contextPin": "cases/basis-2-role-wrong-visibility-snapshot/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-missing-snapshot-basis",
+      "wire": "cases/basis-2-role-missing-snapshot-basis/wire.json",
+      "contextPin": "cases/basis-2-role-missing-snapshot-basis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-2-role-missing-snapshot-historyPosition",
+      "wire": "cases/basis-2-role-missing-snapshot-historyPosition/wire.json",
+      "contextPin": "cases/basis-2-role-missing-snapshot-historyPosition/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-2-role-missing-snapshot-indexWatermarks",
+      "wire": "cases/basis-2-role-missing-snapshot-indexWatermarks/wire.json",
+      "contextPin": "cases/basis-2-role-missing-snapshot-indexWatermarks/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-2-role-missing-snapshot-evidencePolicyRegistryBinding",
+      "wire": "cases/basis-2-role-missing-snapshot-evidencePolicyRegistryBinding/wire.json",
+      "contextPin": "cases/basis-2-role-missing-snapshot-evidencePolicyRegistryBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-2-role-missing-snapshot-sovereigntyPolicyBinding",
+      "wire": "cases/basis-2-role-missing-snapshot-sovereigntyPolicyBinding/wire.json",
+      "contextPin": "cases/basis-2-role-missing-snapshot-sovereigntyPolicyBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-2-role-mutable-selector",
+      "wire": "cases/basis-2-role-mutable-selector/wire.json",
+      "contextPin": "cases/basis-2-role-mutable-selector/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-2-role-consumer-report-profile",
+      "wire": "cases/basis-2-role-consumer-report-profile/wire.json",
+      "contextPin": "cases/basis-2-role-consumer-report-profile/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-2-role-changed-original-byte",
+      "wire": "cases/basis-2-role-changed-original-byte/wire.json",
+      "contextPin": "cases/basis-2-role-changed-original-byte/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-role-duplicate-json-name",
+      "wire": "cases/basis-2-role-duplicate-json-name/wire.json",
+      "contextPin": "cases/basis-2-role-duplicate-json-name/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DUPLICATE_JSON_MEMBER"
+      ]
+    },
+    {
+      "id": "basis-2-role-nonfinite-json",
+      "wire": "cases/basis-2-role-nonfinite-json/wire.json",
+      "contextPin": "cases/basis-2-role-nonfinite-json/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-2-role-unpaired-surrogate",
+      "wire": "cases/basis-2-role-unpaired-surrogate/wire.json",
+      "contextPin": "cases/basis-2-role-unpaired-surrogate/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-2-role-depth-limit",
+      "wire": "cases/basis-2-role-depth-limit/wire.json",
+      "contextPin": "cases/basis-2-role-depth-limit/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "JSON_DEPTH_LIMIT"
+      ]
+    },
+    {
+      "id": "basis-2-role-representation-party-substitution",
+      "wire": "cases/basis-2-role-representation-party-substitution/wire.json",
+      "contextPin": "cases/basis-2-role-representation-party-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REPRESENTATION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-baseline",
+      "wire": "cases/basis-3-party-baseline/wire.json",
+      "contextPin": "cases/basis-3-party-baseline/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-3-party-digest-party",
+      "wire": "cases/basis-3-party-digest-party/wire.json",
+      "contextPin": "cases/basis-3-party-digest-party/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-3-party-digest-profile",
+      "wire": "cases/basis-3-party-digest-profile/wire.json",
+      "contextPin": "cases/basis-3-party-digest-profile/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-3-party-retained-other-path",
+      "wire": "cases/basis-3-party-retained-other-path/wire.json",
+      "contextPin": "cases/basis-3-party-retained-other-path/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-3-party-evidence-authoritySubjectPartyRef",
+      "wire": "cases/basis-3-party-evidence-authoritySubjectPartyRef/wire.json",
+      "contextPin": "cases/basis-3-party-evidence-authoritySubjectPartyRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-evidence-pathId",
+      "wire": "cases/basis-3-party-evidence-pathId/wire.json",
+      "contextPin": "cases/basis-3-party-evidence-pathId/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-evidence-authoritySubjectBasis",
+      "wire": "cases/basis-3-party-evidence-authoritySubjectBasis/wire.json",
+      "contextPin": "cases/basis-3-party-evidence-authoritySubjectBasis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-coherent-mirrored-party",
+      "wire": "cases/basis-3-party-coherent-mirrored-party/wire.json",
+      "contextPin": "cases/basis-3-party-coherent-mirrored-party/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-missing-AUTHENTICATED_PRINCIPAL",
+      "wire": "cases/basis-3-party-missing-AUTHENTICATED_PRINCIPAL/wire.json",
+      "contextPin": "cases/basis-3-party-missing-AUTHENTICATED_PRINCIPAL/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-3-party-missing-PRINCIPAL_RESOLUTION",
+      "wire": "cases/basis-3-party-missing-PRINCIPAL_RESOLUTION/wire.json",
+      "contextPin": "cases/basis-3-party-missing-PRINCIPAL_RESOLUTION/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-3-party-missing-SOURCE_AUTHORITY",
+      "wire": "cases/basis-3-party-missing-SOURCE_AUTHORITY/wire.json",
+      "contextPin": "cases/basis-3-party-missing-SOURCE_AUTHORITY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-3-party-missing-AUTHORITY_SUBJECT_PARTY",
+      "wire": "cases/basis-3-party-missing-AUTHORITY_SUBJECT_PARTY/wire.json",
+      "contextPin": "cases/basis-3-party-missing-AUTHORITY_SUBJECT_PARTY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-3-party-wrong-canonical-tuple",
+      "wire": "cases/basis-3-party-wrong-canonical-tuple/wire.json",
+      "contextPin": "cases/basis-3-party-wrong-canonical-tuple/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-source-target-substitution",
+      "wire": "cases/basis-3-party-source-target-substitution/wire.json",
+      "contextPin": "cases/basis-3-party-source-target-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "AUTHORITY_TARGET_PARTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-unresolved-tuple-source",
+      "wire": "cases/basis-3-party-unresolved-tuple-source/wire.json",
+      "contextPin": "cases/basis-3-party-unresolved-tuple-source/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-3-party-wrong-REQUEST",
+      "wire": "cases/basis-3-party-wrong-REQUEST/wire.json",
+      "contextPin": "cases/basis-3-party-wrong-REQUEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-wrong-RESULT",
+      "wire": "cases/basis-3-party-wrong-RESULT/wire.json",
+      "contextPin": "cases/basis-3-party-wrong-RESULT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-wrong-TRACE",
+      "wire": "cases/basis-3-party-wrong-TRACE/wire.json",
+      "contextPin": "cases/basis-3-party-wrong-TRACE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-wrong-RULE",
+      "wire": "cases/basis-3-party-wrong-RULE/wire.json",
+      "contextPin": "cases/basis-3-party-wrong-RULE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-wrong-BINDING_MANIFEST",
+      "wire": "cases/basis-3-party-wrong-BINDING_MANIFEST/wire.json",
+      "contextPin": "cases/basis-3-party-wrong-BINDING_MANIFEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-wrong-DERIVED_VIEW",
+      "wire": "cases/basis-3-party-wrong-DERIVED_VIEW/wire.json",
+      "contextPin": "cases/basis-3-party-wrong-DERIVED_VIEW/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-wrong-EVALUATION_SNAPSHOT",
+      "wire": "cases/basis-3-party-wrong-EVALUATION_SNAPSHOT/wire.json",
+      "contextPin": "cases/basis-3-party-wrong-EVALUATION_SNAPSHOT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-intent-substitution",
+      "wire": "cases/basis-3-party-intent-substitution/wire.json",
+      "contextPin": "cases/basis-3-party-intent-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-nested-bundle-field",
+      "wire": "cases/basis-3-party-nested-bundle-field/wire.json",
+      "contextPin": "cases/basis-3-party-nested-bundle-field/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-wrong-visibility-snapshot",
+      "wire": "cases/basis-3-party-wrong-visibility-snapshot/wire.json",
+      "contextPin": "cases/basis-3-party-wrong-visibility-snapshot/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-missing-snapshot-basis",
+      "wire": "cases/basis-3-party-missing-snapshot-basis/wire.json",
+      "contextPin": "cases/basis-3-party-missing-snapshot-basis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-3-party-missing-snapshot-historyPosition",
+      "wire": "cases/basis-3-party-missing-snapshot-historyPosition/wire.json",
+      "contextPin": "cases/basis-3-party-missing-snapshot-historyPosition/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-3-party-missing-snapshot-indexWatermarks",
+      "wire": "cases/basis-3-party-missing-snapshot-indexWatermarks/wire.json",
+      "contextPin": "cases/basis-3-party-missing-snapshot-indexWatermarks/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-3-party-missing-snapshot-evidencePolicyRegistryBinding",
+      "wire": "cases/basis-3-party-missing-snapshot-evidencePolicyRegistryBinding/wire.json",
+      "contextPin": "cases/basis-3-party-missing-snapshot-evidencePolicyRegistryBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-3-party-missing-snapshot-sovereigntyPolicyBinding",
+      "wire": "cases/basis-3-party-missing-snapshot-sovereigntyPolicyBinding/wire.json",
+      "contextPin": "cases/basis-3-party-missing-snapshot-sovereigntyPolicyBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-3-party-mutable-selector",
+      "wire": "cases/basis-3-party-mutable-selector/wire.json",
+      "contextPin": "cases/basis-3-party-mutable-selector/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-3-party-consumer-report-profile",
+      "wire": "cases/basis-3-party-consumer-report-profile/wire.json",
+      "contextPin": "cases/basis-3-party-consumer-report-profile/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-3-party-changed-original-byte",
+      "wire": "cases/basis-3-party-changed-original-byte/wire.json",
+      "contextPin": "cases/basis-3-party-changed-original-byte/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-duplicate-json-name",
+      "wire": "cases/basis-3-party-duplicate-json-name/wire.json",
+      "contextPin": "cases/basis-3-party-duplicate-json-name/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DUPLICATE_JSON_MEMBER"
+      ]
+    },
+    {
+      "id": "basis-3-party-nonfinite-json",
+      "wire": "cases/basis-3-party-nonfinite-json/wire.json",
+      "contextPin": "cases/basis-3-party-nonfinite-json/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-3-party-unpaired-surrogate",
+      "wire": "cases/basis-3-party-unpaired-surrogate/wire.json",
+      "contextPin": "cases/basis-3-party-unpaired-surrogate/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-3-party-depth-limit",
+      "wire": "cases/basis-3-party-depth-limit/wire.json",
+      "contextPin": "cases/basis-3-party-depth-limit/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "JSON_DEPTH_LIMIT"
+      ]
+    },
+    {
+      "id": "basis-3-party-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef",
+      "wire": "cases/basis-3-party-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef/wire.json",
+      "contextPin": "cases/basis-3-party-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef",
+      "wire": "cases/basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef/wire.json",
+      "contextPin": "cases/basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef",
+      "wire": "cases/basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef/wire.json",
+      "contextPin": "cases/basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-mismatch-AGENT_IDENTITY-agentPartyRef",
+      "wire": "cases/basis-3-party-mismatch-AGENT_IDENTITY-agentPartyRef/wire.json",
+      "contextPin": "cases/basis-3-party-mismatch-AGENT_IDENTITY-agentPartyRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "AGENT_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef",
+      "wire": "cases/basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef/wire.json",
+      "contextPin": "cases/basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef",
+      "wire": "cases/basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef/wire.json",
+      "contextPin": "cases/basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass",
+      "wire": "cases/basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass/wire.json",
+      "contextPin": "cases/basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef",
+      "wire": "cases/basis-3-party-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef/wire.json",
+      "contextPin": "cases/basis-3-party-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_REVOCATION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-baseline",
+      "wire": "cases/basis-3-role-baseline/wire.json",
+      "contextPin": "cases/basis-3-role-baseline/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-3-role-digest-party",
+      "wire": "cases/basis-3-role-digest-party/wire.json",
+      "contextPin": "cases/basis-3-role-digest-party/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-3-role-digest-profile",
+      "wire": "cases/basis-3-role-digest-profile/wire.json",
+      "contextPin": "cases/basis-3-role-digest-profile/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-3-role-retained-other-path",
+      "wire": "cases/basis-3-role-retained-other-path/wire.json",
+      "contextPin": "cases/basis-3-role-retained-other-path/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-3-role-evidence-authoritySubjectPartyRef",
+      "wire": "cases/basis-3-role-evidence-authoritySubjectPartyRef/wire.json",
+      "contextPin": "cases/basis-3-role-evidence-authoritySubjectPartyRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-evidence-pathId",
+      "wire": "cases/basis-3-role-evidence-pathId/wire.json",
+      "contextPin": "cases/basis-3-role-evidence-pathId/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-evidence-authoritySubjectBasis",
+      "wire": "cases/basis-3-role-evidence-authoritySubjectBasis/wire.json",
+      "contextPin": "cases/basis-3-role-evidence-authoritySubjectBasis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-coherent-mirrored-party",
+      "wire": "cases/basis-3-role-coherent-mirrored-party/wire.json",
+      "contextPin": "cases/basis-3-role-coherent-mirrored-party/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-missing-AUTHENTICATED_PRINCIPAL",
+      "wire": "cases/basis-3-role-missing-AUTHENTICATED_PRINCIPAL/wire.json",
+      "contextPin": "cases/basis-3-role-missing-AUTHENTICATED_PRINCIPAL/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-3-role-missing-PRINCIPAL_RESOLUTION",
+      "wire": "cases/basis-3-role-missing-PRINCIPAL_RESOLUTION/wire.json",
+      "contextPin": "cases/basis-3-role-missing-PRINCIPAL_RESOLUTION/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-3-role-missing-SOURCE_AUTHORITY",
+      "wire": "cases/basis-3-role-missing-SOURCE_AUTHORITY/wire.json",
+      "contextPin": "cases/basis-3-role-missing-SOURCE_AUTHORITY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-3-role-missing-AUTHORITY_SUBJECT_PARTY",
+      "wire": "cases/basis-3-role-missing-AUTHORITY_SUBJECT_PARTY/wire.json",
+      "contextPin": "cases/basis-3-role-missing-AUTHORITY_SUBJECT_PARTY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-3-role-wrong-canonical-tuple",
+      "wire": "cases/basis-3-role-wrong-canonical-tuple/wire.json",
+      "contextPin": "cases/basis-3-role-wrong-canonical-tuple/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-source-target-substitution",
+      "wire": "cases/basis-3-role-source-target-substitution/wire.json",
+      "contextPin": "cases/basis-3-role-source-target-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "ROLE_PARTY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-unresolved-tuple-source",
+      "wire": "cases/basis-3-role-unresolved-tuple-source/wire.json",
+      "contextPin": "cases/basis-3-role-unresolved-tuple-source/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-3-role-wrong-REQUEST",
+      "wire": "cases/basis-3-role-wrong-REQUEST/wire.json",
+      "contextPin": "cases/basis-3-role-wrong-REQUEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-wrong-RESULT",
+      "wire": "cases/basis-3-role-wrong-RESULT/wire.json",
+      "contextPin": "cases/basis-3-role-wrong-RESULT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-wrong-TRACE",
+      "wire": "cases/basis-3-role-wrong-TRACE/wire.json",
+      "contextPin": "cases/basis-3-role-wrong-TRACE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-wrong-RULE",
+      "wire": "cases/basis-3-role-wrong-RULE/wire.json",
+      "contextPin": "cases/basis-3-role-wrong-RULE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-wrong-BINDING_MANIFEST",
+      "wire": "cases/basis-3-role-wrong-BINDING_MANIFEST/wire.json",
+      "contextPin": "cases/basis-3-role-wrong-BINDING_MANIFEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-wrong-DERIVED_VIEW",
+      "wire": "cases/basis-3-role-wrong-DERIVED_VIEW/wire.json",
+      "contextPin": "cases/basis-3-role-wrong-DERIVED_VIEW/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-wrong-EVALUATION_SNAPSHOT",
+      "wire": "cases/basis-3-role-wrong-EVALUATION_SNAPSHOT/wire.json",
+      "contextPin": "cases/basis-3-role-wrong-EVALUATION_SNAPSHOT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-intent-substitution",
+      "wire": "cases/basis-3-role-intent-substitution/wire.json",
+      "contextPin": "cases/basis-3-role-intent-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-nested-bundle-field",
+      "wire": "cases/basis-3-role-nested-bundle-field/wire.json",
+      "contextPin": "cases/basis-3-role-nested-bundle-field/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-wrong-visibility-snapshot",
+      "wire": "cases/basis-3-role-wrong-visibility-snapshot/wire.json",
+      "contextPin": "cases/basis-3-role-wrong-visibility-snapshot/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-missing-snapshot-basis",
+      "wire": "cases/basis-3-role-missing-snapshot-basis/wire.json",
+      "contextPin": "cases/basis-3-role-missing-snapshot-basis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-3-role-missing-snapshot-historyPosition",
+      "wire": "cases/basis-3-role-missing-snapshot-historyPosition/wire.json",
+      "contextPin": "cases/basis-3-role-missing-snapshot-historyPosition/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-3-role-missing-snapshot-indexWatermarks",
+      "wire": "cases/basis-3-role-missing-snapshot-indexWatermarks/wire.json",
+      "contextPin": "cases/basis-3-role-missing-snapshot-indexWatermarks/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-3-role-missing-snapshot-evidencePolicyRegistryBinding",
+      "wire": "cases/basis-3-role-missing-snapshot-evidencePolicyRegistryBinding/wire.json",
+      "contextPin": "cases/basis-3-role-missing-snapshot-evidencePolicyRegistryBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-3-role-missing-snapshot-sovereigntyPolicyBinding",
+      "wire": "cases/basis-3-role-missing-snapshot-sovereigntyPolicyBinding/wire.json",
+      "contextPin": "cases/basis-3-role-missing-snapshot-sovereigntyPolicyBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-3-role-mutable-selector",
+      "wire": "cases/basis-3-role-mutable-selector/wire.json",
+      "contextPin": "cases/basis-3-role-mutable-selector/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-3-role-consumer-report-profile",
+      "wire": "cases/basis-3-role-consumer-report-profile/wire.json",
+      "contextPin": "cases/basis-3-role-consumer-report-profile/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-3-role-changed-original-byte",
+      "wire": "cases/basis-3-role-changed-original-byte/wire.json",
+      "contextPin": "cases/basis-3-role-changed-original-byte/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-duplicate-json-name",
+      "wire": "cases/basis-3-role-duplicate-json-name/wire.json",
+      "contextPin": "cases/basis-3-role-duplicate-json-name/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DUPLICATE_JSON_MEMBER"
+      ]
+    },
+    {
+      "id": "basis-3-role-nonfinite-json",
+      "wire": "cases/basis-3-role-nonfinite-json/wire.json",
+      "contextPin": "cases/basis-3-role-nonfinite-json/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-3-role-unpaired-surrogate",
+      "wire": "cases/basis-3-role-unpaired-surrogate/wire.json",
+      "contextPin": "cases/basis-3-role-unpaired-surrogate/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-3-role-depth-limit",
+      "wire": "cases/basis-3-role-depth-limit/wire.json",
+      "contextPin": "cases/basis-3-role-depth-limit/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "JSON_DEPTH_LIMIT"
+      ]
+    },
+    {
+      "id": "basis-3-role-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef",
+      "wire": "cases/basis-3-role-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef/wire.json",
+      "contextPin": "cases/basis-3-role-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef",
+      "wire": "cases/basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef/wire.json",
+      "contextPin": "cases/basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef",
+      "wire": "cases/basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef/wire.json",
+      "contextPin": "cases/basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-mismatch-AGENT_IDENTITY-agentPartyRef",
+      "wire": "cases/basis-3-role-mismatch-AGENT_IDENTITY-agentPartyRef/wire.json",
+      "contextPin": "cases/basis-3-role-mismatch-AGENT_IDENTITY-agentPartyRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "AGENT_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef",
+      "wire": "cases/basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef/wire.json",
+      "contextPin": "cases/basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef",
+      "wire": "cases/basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef/wire.json",
+      "contextPin": "cases/basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass",
+      "wire": "cases/basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass/wire.json",
+      "contextPin": "cases/basis-3-role-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-role-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef",
+      "wire": "cases/basis-3-role-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef/wire.json",
+      "contextPin": "cases/basis-3-role-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_REVOCATION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-baseline",
+      "wire": "cases/basis-4-party-baseline/wire.json",
+      "contextPin": "cases/basis-4-party-baseline/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-4-party-digest-party",
+      "wire": "cases/basis-4-party-digest-party/wire.json",
+      "contextPin": "cases/basis-4-party-digest-party/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-4-party-digest-profile",
+      "wire": "cases/basis-4-party-digest-profile/wire.json",
+      "contextPin": "cases/basis-4-party-digest-profile/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-4-party-retained-other-path",
+      "wire": "cases/basis-4-party-retained-other-path/wire.json",
+      "contextPin": "cases/basis-4-party-retained-other-path/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-4-party-evidence-authoritySubjectPartyRef",
+      "wire": "cases/basis-4-party-evidence-authoritySubjectPartyRef/wire.json",
+      "contextPin": "cases/basis-4-party-evidence-authoritySubjectPartyRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-evidence-pathId",
+      "wire": "cases/basis-4-party-evidence-pathId/wire.json",
+      "contextPin": "cases/basis-4-party-evidence-pathId/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-evidence-authoritySubjectBasis",
+      "wire": "cases/basis-4-party-evidence-authoritySubjectBasis/wire.json",
+      "contextPin": "cases/basis-4-party-evidence-authoritySubjectBasis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-coherent-mirrored-party",
+      "wire": "cases/basis-4-party-coherent-mirrored-party/wire.json",
+      "contextPin": "cases/basis-4-party-coherent-mirrored-party/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-missing-AUTHENTICATED_PRINCIPAL",
+      "wire": "cases/basis-4-party-missing-AUTHENTICATED_PRINCIPAL/wire.json",
+      "contextPin": "cases/basis-4-party-missing-AUTHENTICATED_PRINCIPAL/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-4-party-missing-PRINCIPAL_RESOLUTION",
+      "wire": "cases/basis-4-party-missing-PRINCIPAL_RESOLUTION/wire.json",
+      "contextPin": "cases/basis-4-party-missing-PRINCIPAL_RESOLUTION/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-4-party-missing-SOURCE_AUTHORITY",
+      "wire": "cases/basis-4-party-missing-SOURCE_AUTHORITY/wire.json",
+      "contextPin": "cases/basis-4-party-missing-SOURCE_AUTHORITY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-4-party-missing-AUTHORITY_SUBJECT_PARTY",
+      "wire": "cases/basis-4-party-missing-AUTHORITY_SUBJECT_PARTY/wire.json",
+      "contextPin": "cases/basis-4-party-missing-AUTHORITY_SUBJECT_PARTY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-4-party-wrong-canonical-tuple",
+      "wire": "cases/basis-4-party-wrong-canonical-tuple/wire.json",
+      "contextPin": "cases/basis-4-party-wrong-canonical-tuple/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-source-target-substitution",
+      "wire": "cases/basis-4-party-source-target-substitution/wire.json",
+      "contextPin": "cases/basis-4-party-source-target-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "AUTHORITY_TARGET_PARTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-unresolved-tuple-source",
+      "wire": "cases/basis-4-party-unresolved-tuple-source/wire.json",
+      "contextPin": "cases/basis-4-party-unresolved-tuple-source/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-4-party-wrong-REQUEST",
+      "wire": "cases/basis-4-party-wrong-REQUEST/wire.json",
+      "contextPin": "cases/basis-4-party-wrong-REQUEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-wrong-RESULT",
+      "wire": "cases/basis-4-party-wrong-RESULT/wire.json",
+      "contextPin": "cases/basis-4-party-wrong-RESULT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-wrong-TRACE",
+      "wire": "cases/basis-4-party-wrong-TRACE/wire.json",
+      "contextPin": "cases/basis-4-party-wrong-TRACE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-wrong-RULE",
+      "wire": "cases/basis-4-party-wrong-RULE/wire.json",
+      "contextPin": "cases/basis-4-party-wrong-RULE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-wrong-BINDING_MANIFEST",
+      "wire": "cases/basis-4-party-wrong-BINDING_MANIFEST/wire.json",
+      "contextPin": "cases/basis-4-party-wrong-BINDING_MANIFEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-wrong-DERIVED_VIEW",
+      "wire": "cases/basis-4-party-wrong-DERIVED_VIEW/wire.json",
+      "contextPin": "cases/basis-4-party-wrong-DERIVED_VIEW/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-wrong-EVALUATION_SNAPSHOT",
+      "wire": "cases/basis-4-party-wrong-EVALUATION_SNAPSHOT/wire.json",
+      "contextPin": "cases/basis-4-party-wrong-EVALUATION_SNAPSHOT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-intent-substitution",
+      "wire": "cases/basis-4-party-intent-substitution/wire.json",
+      "contextPin": "cases/basis-4-party-intent-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-nested-bundle-field",
+      "wire": "cases/basis-4-party-nested-bundle-field/wire.json",
+      "contextPin": "cases/basis-4-party-nested-bundle-field/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-wrong-visibility-snapshot",
+      "wire": "cases/basis-4-party-wrong-visibility-snapshot/wire.json",
+      "contextPin": "cases/basis-4-party-wrong-visibility-snapshot/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-missing-snapshot-basis",
+      "wire": "cases/basis-4-party-missing-snapshot-basis/wire.json",
+      "contextPin": "cases/basis-4-party-missing-snapshot-basis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-4-party-missing-snapshot-historyPosition",
+      "wire": "cases/basis-4-party-missing-snapshot-historyPosition/wire.json",
+      "contextPin": "cases/basis-4-party-missing-snapshot-historyPosition/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-4-party-missing-snapshot-indexWatermarks",
+      "wire": "cases/basis-4-party-missing-snapshot-indexWatermarks/wire.json",
+      "contextPin": "cases/basis-4-party-missing-snapshot-indexWatermarks/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-4-party-missing-snapshot-evidencePolicyRegistryBinding",
+      "wire": "cases/basis-4-party-missing-snapshot-evidencePolicyRegistryBinding/wire.json",
+      "contextPin": "cases/basis-4-party-missing-snapshot-evidencePolicyRegistryBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-4-party-missing-snapshot-sovereigntyPolicyBinding",
+      "wire": "cases/basis-4-party-missing-snapshot-sovereigntyPolicyBinding/wire.json",
+      "contextPin": "cases/basis-4-party-missing-snapshot-sovereigntyPolicyBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-4-party-mutable-selector",
+      "wire": "cases/basis-4-party-mutable-selector/wire.json",
+      "contextPin": "cases/basis-4-party-mutable-selector/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-4-party-consumer-report-profile",
+      "wire": "cases/basis-4-party-consumer-report-profile/wire.json",
+      "contextPin": "cases/basis-4-party-consumer-report-profile/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-4-party-changed-original-byte",
+      "wire": "cases/basis-4-party-changed-original-byte/wire.json",
+      "contextPin": "cases/basis-4-party-changed-original-byte/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-duplicate-json-name",
+      "wire": "cases/basis-4-party-duplicate-json-name/wire.json",
+      "contextPin": "cases/basis-4-party-duplicate-json-name/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DUPLICATE_JSON_MEMBER"
+      ]
+    },
+    {
+      "id": "basis-4-party-nonfinite-json",
+      "wire": "cases/basis-4-party-nonfinite-json/wire.json",
+      "contextPin": "cases/basis-4-party-nonfinite-json/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-4-party-unpaired-surrogate",
+      "wire": "cases/basis-4-party-unpaired-surrogate/wire.json",
+      "contextPin": "cases/basis-4-party-unpaired-surrogate/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-4-party-depth-limit",
+      "wire": "cases/basis-4-party-depth-limit/wire.json",
+      "contextPin": "cases/basis-4-party-depth-limit/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "JSON_DEPTH_LIMIT"
+      ]
+    },
+    {
+      "id": "basis-4-party-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef",
+      "wire": "cases/basis-4-party-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef/wire.json",
+      "contextPin": "cases/basis-4-party-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef",
+      "wire": "cases/basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef/wire.json",
+      "contextPin": "cases/basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef",
+      "wire": "cases/basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef/wire.json",
+      "contextPin": "cases/basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-mismatch-AGENT_IDENTITY-agentPartyRef",
+      "wire": "cases/basis-4-party-mismatch-AGENT_IDENTITY-agentPartyRef/wire.json",
+      "contextPin": "cases/basis-4-party-mismatch-AGENT_IDENTITY-agentPartyRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "AGENT_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef",
+      "wire": "cases/basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef/wire.json",
+      "contextPin": "cases/basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef",
+      "wire": "cases/basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef/wire.json",
+      "contextPin": "cases/basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass",
+      "wire": "cases/basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass/wire.json",
+      "contextPin": "cases/basis-4-party-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef",
+      "wire": "cases/basis-4-party-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef/wire.json",
+      "contextPin": "cases/basis-4-party-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_REVOCATION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-delegation-agent-substitution",
+      "wire": "cases/basis-4-party-delegation-agent-substitution/wire.json",
+      "contextPin": "cases/basis-4-party-delegation-agent-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DELEGATION_PARTY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-baseline",
+      "wire": "cases/basis-4-role-baseline/wire.json",
+      "contextPin": "cases/basis-4-role-baseline/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-4-role-digest-party",
+      "wire": "cases/basis-4-role-digest-party/wire.json",
+      "contextPin": "cases/basis-4-role-digest-party/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-4-role-digest-profile",
+      "wire": "cases/basis-4-role-digest-profile/wire.json",
+      "contextPin": "cases/basis-4-role-digest-profile/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-4-role-retained-other-path",
+      "wire": "cases/basis-4-role-retained-other-path/wire.json",
+      "contextPin": "cases/basis-4-role-retained-other-path/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-4-role-evidence-authoritySubjectPartyRef",
+      "wire": "cases/basis-4-role-evidence-authoritySubjectPartyRef/wire.json",
+      "contextPin": "cases/basis-4-role-evidence-authoritySubjectPartyRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-evidence-pathId",
+      "wire": "cases/basis-4-role-evidence-pathId/wire.json",
+      "contextPin": "cases/basis-4-role-evidence-pathId/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-evidence-authoritySubjectBasis",
+      "wire": "cases/basis-4-role-evidence-authoritySubjectBasis/wire.json",
+      "contextPin": "cases/basis-4-role-evidence-authoritySubjectBasis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_CONTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-coherent-mirrored-party",
+      "wire": "cases/basis-4-role-coherent-mirrored-party/wire.json",
+      "contextPin": "cases/basis-4-role-coherent-mirrored-party/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "ACCOUNTABLE_PARTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-missing-AUTHENTICATED_PRINCIPAL",
+      "wire": "cases/basis-4-role-missing-AUTHENTICATED_PRINCIPAL/wire.json",
+      "contextPin": "cases/basis-4-role-missing-AUTHENTICATED_PRINCIPAL/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-4-role-missing-PRINCIPAL_RESOLUTION",
+      "wire": "cases/basis-4-role-missing-PRINCIPAL_RESOLUTION/wire.json",
+      "contextPin": "cases/basis-4-role-missing-PRINCIPAL_RESOLUTION/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-4-role-missing-SOURCE_AUTHORITY",
+      "wire": "cases/basis-4-role-missing-SOURCE_AUTHORITY/wire.json",
+      "contextPin": "cases/basis-4-role-missing-SOURCE_AUTHORITY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-4-role-missing-AUTHORITY_SUBJECT_PARTY",
+      "wire": "cases/basis-4-role-missing-AUTHORITY_SUBJECT_PARTY/wire.json",
+      "contextPin": "cases/basis-4-role-missing-AUTHORITY_SUBJECT_PARTY/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUIRED_BASIS_ROLE_MISSING"
+      ]
+    },
+    {
+      "id": "basis-4-role-wrong-canonical-tuple",
+      "wire": "cases/basis-4-role-wrong-canonical-tuple/wire.json",
+      "contextPin": "cases/basis-4-role-wrong-canonical-tuple/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-source-target-substitution",
+      "wire": "cases/basis-4-role-source-target-substitution/wire.json",
+      "contextPin": "cases/basis-4-role-source-target-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "ROLE_PARTY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-unresolved-tuple-source",
+      "wire": "cases/basis-4-role-unresolved-tuple-source/wire.json",
+      "contextPin": "cases/basis-4-role-unresolved-tuple-source/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_TUPLE_BINDING_NOT_RESOLVED"
+      ]
+    },
+    {
+      "id": "basis-4-role-wrong-REQUEST",
+      "wire": "cases/basis-4-role-wrong-REQUEST/wire.json",
+      "contextPin": "cases/basis-4-role-wrong-REQUEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-wrong-RESULT",
+      "wire": "cases/basis-4-role-wrong-RESULT/wire.json",
+      "contextPin": "cases/basis-4-role-wrong-RESULT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-wrong-TRACE",
+      "wire": "cases/basis-4-role-wrong-TRACE/wire.json",
+      "contextPin": "cases/basis-4-role-wrong-TRACE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_FIELD_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-wrong-RULE",
+      "wire": "cases/basis-4-role-wrong-RULE/wire.json",
+      "contextPin": "cases/basis-4-role-wrong-RULE/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_ACTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-wrong-BINDING_MANIFEST",
+      "wire": "cases/basis-4-role-wrong-BINDING_MANIFEST/wire.json",
+      "contextPin": "cases/basis-4-role-wrong-BINDING_MANIFEST/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-wrong-DERIVED_VIEW",
+      "wire": "cases/basis-4-role-wrong-DERIVED_VIEW/wire.json",
+      "contextPin": "cases/basis-4-role-wrong-DERIVED_VIEW/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DERIVED_VIEW_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-wrong-EVALUATION_SNAPSHOT",
+      "wire": "cases/basis-4-role-wrong-EVALUATION_SNAPSHOT/wire.json",
+      "contextPin": "cases/basis-4-role-wrong-EVALUATION_SNAPSHOT/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "EVALUATION_SNAPSHOT_CONTEXT_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-intent-substitution",
+      "wire": "cases/basis-4-role-intent-substitution/wire.json",
+      "contextPin": "cases/basis-4-role-intent-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "COMPLETE_INTENT_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-nested-bundle-field",
+      "wire": "cases/basis-4-role-nested-bundle-field/wire.json",
+      "contextPin": "cases/basis-4-role-nested-bundle-field/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DECISION_BUNDLE_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-wrong-visibility-snapshot",
+      "wire": "cases/basis-4-role-wrong-visibility-snapshot/wire.json",
+      "contextPin": "cases/basis-4-role-wrong-visibility-snapshot/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "TRACE_PATH_VISIBILITY_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-missing-snapshot-basis",
+      "wire": "cases/basis-4-role-missing-snapshot-basis/wire.json",
+      "contextPin": "cases/basis-4-role-missing-snapshot-basis/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-4-role-missing-snapshot-historyPosition",
+      "wire": "cases/basis-4-role-missing-snapshot-historyPosition/wire.json",
+      "contextPin": "cases/basis-4-role-missing-snapshot-historyPosition/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-4-role-missing-snapshot-indexWatermarks",
+      "wire": "cases/basis-4-role-missing-snapshot-indexWatermarks/wire.json",
+      "contextPin": "cases/basis-4-role-missing-snapshot-indexWatermarks/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-4-role-missing-snapshot-evidencePolicyRegistryBinding",
+      "wire": "cases/basis-4-role-missing-snapshot-evidencePolicyRegistryBinding/wire.json",
+      "contextPin": "cases/basis-4-role-missing-snapshot-evidencePolicyRegistryBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-4-role-missing-snapshot-sovereigntyPolicyBinding",
+      "wire": "cases/basis-4-role-missing-snapshot-sovereigntyPolicyBinding/wire.json",
+      "contextPin": "cases/basis-4-role-missing-snapshot-sovereigntyPolicyBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-4-role-mutable-selector",
+      "wire": "cases/basis-4-role-mutable-selector/wire.json",
+      "contextPin": "cases/basis-4-role-mutable-selector/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-4-role-consumer-report-profile",
+      "wire": "cases/basis-4-role-consumer-report-profile/wire.json",
+      "contextPin": "cases/basis-4-role-consumer-report-profile/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "basis-4-role-changed-original-byte",
+      "wire": "cases/basis-4-role-changed-original-byte/wire.json",
+      "contextPin": "cases/basis-4-role-changed-original-byte/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-duplicate-json-name",
+      "wire": "cases/basis-4-role-duplicate-json-name/wire.json",
+      "contextPin": "cases/basis-4-role-duplicate-json-name/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DUPLICATE_JSON_MEMBER"
+      ]
+    },
+    {
+      "id": "basis-4-role-nonfinite-json",
+      "wire": "cases/basis-4-role-nonfinite-json/wire.json",
+      "contextPin": "cases/basis-4-role-nonfinite-json/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-4-role-unpaired-surrogate",
+      "wire": "cases/basis-4-role-unpaired-surrogate/wire.json",
+      "contextPin": "cases/basis-4-role-unpaired-surrogate/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "basis-4-role-depth-limit",
+      "wire": "cases/basis-4-role-depth-limit/wire.json",
+      "contextPin": "cases/basis-4-role-depth-limit/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "JSON_DEPTH_LIMIT"
+      ]
+    },
+    {
+      "id": "basis-4-role-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef",
+      "wire": "cases/basis-4-role-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef/wire.json",
+      "contextPin": "cases/basis-4-role-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef",
+      "wire": "cases/basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef/wire.json",
+      "contextPin": "cases/basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-executingAgentInstanceRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef",
+      "wire": "cases/basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef/wire.json",
+      "contextPin": "cases/basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-agentSponsorRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-mismatch-AGENT_IDENTITY-agentPartyRef",
+      "wire": "cases/basis-4-role-mismatch-AGENT_IDENTITY-agentPartyRef/wire.json",
+      "contextPin": "cases/basis-4-role-mismatch-AGENT_IDENTITY-agentPartyRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "AGENT_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef",
+      "wire": "cases/basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef/wire.json",
+      "contextPin": "cases/basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef",
+      "wire": "cases/basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef/wire.json",
+      "contextPin": "cases/basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionTraceRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass",
+      "wire": "cases/basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass/wire.json",
+      "contextPin": "cases/basis-4-role-mismatch-CP3_AUTHORITY_ENVELOPE-requestedActionClass/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_DECISION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef",
+      "wire": "cases/basis-4-role-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef/wire.json",
+      "contextPin": "cases/basis-4-role-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_REVOCATION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-role-delegation-agent-substitution",
+      "wire": "cases/basis-4-role-delegation-agent-substitution/wire.json",
+      "contextPin": "cases/basis-4-role-delegation-agent-substitution/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DELEGATION_PARTY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-native-revision-mismatch",
+      "wire": "targeted-cases/basis-1-party-native-revision-mismatch/wire.json",
+      "contextPin": "targeted-cases/basis-1-party-native-revision-mismatch/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-missing-revision-pointer",
+      "wire": "targeted-cases/basis-1-party-missing-revision-pointer/wire.json",
+      "contextPin": "targeted-cases/basis-1-party-missing-revision-pointer/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REVISION_POINTER_REQUIRED"
+      ]
+    },
+    {
+      "id": "basis-1-party-two-party-revisions",
+      "wire": "targeted-cases/basis-1-party-two-party-revisions/wire.json",
+      "contextPin": "targeted-cases/basis-1-party-two-party-revisions/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES"
+      ]
+    },
+    {
+      "id": "basis-1-party-digest-party-no-revision-pointer",
+      "wire": "targeted-cases/basis-1-party-digest-party-no-revision-pointer/wire.json",
+      "contextPin": "targeted-cases/basis-1-party-digest-party-no-revision-pointer/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-2-party-native-revision-mismatch",
+      "wire": "targeted-cases/basis-2-party-native-revision-mismatch/wire.json",
+      "contextPin": "targeted-cases/basis-2-party-native-revision-mismatch/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-2-party-missing-revision-pointer",
+      "wire": "targeted-cases/basis-2-party-missing-revision-pointer/wire.json",
+      "contextPin": "targeted-cases/basis-2-party-missing-revision-pointer/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REVISION_POINTER_REQUIRED"
+      ]
+    },
+    {
+      "id": "basis-2-party-two-party-revisions",
+      "wire": "targeted-cases/basis-2-party-two-party-revisions/wire.json",
+      "contextPin": "targeted-cases/basis-2-party-two-party-revisions/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES"
+      ]
+    },
+    {
+      "id": "basis-2-party-digest-party-no-revision-pointer",
+      "wire": "targeted-cases/basis-2-party-digest-party-no-revision-pointer/wire.json",
+      "contextPin": "targeted-cases/basis-2-party-digest-party-no-revision-pointer/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-3-party-native-revision-mismatch",
+      "wire": "targeted-cases/basis-3-party-native-revision-mismatch/wire.json",
+      "contextPin": "targeted-cases/basis-3-party-native-revision-mismatch/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-missing-revision-pointer",
+      "wire": "targeted-cases/basis-3-party-missing-revision-pointer/wire.json",
+      "contextPin": "targeted-cases/basis-3-party-missing-revision-pointer/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REVISION_POINTER_REQUIRED"
+      ]
+    },
+    {
+      "id": "basis-3-party-two-party-revisions",
+      "wire": "targeted-cases/basis-3-party-two-party-revisions/wire.json",
+      "contextPin": "targeted-cases/basis-3-party-two-party-revisions/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES"
+      ]
+    },
+    {
+      "id": "basis-3-party-digest-party-no-revision-pointer",
+      "wire": "targeted-cases/basis-3-party-digest-party-no-revision-pointer/wire.json",
+      "contextPin": "targeted-cases/basis-3-party-digest-party-no-revision-pointer/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "basis-4-party-native-revision-mismatch",
+      "wire": "targeted-cases/basis-4-party-native-revision-mismatch/wire.json",
+      "contextPin": "targeted-cases/basis-4-party-native-revision-mismatch/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-4-party-missing-revision-pointer",
+      "wire": "targeted-cases/basis-4-party-missing-revision-pointer/wire.json",
+      "contextPin": "targeted-cases/basis-4-party-missing-revision-pointer/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REVISION_POINTER_REQUIRED"
+      ]
+    },
+    {
+      "id": "basis-4-party-two-party-revisions",
+      "wire": "targeted-cases/basis-4-party-two-party-revisions/wire.json",
+      "contextPin": "targeted-cases/basis-4-party-two-party-revisions/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES"
+      ]
+    },
+    {
+      "id": "basis-4-party-digest-party-no-revision-pointer",
+      "wire": "targeted-cases/basis-4-party-digest-party-no-revision-pointer/wire.json",
+      "contextPin": "targeted-cases/basis-4-party-digest-party-no-revision-pointer/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "native-revision-alternate-field",
+      "wire": "targeted-cases/native-revision-alternate-field/wire.json",
+      "contextPin": "targeted-cases/native-revision-alternate-field/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "retained-tuple-order",
+      "wire": "targeted-cases/retained-tuple-order/wire.json",
+      "contextPin": "targeted-cases/retained-tuple-order/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "id": "retained-tuple-source-id",
+      "wire": "targeted-cases/retained-tuple-source-id/wire.json",
+      "contextPin": "targeted-cases/retained-tuple-source-id/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "id": "retained-tuple-delegation-order",
+      "wire": "targeted-cases/retained-tuple-delegation-order/wire.json",
+      "contextPin": "targeted-cases/retained-tuple-delegation-order/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "id": "retained-tuple-duplicate-delegation",
+      "wire": "targeted-cases/retained-tuple-duplicate-delegation/wire.json",
+      "contextPin": "targeted-cases/retained-tuple-duplicate-delegation/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DUPLICATE_TUPLE_SOURCE"
+      ]
+    },
+    {
+      "id": "lower-retained-PATH_ALLOW",
+      "wire": "targeted-cases/lower-retained-PATH_ALLOW/wire.json",
+      "contextPin": "targeted-cases/lower-retained-PATH_ALLOW/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RETAINED_ALLOW_PATH_PRECEDES_SELECTION"
+      ]
+    },
+    {
+      "id": "lower-retained-PATH_DENY",
+      "wire": "targeted-cases/lower-retained-PATH_DENY/wire.json",
+      "contextPin": "targeted-cases/lower-retained-PATH_DENY/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "lower-retained-PATH_REQUIRE_HUMAN_APPROVAL",
+      "wire": "targeted-cases/lower-retained-PATH_REQUIRE_HUMAN_APPROVAL/wire.json",
+      "contextPin": "targeted-cases/lower-retained-PATH_REQUIRE_HUMAN_APPROVAL/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "equal-retained-allow-tuple",
+      "wire": "targeted-cases/equal-retained-allow-tuple/wire.json",
+      "contextPin": "targeted-cases/equal-retained-allow-tuple/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "missing-output-resolvedPrincipalKind",
+      "wire": "targeted-cases/missing-output-resolvedPrincipalKind/wire.json",
+      "contextPin": "targeted-cases/missing-output-resolvedPrincipalKind/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "expectedDetailContains": "resolvedPrincipalKind"
+    },
+    {
+      "id": "missing-output-agentActionPosture",
+      "wire": "targeted-cases/missing-output-agentActionPosture/wire.json",
+      "contextPin": "targeted-cases/missing-output-agentActionPosture/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "expectedDetailContains": "agentActionPosture"
+    },
+    {
+      "id": "missing-output-humanFinalizationRequirement",
+      "wire": "targeted-cases/missing-output-humanFinalizationRequirement/wire.json",
+      "contextPin": "targeted-cases/missing-output-humanFinalizationRequirement/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "expectedDetailContains": "humanFinalizationRequirement"
+    },
+    {
+      "id": "missing-output-primaryReasonCode",
+      "wire": "targeted-cases/missing-output-primaryReasonCode/wire.json",
+      "contextPin": "targeted-cases/missing-output-primaryReasonCode/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "expectedDetailContains": "primaryReasonCode"
+    },
+    {
+      "id": "missing-output-authorizationViewExtractorRef",
+      "wire": "targeted-cases/missing-output-authorizationViewExtractorRef/wire.json",
+      "contextPin": "targeted-cases/missing-output-authorizationViewExtractorRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "expectedDetailContains": "authorizationViewExtractorRef"
+    },
+    {
+      "id": "missing-output-authorizationViewExtractorDigest",
+      "wire": "targeted-cases/missing-output-authorizationViewExtractorDigest/wire.json",
+      "contextPin": "targeted-cases/missing-output-authorizationViewExtractorDigest/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ],
+      "expectedDetailContains": "authorizationViewExtractorDigest"
+    },
+    {
+      "id": "basis-1-party-output-resolvedPrincipalKind",
+      "wire": "targeted-cases/basis-1-party-output-resolvedPrincipalKind/wire.json",
+      "contextPin": "targeted-cases/basis-1-party-output-resolvedPrincipalKind/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "OUTPUT_PRINCIPAL_KIND_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-output-agentActionPosture",
+      "wire": "targeted-cases/basis-1-party-output-agentActionPosture/wire.json",
+      "contextPin": "targeted-cases/basis-1-party-output-agentActionPosture/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "OUTPUT_CP3_POSTURE_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-output-humanFinalizationRequirement",
+      "wire": "targeted-cases/basis-1-party-output-humanFinalizationRequirement/wire.json",
+      "contextPin": "targeted-cases/basis-1-party-output-humanFinalizationRequirement/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "HUMAN_FINALIZATION_RULE_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-output-primaryReasonCode",
+      "wire": "targeted-cases/basis-1-party-output-primaryReasonCode/wire.json",
+      "contextPin": "targeted-cases/basis-1-party-output-primaryReasonCode/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SUCCESS_PRIMARY_REASON_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-output-authorizationViewExtractorRef",
+      "wire": "targeted-cases/basis-1-party-output-authorizationViewExtractorRef/wire.json",
+      "contextPin": "targeted-cases/basis-1-party-output-authorizationViewExtractorRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "EXTRACTOR_REFERENCE_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-1-party-output-authorizationViewExtractorDigest",
+      "wire": "targeted-cases/basis-1-party-output-authorizationViewExtractorDigest/wire.json",
+      "contextPin": "targeted-cases/basis-1-party-output-authorizationViewExtractorDigest/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "EXTRACTOR_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-output-resolvedPrincipalKind",
+      "wire": "targeted-cases/basis-3-party-output-resolvedPrincipalKind/wire.json",
+      "contextPin": "targeted-cases/basis-3-party-output-resolvedPrincipalKind/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "OUTPUT_PRINCIPAL_KIND_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-output-agentActionPosture",
+      "wire": "targeted-cases/basis-3-party-output-agentActionPosture/wire.json",
+      "contextPin": "targeted-cases/basis-3-party-output-agentActionPosture/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "OUTPUT_CP3_POSTURE_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-output-humanFinalizationRequirement",
+      "wire": "targeted-cases/basis-3-party-output-humanFinalizationRequirement/wire.json",
+      "contextPin": "targeted-cases/basis-3-party-output-humanFinalizationRequirement/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "HUMAN_FINALIZATION_RULE_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-output-primaryReasonCode",
+      "wire": "targeted-cases/basis-3-party-output-primaryReasonCode/wire.json",
+      "contextPin": "targeted-cases/basis-3-party-output-primaryReasonCode/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SUCCESS_PRIMARY_REASON_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-output-authorizationViewExtractorRef",
+      "wire": "targeted-cases/basis-3-party-output-authorizationViewExtractorRef/wire.json",
+      "contextPin": "targeted-cases/basis-3-party-output-authorizationViewExtractorRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "EXTRACTOR_REFERENCE_MISMATCH"
+      ]
+    },
+    {
+      "id": "basis-3-party-output-authorizationViewExtractorDigest",
+      "wire": "targeted-cases/basis-3-party-output-authorizationViewExtractorDigest/wire.json",
+      "contextPin": "targeted-cases/basis-3-party-output-authorizationViewExtractorDigest/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "EXTRACTOR_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "rule-authorizationViewExtractorRef",
+      "wire": "targeted-cases/rule-authorizationViewExtractorRef/wire.json",
+      "contextPin": "targeted-cases/rule-authorizationViewExtractorRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "EXTRACTOR_REFERENCE_MISMATCH"
+      ]
+    },
+    {
+      "id": "rule-authorizationViewExtractorDigest",
+      "wire": "targeted-cases/rule-authorizationViewExtractorDigest/wire.json",
+      "contextPin": "targeted-cases/rule-authorizationViewExtractorDigest/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "EXTRACTOR_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "rule-humanFinalizationRequirement",
+      "wire": "targeted-cases/rule-humanFinalizationRequirement/wire.json",
+      "contextPin": "targeted-cases/rule-humanFinalizationRequirement/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "HUMAN_FINALIZATION_RULE_MISMATCH"
+      ]
+    },
+    {
+      "id": "rule-agentActionPosture",
+      "wire": "targeted-cases/rule-agentActionPosture/wire.json",
+      "contextPin": "targeted-cases/rule-agentActionPosture/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "OUTPUT_CP3_POSTURE_MISMATCH"
+      ]
+    },
+    {
+      "id": "view-authorizationViewExtractorRef",
+      "wire": "targeted-cases/view-authorizationViewExtractorRef/wire.json",
+      "contextPin": "targeted-cases/view-authorizationViewExtractorRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DERIVED_VIEW_EXTRACTOR_MISMATCH"
+      ]
+    },
+    {
+      "id": "view-authorizationViewExtractorDigest",
+      "wire": "targeted-cases/view-authorizationViewExtractorDigest/wire.json",
+      "contextPin": "targeted-cases/view-authorizationViewExtractorDigest/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DERIVED_VIEW_EXTRACTOR_MISMATCH"
+      ]
+    },
+    {
+      "id": "changed-extractor-original-bytes",
+      "wire": "targeted-cases/changed-extractor-original-bytes/wire.json",
+      "contextPin": "targeted-cases/changed-extractor-original-bytes/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_BINDING_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "extractor-revision-only",
+      "wire": "targeted-cases/extractor-revision-only/wire.json",
+      "contextPin": "targeted-cases/extractor-revision-only/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "EXTRACTOR_REQUIRES_DIGEST_BINDING"
+      ]
+    },
+    {
+      "id": "compared-owner-posture-AGENT_ALLOWED_WITH_POLICY_CHECK",
+      "wire": "targeted-cases/compared-owner-posture-AGENT_ALLOWED_WITH_POLICY_CHECK/wire.json",
+      "contextPin": "targeted-cases/compared-owner-posture-AGENT_ALLOWED_WITH_POLICY_CHECK/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "compared-owner-posture-AGENT_ALLOWED_WITH_PREFLIGHT_ONLY",
+      "wire": "targeted-cases/compared-owner-posture-AGENT_ALLOWED_WITH_PREFLIGHT_ONLY/wire.json",
+      "contextPin": "targeted-cases/compared-owner-posture-AGENT_ALLOWED_WITH_PREFLIGHT_ONLY/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "compared-owner-posture-AGENT_ALLOWED_WITH_HUMAN_APPROVAL",
+      "wire": "targeted-cases/compared-owner-posture-AGENT_ALLOWED_WITH_HUMAN_APPROVAL/wire.json",
+      "contextPin": "targeted-cases/compared-owner-posture-AGENT_ALLOWED_WITH_HUMAN_APPROVAL/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "compared-owner-posture-HUMAN_ONLY",
+      "wire": "targeted-cases/compared-owner-posture-HUMAN_ONLY/wire.json",
+      "contextPin": "targeted-cases/compared-owner-posture-HUMAN_ONLY/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "compared-owner-posture-PROHIBITED_FOR_AGENT",
+      "wire": "targeted-cases/compared-owner-posture-PROHIBITED_FOR_AGENT/wire.json",
+      "contextPin": "targeted-cases/compared-owner-posture-PROHIBITED_FOR_AGENT/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "compared-owner-finalization-NOT_REQUIRED",
+      "wire": "targeted-cases/compared-owner-finalization-NOT_REQUIRED/wire.json",
+      "contextPin": "targeted-cases/compared-owner-finalization-NOT_REQUIRED/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "compared-owner-finalization-FRESH_HUMAN_APPROVAL_REQUIRED",
+      "wire": "targeted-cases/compared-owner-finalization-FRESH_HUMAN_APPROVAL_REQUIRED/wire.json",
+      "contextPin": "targeted-cases/compared-owner-finalization-FRESH_HUMAN_APPROVAL_REQUIRED/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "compared-owner-finalization-DIRECT_HUMAN_ACTION_REQUIRED",
+      "wire": "targeted-cases/compared-owner-finalization-DIRECT_HUMAN_ACTION_REQUIRED/wire.json",
+      "contextPin": "targeted-cases/compared-owner-finalization-DIRECT_HUMAN_ACTION_REQUIRED/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "selected-sharing-explicit-profile-rejection",
+      "wire": "targeted-cases/selected-sharing-explicit-profile-rejection/wire.json",
+      "contextPin": "targeted-cases/selected-sharing-explicit-profile-rejection/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_SHARING_PATH_OUTSIDE_PROFILE"
+      ]
+    },
+    {
+      "id": "retained-sharing-source-bound",
+      "wire": "targeted-cases/retained-sharing-source-bound/wire.json",
+      "contextPin": "targeted-cases/retained-sharing-source-bound/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "intent-alternate-version-field",
+      "wire": "targeted-cases/intent-alternate-version-field/wire.json",
+      "contextPin": "targeted-cases/intent-alternate-version-field/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    },
+    {
+      "id": "intent-alternate-version-mismatch",
+      "wire": "targeted-cases/intent-alternate-version-mismatch/wire.json",
+      "contextPin": "targeted-cases/intent-alternate-version-mismatch/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INTENT_VERSION_MISMATCH"
+      ]
+    },
+    {
+      "id": "intent-missing-version-pointer",
+      "wire": "targeted-cases/intent-missing-version-pointer/wire.json",
+      "contextPin": "targeted-cases/intent-missing-version-pointer/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INTENT_VERSION_POINTER_REQUIRED"
+      ]
+    },
+    {
+      "id": "deep-PRINCIPAL_RESOLUTION-authenticatedPrincipalRef",
+      "wire": "targeted-cases/deep-PRINCIPAL_RESOLUTION-authenticatedPrincipalRef/wire.json",
+      "contextPin": "targeted-cases/deep-PRINCIPAL_RESOLUTION-authenticatedPrincipalRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "PRINCIPAL_RESOLUTION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-PRINCIPAL_RESOLUTION-principalPartyRef",
+      "wire": "targeted-cases/deep-PRINCIPAL_RESOLUTION-principalPartyRef/wire.json",
+      "contextPin": "targeted-cases/deep-PRINCIPAL_RESOLUTION-principalPartyRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "NATURAL_PERSON_RESOLUTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-PRINCIPAL_RESOLUTION-resolvedPrincipalKind",
+      "wire": "targeted-cases/deep-PRINCIPAL_RESOLUTION-resolvedPrincipalKind/wire.json",
+      "contextPin": "targeted-cases/deep-PRINCIPAL_RESOLUTION-resolvedPrincipalKind/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "PRINCIPAL_BASIS_KIND_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-DERIVED_VIEW-actionClass",
+      "wire": "targeted-cases/deep-DERIVED_VIEW-actionClass/wire.json",
+      "contextPin": "targeted-cases/deep-DERIVED_VIEW-actionClass/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DERIVED_VIEW_SOURCE_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-BINDING_MANIFEST-policyBinding",
+      "wire": "targeted-cases/deep-BINDING_MANIFEST-policyBinding/wire.json",
+      "contextPin": "targeted-cases/deep-BINDING_MANIFEST-policyBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "MANIFEST_POLICY_RULE_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-EVALUATION_SNAPSHOT-principalResolutionBinding",
+      "wire": "targeted-cases/deep-EVALUATION_SNAPSHOT-principalResolutionBinding/wire.json",
+      "contextPin": "targeted-cases/deep-EVALUATION_SNAPSHOT-principalResolutionBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SNAPSHOT_PRINCIPAL_RESOLUTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-RULE-selectedRuleId",
+      "wire": "targeted-cases/deep-RULE-selectedRuleId/wire.json",
+      "contextPin": "targeted-cases/deep-RULE-selectedRuleId/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RULE_OUTPUT_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-RULE-ruleRevision",
+      "wire": "targeted-cases/deep-RULE-ruleRevision/wire.json",
+      "contextPin": "targeted-cases/deep-RULE-ruleRevision/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RULE_OUTPUT_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-POLICY-policyVersion",
+      "wire": "targeted-cases/deep-POLICY-policyVersion/wire.json",
+      "contextPin": "targeted-cases/deep-POLICY-policyVersion/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "POLICY_OUTPUT_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-agent-PRINCIPAL_RESOLUTION-principalPartyRef",
+      "wire": "targeted-cases/deep-agent-PRINCIPAL_RESOLUTION-principalPartyRef/wire.json",
+      "contextPin": "targeted-cases/deep-agent-PRINCIPAL_RESOLUTION-principalPartyRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "AGENT_PARTY_RESOLUTION_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-agent-AGENT_IDENTITY-agentInstanceRef",
+      "wire": "targeted-cases/deep-agent-AGENT_IDENTITY-agentInstanceRef/wire.json",
+      "contextPin": "targeted-cases/deep-agent-AGENT_IDENTITY-agentInstanceRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "AGENT_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-agent-CP3_ACTORSHIP_BINDING-softwareAgentProfileRef",
+      "wire": "targeted-cases/deep-agent-CP3_ACTORSHIP_BINDING-softwareAgentProfileRef/wire.json",
+      "contextPin": "targeted-cases/deep-agent-CP3_ACTORSHIP_BINDING-softwareAgentProfileRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-agent-CP3_AUTHORITY_ENVELOPE-authoritySnapshotRef",
+      "wire": "targeted-cases/deep-agent-CP3_AUTHORITY_ENVELOPE-authoritySnapshotRef/wire.json",
+      "contextPin": "targeted-cases/deep-agent-CP3_AUTHORITY_ENVELOPE-authoritySnapshotRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-agent-CP3_AUTHORITY_ENVELOPE-agentActorshipBindingRef",
+      "wire": "targeted-cases/deep-agent-CP3_AUTHORITY_ENVELOPE-agentActorshipBindingRef/wire.json",
+      "contextPin": "targeted-cases/deep-agent-CP3_AUTHORITY_ENVELOPE-agentActorshipBindingRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_EVIDENCE_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-agent-CP3_AUTHORITY_ENVELOPE-revocationStateRef",
+      "wire": "targeted-cases/deep-agent-CP3_AUTHORITY_ENVELOPE-revocationStateRef/wire.json",
+      "contextPin": "targeted-cases/deep-agent-CP3_AUTHORITY_ENVELOPE-revocationStateRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_EVIDENCE_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-agent-CP3_REVOCATION_STATE-executingAgentInstanceRef",
+      "wire": "targeted-cases/deep-agent-CP3_REVOCATION_STATE-executingAgentInstanceRef/wire.json",
+      "contextPin": "targeted-cases/deep-agent-CP3_REVOCATION_STATE-executingAgentInstanceRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_REVOCATION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-agent-CP3_REVOCATION_STATE-agentSponsorRef",
+      "wire": "targeted-cases/deep-agent-CP3_REVOCATION_STATE-agentSponsorRef/wire.json",
+      "contextPin": "targeted-cases/deep-agent-CP3_REVOCATION_STATE-agentSponsorRef/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CP3_REVOCATION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-agent-EVALUATION_SNAPSHOT-cp3AuthoritySnapshotBinding",
+      "wire": "targeted-cases/deep-agent-EVALUATION_SNAPSHOT-cp3AuthoritySnapshotBinding/wire.json",
+      "contextPin": "targeted-cases/deep-agent-EVALUATION_SNAPSHOT-cp3AuthoritySnapshotBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SNAPSHOT_CP3_BINDING_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-basis-role-family",
+      "wire": "targeted-cases/deep-basis-role-family/wire.json",
+      "contextPin": "targeted-cases/deep-basis-role-family/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "BASIS_ROLE_FAMILY_MISMATCH"
+      ]
+    },
+    {
+      "id": "deep-duplicate-basis-role",
+      "wire": "targeted-cases/deep-duplicate-basis-role/wire.json",
+      "contextPin": "targeted-cases/deep-duplicate-basis-role/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DUPLICATE_BASIS_ROLE"
+      ]
+    },
+    {
+      "id": "deep-basis-absent-from-snapshot",
+      "wire": "targeted-cases/deep-basis-absent-from-snapshot/wire.json",
+      "contextPin": "targeted-cases/deep-basis-absent-from-snapshot/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "BASIS_NOT_IN_SELECTED_SNAPSHOT"
+      ]
+    },
+    {
+      "id": "deep-snapshot-evidencePolicyRegistryBinding",
+      "wire": "targeted-cases/deep-snapshot-evidencePolicyRegistryBinding/wire.json",
+      "contextPin": "targeted-cases/deep-snapshot-evidencePolicyRegistryBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SNAPSHOT_REGISTRY_SOURCE_NOT_EXACTLY_RESOLVED"
+      ]
+    },
+    {
+      "id": "deep-snapshot-sovereigntyPolicyBinding",
+      "wire": "targeted-cases/deep-snapshot-sovereigntyPolicyBinding/wire.json",
+      "contextPin": "targeted-cases/deep-snapshot-sovereigntyPolicyBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SNAPSHOT_REGISTRY_SOURCE_NOT_EXACTLY_RESOLVED"
+      ]
+    },
+    {
+      "id": "coverage-selected-contract",
+      "wire": "targeted-cases/coverage-selected-contract/wire.json",
+      "contextPin": "targeted-cases/coverage-selected-contract/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_CONTRACT_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-profile-bytes",
+      "wire": "targeted-cases/coverage-profile-bytes/wire.json",
+      "contextPin": "targeted-cases/coverage-profile-bytes/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_PROFILE_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-profile-binding",
+      "wire": "targeted-cases/coverage-profile-binding/wire.json",
+      "contextPin": "targeted-cases/coverage-profile-binding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_PROFILE_BINDING_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-profile-id",
+      "wire": "targeted-cases/coverage-profile-id/wire.json",
+      "contextPin": "targeted-cases/coverage-profile-id/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_PROFILE_ID_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-profile-revision",
+      "wire": "targeted-cases/coverage-profile-revision/wire.json",
+      "contextPin": "targeted-cases/coverage-profile-revision/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_PROFILE_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-source-law",
+      "wire": "targeted-cases/coverage-source-law/wire.json",
+      "contextPin": "targeted-cases/coverage-source-law/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_LAW_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-unknown-format",
+      "wire": "targeted-cases/coverage-unknown-format/wire.json",
+      "contextPin": "targeted-cases/coverage-unknown-format/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "UNKNOWN_SOURCE_FORMAT"
+      ]
+    },
+    {
+      "id": "coverage-unresolved-core",
+      "wire": "targeted-cases/coverage-unresolved-core/wire.json",
+      "contextPin": "targeted-cases/coverage-unresolved-core/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "UNRESOLVED_SOURCE_KEY"
+      ]
+    },
+    {
+      "id": "coverage-core-binding",
+      "wire": "targeted-cases/coverage-core-binding/wire.json",
+      "contextPin": "targeted-cases/coverage-core-binding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CORE_SOURCE_BINDING_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-core-family",
+      "wire": "targeted-cases/coverage-core-family/wire.json",
+      "contextPin": "targeted-cases/coverage-core-family/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CORE_SOURCE_FAMILY_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-format-hash",
+      "wire": "targeted-cases/coverage-format-hash/wire.json",
+      "contextPin": "targeted-cases/coverage-format-hash/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "FORMAT_SCHEMA_NOT_SELECTED"
+      ]
+    },
+    {
+      "id": "coverage-logical-id",
+      "wire": "targeted-cases/coverage-logical-id/wire.json",
+      "contextPin": "targeted-cases/coverage-logical-id/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_LOGICAL_ID_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-content-only-party",
+      "wire": "targeted-cases/coverage-content-only-party/wire.json",
+      "contextPin": "targeted-cases/coverage-content-only-party/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "CONTENT_ONLY_IDENTITY_REQUIRES_DIGEST"
+      ]
+    },
+    {
+      "id": "coverage-authority-digest-profile",
+      "wire": "targeted-cases/coverage-authority-digest-profile/wire.json",
+      "contextPin": "targeted-cases/coverage-authority-digest-profile/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "AUTHORITY_SOURCE_DIGEST_PROFILE_REQUIRED"
+      ]
+    },
+    {
+      "id": "coverage-profile-digest",
+      "wire": "targeted-cases/coverage-profile-digest/wire.json",
+      "contextPin": "targeted-cases/coverage-profile-digest/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_PROFILE_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-schema-set",
+      "wire": "targeted-cases/coverage-schema-set/wire.json",
+      "contextPin": "targeted-cases/coverage-schema-set/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_SET_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-schema-bytes",
+      "wire": "targeted-cases/coverage-schema-bytes/wire.json",
+      "contextPin": "targeted-cases/coverage-schema-bytes/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-schema-dialect",
+      "wire": "targeted-cases/coverage-schema-dialect/wire.json",
+      "contextPin": "targeted-cases/coverage-schema-dialect/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_ID_OR_DIALECT_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-owned-schema-override",
+      "wire": "targeted-cases/coverage-owned-schema-override/wire.json",
+      "contextPin": "targeted-cases/coverage-owned-schema-override/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "OWNED_SCHEMA_OVERRIDE"
+      ]
+    },
+    {
+      "id": "coverage-one-record-revision",
+      "wire": "targeted-cases/coverage-one-record-revision/wire.json",
+      "contextPin": "targeted-cases/coverage-one-record-revision/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "ONE_RECORD_SOURCE_REQUIRES_DIGEST_BINDING"
+      ]
+    },
+    {
+      "id": "coverage-self-digest-missing",
+      "wire": "targeted-cases/coverage-self-digest-missing/wire.json",
+      "contextPin": "targeted-cases/coverage-self-digest-missing/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_RECORD_DIGEST_MISSING"
+      ]
+    },
+    {
+      "id": "coverage-self-digest-mismatch",
+      "wire": "targeted-cases/coverage-self-digest-mismatch/wire.json",
+      "contextPin": "targeted-cases/coverage-self-digest-mismatch/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_RECORD_SELF_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-output-resultId",
+      "wire": "targeted-cases/coverage-output-resultId/wire.json",
+      "contextPin": "targeted-cases/coverage-output-resultId/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "OUTPUT_ID_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-output-requestId",
+      "wire": "targeted-cases/coverage-output-requestId/wire.json",
+      "contextPin": "targeted-cases/coverage-output-requestId/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUEST_ID_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-output-policyDigest",
+      "wire": "targeted-cases/coverage-output-policyDigest/wire.json",
+      "contextPin": "targeted-cases/coverage-output-policyDigest/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "POLICY_CONTENT_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-output-ruleDigest",
+      "wire": "targeted-cases/coverage-output-ruleDigest/wire.json",
+      "contextPin": "targeted-cases/coverage-output-ruleDigest/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RULE_CLOSURE_CONTENT_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-output-decisionValidUntil",
+      "wire": "targeted-cases/coverage-output-decisionValidUntil/wire.json",
+      "contextPin": "targeted-cases/coverage-output-decisionValidUntil/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_DECISION_INTERVAL"
+      ]
+    },
+    {
+      "id": "coverage-output-selectedPathId",
+      "wire": "targeted-cases/coverage-output-selectedPathId/wire.json",
+      "contextPin": "targeted-cases/coverage-output-selectedPathId/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_NOT_IN_TRACE"
+      ]
+    },
+    {
+      "id": "coverage-output-snapshotBinding",
+      "wire": "targeted-cases/coverage-output-snapshotBinding/wire.json",
+      "contextPin": "targeted-cases/coverage-output-snapshotBinding/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "OUTPUT_SOURCE_BINDING_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-result-trace-id",
+      "wire": "targeted-cases/coverage-result-trace-id/wire.json",
+      "contextPin": "targeted-cases/coverage-result-trace-id/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RESULT_TRACE_ID_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-request-intent",
+      "wire": "targeted-cases/coverage-request-intent/wire.json",
+      "contextPin": "targeted-cases/coverage-request-intent/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "REQUEST_INTENT_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-intent-canonicalization",
+      "wire": "targeted-cases/coverage-intent-canonicalization/wire.json",
+      "contextPin": "targeted-cases/coverage-intent-canonicalization/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INTENT_CANONICALIZATION_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-rule-intent-schema",
+      "wire": "targeted-cases/coverage-rule-intent-schema/wire.json",
+      "contextPin": "targeted-cases/coverage-rule-intent-schema/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RULE_INTENT_SCHEMA_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-intent-schema-selection",
+      "wire": "targeted-cases/coverage-intent-schema-selection/wire.json",
+      "contextPin": "targeted-cases/coverage-intent-schema-selection/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INTENT_SCHEMA_NOT_SELECTED"
+      ]
+    },
+    {
+      "id": "coverage-rule-ruleRevision",
+      "wire": "targeted-cases/coverage-rule-ruleRevision/wire.json",
+      "contextPin": "targeted-cases/coverage-rule-ruleRevision/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "RULE_REVISION_BINDING_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-rule-selectedRuleId",
+      "wire": "targeted-cases/coverage-rule-selectedRuleId/wire.json",
+      "contextPin": "targeted-cases/coverage-rule-selectedRuleId/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "POLICY_RULE_IDENTITY_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-duplicate-path",
+      "wire": "targeted-cases/coverage-duplicate-path/wire.json",
+      "contextPin": "targeted-cases/coverage-duplicate-path/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DUPLICATE_PATH_ID"
+      ]
+    },
+    {
+      "id": "coverage-selected-not-allow",
+      "wire": "targeted-cases/coverage-selected-not-allow/wire.json",
+      "contextPin": "targeted-cases/coverage-selected-not-allow/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELECTED_PATH_NOT_SUCCESSFUL"
+      ]
+    },
+    {
+      "id": "coverage-trace-basis-closure",
+      "wire": "targeted-cases/coverage-trace-basis-closure/wire.json",
+      "contextPin": "targeted-cases/coverage-trace-basis-closure/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "TRACE_PATH_BASIS_CLOSURE_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-trace-source",
+      "wire": "targeted-cases/coverage-trace-source/wire.json",
+      "contextPin": "targeted-cases/coverage-trace-source/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "TRACE_PATH_SOURCE_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-visibility-family",
+      "wire": "targeted-cases/coverage-visibility-family/wire.json",
+      "contextPin": "targeted-cases/coverage-visibility-family/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "VISIBILITY_FAMILY_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-path-source-authority",
+      "wire": "targeted-cases/coverage-path-source-authority/wire.json",
+      "contextPin": "targeted-cases/coverage-path-source-authority/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "PATH_SOURCE_AUTHORITY_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-path-type-basis-1-party",
+      "wire": "targeted-cases/coverage-path-type-basis-1-party/wire.json",
+      "contextPin": "targeted-cases/coverage-path-type-basis-1-party/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DIRECT_PATH_TYPE_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-path-type-basis-1-role",
+      "wire": "targeted-cases/coverage-path-type-basis-1-role/wire.json",
+      "contextPin": "targeted-cases/coverage-path-type-basis-1-role/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "ROLE_PATH_TYPE_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-path-type-basis-4-party",
+      "wire": "targeted-cases/coverage-path-type-basis-4-party/wire.json",
+      "contextPin": "targeted-cases/coverage-path-type-basis-4-party/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DELEGATION_PATH_TYPE_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-self-party",
+      "wire": "targeted-cases/coverage-self-party/wire.json",
+      "contextPin": "targeted-cases/coverage-self-party/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SELF_PARTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-direct-agent-party",
+      "wire": "targeted-cases/coverage-direct-agent-party/wire.json",
+      "contextPin": "targeted-cases/coverage-direct-agent-party/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DIRECT_AGENT_PARTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-delegation-sources-missing",
+      "wire": "targeted-cases/coverage-delegation-sources-missing/wire.json",
+      "contextPin": "targeted-cases/coverage-delegation-sources-missing/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DELEGATION_SOURCE_AUTHORITY_MISMATCH"
+      ]
+    },
+    {
+      "id": "coverage-delegation-sources-unresolved",
+      "wire": "targeted-cases/coverage-delegation-sources-unresolved/wire.json",
+      "contextPin": "targeted-cases/coverage-delegation-sources-unresolved/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DELEGATION_SOURCE_REF_UNRESOLVED"
+      ]
+    },
+    {
+      "id": "coverage-delegation-tuple",
+      "wire": "targeted-cases/coverage-delegation-tuple/wire.json",
+      "contextPin": "targeted-cases/coverage-delegation-tuple/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DELEGATION_TUPLE_BINDING_MISSING"
+      ]
+    },
+    {
+      "id": "coverage-unused-source",
+      "wire": "targeted-cases/coverage-unused-source/wire.json",
+      "contextPin": "targeted-cases/coverage-unused-source/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "UNUSED_DECLARED_SOURCE"
+      ]
+    },
+    {
+      "id": "invalid-utf8",
+      "wire": "edge-cases/invalid-utf8/wire.json",
+      "contextPin": "edge-cases/invalid-utf8/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "utf8-bom",
+      "wire": "edge-cases/utf8-bom/wire.json",
+      "contextPin": "edge-cases/utf8-bom/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "duplicate-key",
+      "wire": "edge-cases/duplicate-key/wire.json",
+      "contextPin": "edge-cases/duplicate-key/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DUPLICATE_JSON_MEMBER"
+      ]
+    },
+    {
+      "id": "unsafe-integer",
+      "wire": "edge-cases/unsafe-integer/wire.json",
+      "contextPin": "edge-cases/unsafe-integer/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_JSON_OR_CANONICAL_VALUE"
+      ]
+    },
+    {
+      "id": "oversize",
+      "wire": "edge-cases/oversize/wire.json",
+      "contextPin": "edge-cases/oversize/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INVALID_INPUT_BYTES"
+      ]
+    },
+    {
+      "id": "array-instead-of-object",
+      "wire": "edge-cases/array-instead-of-object/wire.json",
+      "contextPin": "edge-cases/array-instead-of-object/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "independent-context-digest-required",
+      "wire": "edge-cases/independent-context-digest-required/wire.json",
+      "contextPin": "edge-cases/independent-context-digest-required/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INDEPENDENT_CONTEXT_DIGEST_REQUIRED"
+      ]
+    },
+    {
+      "id": "independent-context-raw-mismatch",
+      "wire": "edge-cases/independent-context-raw-mismatch/wire.json",
+      "contextPin": "edge-cases/independent-context-raw-mismatch/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "INDEPENDENT_CONTEXT_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "id": "mirrored-party-in-context",
+      "wire": "edge-cases/mirrored-party-in-context/wire.json",
+      "contextPin": "edge-cases/mirrored-party-in-context/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "admitted-boolean-in-context",
+      "wire": "edge-cases/admitted-boolean-in-context/wire.json",
+      "contextPin": "edge-cases/admitted-boolean-in-context/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "duplicate-source-key",
+      "wire": "edge-cases/duplicate-source-key/wire.json",
+      "contextPin": "edge-cases/duplicate-source-key/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DUPLICATE_SOURCE_KEY"
+      ]
+    },
+    {
+      "id": "wrong-source-value-digest",
+      "wire": "edge-cases/wrong-source-value-digest/wire.json",
+      "contextPin": "edge-cases/wrong-source-value-digest/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_VALUE_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "id": "missing-source-bytes",
+      "wire": "edge-cases/missing-source-bytes/wire.json",
+      "contextPin": "edge-cases/missing-source-bytes/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_SET_MISMATCH"
+      ]
+    },
+    {
+      "id": "extra-source-bytes",
+      "wire": "edge-cases/extra-source-bytes/wire.json",
+      "contextPin": "edge-cases/extra-source-bytes/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_SET_MISMATCH"
+      ]
+    },
+    {
+      "id": "malformed-selector",
+      "wire": "edge-cases/malformed-selector/wire.json",
+      "contextPin": "edge-cases/malformed-selector/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "unresolved-selector",
+      "wire": "edge-cases/unresolved-selector/wire.json",
+      "contextPin": "edge-cases/unresolved-selector/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "UNRESOLVED_POINTER"
+      ]
+    },
+    {
+      "id": "unresolved-unused-schema-ref",
+      "wire": "edge-cases/unresolved-unused-schema-ref/wire.json",
+      "contextPin": "edge-cases/unresolved-unused-schema-ref/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "UNRESOLVED_SCHEMA_REFERENCE"
+      ]
+    },
+    {
+      "id": "nested-schema-id",
+      "wire": "edge-cases/nested-schema-id/wire.json",
+      "contextPin": "edge-cases/nested-schema-id/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "NESTED_SCHEMA_ID_NOT_SUPPORTED"
+      ]
+    },
+    {
+      "id": "invalid-schema",
+      "wire": "edge-cases/invalid-schema/wire.json",
+      "contextPin": "edge-cases/invalid-schema/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "MALFORMED_SOURCE_OR_DEPENDENCY"
+      ]
+    },
+    {
+      "id": "dynamic-schema-ref",
+      "wire": "edge-cases/dynamic-schema-ref/wire.json",
+      "contextPin": "edge-cases/dynamic-schema-ref/context.sha256",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "DYNAMIC_SCHEMA_REFERENCE_NOT_SUPPORTED"
+      ]
+    },
+    {
+      "id": "content-bound-complete-intent",
+      "wire": "edge-cases/content-bound-complete-intent/wire.json",
+      "contextPin": "edge-cases/content-bound-complete-intent/context.sha256",
+      "expected": "PASS",
+      "expectedCodes": []
+    }
+  ],
+  "excludedEnvironmentChecks": "Two API-only invalid map argument checks, seven helper-origin probes, two source-root/package mutation checks, and the AST fault-injection audit are reported separately."
+}

@@ -1,6 +1,9 @@
 {
   "id": "malformed-selector",
   "expected": "FAIL",
+  "expectedCodes": [
+    "SCHEMA_INVALID"
+  ],
   "actual": "INPUT_ERROR",
   "matched": true,
   "report": {
@@ -28,9 +31,9 @@
     "selectedParty": null,
     "sourceOrigin": null,
     "inputDigests": {
-      "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
-      "profile": "5369228c5706988498c3b5398511b994a07308a69144e34d71e1e297fdc63789",
-      "context": "52dc71e16c2369b24d7914f6c71dfa6b5f6754a25670ba54aa41ebc69381bb58"
+      "evidence": "66f2ed8d0a070f32ed71b40612557920707c78ce011cfd6afb56582f3d4ace76",
+      "profile": "3e1dd833342d8ede2e166bead0c503fa2c8722993d9e848ec341b989a1401d63",
+      "context": "180bca7ee33805d3b4e88ab70c954a6bd12864f4209218a9ba2c92d908ae4a6b"
     },
     "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
   }

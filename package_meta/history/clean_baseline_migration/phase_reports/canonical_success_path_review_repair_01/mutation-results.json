@@ -1,0 +1,1929 @@
+{
+  "scope": "AUTHOR_SIDE_FAULT_INJECTION_NOT_RUNTIME_ATTESTATION",
+  "method": "Clone verify AST only, record every must site, then remove one must call in a separate in-memory function. Package/helper/schema/hash checks stay active. Never alter sealed or installed runtime bytes. Specific-code kills and newly accepted negatives are reported separately.",
+  "corpusCases": 493,
+  "checkSites": 115,
+  "directNegativeWitnessSites": 112,
+  "reachedSites": 115,
+  "classifications": {
+    "PASS_EXPOSED": 84,
+    "SPECIFIC_ERROR_CHANGED": 28,
+    "SURVIVED_SAME_EXPECTED_ERROR": 0,
+    "NO_DIRECT_NEGATIVE_WITNESS": 3
+  },
+  "mutations": [
+    {
+      "id": "45:2",
+      "line": 45,
+      "code": "'INDEPENDENT_CONTEXT_DIGEST_REQUIRED'",
+      "expression": "isinstance(expected_context_sha256, str) and re.fullmatch('[0-9a-f]{64}', expected_context_sha256)",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "edge-checks/independent-context-digest-required",
+          "disposition": "INPUT_ERROR",
+          "codes": [
+            "INDEPENDENT_CONTEXT_BYTES_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "46:2",
+      "line": 46,
+      "code": "'INDEPENDENT_CONTEXT_BYTES_MISMATCH'",
+      "expression": "sha(context_bytes) == expected_context_sha256",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "edge-checks/independent-context-raw-mismatch",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "55:2",
+      "line": 55,
+      "code": "'SELECTED_CONTRACT_MISMATCH'",
+      "expression": "c['contractDigest'] == contract['contractDigest']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-selected-contract",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "56:2",
+      "line": 56,
+      "code": "'SOURCE_PROFILE_BYTES_MISMATCH'",
+      "expression": "sha(profile_bytes) == c['profileBytesSha256']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-profile-bytes",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "57:2",
+      "line": 57,
+      "code": "'SOURCE_PROFILE_BINDING_MISMATCH'",
+      "expression": "equal(e['sourceProfileBinding'], c['profileBinding'])",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-profile-binding",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "58:2",
+      "line": 58,
+      "code": "'SOURCE_PROFILE_ID_MISMATCH'",
+      "expression": "c['profileBinding']['ref'] == p['profileId']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-profile-id",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "61:2",
+      "line": 61,
+      "code": "'SOURCE_LAW_MISMATCH'",
+      "expression": "p['authorizationLawSha256'] == contract['authorizationLawSha256']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-source-law",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "62:2",
+      "line": 62,
+      "code": "'SOURCE_MAP_REQUIRED'",
+      "expression": "type(source_bytes) is dict and type(schema_bytes) is dict",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "api-only-checks/nondictionary-argument-3",
+          "disposition": "FAIL",
+          "codes": [
+            "SOURCE_SET_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "api-only-checks/nondictionary-argument-4",
+          "disposition": "FAIL",
+          "codes": [
+            "SCHEMA_SET_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "63:2",
+      "line": 63,
+      "code": "'SCHEMA_SET_MISMATCH'",
+      "expression": "set(schema_bytes) == set(p['schemaDigests'])",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-schema-set",
+          "disposition": "FAIL",
+          "codes": [
+            "FORMAT_SCHEMA_NOT_SELECTED"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "83:45",
+      "line": 83,
+      "code": "'DUPLICATE_SOURCE_KEY'",
+      "expression": "len(catalog) == len(c['sources'])",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "edge-checks/duplicate-source-key",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "83:106",
+      "line": 83,
+      "code": "'SOURCE_SET_MISMATCH'",
+      "expression": "set(source_bytes) == set(catalog)",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "edge-checks/missing-source-bytes",
+          "disposition": "FAIL",
+          "codes": [
+            "MALFORMED_SOURCE_OR_DEPENDENCY"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "edge-checks/extra-source-bytes",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "116:2",
+      "line": 116,
+      "code": "'OUTPUT_ID_MISMATCH'",
+      "expression": "rs['resultId'] == catalog[c['coreSources']['RESULT']]['binding']['ref'] and rs['traceId'] == catalog[c['coreSources']['TRACE']]['binding']['ref']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-output-resultId",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "117:2",
+      "line": 117,
+      "code": "'REQUEST_ID_MISMATCH'",
+      "expression": "rq['requestId'] == rs['requestId'] == catalog[c['coreSources']['REQUEST']]['binding']['ref']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-output-requestId",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "118:2",
+      "line": 118,
+      "code": "'SELECTED_ACTION_MISMATCH'",
+      "expression": "rq['actionClass'] == rs['actionClass'] == rule['actionClass'] == c['selectedActionClass']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-party-wrong-REQUEST",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "119:2",
+      "line": 119,
+      "code": "'REQUEST_INTENT_MISMATCH'",
+      "expression": "equal(rq['intentBinding'], rs['intentBinding'])",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-request-intent",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "122:2",
+      "line": 122,
+      "code": "'POLICY_CONTENT_DIGEST_MISMATCH'",
+      "expression": "rs['policyDigest'] == digest(records[c['coreSources']['POLICY']])",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-output-policyDigest",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "124:2",
+      "line": 124,
+      "code": "'RULE_CLOSURE_CONTENT_DIGEST_MISMATCH'",
+      "expression": "rs['ruleDigest'] == digest(records[c['coreSources']['RULE']])",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-output-ruleDigest",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "125:2",
+      "line": 125,
+      "code": "'RULE_INTENT_SCHEMA_MISMATCH'",
+      "expression": "equal(rule['intentSchema'], rs['intentSchema'])",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-rule-intent-schema",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "126:25",
+      "line": 126,
+      "code": "'INTENT_SCHEMA_NOT_SELECTED'",
+      "expression": "isc['schemaId'] in foreign and 'sha256:' + p['schemaDigests'][isc['schemaId']] == isc['schemaDigest']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-intent-schema-selection",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "129:2",
+      "line": 129,
+      "code": "'INTENT_VERSION_POINTER_REQUIRED'",
+      "expression": "intent_format['schemaVersionPointer'] is not None",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/intent-missing-version-pointer",
+          "disposition": "FAIL",
+          "codes": [
+            "INVALID_POINTER"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "130:2",
+      "line": 130,
+      "code": "'INTENT_VERSION_MISMATCH'",
+      "expression": "at(original_intent, intent_format['schemaVersionPointer']) == isc['schemaVersion']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/intent-alternate-version-mismatch",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "131:2",
+      "line": 131,
+      "code": "'COMPLETE_INTENT_DIGEST_MISMATCH'",
+      "expression": "rq['effectIntentDigest'] == rs['effectIntentDigest'] == digest(original_intent)",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-party-intent-substitution",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "131:118",
+      "line": 131,
+      "code": "'INTENT_CANONICALIZATION_MISMATCH'",
+      "expression": "rq['effectIntentCanonicalization'] == rs['effectIntentCanonicalization']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-intent-canonicalization",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "132:2",
+      "line": 132,
+      "code": "'DERIVED_VIEW_DIGEST_MISMATCH'",
+      "expression": "rs['derivedViewDigest'] == digest(records[c['coreSources']['DERIVED_VIEW']])",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-party-wrong-DERIVED_VIEW",
+          "disposition": "FAIL",
+          "codes": [
+            "DERIVED_VIEW_SOURCE_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "checks/basis-1-role-wrong-DERIVED_VIEW",
+          "disposition": "FAIL",
+          "codes": [
+            "DERIVED_VIEW_SOURCE_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "checks/basis-2-party-wrong-DERIVED_VIEW",
+          "disposition": "FAIL",
+          "codes": [
+            "DERIVED_VIEW_SOURCE_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "133:2",
+      "line": 133,
+      "code": "'POLICY_RULE_IDENTITY_MISMATCH'",
+      "expression": "rs['policyId'] == rs['policyBinding']['ref'] and rs['selectedRuleId'] == rs['ruleBinding']['ref']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-rule-selectedRuleId",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "135:2",
+      "line": 135,
+      "code": "'MANIFEST_POLICY_RULE_MISMATCH'",
+      "expression": "equal(man['policyBinding'], rs['policyBinding']) and equal(man['ruleBinding'], rs['ruleBinding'])",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-party-wrong-BINDING_MANIFEST",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "136:2",
+      "line": 136,
+      "code": "'DERIVED_VIEW_SOURCE_MISMATCH'",
+      "expression": "equal(view['intentBinding'], rs['intentBinding']) and view['actionClass'] == rs['actionClass']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/deep-DERIVED_VIEW-actionClass",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "137:2",
+      "line": 137,
+      "code": "'EVALUATION_SNAPSHOT_CONTEXT_MISMATCH'",
+      "expression": "equal(snap['policyBinding'], rs['policyBinding']) and snap['authorizationEvaluatedAt'] == rs['authorizationEvaluatedAt']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-party-wrong-EVALUATION_SNAPSHOT",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "141:2",
+      "line": 141,
+      "code": "'INVALID_DECISION_INTERVAL'",
+      "expression": "instant(rs['authorizationEvaluatedAt']) < instant(rs['decisionValidUntil'])",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-output-decisionValidUntil",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "142:2",
+      "line": 142,
+      "code": "'SUCCESS_PRIMARY_REASON_MISMATCH'",
+      "expression": "rs['primaryReasonCode'] == 'AUTHORIZED_BY_SELECTED_PATH'",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/basis-1-party-output-primaryReasonCode",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "143:2",
+      "line": 143,
+      "code": "'HUMAN_FINALIZATION_RULE_MISMATCH'",
+      "expression": "rs['humanFinalizationRequirement'] == rule['humanFinalizationRequirement']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/basis-1-party-output-humanFinalizationRequirement",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "145:2",
+      "line": 145,
+      "code": "'EXTRACTOR_REQUIRES_DIGEST_BINDING'",
+      "expression": "'digest' in ex['binding']",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/extractor-revision-only",
+          "disposition": "FAIL",
+          "codes": [
+            "MALFORMED_SOURCE_OR_DEPENDENCY"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "146:2",
+      "line": 146,
+      "code": "'EXTRACTOR_REFERENCE_MISMATCH'",
+      "expression": "rs['authorizationViewExtractorRef'] == rule['authorizationViewExtractorRef'] == ex['binding']['ref']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/basis-1-party-output-authorizationViewExtractorRef",
+          "disposition": "FAIL",
+          "codes": [
+            "DERIVED_VIEW_EXTRACTOR_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "targeted-checks/basis-3-party-output-authorizationViewExtractorRef",
+          "disposition": "FAIL",
+          "codes": [
+            "DERIVED_VIEW_EXTRACTOR_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "targeted-checks/rule-authorizationViewExtractorRef",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "147:2",
+      "line": 147,
+      "code": "'EXTRACTOR_DIGEST_MISMATCH'",
+      "expression": "rs['authorizationViewExtractorDigest'] == rule['authorizationViewExtractorDigest'] == ex['binding']['digest']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/basis-1-party-output-authorizationViewExtractorDigest",
+          "disposition": "FAIL",
+          "codes": [
+            "DERIVED_VIEW_EXTRACTOR_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "targeted-checks/basis-3-party-output-authorizationViewExtractorDigest",
+          "disposition": "FAIL",
+          "codes": [
+            "DERIVED_VIEW_EXTRACTOR_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "targeted-checks/rule-authorizationViewExtractorDigest",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "148:2",
+      "line": 148,
+      "code": "'DERIVED_VIEW_EXTRACTOR_MISMATCH'",
+      "expression": "view['authorizationViewExtractorRef'] == rs['authorizationViewExtractorRef'] and view['authorizationViewExtractorDigest'] == rs['authorizationViewExtractorDigest']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/view-authorizationViewExtractorRef",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "149:20",
+      "line": 149,
+      "code": "'DUPLICATE_PATH_ID'",
+      "expression": "len({x['pathId'] for x in paths}) == len(paths)",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-duplicate-path",
+          "disposition": "FAIL",
+          "codes": [
+            "SELECTED_PATH_NOT_IN_TRACE"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "149:155",
+      "line": 149,
+      "code": "'SELECTED_PATH_NOT_IN_TRACE'",
+      "expression": "len(chosen) == 1",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-output-selectedPathId",
+          "disposition": "FAIL",
+          "codes": [
+            "MALFORMED_SOURCE_OR_DEPENDENCY"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "160:2",
+      "line": 160,
+      "code": "'SELECTED_PATH_CONTENT_MISMATCH'",
+      "expression": "equal(path, rs['selectedPath']) and equal(path, e['selectedPath'])",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-party-evidence-authoritySubjectPartyRef",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "160:106",
+      "line": 160,
+      "code": "'SELECTED_PATH_NOT_SUCCESSFUL'",
+      "expression": "path['pathDisposition'] == 'PATH_ALLOW'",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-selected-not-allow",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "161:2",
+      "line": 161,
+      "code": "'SELECTED_SHARING_PATH_OUTSIDE_PROFILE'",
+      "expression": "path['pathType'] in p['selectedPathTypes']",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/selected-sharing-explicit-profile-rejection",
+          "disposition": "FAIL",
+          "codes": [
+            "DIRECT_PATH_TYPE_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "164:2",
+      "line": 164,
+      "code": "'RETAINED_ALLOW_PATH_PRECEDES_SELECTION'",
+      "expression": "all((tuple_key(path) <= tuple_key(other) for other in paths if other['pathDisposition'] == 'PATH_ALLOW'))",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/lower-retained-PATH_ALLOW",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "165:22",
+      "line": 165,
+      "code": "'BASIS_REFERENCE_CLOSURE_MISMATCH'",
+      "expression": "equal(path['authoritySubjectBasisRefs'], [x['binding'] for x in basis])",
+      "classification": "NO_DIRECT_NEGATIVE_WITNESS",
+      "executedByCorpus": true
+    },
+    {
+      "id": "178:39",
+      "line": 178,
+      "code": "'ACCOUNTABLE_PARTY_MISMATCH'",
+      "expression": "party == path['authoritySubjectPartyRef']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-party-coherent-mirrored-party",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "179:83",
+      "line": 179,
+      "code": "'PRINCIPAL_RESOLUTION_LINK_MISMATCH'",
+      "expression": "resolution['authenticatedPrincipalRef'] == principal",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/deep-PRINCIPAL_RESOLUTION-authenticatedPrincipalRef",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "180:2",
+      "line": 180,
+      "code": "'SNAPSHOT_PRINCIPAL_RESOLUTION_MISMATCH'",
+      "expression": "equal(snap['principalResolutionBinding'], rb('PRINCIPAL_RESOLUTION'))",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/deep-EVALUATION_SNAPSHOT-principalResolutionBinding",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "181:37",
+      "line": 181,
+      "code": "'PATH_SOURCE_AUTHORITY_MISMATCH'",
+      "expression": "equal(rb('SOURCE_AUTHORITY'), path['sourceRecordBinding'])",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-path-source-authority",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "183:2",
+      "line": 183,
+      "code": "'PRINCIPAL_BASIS_KIND_MISMATCH'",
+      "expression": "resolution['resolvedPrincipalKind'] == ('SOFTWARE_AGENT' if is_agent else 'NATURAL_PERSON')",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/deep-PRINCIPAL_RESOLUTION-resolvedPrincipalKind",
+          "disposition": "FAIL",
+          "codes": [
+            "OUTPUT_PRINCIPAL_KIND_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "184:2",
+      "line": 184,
+      "code": "'OUTPUT_PRINCIPAL_KIND_MISMATCH'",
+      "expression": "rs['resolvedPrincipalKind'] == resolution['resolvedPrincipalKind']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/basis-1-party-output-resolvedPrincipalKind",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "185:2",
+      "line": 185,
+      "code": "'OUTPUT_CP3_POSTURE_MISMATCH'",
+      "expression": "rs['agentActionPosture'] == (rule['agentActionPosture'] if is_agent else None)",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/basis-1-party-output-agentActionPosture",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "214:2",
+      "line": 214,
+      "code": "'DECISION_BUNDLE_DIGEST_MISMATCH'",
+      "expression": "dr == dt == e['decisionBundleDigest'] == bundle",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-party-nested-bundle-field",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "219:2",
+      "line": 219,
+      "code": "'UNUSED_DECLARED_SOURCE'",
+      "expression": "used == set(catalog)",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-unused-source",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "59:42",
+      "line": 59,
+      "code": "'SOURCE_PROFILE_REVISION_MISMATCH'",
+      "expression": "c['profileBinding']['revisionRef'] == p['profileRevision']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-profile-revision",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "60:7",
+      "line": 60,
+      "code": "'SOURCE_PROFILE_DIGEST_MISMATCH'",
+      "expression": "c['profileBinding']['digest'] == digest(p)",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-profile-digest",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "66:3",
+      "line": 66,
+      "code": "'SCHEMA_BYTES_MISMATCH'",
+      "expression": "sha(raw) == p['schemaDigests'][sid]",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-schema-bytes",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "67:3",
+      "line": 67,
+      "code": "'SCHEMA_ID_OR_DIALECT_MISMATCH'",
+      "expression": "s.get('$id') == sid and s.get('$schema') == 'https://json-schema.org/draft/2020-12/schema'",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-schema-dialect",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "68:3",
+      "line": 68,
+      "code": "'OWNED_SCHEMA_OVERRIDE'",
+      "expression": "sid not in [x['$id'] for x in owned.values()]",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-owned-schema-override",
+          "disposition": "FAIL",
+          "codes": [
+            "UNRESOLVED_SCHEMA_REFERENCE"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "82:33",
+      "line": 82,
+      "code": "'FORMAT_SCHEMA_NOT_SELECTED'",
+      "expression": "f['schemaId'] in foreign and f['schemaSha256'] == p['schemaDigests'][f['schemaId']]",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-format-hash",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "86:3",
+      "line": 86,
+      "code": "'UNKNOWN_SOURCE_FORMAT'",
+      "expression": "entry['formatId'] in p['formats']",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-unknown-format",
+          "disposition": "FAIL",
+          "codes": [
+            "MALFORMED_SOURCE_OR_DEPENDENCY"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "87:3",
+      "line": 87,
+      "code": "'SOURCE_BYTES_MISMATCH'",
+      "expression": "sha(raw) == entry['bytesSha256']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-party-changed-original-byte",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "87:80",
+      "line": 87,
+      "code": "'SOURCE_VALUE_DIGEST_MISMATCH'",
+      "expression": "digest(v) == entry['valueDigest']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "edge-checks/wrong-source-value-digest",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "103:3",
+      "line": 103,
+      "code": "'IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES'",
+      "expression": "identity not in identities or identities[identity] == entry['bytesSha256']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/basis-1-party-two-party-revisions",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "105:13",
+      "line": 105,
+      "code": "'UNRESOLVED_SOURCE_KEY'",
+      "expression": "k in catalog",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-unresolved-core",
+          "disposition": "FAIL",
+          "codes": [
+            "MALFORMED_SOURCE_OR_DEPENDENCY"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "108:10",
+      "line": 108,
+      "code": "'CORE_SOURCE_BINDING_MISMATCH'",
+      "expression": "equal(e['sources'][role], catalog[k]['binding'])",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-core-binding",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "109:3",
+      "line": 109,
+      "code": "'CORE_SOURCE_FAMILY_MISMATCH'",
+      "expression": "catalog[k]['artifactFamily'] == role",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-core-family",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "115:38",
+      "line": 115,
+      "code": "'RESULT_TRACE_ID_MISMATCH'",
+      "expression": "rs[field] == tr[field]",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-result-trace-id",
+          "disposition": "FAIL",
+          "codes": [
+            "OUTPUT_ID_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "120:225",
+      "line": 120,
+      "code": "'OUTPUT_SOURCE_BINDING_MISMATCH'",
+      "expression": "equal(rs[field], catalog[c['coreSources'][role]]['binding'])",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-output-snapshotBinding",
+          "disposition": "FAIL",
+          "codes": [
+            "TRACE_PATH_VISIBILITY_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "121:44",
+      "line": 121,
+      "code": "'POLICY_OUTPUT_MISMATCH'",
+      "expression": "rs[field] == pol[field]",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/deep-POLICY-policyVersion",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "123:49",
+      "line": 123,
+      "code": "'RULE_OUTPUT_MISMATCH'",
+      "expression": "rs[field] == rule[field]",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/deep-RULE-selectedRuleId",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "134:40",
+      "line": 134,
+      "code": "'RULE_REVISION_BINDING_MISMATCH'",
+      "expression": "rs['ruleRevision'] == rs['ruleBinding']['revisionRef']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-rule-ruleRevision",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "140:3",
+      "line": 140,
+      "code": "'SNAPSHOT_REGISTRY_SOURCE_NOT_EXACTLY_RESOLVED'",
+      "expression": "len(matches) == 1",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/deep-snapshot-evidencePolicyRegistryBinding",
+          "disposition": "FAIL",
+          "codes": [
+            "MALFORMED_SOURCE_OR_DEPENDENCY"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "targeted-checks/deep-snapshot-sovereigntyPolicyBinding",
+          "disposition": "FAIL",
+          "codes": [
+            "MALFORMED_SOURCE_OR_DEPENDENCY"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "152:3",
+      "line": 152,
+      "code": "'CANONICAL_TUPLE_ENCODING_MISMATCH'",
+      "expression": "candidate['canonicalTuple'] == {'pathTypeOrder': PATHS.index(candidate['pathType']), 'sourceRecordId': candidate['sourceRecordBinding']['ref'], 'delegationSourceRecordIds': sorted(ids)}",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-party-wrong-canonical-tuple",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "153:3",
+      "line": 153,
+      "code": "'DUPLICATE_TUPLE_SOURCE'",
+      "expression": "len(ids) == len(set(ids))",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/retained-tuple-duplicate-delegation",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "154:3",
+      "line": 154,
+      "code": "'TRACE_PATH_BASIS_CLOSURE_MISMATCH'",
+      "expression": "equal(candidate['authoritySubjectBasisRefs'], [x['binding'] for x in candidate['basis']])",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-trace-basis-closure",
+          "disposition": "FAIL",
+          "codes": [
+            "BASIS_REFERENCE_CLOSURE_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "168:27",
+      "line": 168,
+      "code": "'BASIS_SOURCE_BINDING_MISMATCH'",
+      "expression": "equal(x['binding'], catalog[k]['binding']) and x['artifactFamily'] == catalog[k]['artifactFamily']",
+      "classification": "NO_DIRECT_NEGATIVE_WITNESS",
+      "executedByCorpus": true
+    },
+    {
+      "id": "171:3",
+      "line": 171,
+      "code": "'DUPLICATE_BASIS_ROLE'",
+      "expression": "x['role'] == 'ADDITIONAL_AUTHORITY_BASIS' or x['role'] not in roles",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/deep-duplicate-basis-role",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "172:37",
+      "line": 172,
+      "code": "'VISIBILITY_FAMILY_MISMATCH'",
+      "expression": "catalog[x['visibilitySourceKey']]['artifactFamily'] == 'SNAPSHOT_VISIBILITY_PROOF'",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-visibility-family",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "172:155",
+      "line": 172,
+      "code": "'SNAPSHOT_VISIBILITY_LINK_MISMATCH'",
+      "expression": "vis['sourceBinding'] == x['binding'] and equal(vis['snapshotBinding'], rs['snapshotBinding'])",
+      "classification": "NO_DIRECT_NEGATIVE_WITNESS",
+      "executedByCorpus": true
+    },
+    {
+      "id": "174:3",
+      "line": 174,
+      "code": "'BASIS_NOT_IN_SELECTED_SNAPSHOT'",
+      "expression": "any((equal(z, expected) for z in snap['visibleBasis']))",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/deep-basis-absent-from-snapshot",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "175:14",
+      "line": 175,
+      "code": "'REQUIRED_BASIS_ROLE_MISSING'",
+      "expression": "n in roles",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-party-missing-AUTHENTICATED_PRINCIPAL",
+          "disposition": "FAIL",
+          "codes": [
+            "MALFORMED_SOURCE_OR_DEPENDENCY"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "checks/basis-1-party-missing-PRINCIPAL_RESOLUTION",
+          "disposition": "FAIL",
+          "codes": [
+            "MALFORMED_SOURCE_OR_DEPENDENCY"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "checks/basis-1-party-missing-AUTHORITY_SUBJECT_PARTY",
+          "disposition": "FAIL",
+          "codes": [
+            "MALFORMED_SOURCE_OR_DEPENDENCY"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "187:3",
+      "line": 187,
+      "code": "'SNAPSHOT_CP3_BINDING_MISMATCH'",
+      "expression": "'cp3AuthoritySnapshotBinding' in snap and equal(snap['cp3AuthoritySnapshotBinding'], rb('CP3_AUTHORITY_SNAPSHOT'))",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/deep-agent-EVALUATION_SNAPSHOT-cp3AuthoritySnapshotBinding",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "188:28",
+      "line": 188,
+      "code": "'AGENT_PARTY_RESOLUTION_MISMATCH'",
+      "expression": "resolution['principalPartyRef'] == agent",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/deep-agent-PRINCIPAL_RESOLUTION-principalPartyRef",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "188:107",
+      "line": 188,
+      "code": "'AGENT_IDENTITY_LINK_MISMATCH'",
+      "expression": "role('AGENT_IDENTITY')['agentPartyRef'] == agent and role('AGENT_IDENTITY')['agentInstanceRef'] == principal",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-3-party-mismatch-AGENT_IDENTITY-agentPartyRef",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "192:3",
+      "line": 192,
+      "code": "'CP3_EVIDENCE_LINK_MISMATCH'",
+      "expression": "env['agentActorshipBindingRef'] == rid('CP3_ACTORSHIP_BINDING') and env['revocationStateRef'] == rid('CP3_REVOCATION_STATE')",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/deep-agent-CP3_AUTHORITY_ENVELOPE-agentActorshipBindingRef",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "193:3",
+      "line": 193,
+      "code": "'CP3_DECISION_LINK_MISMATCH'",
+      "expression": "env['requestedActionClass'] == rs['actionClass'] and env['authorizationDecisionResultRef'] == rs['resultId'] and (env['authorizationDecisionTraceRef'] == rs['traceId'])",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-3-party-mismatch-CP3_AUTHORITY_ENVELOPE-authorizationDecisionResultRef",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "194:36",
+      "line": 194,
+      "code": "'CP3_REVOCATION_LINK_MISMATCH'",
+      "expression": "rev['executingAgentInstanceRef'] == principal and rev['agentSponsorRef'] == rid('SPONSOR_PARTY') and (rev['authorityEnvelopeRef'] == rid('CP3_AUTHORITY_ENVELOPE'))",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-3-party-mismatch-CP3_REVOCATION_STATE-authorityEnvelopeRef",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "195:7",
+      "line": 195,
+      "code": "'NATURAL_PERSON_RESOLUTION_MISMATCH'",
+      "expression": "resolution['principalPartyRef'] == rid('NATURAL_PERSON_PARTY')",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/deep-PRINCIPAL_RESOLUTION-principalPartyRef",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "196:39",
+      "line": 196,
+      "code": "'SELF_PARTY_MISMATCH'",
+      "expression": "party == rid('NATURAL_PERSON_PARTY')",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-self-party",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "205:3",
+      "line": 205,
+      "code": "'AUTHORITY_TARGET_PARTY_MISMATCH'",
+      "expression": "target['targetRef'] == party",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-party-source-target-substitution",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "73:4",
+      "line": 73,
+      "code": "'NESTED_SCHEMA_ID_NOT_SUPPORTED'",
+      "expression": "top or '$id' not in v",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "edge-checks/nested-schema-id",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "74:4",
+      "line": 74,
+      "code": "'DYNAMIC_SCHEMA_REFERENCE_NOT_SUPPORTED'",
+      "expression": "'$dynamicRef' not in v and '$recursiveRef' not in v",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "edge-checks/dynamic-schema-ref",
+          "disposition": "FAIL",
+          "codes": [
+            "SCHEMA_CLOSURE_ERROR"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "89:4",
+      "line": 89,
+      "code": "'CONTENT_ONLY_IDENTITY_REQUIRES_DIGEST'",
+      "expression": "entry['artifactFamily'] in ['EFFECT_INTENT', 'DERIVED_VIEW', 'POLICY', 'RULE', 'BINDING_MANIFEST', 'EVALUATION_SNAPSHOT', 'AUTHORIZATION_VIEW_EXTRACTOR'] and 'digest' in entry['binding']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-content-only-party",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "90:8",
+      "line": 90,
+      "code": "'SOURCE_LOGICAL_ID_MISMATCH'",
+      "expression": "at(v, f['identityPointer']) == entry['binding']['ref']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-logical-id",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "92:4",
+      "line": 92,
+      "code": "'REVISION_POINTER_REQUIRED'",
+      "expression": "f['revisionPointer'] is not None",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/basis-1-party-missing-revision-pointer",
+          "disposition": "FAIL",
+          "codes": [
+            "INVALID_POINTER"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "targeted-checks/basis-2-party-missing-revision-pointer",
+          "disposition": "FAIL",
+          "codes": [
+            "INVALID_POINTER"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "targeted-checks/basis-3-party-missing-revision-pointer",
+          "disposition": "FAIL",
+          "codes": [
+            "INVALID_POINTER"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "93:4",
+      "line": 93,
+      "code": "'SOURCE_RECORD_REVISION_MISMATCH'",
+      "expression": "at(v, f['revisionPointer']) == entry['binding']['revisionRef']",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/basis-1-party-native-revision-mismatch",
+          "disposition": "FAIL",
+          "codes": [
+            "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "targeted-checks/basis-2-party-native-revision-mismatch",
+          "disposition": "FAIL",
+          "codes": [
+            "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "targeted-checks/basis-3-party-native-revision-mismatch",
+          "disposition": "FAIL",
+          "codes": [
+            "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "96:4",
+      "line": 96,
+      "code": "'AUTHORITY_SOURCE_DIGEST_PROFILE_REQUIRED'",
+      "expression": "f['digestMode'] == 'SOURCE_RECORD_EXCLUDING_TOP_DIGEST'",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-authority-digest-profile",
+          "disposition": "FAIL",
+          "codes": [
+            "SOURCE_BINDING_DIGEST_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "97:4",
+      "line": 97,
+      "code": "'ONE_RECORD_SOURCE_REQUIRES_DIGEST_BINDING'",
+      "expression": "'digest' in entry['binding']",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-one-record-revision",
+          "disposition": "FAIL",
+          "codes": [
+            "TRACE_PATH_SOURCE_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "99:4",
+      "line": 99,
+      "code": "'SOURCE_RECORD_DIGEST_MISSING'",
+      "expression": "isinstance(v, dict) and isinstance(v.get('sourceRecordDigest'), str)",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-self-digest-missing",
+          "disposition": "FAIL",
+          "codes": [
+            "MALFORMED_SOURCE_OR_DEPENDENCY"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "100:74",
+      "line": 100,
+      "code": "'SOURCE_RECORD_SELF_DIGEST_MISMATCH'",
+      "expression": "v['sourceRecordDigest'] == content",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-self-digest-mismatch",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "101:35",
+      "line": 101,
+      "code": "'SOURCE_BINDING_DIGEST_MISMATCH'",
+      "expression": "entry['binding']['digest'] == content",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/changed-extractor-original-bytes",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "114:42",
+      "line": 114,
+      "code": "'RESULT_TRACE_FIELD_MISMATCH'",
+      "expression": "equal(rs[field], tr[field])",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-party-wrong-RESULT",
+          "disposition": "FAIL",
+          "codes": [
+            "OUTPUT_SOURCE_BINDING_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "checks/basis-1-party-wrong-TRACE",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "156:4",
+      "line": 156,
+      "code": "'SOURCE_TUPLE_BINDING_NOT_RESOLVED'",
+      "expression": "any((equal(source_binding, x['binding']) and x['artifactFamily'] in ['AUTHORITY_GRANT', 'DELEGATION_GRANT', 'SHARING_GRANT'] for x in candidate['basis']))",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-party-missing-SOURCE_AUTHORITY",
+          "disposition": "FAIL",
+          "codes": [
+            "REQUIRED_BASIS_ROLE_MISSING"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "checks/basis-1-party-unresolved-tuple-source",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "158:28",
+      "line": 158,
+      "code": "'TRACE_PATH_SOURCE_MISMATCH'",
+      "expression": "equal(x['binding'], catalog[k]['binding']) and x['artifactFamily'] == catalog[k]['artifactFamily']",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-trace-source",
+          "disposition": "FAIL",
+          "codes": [
+            "BASIS_SOURCE_BINDING_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "159:38",
+      "line": 159,
+      "code": "'TRACE_PATH_VISIBILITY_MISMATCH'",
+      "expression": "equal(vis['sourceBinding'], x['binding']) and equal(vis['snapshotBinding'], rs['snapshotBinding'])",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-party-wrong-visibility-snapshot",
+          "disposition": "FAIL",
+          "codes": [
+            "SNAPSHOT_VISIBILITY_LINK_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "checks/basis-1-role-wrong-visibility-snapshot",
+          "disposition": "FAIL",
+          "codes": [
+            "SNAPSHOT_VISIBILITY_LINK_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        },
+        {
+          "case": "checks/basis-2-party-wrong-visibility-snapshot",
+          "disposition": "FAIL",
+          "codes": [
+            "SNAPSHOT_VISIBILITY_LINK_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "170:46",
+      "line": 170,
+      "code": "'BASIS_ROLE_FAMILY_MISMATCH'",
+      "expression": "x['artifactFamily'] == family",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/deep-basis-role-family",
+          "disposition": "FAIL",
+          "codes": [
+            "REQUIRED_BASIS_ROLE_MISSING"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "191:4",
+      "line": 191,
+      "code": "'CP3_IDENTITY_LINK_MISMATCH'",
+      "expression": "rec[principal_field] == principal and rec['agentSponsorRef'] == rid('SPONSOR_PARTY') and (rec['softwareAgentProfileRef'] == rid('SOFTWARE_AGENT_PROFILE')) and (rec['authoritySnapshotRef'] == rid('CP3_AUTHORITY_SNAPSHOT'))",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-3-party-mismatch-CP3_ACTORSHIP_BINDING-agentInstanceRef",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "198:36",
+      "line": 198,
+      "code": "'REPRESENTATION_LINK_MISMATCH'",
+      "expression": "party == rid('REPRESENTED_PARTY') and rep['naturalPersonPartyRef'] == rid('NATURAL_PERSON_PARTY') and (rep['representedPartyRef'] == party)",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-2-party-representation-party-substitution",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "206:58",
+      "line": 206,
+      "code": "'DIRECT_PATH_TYPE_MISMATCH'",
+      "expression": "path['pathType'] == 'DIRECT_PARTY_GRANT'",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-path-type-basis-1-party",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "208:3",
+      "line": 208,
+      "code": "'ROLE_PARTY_LINK_MISMATCH'",
+      "expression": "target['targetRef'] == rid('ROLE_ASSIGNMENT') and role('ROLE_ASSIGNMENT')['partyRef'] == party",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-1-role-source-target-substitution",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "199:46",
+      "line": 199,
+      "code": "'DIRECT_AGENT_PARTY_MISMATCH'",
+      "expression": "party == rid('AGENT_PARTY')",
+      "classification": "SPECIFIC_ERROR_CHANGED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-direct-agent-party",
+          "disposition": "FAIL",
+          "codes": [
+            "AUTHORITY_TARGET_PARTY_MISMATCH"
+          ],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "201:31",
+      "line": 201,
+      "code": "'DELEGATION_PARTY_LINK_MISMATCH'",
+      "expression": "party == rid('REPRESENTED_PARTY') and dg['delegatingPartyRef'] == party and (dg['delegatePartyRef'] == rid('AGENT_PARTY'))",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "checks/basis-4-party-delegation-agent-substitution",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "201:185",
+      "line": 201,
+      "code": "'DELEGATION_PATH_TYPE_MISMATCH'",
+      "expression": "path['pathType'] == 'DELEGATED_GRANT'",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-path-type-basis-4-party",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "201:259",
+      "line": 201,
+      "code": "'DELEGATION_SOURCE_AUTHORITY_MISMATCH'",
+      "expression": "rid('SOURCE_AUTHORITY') in dg['sourceAuthorityGrantRefs']",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-delegation-sources-missing",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "201:362",
+      "line": 201,
+      "code": "'DELEGATION_TUPLE_BINDING_MISSING'",
+      "expression": "any((equal(b, rb('DELEGATION_GRANT')) for b in path['delegationSourceBindings']))",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-delegation-tuple",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "209:58",
+      "line": 209,
+      "code": "'ROLE_PATH_TYPE_MISMATCH'",
+      "expression": "path['pathType'] == 'ROLE_TARGETED_GRANT'",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-path-type-basis-1-role",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    },
+    {
+      "id": "202:52",
+      "line": 202,
+      "code": "'DELEGATION_SOURCE_REF_UNRESOLVED'",
+      "expression": "any((x['artifactFamily'] == 'AUTHORITY_GRANT' and x['binding']['ref'] == source_ref for x in basis))",
+      "classification": "PASS_EXPOSED",
+      "witnesses": [
+        {
+          "case": "targeted-checks/coverage-delegation-sources-unresolved",
+          "disposition": "PASS",
+          "codes": [],
+          "expectedCodeOracleMatches": false
+        }
+      ]
+    }
+  ],
+  "next": "Review unwitnessed and redundant checks explicitly; do not claim exhaustive mutation coverage."
+}

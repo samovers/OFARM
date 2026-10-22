@@ -474,6 +474,47 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "resolvedPrincipalKind": {
+          "enum": [
+            "NATURAL_PERSON",
+            "SOFTWARE_AGENT"
+          ]
+        },
+        "agentActionPosture": {
+          "oneOf": [
+            {
+              "enum": [
+                "AGENT_ALLOWED_WITH_POLICY_CHECK",
+                "AGENT_ALLOWED_WITH_PREFLIGHT_ONLY",
+                "AGENT_ALLOWED_WITH_HUMAN_APPROVAL",
+                "HUMAN_ONLY",
+                "PROHIBITED_FOR_AGENT"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "humanFinalizationRequirement": {
+          "enum": [
+            "NOT_REQUIRED",
+            "FRESH_HUMAN_APPROVAL_REQUIRED",
+            "DIRECT_HUMAN_ACTION_REQUIRED"
+          ]
+        },
+        "primaryReasonCode": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authorizationViewExtractorRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authorizationViewExtractorDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+        },
         "requestId": {
           "type": "string",
           "minLength": 1
@@ -829,6 +870,12 @@
         }
       },
       "required": [
+        "resolvedPrincipalKind",
+        "agentActionPosture",
+        "humanFinalizationRequirement",
+        "primaryReasonCode",
+        "authorizationViewExtractorRef",
+        "authorizationViewExtractorDigest",
         "requestId",
         "actionClass",
         "intentBinding",
@@ -861,6 +908,47 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "resolvedPrincipalKind": {
+          "enum": [
+            "NATURAL_PERSON",
+            "SOFTWARE_AGENT"
+          ]
+        },
+        "agentActionPosture": {
+          "oneOf": [
+            {
+              "enum": [
+                "AGENT_ALLOWED_WITH_POLICY_CHECK",
+                "AGENT_ALLOWED_WITH_PREFLIGHT_ONLY",
+                "AGENT_ALLOWED_WITH_HUMAN_APPROVAL",
+                "HUMAN_ONLY",
+                "PROHIBITED_FOR_AGENT"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "humanFinalizationRequirement": {
+          "enum": [
+            "NOT_REQUIRED",
+            "FRESH_HUMAN_APPROVAL_REQUIRED",
+            "DIRECT_HUMAN_ACTION_REQUIRED"
+          ]
+        },
+        "primaryReasonCode": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authorizationViewExtractorRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authorizationViewExtractorDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+        },
         "requestId": {
           "type": "string",
           "minLength": 1
@@ -1220,6 +1308,12 @@
         }
       },
       "required": [
+        "resolvedPrincipalKind",
+        "agentActionPosture",
+        "humanFinalizationRequirement",
+        "primaryReasonCode",
+        "authorizationViewExtractorRef",
+        "authorizationViewExtractorDigest",
         "requestId",
         "actionClass",
         "intentBinding",

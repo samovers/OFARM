@@ -1,0 +1,37 @@
+{
+  "cases": 2,
+  "matched": 2,
+  "results": [
+    {
+      "id": "nondictionary-argument-3",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_MAP_REQUIRED"
+      ],
+      "apiOverrides": {
+        "3": []
+      },
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_MAP_REQUIRED"
+      ],
+      "matched": true
+    },
+    {
+      "id": "nondictionary-argument-4",
+      "expected": "FAIL",
+      "expectedCodes": [
+        "SOURCE_MAP_REQUIRED"
+      ],
+      "apiOverrides": {
+        "4": []
+      },
+      "actual": "FAIL",
+      "codes": [
+        "SOURCE_MAP_REQUIRED"
+      ],
+      "matched": true
+    }
+  ],
+  "scope": "API_ONLY_INVALID_TRANSPORT_ARGUMENTS"
+}

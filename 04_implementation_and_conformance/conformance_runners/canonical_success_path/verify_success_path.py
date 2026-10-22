@@ -1,20 +1,32 @@
 """Original-byte API/CLI. Compares owner output; never makes authorization decisions."""
-import base64,copy,json,re,sys
+import base64,copy,hashlib,json,re,sys,types
 from pathlib import Path
 from jsonschema import Draft202012Validator,FormatChecker
 from referencing import Registry,Resource
-from path_common import Fault,strict,sha,canonical,digest,equal,at,instant
 H=Path(__file__).resolve().parent
+# Load the exact adjacent bytes into a private namespace. sys.path and a cached
+# module named path_common cannot select the implementation used by this API.
+_HELPER_BYTES=(H/'path_common.py').read_bytes()
+_COMMON=types.ModuleType('_ofarm_canonical_success_path_common')
+_COMMON.__file__=str(H/'path_common.py')
+exec(compile(_HELPER_BYTES,_COMMON.__file__,'exec'),_COMMON.__dict__)
+_HELPER_EXPORTS={n:getattr(_COMMON,n) for n in ['Fault','strict','sha','canonical','digest','equal','at','instant']}
+globals().update(_HELPER_EXPORTS)
+_HELPER_CODES={n:f.__code__ for n,f in _HELPER_EXPORTS.items() if isinstance(f,types.FunctionType)}
 ID='https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/'
-CORE=['REQUEST','RESULT','TRACE','POLICY','RULE','BINDING_MANIFEST','EFFECT_INTENT','DERIVED_VIEW','EVALUATION_SNAPSHOT']
+CORE=['REQUEST','RESULT','TRACE','POLICY','RULE','BINDING_MANIFEST','EFFECT_INTENT','DERIVED_VIEW','EVALUATION_SNAPSHOT','AUTHORIZATION_VIEW_EXTRACTOR']
 PATHS=['DIRECT_PARTY_GRANT','ROLE_TARGETED_GRANT','DELEGATED_GRANT','SHARING_GRANT_ACCESS']
 PARTY_ROLES={'NATURAL_PERSON_PARTY','AUTHORITY_SUBJECT_PARTY','REPRESENTED_PARTY','AGENT_PARTY','SPONSOR_PARTY'}
 NOT=['AUTHORIZATION_ELIGIBILITY','PRINCIPAL_RESOLUTION_TRUST','CANDIDATE_SET_COMPLETENESS','CANONICAL_SELECTION_CORRECTNESS','OWNER_OUTPUT_RUNTIME_ORIGIN','SOURCE_CURRENTNESS_AND_MIGRATION','CP3_ADMISSION','RUNTIME_PROTECTION_OR_EFFECT_PERMISSION']
 
 def package(root,source_root=None):
  from importlib.metadata import version
- if version('jsonschema')!='4.26.0':raise Fault('DEPENDENCY_VERSION_MISMATCH')
- root=Path(root).resolve();semantic_root=Path(source_root).resolve() if source_root is not None else root;c=strict((root/'contract.json').read_bytes());unsigned={k:v for k,v in c.items() if k!='contractDigest'}
+ if version('jsonschema')!='4.26.0' or version('referencing')!='0.37.0':raise Fault('DEPENDENCY_VERSION_MISMATCH')
+ root=Path(root).resolve();semantic_root=Path(source_root).resolve() if source_root is not None else root
+ raw_contract=(root/'contract.json').read_bytes();bootstrap=json.loads(raw_contract)
+ if hashlib.sha256(_HELPER_BYTES).hexdigest()!=bootstrap.get('verificationCode',{}).get('path_common.py'):raise Fault('EXECUTED_HELPER_BYTES_MISMATCH')
+ if any(globals().get(n) is not f or getattr(_COMMON,n,None) is not f for n,f in _HELPER_EXPORTS.items()) or any(_HELPER_EXPORTS[n].__code__ is not code for n,code in _HELPER_CODES.items()):raise Fault('HELPER_EXPORT_IDENTITY_MISMATCH')
+ c=strict(raw_contract);unsigned={k:v for k,v in c.items() if k!='contractDigest'}
  if digest(unsigned)!=c['contractDigest']:raise Fault('CONTRACT_DIGEST_MISMATCH')
  if set(c.get('verificationCode',{}))!={'verify_success_path.py','path_common.py'}:raise Fault('VERIFICATION_CODE_SET_MISMATCH')
  for name,h in c['verificationCode'].items():
@@ -74,8 +86,11 @@ def verify(evidence_bytes,profile_bytes,context_bytes,source_bytes,schema_bytes,
    must(entry['formatId'] in p['formats'],'UNKNOWN_SOURCE_FORMAT',k);f=p['formats'][entry['formatId']];raw=source_bytes[k]
    must(sha(raw)==entry['bytesSha256'],'SOURCE_BYTES_MISMATCH',k);v=strict(raw);must(digest(v)==entry['valueDigest'],'SOURCE_VALUE_DIGEST_MISMATCH',k);valid(v,f['schemaId'],fullreg)
    if f['identityPointer'] is None:
-    must(entry['artifactFamily'] in ['EFFECT_INTENT','DERIVED_VIEW','POLICY','RULE','BINDING_MANIFEST','EVALUATION_SNAPSHOT'] and 'digest' in entry['binding'],'CONTENT_ONLY_IDENTITY_REQUIRES_DIGEST',k)
+    must(entry['artifactFamily'] in ['EFFECT_INTENT','DERIVED_VIEW','POLICY','RULE','BINDING_MANIFEST','EVALUATION_SNAPSHOT','AUTHORIZATION_VIEW_EXTRACTOR'] and 'digest' in entry['binding'],'CONTENT_ONLY_IDENTITY_REQUIRES_DIGEST',k)
    else:must(at(v,f['identityPointer'])==entry['binding']['ref'],'SOURCE_LOGICAL_ID_MISMATCH',k)
+   if 'revisionRef' in entry['binding']:
+    must(f['revisionPointer'] is not None,'REVISION_POINTER_REQUIRED',k)
+    must(at(v,f['revisionPointer'])==entry['binding']['revisionRef'],'SOURCE_RECORD_REVISION_MISMATCH',k)
    content=digest(v)
    if entry['artifactFamily'] in ['AUTHORITY_GRANT','DELEGATION_GRANT','SHARING_GRANT']:
     must(f['digestMode']=='SOURCE_RECORD_EXCLUDING_TOP_DIGEST','AUTHORITY_SOURCE_DIGEST_PROFILE_REQUIRED',k)
@@ -84,7 +99,7 @@ def verify(evidence_bytes,profile_bytes,context_bytes,source_bytes,schema_bytes,
     must(isinstance(v,dict) and isinstance(v.get('sourceRecordDigest'),str),'SOURCE_RECORD_DIGEST_MISSING',k)
     content=digest({a:b for a,b in v.items() if a!='sourceRecordDigest'});must(v['sourceRecordDigest']==content,'SOURCE_RECORD_SELF_DIGEST_MISMATCH',k)
    if 'digest' in entry['binding']:must(entry['binding']['digest']==content,'SOURCE_BINDING_DIGEST_MISMATCH',k)
-   identity=(entry['artifactFamily'],entry['binding']['ref'],None if entry['artifactFamily'] in ['AUTHORITY_GRANT','DELEGATION_GRANT','SHARING_GRANT'] else entry['binding'].get('revisionRef'))
+   identity=(entry['artifactFamily'],entry['binding']['ref'])
    must(identity not in identities or identities[identity]==entry['bytesSha256'],'IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES',k);identities[identity]=entry['bytesSha256']
    records[k]=v;projections[k]=at(v,f['projectionPointer'])
   def use(k):must(k in catalog,'UNRESOLVED_SOURCE_KEY',k);used.add(k);return projections[k]
@@ -92,7 +107,7 @@ def verify(evidence_bytes,profile_bytes,context_bytes,source_bytes,schema_bytes,
   for role,k in c['coreSources'].items():
    use(k);must(equal(e['sources'][role],catalog[k]['binding']),'CORE_SOURCE_BINDING_MISMATCH',role)
    must(catalog[k]['artifactFamily']==role,'CORE_SOURCE_FAMILY_MISMATCH',role)
-  rq,rs,tr,pol,rule,man,it,view,snap=[slot(k) for k in CORE]
+  rq,rs,tr,pol,rule,man,it,view,snap,extractor=[slot(k) for k in CORE]
   valid(rs,ID+'types/v0.1#/$defs/resultProjection');valid(tr,ID+'types/v0.1#/$defs/traceProjection')
   valid(snap,ID+'types/v0.1#/$defs/snapshotProjection')
   for field in set(rs)&set(tr):
@@ -109,7 +124,10 @@ def verify(evidence_bytes,profile_bytes,context_bytes,source_bytes,schema_bytes,
   must(rs['ruleDigest']==digest(records[c['coreSources']['RULE']]),'RULE_CLOSURE_CONTENT_DIGEST_MISMATCH')
   must(equal(rule['intentSchema'],rs['intentSchema']),'RULE_INTENT_SCHEMA_MISMATCH')
   isc=rs['intentSchema'];must(isc['schemaId'] in foreign and 'sha256:'+p['schemaDigests'][isc['schemaId']]==isc['schemaDigest'],'INTENT_SCHEMA_NOT_SELECTED')
-  original_intent=records[c['coreSources']['EFFECT_INTENT']];valid(original_intent,isc['schemaId'],fullreg);must(original_intent['schemaVersion']==isc['schemaVersion'],'INTENT_VERSION_MISMATCH')
+  original_intent=records[c['coreSources']['EFFECT_INTENT']];valid(original_intent,isc['schemaId'],fullreg)
+  intent_format=p['formats'][catalog[c['coreSources']['EFFECT_INTENT']]['formatId']]
+  must(intent_format['schemaVersionPointer'] is not None,'INTENT_VERSION_POINTER_REQUIRED')
+  must(at(original_intent,intent_format['schemaVersionPointer'])==isc['schemaVersion'],'INTENT_VERSION_MISMATCH')
   must(rq['effectIntentDigest']==rs['effectIntentDigest']==digest(original_intent),'COMPLETE_INTENT_DIGEST_MISMATCH');must(rq['effectIntentCanonicalization']==rs['effectIntentCanonicalization'],'INTENT_CANONICALIZATION_MISMATCH')
   must(rs['derivedViewDigest']==digest(records[c['coreSources']['DERIVED_VIEW']]),'DERIVED_VIEW_DIGEST_MISMATCH')
   must(rs['policyId']==rs['policyBinding']['ref'] and rs['selectedRuleId']==rs['ruleBinding']['ref'],'POLICY_RULE_IDENTITY_MISMATCH')
@@ -121,8 +139,18 @@ def verify(evidence_bytes,profile_bytes,context_bytes,source_bytes,schema_bytes,
    matches=[k for k,x in catalog.items() if x['artifactFamily']==family and equal(x['binding'],snap[field])]
    must(len(matches)==1,'SNAPSHOT_REGISTRY_SOURCE_NOT_EXACTLY_RESOLVED',field);use(matches[0])
   must(instant(rs['authorizationEvaluatedAt'])<instant(rs['decisionValidUntil']),'INVALID_DECISION_INTERVAL')
+  must(rs['primaryReasonCode']=='AUTHORIZED_BY_SELECTED_PATH','SUCCESS_PRIMARY_REASON_MISMATCH')
+  must(rs['humanFinalizationRequirement']==rule['humanFinalizationRequirement'],'HUMAN_FINALIZATION_RULE_MISMATCH')
+  ex=catalog[c['coreSources']['AUTHORIZATION_VIEW_EXTRACTOR']]
+  must('digest' in ex['binding'],'EXTRACTOR_REQUIRES_DIGEST_BINDING')
+  must(rs['authorizationViewExtractorRef']==rule['authorizationViewExtractorRef']==ex['binding']['ref'],'EXTRACTOR_REFERENCE_MISMATCH')
+  must(rs['authorizationViewExtractorDigest']==rule['authorizationViewExtractorDigest']==ex['binding']['digest'],'EXTRACTOR_DIGEST_MISMATCH')
+  must(view['authorizationViewExtractorRef']==rs['authorizationViewExtractorRef'] and view['authorizationViewExtractorDigest']==rs['authorizationViewExtractorDigest'],'DERIVED_VIEW_EXTRACTOR_MISMATCH')
   paths=tr['paths'];must(len({x['pathId'] for x in paths})==len(paths),'DUPLICATE_PATH_ID');chosen=[x for x in paths if x['pathId']==rs['selectedPathId']];must(len(chosen)==1,'SELECTED_PATH_NOT_IN_TRACE');path=chosen[0]
   for candidate in paths:
+   ids=[b['ref'] for b in candidate['delegationSourceBindings']]
+   must(candidate['canonicalTuple']=={'pathTypeOrder':PATHS.index(candidate['pathType']),'sourceRecordId':candidate['sourceRecordBinding']['ref'],'delegationSourceRecordIds':sorted(ids)},'CANONICAL_TUPLE_ENCODING_MISMATCH',candidate['pathId'])
+   must(len(ids)==len(set(ids)),'DUPLICATE_TUPLE_SOURCE',candidate['pathId'])
    must(equal(candidate['authoritySubjectBasisRefs'],[x['binding'] for x in candidate['basis']]),'TRACE_PATH_BASIS_CLOSURE_MISMATCH',candidate['pathId'])
    for source_binding in [candidate['sourceRecordBinding'],*candidate['delegationSourceBindings']]:
     must(any(equal(source_binding,x['binding']) and x['artifactFamily'] in ['AUTHORITY_GRANT','DELEGATION_GRANT','SHARING_GRANT'] for x in candidate['basis']),'SOURCE_TUPLE_BINDING_NOT_RESOLVED',candidate['pathId'])
@@ -130,8 +158,10 @@ def verify(evidence_bytes,profile_bytes,context_bytes,source_bytes,schema_bytes,
     k=x['sourceKey'];use(k);must(equal(x['binding'],catalog[k]['binding']) and x['artifactFamily']==catalog[k]['artifactFamily'],'TRACE_PATH_SOURCE_MISMATCH',k)
     vis=use(x['visibilitySourceKey']);must(equal(vis['sourceBinding'],x['binding']) and equal(vis['snapshotBinding'],rs['snapshotBinding']),'TRACE_PATH_VISIBILITY_MISMATCH',k)
   must(equal(path,rs['selectedPath']) and equal(path,e['selectedPath']),'SELECTED_PATH_CONTENT_MISMATCH');must(path['pathDisposition']=='PATH_ALLOW','SELECTED_PATH_NOT_SUCCESSFUL')
-  tup=path['canonicalTuple'];ids=[b['ref'] for b in path['delegationSourceBindings']]
-  must(tup=={'pathTypeOrder':PATHS.index(path['pathType']),'sourceRecordId':path['sourceRecordBinding']['ref'],'delegationSourceRecordIds':sorted(ids)},'CANONICAL_TUPLE_ENCODING_MISMATCH');must(len(ids)==len(set(ids)),'DUPLICATE_TUPLE_SOURCE')
+  must(path['pathType'] in p['selectedPathTypes'],'SELECTED_SHARING_PATH_OUTSIDE_PROFILE')
+  def tuple_key(candidate):
+   t=candidate['canonicalTuple'];return (t['pathTypeOrder'],t['sourceRecordId'],tuple(t['delegationSourceRecordIds']))
+  must(all(tuple_key(path)<=tuple_key(other) for other in paths if other['pathDisposition']=='PATH_ALLOW'),'RETAINED_ALLOW_PATH_PRECEDES_SELECTION')
   basis=path['basis'];must(equal(path['authoritySubjectBasisRefs'],[x['binding'] for x in basis]),'BASIS_REFERENCE_CLOSURE_MISMATCH')
   roles={}
   for x in basis:
@@ -151,6 +181,8 @@ def verify(evidence_bytes,profile_bytes,context_bytes,source_bytes,schema_bytes,
   authority=role('SOURCE_AUTHORITY');must(equal(rb('SOURCE_AUTHORITY'),path['sourceRecordBinding']),'PATH_SOURCE_AUTHORITY_MISMATCH')
   basis_kind=path['authoritySubjectBasis'];is_agent=basis_kind in ['AGENT_PARTY_DIRECT_GRANT','REPRESENTED_PARTY_EXPLICIT_DELEGATION']
   must(resolution['resolvedPrincipalKind']==('SOFTWARE_AGENT' if is_agent else 'NATURAL_PERSON'),'PRINCIPAL_BASIS_KIND_MISMATCH')
+  must(rs['resolvedPrincipalKind']==resolution['resolvedPrincipalKind'],'OUTPUT_PRINCIPAL_KIND_MISMATCH')
+  must(rs['agentActionPosture']==(rule['agentActionPosture'] if is_agent else None),'OUTPUT_CP3_POSTURE_MISMATCH')
   if is_agent:
    must('cp3AuthoritySnapshotBinding' in snap and equal(snap['cp3AuthoritySnapshotBinding'],rb('CP3_AUTHORITY_SNAPSHOT')),'SNAPSHOT_CP3_BINDING_MISMATCH')
    agent=rid('AGENT_PARTY');must(resolution['principalPartyRef']==agent,'AGENT_PARTY_RESOLUTION_MISMATCH');must(role('AGENT_IDENTITY')['agentPartyRef']==agent and role('AGENT_IDENTITY')['agentInstanceRef']==principal,'AGENT_IDENTITY_LINK_MISMATCH')
@@ -185,7 +217,7 @@ def verify(evidence_bytes,profile_bytes,context_bytes,source_bytes,schema_bytes,
   for other in paths:
    for b in other['basis']:use(b['sourceKey']);use(b['visibilitySourceKey'])
   must(used==set(catalog),'UNUSED_DECLARED_SOURCE')
-  report['disposition']='PASS';report['selectedParty']=party;report['established']=['ORIGINAL_SOURCE_BYTES_AND_SCHEMAS','COMPLETE_SELECTED_PATH_BASIS_CLOSURE','RESULT_TRACE_REQUEST_RULE_INTENT_SNAPSHOT_AGREEMENT','SELECTED_OWNER_OUTPUT_INTEGRITY_COMPARED']
+  report['disposition']='PASS';report['selectedParty']=party;report['established']=['ORIGINAL_SOURCE_BYTES_AND_SCHEMAS','COMPLETE_SELECTED_PATH_BASIS_CLOSURE','RESULT_TRACE_REQUEST_RULE_INTENT_SNAPSHOT_AGREEMENT','RETAINED_PATH_TUPLES_AND_SELECTION_CONSISTENT','SELECTED_OWNER_OUTPUT_INTEGRITY_COMPARED']
  except Fault as exc:report['errors'].append({'code':exc.code,'pointer':exc.pointer,'detail':exc.detail})
  except Exception as exc:report['errors'].append({'code':'MALFORMED_SOURCE_OR_DEPENDENCY','pointer':'','detail':str(exc)})
  return report

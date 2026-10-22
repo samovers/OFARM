@@ -1,0 +1,36 @@
+{
+  "corpusCases": 493,
+  "checkSites": 115,
+  "reachedSites": 115,
+  "directNegativeWitnessSites": 112,
+  "classifications": {
+    "PASS_EXPOSED": 84,
+    "SPECIFIC_ERROR_CHANGED": 28,
+    "SURVIVED_SAME_EXPECTED_ERROR": 0,
+    "NO_DIRECT_NEGATIVE_WITNESS": 3
+  },
+  "remaining": [
+    {
+      "site": "165:22",
+      "code": "'BASIS_REFERENCE_CLOSURE_MISMATCH'",
+      "classification": "STRUCTURALLY_REDUNDANT_FAILURE_BRANCH",
+      "earlierGuard": "TRACE_PATH_BASIS_CLOSURE_MISMATCH",
+      "proof": "See MUTATION_COVERAGE.md; same parsed immutable values checked earlier for every retained path."
+    },
+    {
+      "site": "168:27",
+      "code": "'BASIS_SOURCE_BINDING_MISMATCH'",
+      "classification": "STRUCTURALLY_REDUNDANT_FAILURE_BRANCH",
+      "earlierGuard": "TRACE_PATH_SOURCE_MISMATCH",
+      "proof": "See MUTATION_COVERAGE.md; same parsed immutable values checked earlier for every retained path."
+    },
+    {
+      "site": "172:155",
+      "code": "'SNAPSHOT_VISIBILITY_LINK_MISMATCH'",
+      "classification": "STRUCTURALLY_REDUNDANT_FAILURE_BRANCH",
+      "earlierGuard": "TRACE_PATH_VISIBILITY_MISMATCH",
+      "proof": "See MUTATION_COVERAGE.md; same parsed immutable values checked earlier for every retained path."
+    }
+  ],
+  "exhaustiveAllOperationsMutationClaim": false
+}

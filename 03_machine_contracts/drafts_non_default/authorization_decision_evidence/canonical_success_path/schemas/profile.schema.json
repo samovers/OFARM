@@ -22,6 +22,13 @@
     "outputKind": {
       "const": "AUTHORIZATION_OWNER_SUCCESSFUL_PATH_OUTPUT"
     },
+    "selectedPathTypes": {
+      "const": [
+        "DIRECT_PARTY_GRANT",
+        "ROLE_TARGETED_GRANT",
+        "DELEGATED_GRANT"
+      ]
+    },
     "schemaDigests": {
       "type": "object",
       "minProperties": 1,
@@ -56,6 +63,28 @@
               }
             ]
           },
+          "revisionPointer": {
+            "oneOf": [
+              {
+                "type": "string",
+                "pattern": "^/(?:[^~]|~[01])*(?![\\s\\S])"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "schemaVersionPointer": {
+            "oneOf": [
+              {
+                "type": "string",
+                "pattern": "^/(?:[^~]|~[01])*(?![\\s\\S])"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "projectionPointer": {
             "type": "string",
             "pattern": "^(?:|/(?:[^~]|~[01])*)(?![\\s\\S])"
@@ -71,6 +100,8 @@
           "schemaId",
           "schemaSha256",
           "identityPointer",
+          "revisionPointer",
+          "schemaVersionPointer",
           "projectionPointer",
           "digestMode"
         ]
@@ -83,6 +114,7 @@
     "profileRevision",
     "authorizationLawSha256",
     "outputKind",
+    "selectedPathTypes",
     "schemaDigests",
     "formats"
   ]

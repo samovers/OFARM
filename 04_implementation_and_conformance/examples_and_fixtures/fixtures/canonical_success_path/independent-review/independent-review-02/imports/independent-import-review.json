@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "checks": 7,
+  "passed": 7,
+  "results": [
+    {
+      "name": "baseline",
+      "pass": true,
+      "expectedCodes": [],
+      "result": {
+        "disposition": "PASS",
+        "codes": []
+      },
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "name": "cached",
+      "pass": true,
+      "expectedCodes": [],
+      "result": {
+        "disposition": "PASS",
+        "codes": []
+      },
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "name": "shadow",
+      "pass": true,
+      "expectedCodes": [],
+      "result": {
+        "disposition": "PASS",
+        "codes": []
+      },
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "name": "changed-loaded-helper",
+      "pass": true,
+      "expectedCodes": [
+        "EXECUTED_HELPER_BYTES_MISMATCH"
+      ],
+      "result": {
+        "disposition": "INPUT_ERROR",
+        "codes": [
+          "EXECUTED_HELPER_BYTES_MISMATCH"
+        ]
+      },
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "name": "changed-export",
+      "pass": true,
+      "expectedCodes": [
+        "HELPER_EXPORT_IDENTITY_MISMATCH"
+      ],
+      "result": {
+        "disposition": "INPUT_ERROR",
+        "codes": [
+          "HELPER_EXPORT_IDENTITY_MISMATCH"
+        ]
+      },
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "name": "changed-code",
+      "pass": true,
+      "expectedCodes": [
+        "HELPER_EXPORT_IDENTITY_MISMATCH"
+      ],
+      "result": {
+        "disposition": "INPUT_ERROR",
+        "codes": [
+          "HELPER_EXPORT_IDENTITY_MISMATCH"
+        ]
+      },
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "name": "changed-file-after-load",
+      "pass": true,
+      "expectedCodes": [
+        "VERIFICATION_CODE_BYTES_MISMATCH"
+      ],
+      "result": {
+        "disposition": "INPUT_ERROR",
+        "codes": [
+          "VERIFICATION_CODE_BYTES_MISMATCH"
+        ]
+      },
+      "exitCode": 0,
+      "stderr": ""
+    }
+  ],
+  "limit": "Trusted verifier execution is assumed; these checks do not attest a hostile Python process or protect arbitrary code replacement."
+}

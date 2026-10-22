@@ -1,0 +1,49 @@
+{
+  "argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/canonical-authorization-path-20261021/review-repair-01/helper-probes/isolated_probe.py",
+    "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/canonical-authorization-path-20261021/review-repair-01/helper-probes/swap-helper-code/code",
+    "swap-helper-code",
+    "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/canonical-authorization-path-20261021/review-repair-01/helper-probes/swap-helper-code",
+    "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/canonical-authorization-path-20261021/review-repair-01",
+    "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/canonical-authorization-path-20261021/review-repair-01/checks/basis-1-party-baseline/wire.json"
+  ],
+  "id": "swap-helper-code",
+  "matched": true,
+  "expectedCodes": [
+    "HELPER_EXPORT_IDENTITY_MISMATCH"
+  ],
+  "actualCodes": [
+    "HELPER_EXPORT_IDENTITY_MISMATCH"
+  ],
+  "report": {
+    "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+    "disposition": "INPUT_ERROR",
+    "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+    "established": [],
+    "notEstablished": [
+      "AUTHORIZATION_ELIGIBILITY",
+      "PRINCIPAL_RESOLUTION_TRUST",
+      "CANDIDATE_SET_COMPLETENESS",
+      "CANONICAL_SELECTION_CORRECTNESS",
+      "OWNER_OUTPUT_RUNTIME_ORIGIN",
+      "SOURCE_CURRENTNESS_AND_MIGRATION",
+      "CP3_ADMISSION",
+      "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+    ],
+    "errors": [
+      {
+        "code": "HELPER_EXPORT_IDENTITY_MISMATCH",
+        "pointer": "",
+        "detail": ""
+      }
+    ],
+    "selectedParty": null,
+    "sourceOrigin": null,
+    "inputDigests": {},
+    "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+  },
+  "exitCode": 0,
+  "stderr": ""
+}

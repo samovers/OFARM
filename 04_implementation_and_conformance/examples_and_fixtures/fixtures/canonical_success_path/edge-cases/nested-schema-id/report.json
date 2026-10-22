@@ -1,6 +1,9 @@
 {
   "id": "nested-schema-id",
   "expected": "FAIL",
+  "expectedCodes": [
+    "NESTED_SCHEMA_ID_NOT_SUPPORTED"
+  ],
   "actual": "FAIL",
   "matched": true,
   "report": {
@@ -28,9 +31,9 @@
     "selectedParty": null,
     "sourceOrigin": "FICTIONAL_CONFORMANCE",
     "inputDigests": {
-      "evidence": "e481e7f990668ba40a40db3031854914c6033a95ad86d233282398e06bf06c74",
-      "profile": "73261617ebb653b9305dfdbd9ad15595ecf3a1eebacb4bfc765b58ef3204ef41",
-      "context": "8efdb5320742aea72667e45407878887c3e06222b6525d3153e6ec1654d885e2"
+      "evidence": "66f2ed8d0a070f32ed71b40612557920707c78ce011cfd6afb56582f3d4ace76",
+      "profile": "4f4d2558e6b90838facea04e2ae956a0dcc8999b0ea33c3b6cc7efba194dc12b",
+      "context": "f906f312364ab7921313fec7f09d723688b181faafa4db10933f2e31f8cc8f72"
     },
     "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
   }

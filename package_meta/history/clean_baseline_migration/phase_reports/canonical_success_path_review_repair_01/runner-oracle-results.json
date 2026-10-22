@@ -1,0 +1,90 @@
+{
+  "cases": 2,
+  "matched": 2,
+  "results": [
+    {
+      "id": "wrong-code",
+      "matched": true,
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/canonical-authorization-path-20261021/review-repair-01/edge-checks/installed-layout/04_implementation_and_conformance/conformance_runners/canonical_success_path/run_cases.py",
+        "--package-root",
+        "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/canonical-authorization-path-20261021/review-repair-01/edge-checks/installed-layout/03_machine_contracts/drafts_non_default/authorization_decision_evidence/canonical_success_path",
+        "--fixtures-root",
+        "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/canonical-authorization-path-20261021/review-repair-01/edge-checks/installed-layout/04_implementation_and_conformance/examples_and_fixtures/fixtures/canonical_success_path",
+        "--source-root",
+        "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/canonical-authorization-path-20261021/review-repair-01/edge-checks/installed-layout/04_implementation_and_conformance/examples_and_fixtures/fixtures/canonical_success_path",
+        "--case-index",
+        "oracle-wrong-code.json",
+        "--report",
+        "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/canonical-authorization-path-20261021/review-repair-01/runner-oracle-wrong-code.json"
+      ],
+      "exitCode": 1,
+      "stdout": "{\"cases\": 1, \"matched\": 0, \"scope\": \"FICTIONAL_SELECTED_OUTPUT_INTEGRITY_ONLY\"}\n",
+      "stderr": "",
+      "report": {
+        "cases": 1,
+        "matched": 0,
+        "results": [
+          {
+            "id": "basis-1-party-coherent-mirrored-party",
+            "expected": "FAIL",
+            "actual": "FAIL",
+            "expectedCodes": [
+              "SCHEMA_INVALID"
+            ],
+            "actualCodes": [
+              "ACCOUNTABLE_PARTY_MISMATCH"
+            ],
+            "exitCode": 1,
+            "matched": false
+          }
+        ],
+        "scope": "FICTIONAL_SELECTED_OUTPUT_INTEGRITY_ONLY"
+      }
+    },
+    {
+      "id": "wrong-detail",
+      "matched": true,
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/canonical-authorization-path-20261021/review-repair-01/edge-checks/installed-layout/04_implementation_and_conformance/conformance_runners/canonical_success_path/run_cases.py",
+        "--package-root",
+        "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/canonical-authorization-path-20261021/review-repair-01/edge-checks/installed-layout/03_machine_contracts/drafts_non_default/authorization_decision_evidence/canonical_success_path",
+        "--fixtures-root",
+        "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/canonical-authorization-path-20261021/review-repair-01/edge-checks/installed-layout/04_implementation_and_conformance/examples_and_fixtures/fixtures/canonical_success_path",
+        "--source-root",
+        "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/canonical-authorization-path-20261021/review-repair-01/edge-checks/installed-layout/04_implementation_and_conformance/examples_and_fixtures/fixtures/canonical_success_path",
+        "--case-index",
+        "oracle-wrong-detail.json",
+        "--report",
+        "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/canonical-authorization-path-20261021/review-repair-01/runner-oracle-wrong-detail.json"
+      ],
+      "exitCode": 1,
+      "stdout": "{\"cases\": 1, \"matched\": 0, \"scope\": \"FICTIONAL_SELECTED_OUTPUT_INTEGRITY_ONLY\"}\n",
+      "stderr": "",
+      "report": {
+        "cases": 1,
+        "matched": 0,
+        "results": [
+          {
+            "id": "missing-output-primaryReasonCode",
+            "expected": "FAIL",
+            "actual": "FAIL",
+            "expectedCodes": [
+              "SCHEMA_INVALID"
+            ],
+            "actualCodes": [
+              "SCHEMA_INVALID"
+            ],
+            "exitCode": 1,
+            "matched": false
+          }
+        ],
+        "scope": "FICTIONAL_SELECTED_OUTPUT_INTEGRITY_ONLY"
+      }
+    }
+  ]
+}
