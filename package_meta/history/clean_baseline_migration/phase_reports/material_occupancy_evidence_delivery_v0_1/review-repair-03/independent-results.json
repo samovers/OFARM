@@ -1,0 +1,1635 @@
+{
+  "status": "PASS",
+  "candidateSealSha256": "5c0a0119085d77223060d30c92a79990d525133f338e17f2e405ed71c57e3609",
+  "contractRawSha256": "8d0bf72d370b08601d5bd8e909609095f54ab15bb20d95d0c28beea70a188ea0",
+  "provenance": "Independent test builder and interval oracle; imported only frozen public API. Domain semantics author, not repair implementation author. Not formal GitHub approval.",
+  "counts": {
+    "checks": 241,
+    "passed": 241,
+    "fullForeignPairs": 35,
+    "installedCliCases": 12,
+    "integrationMappings": 790
+  },
+  "failures": [],
+  "results": [
+    {
+      "name": "turnover",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "turnover-plus-full",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "two-visits-same-lot",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "narrow-support-full-original",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "asof-point",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "empty-selected-window",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-15-0000",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-14-15-0001",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-14-15-0010",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-14-15-0011",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-14-15-0100",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-14-15-0101",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-14-15-0110",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-15-0111",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-15-1000",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-14-15-1001",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-14-15-1010",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-14-15-1011",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-14-15-1100",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-14-15-1101",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-14-15-1110",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-15-1111",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-0000",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-0001",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-0010",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-0011",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-0100",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-0101",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-0110",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-0111",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-1000",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-1001",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-1010",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-1011",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-1100",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-1101",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-1110",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-14-17-1111",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-0000",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-0001",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-0010",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-0011",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-0100",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-0101",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-0110",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-0111",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-1000",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-1001",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-1010",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-1011",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-1100",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-1101",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-1110",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-15-20-1111",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-0000",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-0001",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-0010",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-0011",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-0100",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-0101",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-0110",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-0111",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-1000",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-1001",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-1010",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-1011",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-1100",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-1101",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-1110",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-16-18-1111",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-20-21-0000",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-20-21-0001",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-20-21-0010",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-20-21-0011",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-20-21-0100",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-20-21-0101",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-20-21-0110",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-20-21-0111",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-20-21-1000",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-20-21-1001",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-20-21-1010",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-20-21-1011",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-20-21-1100",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-20-21-1101",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-20-21-1110",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ]
+    },
+    {
+      "name": "grid-20-21-1111",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-0000",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-0001",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-0010",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-0011",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-0100",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-0101",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-0110",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-0111",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-1000",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-1001",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-1010",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-1011",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-1100",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-1101",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-1110",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "grid-19-21-1111",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "asof-start-False",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY"
+      ]
+    },
+    {
+      "name": "asof-start-True",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "asof-end-False",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY"
+      ]
+    },
+    {
+      "name": "asof-end-True",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "one-point-original-episode",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "nanosecond-included",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "nanosecond-excluded",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY"
+      ]
+    },
+    {
+      "name": "horizon-query-point",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "SELECTION_AFTER_CONTEXT"
+      ]
+    },
+    {
+      "name": "horizon-query-interval",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "SELECTION_AFTER_CONTEXT"
+      ]
+    },
+    {
+      "name": "horizon-source-applicability",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "SOURCE_APPLICABILITY_AFTER_CONTEXT"
+      ]
+    },
+    {
+      "name": "horizon-known-start",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "KNOWN_BOUNDARY_AFTER_CONTEXT",
+        "EMPTY_OR_REVERSED_OCCUPANCY_INTERVAL"
+      ]
+    },
+    {
+      "name": "horizon-known-end",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "KNOWN_BOUNDARY_AFTER_CONTEXT"
+      ]
+    },
+    {
+      "name": "horizon-open-end",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "OPEN_POSTURE_AFTER_CONTEXT"
+      ]
+    },
+    {
+      "name": "horizon-assessment",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "POSTURE_AFTER_CONTEXT"
+      ]
+    },
+    {
+      "name": "unresolved-start-UNKNOWN",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "unresolved-keeps-known-contradiction-start-UNKNOWN",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY"
+      ]
+    },
+    {
+      "name": "unresolved-end-UNKNOWN",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "unresolved-keeps-known-contradiction-end-UNKNOWN",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY"
+      ]
+    },
+    {
+      "name": "unresolved-start-UNBOUNDED",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "unresolved-keeps-known-contradiction-start-UNBOUNDED",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY"
+      ]
+    },
+    {
+      "name": "unresolved-end-UNBOUNDED",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "unresolved-keeps-known-contradiction-end-UNBOUNDED",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY"
+      ]
+    },
+    {
+      "name": "observed-open-at-query",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "open-one-nanosecond-too-early",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "OPEN_END_OBSERVATION_EXCLUDES_SOURCE_APPLICABILITY"
+      ]
+    },
+    {
+      "name": "quantity-EXACT-cohort-False",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-EXACT-cohort-True",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-ESTIMATED-cohort-False",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-ESTIMATED-cohort-True",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-MINIMUM-cohort-False",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-MINIMUM-cohort-True",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-MAXIMUM-cohort-False",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-MAXIMUM-cohort-True",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-RANGE_MIDPOINT-cohort-False",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-RANGE_MIDPOINT-cohort-True",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-LABEL_LIMIT-cohort-False",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-LABEL_LIMIT-cohort-True",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-MACHINE_REPORTED-cohort-False",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-MACHINE_REPORTED-cohort-True",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-HUMAN_REPORTED-cohort-False",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-HUMAN_REPORTED-cohort-True",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-UNKNOWN-cohort-False",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "quantity-UNKNOWN-cohort-True",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "unreported-amount-cohort-False",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "unreported-amount-cohort-True",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-StructureEvent-NUMERIC",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-StructureEvent-NUMERIC",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-StructureEvent-CENSORED_NUMERIC",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-StructureEvent-CENSORED_NUMERIC",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-StructureEvent-ABSENT_PENDING",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-StructureEvent-ABSENT_PENDING",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-StructureEvent-CODED",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-StructureEvent-CODED",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-StructureEvent-QUALITATIVE",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-StructureEvent-QUALITATIVE",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-ObservationEvent-NUMERIC",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-ObservationEvent-NUMERIC",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-ObservationEvent-CENSORED_NUMERIC",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-ObservationEvent-CENSORED_NUMERIC",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-ObservationEvent-ABSENT_PENDING",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-ObservationEvent-ABSENT_PENDING",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-ObservationEvent-CODED",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-ObservationEvent-CODED",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-ObservationEvent-QUALITATIVE",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-ObservationEvent-QUALITATIVE",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-OccurrenceEvent-NUMERIC",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-OccurrenceEvent-NUMERIC",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-OccurrenceEvent-CENSORED_NUMERIC",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-OccurrenceEvent-CENSORED_NUMERIC",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-OccurrenceEvent-ABSENT_PENDING",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-OccurrenceEvent-ABSENT_PENDING",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-OccurrenceEvent-CODED",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-OccurrenceEvent-CODED",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-OccurrenceEvent-QUALITATIVE",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-OccurrenceEvent-QUALITATIVE",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-InterventionEvent-NUMERIC",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-InterventionEvent-NUMERIC",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-InterventionEvent-CENSORED_NUMERIC",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-InterventionEvent-CENSORED_NUMERIC",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-InterventionEvent-ABSENT_PENDING",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-InterventionEvent-ABSENT_PENDING",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-InterventionEvent-CODED",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-InterventionEvent-CODED",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-InterventionEvent-QUALITATIVE",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-InterventionEvent-QUALITATIVE",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-MaterialEvent-NUMERIC",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-MaterialEvent-NUMERIC",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-MaterialEvent-CENSORED_NUMERIC",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-MaterialEvent-CENSORED_NUMERIC",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-MaterialEvent-ABSENT_PENDING",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-MaterialEvent-ABSENT_PENDING",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-MaterialEvent-CODED",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-MaterialEvent-CODED",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-MaterialEvent-QUALITATIVE",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-MaterialEvent-QUALITATIVE",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-EvidenceEvent-NUMERIC",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-EvidenceEvent-NUMERIC",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-EvidenceEvent-CENSORED_NUMERIC",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-EvidenceEvent-CENSORED_NUMERIC",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-EvidenceEvent-ABSENT_PENDING",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-EvidenceEvent-ABSENT_PENDING",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-EvidenceEvent-CODED",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-EvidenceEvent-CODED",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-EvidenceEvent-QUALITATIVE",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-EvidenceEvent-QUALITATIVE",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-GovernanceEvent-NUMERIC",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-GovernanceEvent-NUMERIC",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-GovernanceEvent-CENSORED_NUMERIC",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-GovernanceEvent-CENSORED_NUMERIC",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-GovernanceEvent-ABSENT_PENDING",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-GovernanceEvent-ABSENT_PENDING",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-GovernanceEvent-CODED",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-GovernanceEvent-CODED",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "foreign-GovernanceEvent-QUALITATIVE",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "foreign-raw-mutation-GovernanceEvent-QUALITATIVE",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "attack-drop",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "EPISODE_SET_OR_ORDER_MISMATCH"
+      ]
+    },
+    {
+      "name": "attack-reorder",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "EPISODE_SET_OR_ORDER_MISMATCH"
+      ]
+    },
+    {
+      "name": "attack-duplicate",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "EPISODE_SET_OR_ORDER_MISMATCH"
+      ]
+    },
+    {
+      "name": "attack-extra",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "EPISODE_SET_OR_ORDER_MISMATCH"
+      ]
+    },
+    {
+      "name": "attack-manifest-order",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "OWNER_EPISODE_MANIFEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "attack-changed-fact",
+      "passed": true,
+      "status": "MISMATCH",
+      "errorCodes": [
+        "OCCUPANCY_FACTS_MISMATCH"
+      ]
+    },
+    {
+      "name": "attack-missing-original",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_RECORD_SET_MISMATCH"
+      ]
+    },
+    {
+      "name": "attack-extra-original",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_RECORD_SET_MISMATCH"
+      ]
+    },
+    {
+      "name": "attack-raw-whitespace",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "attack-raw-binary",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "ORIGINAL_BYTES_MISMATCH"
+      ]
+    },
+    {
+      "name": "attack-extra-consistent-reference",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "REFERENCED_SOURCE_CLOSURE_MISMATCH"
+      ]
+    },
+    {
+      "name": "attack-missing-consistent-reference",
+      "passed": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "REFERENCED_SOURCE_CLOSURE_MISMATCH"
+      ]
+    },
+    {
+      "name": "digest-selected-sources",
+      "passed": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errorCodes": []
+    },
+    {
+      "name": "installed-cli-turnover",
+      "passed": true,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "name": "installed-cli-turnover-plus-full",
+      "passed": true,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "name": "installed-cli-two-visits-same-lot",
+      "passed": true,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "name": "installed-cli-one-point-original-episode",
+      "passed": true,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "name": "installed-cli-nanosecond-included",
+      "passed": true,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "name": "installed-cli-nanosecond-excluded",
+      "passed": true,
+      "exitCode": 1,
+      "stderr": ""
+    },
+    {
+      "name": "installed-cli-horizon-known-end",
+      "passed": true,
+      "exitCode": 1,
+      "stderr": ""
+    },
+    {
+      "name": "installed-cli-quantity-MAXIMUM-cohort-True",
+      "passed": true,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "name": "installed-cli-unresolved-end-UNBOUNDED",
+      "passed": true,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "name": "installed-cli-foreign-ObservationEvent-ABSENT_PENDING",
+      "passed": true,
+      "exitCode": 0,
+      "stderr": ""
+    },
+    {
+      "name": "installed-cli-attack-raw-binary",
+      "passed": true,
+      "exitCode": 1,
+      "stderr": ""
+    },
+    {
+      "name": "installed-cli-digest-selected-sources",
+      "passed": true,
+      "exitCode": 0,
+      "stderr": ""
+    }
+  ]
+}

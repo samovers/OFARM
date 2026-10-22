@@ -1,0 +1,2213 @@
+{
+  "candidateSeal": "8ce0fbd3c70a259f15de2b8a2398e50f78d79d65311cfee354cbe26794d5ede4",
+  "exactSavedCases": 23,
+  "exactApiChecks": 23,
+  "exactInstalledCliChecks": 23,
+  "intervalApplicabilityChecks": 16,
+  "allPassed": true,
+  "exactResults": [
+    {
+      "name": "baseline/empty-inventory",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "cliExit": 0,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "4776f96208f07fd798a1d6c44afd0aecfe0059fec5028eda7640ff102758c5b5",
+          "bytes": 560
+        },
+        {
+          "path": "context.json",
+          "sha256": "c550132e075ca04da56be12e2ddbec5985395a0db2f01c3c6b3e3eeb1efb624a",
+          "bytes": 2079
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "72984a1ba33be5964d9dece11768817f122fb5959eaa3649988df9dff27fd04b",
+          "bytes": 484
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        }
+      ]
+    },
+    {
+      "name": "baseline/overlapping-repeated",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "cliExit": 0,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "def7df89d38566fdeaa4b7a0570f966e385c8a031755767f032bc267a4bf9b80",
+          "bytes": 8885
+        },
+        {
+          "path": "context.json",
+          "sha256": "f672975428bcc0622f7e4ecfe4143dba60c45e17e2fca5f95d4516db7e353e71",
+          "bytes": 6928
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "64fdf5fd41d8392bb900e2674d9c42bc1f4a90ae163b24623ea907c6777bcd28",
+          "bytes": 2417
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "fe541cd8507239ec4cc3849af323a528f8bd0d97732156952f98daa39ab5a7e5",
+          "bytes": 161
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "66a6d6b6ec12c87484066cf1f82c58fb71f65b169488b99a73cc822fa04e38fc",
+          "bytes": 2338
+        },
+        {
+          "path": "record-012.bin",
+          "sha256": "d67ad121aa71e38e5b3a4aee56bb8fdbdc9e210b172a83b224859903627f0557",
+          "bytes": 2338
+        },
+        {
+          "path": "record-013.bin",
+          "sha256": "f0c909686cace82102f93ca12f2a3c27a01cceaf0996eff42513ab3eb65417ca",
+          "bytes": 2350
+        }
+      ]
+    },
+    {
+      "name": "baseline/unknown-end",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "cliExit": 0,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "555a0279dd4310a5f6904cf9c092ba0618f18c5038349aba2d4a95ab864960a5",
+          "bytes": 3428
+        },
+        {
+          "path": "context.json",
+          "sha256": "2f148c7ae584336abc633d359d896ab696ffaf478200cdfac5163bb26c7599cd",
+          "bytes": 5859
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "95419a2eea8f8f0912160efb841d2754e1ead5d9e2552e90e0cd203ec035f50c",
+          "bytes": 2060
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "c0fdf18e4ba1c8185f02f4b7af7fe858b4e81709569ae87f978ffa0e96baa88d",
+          "bytes": 157
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "7e62a6f39a40da085f3f753e271347f3c501a50c119155a8219f73faf21cca7a",
+          "bytes": 2438
+        }
+      ]
+    },
+    {
+      "name": "baseline/unknown-start",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "cliExit": 0,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "7e9e0e6ae8a581035fb65e7b1d79fc60fa935be113074f37d6794e535d5b5804",
+          "bytes": 3431
+        },
+        {
+          "path": "context.json",
+          "sha256": "7729a463855806b7efe246d5d33277ae9c51cadd884a3c34922129ca749cc7e1",
+          "bytes": 5863
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "68deb38935b9678011b55ccc4cedf6d52b45cdd604ef9321361fcef1ae989431",
+          "bytes": 2062
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "b8e936a968860aef1c3d72e5effa75b1ba3e321b32134be37527d78f9e1be044",
+          "bytes": 159
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "05fb2dc6b6dd46e99793fd27987c1781b5e8601f9f67a62587cd1b3b64de2eab",
+          "bytes": 2441
+        }
+      ]
+    },
+    {
+      "name": "identity/different-revision",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "MISMATCH",
+      "errors": [
+        {
+          "code": "OCCUPANT_AND_PLACE_IDENTITY_NOT_DISTINCT",
+          "document": "{\"ref\":\"fixture:occupancy/source-0\",\"revisionRef\":\"fixture:occupancy/source-0/r1\"}"
+        }
+      ],
+      "cliExit": 1,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "6503820c7a4b4cc61f2ab4fd306a82b99044ac2f8bed22e9a885731da5271cdd",
+          "bytes": 3146
+        },
+        {
+          "path": "context.json",
+          "sha256": "692692593d72d28cc3f763409386c706178177b8639d432803f96b5427c81970",
+          "bytes": 5188
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "aaf2a1743e6cd67001c9ab72a228c22e0af64b83271e2ffeb4c7eec27c72367d",
+          "bytes": 1655
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "7710073df70ca388717575e9d1640fb51a5ca832214cac3dcb6c6ee8bc449905",
+          "bytes": 2164
+        }
+      ]
+    },
+    {
+      "name": "identity/same-selector",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "MISMATCH",
+      "errors": [
+        {
+          "code": "OCCUPANT_AND_PLACE_IDENTITY_NOT_DISTINCT",
+          "document": "{\"ref\":\"fixture:occupancy/source-0\",\"revisionRef\":\"fixture:occupancy/source-0/r1\"}"
+        }
+      ],
+      "cliExit": 1,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "b3e12d094d21edc3156751d02c3a33da4ea803e64aec09406f2e86f322f112ba",
+          "bytes": 3146
+        },
+        {
+          "path": "context.json",
+          "sha256": "22aee09eea915bbff56e27996aa0f031e97552fba41f44cd8879580e68d36354",
+          "bytes": 4822
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "ea961b59a13176eb10e11ccfbd29030dd3ee7c86d8739c26cdc89e7f0fb5fa03",
+          "bytes": 1523
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "4d2366ce703b5d0a263c22bf9ca8d092a434dfc4bfb4d7dda4dc5f982f071cd2",
+          "bytes": 2164
+        }
+      ]
+    },
+    {
+      "name": "partial-error/exception",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "EMPTY_OR_REVERSED_OCCUPANCY_INTERVAL",
+          "document": "input-or-package"
+        }
+      ],
+      "cliExit": 1,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "dbccdf18f609b3b6e2052e71834ad17ff7e2afa915d6693fadf7f571d631a973",
+          "bytes": 8885
+        },
+        {
+          "path": "context.json",
+          "sha256": "f234f3add663047d540b134ad7e16b192c967804e7f4be68d5b94e5f0b045eca",
+          "bytes": 6928
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "64fdf5fd41d8392bb900e2674d9c42bc1f4a90ae163b24623ea907c6777bcd28",
+          "bytes": 2417
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "fe541cd8507239ec4cc3849af323a528f8bd0d97732156952f98daa39ab5a7e5",
+          "bytes": 161
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "66a6d6b6ec12c87484066cf1f82c58fb71f65b169488b99a73cc822fa04e38fc",
+          "bytes": 2338
+        },
+        {
+          "path": "record-012.bin",
+          "sha256": "d67ad121aa71e38e5b3a4aee56bb8fdbdc9e210b172a83b224859903627f0557",
+          "bytes": 2338
+        },
+        {
+          "path": "record-013.bin",
+          "sha256": "a84d30a2cd607003c2273ee2a973659a48ff7118ff553f9a6cedc5a898995216",
+          "bytes": 2350
+        }
+      ]
+    },
+    {
+      "name": "partial-error/semantic",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "MISMATCH",
+      "errors": [
+        {
+          "code": "OCCUPANCY_FACTS_MISMATCH",
+          "document": "{\"digest\":\"sha256:b3374dbed2dcbcef2572b3fa2e0fa6a1014b13e13d5592a016184209b2a8544f\",\"ref\":\"fixture:occupancy/source-1\"}"
+        }
+      ],
+      "cliExit": 1,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "0d3b103e4b158030034206e4bc6b89257f8e64b81e1723c9535e91906631e5e0",
+          "bytes": 8883
+        },
+        {
+          "path": "context.json",
+          "sha256": "f672975428bcc0622f7e4ecfe4143dba60c45e17e2fca5f95d4516db7e353e71",
+          "bytes": 6928
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "64fdf5fd41d8392bb900e2674d9c42bc1f4a90ae163b24623ea907c6777bcd28",
+          "bytes": 2417
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "fe541cd8507239ec4cc3849af323a528f8bd0d97732156952f98daa39ab5a7e5",
+          "bytes": 161
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "66a6d6b6ec12c87484066cf1f82c58fb71f65b169488b99a73cc822fa04e38fc",
+          "bytes": 2338
+        },
+        {
+          "path": "record-012.bin",
+          "sha256": "d67ad121aa71e38e5b3a4aee56bb8fdbdc9e210b172a83b224859903627f0557",
+          "bytes": 2338
+        },
+        {
+          "path": "record-013.bin",
+          "sha256": "f0c909686cace82102f93ca12f2a3c27a01cceaf0996eff42513ab3eb65417ca",
+          "bytes": 2350
+        }
+      ]
+    },
+    {
+      "name": "temporal/control-end/before",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ],
+      "cliExit": 1,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "1671cd2efd8126fa042da4a6266ff54c9e98232eb5ead0e0cb2ef4ebe42a5724",
+          "bytes": 3161
+        },
+        {
+          "path": "context.json",
+          "sha256": "60855dcc9e36cfd12087d6b64cb09d595b6d0deb50f4167bae61f85db2040c1a",
+          "bytes": 5194
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "125e1450b0f4dac8491c629ebe65a95b03f450cb2684e344a3ee38e45b923e5c",
+          "bytes": 1661
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "f086ac08159b2cb9f343558618ec7a513f524c781dfc487285b493bc5a2c3d08",
+          "bytes": 2179
+        }
+      ]
+    },
+    {
+      "name": "temporal/control-end/equal-exclusive",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ],
+      "cliExit": 1,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "b2af4f0abe65e4ddd22b730f6176dc37a044fd4e85f226041a5bcac52244b06b",
+          "bytes": 3152
+        },
+        {
+          "path": "context.json",
+          "sha256": "4733b7f51d8665b6d0d8a149b849fb645989bd15bb74bf9289920a2459af9087",
+          "bytes": 5194
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "125e1450b0f4dac8491c629ebe65a95b03f450cb2684e344a3ee38e45b923e5c",
+          "bytes": 1661
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "053efd5d594b6ecbe6f83b1000013b661690c7e32296e5779c56f4917845c3a3",
+          "bytes": 2170
+        }
+      ]
+    },
+    {
+      "name": "temporal/control-start/after",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ],
+      "cliExit": 1,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "56538d92b0d0d541a88ffb705f1a758cf7fd4f9dbfe252a1bb2e91caff09743e",
+          "bytes": 3162
+        },
+        {
+          "path": "context.json",
+          "sha256": "d97f2b0385f558905fec007d895070b9ca5b0561805ad775bbaad9c05ee9ed66",
+          "bytes": 5194
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "125e1450b0f4dac8491c629ebe65a95b03f450cb2684e344a3ee38e45b923e5c",
+          "bytes": 1661
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "528bd376405803dc0cd06dc1fba9e8aef8a6098da87fc301d3ca3d5efdb62b74",
+          "bytes": 2180
+        }
+      ]
+    },
+    {
+      "name": "temporal/control-start/equal-exclusive",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ],
+      "cliExit": 1,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "548a3c9ea19e873f9921a478d8ae1ef74bad8dcb10529ef9918529c08e426050",
+          "bytes": 3153
+        },
+        {
+          "path": "context.json",
+          "sha256": "0aa5b8bd72424d25660e954aea9d36f3fdcc58911285c570a3703519eae9a8cc",
+          "bytes": 5194
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "125e1450b0f4dac8491c629ebe65a95b03f450cb2684e344a3ee38e45b923e5c",
+          "bytes": 1661
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "e61e1f1cbe22cb91bdcb8a28694c08ec7040a7d06c2a4140952936083dda1553",
+          "bytes": 2171
+        }
+      ]
+    },
+    {
+      "name": "temporal/unknown-end/after",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ],
+      "cliExit": 1,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "e8edc01b3bd3161c66a14d2ef996393634fff3e2df55f0a27e39239e343d1000",
+          "bytes": 3438
+        },
+        {
+          "path": "context.json",
+          "sha256": "94dcd529c4d47ccef8b541de41e5e52595c46745a55c949b0a949ddb6ad45767",
+          "bytes": 5859
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "95419a2eea8f8f0912160efb841d2754e1ead5d9e2552e90e0cd203ec035f50c",
+          "bytes": 2060
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "c0fdf18e4ba1c8185f02f4b7af7fe858b4e81709569ae87f978ffa0e96baa88d",
+          "bytes": 157
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "ed78ad134e8a9bfb64fedc64d2d44145f2e01a92c5fd8a66661d063b22282845",
+          "bytes": 2448
+        }
+      ]
+    },
+    {
+      "name": "temporal/unknown-end/before",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "cliExit": 0,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "9afe83c32297f86e1324203cf5c07b514ca85c9173740020c038c223bec434fd",
+          "bytes": 3438
+        },
+        {
+          "path": "context.json",
+          "sha256": "318045bb813ffe2546521b6f668e6d2f1bfe3ac02edafd565aa15106e0a12896",
+          "bytes": 5859
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "95419a2eea8f8f0912160efb841d2754e1ead5d9e2552e90e0cd203ec035f50c",
+          "bytes": 2060
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "c0fdf18e4ba1c8185f02f4b7af7fe858b4e81709569ae87f978ffa0e96baa88d",
+          "bytes": 157
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "6397d09ca0b1047902b1cd0283704710b38bb02d122e0eba472c0a32ff7d60cc",
+          "bytes": 2448
+        }
+      ]
+    },
+    {
+      "name": "temporal/unknown-end/equal-exclusive",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ],
+      "cliExit": 1,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "d7cb8b86f2d6431d8a2034cd46ae145a95a36bc2f19cc717de470840809bd812",
+          "bytes": 3429
+        },
+        {
+          "path": "context.json",
+          "sha256": "5b62d57c1bd4a1f8c1373ad299bae867fdab90252719d9f50f791152375f780e",
+          "bytes": 5859
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "95419a2eea8f8f0912160efb841d2754e1ead5d9e2552e90e0cd203ec035f50c",
+          "bytes": 2060
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "c0fdf18e4ba1c8185f02f4b7af7fe858b4e81709569ae87f978ffa0e96baa88d",
+          "bytes": 157
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "fa8a30e0e8421d8b3443109ac1d2e022887e94f64cd839cfb9b8efe3bd03ffeb",
+          "bytes": 2439
+        }
+      ]
+    },
+    {
+      "name": "temporal/unknown-end/equal-inclusive",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "cliExit": 0,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "c99ded29a03faca6c8fc18e6ea795ef8c0e3fd1ddb812613eef549d47e82f3a5",
+          "bytes": 3428
+        },
+        {
+          "path": "context.json",
+          "sha256": "76b95d7661c23e29975c26813020bfac0aa2edf1e84b6f64a29af5e9bb160a0b",
+          "bytes": 5859
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "95419a2eea8f8f0912160efb841d2754e1ead5d9e2552e90e0cd203ec035f50c",
+          "bytes": 2060
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "c0fdf18e4ba1c8185f02f4b7af7fe858b4e81709569ae87f978ffa0e96baa88d",
+          "bytes": 157
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "4adcb2cc628dafdf00b30ded2a8dcf317a72f2cd0842eef9429b90bfdc0825cc",
+          "bytes": 2438
+        }
+      ]
+    },
+    {
+      "name": "temporal/unknown-start/after",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "cliExit": 0,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "01250c7e37ae0b30e9ffe964b6d7d6b4fcd2f2beb8f0c3ddc2834092b1295e9c",
+          "bytes": 3440
+        },
+        {
+          "path": "context.json",
+          "sha256": "65074cb6a9a00b3d4279857b70dd93cab63fb6dfa6556c7cab49d8ae17e848cb",
+          "bytes": 5863
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "68deb38935b9678011b55ccc4cedf6d52b45cdd604ef9321361fcef1ae989431",
+          "bytes": 2062
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "b8e936a968860aef1c3d72e5effa75b1ba3e321b32134be37527d78f9e1be044",
+          "bytes": 159
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "5a9db6e051b485f2a11e4f97804703cf05916b57a79e4f8f240cd0127a48cb08",
+          "bytes": 2450
+        }
+      ]
+    },
+    {
+      "name": "temporal/unknown-start/before",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ],
+      "cliExit": 1,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "9415417f59298e1055044ef87ca82b8495eb5994b501cf099032eb29a4a8b7ca",
+          "bytes": 3440
+        },
+        {
+          "path": "context.json",
+          "sha256": "a0c2111d94910c18237cc68e7588642d2c938e7185547d3d79058cfe3c18f734",
+          "bytes": 5863
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "68deb38935b9678011b55ccc4cedf6d52b45cdd604ef9321361fcef1ae989431",
+          "bytes": 2062
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "b8e936a968860aef1c3d72e5effa75b1ba3e321b32134be37527d78f9e1be044",
+          "bytes": 159
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "296e29effa524d9723b93ccda50b7600fff872694d6b296d4f5c0d708f56b005",
+          "bytes": 2450
+        }
+      ]
+    },
+    {
+      "name": "temporal/unknown-start/equal-exclusive",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ],
+      "cliExit": 1,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "598b26d350155e4146d51477434015c4d202ea4b7aa8d42beb1e5251f79a2d22",
+          "bytes": 3431
+        },
+        {
+          "path": "context.json",
+          "sha256": "e4a7d0eb9e0b35e31fb1daaca8a180aae65802d3672232f5db12e7b7a24f7773",
+          "bytes": 5863
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "68deb38935b9678011b55ccc4cedf6d52b45cdd604ef9321361fcef1ae989431",
+          "bytes": 2062
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "b8e936a968860aef1c3d72e5effa75b1ba3e321b32134be37527d78f9e1be044",
+          "bytes": 159
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "21245e66bbb6d61aec1df5b4f621b18df67e868fe8197d7ce1e41b182c84a557",
+          "bytes": 2441
+        }
+      ]
+    },
+    {
+      "name": "temporal/unknown-start/equal-inclusive",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "cliExit": 0,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "c2a4a4314be2074462c395f09b2d85cabb7e43d3fcc25021e4ab7b3364f334bc",
+          "bytes": 3430
+        },
+        {
+          "path": "context.json",
+          "sha256": "ed207b9de22bbee91cf30c7255031dde21f720dd7d3eaf25ff47ecd2efdd710e",
+          "bytes": 5863
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "68deb38935b9678011b55ccc4cedf6d52b45cdd604ef9321361fcef1ae989431",
+          "bytes": 2062
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "b8e936a968860aef1c3d72e5effa75b1ba3e321b32134be37527d78f9e1be044",
+          "bytes": 159
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "2c4ff21e1b35684a46097abff734ba9accdfd0484a382df4620986cf9383c921",
+          "bytes": 2440
+        }
+      ]
+    },
+    {
+      "name": "temporal/unknown-start-open/after",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "cliExit": 0,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "1af5815cd952cfad85141354653dea1b9534b73947188dde3cdaafc6604bf798",
+          "bytes": 3588
+        },
+        {
+          "path": "context.json",
+          "sha256": "f8b5e06f4bc55c4b7a6ebfe16c725d27513a251cd4f4946dae0c48f0319a9a8f",
+          "bytes": 5863
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "68deb38935b9678011b55ccc4cedf6d52b45cdd604ef9321361fcef1ae989431",
+          "bytes": 2062
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "b8e936a968860aef1c3d72e5effa75b1ba3e321b32134be37527d78f9e1be044",
+          "bytes": 159
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "ce14febf33128acdc474a1669d78cd3b0386db941ffa70251f6f98189d48f35a",
+          "bytes": 2586
+        }
+      ]
+    },
+    {
+      "name": "temporal/unknown-start-open/before",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "OPEN_END_OBSERVATION_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ],
+      "cliExit": 1,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "c8a927197fff93e8af75b96e41d67776e8d52599301fa5ececdca45bd49b33ec",
+          "bytes": 3588
+        },
+        {
+          "path": "context.json",
+          "sha256": "952863eef4e775172f341eee7dab6482b33ad710590451a1d2ae6a13c46e7c5f",
+          "bytes": 5863
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "68deb38935b9678011b55ccc4cedf6d52b45cdd604ef9321361fcef1ae989431",
+          "bytes": 2062
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "b8e936a968860aef1c3d72e5effa75b1ba3e321b32134be37527d78f9e1be044",
+          "bytes": 159
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "55e63e7792f75aa8d262133734fd129f6af21bd0226ee6caeb35fbf4126c9cbe",
+          "bytes": 2586
+        }
+      ]
+    },
+    {
+      "name": "temporal/unknown-start-open/equal",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "cliExit": 0,
+      "previousContractPin": "b93369fcbcc958888d7550b3f83625fa3102db08e0cc4d51dae7d50df6261488",
+      "newContractPin": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
+      "requestContextAndSourceBytesUnchanged": true,
+      "inputFiles": [
+        {
+          "path": "request.json",
+          "sha256": "4657e289746ecb49a328b30b6ec4507111c454171ea6e74fab1dbc60f69fe9f9",
+          "bytes": 3588
+        },
+        {
+          "path": "context.json",
+          "sha256": "f95734a094f68253d4feec1a21b998bcb25b0ec9c9030d661903bd3f8271cd6d",
+          "bytes": 5863
+        },
+        {
+          "path": "record-map.json",
+          "sha256": "68deb38935b9678011b55ccc4cedf6d52b45cdd604ef9321361fcef1ae989431",
+          "bytes": 2062
+        },
+        {
+          "path": "record-000.bin",
+          "sha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+          "bytes": 154
+        },
+        {
+          "path": "record-001.bin",
+          "sha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+          "bytes": 151
+        },
+        {
+          "path": "record-002.bin",
+          "sha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+          "bytes": 158
+        },
+        {
+          "path": "record-003.bin",
+          "sha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+          "bytes": 165
+        },
+        {
+          "path": "record-004.bin",
+          "sha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+          "bytes": 159
+        },
+        {
+          "path": "record-005.bin",
+          "sha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+          "bytes": 166
+        },
+        {
+          "path": "record-006.bin",
+          "sha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+          "bytes": 48
+        },
+        {
+          "path": "record-007.bin",
+          "sha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+          "bytes": 170
+        },
+        {
+          "path": "record-008.bin",
+          "sha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+          "bytes": 159
+        },
+        {
+          "path": "record-009.bin",
+          "sha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+          "bytes": 154
+        },
+        {
+          "path": "record-010.bin",
+          "sha256": "b8e936a968860aef1c3d72e5effa75b1ba3e321b32134be37527d78f9e1be044",
+          "bytes": 159
+        },
+        {
+          "path": "record-011.bin",
+          "sha256": "de4e49a34b8b1d60610ffccb7dfe39a51e5a2708a91fa33ef7d97c456d549e30",
+          "bytes": 2586
+        }
+      ]
+    }
+  ],
+  "intervalResults": [
+    {
+      "name": "unknown-end-exact-bound-source-False-known-False",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": []
+    },
+    {
+      "name": "unknown-end-inside-source-source-False-known-False",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ]
+    },
+    {
+      "name": "unknown-end-exact-bound-source-False-known-True",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": []
+    },
+    {
+      "name": "unknown-end-inside-source-source-False-known-True",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ]
+    },
+    {
+      "name": "unknown-end-exact-bound-source-True-known-False",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ]
+    },
+    {
+      "name": "unknown-end-inside-source-source-True-known-False",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ]
+    },
+    {
+      "name": "unknown-end-exact-bound-source-True-known-True",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": []
+    },
+    {
+      "name": "unknown-end-inside-source-source-True-known-True",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ]
+    },
+    {
+      "name": "unknown-start-exact-bound-source-False-known-False",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": []
+    },
+    {
+      "name": "unknown-start-inside-source-source-False-known-False",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ]
+    },
+    {
+      "name": "unknown-start-exact-bound-source-False-known-True",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": []
+    },
+    {
+      "name": "unknown-start-inside-source-source-False-known-True",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ]
+    },
+    {
+      "name": "unknown-start-exact-bound-source-True-known-False",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ]
+    },
+    {
+      "name": "unknown-start-inside-source-source-True-known-False",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ]
+    },
+    {
+      "name": "unknown-start-exact-bound-source-True-known-True",
+      "pass": true,
+      "expectedMatched": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": []
+    },
+    {
+      "name": "unknown-start-inside-source-source-True-known-True",
+      "pass": true,
+      "expectedMatched": false,
+      "status": "INPUT_ERROR",
+      "errors": [
+        {
+          "code": "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY",
+          "document": "input-or-package"
+        }
+      ]
+    }
+  ]
+}

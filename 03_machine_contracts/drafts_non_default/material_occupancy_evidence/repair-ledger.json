@@ -1,0 +1,16 @@
+{
+  "revision": "review-repair-02",
+  "previousCandidateSealSha256": "b9e97569b5cfb27d6d61f28af347857fb178717792a10e9bcf8c24b7d9d29d13",
+  "primaryTrustBoundary": "Material occupancy source evidence",
+  "scopeStayedInsideBoundary": true,
+  "finding": "Known temporal contradiction hidden by an unknown opposite endpoint",
+  "repair": "Check each known boundary and open-end observation against source applicability before returning unresolved for an unknown opposite endpoint. Preserve unknown posture and false unqualified-claim indicator for genuinely unresolved, noncontradictory cases.",
+  "regressions": [
+    "known start after applicability with unknown end",
+    "exclusive start at selected time with unknown end",
+    "known end before applicability with unknown start",
+    "exclusive end at selected time with unknown start",
+    "open-end observation before applicability with unknown start"
+  ],
+  "next": "Fresh independent replay of the repaired exact candidate; original packets and review remain immutable."
+}

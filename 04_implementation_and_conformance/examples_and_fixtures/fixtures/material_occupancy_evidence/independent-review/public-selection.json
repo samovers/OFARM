@@ -1,0 +1,112 @@
+{
+  "status": "SELECTED_REVIEW_EVIDENCE_ONLY",
+  "fullReviewArchivesIncluded": false,
+  "candidateSealSha256": "5c0a0119085d77223060d30c92a79990d525133f338e17f2e405ed71c57e3609",
+  "reviews": [
+    {
+      "review": "independent-review-01",
+      "reviewManifestSha256": "15299caa53a50d50d199979b997db695b57274be3a93d3dcd004cf5b2b778455",
+      "files": [
+        {
+          "name": "REVIEW.md",
+          "sha256": "d7a2a2b85a8f97171e288ad81fd8ca35f50b7e6f5b71cda3493a11e01c863244",
+          "bytes": 7454
+        },
+        {
+          "name": "REVIEW_MANIFEST.json",
+          "sha256": "15299caa53a50d50d199979b997db695b57274be3a93d3dcd004cf5b2b778455",
+          "bytes": 414264
+        },
+        {
+          "name": "SNAPSHOT_MANIFEST.json",
+          "sha256": "ec0ba8a7b56fb0910471d69f6f48d80ee3af75cf80d157e75faf9c8008646a1e",
+          "bytes": 128909
+        },
+        {
+          "name": "verification.json",
+          "sha256": "1729a850f05951a3fd2f43e2367d7c48858da0739000d7b0b98a33d77b36c8e3",
+          "bytes": 649
+        },
+        {
+          "name": "independent-results.json",
+          "sha256": "9443a17f693929e64b4e85905474bad146393562c4cccf91e4d1985e6a311338",
+          "bytes": 171856
+        }
+      ]
+    },
+    {
+      "review": "independent-review-02",
+      "reviewManifestSha256": "30c865ce7926c72e6b8ca9d82167bc347669b00d1883994a54db6894d9e1500d",
+      "files": [
+        {
+          "name": "REVIEW.md",
+          "sha256": "7ebd160c4ed0d7bf46569797041db2ea4747e7d5424d14ea0177c87ef0a8db2f",
+          "bytes": 5500
+        },
+        {
+          "name": "REVIEW_MANIFEST.json",
+          "sha256": "30c865ce7926c72e6b8ca9d82167bc347669b00d1883994a54db6894d9e1500d",
+          "bytes": 560297
+        },
+        {
+          "name": "SNAPSHOT_MANIFEST.json",
+          "sha256": "38e676f59127c772314261d2f87b08343da300469e50cf37c24a6ac5573de4d7",
+          "bytes": 129072
+        },
+        {
+          "name": "verification.json",
+          "sha256": "8f1846792c88b6f36afcbb0f7370745aa5a75a691382f78e05de025afba9695a",
+          "bytes": 859
+        },
+        {
+          "name": "independent-results.json",
+          "sha256": "18c8506c41baf50ffb8a2f2afc560bbdfa29df8bb76bdfe33668b165490851c9",
+          "bytes": 170030
+        },
+        {
+          "name": "exact-replay-results.json",
+          "sha256": "4b5c674796b0c93caa997d487451bc7086658d4f39196159372dd313c43cdbab",
+          "bytes": 73526
+        }
+      ]
+    },
+    {
+      "review": "independent-review-03",
+      "reviewManifestSha256": "fe1d9c068dcc2ac1e87b14e60688da42b44302320b630e4a47536457053f0a24",
+      "files": [
+        {
+          "name": "review.md",
+          "sha256": "76ba16d7603b552e95a8dfb326f50e0c4e64bedc2b6efb8c01af3363a6cce48c",
+          "bytes": 8852
+        },
+        {
+          "name": "REVIEW_MANIFEST.json",
+          "sha256": "fe1d9c068dcc2ac1e87b14e60688da42b44302320b630e4a47536457053f0a24",
+          "bytes": 601594
+        },
+        {
+          "name": "baseline.json",
+          "sha256": "9ab318dd47f2c2dc8a482a8d6cffdd1b09f89f1a838d7322388dc3d58a57abc5",
+          "bytes": 140797
+        },
+        {
+          "name": "post-review-integrity.json",
+          "sha256": "61b64a02617405d2270351a6559ca419349ba69fb6730f782381ba12aafa05f9",
+          "bytes": 489
+        },
+        {
+          "name": "independent-results.json",
+          "sha256": "cbed3a85fc8ddcd3a754875b11d900b137901763f4e83159169ff4cfc409da40",
+          "bytes": 39814
+        },
+        {
+          "name": "author-conformance-replay.json",
+          "sha256": "d41015b389b77ed1a3b568036988888ec6d8766cac386ee71b31a1870778cae0",
+          "bytes": 83641
+        }
+      ]
+    }
+  ],
+  "note": "Exact selected reports and manifests are included. Full frozen local archives are not duplicated. The committed exact independent harness and replay recipe reconstruct the R3 snapshot from its verified integration map and regenerate its 241-check corpus, including full event/measurement bytes.",
+  "reproduction": "package_meta/history/clean_baseline_migration/phase_reports/material_occupancy_evidence_delivery_v0_1/review-repair-03/replay_independent_review.py"
+}

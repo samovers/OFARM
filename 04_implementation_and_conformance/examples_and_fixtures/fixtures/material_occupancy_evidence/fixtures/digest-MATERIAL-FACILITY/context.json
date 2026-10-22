@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "ofarm.materialOccupancyOwnerContext.v0.1",
+  "contractId": "ofarm.material-occupancy-evidence.v0.1",
+  "ownerContextId": "fixture:owner-context/digest-MATERIAL-FACILITY",
+  "ownerIdentity": {
+    "ref": "fixture:source-owner",
+    "digest": "sha256:5253e2a95473f7109e90a4a492a9cd63737ac26fac9591a58c9c624d0783bb98"
+  },
+  "fixedAt": "2026-10-21T00:00:00Z",
+  "selection": {
+    "place": {
+      "kind": "FACILITY",
+      "binding": {
+        "ref": "fixture:place",
+        "digest": "sha256:42a0d666b332ed936c9e357f5965a7d979a588e57f022e277e5a5e3f116a3c9e"
+      }
+    },
+    "applicability": {
+      "mode": "AS_OF",
+      "at": "2026-10-20T10:00:00Z"
+    },
+    "inventoryPosture": "COMPLETE_FOR_SELECTED_PLACE_AND_APPLICABILITY",
+    "selectionBasis": [
+      {
+        "ref": "fixture:inventory-selection",
+        "digest": "sha256:091be04e94d81c148fcf2b3bc4339dacdd0113812bfee85be62b847bb062f9c4"
+      }
+    ]
+  },
+  "episodeBindings": [
+    {
+      "ref": "fixture:occupancy/source-0",
+      "digest": "sha256:9a5bb2d0f1481db0b0b2f35b0b6bf36624fb45d8aa3b0f307289aca812dbbfeb"
+    }
+  ],
+  "records": [
+    {
+      "binding": {
+        "ref": "fixture:occupant",
+        "digest": "sha256:356911199f54aaee576e9134b33217226d81eb7b6d16f7aad1e4688888ae32a0"
+      },
+      "bytesSha256": "85af9ebaa53d3bb644eeeb5000df3aa4752e7c3574092e397c872546eda4434b",
+      "valueDigest": "sha256:356911199f54aaee576e9134b33217226d81eb7b6d16f7aad1e4688888ae32a0",
+      "digestMode": "JCS_JSON",
+      "role": "SUPPORTING_SOURCE"
+    },
+    {
+      "binding": {
+        "ref": "fixture:place",
+        "digest": "sha256:42a0d666b332ed936c9e357f5965a7d979a588e57f022e277e5a5e3f116a3c9e"
+      },
+      "bytesSha256": "bcc2287b0a11eaebf31f5b7ffe2a78a9af94d2538387c6eadbbd8c02b5c405af",
+      "valueDigest": "sha256:42a0d666b332ed936c9e357f5965a7d979a588e57f022e277e5a5e3f116a3c9e",
+      "digestMode": "JCS_JSON",
+      "role": "SUPPORTING_SOURCE"
+    },
+    {
+      "binding": {
+        "ref": "fixture:source-owner",
+        "digest": "sha256:5253e2a95473f7109e90a4a492a9cd63737ac26fac9591a58c9c624d0783bb98"
+      },
+      "bytesSha256": "7c43c9d7ef74b44750dffd31fee88947c74af154a2f3d7e31e65165098063c34",
+      "valueDigest": "sha256:5253e2a95473f7109e90a4a492a9cd63737ac26fac9591a58c9c624d0783bb98",
+      "digestMode": "JCS_JSON",
+      "role": "SUPPORTING_SOURCE"
+    },
+    {
+      "binding": {
+        "ref": "fixture:inventory-selection",
+        "digest": "sha256:091be04e94d81c148fcf2b3bc4339dacdd0113812bfee85be62b847bb062f9c4"
+      },
+      "bytesSha256": "3712a1451a4b9bf2113cc58637dcce7923bcc2753588e3079ffa7364c65a7b9a",
+      "valueDigest": "sha256:091be04e94d81c148fcf2b3bc4339dacdd0113812bfee85be62b847bb062f9c4",
+      "digestMode": "JCS_JSON",
+      "role": "SUPPORTING_SOURCE"
+    },
+    {
+      "binding": {
+        "ref": "fixture:unit-kilogram",
+        "digest": "sha256:fbf596fa7a2b5a99277a0b648b7255c727cc6c9995efb452a86f5b325999c702"
+      },
+      "bytesSha256": "18c411951a60c1cc7ff176b5c5fd7c93e8da8b6d8d6ccb3e9d9360f883d48030",
+      "valueDigest": "sha256:fbf596fa7a2b5a99277a0b648b7255c727cc6c9995efb452a86f5b325999c702",
+      "digestMode": "JCS_JSON",
+      "role": "SUPPORTING_SOURCE"
+    },
+    {
+      "binding": {
+        "ref": "fixture:occupies-relation-r1",
+        "digest": "sha256:71bb02e7564139117b56dd92cdcc0d63da096ddb4891177abc63832be4ffd78d"
+      },
+      "bytesSha256": "baf30b0e1a46f3a930d63825a106a4e484caaabee629208a069d4002843a6631",
+      "valueDigest": "sha256:71bb02e7564139117b56dd92cdcc0d63da096ddb4891177abc63832be4ffd78d",
+      "digestMode": "JCS_JSON",
+      "role": "SUPPORTING_SOURCE"
+    },
+    {
+      "binding": {
+        "ref": "fixture:source-observation",
+        "digest": "sha256:4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff"
+      },
+      "bytesSha256": "4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+      "valueDigest": "sha256:4f247c24ed1a700c237beca3b4571d24d946594be7a9bdd4bd4ae1160647e5ff",
+      "digestMode": "RAW_BYTES",
+      "role": "SUPPORTING_SOURCE"
+    },
+    {
+      "binding": {
+        "ref": "fixture:source-status-assessment",
+        "digest": "sha256:464dca6d8ac51aa797eee2801e9028726dfa745274c00410ec0905f83892bdab"
+      },
+      "bytesSha256": "053d6ea46997ab03db67bc692e31673740f98ef5d680ee56c00aabc9484b5bac",
+      "valueDigest": "sha256:464dca6d8ac51aa797eee2801e9028726dfa745274c00410ec0905f83892bdab",
+      "digestMode": "JCS_JSON",
+      "role": "SUPPORTING_SOURCE"
+    },
+    {
+      "binding": {
+        "ref": "fixture:quantity-mass",
+        "digest": "sha256:93ebaba1df6fbdd03b5a1c8b18c0e7a1f106a2144e931620d47ecc6515f82ddf"
+      },
+      "bytesSha256": "9b78f17b8725992e1500ce498412afcf6e205d45fe28c484f54d66eff4e41060",
+      "valueDigest": "sha256:93ebaba1df6fbdd03b5a1c8b18c0e7a1f106a2144e931620d47ecc6515f82ddf",
+      "digestMode": "JCS_JSON",
+      "role": "SUPPORTING_SOURCE"
+    },
+    {
+      "binding": {
+        "ref": "fixture:cohort-1",
+        "digest": "sha256:cecd9742a0c83c1fb689f8d1cb45e2f7e120ea8481a570ac34fae94f8605cb2b"
+      },
+      "bytesSha256": "68a5f2d93768331521ed6ac2a82f49ce775e9413c9b12c79dd009f85c015e1ac",
+      "valueDigest": "sha256:cecd9742a0c83c1fb689f8d1cb45e2f7e120ea8481a570ac34fae94f8605cb2b",
+      "digestMode": "JCS_JSON",
+      "role": "SUPPORTING_SOURCE"
+    },
+    {
+      "binding": {
+        "ref": "fixture:occupancy/source-0",
+        "digest": "sha256:9a5bb2d0f1481db0b0b2f35b0b6bf36624fb45d8aa3b0f307289aca812dbbfeb"
+      },
+      "bytesSha256": "8e1f74ef649e225f7d5018b2f93567e4ddff09ca4ca51373f14b11df4edd8260",
+      "valueDigest": "sha256:9a5bb2d0f1481db0b0b2f35b0b6bf36624fb45d8aa3b0f307289aca812dbbfeb",
+      "digestMode": "JCS_JSON",
+      "role": "EPISODE"
+    }
+  ]
+}
