@@ -2,12 +2,13 @@
   "status": "PASS",
   "primaryTrustBoundary": "Material occupancy source evidence",
   "scopeStayedInsideBoundary": true,
-  "contractSha256": "bbb2a060c62e05ca8f17f2dcda0d36e182a6127e75579df637b8c179a7479f0f",
-  "positiveCases": 47,
+  "contractSha256": "8d0bf72d370b08601d5bd8e909609095f54ab15bb20d95d0c28beea70a188ea0",
+  "positiveCases": 51,
   "fullForeignEventMeasurementPairs": 35,
   "meaningLeavesMutated": 40,
-  "checks": 209,
-  "passed": 209,
+  "reviewRegressionChecks": 83,
+  "checks": 296,
+  "passed": 296,
   "failed": [],
   "results": [
     {
@@ -156,6 +157,30 @@
     },
     {
       "name": "positive/interval-query",
+      "pass": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": []
+    },
+    {
+      "name": "positive/interval-turnover",
+      "pass": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": []
+    },
+    {
+      "name": "positive/interval-turnover-plus-full",
+      "pass": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": []
+    },
+    {
+      "name": "positive/interval-two-visits",
+      "pass": true,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": []
+    },
+    {
+      "name": "positive/interval-empty",
       "pass": true,
       "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
       "errors": []
@@ -2291,6 +2316,1025 @@
       "pass": true,
       "status": 1,
       "errors": ""
+    },
+    {
+      "name": "review/B1/digest/interval-turnover",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "PARTIAL_WINDOW",
+        "PARTIAL_WINDOW"
+      ],
+      "unqualified": [
+        false,
+        false
+      ]
+    },
+    {
+      "name": "review/B1/digest/interval-turnover-plus-full",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "PARTIAL_WINDOW",
+        "PARTIAL_WINDOW",
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "name": "review/B1/digest/interval-two-visits",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "PARTIAL_WINDOW",
+        "PARTIAL_WINDOW"
+      ],
+      "unqualified": [
+        false,
+        false
+      ]
+    },
+    {
+      "name": "review/B1/digest/interval-empty",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/revision/interval-turnover",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "PARTIAL_WINDOW",
+        "PARTIAL_WINDOW"
+      ],
+      "unqualified": [
+        false,
+        false
+      ]
+    },
+    {
+      "name": "review/B1/revision/interval-turnover-plus-full",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "PARTIAL_WINDOW",
+        "PARTIAL_WINDOW",
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "name": "review/B1/revision/interval-two-visits",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "PARTIAL_WINDOW",
+        "PARTIAL_WINDOW"
+      ],
+      "unqualified": [
+        false,
+        false
+      ]
+    },
+    {
+      "name": "review/B1/revision/interval-empty",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/mixed/interval-turnover",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "PARTIAL_WINDOW",
+        "PARTIAL_WINDOW"
+      ],
+      "unqualified": [
+        false,
+        false
+      ]
+    },
+    {
+      "name": "review/B1/mixed/interval-turnover-plus-full",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "PARTIAL_WINDOW",
+        "PARTIAL_WINDOW",
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "name": "review/B1/mixed/interval-two-visits",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "PARTIAL_WINDOW",
+        "PARTIAL_WINDOW"
+      ],
+      "unqualified": [
+        false,
+        false
+      ]
+    },
+    {
+      "name": "review/B1/mixed/interval-empty",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/inventory/drop-first",
+      "pass": true,
+      "expectedError": "EPISODE_SET_OR_ORDER_MISMATCH",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "EPISODE_SET_OR_ORDER_MISMATCH"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/inventory/retain-full-only",
+      "pass": true,
+      "expectedError": "EPISODE_SET_OR_ORDER_MISMATCH",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "EPISODE_SET_OR_ORDER_MISMATCH"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/inventory/reorder",
+      "pass": true,
+      "expectedError": "EPISODE_SET_OR_ORDER_MISMATCH",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "EPISODE_SET_OR_ORDER_MISMATCH"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/inventory/duplicate",
+      "pass": true,
+      "expectedError": "EPISODE_SET_OR_ORDER_MISMATCH",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "EPISODE_SET_OR_ORDER_MISMATCH"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/full-source-window-retained",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        true
+      ]
+    },
+    {
+      "name": "review/B1/query-intersection-distinct-from-support",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "PARTIAL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/B1/touch/left/False/False",
+      "pass": true,
+      "expectedError": "SOURCE_APPLICABILITY_MISMATCH",
+      "status": "MISMATCH",
+      "errors": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/touch/right/False/False",
+      "pass": true,
+      "expectedError": "SOURCE_APPLICABILITY_MISMATCH",
+      "status": "MISMATCH",
+      "errors": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/touch/left/False/True",
+      "pass": true,
+      "expectedError": "SOURCE_APPLICABILITY_MISMATCH",
+      "status": "MISMATCH",
+      "errors": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/touch/right/False/True",
+      "pass": true,
+      "expectedError": "SOURCE_APPLICABILITY_MISMATCH",
+      "status": "MISMATCH",
+      "errors": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/touch/left/True/False",
+      "pass": true,
+      "expectedError": "SOURCE_APPLICABILITY_MISMATCH",
+      "status": "MISMATCH",
+      "errors": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/touch/right/True/False",
+      "pass": true,
+      "expectedError": "SOURCE_APPLICABILITY_MISMATCH",
+      "status": "MISMATCH",
+      "errors": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/touch/left/True/True",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "PARTIAL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/B1/touch/right/True/True",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "PARTIAL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/B1/disjoint/2026-10-14T00:00:00Z",
+      "pass": true,
+      "expectedError": "SOURCE_APPLICABILITY_MISMATCH",
+      "status": "MISMATCH",
+      "errors": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/disjoint/2026-10-20T00:00:00.000000001Z",
+      "pass": true,
+      "expectedError": "SOURCE_APPLICABILITY_MISMATCH",
+      "status": "MISMATCH",
+      "errors": [
+        "SOURCE_APPLICABILITY_MISMATCH"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/nanosecond-point",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        true
+      ]
+    },
+    {
+      "name": "review/B1/as-of-membership/start/False",
+      "pass": true,
+      "expectedError": "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/as-of-membership/start/True",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        true
+      ]
+    },
+    {
+      "name": "review/B1/as-of-membership/end/False",
+      "pass": true,
+      "expectedError": "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B1/as-of-membership/end/True",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        true
+      ]
+    },
+    {
+      "name": "review/B2/future-selection/base/AS_OF",
+      "pass": true,
+      "expectedError": "SELECTION_AFTER_CONTEXT",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "SELECTION_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/future-selection/base/INTERVAL",
+      "pass": true,
+      "expectedError": "SELECTION_AFTER_CONTEXT",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "SELECTION_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/future-selection/open-end/AS_OF",
+      "pass": true,
+      "expectedError": "SELECTION_AFTER_CONTEXT",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "SELECTION_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/future-selection/open-end/INTERVAL",
+      "pass": true,
+      "expectedError": "SELECTION_AFTER_CONTEXT",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "SELECTION_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/future-selection/unbounded-end/AS_OF",
+      "pass": true,
+      "expectedError": "SELECTION_AFTER_CONTEXT",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "SELECTION_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/future-selection/unbounded-end/INTERVAL",
+      "pass": true,
+      "expectedError": "SELECTION_AFTER_CONTEXT",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "SELECTION_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/future-selection/unknown-end/AS_OF",
+      "pass": true,
+      "expectedError": "SELECTION_AFTER_CONTEXT",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "SELECTION_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/future-selection/unknown-end/INTERVAL",
+      "pass": true,
+      "expectedError": "SELECTION_AFTER_CONTEXT",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "SELECTION_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/future-selection/empty-inventory/AS_OF",
+      "pass": true,
+      "expectedError": "SELECTION_AFTER_CONTEXT",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "SELECTION_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/future-selection/empty-inventory/INTERVAL",
+      "pass": true,
+      "expectedError": "SELECTION_AFTER_CONTEXT",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "SELECTION_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/future-known/start/KNOWN",
+      "pass": true,
+      "expectedError": "KNOWN_BOUNDARY_AFTER_CONTEXT",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "KNOWN_BOUNDARY_AFTER_CONTEXT",
+        "EMPTY_OR_REVERSED_OCCUPANCY_INTERVAL"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/future-known/start/UNKNOWN",
+      "pass": true,
+      "expectedError": "KNOWN_BOUNDARY_AFTER_CONTEXT",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "KNOWN_BOUNDARY_AFTER_CONTEXT",
+        "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/future-known/start/UNBOUNDED",
+      "pass": true,
+      "expectedError": "KNOWN_BOUNDARY_AFTER_CONTEXT",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "KNOWN_BOUNDARY_AFTER_CONTEXT",
+        "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/future-known/end/KNOWN",
+      "pass": true,
+      "expectedError": "KNOWN_BOUNDARY_AFTER_CONTEXT",
+      "status": "MISMATCH",
+      "errors": [
+        "KNOWN_BOUNDARY_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/future-known/end/UNKNOWN",
+      "pass": true,
+      "expectedError": "KNOWN_BOUNDARY_AFTER_CONTEXT",
+      "status": "MISMATCH",
+      "errors": [
+        "KNOWN_BOUNDARY_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/future-known/end/UNBOUNDED",
+      "pass": true,
+      "expectedError": "KNOWN_BOUNDARY_AFTER_CONTEXT",
+      "status": "MISMATCH",
+      "errors": [
+        "KNOWN_BOUNDARY_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/source-one-nanosecond-after-context",
+      "pass": true,
+      "expectedError": "SOURCE_APPLICABILITY_AFTER_CONTEXT",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "SOURCE_APPLICABILITY_AFTER_CONTEXT",
+        "KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/nanosecond-horizon/selection",
+      "pass": true,
+      "expectedError": "SELECTION_AFTER_CONTEXT",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "SELECTION_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/nanosecond-horizon/assessment",
+      "pass": true,
+      "expectedError": "POSTURE_AFTER_CONTEXT",
+      "status": "MISMATCH",
+      "errors": [
+        "POSTURE_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/nanosecond-horizon/open",
+      "pass": true,
+      "expectedError": "OPEN_POSTURE_AFTER_CONTEXT",
+      "status": "MISMATCH",
+      "errors": [
+        "OPEN_POSTURE_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/nanosecond-horizon/known",
+      "pass": true,
+      "expectedError": "KNOWN_BOUNDARY_AFTER_CONTEXT",
+      "status": "MISMATCH",
+      "errors": [
+        "KNOWN_BOUNDARY_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/no-infinite-coverage/unknown-start",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "UNRESOLVED"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/B2/no-infinite-coverage/unknown-end",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "UNRESOLVED"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/B2/no-infinite-coverage/unbounded-start",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "UNRESOLVED"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/B2/no-infinite-coverage/unbounded-end",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "UNRESOLVED"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/B2/finite-open-observation",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        true
+      ]
+    },
+    {
+      "name": "review/B2/known-contradiction-with-UNKNOWN",
+      "pass": true,
+      "expectedError": "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/known-contradiction-with-UNBOUNDED",
+      "pass": true,
+      "expectedError": "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY",
+      "status": "INPUT_ERROR",
+      "errors": [
+        "KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/B2/exact-context-boundary",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        true
+      ]
+    },
+    {
+      "name": "review/B2/no-partial-output-on-later-failure",
+      "pass": true,
+      "expectedError": "KNOWN_BOUNDARY_AFTER_CONTEXT",
+      "status": "MISMATCH",
+      "errors": [
+        "KNOWN_BOUNDARY_AFTER_CONTEXT"
+      ],
+      "coverage": [],
+      "unqualified": []
+    },
+    {
+      "name": "review/F1/qualifier/EXACT/cohort-False",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        true
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/EXACT/cohort-True",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        true
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/ESTIMATED/cohort-False",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/ESTIMATED/cohort-True",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/MINIMUM/cohort-False",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/MINIMUM/cohort-True",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/MAXIMUM/cohort-False",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/MAXIMUM/cohort-True",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/RANGE_MIDPOINT/cohort-False",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/RANGE_MIDPOINT/cohort-True",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/LABEL_LIMIT/cohort-False",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/LABEL_LIMIT/cohort-True",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/MACHINE_REPORTED/cohort-False",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/MACHINE_REPORTED/cohort-True",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/HUMAN_REPORTED/cohort-False",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/HUMAN_REPORTED/cohort-True",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/UNKNOWN/cohort-False",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/qualifier/UNKNOWN/cohort-True",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
+    },
+    {
+      "name": "review/F1/cohort-only-no-quantity-claim",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        true
+      ]
+    },
+    {
+      "name": "review/F1/neither-reported",
+      "pass": true,
+      "expectedError": null,
+      "status": "MATCHED_SELECTED_OCCUPANCY_EVIDENCE",
+      "errors": [],
+      "coverage": [
+        "FULL_WINDOW"
+      ],
+      "unqualified": [
+        false
+      ]
     }
   ],
   "runtimeAdmission": "NOT_ESTABLISHED",

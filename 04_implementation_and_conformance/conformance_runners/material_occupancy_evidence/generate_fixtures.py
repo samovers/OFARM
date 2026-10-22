@@ -38,7 +38,7 @@ def make_case(name='base', selector_mode='digest', occupant_kind='LOT', place_ki
     facts = {
         'episodeId': 'fixture:occupancy/episode-1', 'direction':'MATERIAL_TO_PLACE', 'relationKind':'OCCUPIES',
         'relationConcept':relation, 'occupant':occupant, 'place':place,
-        'interval':{'start':{'posture':'KNOWN','at':'2026-10-01T00:00:00Z','inclusive':True},'end':{'posture':'KNOWN','at':'2026-11-01T00:00:00Z','inclusive':False}},
+        'interval':{'start':{'posture':'KNOWN','at':'2026-10-01T00:00:00Z','inclusive':True},'end':{'posture':'KNOWN','at':'2026-10-21T00:00:00Z','inclusive':False}},
         'applicability':{'mode':'AS_OF','at':'2026-10-20T10:00:00Z'},
         'occupiedQuantity':{'posture':'REPORTED','quantityKind':illustrative('quantity-mass'), 'decimal':'25.00','unitIdentity':unit, 'originalLexicalValue':'25.00', 'originalUnitText':'kg','qualifier':'EXACT'},
         'occupiedCohort':{'posture':'IDENTIFIED','binding':illustrative('cohort-1')},
@@ -51,7 +51,7 @@ def make_case(name='base', selector_mode='digest', occupant_kind='LOT', place_ki
         facts['interval']['end'] = {'posture':'UNKNOWN' if variant.startswith('unknown') else 'UNBOUNDED','basis':illustrative(variant)}
     elif variant == 'open-end':
         facts['interval']['end'] = {'posture':'OPEN_AS_OF','asOf':'2026-10-20T11:00:00Z','basis':illustrative('open-end-observation')}
-    elif variant == 'interval-query':
+    elif variant in ('interval-query', 'interval-turnover', 'interval-turnover-plus-full', 'interval-two-visits', 'interval-empty'):
         facts['applicability'] = {'mode':'INTERVAL','start':'2026-10-15T00:00:00Z','end':'2026-10-20T00:00:00Z','startInclusive':True,'endInclusive':False}
     elif variant == 'nanosecond-point':
         facts['interval'] = {'start':{'posture':'KNOWN','at':'2026-10-20T10:00:00.123456789Z','inclusive':True}, 'end':{'posture':'KNOWN','at':'2026-10-20T10:00:00.123456789Z','inclusive':True}}
@@ -75,8 +75,26 @@ def make_case(name='base', selector_mode='digest', occupant_kind='LOT', place_ki
     elif variant.startswith('qualifier-'):
         facts['occupiedQuantity']['qualifier'] = variant.removeprefix('qualifier-')
     all_facts = [facts]
-    if variant == 'empty-inventory':
+    if variant in ('empty-inventory', 'interval-empty'):
         all_facts = []
+    if variant in ('interval-turnover', 'interval-turnover-plus-full', 'interval-two-visits'):
+        first, second = copy.deepcopy(facts), copy.deepcopy(facts)
+        first['interval']['end']['at'] = '2026-10-17T00:00:00Z'
+        first['applicability']['end'] = first['interval']['end']['at']
+        second['episodeId'] = 'fixture:occupancy/episode-2'
+        second['interval']['start']['at'] = '2026-10-17T00:00:00Z'
+        second['applicability']['start'] = second['interval']['start']['at']
+        if variant == 'interval-two-visits':
+            second['interval']['start']['at'] = '2026-10-18T00:00:00Z'
+            second['applicability']['start'] = second['interval']['start']['at']
+        else:
+            second['occupant'] = {'kind': occupant_kind, 'binding': illustrative('second-occupant')}
+        all_facts = [first, second]
+        if variant == 'interval-turnover-plus-full':
+            third = copy.deepcopy(facts)
+            third['episodeId'] = 'fixture:occupancy/episode-3'
+            third['occupant'] = {'kind': occupant_kind, 'binding': illustrative('third-occupant')}
+            all_facts.append(third)
     if variant == 'overlapping-repeated':
         second = copy.deepcopy(facts)
         second['episodeId'] = 'fixture:occupancy/episode-2'
@@ -120,7 +138,7 @@ def main():
         for occupant in ('LOT','MATERIAL'):
             for place in ('CONTAINER','STORAGE_LOCATION','FACILITY'):
                 cases.append((f'{selector}-{occupant}-{place}',dict(selector_mode=selector,occupant_kind=occupant,place_kind=place)))
-    for variant in ('empty-inventory','unknown-start','unbounded-start','unknown-end','unbounded-end','open-end','interval-query','nanosecond-point','cohort-only','quantity-only','both-unreported','partial','unresolved-extent','invalid','disputed','unknown-validity','unknown-dispute','historical','superseded','unknown-revision','overlapping-repeated'):
+    for variant in ('empty-inventory','unknown-start','unbounded-start','unknown-end','unbounded-end','open-end','interval-query','interval-turnover','interval-turnover-plus-full','interval-two-visits','interval-empty','nanosecond-point','cohort-only','quantity-only','both-unreported','partial','unresolved-extent','invalid','disputed','unknown-validity','unknown-dispute','historical','superseded','unknown-revision','overlapping-repeated'):
         cases.append((variant,dict(variant=variant,selector_mode='mixed')))
     for qualifier in ('ESTIMATED','MINIMUM','MAXIMUM','RANGE_MIDPOINT','LABEL_LIMIT','MACHINE_REPORTED','HUMAN_REPORTED','UNKNOWN'):
         cases.append(('qualifier-'+qualifier,dict(variant='qualifier-'+qualifier)))

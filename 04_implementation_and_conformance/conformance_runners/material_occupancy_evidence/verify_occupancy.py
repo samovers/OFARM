@@ -106,6 +106,30 @@ def contains(outer, inner):
     return ((left < a or (left == a and (li or not ai))) and
             (right > b or (right == b and (ri or not bi))))
 
+def intersection(first, second):
+    """Intersect finite windows without rounding or changing endpoint inclusion."""
+    a, ai, b, bi = first
+    c, ci, d, di = second
+    start, end = max(a, c), min(b, d)
+    si = (ai if a >= c else ci) and (ci if c >= a else ai)
+    ei = (bi if b <= d else di) and (di if d <= b else bi)
+    if start > end or (start == end and not (si and ei)):
+        return None
+    return start, si, end, ei
+
+def render_window(value, *original_windows):
+    """Use an exact original timestamp spelling for each derived boundary."""
+    spellings = {}
+    for original in original_windows:
+        for key in ('at', 'start', 'end'):
+            if key in original:
+                spellings.setdefault(timestamp(original[key]), original[key])
+    start, si, end, ei = value
+    if start == end:
+        return {'mode': 'AS_OF', 'at': spellings[start]}
+    return {'mode': 'INTERVAL', 'start': spellings[start], 'end': spellings[end],
+            'startInclusive': si, 'endInclusive': ei}
+
 def temporal_coverage(facts):
     selected = window(facts['applicability'])
     start, end = facts['interval']['start'], facts['interval']['end']
@@ -116,16 +140,15 @@ def temporal_coverage(facts):
             raise Fault('EMPTY_OR_REVERSED_OCCUPANCY_INTERVAL')
     # Each known boundary constrains applicability independently. An unknown
     # opposite endpoint cannot erase a known contradiction or expired open end.
-    if lower is not None and not contains((lower, start['inclusive'], 10**40, True), selected):
+    if lower is not None and (lower > selected[0] or (lower == selected[0] and not start['inclusive'] and selected[1])):
         raise Fault('KNOWN_START_EXCLUDES_SOURCE_APPLICABILITY')
-    if upper is not None and not contains((-10**40, True, upper, end.get('inclusive', True)), selected):
+    if upper is not None and (upper < selected[2] or (upper == selected[2] and not end.get('inclusive', True) and selected[3])):
         raise Fault('KNOWN_END_EXCLUDES_SOURCE_APPLICABILITY' if end['posture'] == 'KNOWN' else 'OPEN_END_OBSERVATION_EXCLUDES_SOURCE_APPLICABILITY')
-    # Unknown endpoint posture is retained, never silently converted to infinity.
-    if start['posture'] == 'UNKNOWN' or end['posture'] == 'UNKNOWN':
+    # Unbounded is a source posture, not evidence of observed infinity. Both
+    # unbounded and unknown endpoints remain explicit and cannot prove coverage.
+    if start['posture'] in ('UNKNOWN', 'UNBOUNDED') or end['posture'] in ('UNKNOWN', 'UNBOUNDED'):
         return False
-    lo = lower if lower is not None else -10**40
-    hi = upper if upper is not None else 10**40
-    return contains((lo, start.get('inclusive', True), hi, end.get('inclusive', True)), selected)
+    return True
 
 def verify(request_bytes, context_bytes, records, *, trusted_pins, package_root=PACKAGE, source_root=None):
     """Compare original-byte source records with an independently selected context.
@@ -215,6 +238,10 @@ def verify(request_bytes, context_bytes, records, *, trusted_pins, package_root=
         if not check(digest(context['selection']) == digest(request['selection']), 'SELECTION_MISMATCH', 'request'):
             return report
         selected_window = window(context['selection']['applicability'])
+        if not check(selected_window[2] <= fixed_at, 'SELECTION_AFTER_CONTEXT', 'context'):
+            return report
+        report['selection'] = context['selection']
+        report['fixedAt'] = context['fixedAt']
         selected_keys = [selector_key(b) for b in context['episodeBindings']]
         request_keys = [selector_key(e['binding']) for e in request['episodes']]
         if not check(len(selected_keys) == len(set(selected_keys)), 'DUPLICATE_SELECTED_EPISODE', 'context') or not check(selected_keys == request_keys, 'EPISODE_SET_OR_ORDER_MISMATCH', 'request'):
@@ -263,7 +290,14 @@ def verify(request_bytes, context_bytes, records, *, trusted_pins, package_root=
             check(facts['occupant']['binding']['ref'] != facts['place']['binding']['ref'], 'OCCUPANT_AND_PLACE_IDENTITY_NOT_DISTINCT', key)
             check(digest(facts) == digest(item['expectedFacts']), 'OCCUPANCY_FACTS_MISMATCH', key)
             check(digest(facts['place']) == digest(context['selection']['place']), 'SELECTED_PLACE_MISMATCH', key)
-            check(contains(window(facts['applicability']), selected_window), 'SOURCE_APPLICABILITY_MISMATCH', key)
+            source_window = window(facts['applicability'])
+            covered = intersection(source_window, selected_window)
+            check(covered is not None, 'SOURCE_APPLICABILITY_MISMATCH', key)
+            check(source_window[2] <= fixed_at, 'SOURCE_APPLICABILITY_AFTER_CONTEXT', key)
+            for endpoint_name in ('start', 'end'):
+                endpoint = facts['interval'][endpoint_name]
+                if endpoint['posture'] == 'KNOWN':
+                    check(timestamp(endpoint['at']) <= fixed_at, 'KNOWN_BOUNDARY_AFTER_CONTEXT', key, endpoint_name)
             if facts['interval']['end']['posture'] == 'OPEN_AS_OF':
                 check(timestamp(facts['interval']['end']['asOf']) <= fixed_at, 'OPEN_POSTURE_AFTER_CONTEXT', key)
             posture = facts['sourcePosture']
@@ -273,12 +307,32 @@ def verify(request_bytes, context_bytes, records, *, trusted_pins, package_root=
             else:
                 check(not posture['supersededBy'], 'CONTRADICTORY_SUPERSESSION_EVIDENCE', key)
             temporal = temporal_coverage(facts)
-            unresolved = facts['interval']['start']['posture'] == 'UNKNOWN' or facts['interval']['end']['posture'] == 'UNKNOWN'
+            unresolved = any(facts['interval'][e]['posture'] in ('UNKNOWN', 'UNBOUNDED') for e in ('start', 'end'))
             if not unresolved:
                 check(temporal, 'OCCUPANCY_INTERVAL_DOES_NOT_COVER_SOURCE_APPLICABILITY', key)
             posture_ok = posture['validity'] == 'VALID' and posture['dispute'] == 'UNDISPUTED' and posture['revision'] in ('CURRENT','HISTORICAL_APPLICABLE')
-            amount_known = facts['occupiedQuantity']['posture'] == 'REPORTED' or facts['occupiedCohort']['posture'] == 'IDENTIFIED'
-            report['episodes'].append({'binding': item['binding'], 'facts': facts, 'temporalCoverage': 'SUPPORTED' if temporal else 'UNRESOLVED', 'selectedPostureSupportsUnqualifiedClaim': posture_ok and temporal and amount_known and facts['relevantExtent']['posture'] != 'UNRESOLVED'})
+            quantity = facts['occupiedQuantity']
+            quantity_exact = quantity['posture'] == 'REPORTED' and quantity['qualifier'] == 'EXACT'
+            # A cohort cannot erase a qualification on a separately reported amount.
+            amount_known = quantity_exact or (quantity['posture'] == 'UNREPORTED' and facts['occupiedCohort']['posture'] == 'IDENTIFIED')
+            whole_window = covered is not None and contains(source_window, selected_window)
+            start, end = facts['interval']['start'], facts['interval']['end']
+            query_intersection = None
+            intersection_basis = 'UNRESOLVED_ENDPOINTS'
+            if start['posture'] == 'KNOWN' and end['posture'] in ('KNOWN', 'OPEN_AS_OF'):
+                boundary_window = {'start': start['at'], 'end': end['at'] if end['posture'] == 'KNOWN' else end['asOf']}
+                intrinsic_window = (timestamp(boundary_window['start']), start['inclusive'], timestamp(boundary_window['end']), end.get('inclusive', True))
+                query_part = intersection(intrinsic_window, selected_window)
+                if query_part is not None:
+                    query_intersection = render_window(query_part, boundary_window, context['selection']['applicability'])
+                intersection_basis = 'KNOWN_INTERVAL' if end['posture'] == 'KNOWN' else 'OBSERVED_OPEN_RANGE'
+            report['episodes'].append({'binding': item['binding'], 'facts': facts,
+                'temporalCoverage': 'SUPPORTED' if temporal else 'UNRESOLVED',
+                'queryIntersection': query_intersection, 'queryIntersectionBasis': intersection_basis,
+                'selectedWindowCoverage': ('FULL_WINDOW' if whole_window else 'PARTIAL_WINDOW') if temporal and covered is not None else 'UNRESOLVED',
+                'coveredApplicability': render_window(covered, facts['applicability'], context['selection']['applicability']) if temporal and covered is not None else None,
+                'quantitySupportsUnqualifiedClaim': quantity_exact,
+                'selectedPostureSupportsUnqualifiedClaim': posture_ok and temporal and whole_window and amount_known and facts['relevantExtent']['posture'] != 'UNRESOLVED'})
         if not check(required == set(keys), 'REFERENCED_SOURCE_CLOSURE_MISMATCH', 'context', {'missing': sorted(required - set(keys)), 'unexpected': sorted(set(keys) - required)}):
             report['episodes'] = []
             return report

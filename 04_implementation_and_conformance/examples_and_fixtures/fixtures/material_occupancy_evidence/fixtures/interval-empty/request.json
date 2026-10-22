@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "ofarm.materialOccupancyRequest.v0.1",
+  "selection": {
+    "place": {
+      "kind": "CONTAINER",
+      "binding": {
+        "ref": "fixture:place",
+        "revisionRef": "fixture:place/r1"
+      }
+    },
+    "applicability": {
+      "mode": "INTERVAL",
+      "start": "2026-10-15T00:00:00Z",
+      "end": "2026-10-20T00:00:00Z",
+      "startInclusive": true,
+      "endInclusive": false
+    },
+    "inventoryPosture": "COMPLETE_FOR_SELECTED_PLACE_AND_APPLICABILITY",
+    "selectionBasis": [
+      {
+        "ref": "fixture:inventory-selection",
+        "revisionRef": "fixture:inventory-selection/r1"
+      }
+    ]
+  },
+  "episodes": []
+}

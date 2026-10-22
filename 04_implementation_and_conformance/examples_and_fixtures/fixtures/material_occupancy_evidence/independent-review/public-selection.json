@@ -1,7 +1,7 @@
 {
   "status": "SELECTED_REVIEW_EVIDENCE_ONLY",
   "fullReviewArchivesIncluded": false,
-  "candidateSealSha256": "8ce0fbd3c70a259f15de2b8a2398e50f78d79d65311cfee354cbe26794d5ede4",
+  "candidateSealSha256": "5c0a0119085d77223060d30c92a79990d525133f338e17f2e405ed71c57e3609",
   "reviews": [
     {
       "review": "independent-review-01",
@@ -69,7 +69,44 @@
           "bytes": 73526
         }
       ]
+    },
+    {
+      "review": "independent-review-03",
+      "reviewManifestSha256": "fe1d9c068dcc2ac1e87b14e60688da42b44302320b630e4a47536457053f0a24",
+      "files": [
+        {
+          "name": "review.md",
+          "sha256": "76ba16d7603b552e95a8dfb326f50e0c4e64bedc2b6efb8c01af3363a6cce48c",
+          "bytes": 8852
+        },
+        {
+          "name": "REVIEW_MANIFEST.json",
+          "sha256": "fe1d9c068dcc2ac1e87b14e60688da42b44302320b630e4a47536457053f0a24",
+          "bytes": 601594
+        },
+        {
+          "name": "baseline.json",
+          "sha256": "9ab318dd47f2c2dc8a482a8d6cffdd1b09f89f1a838d7322388dc3d58a57abc5",
+          "bytes": 140797
+        },
+        {
+          "name": "post-review-integrity.json",
+          "sha256": "61b64a02617405d2270351a6559ca419349ba69fb6730f782381ba12aafa05f9",
+          "bytes": 489
+        },
+        {
+          "name": "independent-results.json",
+          "sha256": "cbed3a85fc8ddcd3a754875b11d900b137901763f4e83159169ff4cfc409da40",
+          "bytes": 39814
+        },
+        {
+          "name": "author-conformance-replay.json",
+          "sha256": "d41015b389b77ed1a3b568036988888ec6d8766cac386ee71b31a1870778cae0",
+          "bytes": 83641
+        }
+      ]
     }
   ],
-  "note": "Exact selected reports and manifests are included. Frozen full snapshots, installed replay trees and saved case directories remain in their sealed local review archives; this subset is not represented as those full archives."
+  "note": "Exact selected reports and manifests are included. Full frozen local archives are not duplicated. The committed exact independent harness and replay recipe reconstruct the R3 snapshot from its verified integration map and regenerate its 241-check corpus, including full event/measurement bytes.",
+  "reproduction": "package_meta/history/clean_baseline_migration/phase_reports/material_occupancy_evidence_delivery_v0_1/review-repair-03/replay_independent_review.py"
 }

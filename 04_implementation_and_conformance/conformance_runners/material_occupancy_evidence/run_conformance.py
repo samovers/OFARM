@@ -35,8 +35,8 @@ def main():
     catalog = json.loads((args.fixture_root/'fixtures/catalog.json').read_bytes())
     for name in catalog['cases']:
         case = read_case(args.fixture_root/'fixtures'/name)
-        expected_unqualified = name not in {'unknown-start','unknown-end','both-unreported','unresolved-extent','invalid','disputed','unknown-validity','unknown-dispute','superseded','unknown-revision'}
-        check('positive/'+name,case,extra=lambda r, value=expected_unqualified: all(e['selectedPostureSupportsUnqualifiedClaim'] == value for e in r['episodes']) and r['runtimeAdmission'] == r['actualInventoryCompleteness'] == 'NOT_ESTABLISHED')
+        expected_unqualified = name not in {'unknown-start','unbounded-start','unknown-end','unbounded-end','both-unreported','unresolved-extent','invalid','disputed','unknown-validity','unknown-dispute','superseded','unknown-revision','interval-turnover','interval-two-visits'} and not name.startswith('qualifier-')
+        check('positive/'+name,case,extra=lambda r, value=expected_unqualified, n=name: ([e['selectedPostureSupportsUnqualifiedClaim'] for e in r['episodes']] == [False,False,True] if n=='interval-turnover-plus-full' else all(e['selectedPostureSupportsUnqualifiedClaim'] == value for e in r['episodes'])) and r['runtimeAdmission'] == r['actualInventoryCompleteness'] == 'NOT_ESTABLISHED')
     baseline = make_case('independent-hostile-base',selector_mode='revision')
     def change_request(name, change):
         case = copy.deepcopy(baseline); request = strict(case['request']); change(request); case['request'] = raw(request)
@@ -165,7 +165,15 @@ def main():
         mapping=json.loads((tmp/'record-map.json').read_bytes());mapping.append(mapping[0]);(tmp/'record-map.json').write_bytes(raw(mapping))
         result=subprocess.run(cmd,capture_output=True,text=True)
         rows.append({'name':'cli-duplicate-map','pass':result.returncode!=0 and 'DUPLICATE_RECORD_FILE_SELECTOR' in (tmp/'report.json').read_text(),'status':result.returncode,'errors':result.stderr[:500]})
-    result={'status':'PASS' if all(r['pass'] for r in rows) else 'FAIL','primaryTrustBoundary':'Material occupancy source evidence','scopeStayedInsideBoundary':True,'contractSha256':contract_sha,'positiveCases':len(catalog['cases']),'fullForeignEventMeasurementPairs':35,'meaningLeavesMutated':leaf_count,'checks':len(rows),'passed':sum(r['pass'] for r in rows),'failed':[r for r in rows if not r['pass']],'results':rows,'runtimeAdmission':'NOT_ESTABLISHED','actualInventoryCompleteness':'NOT_ESTABLISHED'}
+    with tempfile.TemporaryDirectory(prefix='occupancy-review-regressions-') as tmp:
+        review_out=Path(tmp)/'report.json'
+        review_run=subprocess.run([sys.executable,'-B',str(Path(__file__).with_name('run_review_regressions.py')),'--package-root',str(args.package_root),'--source-root',str(source_root),'--out',str(review_out)],capture_output=True,text=True)
+        review_report=json.loads(review_out.read_bytes())
+        for row in review_report['results']:
+            rows.append({**row,'name':'review/'+row['name']})
+        if review_run.returncode not in (0,1):
+            rows.append({'name':'review/runner-completion','pass':False,'status':review_run.returncode,'errors':review_run.stderr})
+    result={'status':'PASS' if all(r['pass'] for r in rows) else 'FAIL','primaryTrustBoundary':'Material occupancy source evidence','scopeStayedInsideBoundary':True,'contractSha256':contract_sha,'positiveCases':len(catalog['cases']),'fullForeignEventMeasurementPairs':35,'meaningLeavesMutated':leaf_count,'reviewRegressionChecks':review_report['checks'],'checks':len(rows),'passed':sum(r['pass'] for r in rows),'failed':[r for r in rows if not r['pass']],'results':rows,'runtimeAdmission':'NOT_ESTABLISHED','actualInventoryCompleteness':'NOT_ESTABLISHED'}
     args.out.parent.mkdir(parents=True,exist_ok=True);args.out.write_bytes(raw(result))
     print(json.dumps({k:v for k,v in result.items() if k!='results'},indent=2))
     return 0 if result['status']=='PASS' else 1
