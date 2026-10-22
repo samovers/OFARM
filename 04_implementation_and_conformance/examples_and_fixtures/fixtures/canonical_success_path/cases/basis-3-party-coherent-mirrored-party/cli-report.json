@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+  "disposition": "FAIL",
+  "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+  "established": [],
+  "notEstablished": [
+    "AUTHORIZATION_ELIGIBILITY",
+    "PRINCIPAL_RESOLUTION_TRUST",
+    "CANDIDATE_SET_COMPLETENESS",
+    "CANONICAL_SELECTION_CORRECTNESS",
+    "OWNER_OUTPUT_RUNTIME_ORIGIN",
+    "SOURCE_CURRENTNESS_AND_MIGRATION",
+    "CP3_ADMISSION",
+    "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+  ],
+  "errors": [
+    {
+      "code": "ACCOUNTABLE_PARTY_MISMATCH",
+      "pointer": "",
+      "detail": ""
+    }
+  ],
+  "selectedParty": null,
+  "sourceOrigin": "FICTIONAL_CONFORMANCE",
+  "inputDigests": {
+    "evidence": "81c07638ad24129ff308efb569a10f5e89684da84db282fec1aab3bee667c4e4",
+    "profile": "96e42ff1c70f0bd2fc8ad6015f0e5b5dd96aa01e33493cda9cfa7f74c1997ff5",
+    "context": "63ba8202f9e5b3520e9f57f847fcea75646e1be9eb16765f8094291aab54953d"
+  },
+  "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+}

@@ -1,0 +1,2806 @@
+{
+  "evidence": {
+    "schemaVersion": "ofarm.canonicalSuccessfulPathEvidence.v0.1",
+    "evidenceId": "evidence:successful-path",
+    "sourceProfileBinding": {
+      "ref": "profile:fictional-success-path",
+      "revisionRef": "fixture-r1"
+    },
+    "sources": {
+      "REQUEST": {
+        "ref": "request:one",
+        "revisionRef": "fixture-r1"
+      },
+      "RESULT": {
+        "ref": "result:one",
+        "revisionRef": "fixture-r1"
+      },
+      "TRACE": {
+        "ref": "trace:one",
+        "revisionRef": "fixture-r1"
+      },
+      "POLICY": {
+        "ref": "policy:one",
+        "revisionRef": "fixture-r1"
+      },
+      "RULE": {
+        "ref": "rule:one",
+        "revisionRef": "fixture-r1"
+      },
+      "BINDING_MANIFEST": {
+        "ref": "manifest:one",
+        "revisionRef": "fixture-r1"
+      },
+      "EFFECT_INTENT": {
+        "ref": "intent:one",
+        "revisionRef": "fixture-r1"
+      },
+      "DERIVED_VIEW": {
+        "ref": "view:one",
+        "revisionRef": "fixture-r1"
+      },
+      "EVALUATION_SNAPSHOT": {
+        "ref": "snapshot:evaluation",
+        "revisionRef": "fixture-r1"
+      },
+      "AUTHORIZATION_VIEW_EXTRACTOR": {
+        "ref": "extractor:one",
+        "digest": "sha256:129b0be939bedc5e10d310cdc371025f0a142d0f22e0a39461ea74c4790c3fa5"
+      }
+    },
+    "decisionBundleDigest": "sha256:22f3a8a65c79b8bca4d250f4ec2aa1b8ed6ff568d9d3a5a5c728ab41befcf3ce",
+    "selectedPath": {
+      "pathId": "path:selected",
+      "pathType": "ROLE_TARGETED_GRANT",
+      "pathDisposition": "PATH_ALLOW",
+      "sourceRecordBinding": {
+        "ref": "grant:one",
+        "digest": "sha256:284732593a2bd23c8e5e7579c44145a8f7f731fd632852ad1dc123a4f86e726a"
+      },
+      "delegationSourceBindings": [],
+      "canonicalTuple": {
+        "pathTypeOrder": 1,
+        "sourceRecordId": "grant:one",
+        "delegationSourceRecordIds": []
+      },
+      "authoritySubjectPartyRef": "party:natural",
+      "authoritySubjectBasis": "NATURAL_PERSON_SELF",
+      "authoritySubjectBasisRefs": [
+        {
+          "ref": "principal:natural",
+          "revisionRef": "fixture-r1"
+        },
+        {
+          "ref": "resolution:one",
+          "revisionRef": "fixture-r1"
+        },
+        {
+          "ref": "party:natural",
+          "revisionRef": "fixture-r1"
+        },
+        {
+          "ref": "party:natural",
+          "revisionRef": "fixture-r1"
+        },
+        {
+          "ref": "role:one",
+          "revisionRef": "fixture-r1"
+        },
+        {
+          "ref": "grant:one",
+          "digest": "sha256:284732593a2bd23c8e5e7579c44145a8f7f731fd632852ad1dc123a4f86e726a"
+        },
+        {
+          "ref": "registry:evidence",
+          "revisionRef": "fixture-r1"
+        },
+        {
+          "ref": "policy:sovereignty",
+          "revisionRef": "fixture-r1"
+        }
+      ],
+      "basis": [
+        {
+          "role": "AUTHENTICATED_PRINCIPAL",
+          "sourceKey": "AUTHENTICATED_PRINCIPAL",
+          "artifactFamily": "PRINCIPAL",
+          "binding": {
+            "ref": "principal:natural",
+            "revisionRef": "fixture-r1"
+          },
+          "visibilitySourceKey": "visibility:AUTHENTICATED_PRINCIPAL"
+        },
+        {
+          "role": "PRINCIPAL_RESOLUTION",
+          "sourceKey": "PRINCIPAL_RESOLUTION",
+          "artifactFamily": "PRINCIPAL_RESOLUTION",
+          "binding": {
+            "ref": "resolution:one",
+            "revisionRef": "fixture-r1"
+          },
+          "visibilitySourceKey": "visibility:PRINCIPAL_RESOLUTION"
+        },
+        {
+          "role": "AUTHORITY_SUBJECT_PARTY",
+          "sourceKey": "AUTHORITY_SUBJECT_PARTY",
+          "artifactFamily": "PARTY",
+          "binding": {
+            "ref": "party:natural",
+            "revisionRef": "fixture-r1"
+          },
+          "visibilitySourceKey": "visibility:AUTHORITY_SUBJECT_PARTY"
+        },
+        {
+          "role": "NATURAL_PERSON_PARTY",
+          "sourceKey": "NATURAL_PERSON_PARTY",
+          "artifactFamily": "PARTY",
+          "binding": {
+            "ref": "party:natural",
+            "revisionRef": "fixture-r1"
+          },
+          "visibilitySourceKey": "visibility:NATURAL_PERSON_PARTY"
+        },
+        {
+          "role": "ROLE_ASSIGNMENT",
+          "sourceKey": "ROLE_ASSIGNMENT",
+          "artifactFamily": "ROLE_ASSIGNMENT",
+          "binding": {
+            "ref": "role:one",
+            "revisionRef": "fixture-r1"
+          },
+          "visibilitySourceKey": "visibility:ROLE_ASSIGNMENT"
+        },
+        {
+          "role": "SOURCE_AUTHORITY",
+          "sourceKey": "SOURCE_AUTHORITY",
+          "artifactFamily": "AUTHORITY_GRANT",
+          "binding": {
+            "ref": "grant:one",
+            "digest": "sha256:284732593a2bd23c8e5e7579c44145a8f7f731fd632852ad1dc123a4f86e726a"
+          },
+          "visibilitySourceKey": "visibility:SOURCE_AUTHORITY"
+        },
+        {
+          "role": "ADDITIONAL_AUTHORITY_BASIS",
+          "sourceKey": "SNAPSHOT_EVIDENCE_POLICY_REGISTRY",
+          "artifactFamily": "EVIDENCE_POLICY_REGISTRY",
+          "binding": {
+            "ref": "registry:evidence",
+            "revisionRef": "fixture-r1"
+          },
+          "visibilitySourceKey": "visibility:SNAPSHOT_EVIDENCE_POLICY_REGISTRY"
+        },
+        {
+          "role": "ADDITIONAL_AUTHORITY_BASIS",
+          "sourceKey": "SNAPSHOT_SOVEREIGNTY_POLICY",
+          "artifactFamily": "SOVEREIGNTY_POLICY",
+          "binding": {
+            "ref": "policy:sovereignty",
+            "revisionRef": "fixture-r1"
+          },
+          "visibilitySourceKey": "visibility:SNAPSHOT_SOVEREIGNTY_POLICY"
+        }
+      ]
+    }
+  },
+  "profile": {
+    "schemaVersion": "ofarm.canonicalSuccessfulPathSourceProfile.v0.1",
+    "profileId": "profile:fictional-success-path",
+    "profileRevision": "fixture-r1",
+    "authorizationLawSha256": "8c218df076fcf06aceb531173a854091e21bda7775ad1fe66dd06a772857691f",
+    "outputKind": "AUTHORIZATION_OWNER_SUCCESSFUL_PATH_OUTPUT",
+    "selectedPathTypes": [
+      "DIRECT_PARTY_GRANT",
+      "ROLE_TARGETED_GRANT",
+      "DELEGATED_GRANT"
+    ],
+    "schemaDigests": {
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/EFFECT_INTENT/v0.1": "73ac840adc38892518d9b7b89c96124bcbce6504be89ea982919d08cf1a40482",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHENTICATED_PRINCIPAL/v0.1": "000d695f764e4b558ab328ba68ffa1f5f43ff71e37a7a08e0f473bcf60d3a51d",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/PRINCIPAL_RESOLUTION/v0.1": "fcedd4baeccbcde6d1b04c9f0613ce8f5deb84d9b991b98c8863607a5c42f320",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHORITY_SUBJECT_PARTY/v0.1": "71a72ecf53c51a02cd27a2807f236a31d16e6b6cc89a2f18df4fde523f3f73a5",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/NATURAL_PERSON_PARTY/v0.1": "3c7680a4477b27bcdb33dee8d99b2f27b8aa24a0512962fa9d85e794d94d56e9",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/ROLE_ASSIGNMENT/v0.1": "89502673a077a9b2b1495dff640e2086f667336e72c0319bd3ab91cb7621f84d",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/SOURCE_AUTHORITY/v0.1": "8ee3625ec0b32dc76ef3c3a0d8be075e50f060e94feadc43b97be712cc4884e2",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/SNAPSHOT_EVIDENCE_POLICY_REGISTRY/v0.1": "d89f469864e9b158468d0cb5be1e9c178a03696e24ffcdfc77d1c597b949f72d",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/SNAPSHOT_SOVEREIGNTY_POLICY/v0.1": "63966d29a0956609ec4eee3ae3596e20d68f0a6225c8afdab1b10ee1459e6ae6",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHORIZATION_VIEW_EXTRACTOR/v0.1": "28d630983c649713c823530571af9ea08082510fab965999893d4d58173993e4",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/POLICY/v0.1": "3910a44b1882aece8f43aa62a4615a709986dc9f9965952396f1ceaa1950ce17",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/RULE/v0.1": "d5b7311a8437b79692fe5c61bb2587d360812bb52e9407fcafbaddec108835ae",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/BINDING_MANIFEST/v0.1": "f9e9abf61ac4fd1970803291bce53b9ab97fd02500e35cedcf98492dcc4bfced",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/DERIVED_VIEW/v0.1": "9811dc3bf6c4cfb43cb22335e2d9767b9241be2377cfd296912e6274303d20fc",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-AUTHENTICATED_PRINCIPAL/v0.1": "c060da37723578136070f97f4161502f9b481986c8578cb89d568f5208ab4670",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-PRINCIPAL_RESOLUTION/v0.1": "61b3320e06f432334c6eaadd4ab1bb6d706527d1be4f3258cdebe72e30283acd",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-AUTHORITY_SUBJECT_PARTY/v0.1": "1592a5c3e4e302c5263358e90a671d58c0ba47095a88d36ee3027441ff71a371",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-NATURAL_PERSON_PARTY/v0.1": "a8a178dd8aac1c8e904a7a10aed1e5868458b5d27319daf180abc9072f61b864",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-ROLE_ASSIGNMENT/v0.1": "ab9e7bb1ddf4cb48cb821592f4b38319e19d51ea4edf1b2881394229fbc90de8",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-SOURCE_AUTHORITY/v0.1": "50b0b95cdb8a2edad391c378d609111f69971827bcf29a9455216404a808ef63",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-SNAPSHOT_EVIDENCE_POLICY_REGISTRY/v0.1": "e8ebd010f150a16674970a5d632ba617d78d83aea6f7c566b29cce45f5c3f7bc",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-SNAPSHOT_SOVEREIGNTY_POLICY/v0.1": "0c74181858459ab9d7257a6e45ffe907e58ee595a62d5411453c08674bbd69f3",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/EVALUATION_SNAPSHOT/v0.1": "e092c87083b16e65335af14ad5bc35fed2f59870106512728757d2da2cc804e6",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/REQUEST/v0.1": "8c637bd01520f908694735601cb6b95d1423ae9eeeafd657e4128a66badf0d65",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/RESULT/v0.1": "d62f7c60fbffbf940ce31c675dafdd92ff50a5c011595ee165779858dc3b360f",
+      "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/TRACE/v0.1": "47da5823d809538fa7afd0a481eb965f5347cf3559d76c1602589b857f015c97"
+    },
+    "formats": {
+      "AUTHENTICATED_PRINCIPAL": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHENTICATED_PRINCIPAL/v0.1",
+        "schemaSha256": "000d695f764e4b558ab328ba68ffa1f5f43ff71e37a7a08e0f473bcf60d3a51d",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "PRINCIPAL_RESOLUTION": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/PRINCIPAL_RESOLUTION/v0.1",
+        "schemaSha256": "fcedd4baeccbcde6d1b04c9f0613ce8f5deb84d9b991b98c8863607a5c42f320",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "AUTHORITY_SUBJECT_PARTY": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHORITY_SUBJECT_PARTY/v0.1",
+        "schemaSha256": "71a72ecf53c51a02cd27a2807f236a31d16e6b6cc89a2f18df4fde523f3f73a5",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "NATURAL_PERSON_PARTY": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/NATURAL_PERSON_PARTY/v0.1",
+        "schemaSha256": "3c7680a4477b27bcdb33dee8d99b2f27b8aa24a0512962fa9d85e794d94d56e9",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "ROLE_ASSIGNMENT": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/ROLE_ASSIGNMENT/v0.1",
+        "schemaSha256": "89502673a077a9b2b1495dff640e2086f667336e72c0319bd3ab91cb7621f84d",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "SOURCE_AUTHORITY": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/SOURCE_AUTHORITY/v0.1",
+        "schemaSha256": "8ee3625ec0b32dc76ef3c3a0d8be075e50f060e94feadc43b97be712cc4884e2",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "SOURCE_RECORD_EXCLUDING_TOP_DIGEST"
+      },
+      "SNAPSHOT_EVIDENCE_POLICY_REGISTRY": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/SNAPSHOT_EVIDENCE_POLICY_REGISTRY/v0.1",
+        "schemaSha256": "d89f469864e9b158468d0cb5be1e9c178a03696e24ffcdfc77d1c597b949f72d",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "SNAPSHOT_SOVEREIGNTY_POLICY": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/SNAPSHOT_SOVEREIGNTY_POLICY/v0.1",
+        "schemaSha256": "63966d29a0956609ec4eee3ae3596e20d68f0a6225c8afdab1b10ee1459e6ae6",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "EFFECT_INTENT": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/EFFECT_INTENT/v0.1",
+        "schemaSha256": "73ac840adc38892518d9b7b89c96124bcbce6504be89ea982919d08cf1a40482",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "AUTHORIZATION_VIEW_EXTRACTOR": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHORIZATION_VIEW_EXTRACTOR/v0.1",
+        "schemaSha256": "28d630983c649713c823530571af9ea08082510fab965999893d4d58173993e4",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "POLICY": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/POLICY/v0.1",
+        "schemaSha256": "3910a44b1882aece8f43aa62a4615a709986dc9f9965952396f1ceaa1950ce17",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "RULE": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/RULE/v0.1",
+        "schemaSha256": "d5b7311a8437b79692fe5c61bb2587d360812bb52e9407fcafbaddec108835ae",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "BINDING_MANIFEST": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/BINDING_MANIFEST/v0.1",
+        "schemaSha256": "f9e9abf61ac4fd1970803291bce53b9ab97fd02500e35cedcf98492dcc4bfced",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "DERIVED_VIEW": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/DERIVED_VIEW/v0.1",
+        "schemaSha256": "9811dc3bf6c4cfb43cb22335e2d9767b9241be2377cfd296912e6274303d20fc",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "visibility:AUTHENTICATED_PRINCIPAL": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-AUTHENTICATED_PRINCIPAL/v0.1",
+        "schemaSha256": "c060da37723578136070f97f4161502f9b481986c8578cb89d568f5208ab4670",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "visibility:PRINCIPAL_RESOLUTION": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-PRINCIPAL_RESOLUTION/v0.1",
+        "schemaSha256": "61b3320e06f432334c6eaadd4ab1bb6d706527d1be4f3258cdebe72e30283acd",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "visibility:AUTHORITY_SUBJECT_PARTY": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-AUTHORITY_SUBJECT_PARTY/v0.1",
+        "schemaSha256": "1592a5c3e4e302c5263358e90a671d58c0ba47095a88d36ee3027441ff71a371",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "visibility:NATURAL_PERSON_PARTY": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-NATURAL_PERSON_PARTY/v0.1",
+        "schemaSha256": "a8a178dd8aac1c8e904a7a10aed1e5868458b5d27319daf180abc9072f61b864",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "visibility:ROLE_ASSIGNMENT": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-ROLE_ASSIGNMENT/v0.1",
+        "schemaSha256": "ab9e7bb1ddf4cb48cb821592f4b38319e19d51ea4edf1b2881394229fbc90de8",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "visibility:SOURCE_AUTHORITY": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-SOURCE_AUTHORITY/v0.1",
+        "schemaSha256": "50b0b95cdb8a2edad391c378d609111f69971827bcf29a9455216404a808ef63",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "visibility:SNAPSHOT_EVIDENCE_POLICY_REGISTRY": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-SNAPSHOT_EVIDENCE_POLICY_REGISTRY/v0.1",
+        "schemaSha256": "e8ebd010f150a16674970a5d632ba617d78d83aea6f7c566b29cce45f5c3f7bc",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "visibility:SNAPSHOT_SOVEREIGNTY_POLICY": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-SNAPSHOT_SOVEREIGNTY_POLICY/v0.1",
+        "schemaSha256": "0c74181858459ab9d7257a6e45ffe907e58ee595a62d5411453c08674bbd69f3",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "EVALUATION_SNAPSHOT": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/EVALUATION_SNAPSHOT/v0.1",
+        "schemaSha256": "e092c87083b16e65335af14ad5bc35fed2f59870106512728757d2da2cc804e6",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "REQUEST": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/REQUEST/v0.1",
+        "schemaSha256": "8c637bd01520f908694735601cb6b95d1423ae9eeeafd657e4128a66badf0d65",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "RESULT": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/RESULT/v0.1",
+        "schemaSha256": "d62f7c60fbffbf940ce31c675dafdd92ff50a5c011595ee165779858dc3b360f",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      },
+      "TRACE": {
+        "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/TRACE/v0.1",
+        "schemaSha256": "47da5823d809538fa7afd0a481eb965f5347cf3559d76c1602589b857f015c97",
+        "identityPointer": "/recordId",
+        "revisionPointer": "/recordRevision",
+        "schemaVersionPointer": "/schemaVersion",
+        "projectionPointer": "/projection",
+        "digestMode": "FULL_VALUE"
+      }
+    }
+  },
+  "context": {
+    "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationContext.v0.1",
+    "contextId": "context:independent-owner-fixture",
+    "contractDigest": "sha256:78f9d4e00f994b3f31b7544c311fb6d1726642cf8c7f5ab4964fbe62631e276a",
+    "sourceOrigin": "FICTIONAL_CONFORMANCE",
+    "profileBinding": {
+      "ref": "profile:fictional-success-path",
+      "revisionRef": "fixture-r1"
+    },
+    "profileBytesSha256": "a30e1309f6f46635070a02893c2985ced56fd3bce51ba5782434c3d39ec95f74",
+    "selectedActionClass": "ASSERT_OPERATION_CLAIM",
+    "coreSources": {
+      "REQUEST": "REQUEST",
+      "RESULT": "RESULT",
+      "TRACE": "TRACE",
+      "POLICY": "POLICY",
+      "RULE": "RULE",
+      "BINDING_MANIFEST": "BINDING_MANIFEST",
+      "EFFECT_INTENT": "EFFECT_INTENT",
+      "DERIVED_VIEW": "DERIVED_VIEW",
+      "EVALUATION_SNAPSHOT": "EVALUATION_SNAPSHOT",
+      "AUTHORIZATION_VIEW_EXTRACTOR": "AUTHORIZATION_VIEW_EXTRACTOR"
+    },
+    "sources": [
+      {
+        "key": "AUTHENTICATED_PRINCIPAL",
+        "artifactFamily": "PRINCIPAL",
+        "binding": {
+          "ref": "principal:natural",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "b5fdb88eabd1a3052a9d7e189b015e83e67f15de90d1b206f091c93523cb51c3",
+        "valueDigest": "sha256:b35b3dcaa0938a4b7c8787dc84dc33c8503c2cb1ee5d1418a7a3f801da0d4f77",
+        "formatId": "AUTHENTICATED_PRINCIPAL"
+      },
+      {
+        "key": "PRINCIPAL_RESOLUTION",
+        "artifactFamily": "PRINCIPAL_RESOLUTION",
+        "binding": {
+          "ref": "resolution:one",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "e231eac9c6b8f2e54aea63e96818976acf4bd050a607d06a30a38fd33430b236",
+        "valueDigest": "sha256:7acb9316b7f86a87aab59a4c124daccfe6f90e4e08a944e8dbf4d432eb92e743",
+        "formatId": "PRINCIPAL_RESOLUTION"
+      },
+      {
+        "key": "AUTHORITY_SUBJECT_PARTY",
+        "artifactFamily": "PARTY",
+        "binding": {
+          "ref": "party:natural",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "a4ca07ba0f4acd2a3e90a0d2e290df8bddeb9471fc3252d338c3836db99592cb",
+        "valueDigest": "sha256:81f75ca3cf9c99e8864491a2efce7aa5fffd76ec72c15bb0029e65c73a4dbf28",
+        "formatId": "AUTHORITY_SUBJECT_PARTY"
+      },
+      {
+        "key": "NATURAL_PERSON_PARTY",
+        "artifactFamily": "PARTY",
+        "binding": {
+          "ref": "party:natural",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "a4ca07ba0f4acd2a3e90a0d2e290df8bddeb9471fc3252d338c3836db99592cb",
+        "valueDigest": "sha256:81f75ca3cf9c99e8864491a2efce7aa5fffd76ec72c15bb0029e65c73a4dbf28",
+        "formatId": "NATURAL_PERSON_PARTY"
+      },
+      {
+        "key": "ROLE_ASSIGNMENT",
+        "artifactFamily": "ROLE_ASSIGNMENT",
+        "binding": {
+          "ref": "role:one",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "1f2c27b4ddedc3576fc48deba67ffeafd58e2693123e6b87de41e75081d051f6",
+        "valueDigest": "sha256:32104c457b37b428608bd5ed0a65032caf5c1b134f3d56f13b9e7e8e196ac78b",
+        "formatId": "ROLE_ASSIGNMENT"
+      },
+      {
+        "key": "SOURCE_AUTHORITY",
+        "artifactFamily": "AUTHORITY_GRANT",
+        "binding": {
+          "ref": "grant:one",
+          "digest": "sha256:284732593a2bd23c8e5e7579c44145a8f7f731fd632852ad1dc123a4f86e726a"
+        },
+        "bytesSha256": "c4bb13cc64b55cdbc225115c0d6001cddcfa397e852b8e7d847bac7c5e5c3e67",
+        "valueDigest": "sha256:20af1aa51c3d916e6cb053ef04549e9b3fb78c28f5bd361194b04ead4ea4e869",
+        "formatId": "SOURCE_AUTHORITY"
+      },
+      {
+        "key": "SNAPSHOT_EVIDENCE_POLICY_REGISTRY",
+        "artifactFamily": "EVIDENCE_POLICY_REGISTRY",
+        "binding": {
+          "ref": "registry:evidence",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "c1e3f54ea5df5c749c1d3d3927df05aec040f60c113d70a6507e49b1bf8104cc",
+        "valueDigest": "sha256:742bce867d31d4dadcb76b33de8f9354d4944e32b5ef9bd4ba1c7c7d1952574f",
+        "formatId": "SNAPSHOT_EVIDENCE_POLICY_REGISTRY"
+      },
+      {
+        "key": "SNAPSHOT_SOVEREIGNTY_POLICY",
+        "artifactFamily": "SOVEREIGNTY_POLICY",
+        "binding": {
+          "ref": "policy:sovereignty",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "6aaf93a6478f61055e10f14b4f093f79c1b54035e1a335da412c7952c61c2880",
+        "valueDigest": "sha256:512f2ed66b6a0e223e13aaad9309cf14b361d05b74edda34d2113cbbb65009e7",
+        "formatId": "SNAPSHOT_SOVEREIGNTY_POLICY"
+      },
+      {
+        "key": "EFFECT_INTENT",
+        "artifactFamily": "EFFECT_INTENT",
+        "binding": {
+          "ref": "intent:one",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "b70751b340ec3b6c8b4bf3275a214cffe7527075226ef21ef0d3eddf84b4fab7",
+        "valueDigest": "sha256:df827b0902ed95317ade6463dae4dccefab9bc5e0b809c4a259972d0b548b27f",
+        "formatId": "EFFECT_INTENT"
+      },
+      {
+        "key": "AUTHORIZATION_VIEW_EXTRACTOR",
+        "artifactFamily": "AUTHORIZATION_VIEW_EXTRACTOR",
+        "binding": {
+          "ref": "extractor:one",
+          "digest": "sha256:129b0be939bedc5e10d310cdc371025f0a142d0f22e0a39461ea74c4790c3fa5"
+        },
+        "bytesSha256": "d4124303471b141c6802e33387d7c1770386e88d13d6e029e376e7adda3c3b6e",
+        "valueDigest": "sha256:129b0be939bedc5e10d310cdc371025f0a142d0f22e0a39461ea74c4790c3fa5",
+        "formatId": "AUTHORIZATION_VIEW_EXTRACTOR"
+      },
+      {
+        "key": "POLICY",
+        "artifactFamily": "POLICY",
+        "binding": {
+          "ref": "policy:one",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "231cfa41a6f8458bf7fb71f5a8fb2942d5a9cc09c899677de5ecb210fdec0406",
+        "valueDigest": "sha256:d5db6028c00381d3d1753c80798a98b37597499a40464cf1ea422022712f765e",
+        "formatId": "POLICY"
+      },
+      {
+        "key": "RULE",
+        "artifactFamily": "RULE",
+        "binding": {
+          "ref": "rule:one",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "da3f91227243cef607114d00372639f9c785ed9c590f22657111491a34bdec26",
+        "valueDigest": "sha256:a9739c7dd1103d752f502e03c9fd4b848dcdcba72f4090f0a3bde099f186c76a",
+        "formatId": "RULE"
+      },
+      {
+        "key": "BINDING_MANIFEST",
+        "artifactFamily": "BINDING_MANIFEST",
+        "binding": {
+          "ref": "manifest:one",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "9df2e036540bc5997e888256a673c3707d313ad8ab7a30a3a2865e83e4832934",
+        "valueDigest": "sha256:506111c07c1dcaf67baec7b0b472de0119d21ff6e0ac315ecb2cef25d8c0c9b7",
+        "formatId": "BINDING_MANIFEST"
+      },
+      {
+        "key": "DERIVED_VIEW",
+        "artifactFamily": "DERIVED_VIEW",
+        "binding": {
+          "ref": "view:one",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "d2aa004411dddb80bd422363a0b3e2bee7c847baebaefa08fa2e7443d4c9ecf6",
+        "valueDigest": "sha256:49ff093ca31b309b7cf39a60e60b4dc0ef76656117afda3a394768904c160ffe",
+        "formatId": "DERIVED_VIEW"
+      },
+      {
+        "key": "visibility:AUTHENTICATED_PRINCIPAL",
+        "artifactFamily": "SNAPSHOT_VISIBILITY_PROOF",
+        "binding": {
+          "ref": "visibility:AUTHENTICATED_PRINCIPAL",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "46bdb0e5af31efc27168d1677e9a290beda2d3de32821c1ee7fbdc277aa797bf",
+        "valueDigest": "sha256:7d7ca5bf77455448e8b9c55787f81cb730d85f4194e89860a6197152fa264b26",
+        "formatId": "visibility:AUTHENTICATED_PRINCIPAL"
+      },
+      {
+        "key": "visibility:PRINCIPAL_RESOLUTION",
+        "artifactFamily": "SNAPSHOT_VISIBILITY_PROOF",
+        "binding": {
+          "ref": "visibility:PRINCIPAL_RESOLUTION",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "2c16f2feecf7ee268014c28ee0b929dbd8dd744f4ec5157e83fc2829445059c9",
+        "valueDigest": "sha256:996a17292171afc0030bed23357b0ea81f5ee3fa8e00cccefd1eb8e10d6432db",
+        "formatId": "visibility:PRINCIPAL_RESOLUTION"
+      },
+      {
+        "key": "visibility:AUTHORITY_SUBJECT_PARTY",
+        "artifactFamily": "SNAPSHOT_VISIBILITY_PROOF",
+        "binding": {
+          "ref": "visibility:AUTHORITY_SUBJECT_PARTY",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "fe9638efc6c97de6785ccfb5fd9bc00515e88f6098e18102e02f940a1fc8f532",
+        "valueDigest": "sha256:46ea4ae30de51544556c49350337c49b5aa271dc5f0fa393cf59ab8cbe7cda40",
+        "formatId": "visibility:AUTHORITY_SUBJECT_PARTY"
+      },
+      {
+        "key": "visibility:NATURAL_PERSON_PARTY",
+        "artifactFamily": "SNAPSHOT_VISIBILITY_PROOF",
+        "binding": {
+          "ref": "visibility:NATURAL_PERSON_PARTY",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "5d023f683f1a5f82508efb5866c36f40b5a22a37a652ed9ee5a8072f6e78637b",
+        "valueDigest": "sha256:9090acf5939601ff5f2c5faa4bfd1c1f3d79efe9bf7973601f6963f719dd8b1e",
+        "formatId": "visibility:NATURAL_PERSON_PARTY"
+      },
+      {
+        "key": "visibility:ROLE_ASSIGNMENT",
+        "artifactFamily": "SNAPSHOT_VISIBILITY_PROOF",
+        "binding": {
+          "ref": "visibility:ROLE_ASSIGNMENT",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "9a63e20fd1e42d14dc1ac8b9c671b34cd4dfa4cbc0bef613f07fbe4dbc8706e6",
+        "valueDigest": "sha256:de6533f0fd2c7cd23db38499fcd77d29f551122dc6e3b7e426d939414333730e",
+        "formatId": "visibility:ROLE_ASSIGNMENT"
+      },
+      {
+        "key": "visibility:SOURCE_AUTHORITY",
+        "artifactFamily": "SNAPSHOT_VISIBILITY_PROOF",
+        "binding": {
+          "ref": "visibility:SOURCE_AUTHORITY",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "1099c88ed999ecfb60217f30b8907c19b33f33a86e31773c127865e917ab854a",
+        "valueDigest": "sha256:f1aa3f405ffdf1afc4510f8b4e8e84f56f9858dbb3b473b73e4493f62d868377",
+        "formatId": "visibility:SOURCE_AUTHORITY"
+      },
+      {
+        "key": "visibility:SNAPSHOT_EVIDENCE_POLICY_REGISTRY",
+        "artifactFamily": "SNAPSHOT_VISIBILITY_PROOF",
+        "binding": {
+          "ref": "visibility:SNAPSHOT_EVIDENCE_POLICY_REGISTRY",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "ecef9ad5c12e118e54c3970330bdee020c0835a01610deb67d66ac2d33461488",
+        "valueDigest": "sha256:7be82c060ec208d0fead3ae5bd624f6c878acfd820d4ab8a91b219d18ec867ba",
+        "formatId": "visibility:SNAPSHOT_EVIDENCE_POLICY_REGISTRY"
+      },
+      {
+        "key": "visibility:SNAPSHOT_SOVEREIGNTY_POLICY",
+        "artifactFamily": "SNAPSHOT_VISIBILITY_PROOF",
+        "binding": {
+          "ref": "visibility:SNAPSHOT_SOVEREIGNTY_POLICY",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "e2bb6792b0e594dc4213656a8159d1d28d4dede18a71138aa9993b5cd3f4bbea",
+        "valueDigest": "sha256:19d45fd392988c3424cf0961082573627d348d840e0a6255926c92ec76775743",
+        "formatId": "visibility:SNAPSHOT_SOVEREIGNTY_POLICY"
+      },
+      {
+        "key": "EVALUATION_SNAPSHOT",
+        "artifactFamily": "EVALUATION_SNAPSHOT",
+        "binding": {
+          "ref": "snapshot:evaluation",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "191f146e3dc51a501dd662d4a69c16aaeb4854f88b34c10f6f5afcb8d6ec1ab0",
+        "valueDigest": "sha256:eb711cfc18a1bf5a067c76995eb296104edd546b15d5ab0a66e0934fc3b7b757",
+        "formatId": "EVALUATION_SNAPSHOT"
+      },
+      {
+        "key": "REQUEST",
+        "artifactFamily": "REQUEST",
+        "binding": {
+          "ref": "request:one",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "69dbe8d44d79ac0d5f48475e63be98f1d05fb1ba2d582bc7e7838ce58fd68d7b",
+        "valueDigest": "sha256:44ef0a8fe8edce4ed7740bfb2edda665907b2360a10c76e3a8d6018f76088fa1",
+        "formatId": "REQUEST"
+      },
+      {
+        "key": "RESULT",
+        "artifactFamily": "RESULT",
+        "binding": {
+          "ref": "result:one",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "7c1da8f3a3e9d1bce2a49200a609c83e84119d2399947390d8673aa898f06330",
+        "valueDigest": "sha256:b50303950f275a7430b4113d61583950789982ff44b93cf8ccf4041b419a4294",
+        "formatId": "RESULT"
+      },
+      {
+        "key": "TRACE",
+        "artifactFamily": "TRACE",
+        "binding": {
+          "ref": "trace:one",
+          "revisionRef": "fixture-r1"
+        },
+        "bytesSha256": "ca69a54889e14985c1b2310df3fc9b7e328ef6f5cc7862851253947804d3f340",
+        "valueDigest": "sha256:14af300064e2701706b348e2d8aa82c5300553326a867f8e0574ecfa07ea4e2c",
+        "formatId": "TRACE"
+      }
+    ]
+  },
+  "sources": {
+    "AUTHENTICATED_PRINCIPAL": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "principal:natural",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "principalRef": "principal:natural"
+      }
+    },
+    "PRINCIPAL_RESOLUTION": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "resolution:one",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "authenticatedPrincipalRef": "principal:natural",
+        "resolvedPrincipalKind": "NATURAL_PERSON",
+        "principalPartyRef": "party:natural"
+      }
+    },
+    "AUTHORITY_SUBJECT_PARTY": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "party:natural",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "partyRef": "party:natural"
+      }
+    },
+    "NATURAL_PERSON_PARTY": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "party:natural",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "partyRef": "party:natural"
+      }
+    },
+    "ROLE_ASSIGNMENT": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "role:one",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "partyRef": "party:natural"
+      }
+    },
+    "SOURCE_AUTHORITY": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "grant:one",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "grantTarget": {
+          "targetKind": "ROLE_ASSIGNMENT",
+          "targetRef": "role:one"
+        }
+      },
+      "sourceRecordDigest": "sha256:284732593a2bd23c8e5e7579c44145a8f7f731fd632852ad1dc123a4f86e726a"
+    },
+    "SNAPSHOT_EVIDENCE_POLICY_REGISTRY": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "registry:evidence",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "revision": "fixture-r1",
+        "policyRefs": [
+          "policy:evidence"
+        ]
+      }
+    },
+    "SNAPSHOT_SOVEREIGNTY_POLICY": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "policy:sovereignty",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "revision": "fixture-r1",
+        "tenantRef": "tenant:fixture"
+      }
+    },
+    "EFFECT_INTENT": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "intent:one",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "proposedAssertion": {
+          "text": "Fictional full submitted claim",
+          "nested": {
+            "decisionBundleDigest": "retain-this-nested-value"
+          }
+        },
+        "evidenceRefs": [
+          "measurement:one"
+        ],
+        "subjectTime": {
+          "profile": "PERFORMED_INSTANT",
+          "at": "2026-10-21T08:00:00Z"
+        }
+      }
+    },
+    "AUTHORIZATION_VIEW_EXTRACTOR": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "extractor:one",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "mappings": {
+          "action": "/projection/action",
+          "target": "/projection/target"
+        },
+        "transformation": "IDENTITY_ONLY"
+      }
+    },
+    "POLICY": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "policy:one",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "policyId": "policy:one",
+        "policyVersion": "fixture-1",
+        "immutablePolicyRepresentation": {
+          "selectedRules": [
+            "rule:one"
+          ],
+          "purpose": "Fictional packaging for offline comparisons only"
+        }
+      }
+    },
+    "RULE": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "rule:one",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "selectedRuleId": "rule:one",
+        "ruleRevision": "fixture-r1",
+        "actionClass": "ASSERT_OPERATION_CLAIM",
+        "intentSchema": {
+          "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/EFFECT_INTENT/v0.1",
+          "schemaVersion": "fictional.canonicalPathSource.v0.1",
+          "schemaDigest": "sha256:73ac840adc38892518d9b7b89c96124bcbce6504be89ea982919d08cf1a40482"
+        },
+        "agentActionPosture": "AGENT_ALLOWED_WITH_POLICY_CHECK",
+        "humanFinalizationRequirement": "NOT_REQUIRED",
+        "authorizationViewExtractorRef": "extractor:one",
+        "authorizationViewExtractorDigest": "sha256:129b0be939bedc5e10d310cdc371025f0a142d0f22e0a39461ea74c4790c3fa5",
+        "semanticClosure": {
+          "law": "PR11 pinned by the source profile",
+          "extractor": "fictional-preserve-complete-intent",
+          "eligibilityEvaluatorImplemented": false
+        }
+      }
+    },
+    "BINDING_MANIFEST": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "manifest:one",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "policyBinding": {
+          "ref": "policy:one",
+          "revisionRef": "fixture-r1"
+        },
+        "ruleBinding": {
+          "ref": "rule:one",
+          "revisionRef": "fixture-r1"
+        }
+      }
+    },
+    "DERIVED_VIEW": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "view:one",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "intentBinding": {
+          "ref": "intent:one",
+          "revisionRef": "fixture-r1"
+        },
+        "actionClass": "ASSERT_OPERATION_CLAIM",
+        "target": {
+          "scopeType": "FARM",
+          "scopeRef": "farm:one"
+        },
+        "authorizationViewExtractorRef": "extractor:one",
+        "authorizationViewExtractorDigest": "sha256:129b0be939bedc5e10d310cdc371025f0a142d0f22e0a39461ea74c4790c3fa5"
+      }
+    },
+    "visibility:AUTHENTICATED_PRINCIPAL": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "visibility:AUTHENTICATED_PRINCIPAL",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "sourceBinding": {
+          "ref": "principal:natural",
+          "revisionRef": "fixture-r1"
+        },
+        "snapshotBinding": {
+          "ref": "snapshot:evaluation",
+          "revisionRef": "fixture-r1"
+        }
+      }
+    },
+    "visibility:PRINCIPAL_RESOLUTION": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "visibility:PRINCIPAL_RESOLUTION",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "sourceBinding": {
+          "ref": "resolution:one",
+          "revisionRef": "fixture-r1"
+        },
+        "snapshotBinding": {
+          "ref": "snapshot:evaluation",
+          "revisionRef": "fixture-r1"
+        }
+      }
+    },
+    "visibility:AUTHORITY_SUBJECT_PARTY": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "visibility:AUTHORITY_SUBJECT_PARTY",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "sourceBinding": {
+          "ref": "party:natural",
+          "revisionRef": "fixture-r1"
+        },
+        "snapshotBinding": {
+          "ref": "snapshot:evaluation",
+          "revisionRef": "fixture-r1"
+        }
+      }
+    },
+    "visibility:NATURAL_PERSON_PARTY": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "visibility:NATURAL_PERSON_PARTY",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "sourceBinding": {
+          "ref": "party:natural",
+          "revisionRef": "fixture-r1"
+        },
+        "snapshotBinding": {
+          "ref": "snapshot:evaluation",
+          "revisionRef": "fixture-r1"
+        }
+      }
+    },
+    "visibility:ROLE_ASSIGNMENT": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "visibility:ROLE_ASSIGNMENT",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "sourceBinding": {
+          "ref": "role:one",
+          "revisionRef": "fixture-r1"
+        },
+        "snapshotBinding": {
+          "ref": "snapshot:evaluation",
+          "revisionRef": "fixture-r1"
+        }
+      }
+    },
+    "visibility:SOURCE_AUTHORITY": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "visibility:SOURCE_AUTHORITY",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "sourceBinding": {
+          "ref": "grant:one",
+          "digest": "sha256:284732593a2bd23c8e5e7579c44145a8f7f731fd632852ad1dc123a4f86e726a"
+        },
+        "snapshotBinding": {
+          "ref": "snapshot:evaluation",
+          "revisionRef": "fixture-r1"
+        }
+      }
+    },
+    "visibility:SNAPSHOT_EVIDENCE_POLICY_REGISTRY": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "visibility:SNAPSHOT_EVIDENCE_POLICY_REGISTRY",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "sourceBinding": {
+          "ref": "registry:evidence",
+          "revisionRef": "fixture-r1"
+        },
+        "snapshotBinding": {
+          "ref": "snapshot:evaluation",
+          "revisionRef": "fixture-r1"
+        }
+      }
+    },
+    "visibility:SNAPSHOT_SOVEREIGNTY_POLICY": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "visibility:SNAPSHOT_SOVEREIGNTY_POLICY",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "sourceBinding": {
+          "ref": "policy:sovereignty",
+          "revisionRef": "fixture-r1"
+        },
+        "snapshotBinding": {
+          "ref": "snapshot:evaluation",
+          "revisionRef": "fixture-r1"
+        }
+      }
+    },
+    "EVALUATION_SNAPSHOT": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "snapshot:evaluation",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "policyBinding": {
+          "ref": "policy:one",
+          "revisionRef": "fixture-r1"
+        },
+        "authorizationEvaluatedAt": "2026-10-21T09:00:00Z",
+        "visibleBasis": [
+          {
+            "binding": {
+              "ref": "principal:natural",
+              "revisionRef": "fixture-r1"
+            },
+            "artifactFamily": "PRINCIPAL",
+            "visibilityBinding": {
+              "ref": "visibility:AUTHENTICATED_PRINCIPAL",
+              "revisionRef": "fixture-r1"
+            }
+          },
+          {
+            "binding": {
+              "ref": "resolution:one",
+              "revisionRef": "fixture-r1"
+            },
+            "artifactFamily": "PRINCIPAL_RESOLUTION",
+            "visibilityBinding": {
+              "ref": "visibility:PRINCIPAL_RESOLUTION",
+              "revisionRef": "fixture-r1"
+            }
+          },
+          {
+            "binding": {
+              "ref": "party:natural",
+              "revisionRef": "fixture-r1"
+            },
+            "artifactFamily": "PARTY",
+            "visibilityBinding": {
+              "ref": "visibility:AUTHORITY_SUBJECT_PARTY",
+              "revisionRef": "fixture-r1"
+            }
+          },
+          {
+            "binding": {
+              "ref": "party:natural",
+              "revisionRef": "fixture-r1"
+            },
+            "artifactFamily": "PARTY",
+            "visibilityBinding": {
+              "ref": "visibility:NATURAL_PERSON_PARTY",
+              "revisionRef": "fixture-r1"
+            }
+          },
+          {
+            "binding": {
+              "ref": "role:one",
+              "revisionRef": "fixture-r1"
+            },
+            "artifactFamily": "ROLE_ASSIGNMENT",
+            "visibilityBinding": {
+              "ref": "visibility:ROLE_ASSIGNMENT",
+              "revisionRef": "fixture-r1"
+            }
+          },
+          {
+            "binding": {
+              "ref": "grant:one",
+              "digest": "sha256:284732593a2bd23c8e5e7579c44145a8f7f731fd632852ad1dc123a4f86e726a"
+            },
+            "artifactFamily": "AUTHORITY_GRANT",
+            "visibilityBinding": {
+              "ref": "visibility:SOURCE_AUTHORITY",
+              "revisionRef": "fixture-r1"
+            }
+          },
+          {
+            "binding": {
+              "ref": "registry:evidence",
+              "revisionRef": "fixture-r1"
+            },
+            "artifactFamily": "EVIDENCE_POLICY_REGISTRY",
+            "visibilityBinding": {
+              "ref": "visibility:SNAPSHOT_EVIDENCE_POLICY_REGISTRY",
+              "revisionRef": "fixture-r1"
+            }
+          },
+          {
+            "binding": {
+              "ref": "policy:sovereignty",
+              "revisionRef": "fixture-r1"
+            },
+            "artifactFamily": "SOVEREIGNTY_POLICY",
+            "visibilityBinding": {
+              "ref": "visibility:SNAPSHOT_SOVEREIGNTY_POLICY",
+              "revisionRef": "fixture-r1"
+            }
+          }
+        ],
+        "indexWatermarks": {
+          "roleGrant": "fixture:10",
+          "delegationSharing": "fixture:20",
+          "revocation": "fixture:30"
+        },
+        "principalResolutionBinding": {
+          "ref": "resolution:one",
+          "revisionRef": "fixture-r1"
+        },
+        "historyPosition": "fixture:history:40",
+        "evidencePolicyRegistryBinding": {
+          "ref": "registry:evidence",
+          "revisionRef": "fixture-r1"
+        },
+        "sovereigntyPolicyBinding": {
+          "ref": "policy:sovereignty",
+          "revisionRef": "fixture-r1"
+        }
+      }
+    },
+    "REQUEST": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "request:one",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "requestId": "request:one",
+        "actionClass": "ASSERT_OPERATION_CLAIM",
+        "intentBinding": {
+          "ref": "intent:one",
+          "revisionRef": "fixture-r1"
+        },
+        "effectIntentDigest": "sha256:df827b0902ed95317ade6463dae4dccefab9bc5e0b809c4a259972d0b548b27f",
+        "effectIntentCanonicalization": "JCS_RFC8785_SHA256"
+      }
+    },
+    "RESULT": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "result:one",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "resolvedPrincipalKind": "NATURAL_PERSON",
+        "agentActionPosture": null,
+        "humanFinalizationRequirement": "NOT_REQUIRED",
+        "primaryReasonCode": "AUTHORIZED_BY_SELECTED_PATH",
+        "authorizationViewExtractorRef": "extractor:one",
+        "authorizationViewExtractorDigest": "sha256:129b0be939bedc5e10d310cdc371025f0a142d0f22e0a39461ea74c4790c3fa5",
+        "requestId": "request:one",
+        "actionClass": "ASSERT_OPERATION_CLAIM",
+        "intentBinding": {
+          "ref": "intent:one",
+          "revisionRef": "fixture-r1"
+        },
+        "intentSchema": {
+          "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/EFFECT_INTENT/v0.1",
+          "schemaVersion": "fictional.canonicalPathSource.v0.1",
+          "schemaDigest": "sha256:73ac840adc38892518d9b7b89c96124bcbce6504be89ea982919d08cf1a40482"
+        },
+        "policyBinding": {
+          "ref": "policy:one",
+          "revisionRef": "fixture-r1"
+        },
+        "ruleBinding": {
+          "ref": "rule:one",
+          "revisionRef": "fixture-r1"
+        },
+        "manifestBinding": {
+          "ref": "manifest:one",
+          "revisionRef": "fixture-r1"
+        },
+        "derivedViewBinding": {
+          "ref": "view:one",
+          "revisionRef": "fixture-r1"
+        },
+        "snapshotBinding": {
+          "ref": "snapshot:evaluation",
+          "revisionRef": "fixture-r1"
+        },
+        "policyId": "policy:one",
+        "policyVersion": "fixture-1",
+        "policyDigest": "sha256:d5db6028c00381d3d1753c80798a98b37597499a40464cf1ea422022712f765e",
+        "selectedRuleId": "rule:one",
+        "ruleRevision": "fixture-r1",
+        "ruleDigest": "sha256:a9739c7dd1103d752f502e03c9fd4b848dcdcba72f4090f0a3bde099f186c76a",
+        "authorizationEvaluatedAt": "2026-10-21T09:00:00Z",
+        "decisionValidUntil": "2026-10-21T10:00:00Z",
+        "selectedPathId": "path:selected",
+        "decisionOutcome": "ALLOW",
+        "winningDisposition": "PATH_ALLOW",
+        "resultId": "result:one",
+        "traceId": "trace:one",
+        "effectIntentDigest": "sha256:df827b0902ed95317ade6463dae4dccefab9bc5e0b809c4a259972d0b548b27f",
+        "effectIntentCanonicalization": "JCS_RFC8785_SHA256",
+        "derivedViewDigest": "sha256:49ff093ca31b309b7cf39a60e60b4dc0ef76656117afda3a394768904c160ffe",
+        "selectedPath": {
+          "pathId": "path:selected",
+          "pathType": "ROLE_TARGETED_GRANT",
+          "pathDisposition": "PATH_ALLOW",
+          "sourceRecordBinding": {
+            "ref": "grant:one",
+            "digest": "sha256:284732593a2bd23c8e5e7579c44145a8f7f731fd632852ad1dc123a4f86e726a"
+          },
+          "delegationSourceBindings": [],
+          "canonicalTuple": {
+            "pathTypeOrder": 1,
+            "sourceRecordId": "grant:one",
+            "delegationSourceRecordIds": []
+          },
+          "authoritySubjectPartyRef": "party:natural",
+          "authoritySubjectBasis": "NATURAL_PERSON_SELF",
+          "authoritySubjectBasisRefs": [
+            {
+              "ref": "principal:natural",
+              "revisionRef": "fixture-r1"
+            },
+            {
+              "ref": "resolution:one",
+              "revisionRef": "fixture-r1"
+            },
+            {
+              "ref": "party:natural",
+              "revisionRef": "fixture-r1"
+            },
+            {
+              "ref": "party:natural",
+              "revisionRef": "fixture-r1"
+            },
+            {
+              "ref": "role:one",
+              "revisionRef": "fixture-r1"
+            },
+            {
+              "ref": "grant:one",
+              "digest": "sha256:284732593a2bd23c8e5e7579c44145a8f7f731fd632852ad1dc123a4f86e726a"
+            },
+            {
+              "ref": "registry:evidence",
+              "revisionRef": "fixture-r1"
+            },
+            {
+              "ref": "policy:sovereignty",
+              "revisionRef": "fixture-r1"
+            }
+          ],
+          "basis": [
+            {
+              "role": "AUTHENTICATED_PRINCIPAL",
+              "sourceKey": "AUTHENTICATED_PRINCIPAL",
+              "artifactFamily": "PRINCIPAL",
+              "binding": {
+                "ref": "principal:natural",
+                "revisionRef": "fixture-r1"
+              },
+              "visibilitySourceKey": "visibility:AUTHENTICATED_PRINCIPAL"
+            },
+            {
+              "role": "PRINCIPAL_RESOLUTION",
+              "sourceKey": "PRINCIPAL_RESOLUTION",
+              "artifactFamily": "PRINCIPAL_RESOLUTION",
+              "binding": {
+                "ref": "resolution:one",
+                "revisionRef": "fixture-r1"
+              },
+              "visibilitySourceKey": "visibility:PRINCIPAL_RESOLUTION"
+            },
+            {
+              "role": "AUTHORITY_SUBJECT_PARTY",
+              "sourceKey": "AUTHORITY_SUBJECT_PARTY",
+              "artifactFamily": "PARTY",
+              "binding": {
+                "ref": "party:natural",
+                "revisionRef": "fixture-r1"
+              },
+              "visibilitySourceKey": "visibility:AUTHORITY_SUBJECT_PARTY"
+            },
+            {
+              "role": "NATURAL_PERSON_PARTY",
+              "sourceKey": "NATURAL_PERSON_PARTY",
+              "artifactFamily": "PARTY",
+              "binding": {
+                "ref": "party:natural",
+                "revisionRef": "fixture-r1"
+              },
+              "visibilitySourceKey": "visibility:NATURAL_PERSON_PARTY"
+            },
+            {
+              "role": "ROLE_ASSIGNMENT",
+              "sourceKey": "ROLE_ASSIGNMENT",
+              "artifactFamily": "ROLE_ASSIGNMENT",
+              "binding": {
+                "ref": "role:one",
+                "revisionRef": "fixture-r1"
+              },
+              "visibilitySourceKey": "visibility:ROLE_ASSIGNMENT"
+            },
+            {
+              "role": "SOURCE_AUTHORITY",
+              "sourceKey": "SOURCE_AUTHORITY",
+              "artifactFamily": "AUTHORITY_GRANT",
+              "binding": {
+                "ref": "grant:one",
+                "digest": "sha256:284732593a2bd23c8e5e7579c44145a8f7f731fd632852ad1dc123a4f86e726a"
+              },
+              "visibilitySourceKey": "visibility:SOURCE_AUTHORITY"
+            },
+            {
+              "role": "ADDITIONAL_AUTHORITY_BASIS",
+              "sourceKey": "SNAPSHOT_EVIDENCE_POLICY_REGISTRY",
+              "artifactFamily": "EVIDENCE_POLICY_REGISTRY",
+              "binding": {
+                "ref": "registry:evidence",
+                "revisionRef": "fixture-r1"
+              },
+              "visibilitySourceKey": "visibility:SNAPSHOT_EVIDENCE_POLICY_REGISTRY"
+            },
+            {
+              "role": "ADDITIONAL_AUTHORITY_BASIS",
+              "sourceKey": "SNAPSHOT_SOVEREIGNTY_POLICY",
+              "artifactFamily": "SOVEREIGNTY_POLICY",
+              "binding": {
+                "ref": "policy:sovereignty",
+                "revisionRef": "fixture-r1"
+              },
+              "visibilitySourceKey": "visibility:SNAPSHOT_SOVEREIGNTY_POLICY"
+            }
+          ]
+        }
+      },
+      "retainedPayload": {
+        "decisionBundleDigest": "nested field must remain in the digest input"
+      },
+      "decisionBundleDigest": "sha256:22f3a8a65c79b8bca4d250f4ec2aa1b8ed6ff568d9d3a5a5c728ab41befcf3ce"
+    },
+    "TRACE": {
+      "schemaVersion": "fictional.canonicalPathSource.v0.1",
+      "recordId": "trace:one",
+      "recordRevision": "fixture-r1",
+      "projection": {
+        "resolvedPrincipalKind": "NATURAL_PERSON",
+        "agentActionPosture": null,
+        "humanFinalizationRequirement": "NOT_REQUIRED",
+        "primaryReasonCode": "AUTHORIZED_BY_SELECTED_PATH",
+        "authorizationViewExtractorRef": "extractor:one",
+        "authorizationViewExtractorDigest": "sha256:129b0be939bedc5e10d310cdc371025f0a142d0f22e0a39461ea74c4790c3fa5",
+        "requestId": "request:one",
+        "actionClass": "ASSERT_OPERATION_CLAIM",
+        "intentBinding": {
+          "ref": "intent:one",
+          "revisionRef": "fixture-r1"
+        },
+        "intentSchema": {
+          "schemaId": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/EFFECT_INTENT/v0.1",
+          "schemaVersion": "fictional.canonicalPathSource.v0.1",
+          "schemaDigest": "sha256:73ac840adc38892518d9b7b89c96124bcbce6504be89ea982919d08cf1a40482"
+        },
+        "policyBinding": {
+          "ref": "policy:one",
+          "revisionRef": "fixture-r1"
+        },
+        "ruleBinding": {
+          "ref": "rule:one",
+          "revisionRef": "fixture-r1"
+        },
+        "manifestBinding": {
+          "ref": "manifest:one",
+          "revisionRef": "fixture-r1"
+        },
+        "derivedViewBinding": {
+          "ref": "view:one",
+          "revisionRef": "fixture-r1"
+        },
+        "snapshotBinding": {
+          "ref": "snapshot:evaluation",
+          "revisionRef": "fixture-r1"
+        },
+        "policyId": "policy:one",
+        "policyVersion": "fixture-1",
+        "policyDigest": "sha256:d5db6028c00381d3d1753c80798a98b37597499a40464cf1ea422022712f765e",
+        "selectedRuleId": "rule:one",
+        "ruleRevision": "fixture-r1",
+        "ruleDigest": "sha256:a9739c7dd1103d752f502e03c9fd4b848dcdcba72f4090f0a3bde099f186c76a",
+        "authorizationEvaluatedAt": "2026-10-21T09:00:00Z",
+        "decisionValidUntil": "2026-10-21T10:00:00Z",
+        "selectedPathId": "path:selected",
+        "decisionOutcome": "ALLOW",
+        "winningDisposition": "PATH_ALLOW",
+        "resultId": "result:one",
+        "traceId": "trace:one",
+        "effectIntentDigest": "sha256:df827b0902ed95317ade6463dae4dccefab9bc5e0b809c4a259972d0b548b27f",
+        "effectIntentCanonicalization": "JCS_RFC8785_SHA256",
+        "derivedViewDigest": "sha256:49ff093ca31b309b7cf39a60e60b4dc0ef76656117afda3a394768904c160ffe",
+        "paths": [
+          {
+            "pathId": "path:selected",
+            "pathType": "ROLE_TARGETED_GRANT",
+            "pathDisposition": "PATH_ALLOW",
+            "sourceRecordBinding": {
+              "ref": "grant:one",
+              "digest": "sha256:284732593a2bd23c8e5e7579c44145a8f7f731fd632852ad1dc123a4f86e726a"
+            },
+            "delegationSourceBindings": [],
+            "canonicalTuple": {
+              "pathTypeOrder": 1,
+              "sourceRecordId": "grant:one",
+              "delegationSourceRecordIds": []
+            },
+            "authoritySubjectPartyRef": "party:natural",
+            "authoritySubjectBasis": "NATURAL_PERSON_SELF",
+            "authoritySubjectBasisRefs": [
+              {
+                "ref": "principal:natural",
+                "revisionRef": "fixture-r1"
+              },
+              {
+                "ref": "resolution:one",
+                "revisionRef": "fixture-r1"
+              },
+              {
+                "ref": "party:natural",
+                "revisionRef": "fixture-r1"
+              },
+              {
+                "ref": "party:natural",
+                "revisionRef": "fixture-r1"
+              },
+              {
+                "ref": "role:one",
+                "revisionRef": "fixture-r1"
+              },
+              {
+                "ref": "grant:one",
+                "digest": "sha256:284732593a2bd23c8e5e7579c44145a8f7f731fd632852ad1dc123a4f86e726a"
+              },
+              {
+                "ref": "registry:evidence",
+                "revisionRef": "fixture-r1"
+              },
+              {
+                "ref": "policy:sovereignty",
+                "revisionRef": "fixture-r1"
+              }
+            ],
+            "basis": [
+              {
+                "role": "AUTHENTICATED_PRINCIPAL",
+                "sourceKey": "AUTHENTICATED_PRINCIPAL",
+                "artifactFamily": "PRINCIPAL",
+                "binding": {
+                  "ref": "principal:natural",
+                  "revisionRef": "fixture-r1"
+                },
+                "visibilitySourceKey": "visibility:AUTHENTICATED_PRINCIPAL"
+              },
+              {
+                "role": "PRINCIPAL_RESOLUTION",
+                "sourceKey": "PRINCIPAL_RESOLUTION",
+                "artifactFamily": "PRINCIPAL_RESOLUTION",
+                "binding": {
+                  "ref": "resolution:one",
+                  "revisionRef": "fixture-r1"
+                },
+                "visibilitySourceKey": "visibility:PRINCIPAL_RESOLUTION"
+              },
+              {
+                "role": "AUTHORITY_SUBJECT_PARTY",
+                "sourceKey": "AUTHORITY_SUBJECT_PARTY",
+                "artifactFamily": "PARTY",
+                "binding": {
+                  "ref": "party:natural",
+                  "revisionRef": "fixture-r1"
+                },
+                "visibilitySourceKey": "visibility:AUTHORITY_SUBJECT_PARTY"
+              },
+              {
+                "role": "NATURAL_PERSON_PARTY",
+                "sourceKey": "NATURAL_PERSON_PARTY",
+                "artifactFamily": "PARTY",
+                "binding": {
+                  "ref": "party:natural",
+                  "revisionRef": "fixture-r1"
+                },
+                "visibilitySourceKey": "visibility:NATURAL_PERSON_PARTY"
+              },
+              {
+                "role": "ROLE_ASSIGNMENT",
+                "sourceKey": "ROLE_ASSIGNMENT",
+                "artifactFamily": "ROLE_ASSIGNMENT",
+                "binding": {
+                  "ref": "role:one",
+                  "revisionRef": "fixture-r1"
+                },
+                "visibilitySourceKey": "visibility:ROLE_ASSIGNMENT"
+              },
+              {
+                "role": "SOURCE_AUTHORITY",
+                "sourceKey": "SOURCE_AUTHORITY",
+                "artifactFamily": "AUTHORITY_GRANT",
+                "binding": {
+                  "ref": "grant:one",
+                  "digest": "sha256:284732593a2bd23c8e5e7579c44145a8f7f731fd632852ad1dc123a4f86e726a"
+                },
+                "visibilitySourceKey": "visibility:SOURCE_AUTHORITY"
+              },
+              {
+                "role": "ADDITIONAL_AUTHORITY_BASIS",
+                "sourceKey": "SNAPSHOT_EVIDENCE_POLICY_REGISTRY",
+                "artifactFamily": "EVIDENCE_POLICY_REGISTRY",
+                "binding": {
+                  "ref": "registry:evidence",
+                  "revisionRef": "fixture-r1"
+                },
+                "visibilitySourceKey": "visibility:SNAPSHOT_EVIDENCE_POLICY_REGISTRY"
+              },
+              {
+                "role": "ADDITIONAL_AUTHORITY_BASIS",
+                "sourceKey": "SNAPSHOT_SOVEREIGNTY_POLICY",
+                "artifactFamily": "SOVEREIGNTY_POLICY",
+                "binding": {
+                  "ref": "policy:sovereignty",
+                  "revisionRef": "fixture-r1"
+                },
+                "visibilitySourceKey": "visibility:SNAPSHOT_SOVEREIGNTY_POLICY"
+              }
+            ]
+          }
+        ]
+      },
+      "retainedPayload": {
+        "completeTraceNote": "Retained without reconstructing or evaluating authorization candidates."
+      },
+      "decisionBundleDigest": "sha256:22f3a8a65c79b8bca4d250f4ec2aa1b8ed6ff568d9d3a5a5c728ab41befcf3ce"
+    }
+  },
+  "schemas": {
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/EFFECT_INTENT/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/EFFECT_INTENT/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "proposedAssertion",
+            "evidenceRefs",
+            "subjectTime"
+          ],
+          "properties": {
+            "proposedAssertion": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "text",
+                "nested"
+              ],
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "nested": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "decisionBundleDigest"
+                  ],
+                  "properties": {
+                    "decisionBundleDigest": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "evidenceRefs": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            "subjectTime": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "profile",
+                "at"
+              ],
+              "properties": {
+                "profile": {
+                  "type": "string"
+                },
+                "at": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHENTICATED_PRINCIPAL/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHENTICATED_PRINCIPAL/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "principalRef"
+          ],
+          "properties": {
+            "principalRef": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/PRINCIPAL_RESOLUTION/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/PRINCIPAL_RESOLUTION/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "authenticatedPrincipalRef",
+            "resolvedPrincipalKind",
+            "principalPartyRef"
+          ],
+          "properties": {
+            "authenticatedPrincipalRef": {
+              "type": "string"
+            },
+            "resolvedPrincipalKind": {
+              "type": "string"
+            },
+            "principalPartyRef": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHORITY_SUBJECT_PARTY/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHORITY_SUBJECT_PARTY/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "partyRef"
+          ],
+          "properties": {
+            "partyRef": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/NATURAL_PERSON_PARTY/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/NATURAL_PERSON_PARTY/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "partyRef"
+          ],
+          "properties": {
+            "partyRef": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/ROLE_ASSIGNMENT/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/ROLE_ASSIGNMENT/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "partyRef"
+          ],
+          "properties": {
+            "partyRef": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/SOURCE_AUTHORITY/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/SOURCE_AUTHORITY/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection",
+        "sourceRecordDigest"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "grantTarget"
+          ],
+          "properties": {
+            "grantTarget": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "targetKind",
+                "targetRef"
+              ],
+              "properties": {
+                "targetKind": {
+                  "type": "string"
+                },
+                "targetRef": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "sourceRecordDigest": {
+          "type": "string"
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/SNAPSHOT_EVIDENCE_POLICY_REGISTRY/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/SNAPSHOT_EVIDENCE_POLICY_REGISTRY/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "revision",
+            "policyRefs"
+          ],
+          "properties": {
+            "revision": {
+              "type": "string"
+            },
+            "policyRefs": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/SNAPSHOT_SOVEREIGNTY_POLICY/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/SNAPSHOT_SOVEREIGNTY_POLICY/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "revision",
+            "tenantRef"
+          ],
+          "properties": {
+            "revision": {
+              "type": "string"
+            },
+            "tenantRef": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHORIZATION_VIEW_EXTRACTOR/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHORIZATION_VIEW_EXTRACTOR/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mappings",
+            "transformation"
+          ],
+          "properties": {
+            "mappings": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "action",
+                "target"
+              ],
+              "properties": {
+                "action": {
+                  "type": "string"
+                },
+                "target": {
+                  "type": "string"
+                }
+              }
+            },
+            "transformation": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/POLICY/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/POLICY/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "policyId",
+            "policyVersion",
+            "immutablePolicyRepresentation"
+          ],
+          "properties": {
+            "policyId": {
+              "type": "string"
+            },
+            "policyVersion": {
+              "type": "string"
+            },
+            "immutablePolicyRepresentation": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "selectedRules",
+                "purpose"
+              ],
+              "properties": {
+                "selectedRules": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "purpose": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/RULE/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/RULE/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "selectedRuleId",
+            "ruleRevision",
+            "actionClass",
+            "intentSchema",
+            "agentActionPosture",
+            "humanFinalizationRequirement",
+            "authorizationViewExtractorRef",
+            "authorizationViewExtractorDigest",
+            "semanticClosure"
+          ],
+          "properties": {
+            "selectedRuleId": {
+              "type": "string"
+            },
+            "ruleRevision": {
+              "type": "string"
+            },
+            "actionClass": {
+              "type": "string"
+            },
+            "intentSchema": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "schemaId",
+                "schemaVersion",
+                "schemaDigest"
+              ],
+              "properties": {
+                "schemaId": {
+                  "type": "string"
+                },
+                "schemaVersion": {
+                  "type": "string"
+                },
+                "schemaDigest": {
+                  "type": "string"
+                }
+              }
+            },
+            "agentActionPosture": {
+              "type": "string"
+            },
+            "humanFinalizationRequirement": {
+              "type": "string"
+            },
+            "authorizationViewExtractorRef": {
+              "type": "string"
+            },
+            "authorizationViewExtractorDigest": {
+              "type": "string"
+            },
+            "semanticClosure": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "law",
+                "extractor",
+                "eligibilityEvaluatorImplemented"
+              ],
+              "properties": {
+                "law": {
+                  "type": "string"
+                },
+                "extractor": {
+                  "type": "string"
+                },
+                "eligibilityEvaluatorImplemented": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/BINDING_MANIFEST/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/BINDING_MANIFEST/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "policyBinding",
+            "ruleBinding"
+          ],
+          "properties": {
+            "policyBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            },
+            "ruleBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/DERIVED_VIEW/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/DERIVED_VIEW/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "intentBinding",
+            "actionClass",
+            "target",
+            "authorizationViewExtractorRef",
+            "authorizationViewExtractorDigest"
+          ],
+          "properties": {
+            "intentBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            },
+            "actionClass": {
+              "type": "string"
+            },
+            "target": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "scopeType",
+                "scopeRef"
+              ],
+              "properties": {
+                "scopeType": {
+                  "type": "string"
+                },
+                "scopeRef": {
+                  "type": "string"
+                }
+              }
+            },
+            "authorizationViewExtractorRef": {
+              "type": "string"
+            },
+            "authorizationViewExtractorDigest": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-AUTHENTICATED_PRINCIPAL/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-AUTHENTICATED_PRINCIPAL/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sourceBinding",
+            "snapshotBinding"
+          ],
+          "properties": {
+            "sourceBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            },
+            "snapshotBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-PRINCIPAL_RESOLUTION/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-PRINCIPAL_RESOLUTION/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sourceBinding",
+            "snapshotBinding"
+          ],
+          "properties": {
+            "sourceBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            },
+            "snapshotBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-AUTHORITY_SUBJECT_PARTY/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-AUTHORITY_SUBJECT_PARTY/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sourceBinding",
+            "snapshotBinding"
+          ],
+          "properties": {
+            "sourceBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            },
+            "snapshotBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-NATURAL_PERSON_PARTY/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-NATURAL_PERSON_PARTY/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sourceBinding",
+            "snapshotBinding"
+          ],
+          "properties": {
+            "sourceBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            },
+            "snapshotBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-ROLE_ASSIGNMENT/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-ROLE_ASSIGNMENT/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sourceBinding",
+            "snapshotBinding"
+          ],
+          "properties": {
+            "sourceBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            },
+            "snapshotBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-SOURCE_AUTHORITY/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-SOURCE_AUTHORITY/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sourceBinding",
+            "snapshotBinding"
+          ],
+          "properties": {
+            "sourceBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            },
+            "snapshotBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-SNAPSHOT_EVIDENCE_POLICY_REGISTRY/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-SNAPSHOT_EVIDENCE_POLICY_REGISTRY/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sourceBinding",
+            "snapshotBinding"
+          ],
+          "properties": {
+            "sourceBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            },
+            "snapshotBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-SNAPSHOT_SOVEREIGNTY_POLICY/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/visibility-SNAPSHOT_SOVEREIGNTY_POLICY/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sourceBinding",
+            "snapshotBinding"
+          ],
+          "properties": {
+            "sourceBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            },
+            "snapshotBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/EVALUATION_SNAPSHOT/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/EVALUATION_SNAPSHOT/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/snapshotProjection"
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/REQUEST/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/REQUEST/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "requestId",
+            "actionClass",
+            "intentBinding",
+            "effectIntentDigest",
+            "effectIntentCanonicalization"
+          ],
+          "properties": {
+            "requestId": {
+              "type": "string"
+            },
+            "actionClass": {
+              "type": "string"
+            },
+            "intentBinding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/binding"
+            },
+            "effectIntentDigest": {
+              "type": "string"
+            },
+            "effectIntentCanonicalization": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/RESULT/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/RESULT/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection",
+        "retainedPayload",
+        "decisionBundleDigest"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/resultProjection"
+        },
+        "retainedPayload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "decisionBundleDigest"
+          ],
+          "properties": {
+            "decisionBundleDigest": {
+              "type": "string"
+            }
+          }
+        },
+        "decisionBundleDigest": {
+          "type": "string"
+        }
+      }
+    },
+    "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/TRACE/v0.1": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/TRACE/v0.1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordId",
+        "recordRevision",
+        "projection",
+        "retainedPayload",
+        "decisionBundleDigest"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "recordRevision": {
+          "type": "string"
+        },
+        "projection": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/types/v0.1#/$defs/traceProjection"
+        },
+        "retainedPayload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "completeTraceNote"
+          ],
+          "properties": {
+            "completeTraceNote": {
+              "type": "string"
+            }
+          }
+        },
+        "decisionBundleDigest": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

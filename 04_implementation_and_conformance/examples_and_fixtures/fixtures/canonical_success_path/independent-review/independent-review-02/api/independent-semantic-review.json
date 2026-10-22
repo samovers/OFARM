@@ -1,0 +1,1771 @@
+{
+  "status": "PASS",
+  "primaryTrustBoundary": "Canonical authorization decision evidence",
+  "scopeStayedInsideBoundary": true,
+  "checks": 178,
+  "passed": 178,
+  "groups": {
+    "positive-controls": 8,
+    "semantic-consistency": 170
+  },
+  "failed": [],
+  "results": [
+    {
+      "name": "basis-1-party/baseline",
+      "group": "positive-controls",
+      "pass": true,
+      "expectedCode": null,
+      "status": "PASS",
+      "codes": []
+    },
+    {
+      "name": "basis-1-party/native-revision/AUTHENTICATED_PRINCIPAL",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-party/native-revision/AUTHORITY_SUBJECT_PARTY",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-party/native-revision/EVALUATION_SNAPSHOT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-party/native-revision/RESULT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-party/native-revision/TRACE",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-party/revision-pointer-required",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "REVISION_POINTER_REQUIRED",
+      "status": "FAIL",
+      "codes": [
+        "REVISION_POINTER_REQUIRED"
+      ]
+    },
+    {
+      "name": "basis-1-party/conflicting-party-versions",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES",
+      "status": "FAIL",
+      "codes": [
+        "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES"
+      ]
+    },
+    {
+      "name": "basis-1-party/retained-tuple/pathTypeOrder",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-party/retained-tuple/sourceRecordId",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-party/retained-tuple/delegationSourceRecordIds",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-party/output/primaryReasonCode",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SUCCESS_PRIMARY_REASON_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SUCCESS_PRIMARY_REASON_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-party/output/humanFinalizationRequirement",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "HUMAN_FINALIZATION_RULE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "HUMAN_FINALIZATION_RULE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-party/output/authorizationViewExtractorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_REFERENCE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_REFERENCE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-party/output/authorizationViewExtractorDigest",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-party/output/resolvedPrincipalKind",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_PRINCIPAL_KIND_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_PRINCIPAL_KIND_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-party/output/agentActionPosture",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_CP3_POSTURE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_CP3_POSTURE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-party/extractor-content",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_BINDING_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_BINDING_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-role/baseline",
+      "group": "positive-controls",
+      "pass": true,
+      "expectedCode": null,
+      "status": "PASS",
+      "codes": []
+    },
+    {
+      "name": "basis-1-role/native-revision/AUTHENTICATED_PRINCIPAL",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-role/native-revision/AUTHORITY_SUBJECT_PARTY",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-role/native-revision/EVALUATION_SNAPSHOT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-role/native-revision/RESULT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-role/native-revision/TRACE",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-role/revision-pointer-required",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "REVISION_POINTER_REQUIRED",
+      "status": "FAIL",
+      "codes": [
+        "REVISION_POINTER_REQUIRED"
+      ]
+    },
+    {
+      "name": "basis-1-role/conflicting-party-versions",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES",
+      "status": "FAIL",
+      "codes": [
+        "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES"
+      ]
+    },
+    {
+      "name": "basis-1-role/retained-tuple/pathTypeOrder",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-role/retained-tuple/sourceRecordId",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-role/retained-tuple/delegationSourceRecordIds",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-role/output/primaryReasonCode",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SUCCESS_PRIMARY_REASON_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SUCCESS_PRIMARY_REASON_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-role/output/humanFinalizationRequirement",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "HUMAN_FINALIZATION_RULE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "HUMAN_FINALIZATION_RULE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-role/output/authorizationViewExtractorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_REFERENCE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_REFERENCE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-role/output/authorizationViewExtractorDigest",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-role/output/resolvedPrincipalKind",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_PRINCIPAL_KIND_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_PRINCIPAL_KIND_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-role/output/agentActionPosture",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_CP3_POSTURE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_CP3_POSTURE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-1-role/extractor-content",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_BINDING_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_BINDING_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-party/baseline",
+      "group": "positive-controls",
+      "pass": true,
+      "expectedCode": null,
+      "status": "PASS",
+      "codes": []
+    },
+    {
+      "name": "basis-2-party/native-revision/AUTHENTICATED_PRINCIPAL",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-party/native-revision/AUTHORITY_SUBJECT_PARTY",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-party/native-revision/EVALUATION_SNAPSHOT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-party/native-revision/RESULT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-party/native-revision/TRACE",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-party/revision-pointer-required",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "REVISION_POINTER_REQUIRED",
+      "status": "FAIL",
+      "codes": [
+        "REVISION_POINTER_REQUIRED"
+      ]
+    },
+    {
+      "name": "basis-2-party/conflicting-party-versions",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES",
+      "status": "FAIL",
+      "codes": [
+        "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES"
+      ]
+    },
+    {
+      "name": "basis-2-party/retained-tuple/pathTypeOrder",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-party/retained-tuple/sourceRecordId",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-party/retained-tuple/delegationSourceRecordIds",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-party/output/primaryReasonCode",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SUCCESS_PRIMARY_REASON_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SUCCESS_PRIMARY_REASON_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-party/output/humanFinalizationRequirement",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "HUMAN_FINALIZATION_RULE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "HUMAN_FINALIZATION_RULE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-party/output/authorizationViewExtractorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_REFERENCE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_REFERENCE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-party/output/authorizationViewExtractorDigest",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-party/output/resolvedPrincipalKind",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_PRINCIPAL_KIND_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_PRINCIPAL_KIND_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-party/output/agentActionPosture",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_CP3_POSTURE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_CP3_POSTURE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-party/extractor-content",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_BINDING_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_BINDING_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-role/baseline",
+      "group": "positive-controls",
+      "pass": true,
+      "expectedCode": null,
+      "status": "PASS",
+      "codes": []
+    },
+    {
+      "name": "basis-2-role/native-revision/AUTHENTICATED_PRINCIPAL",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-role/native-revision/AUTHORITY_SUBJECT_PARTY",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-role/native-revision/EVALUATION_SNAPSHOT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-role/native-revision/RESULT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-role/native-revision/TRACE",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-role/revision-pointer-required",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "REVISION_POINTER_REQUIRED",
+      "status": "FAIL",
+      "codes": [
+        "REVISION_POINTER_REQUIRED"
+      ]
+    },
+    {
+      "name": "basis-2-role/conflicting-party-versions",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES",
+      "status": "FAIL",
+      "codes": [
+        "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES"
+      ]
+    },
+    {
+      "name": "basis-2-role/retained-tuple/pathTypeOrder",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-role/retained-tuple/sourceRecordId",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-role/retained-tuple/delegationSourceRecordIds",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-role/output/primaryReasonCode",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SUCCESS_PRIMARY_REASON_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SUCCESS_PRIMARY_REASON_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-role/output/humanFinalizationRequirement",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "HUMAN_FINALIZATION_RULE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "HUMAN_FINALIZATION_RULE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-role/output/authorizationViewExtractorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_REFERENCE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_REFERENCE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-role/output/authorizationViewExtractorDigest",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-role/output/resolvedPrincipalKind",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_PRINCIPAL_KIND_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_PRINCIPAL_KIND_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-role/output/agentActionPosture",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_CP3_POSTURE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_CP3_POSTURE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-2-role/extractor-content",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_BINDING_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_BINDING_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/baseline",
+      "group": "positive-controls",
+      "pass": true,
+      "expectedCode": null,
+      "status": "PASS",
+      "codes": []
+    },
+    {
+      "name": "basis-3-party/native-revision/AUTHENTICATED_PRINCIPAL",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/native-revision/AUTHORITY_SUBJECT_PARTY",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/native-revision/EVALUATION_SNAPSHOT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/native-revision/RESULT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/native-revision/TRACE",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/revision-pointer-required",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "REVISION_POINTER_REQUIRED",
+      "status": "FAIL",
+      "codes": [
+        "REVISION_POINTER_REQUIRED"
+      ]
+    },
+    {
+      "name": "basis-3-party/conflicting-party-versions",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES",
+      "status": "FAIL",
+      "codes": [
+        "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES"
+      ]
+    },
+    {
+      "name": "basis-3-party/retained-tuple/pathTypeOrder",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/retained-tuple/sourceRecordId",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/retained-tuple/delegationSourceRecordIds",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/output/primaryReasonCode",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SUCCESS_PRIMARY_REASON_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SUCCESS_PRIMARY_REASON_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/output/humanFinalizationRequirement",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "HUMAN_FINALIZATION_RULE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "HUMAN_FINALIZATION_RULE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/output/authorizationViewExtractorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_REFERENCE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_REFERENCE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/output/authorizationViewExtractorDigest",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/output/resolvedPrincipalKind",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_PRINCIPAL_KIND_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_PRINCIPAL_KIND_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/output/agentActionPosture",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_CP3_POSTURE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_CP3_POSTURE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/extractor-content",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_BINDING_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_BINDING_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/deep-cp3/CP3_ACTORSHIP_BINDING/agentSponsorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_IDENTITY_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/deep-cp3/CP3_AUTHORITY_ENVELOPE/executingAgentInstanceRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_IDENTITY_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/deep-cp3/CP3_AUTHORITY_ENVELOPE/revocationStateRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_EVIDENCE_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_EVIDENCE_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-party/deep-cp3/CP3_REVOCATION_STATE/agentSponsorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_REVOCATION_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_REVOCATION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/baseline",
+      "group": "positive-controls",
+      "pass": true,
+      "expectedCode": null,
+      "status": "PASS",
+      "codes": []
+    },
+    {
+      "name": "basis-3-role/native-revision/AUTHENTICATED_PRINCIPAL",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/native-revision/AUTHORITY_SUBJECT_PARTY",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/native-revision/EVALUATION_SNAPSHOT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/native-revision/RESULT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/native-revision/TRACE",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/revision-pointer-required",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "REVISION_POINTER_REQUIRED",
+      "status": "FAIL",
+      "codes": [
+        "REVISION_POINTER_REQUIRED"
+      ]
+    },
+    {
+      "name": "basis-3-role/conflicting-party-versions",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES",
+      "status": "FAIL",
+      "codes": [
+        "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES"
+      ]
+    },
+    {
+      "name": "basis-3-role/retained-tuple/pathTypeOrder",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/retained-tuple/sourceRecordId",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/retained-tuple/delegationSourceRecordIds",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/output/primaryReasonCode",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SUCCESS_PRIMARY_REASON_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SUCCESS_PRIMARY_REASON_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/output/humanFinalizationRequirement",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "HUMAN_FINALIZATION_RULE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "HUMAN_FINALIZATION_RULE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/output/authorizationViewExtractorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_REFERENCE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_REFERENCE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/output/authorizationViewExtractorDigest",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/output/resolvedPrincipalKind",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_PRINCIPAL_KIND_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_PRINCIPAL_KIND_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/output/agentActionPosture",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_CP3_POSTURE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_CP3_POSTURE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/extractor-content",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_BINDING_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_BINDING_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/deep-cp3/CP3_ACTORSHIP_BINDING/agentSponsorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_IDENTITY_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/deep-cp3/CP3_AUTHORITY_ENVELOPE/executingAgentInstanceRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_IDENTITY_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/deep-cp3/CP3_AUTHORITY_ENVELOPE/revocationStateRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_EVIDENCE_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_EVIDENCE_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-3-role/deep-cp3/CP3_REVOCATION_STATE/agentSponsorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_REVOCATION_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_REVOCATION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/baseline",
+      "group": "positive-controls",
+      "pass": true,
+      "expectedCode": null,
+      "status": "PASS",
+      "codes": []
+    },
+    {
+      "name": "basis-4-party/native-revision/AUTHENTICATED_PRINCIPAL",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/native-revision/AUTHORITY_SUBJECT_PARTY",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/native-revision/EVALUATION_SNAPSHOT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/native-revision/RESULT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/native-revision/TRACE",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/revision-pointer-required",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "REVISION_POINTER_REQUIRED",
+      "status": "FAIL",
+      "codes": [
+        "REVISION_POINTER_REQUIRED"
+      ]
+    },
+    {
+      "name": "basis-4-party/conflicting-party-versions",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES",
+      "status": "FAIL",
+      "codes": [
+        "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES"
+      ]
+    },
+    {
+      "name": "basis-4-party/retained-tuple/pathTypeOrder",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/retained-tuple/sourceRecordId",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/retained-tuple/delegationSourceRecordIds",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/output/primaryReasonCode",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SUCCESS_PRIMARY_REASON_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SUCCESS_PRIMARY_REASON_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/output/humanFinalizationRequirement",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "HUMAN_FINALIZATION_RULE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "HUMAN_FINALIZATION_RULE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/output/authorizationViewExtractorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_REFERENCE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_REFERENCE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/output/authorizationViewExtractorDigest",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/output/resolvedPrincipalKind",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_PRINCIPAL_KIND_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_PRINCIPAL_KIND_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/output/agentActionPosture",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_CP3_POSTURE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_CP3_POSTURE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/extractor-content",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_BINDING_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_BINDING_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/deep-cp3/CP3_ACTORSHIP_BINDING/agentSponsorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_IDENTITY_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/deep-cp3/CP3_AUTHORITY_ENVELOPE/executingAgentInstanceRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_IDENTITY_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/deep-cp3/CP3_AUTHORITY_ENVELOPE/revocationStateRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_EVIDENCE_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_EVIDENCE_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-party/deep-cp3/CP3_REVOCATION_STATE/agentSponsorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_REVOCATION_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_REVOCATION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/baseline",
+      "group": "positive-controls",
+      "pass": true,
+      "expectedCode": null,
+      "status": "PASS",
+      "codes": []
+    },
+    {
+      "name": "basis-4-role/native-revision/AUTHENTICATED_PRINCIPAL",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/native-revision/AUTHORITY_SUBJECT_PARTY",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/native-revision/EVALUATION_SNAPSHOT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/native-revision/RESULT",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/native-revision/TRACE",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/revision-pointer-required",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "REVISION_POINTER_REQUIRED",
+      "status": "FAIL",
+      "codes": [
+        "REVISION_POINTER_REQUIRED"
+      ]
+    },
+    {
+      "name": "basis-4-role/conflicting-party-versions",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES",
+      "status": "FAIL",
+      "codes": [
+        "IMMUTABLE_ID_REUSED_WITH_DIFFERENT_BYTES"
+      ]
+    },
+    {
+      "name": "basis-4-role/retained-tuple/pathTypeOrder",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/retained-tuple/sourceRecordId",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/retained-tuple/delegationSourceRecordIds",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CANONICAL_TUPLE_ENCODING_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CANONICAL_TUPLE_ENCODING_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/output/primaryReasonCode",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SUCCESS_PRIMARY_REASON_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SUCCESS_PRIMARY_REASON_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/output/humanFinalizationRequirement",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "HUMAN_FINALIZATION_RULE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "HUMAN_FINALIZATION_RULE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/output/authorizationViewExtractorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_REFERENCE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_REFERENCE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/output/authorizationViewExtractorDigest",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "EXTRACTOR_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "EXTRACTOR_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/output/resolvedPrincipalKind",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_PRINCIPAL_KIND_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_PRINCIPAL_KIND_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/output/agentActionPosture",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "OUTPUT_CP3_POSTURE_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "OUTPUT_CP3_POSTURE_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/extractor-content",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_BINDING_DIGEST_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_BINDING_DIGEST_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/deep-cp3/CP3_ACTORSHIP_BINDING/agentSponsorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_IDENTITY_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/deep-cp3/CP3_AUTHORITY_ENVELOPE/executingAgentInstanceRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_IDENTITY_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_IDENTITY_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/deep-cp3/CP3_AUTHORITY_ENVELOPE/revocationStateRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_EVIDENCE_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_EVIDENCE_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "basis-4-role/deep-cp3/CP3_REVOCATION_STATE/agentSponsorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "CP3_REVOCATION_LINK_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "CP3_REVOCATION_LINK_MISMATCH"
+      ]
+    },
+    {
+      "name": "retained-lower/PATH_ALLOW",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "RETAINED_ALLOW_PATH_PRECEDES_SELECTION",
+      "status": "FAIL",
+      "codes": [
+        "RETAINED_ALLOW_PATH_PRECEDES_SELECTION"
+      ]
+    },
+    {
+      "name": "retained-lower/PATH_DENY",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": null,
+      "status": "PASS",
+      "codes": []
+    },
+    {
+      "name": "retained-lower/PATH_REQUIRE_REVIEW",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": null,
+      "status": "PASS",
+      "codes": []
+    },
+    {
+      "name": "retained-lower/PATH_REQUIRE_HUMAN_APPROVAL",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": null,
+      "status": "PASS",
+      "codes": []
+    },
+    {
+      "name": "retained-lower/PATH_INAPPLICABLE",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": null,
+      "status": "PASS",
+      "codes": []
+    },
+    {
+      "name": "closed-output/missing-primaryReasonCode",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SCHEMA_INVALID",
+      "status": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "name": "closed-output/missing-humanFinalizationRequirement",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SCHEMA_INVALID",
+      "status": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "name": "closed-output/missing-authorizationViewExtractorRef",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SCHEMA_INVALID",
+      "status": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "name": "closed-output/missing-authorizationViewExtractorDigest",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SCHEMA_INVALID",
+      "status": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "name": "closed-output/missing-resolvedPrincipalKind",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SCHEMA_INVALID",
+      "status": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "name": "closed-output/missing-agentActionPosture",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SCHEMA_INVALID",
+      "status": "FAIL",
+      "codes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "name": "basis-1-party/sharing-explicit-limit",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SELECTED_SHARING_PATH_OUTSIDE_PROFILE",
+      "status": "FAIL",
+      "codes": [
+        "SELECTED_SHARING_PATH_OUTSIDE_PROFILE"
+      ]
+    },
+    {
+      "name": "basis-3-role/sharing-explicit-limit",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SELECTED_SHARING_PATH_OUTSIDE_PROFILE",
+      "status": "FAIL",
+      "codes": [
+        "SELECTED_SHARING_PATH_OUTSIDE_PROFILE"
+      ]
+    },
+    {
+      "name": "basis-4-party/sharing-explicit-limit",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SELECTED_SHARING_PATH_OUTSIDE_PROFILE",
+      "status": "FAIL",
+      "codes": [
+        "SELECTED_SHARING_PATH_OUTSIDE_PROFILE"
+      ]
+    },
+    {
+      "name": "profile/nested-native-revision",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": null,
+      "status": "PASS",
+      "codes": []
+    },
+    {
+      "name": "profile/nested-native-revision-mismatch",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "SOURCE_RECORD_REVISION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "SOURCE_RECORD_REVISION_MISMATCH"
+      ]
+    },
+    {
+      "name": "profile/nested-intent-version",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": null,
+      "status": "PASS",
+      "codes": []
+    },
+    {
+      "name": "profile/nested-intent-version-mismatch",
+      "group": "semantic-consistency",
+      "pass": true,
+      "expectedCode": "INTENT_VERSION_MISMATCH",
+      "status": "FAIL",
+      "codes": [
+        "INTENT_VERSION_MISMATCH"
+      ]
+    }
+  ],
+  "method": "Root-authored repacking of actual fixture models without importing author helpers; coherent hashes reach specific semantic error codes. Actual public API unchanged.",
+  "limits": [
+    "Fictional independently selected context assumptions; no actual source authority established.",
+    "Technical review is not formal GitHub approval or a two-reviewer governance gate."
+  ]
+}

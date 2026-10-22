@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+  "disposition": "INPUT_ERROR",
+  "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+  "established": [],
+  "notEstablished": [
+    "AUTHORIZATION_ELIGIBILITY",
+    "PRINCIPAL_RESOLUTION_TRUST",
+    "CANDIDATE_SET_COMPLETENESS",
+    "CANONICAL_SELECTION_CORRECTNESS",
+    "OWNER_OUTPUT_RUNTIME_ORIGIN",
+    "SOURCE_CURRENTNESS_AND_MIGRATION",
+    "CP3_ADMISSION",
+    "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+  ],
+  "errors": [
+    {
+      "code": "SCHEMA_INVALID",
+      "pointer": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/context/v0.1",
+      "detail": "{'ref': 'mutable:bare'} is not valid under any of the given schemas"
+    }
+  ],
+  "selectedParty": null,
+  "sourceOrigin": null,
+  "inputDigests": {
+    "evidence": "e7acf5f7c31513692f455b783dafdc3afb994b135b7dc1c6b390c6f6cc3751c1",
+    "profile": "96e42ff1c70f0bd2fc8ad6015f0e5b5dd96aa01e33493cda9cfa7f74c1997ff5",
+    "context": "96436d968741d362d4715fd847ba90a200fff46abf61061306c40b436b1ab537"
+  },
+  "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+}

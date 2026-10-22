@@ -1,0 +1,43 @@
+{
+  "status": "PASS_NO_NEW_ACTIONABLE_FINDINGS",
+  "primaryTrustBoundary": "Canonical authorization decision evidence",
+  "scopeStayedInsideBoundary": true,
+  "candidateSealSha256": "b0b9ad7e281b50ffa32add2a3850ed6693b7bd76f57f3383633845089bdf1952",
+  "contractRawSha256": "a743f18edb78769a24499ce933ff6af4c4ed89f781566d3a739ac9defa1f9a79",
+  "resolvedFindings": [
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "P1",
+    "P2"
+  ],
+  "findings": [],
+  "independentSemanticChecks": 178,
+  "independentImportChecks": 7,
+  "freshInstalledCliCases": 491,
+  "existingRepositoryCommands": 10,
+  "sealedMembers": 1622,
+  "snapshotFilesUnchanged": 1623,
+  "exactIntegrationMappings": 1621,
+  "mutationEvidence": {
+    "provenance": "Author-written AST audit inspected in this review; independent root probes reported separately.",
+    "sites": 115,
+    "directWitnesses": 112,
+    "invalidInputsAdmittedAfterGuardRemoval": 84,
+    "specificErrorChanges": 28,
+    "structurallyRedundant": 3
+  },
+  "formalGitHubApproval": false,
+  "twoHumanReviewGateEstablished": false,
+  "candidateAndSnapshotUnchanged": true,
+  "limitations": [
+    "Fictional producer profile and independent-selection assumptions, not authenticated source origin.",
+    "Conditional owner-output integrity, not eligibility, candidate completeness, CP3 admission or effect permission.",
+    "Selected SharingGrant access paths remain explicitly outside this narrow profile; retained sharing paths remain supported.",
+    "Python 3.14.5 tested; Python 3.11 not executed.",
+    "No hostile-process or Python-runtime attestation."
+  ],
+  "next": "Publish only exact reviewed bytes in draft #56; consumer #47 and its full review remain separate."
+}

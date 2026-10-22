@@ -1,0 +1,46 @@
+{
+  "contractId": "ofarm.authorizationDecisionEvidence.canonicalSuccessfulPath.v0.1",
+  "packageFamily": "AuthorizationDecisionEvidence.v0.2",
+  "status": "DRAFT_NON_DEFAULT",
+  "primaryTrustBoundary": "Canonical authorization decision evidence",
+  "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+  "authorizationLawSha256": "8c218df076fcf06aceb531173a854091e21bda7775ad1fe66dd06a772857691f",
+  "files": {
+    "schemas/context.schema.json": "d59bda7160af8e9ddd23aa0466ad7c49f7285cba807893a9afa8ade57c14bcc7",
+    "schemas/evidence.schema.json": "78e522fb5336bd639898a6ea9c33a4e915cc3157926f743c01fd842fba213c86",
+    "schemas/profile.schema.json": "8a3d9204134b92b9272a1f728506b434cac8a0cc2306a780aa3e4784d6e4e62e",
+    "schemas/report.schema.json": "99c4beed8c8ee33d222a6406de089dae2a4047e52632000d0abf7b3a43611b0b",
+    "schemas/types.schema.json": "00ad665876c0b850e54d8d7959620478ff236d3ae92a679e2e36789704fe8247",
+    "schemas/wire.schema.json": "217cede939eba57a91210bd526adeab96c73779d05eccc1d920e8c542d951e02",
+    "source-pins.json": "2a84aa32a4576a11b75ab5919c7c7f8fed458da03010d0c7dacde382be29707c",
+    "sources/pr11.md": "8c218df076fcf06aceb531173a854091e21bda7775ad1fe66dd06a772857691f"
+  },
+  "dependencyVersions": {
+    "rfc8785": "0.1.4",
+    "jsonschema": "4.26.0",
+    "referencing": "0.37.0"
+  },
+  "sourceTupleOrder": [
+    "DIRECT_PARTY_GRANT",
+    "ROLE_TARGETED_GRANT",
+    "DELEGATED_GRANT",
+    "SHARING_GRANT_ACCESS"
+  ],
+  "sourceReferencePolicy": "Grant/delegation/sharing source IDs require one-record source digests; other records require a profile-projected native revision or a digest, independently pinned bytes, and one byte representation per logical identity within this decision.",
+  "notEstablished": [
+    "Authorization eligibility",
+    "Principal resolution trust",
+    "Candidate completeness",
+    "Canonical selection correctness",
+    "Runtime source origin and admission",
+    "Source currentness and migration",
+    "CP3 admission",
+    "Runtime protection"
+  ],
+  "next": "Independent review before use; no default activation or effect permission.",
+  "verificationCode": {
+    "verify_success_path.py": "7692126944aa3d019935c03fbadd98b4d2d5a180e764b78f44e6602662b6311c",
+    "path_common.py": "0e2e8e9bf184dd451fdf9fd1a8f44054e43ea495d818f769f2580f4eec0696c1"
+  },
+  "contractDigest": "sha256:78f9d4e00f994b3f31b7544c311fb6d1726642cf8c7f5ab4964fbe62631e276a"
+}

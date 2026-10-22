@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/authorization-decision-evidence/canonical-success-path/context/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.canonicalSuccessfulPathVerificationContext.v0.1"
+    },
+    "contextId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contractDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+    },
+    "sourceOrigin": {
+      "enum": [
+        "FICTIONAL_CONFORMANCE",
+        "INDEPENDENT_OWNER_SELECTION"
+      ]
+    },
+    "profileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revisionRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "ref"
+      ],
+      "oneOf": [
+        {
+          "required": [
+            "revisionRef"
+          ],
+          "not": {
+            "required": [
+              "digest"
+            ]
+          }
+        },
+        {
+          "required": [
+            "digest"
+          ],
+          "not": {
+            "required": [
+              "revisionRef"
+            ]
+          }
+        }
+      ]
+    },
+    "profileBytesSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+    },
+    "selectedActionClass": {
+      "type": "string",
+      "minLength": 1
+    },
+    "coreSources": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "REQUEST": {
+          "type": "string",
+          "minLength": 1
+        },
+        "RESULT": {
+          "type": "string",
+          "minLength": 1
+        },
+        "TRACE": {
+          "type": "string",
+          "minLength": 1
+        },
+        "POLICY": {
+          "type": "string",
+          "minLength": 1
+        },
+        "RULE": {
+          "type": "string",
+          "minLength": 1
+        },
+        "BINDING_MANIFEST": {
+          "type": "string",
+          "minLength": 1
+        },
+        "EFFECT_INTENT": {
+          "type": "string",
+          "minLength": 1
+        },
+        "DERIVED_VIEW": {
+          "type": "string",
+          "minLength": 1
+        },
+        "EVALUATION_SNAPSHOT": {
+          "type": "string",
+          "minLength": 1
+        },
+        "AUTHORIZATION_VIEW_EXTRACTOR": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "REQUEST",
+        "RESULT",
+        "TRACE",
+        "POLICY",
+        "RULE",
+        "BINDING_MANIFEST",
+        "EFFECT_INTENT",
+        "DERIVED_VIEW",
+        "EVALUATION_SNAPSHOT",
+        "AUTHORIZATION_VIEW_EXTRACTOR"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "artifactFamily": {
+            "type": "string",
+            "minLength": 1
+          },
+          "binding": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revisionRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+              }
+            },
+            "required": [
+              "ref"
+            ],
+            "oneOf": [
+              {
+                "required": [
+                  "revisionRef"
+                ],
+                "not": {
+                  "required": [
+                    "digest"
+                  ]
+                }
+              },
+              {
+                "required": [
+                  "digest"
+                ],
+                "not": {
+                  "required": [
+                    "revisionRef"
+                  ]
+                }
+              }
+            ]
+          },
+          "bytesSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+          },
+          "valueDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+          },
+          "formatId": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "key",
+          "artifactFamily",
+          "binding",
+          "bytesSha256",
+          "valueDigest",
+          "formatId"
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "contextId",
+    "contractDigest",
+    "sourceOrigin",
+    "profileBinding",
+    "profileBytesSha256",
+    "selectedActionClass",
+    "coreSources",
+    "sources"
+  ]
+}

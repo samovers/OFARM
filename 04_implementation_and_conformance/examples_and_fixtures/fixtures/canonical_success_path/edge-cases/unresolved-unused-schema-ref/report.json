@@ -1,0 +1,40 @@
+{
+  "id": "unresolved-unused-schema-ref",
+  "expected": "FAIL",
+  "expectedCodes": [
+    "UNRESOLVED_SCHEMA_REFERENCE"
+  ],
+  "actual": "FAIL",
+  "matched": true,
+  "report": {
+    "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+    "disposition": "FAIL",
+    "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+    "established": [],
+    "notEstablished": [
+      "AUTHORIZATION_ELIGIBILITY",
+      "PRINCIPAL_RESOLUTION_TRUST",
+      "CANDIDATE_SET_COMPLETENESS",
+      "CANONICAL_SELECTION_CORRECTNESS",
+      "OWNER_OUTPUT_RUNTIME_ORIGIN",
+      "SOURCE_CURRENTNESS_AND_MIGRATION",
+      "CP3_ADMISSION",
+      "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+    ],
+    "errors": [
+      {
+        "code": "UNRESOLVED_SCHEMA_REFERENCE",
+        "pointer": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHORITY_SUBJECT_PARTY/v0.1",
+        "detail": "https://unselected.invalid/schema"
+      }
+    ],
+    "selectedParty": null,
+    "sourceOrigin": "FICTIONAL_CONFORMANCE",
+    "inputDigests": {
+      "evidence": "66f2ed8d0a070f32ed71b40612557920707c78ce011cfd6afb56582f3d4ace76",
+      "profile": "6d58cd9b52a782c9ebcd71d3281a8d99fc92030b6a6433601b8e4de412d007c3",
+      "context": "72e410e2e8a670a729eb49e01bb6456c830fd2f4501ac92a4267046551036f11"
+    },
+    "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+  }
+}

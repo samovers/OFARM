@@ -1,0 +1,40 @@
+{
+  "id": "nested-schema-id",
+  "expected": "FAIL",
+  "expectedCodes": [
+    "NESTED_SCHEMA_ID_NOT_SUPPORTED"
+  ],
+  "actual": "FAIL",
+  "matched": true,
+  "report": {
+    "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+    "disposition": "FAIL",
+    "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+    "established": [],
+    "notEstablished": [
+      "AUTHORIZATION_ELIGIBILITY",
+      "PRINCIPAL_RESOLUTION_TRUST",
+      "CANDIDATE_SET_COMPLETENESS",
+      "CANONICAL_SELECTION_CORRECTNESS",
+      "OWNER_OUTPUT_RUNTIME_ORIGIN",
+      "SOURCE_CURRENTNESS_AND_MIGRATION",
+      "CP3_ADMISSION",
+      "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+    ],
+    "errors": [
+      {
+        "code": "NESTED_SCHEMA_ID_NOT_SUPPORTED",
+        "pointer": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/AUTHORITY_SUBJECT_PARTY/v0.1",
+        "detail": ""
+      }
+    ],
+    "selectedParty": null,
+    "sourceOrigin": "FICTIONAL_CONFORMANCE",
+    "inputDigests": {
+      "evidence": "66f2ed8d0a070f32ed71b40612557920707c78ce011cfd6afb56582f3d4ace76",
+      "profile": "4f4d2558e6b90838facea04e2ae956a0dcc8999b0ea33c3b6cc7efba194dc12b",
+      "context": "f906f312364ab7921313fec7f09d723688b181faafa4db10933f2e31f8cc8f72"
+    },
+    "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+  }
+}

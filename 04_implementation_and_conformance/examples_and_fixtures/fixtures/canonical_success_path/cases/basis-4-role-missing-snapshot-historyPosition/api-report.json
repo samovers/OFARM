@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+  "disposition": "FAIL",
+  "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+  "established": [],
+  "notEstablished": [
+    "AUTHORIZATION_ELIGIBILITY",
+    "PRINCIPAL_RESOLUTION_TRUST",
+    "CANDIDATE_SET_COMPLETENESS",
+    "CANONICAL_SELECTION_CORRECTNESS",
+    "OWNER_OUTPUT_RUNTIME_ORIGIN",
+    "SOURCE_CURRENTNESS_AND_MIGRATION",
+    "CP3_ADMISSION",
+    "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+  ],
+  "errors": [
+    {
+      "code": "SCHEMA_INVALID",
+      "pointer": "https://ofarm.dev/schema/fictional-conformance/canonical-success-path/EVALUATION_SNAPSHOT/v0.1",
+      "detail": "'historyPosition' is a required property"
+    }
+  ],
+  "selectedParty": null,
+  "sourceOrigin": "FICTIONAL_CONFORMANCE",
+  "inputDigests": {
+    "evidence": "faa51eb9343b1e33f0b7315a4f53b765b6e487ab71915aa4a5a849cc4c8b90f4",
+    "profile": "33580495700baf6714eb7f92d74718c1b42b2d7596543bdf890fb57532a23481",
+    "context": "971bd5c74fca7669196aec984db4a3a3ed0415560a6197320f51366e56092a1d"
+  },
+  "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+}

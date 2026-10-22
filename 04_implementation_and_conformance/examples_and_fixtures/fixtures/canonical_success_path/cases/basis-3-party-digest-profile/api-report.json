@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "ofarm.canonicalSuccessfulPathVerificationReport.v0.1",
+  "disposition": "PASS",
+  "verificationScope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY",
+  "established": [
+    "ORIGINAL_SOURCE_BYTES_AND_SCHEMAS",
+    "COMPLETE_SELECTED_PATH_BASIS_CLOSURE",
+    "RESULT_TRACE_REQUEST_RULE_INTENT_SNAPSHOT_AGREEMENT",
+    "RETAINED_PATH_TUPLES_AND_SELECTION_CONSISTENT",
+    "SELECTED_OWNER_OUTPUT_INTEGRITY_COMPARED"
+  ],
+  "notEstablished": [
+    "AUTHORIZATION_ELIGIBILITY",
+    "PRINCIPAL_RESOLUTION_TRUST",
+    "CANDIDATE_SET_COMPLETENESS",
+    "CANONICAL_SELECTION_CORRECTNESS",
+    "OWNER_OUTPUT_RUNTIME_ORIGIN",
+    "SOURCE_CURRENTNESS_AND_MIGRATION",
+    "CP3_ADMISSION",
+    "RUNTIME_PROTECTION_OR_EFFECT_PERMISSION"
+  ],
+  "errors": [],
+  "selectedParty": "party:agent",
+  "sourceOrigin": "FICTIONAL_CONFORMANCE",
+  "inputDigests": {
+    "evidence": "dfc85cd3e282e905294b4aa476818432bcfa8ab45dfaa7a0a46e6cdd60267135",
+    "profile": "96e42ff1c70f0bd2fc8ad6015f0e5b5dd96aa01e33493cda9cfa7f74c1997ff5",
+    "context": "7ebf83e6113f08822469a8118c85ade62a6468efc82714fd5a96efd1fa049727"
+  },
+  "next": "Use only as a conditional integrity comparison; the authorization owner must establish every remaining duty before any effect."
+}

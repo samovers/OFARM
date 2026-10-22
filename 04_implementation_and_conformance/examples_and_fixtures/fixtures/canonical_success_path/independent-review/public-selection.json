@@ -1,0 +1,60 @@
+{
+  "status": "SELECTED_REVIEW_EVIDENCE_ONLY",
+  "candidateSealSha256": "b0b9ad7e281b50ffa32add2a3850ed6693b7bd76f57f3383633845089bdf1952",
+  "reviewSealSha256": "3a67c1a02a43da706617016e8df0962fd6bb73a32753baa03c8714a392d51376",
+  "files": [
+    {
+      "name": "review.md",
+      "sha256": "f38310bb3407a46d01ea37d218831e62dcf67a5b3b03acc162e052b24a99f954",
+      "bytes": 5813
+    },
+    {
+      "name": "review.json",
+      "sha256": "14c392bc3b8345cba3442c54c5f93f8ada303d5885f01a5735b54a42bc5f8116",
+      "bytes": 1713
+    },
+    {
+      "name": "review-seal.json",
+      "sha256": "3a67c1a02a43da706617016e8df0962fd6bb73a32753baa03c8714a392d51376",
+      "bytes": 331406
+    },
+    {
+      "name": "snapshot-manifest.json",
+      "sha256": "5d441027371a1b0d458a3ebd80a1ca6274894d84f7fc222117e2093d0ef8a1c0",
+      "bytes": 312478
+    },
+    {
+      "name": "api/independent-semantic-review.json",
+      "sha256": "80b88924414360298f174e7e9fbbc00207b22c1e9e1f2379fc120acd6443b293",
+      "bytes": 49278
+    },
+    {
+      "name": "imports/independent-import-review.json",
+      "sha256": "f30d023fea0d1611f957887b9ba74602649178a21bc00865b7d62e5d0765a2eb",
+      "bytes": 2114
+    },
+    {
+      "name": "installed-cli-results.json",
+      "sha256": "429b03833e9c2728ab17eb4c182579c09cd926d34907287658300347fa6803c8",
+      "bytes": 142578
+    }
+  ],
+  "historicalReview": {
+    "status": "SELECTED_REVIEW_EVIDENCE_ONLY",
+    "candidateSealSha256": "dc3581f2462b76fc24023ac1985d10d6450dee3cc764c414fb00699a87b45076",
+    "reviewSealSha256": "d24f6a2a52a8eb93ed47d4d7bee25b8768e9337d7e14b7dd1c9849a240adb97c",
+    "files": [
+      "review.json",
+      "review.md",
+      "public-api-review.json",
+      "snapshot-manifest.json",
+      "review-seal.json",
+      "independent_review.py"
+    ],
+    "fullSnapshotIncluded": false,
+    "note": "This is the selected review evidence, not the complete local snapshot archive. The original construction files are mapped by the committed integration map and sealed manifest."
+  },
+  "fullSnapshotIncluded": false,
+  "reproduction": "package_meta/history/clean_baseline_migration/phase_reports/canonical_success_path_review_repair_01/fresh-review/replay_independent_review.py",
+  "note": "Exact selected reports and manifests are included. The complete local frozen archive is not duplicated. The committed exact independent harnesses and replay recipe reconstruct the frozen candidate from verified integration-map bytes and rerun all 185 independent checks plus the 491 installed CLI cases."
+}
