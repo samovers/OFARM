@@ -47,22 +47,50 @@
             "maxLength": 4096
           },
           "binding": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "ref": {
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 4096
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  },
+                  "revisionRef": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  },
+                  "digest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "ref",
+                  "digest"
+                ]
               },
-              "digest": {
-                "type": "string",
-                "pattern": "^sha256:[0-9a-f]{64}$"
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  },
+                  "revisionRef": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  }
+                },
+                "required": [
+                  "ref"
+                ]
               }
-            },
-            "required": [
-              "ref",
-              "digest"
             ]
           },
           "rawSha256": {
@@ -76,6 +104,17 @@
           },
           "visibility": {
             "const": "COMMITTED_AT_TRANSACTION_START"
+          },
+          "digestMode": {
+            "enum": [
+              "JCS_JSON",
+              "RAW_BYTES"
+            ]
+          },
+          "revisionRef": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
           }
         },
         "required": [
@@ -84,6 +123,71 @@
           "rawSha256",
           "rowVersion",
           "visibility"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "required": [
+                "digestMode"
+              ],
+              "properties": {
+                "digestMode": {
+                  "const": "RAW_BYTES"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "binding": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "revisionRef": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    }
+                  },
+                  "required": [
+                    "ref"
+                  ]
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "binding": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "revisionRef": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    }
+                  },
+                  "required": [
+                    "ref",
+                    "digest"
+                  ]
+                }
+              }
+            }
+          }
         ]
       },
       "minItems": 0,
@@ -148,22 +252,59 @@
           "members": {
             "type": "array",
             "items": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "ref": {
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 4096
+              "oneOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "revisionRef": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    }
+                  },
+                  "required": [
+                    "ref",
+                    "digest"
+                  ]
                 },
-                "digest": {
-                  "type": "string",
-                  "pattern": "^sha256:[0-9a-f]{64}$"
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "revisionRef": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "digestMode": {
+                      "const": "RAW_BYTES"
+                    },
+                    "rawSha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  },
+                  "required": [
+                    "ref",
+                    "digestMode",
+                    "rawSha256"
+                  ]
                 }
-              },
-              "required": [
-                "ref",
-                "digest"
               ]
             },
             "minItems": 0,

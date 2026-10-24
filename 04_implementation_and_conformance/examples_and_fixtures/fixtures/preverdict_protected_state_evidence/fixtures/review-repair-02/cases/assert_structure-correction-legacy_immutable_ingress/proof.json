@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "ofarm.preVerdictProtectedStateProof.v0.1",
+  "proofId": "fixture:state-proof:assert_structure-correction-legacy_immutable_ingress",
+  "storageOwnerRef": "fixture:storage-owner:one",
+  "transactionAttemptId": "fixture:attempt:assert_structure-correction-legacy_immutable_ingress",
+  "context": {
+    "ref": "fixture:state-context:assert_structure-correction-legacy_immutable_ingress",
+    "digest": "sha256:4862941212fd21194a99fe7623b0c34242d6044f555ec398f0603fac5cc3f71e"
+  },
+  "snapshot": {
+    "ref": "fixture:snapshot:assert_structure-correction-legacy_immutable_ingress",
+    "digest": "sha256:291e413dc05d5429240c9b9863cbc17942931aa001e3434a30bd714793da5a06"
+  },
+  "guardPolicy": {
+    "ref": "fixture:guard-policy:one",
+    "digest": "sha256:e08f11a96b1db5c02c7243d23913dfada23983ea0444c969d6792207e26606bf"
+  },
+  "phase": "AFTER_PROPOSED_WRITES_BEFORE_DOMAIN_VERDICT",
+  "readGuards": [
+    {
+      "key": "intent",
+      "binding": {
+        "ref": "fixture:intent:assert_structure-correction-legacy_immutable_ingress",
+        "digest": "sha256:f96b5de529b57d39d4acb421a0e784fd25167d77261e4183e44a600e9ddd8073"
+      },
+      "rawSha256": "f41c54c7843ee326ec3badd85da9454f19d3a156b24068cd85fea5a2b1bfe9ab",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:intent",
+      "observedVersion": "fixture:row-version:intent"
+    },
+    {
+      "key": "transaction-profile",
+      "binding": {
+        "ref": "fixture:transaction-profile:assert_structure-correction-legacy_immutable_ingress",
+        "digest": "sha256:d0a3357cfcf6a96a79ebb6a796ab38b8d8ef947983b8359b12a5b3a897105d4a"
+      },
+      "rawSha256": "00df4bcc07d31e55c58a0cbe741421cc67c7e4d9732662453c1da349240edccd",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:transaction-profile",
+      "observedVersion": "fixture:row-version:transaction-profile"
+    },
+    {
+      "key": "time-policy",
+      "binding": {
+        "ref": "fixture:time-policy:one",
+        "digest": "sha256:3b0a158a8354924fd19aa850ee0a69e0db2d37326739c2eaa65a722d7bddde67"
+      },
+      "rawSha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:time-policy",
+      "observedVersion": "fixture:row-version:time-policy"
+    },
+    {
+      "key": "prior-record",
+      "binding": {
+        "ref": "assertion:field-17:pruning-operation-claim:2026-04-08",
+        "digest": "sha256:6c999d55e809d37e97b3bb82e850717c440be5f128b7c81b6ee542b7dc8914b3"
+      },
+      "rawSha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:prior-record",
+      "observedVersion": "fixture:row-version:prior-record"
+    },
+    {
+      "key": "prior-creation",
+      "binding": {
+        "ref": "fixture:prior-creation-extraction:assert_structure-correction-legacy_immutable_ingress",
+        "digest": "sha256:7348ee8dbc8310672a9e344873b50b13d0e04185c6abd8e93f31db42ebddd253"
+      },
+      "rawSha256": "5fbe2242036e60044dbfe0402f0adda24e02b2794e93f032685212c82c488bc8",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:prior-creation",
+      "observedVersion": "fixture:row-version:prior-creation"
+    },
+    {
+      "key": "prior-source",
+      "binding": {
+        "ref": "fixture:prior-creation-source:assert_structure-correction-legacy_immutable_ingress",
+        "digest": "sha256:0e11853f2070a775e509472d62694f48cab908685d14bc41badcafef0e1148d0"
+      },
+      "rawSha256": "43ca5fd6c9f0ef2761e65a3d55596f8fc5862276ab751b22e138b2ef19d41e52",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:prior-source",
+      "observedVersion": "fixture:row-version:prior-source"
+    }
+  ],
+  "negativeGuards": [
+    {
+      "key": "fixture:assertion:new:assert_structure-correction-legacy_immutable_ingress",
+      "predicateDigest": "sha256:5c92ed76d403db8c882aba59ae7e3c5d50dfc42dbae10dee6bb58d1a0906bbbf",
+      "purpose": "ASSERTION_ID_ABSENCE",
+      "snapshotVersion": "fixture:negative-version:one",
+      "observedVersion": "fixture:negative-version:one",
+      "observation": "ABSENT"
+    }
+  ],
+  "setGuards": [
+    {
+      "key": "fixture:eligibility-set:one",
+      "predicateDigest": "sha256:5dc6d33d2d3bf6baf5ffec0391f231cb153c7f710da674090bb39d194261f93d",
+      "members": [
+        {
+          "ref": "fixture:intent:assert_structure-correction-legacy_immutable_ingress",
+          "digest": "sha256:f96b5de529b57d39d4acb421a0e784fd25167d77261e4183e44a600e9ddd8073"
+        }
+      ],
+      "snapshotVersion": "fixture:set-version:one",
+      "observedVersion": "fixture:set-version:one"
+    }
+  ],
+  "proposedDomainWrites": [
+    {
+      "operation": "INSERT",
+      "recordType": "AssertionRecord",
+      "key": "fixture:assertion:new:assert_structure-correction-legacy_immutable_ingress",
+      "binding": {
+        "ref": "fixture:assertion:new:assert_structure-correction-legacy_immutable_ingress",
+        "digest": "sha256:90cba3709ff7508b636917dc62f2e80df2305866883a49a5aec0262f1466d2cd"
+      },
+      "rawSha256": "041c030054fb754fa9555c058cf68bc0a66948930ffbb5bc0bbb675bc401116c"
+    }
+  ]
+}

@@ -283,12 +283,32 @@
             "sourceRef",
             "pointer"
           ]
+        },
+        "creationKind": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "sourceRef": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "pointer": {
+              "type": "string",
+              "pattern": "^(?:/(?:[^~]|~[01])*)?$"
+            }
+          },
+          "required": [
+            "sourceRef",
+            "pointer"
+          ]
         }
       },
       "required": [
         "priorRecordBinding",
         "governanceContext",
-        "recordedAnchorScopes"
+        "recordedAnchorScopes",
+        "creationKind"
       ]
     }
   },

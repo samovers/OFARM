@@ -16,10 +16,14 @@ Run the opt-in local checks from the repository root:
 python3 -B 04_implementation_and_conformance/conformance_runners/ofarm_preverdict_protected_state_v0_1.py
 ```
 
-The API is verify_state(proof_bytes, *, package_root, selected, context_bytes, policy_bytes, snapshot_bytes, records, source_root=None). records maps exact logical refs to original UTF-8 JSON bytes. selected has contractRawSha256, contextRawSha256, policyRawSha256 and proofBinding. Refer to the schemas and complete fictional cases for exact fields. The CLI accepts explicit local files and writes one report; records-manifest paths must stay within its directory.
+The API is verify_state(proof_bytes, *, package_root, selected, context_bytes, policy_bytes, snapshot_bytes, records, source_root=None). records maps exact logical refs to original bytes. Structured reads use `JCS_JSON` (also the meaning when digestMode is absent); selected supporting reads can use `RAW_BYTES` with only a raw SHA-256 content pin and no JCS digest. Full read facts retain roles, revisions, availability and guard versions. Required creation-route facts are derived from original committed sources, and recognized current-attempt later artifacts are rejected. selected has contractRawSha256, contextRawSha256, policyRawSha256 and proofBinding. Refer to PROPOSAL.md, the schemas and complete fictional cases for exact fields and owner responsibilities. The CLI accepts explicit local files and writes one report; records-manifest paths must stay within its directory.
 
 This is a separate prerequisite for #47. It does not complete the domain verifier. All active/default choices, default validation commands and workflow files remain unchanged. OFARM2 #392/#396 stay parked and #421 remains separate. Runtime work, CI activation and merge are separate.
 
-Independent review passed 94 checks and replayed all 111 owner checks with no actionable findings within the declared conditional scope. See REVIEW.md.
+The historical local review reported 94 checks and replayed 111 owner checks. Its complete archive was not published, so those 94 checks are not independently replayable from the original PR and do not validate this repair. The opt-in runner now also runs the published review-repair regressions. To retain every generated input and output, run `run_review_repair_02.py --output-dir <local-output-directory>` from the checker directory. See REVIEW.md for the separate fresh review status.
 
-Next: review the separate draft and bind its exact interface in #47.
+Next: independently review the repaired draft before a separate consumer binding decision; the saved #47 runtime stays unchanged.
+
+The independently authored probe generator is published as `run_independent_review_02.py`. It has its own binding and case construction, rather than importing either authored test generator. From the checker directory, run `PYTHONDONTWRITEBYTECODE=1 python3 -B run_independent_review_02.py --output-dir <local-output-directory>` and then the same command with `--replay-cli`. The output contains every generated original, selection, guard and report. The portable copy's path/exit-code changes and exact public #56 fixture origin are recorded in `fixtures/review-repair-02/independent-generator-origin.json` under the fixture package. Executing these probes is a replay of technical checks, not new owner or human approval.
+
+Next: inspect the separate fresh-review result before any consumer binding decision; runtime integration remains outside this draft.

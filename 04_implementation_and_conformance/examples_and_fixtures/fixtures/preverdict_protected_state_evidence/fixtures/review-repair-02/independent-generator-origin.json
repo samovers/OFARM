@@ -1,0 +1,19 @@
+{
+  "kind": "PORTABLE_COPY_OF_INDEPENDENT_AI_REVIEW_GENERATOR",
+  "originalScriptRawSha256": "3f3ec1784da6d60bce52fdd686381590bf64f1756389750cafe7ebd27c5662ca",
+  "copyChanges": [
+    "Resolve package and fixtures from repository root; require an explicit output directory.",
+    "Read the unchanged authorization wire from this fixture directory.",
+    "Exit nonzero when independent expectations are unmet."
+  ],
+  "caseExpectationsChanged": false,
+  "authorizationWire": {
+    "sourceCommit": "b1bf4f56fbdff604e9f5610cc29e8b3e9b31a224",
+    "sourcePath": "04_implementation_and_conformance/examples_and_fixtures/fixtures/canonical_success_path/examples/basis-1-party/wire.json",
+    "sourceUrl": "https://github.com/samovers/OFARM/blob/b1bf4f56fbdff604e9f5610cc29e8b3e9b31a224/04_implementation_and_conformance/examples_and_fixtures/fixtures/canonical_success_path/examples/basis-1-party/wire.json",
+    "rawSha256": "2973eeb66309afa6448c75afd3e53c9e86aa13102f66deabb29f21552ccef15f",
+    "purpose": "Byte custody only; no authorization owner implementation or acceptance is incorporated."
+  },
+  "runtimeProtection": "NOT_ESTABLISHED",
+  "next": "Run the published generator and CLI replay against the freshly reviewed contract."
+}

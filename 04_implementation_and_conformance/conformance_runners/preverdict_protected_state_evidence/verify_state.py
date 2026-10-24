@@ -160,6 +160,8 @@ def verify_state(proof_bytes, *, package_root, selected, context_bytes, policy_b
         raws = [proof_bytes, context_bytes, policy_bytes, snapshot_bytes, *records.values()]
         if not all(isinstance(v, bytes) for v in raws) or sum(len(v) for v in raws) > MAX_BUNDLE:
             raise InputError('Input bundle exceeds 16 MiB or contains values other than bytes.')
+        if any(len(v) > MAX_BYTES for v in raws):
+            raise InputError('An input record exceeds 2 MiB.')
         contract_raw = safe_path(root, 'contract.json').read_bytes()
         contract = strict_json(contract_raw)
         if not isinstance(selected, dict) or sha(contract_raw) != selected.get('contractRawSha256'):
@@ -209,7 +211,20 @@ def verify_state(proof_bytes, *, package_root, selected, context_bytes, policy_b
             return finish()
         if sha(context_bytes) != selected['contextRawSha256'] or sha(policy_bytes) != selected['policyRawSha256']:
             raise InputError('Context or policy does not match independent selected raw hash.')
-        parsed = {key: strict_json(raw) for key, raw in records.items()}
+        def mode(spec):
+            return spec.get('digestMode', 'JCS_JSON')
+        modes = {}
+        for spec in context['requiredReads']:
+            ref = spec['binding']['ref']
+            if ref in modes and modes[ref] != mode(spec):
+                raise InputError('One ref cannot use more than one digest mode: ' + ref)
+            modes[ref] = mode(spec)
+        # Core records and source-pointer inputs keep their structured meaning.
+        structured = [context[k] for k in ['effectIntent', 'transactionProfile', 'transactionTimePolicy', 'proposedAssertion']]
+        structured += list(context.get('priorAssertion', {}).values())
+        if any(modes.get(s['binding']['ref'], 'JCS_JSON') != 'JCS_JSON' for s in structured):
+            raise InputError('A structured core input cannot be selected as RAW_BYTES.')
+        parsed = {key: strict_json(raw) for key, raw in records.items() if modes.get(key, 'JCS_JSON') == 'JCS_JSON'}
         for value in parsed.values():
             canonical(value)
         # Canonical timestamp spelling is inherited verbatim from the actual
@@ -248,9 +263,33 @@ def verify_state(proof_bytes, *, package_root, selected, context_bytes, policy_b
             return result
         def verify_bytes(spec, label):
             ref = spec['binding']['ref']
-            ok = ref in parsed and spec['binding']['digest'] == digest(parsed[ref]) and spec['rawSha256'] == sha(records[ref])
-            check('BYTES_' + label, ok, 'Exact JCS binding and original raw bytes: ' + ref)
+            raw_mode = mode(spec) == 'RAW_BYTES'
+            ok = ref in records and spec['rawSha256'] == sha(records[ref])
+            ok = ok and (('digest' not in spec['binding']) if raw_mode else
+                         (ref in parsed and spec['binding'].get('digest') == digest(parsed[ref])))
+            check('BYTES_' + label, ok, 'Exact selected digest mode and original raw bytes: ' + ref)
             return parsed.get(ref) if ok else None
+        def content_selection(spec):
+            return {k: spec[k] for k in ['binding', 'rawSha256', 'revisionRef'] if k in spec} | {'digestMode': mode(spec)}
+        def revision_consistent(spec):
+            return ('revisionRef' not in spec or 'revisionRef' not in spec['binding'] or
+                    spec['revisionRef'] == spec['binding']['revisionRef'])
+        def late_artifact(value):
+            if not isinstance(value, dict):
+                return False
+            current = attempt['transactionAttemptId']
+            artifact_attempt = value.get('attempt', {})
+            tied = (value.get('transactionAttemptId') == current or
+                    isinstance(artifact_attempt, dict) and artifact_attempt.get('transactionAttemptId') == current)
+            schema = value.get('schemaVersion')
+            known_late = isinstance(schema, str) and schema in {'ofarm.notRequiredGovernedEffectReceipt.v0.1',
+                                   'ofarm.notRequiredDecisionConsumption.v0.1',
+                                   'ofarm.notRequiredTransactionAttempt.v0.1'}
+            late_shape = ('checkpoint' in value or 'gateTraces' in value or
+                          'governedEffectReceiptDigest' in value or 'decisionConsumptionDigest' in value or
+                          'authorizationEvaluatedAt' in value and 'writeAuthorizationCheckedAt' in value or
+                          'gateId' in value and 'disposition' in value)
+            return tied and (known_late or late_shape)
         read_specs = by_key(context['requiredReads'], 'context.requiredReads')
         reads = by_key(proof['readGuards'], 'proof.readGuards')
         positives = by_key(snapshot['positiveRecords'], 'snapshot.positiveRecords')
@@ -267,25 +306,43 @@ def verify_state(proof_bytes, *, package_root, selected, context_bytes, policy_b
         # One ref must have one immutable source meaning in this attempt. Multiple
         # roles can be represented by distinct keys with exactly identical bytes.
         ref_specs = {}
+        ref_guards = {}
         for key, spec in read_specs.items():
             ref = spec['binding']['ref']
-            bytespec = {k: spec[k] for k in ['binding', 'rawSha256']}
+            bytespec = content_selection(spec)
+            guarded_spec = bytespec | {k: spec[k] for k in ['availability', 'fixedInputVersion'] if k in spec}
             if ref in ref_specs:
-                check('REF_CONSISTENCY_' + key, equal(ref_specs[ref], bytespec), 'Repeated logical ref resolves to identical selected bytes.')
-            ref_specs[ref] = bytespec
+                check('REF_CONSISTENCY_' + key, equal(ref_specs[ref], guarded_spec), 'Repeated refs keep the same bytes, revision, digest mode, availability and fixed version.')
+            ref_specs[ref] = guarded_spec
+            check('READ_REVISION_' + key, revision_consistent(spec), 'Outer and binding revision selectors do not disagree.')
             verify_bytes(spec, key)
+            # A RAW_BYTES selection does not hide a recognized JSON later artifact.
+            # Parsing here is detection only; it neither changes the original pin
+            # nor imposes I-JSON/JCS requirements on opaque source bytes.
+            value = parsed.get(ref)
+            if mode(spec) == 'RAW_BYTES' and ref in records:
+                try:
+                    value = json.loads(records[ref].decode('utf-8'))
+                except (UnicodeError, ValueError, RecursionError):
+                    value = None
+            check('NO_LATER_ARTIFACT_' + key, not late_artifact(value), 'A recognized current-attempt later transaction artifact cannot be pre-verdict input.')
             if key in reads:
                 guard = reads[key]
                 check('READ_AVAILABILITY_' + key, spec['availability'] == guard['availability'], 'The guard preserves the independently selected input availability posture.')
+                check('GUARD_REVISION_' + key, revision_consistent(guard), 'The guard revision selectors agree.')
+                versions = {k: guard[k] for k in ['snapshotVersion', 'fixedInputVersion', 'observedVersion'] if k in guard}
+                if ref in ref_guards:
+                    check('REF_GUARD_CONSISTENCY_' + key, equal(ref_guards[ref], versions), 'Repeated refs have one exact guarded version.')
+                ref_guards[ref] = versions
             if key in reads and spec['availability'] == 'COMMITTED_AT_TRANSACTION_START' and key in positives and reads[key]['availability'] == spec['availability']:
                 guard, observed = reads[key], positives[key]
                 check('READ_BINDING_' + key,
-                      all(equal(spec[k], guard[k]) and equal(spec[k], observed[k]) for k in ['binding', 'rawSha256']),
+                      equal(bytespec, content_selection(guard)) and equal(bytespec, content_selection(observed)) and revision_consistent(observed),
                       'The input, positive snapshot and read guard bind the same immutable bytes.')
                 check('READ_VERSION_' + key, observed['rowVersion'] == guard['snapshotVersion'] == guard['observedVersion'], 'The read version is unchanged at the pre-verdict observation.')
             elif key in reads and spec['availability'] == 'FIXED_BEFORE_DOMAIN_VERDICT' and reads[key]['availability'] == spec['availability']:
                 guard = reads[key]
-                check('FIXED_INPUT_BINDING_' + key, all(equal(spec[k], guard[k]) for k in ['binding', 'rawSha256']), 'Exact bytes fixed before the domain verdict are guarded without claiming transaction-start visibility.')
+                check('FIXED_INPUT_BINDING_' + key, equal(bytespec, content_selection(guard)), 'Exact bytes fixed before the domain verdict are guarded without claiming transaction-start visibility.')
                 check('FIXED_INPUT_VERSION_' + key, spec['fixedInputVersion'] == guard['fixedInputVersion'] == guard['observedVersion'], 'The independently selected fixed input version is unchanged.')
         for key, spec in negatives.items():
             if key in negative_guards and key in negative_snap:
@@ -300,7 +357,16 @@ def verify_state(proof_bytes, *, package_root, selected, context_bytes, policy_b
                 members = spec['members']
                 check('SET_UNIQUE_' + key, len({v['ref'] for v in members}) == len(members), 'Set member logical refs are unique.')
                 positive_refs = {v['binding']['ref'] for v in positives.values()}
-                check('SET_MEMBERS_' + key, all(v['ref'] in positive_refs and v['ref'] in ref_specs and equal(v, ref_specs[v['ref']]['binding']) for v in members), 'Every snapshot set member has an exact committed positive read and guard.')
+                def member_matches(v):
+                    ref = v['ref']
+                    if ref not in positive_refs or ref not in ref_specs:
+                        return False
+                    selected_read = ref_specs[ref]
+                    expected = selected_read['binding']
+                    if selected_read['digestMode'] == 'RAW_BYTES':
+                        expected = expected | {'digestMode': 'RAW_BYTES', 'rawSha256': selected_read['rawSha256']}
+                    return equal(v, expected)
+                check('SET_MEMBERS_' + key, all(member_matches(v) for v in members), 'Every snapshot set member has an exact committed positive read and guard, preserving its digest mode.')
         proposed = verify_bytes(context['proposedAssertion'], 'PROPOSED_ASSERTION')
         for label, role in [('effectIntent', 'EFFECT_INTENT'), ('transactionProfile', 'TRANSACTION_PROFILE'), ('transactionTimePolicy', 'TRANSACTION_TIME_POLICY')]:
             verify_bytes(context[label], label)
@@ -316,7 +382,9 @@ def verify_state(proof_bytes, *, package_root, selected, context_bytes, policy_b
         check('RESULT_ABSENCE_GUARD', len(unique) == 1 and unique[0]['key'] == context['proposedAssertionId'] and unique[0]['predicateDigest'] == expected_predicate,
               'Exactly one absence guard protects this proposed AssertionRecord ID.')
         facts = {'snapshotBinding': sb, 'proposedResult': context['proposedAssertion'],
-                 'readBindings': [{k: v[k] for k in ['binding', 'rawSha256']} for v in read_specs.values()]}
+                 'readBindings': [v | {'digestMode': mode(v)} |
+                                  {k: reads[key][k] for k in ['snapshotVersion', 'observedVersion'] if k in reads.get(key, {})}
+                                  for key, v in read_specs.items()]}
         if 'priorAssertion' in context:
             prior = context['priorAssertion']
             prior_value = verify_bytes(prior['record'], 'PRIOR_RECORD')
@@ -337,12 +405,13 @@ def verify_state(proof_bytes, *, package_root, selected, context_bytes, policy_b
                     if ref in sources:
                         error('DUPLICATE_CREATION_SOURCE', '', 'Duplicate creation source ref: ' + ref)
                     value = verify_bytes(spec, 'CREATION_SOURCE')
-                    check('CREATION_SOURCE_READ_' + ref, ref in ref_specs and equal(spec, ref_specs[ref]), 'Original creation/ingress bytes are a protected immutable read.')
+                    check('CREATION_SOURCE_READ_' + ref, ref in ref_specs and mode(ref_specs[ref]) == 'JCS_JSON' and
+                          all(equal(spec[k], ref_specs[ref][k]) for k in ['binding', 'rawSha256']), 'Original creation/ingress bytes are a structured protected immutable read.')
                     check('CREATION_SOURCE_COMMITTED_' + ref,
                           any(s['binding']['ref'] == ref and s['availability'] == 'COMMITTED_AT_TRANSACTION_START' for s in read_specs.values()),
                           'Original creation/ingress source bytes were committed and visible at transaction start; a later current-attempt receipt cannot supply them.')
                     sources[ref] = value
-                values = {'priorRecordBinding': prior['record']['binding'], 'governanceContext': creation['governanceContext'], 'recordedAnchorScopes': creation['recordedAnchorScopes']}
+                values = {'creationKind': creation['creationKind'], 'priorRecordBinding': prior['record']['binding'], 'governanceContext': creation['governanceContext'], 'recordedAnchorScopes': creation['recordedAnchorScopes']}
                 if 'creatorAttemptId' in creation:
                     values['creatorAttemptId'] = creation['creatorAttemptId']
                 for key, derivation in creation['sourceDerivations'].items():
@@ -352,7 +421,7 @@ def verify_state(proof_bytes, *, package_root, selected, context_bytes, policy_b
                     except (KeyError, InputError):
                         ok = False
                     check('CREATION_DERIVATION_' + key, ok, 'Exact source JSON pointer yields the bound ' + key + '.')
-                facts.update(priorRecord=prior['record'], priorCreationEvidence=prior['creationEvidence'],
+                facts.update(priorRecord=prior['record'], priorCreationEvidence=prior['creationEvidence'], priorCreationKind=creation['creationKind'],
                              priorGovernanceContext=creation['governanceContext'], priorRecordedAnchorScopes=creation['recordedAnchorScopes'])
         report['status'] = 'FAIL' if report['errors'] else 'CONDITIONAL_CONFORMANCE_PASS'
         if not report['errors']:

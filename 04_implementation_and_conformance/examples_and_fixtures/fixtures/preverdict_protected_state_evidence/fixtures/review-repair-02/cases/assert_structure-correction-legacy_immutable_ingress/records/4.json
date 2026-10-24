@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "ofarm.priorAssertionCreationContextEvidence.v0.1",
+  "creationEvidenceId": "fixture:prior-creation-extraction:assert_structure-correction-legacy_immutable_ingress",
+  "storageOwnerRef": "fixture:storage-owner:one",
+  "creationKind": "LEGACY_IMMUTABLE_INGRESS",
+  "priorRecord": {
+    "binding": {
+      "ref": "assertion:field-17:pruning-operation-claim:2026-04-08",
+      "digest": "sha256:6c999d55e809d37e97b3bb82e850717c440be5f128b7c81b6ee542b7dc8914b3"
+    },
+    "rawSha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404"
+  },
+  "sourceRecords": [
+    {
+      "binding": {
+        "ref": "fixture:prior-creation-source:assert_structure-correction-legacy_immutable_ingress",
+        "digest": "sha256:0e11853f2070a775e509472d62694f48cab908685d14bc41badcafef0e1148d0"
+      },
+      "rawSha256": "43ca5fd6c9f0ef2761e65a3d55596f8fc5862276ab751b22e138b2ef19d41e52"
+    }
+  ],
+  "governanceContext": {
+    "boundaryKind": "TENANT",
+    "boundaryRef": "fixture:tenant:one",
+    "twin": {
+      "posture": "APPLICABLE",
+      "twinRef": "fixture:twin:one"
+    }
+  },
+  "recordedAnchorScopes": [
+    {
+      "scopeType": "FIELD",
+      "scopeRef": "field:17"
+    }
+  ],
+  "sourceDerivations": {
+    "priorRecordBinding": {
+      "sourceRef": "fixture:prior-creation-source:assert_structure-correction-legacy_immutable_ingress",
+      "pointer": "/record"
+    },
+    "governanceContext": {
+      "sourceRef": "fixture:prior-creation-source:assert_structure-correction-legacy_immutable_ingress",
+      "pointer": "/governance"
+    },
+    "recordedAnchorScopes": {
+      "sourceRef": "fixture:prior-creation-source:assert_structure-correction-legacy_immutable_ingress",
+      "pointer": "/anchors"
+    },
+    "creationKind": {
+      "sourceRef": "fixture:prior-creation-source:assert_structure-correction-legacy_immutable_ingress",
+      "pointer": "/creationKind"
+    }
+  }
+}

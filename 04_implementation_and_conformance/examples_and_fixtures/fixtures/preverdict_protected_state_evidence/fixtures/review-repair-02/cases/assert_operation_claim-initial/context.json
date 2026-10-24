@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "ofarm.preVerdictProtectedStateContext.v0.1",
+  "contextId": "fixture:state-context:assert_operation_claim-initial",
+  "storageOwnerRef": "fixture:storage-owner:one",
+  "attempt": {
+    "transactionAttemptId": "fixture:attempt:assert_operation_claim-initial",
+    "attemptSequence": 1,
+    "transactionStartedAt": "2026-10-21T08:00:00Z",
+    "transactionDeadline": "2026-10-21T08:00:05Z",
+    "transactionSnapshot": {
+      "ref": "fixture:snapshot:assert_operation_claim-initial",
+      "digest": "sha256:e8a0aa27be1d49feadff0dc707ce777b59eaa902dae37fe32d0e4d4a6ffe8dde"
+    },
+    "atomicPersistenceBoundaryRef": "fixture:atomic-boundary:one",
+    "guardPolicyBinding": {
+      "ref": "fixture:guard-policy:one",
+      "digest": "sha256:e08f11a96b1db5c02c7243d23913dfada23983ea0444c969d6792207e26606bf"
+    },
+    "transactionStatusLookupKey": "fixture:lookup:assert_operation_claim-initial",
+    "transactionTimePolicyBinding": {
+      "ref": "fixture:time-policy:one",
+      "digest": "sha256:3b0a158a8354924fd19aa850ee0a69e0db2d37326739c2eaa65a722d7bddde67"
+    }
+  },
+  "actionClass": "ASSERT_OPERATION_CLAIM",
+  "effectIntent": {
+    "binding": {
+      "ref": "fixture:intent:assert_operation_claim-initial",
+      "digest": "sha256:fa87deddfda1881cc5103ccec4cd07294e5e0a0215744d4112c89fe764591628"
+    },
+    "rawSha256": "d6013b5cdd9b37845e3c1a7209b9a3fb00654443a8277f2bea376b9f482ffe29"
+  },
+  "proposedAssertion": {
+    "binding": {
+      "ref": "fixture:assertion:new:assert_operation_claim-initial",
+      "digest": "sha256:cb5413e5ae292feb21c542997fe39ce9652fa62c9d76b97f4bfafcc5902b67cd"
+    },
+    "rawSha256": "12f6f8f1b58aed622d01cc14c0cfffe18a40b978df0c0e2c48e6a7539810cd55"
+  },
+  "proposedAssertionId": "fixture:assertion:new:assert_operation_claim-initial",
+  "transactionProfile": {
+    "binding": {
+      "ref": "fixture:transaction-profile:assert_operation_claim-initial",
+      "digest": "sha256:99ca60c0c70bb80e7945cb5f021a5a48b1d4818e6cc04f534af497ee0f4cd562"
+    },
+    "rawSha256": "e76d1587e1993486a79703ac1e9994fefe0fce9507774d1099a6fce7e96c50c0"
+  },
+  "transactionTimePolicy": {
+    "binding": {
+      "ref": "fixture:time-policy:one",
+      "digest": "sha256:3b0a158a8354924fd19aa850ee0a69e0db2d37326739c2eaa65a722d7bddde67"
+    },
+    "rawSha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244"
+  },
+  "requiredReads": [
+    {
+      "key": "intent",
+      "role": "EFFECT_INTENT",
+      "binding": {
+        "ref": "fixture:intent:assert_operation_claim-initial",
+        "digest": "sha256:fa87deddfda1881cc5103ccec4cd07294e5e0a0215744d4112c89fe764591628"
+      },
+      "rawSha256": "d6013b5cdd9b37845e3c1a7209b9a3fb00654443a8277f2bea376b9f482ffe29",
+      "availability": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "transaction-profile",
+      "role": "TRANSACTION_PROFILE",
+      "binding": {
+        "ref": "fixture:transaction-profile:assert_operation_claim-initial",
+        "digest": "sha256:99ca60c0c70bb80e7945cb5f021a5a48b1d4818e6cc04f534af497ee0f4cd562"
+      },
+      "rawSha256": "e76d1587e1993486a79703ac1e9994fefe0fce9507774d1099a6fce7e96c50c0",
+      "availability": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "time-policy",
+      "role": "TRANSACTION_TIME_POLICY",
+      "binding": {
+        "ref": "fixture:time-policy:one",
+        "digest": "sha256:3b0a158a8354924fd19aa850ee0a69e0db2d37326739c2eaa65a722d7bddde67"
+      },
+      "rawSha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "availability": "COMMITTED_AT_TRANSACTION_START"
+    }
+  ],
+  "requiredNegativeReads": [
+    {
+      "key": "fixture:assertion:new:assert_operation_claim-initial",
+      "predicateDigest": "sha256:eee702df201c8218111bd989435c571c41adbb5daa0e7708b0864ef0831ed3a4",
+      "purpose": "ASSERTION_ID_ABSENCE"
+    }
+  ],
+  "requiredSetReads": [
+    {
+      "key": "fixture:eligibility-set:one",
+      "predicateDigest": "sha256:5dc6d33d2d3bf6baf5ffec0391f231cb153c7f710da674090bb39d194261f93d",
+      "members": [
+        {
+          "ref": "fixture:intent:assert_operation_claim-initial",
+          "digest": "sha256:fa87deddfda1881cc5103ccec4cd07294e5e0a0215744d4112c89fe764591628"
+        }
+      ]
+    }
+  ],
+  "governanceContext": {
+    "boundaryKind": "TENANT",
+    "boundaryRef": "fixture:tenant:one",
+    "twin": {
+      "posture": "APPLICABLE",
+      "twinRef": "fixture:twin:one"
+    }
+  },
+  "proofId": "fixture:state-proof:assert_operation_claim-initial"
+}
