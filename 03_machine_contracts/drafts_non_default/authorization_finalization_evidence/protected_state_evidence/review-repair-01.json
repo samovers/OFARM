@@ -1,0 +1,8 @@
+{
+  "revision": "review-repair-01",
+  "finding": "Self-review: requiring a creator transaction-attempt identifier for legacy immutable ingress narrows the reviewed PR23 section5.5 target support; that source does not require a legacy attempt identifier.",
+  "repair": "Preserve optional original creator identity if present; require it only for governed-receipt extraction. Establish historical creation-source availability through exact committed transaction-start snapshot reads rather than inventing a legacy attempt ID.",
+  "primaryTrustBoundary": "Transaction and history evidence for protected proposed state",
+  "scopeStayedInsideBoundary": true,
+  "originalSealSha256": "76a2ee71df7e46ec3a088e0cf4333563b3c5d3c1d1aaea1c02e78ec97e56896f"
+}

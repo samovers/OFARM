@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "ofarm.preVerdictGuardPolicy.v0.1",
+  "policyId": "fixture:guard-policy:one",
+  "storageOwnerRef": "fixture:storage-owner:one",
+  "atomicPersistenceBoundaryRef": "fixture:atomic-boundary:one",
+  "proofMode": "OPTIMISTIC_COMPARE_COMMIT",
+  "observationPhase": "AFTER_PROPOSED_WRITES_BEFORE_DOMAIN_VERDICT",
+  "writeBoundary": "ONE_ASSERTION_INSERT_ONLY",
+  "guardContinuity": "RECHECK_ALL_READ_NEGATIVE_SET_AND_WRITE_GUARDS_THROUGH_COMMIT",
+  "reuse": "IDENTICAL_INPUTS_SAME_ATTEMPT_REEVALUATION_ONLY",
+  "domainInputCompletenessOwner": "CONSUMING_DOMAIN_CONTRACT"
+}

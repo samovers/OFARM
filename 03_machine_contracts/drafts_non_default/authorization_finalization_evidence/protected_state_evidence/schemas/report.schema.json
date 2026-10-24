@@ -1,0 +1,604 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/protected-state-evidence/report/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.preVerdictProtectedStateReport.v0.1"
+    },
+    "status": {
+      "enum": [
+        "CONDITIONAL_CONFORMANCE_PASS",
+        "FAIL",
+        "INPUT_ERROR",
+        "DEPENDENCY_UNAVAILABLE"
+      ]
+    },
+    "runtimeProtection": {
+      "const": "NOT_ESTABLISHED"
+    },
+    "laterTransactionGate": {
+      "const": "NOT_EVALUATED"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "path": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "required": [
+          "code",
+          "path",
+          "detail"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 131072
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "disposition": {
+            "enum": [
+              "PASS",
+              "FAIL"
+            ]
+          },
+          "detail": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "required": [
+          "id",
+          "disposition",
+          "detail"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 131072
+    },
+    "bindings": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ref": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "digest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "ref",
+          "digest"
+        ]
+      }
+    },
+    "facts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "snapshotBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "ref",
+            "digest"
+          ]
+        },
+        "proposedResult": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ref": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "digest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "ref",
+                "digest"
+              ]
+            },
+            "rawSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "binding",
+            "rawSha256"
+          ]
+        },
+        "readBindings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "key": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "role": {
+                "enum": [
+                  "EFFECT_INTENT",
+                  "ASSERTION_ACT",
+                  "SUBJECT",
+                  "SCOPE",
+                  "RELATIONSHIP_PROOF",
+                  "SEMANTIC_EVENT",
+                  "EVENT_INGRESS_PROOF",
+                  "EVIDENCE",
+                  "PAYLOAD",
+                  "PRIOR_ASSERTION",
+                  "PRIOR_CREATION_EVIDENCE",
+                  "RULE",
+                  "EVIDENCE_POLICY",
+                  "AUTHORIZATION_VIEW",
+                  "TRANSACTION_TIME_POLICY",
+                  "TRANSACTION_PROFILE",
+                  "OTHER_DOMAIN_INPUT"
+                ]
+              },
+              "binding": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "ref": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 4096
+                      },
+                      "revisionRef": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 4096
+                      },
+                      "digest": {
+                        "type": "string",
+                        "pattern": "^sha256:[0-9a-f]{64}$"
+                      }
+                    },
+                    "required": [
+                      "ref",
+                      "digest"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "ref": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 4096
+                      },
+                      "revisionRef": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 4096
+                      }
+                    },
+                    "required": [
+                      "ref"
+                    ]
+                  }
+                ]
+              },
+              "rawSha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "revisionRef": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "availability": {
+                "enum": [
+                  "COMMITTED_AT_TRANSACTION_START",
+                  "FIXED_BEFORE_DOMAIN_VERDICT"
+                ]
+              },
+              "fixedInputVersion": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "digestMode": {
+                "enum": [
+                  "JCS_JSON",
+                  "RAW_BYTES"
+                ]
+              },
+              "snapshotVersion": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "observedVersion": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              }
+            },
+            "required": [
+              "key",
+              "role",
+              "binding",
+              "rawSha256",
+              "availability",
+              "digestMode",
+              "observedVersion"
+            ],
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "availability": {
+                      "const": "FIXED_BEFORE_DOMAIN_VERDICT"
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "fixedInputVersion"
+                  ]
+                },
+                "else": {
+                  "not": {
+                    "required": [
+                      "fixedInputVersion"
+                    ]
+                  }
+                }
+              },
+              {
+                "if": {
+                  "required": [
+                    "digestMode"
+                  ],
+                  "properties": {
+                    "digestMode": {
+                      "const": "RAW_BYTES"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "binding": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "ref": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 4096
+                        },
+                        "revisionRef": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 4096
+                        }
+                      },
+                      "required": [
+                        "ref"
+                      ]
+                    },
+                    "role": {
+                      "not": {
+                        "enum": [
+                          "EFFECT_INTENT",
+                          "TRANSACTION_PROFILE",
+                          "TRANSACTION_TIME_POLICY",
+                          "PRIOR_ASSERTION",
+                          "PRIOR_CREATION_EVIDENCE"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "else": {
+                  "properties": {
+                    "binding": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "ref": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 4096
+                        },
+                        "revisionRef": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 4096
+                        },
+                        "digest": {
+                          "type": "string",
+                          "pattern": "^sha256:[0-9a-f]{64}$"
+                        }
+                      },
+                      "required": [
+                        "ref",
+                        "digest"
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "availability": {
+                      "const": "COMMITTED_AT_TRANSACTION_START"
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "snapshotVersion"
+                  ]
+                },
+                "else": {
+                  "not": {
+                    "required": [
+                      "snapshotVersion"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 4096
+        },
+        "priorRecord": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ref": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "digest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "ref",
+                "digest"
+              ]
+            },
+            "rawSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "binding",
+            "rawSha256"
+          ]
+        },
+        "priorCreationEvidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ref": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "digest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "ref",
+                "digest"
+              ]
+            },
+            "rawSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "binding",
+            "rawSha256"
+          ]
+        },
+        "priorGovernanceContext": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "boundaryKind": {
+              "enum": [
+                "TENANT",
+                "DEPLOYMENT"
+              ]
+            },
+            "boundaryRef": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "twin": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "posture": {
+                      "const": "NOT_APPLICABLE"
+                    }
+                  },
+                  "required": [
+                    "posture"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "posture": {
+                      "const": "APPLICABLE"
+                    },
+                    "twinRef": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    }
+                  },
+                  "required": [
+                    "posture",
+                    "twinRef"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "boundaryKind",
+            "boundaryRef",
+            "twin"
+          ]
+        },
+        "priorRecordedAnchorScopes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "scopeType": {
+                "enum": [
+                  "FARM",
+                  "SITE",
+                  "FIELD",
+                  "ZONE",
+                  "CROP_CYCLE",
+                  "LOT",
+                  "FACILITY",
+                  "OPERATION",
+                  "DEPLOYMENT",
+                  "TENANT"
+                ]
+              },
+              "scopeRef": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "revisionRef": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "digest": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "scopeType",
+              "scopeRef"
+            ],
+            "not": {
+              "required": [
+                "revisionRef",
+                "digest"
+              ]
+            }
+          },
+          "minItems": 1,
+          "maxItems": 4096
+        },
+        "priorCreationKind": {
+          "enum": [
+            "PRIOR_GOVERNED_RECEIPT",
+            "LEGACY_IMMUTABLE_INGRESS"
+          ]
+        }
+      },
+      "required": [
+        "snapshotBinding",
+        "proposedResult",
+        "readBindings"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "status",
+    "runtimeProtection",
+    "laterTransactionGate",
+    "errors",
+    "checks",
+    "bindings"
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "ofarm.transactionStartSnapshotEvidence.v0.1",
+  "snapshotId": "fixture:snapshot:assert_compliance-correction-legacy_immutable_ingress",
+  "storageOwnerRef": "fixture:storage-owner:one",
+  "transactionAttemptId": "fixture:attempt:assert_compliance-correction-legacy_immutable_ingress",
+  "atomicPersistenceBoundaryRef": "fixture:atomic-boundary:one",
+  "snapshotToken": "fixture:immutable-start-snapshot-token:assert_compliance-correction-legacy_immutable_ingress",
+  "capturePhase": "TRANSACTION_START",
+  "positiveRecords": [
+    {
+      "key": "intent",
+      "binding": {
+        "ref": "fixture:intent:assert_compliance-correction-legacy_immutable_ingress",
+        "digest": "sha256:79e9acf821162a7ce5d4ac19cda1a8cdf6c9edc566718cee8d83814114c29d51"
+      },
+      "rawSha256": "a69980c17db996b434629f948757951454a9379ecfc479da6012bd3358d08663",
+      "rowVersion": "fixture:row-version:intent",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "transaction-profile",
+      "binding": {
+        "ref": "fixture:transaction-profile:assert_compliance-correction-legacy_immutable_ingress",
+        "digest": "sha256:09d68ab12d80c8562f7e436e92933232d50ef8b6239d167e2275fc348c4e8a4a"
+      },
+      "rawSha256": "f482b794fa55b8351966054dbfa10a5d48a72edec8c0862b4c03cbda1804fd15",
+      "rowVersion": "fixture:row-version:transaction-profile",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "time-policy",
+      "binding": {
+        "ref": "fixture:time-policy:one",
+        "digest": "sha256:3b0a158a8354924fd19aa850ee0a69e0db2d37326739c2eaa65a722d7bddde67"
+      },
+      "rawSha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "rowVersion": "fixture:row-version:time-policy",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "prior-record",
+      "binding": {
+        "ref": "assertion:field-17:pruning-operation-claim:2026-04-08",
+        "digest": "sha256:6c999d55e809d37e97b3bb82e850717c440be5f128b7c81b6ee542b7dc8914b3"
+      },
+      "rawSha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404",
+      "rowVersion": "fixture:row-version:prior-record",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "prior-creation",
+      "binding": {
+        "ref": "fixture:prior-creation-extraction:assert_compliance-correction-legacy_immutable_ingress",
+        "digest": "sha256:25cc9c3851cf4060a4378381a89a42e0f40f0edf1b2910db94000bc45b41e72e"
+      },
+      "rawSha256": "37d00ae9924a74141a1bf8cf29a8529f3cd1f93933b39999384809dda629d451",
+      "rowVersion": "fixture:row-version:prior-creation",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "prior-source",
+      "binding": {
+        "ref": "fixture:prior-creation-source:assert_compliance-correction-legacy_immutable_ingress",
+        "digest": "sha256:a35b3b7c8da9fac3f1d57401aab3e4717349049c478ab800d2a66ba07a8a330d"
+      },
+      "rawSha256": "c6ce2bac4d4b4e4859a032837ca462136a8e038eb2b489c4a2199f7df21b4d53",
+      "rowVersion": "fixture:row-version:prior-source",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    }
+  ],
+  "negativeRecords": [
+    {
+      "key": "fixture:assertion:new:assert_compliance-correction-legacy_immutable_ingress",
+      "predicateDigest": "sha256:1a6b852a8df74069b97fb9c8a7933bef9f570fac1a431da206b642a811e42604",
+      "purpose": "ASSERTION_ID_ABSENCE",
+      "guardVersion": "fixture:negative-version:one",
+      "observation": "ABSENT_AT_TRANSACTION_START"
+    }
+  ],
+  "setRecords": [
+    {
+      "key": "fixture:eligibility-set:one",
+      "predicateDigest": "sha256:5dc6d33d2d3bf6baf5ffec0391f231cb153c7f710da674090bb39d194261f93d",
+      "members": [
+        {
+          "ref": "fixture:intent:assert_compliance-correction-legacy_immutable_ingress",
+          "digest": "sha256:79e9acf821162a7ce5d4ac19cda1a8cdf6c9edc566718cee8d83814114c29d51"
+        }
+      ],
+      "guardVersion": "fixture:set-version:one"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "ofarm.transactionStartSnapshotEvidence.v0.1",
+  "snapshotId": "fixture:snapshot:assert_operation_claim-correction-prior_governed_receipt",
+  "storageOwnerRef": "fixture:storage-owner:one",
+  "transactionAttemptId": "fixture:attempt:assert_operation_claim-correction-prior_governed_receipt",
+  "atomicPersistenceBoundaryRef": "fixture:atomic-boundary:one",
+  "snapshotToken": "fixture:immutable-start-snapshot-token:assert_operation_claim-correction-prior_governed_receipt",
+  "capturePhase": "TRANSACTION_START",
+  "positiveRecords": [
+    {
+      "key": "intent",
+      "binding": {
+        "ref": "fixture:intent:assert_operation_claim-correction-prior_governed_receipt",
+        "digest": "sha256:eaa8c6942e6e82d1c5acef75f39c34e2980dc6919df29645c8882fa6aec47688"
+      },
+      "rawSha256": "f7f7849c9ad8a0861a52ea976786c8537f55069f7beb3fabff8f52c26141a678",
+      "rowVersion": "fixture:row-version:intent",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "transaction-profile",
+      "binding": {
+        "ref": "fixture:transaction-profile:assert_operation_claim-correction-prior_governed_receipt",
+        "digest": "sha256:99ca60c0c70bb80e7945cb5f021a5a48b1d4818e6cc04f534af497ee0f4cd562"
+      },
+      "rawSha256": "e76d1587e1993486a79703ac1e9994fefe0fce9507774d1099a6fce7e96c50c0",
+      "rowVersion": "fixture:row-version:transaction-profile",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "time-policy",
+      "binding": {
+        "ref": "fixture:time-policy:one",
+        "digest": "sha256:3b0a158a8354924fd19aa850ee0a69e0db2d37326739c2eaa65a722d7bddde67"
+      },
+      "rawSha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "rowVersion": "fixture:row-version:time-policy",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "prior-record",
+      "binding": {
+        "ref": "assertion:field-17:pruning-operation-claim:2026-04-08",
+        "digest": "sha256:6c999d55e809d37e97b3bb82e850717c440be5f128b7c81b6ee542b7dc8914b3"
+      },
+      "rawSha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404",
+      "rowVersion": "fixture:row-version:prior-record",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "prior-creation",
+      "binding": {
+        "ref": "fixture:prior-creation-extraction:assert_operation_claim-correction-prior_governed_receipt",
+        "digest": "sha256:cdc5c4bc75a983206390ddcc5c836c8ac056d13e963582a5c7462241bd105a48"
+      },
+      "rawSha256": "18cff6c397ea1f88deb1964e8d9e5caa7f3335c45da984405f86665feb4a3ca4",
+      "rowVersion": "fixture:row-version:prior-creation",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "prior-source",
+      "binding": {
+        "ref": "fixture:prior-creation-source:assert_operation_claim-correction-prior_governed_receipt",
+        "digest": "sha256:0e97a8c2b2f769d39f1f857b15944e1ab2cf086093d26d2d0bec4e5f25860446"
+      },
+      "rawSha256": "9f566a016a69ba3b479f115706670c1f77a968b7a357a528fba5a1d7f5fa6a71",
+      "rowVersion": "fixture:row-version:prior-source",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    }
+  ],
+  "negativeRecords": [
+    {
+      "key": "fixture:assertion:new:assert_operation_claim-correction-prior_governed_receipt",
+      "predicateDigest": "sha256:ea5896b17aab062241b3eab57880e9f7195d2915fcf9374eb82f083795074f2b",
+      "purpose": "ASSERTION_ID_ABSENCE",
+      "guardVersion": "fixture:negative-version:one",
+      "observation": "ABSENT_AT_TRANSACTION_START"
+    }
+  ],
+  "setRecords": [
+    {
+      "key": "fixture:eligibility-set:one",
+      "predicateDigest": "sha256:5dc6d33d2d3bf6baf5ffec0391f231cb153c7f710da674090bb39d194261f93d",
+      "members": [
+        {
+          "ref": "fixture:intent:assert_operation_claim-correction-prior_governed_receipt",
+          "digest": "sha256:eaa8c6942e6e82d1c5acef75f39c34e2980dc6919df29645c8882fa6aec47688"
+        }
+      ],
+      "guardVersion": "fixture:set-version:one"
+    }
+  ]
+}

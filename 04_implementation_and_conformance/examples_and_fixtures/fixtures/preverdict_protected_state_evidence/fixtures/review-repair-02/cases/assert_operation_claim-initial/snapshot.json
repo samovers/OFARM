@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "ofarm.transactionStartSnapshotEvidence.v0.1",
+  "snapshotId": "fixture:snapshot:assert_operation_claim-initial",
+  "storageOwnerRef": "fixture:storage-owner:one",
+  "transactionAttemptId": "fixture:attempt:assert_operation_claim-initial",
+  "atomicPersistenceBoundaryRef": "fixture:atomic-boundary:one",
+  "snapshotToken": "fixture:immutable-start-snapshot-token:assert_operation_claim-initial",
+  "capturePhase": "TRANSACTION_START",
+  "positiveRecords": [
+    {
+      "key": "intent",
+      "binding": {
+        "ref": "fixture:intent:assert_operation_claim-initial",
+        "digest": "sha256:fa87deddfda1881cc5103ccec4cd07294e5e0a0215744d4112c89fe764591628"
+      },
+      "rawSha256": "d6013b5cdd9b37845e3c1a7209b9a3fb00654443a8277f2bea376b9f482ffe29",
+      "rowVersion": "fixture:row-version:intent",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "transaction-profile",
+      "binding": {
+        "ref": "fixture:transaction-profile:assert_operation_claim-initial",
+        "digest": "sha256:99ca60c0c70bb80e7945cb5f021a5a48b1d4818e6cc04f534af497ee0f4cd562"
+      },
+      "rawSha256": "e76d1587e1993486a79703ac1e9994fefe0fce9507774d1099a6fce7e96c50c0",
+      "rowVersion": "fixture:row-version:transaction-profile",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "time-policy",
+      "binding": {
+        "ref": "fixture:time-policy:one",
+        "digest": "sha256:3b0a158a8354924fd19aa850ee0a69e0db2d37326739c2eaa65a722d7bddde67"
+      },
+      "rawSha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "rowVersion": "fixture:row-version:time-policy",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    }
+  ],
+  "negativeRecords": [
+    {
+      "key": "fixture:assertion:new:assert_operation_claim-initial",
+      "predicateDigest": "sha256:eee702df201c8218111bd989435c571c41adbb5daa0e7708b0864ef0831ed3a4",
+      "purpose": "ASSERTION_ID_ABSENCE",
+      "guardVersion": "fixture:negative-version:one",
+      "observation": "ABSENT_AT_TRANSACTION_START"
+    }
+  ],
+  "setRecords": [
+    {
+      "key": "fixture:eligibility-set:one",
+      "predicateDigest": "sha256:5dc6d33d2d3bf6baf5ffec0391f231cb153c7f710da674090bb39d194261f93d",
+      "members": [
+        {
+          "ref": "fixture:intent:assert_operation_claim-initial",
+          "digest": "sha256:fa87deddfda1881cc5103ccec4cd07294e5e0a0215744d4112c89fe764591628"
+        }
+      ],
+      "guardVersion": "fixture:set-version:one"
+    }
+  ]
+}

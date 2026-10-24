@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "ofarm.transactionStartSnapshotEvidence.v0.1",
+  "snapshotId": "fixture:snapshot:assert_operation_claim-correction-legacy_immutable_ingress",
+  "storageOwnerRef": "fixture:storage-owner:one",
+  "transactionAttemptId": "fixture:attempt:assert_operation_claim-correction-legacy_immutable_ingress",
+  "atomicPersistenceBoundaryRef": "fixture:atomic-boundary:one",
+  "snapshotToken": "fixture:immutable-start-snapshot-token:assert_operation_claim-correction-legacy_immutable_ingress",
+  "capturePhase": "TRANSACTION_START",
+  "positiveRecords": [
+    {
+      "key": "intent",
+      "binding": {
+        "ref": "fixture:intent:assert_operation_claim-correction-legacy_immutable_ingress",
+        "digest": "sha256:d720ee80af80988cda8c820750571b56175a9b2f4668ca3f5a7b990c37a56d71"
+      },
+      "rawSha256": "6c38acde5db50df12569b09e8baea6288fd070972cf5443609e1da609f847c88",
+      "rowVersion": "fixture:row-version:intent",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "transaction-profile",
+      "binding": {
+        "ref": "fixture:transaction-profile:assert_operation_claim-correction-legacy_immutable_ingress",
+        "digest": "sha256:99ca60c0c70bb80e7945cb5f021a5a48b1d4818e6cc04f534af497ee0f4cd562"
+      },
+      "rawSha256": "e76d1587e1993486a79703ac1e9994fefe0fce9507774d1099a6fce7e96c50c0",
+      "rowVersion": "fixture:row-version:transaction-profile",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "time-policy",
+      "binding": {
+        "ref": "fixture:time-policy:one",
+        "digest": "sha256:3b0a158a8354924fd19aa850ee0a69e0db2d37326739c2eaa65a722d7bddde67"
+      },
+      "rawSha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "rowVersion": "fixture:row-version:time-policy",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "prior-record",
+      "binding": {
+        "ref": "assertion:field-17:pruning-operation-claim:2026-04-08",
+        "digest": "sha256:6c999d55e809d37e97b3bb82e850717c440be5f128b7c81b6ee542b7dc8914b3"
+      },
+      "rawSha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404",
+      "rowVersion": "fixture:row-version:prior-record",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "prior-creation",
+      "binding": {
+        "ref": "fixture:prior-creation-extraction:assert_operation_claim-correction-legacy_immutable_ingress",
+        "digest": "sha256:7418594789328bf991f9c3abfd8652f0d5248de1f0db276dab80bd292e1b728b"
+      },
+      "rawSha256": "3618d86e05530c5768e644619ee424543341f968e5a97b13ce183898f8643f36",
+      "rowVersion": "fixture:row-version:prior-creation",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "prior-source",
+      "binding": {
+        "ref": "fixture:prior-creation-source:assert_operation_claim-correction-legacy_immutable_ingress",
+        "digest": "sha256:a35b3b7c8da9fac3f1d57401aab3e4717349049c478ab800d2a66ba07a8a330d"
+      },
+      "rawSha256": "c6ce2bac4d4b4e4859a032837ca462136a8e038eb2b489c4a2199f7df21b4d53",
+      "rowVersion": "fixture:row-version:prior-source",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    }
+  ],
+  "negativeRecords": [
+    {
+      "key": "fixture:assertion:new:assert_operation_claim-correction-legacy_immutable_ingress",
+      "predicateDigest": "sha256:40cf796e653b36a2a63ab26fc6a73a372bbc9541dd88878b079e1b35a10d5287",
+      "purpose": "ASSERTION_ID_ABSENCE",
+      "guardVersion": "fixture:negative-version:one",
+      "observation": "ABSENT_AT_TRANSACTION_START"
+    }
+  ],
+  "setRecords": [
+    {
+      "key": "fixture:eligibility-set:one",
+      "predicateDigest": "sha256:5dc6d33d2d3bf6baf5ffec0391f231cb153c7f710da674090bb39d194261f93d",
+      "members": [
+        {
+          "ref": "fixture:intent:assert_operation_claim-correction-legacy_immutable_ingress",
+          "digest": "sha256:d720ee80af80988cda8c820750571b56175a9b2f4668ca3f5a7b990c37a56d71"
+        }
+      ],
+      "guardVersion": "fixture:set-version:one"
+    }
+  ]
+}

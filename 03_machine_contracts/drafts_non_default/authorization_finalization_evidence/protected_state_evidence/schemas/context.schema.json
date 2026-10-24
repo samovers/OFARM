@@ -1,0 +1,653 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/protected-state-evidence/context/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.preVerdictProtectedStateContext.v0.1"
+    },
+    "contextId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "storageOwnerRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "attempt": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/not-required/v0.2#/$defs/attemptContext"
+    },
+    "actionClass": {
+      "enum": [
+        "ASSERT_STRUCTURE",
+        "ASSERT_OPERATION_CLAIM",
+        "ASSERT_COMPLIANCE"
+      ]
+    },
+    "effectIntent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "ref",
+            "digest"
+          ]
+        },
+        "rawSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "binding",
+        "rawSha256"
+      ]
+    },
+    "proposedAssertion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "ref",
+            "digest"
+          ]
+        },
+        "rawSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "binding",
+        "rawSha256"
+      ]
+    },
+    "proposedAssertionId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "transactionProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "ref",
+            "digest"
+          ]
+        },
+        "rawSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "binding",
+        "rawSha256"
+      ]
+    },
+    "transactionTimePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "ref",
+            "digest"
+          ]
+        },
+        "rawSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "binding",
+        "rawSha256"
+      ]
+    },
+    "requiredReads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "role": {
+            "enum": [
+              "EFFECT_INTENT",
+              "ASSERTION_ACT",
+              "SUBJECT",
+              "SCOPE",
+              "RELATIONSHIP_PROOF",
+              "SEMANTIC_EVENT",
+              "EVENT_INGRESS_PROOF",
+              "EVIDENCE",
+              "PAYLOAD",
+              "PRIOR_ASSERTION",
+              "PRIOR_CREATION_EVIDENCE",
+              "RULE",
+              "EVIDENCE_POLICY",
+              "AUTHORIZATION_VIEW",
+              "TRANSACTION_TIME_POLICY",
+              "TRANSACTION_PROFILE",
+              "OTHER_DOMAIN_INPUT"
+            ]
+          },
+          "binding": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  },
+                  "revisionRef": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  },
+                  "digest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "ref",
+                  "digest"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  },
+                  "revisionRef": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  }
+                },
+                "required": [
+                  "ref"
+                ]
+              }
+            ]
+          },
+          "rawSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "revisionRef": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "availability": {
+            "enum": [
+              "COMMITTED_AT_TRANSACTION_START",
+              "FIXED_BEFORE_DOMAIN_VERDICT"
+            ]
+          },
+          "fixedInputVersion": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "digestMode": {
+            "enum": [
+              "JCS_JSON",
+              "RAW_BYTES"
+            ]
+          }
+        },
+        "required": [
+          "key",
+          "role",
+          "binding",
+          "rawSha256",
+          "availability"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "availability": {
+                  "const": "FIXED_BEFORE_DOMAIN_VERDICT"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "fixedInputVersion"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "fixedInputVersion"
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "digestMode"
+              ],
+              "properties": {
+                "digestMode": {
+                  "const": "RAW_BYTES"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "binding": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "revisionRef": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    }
+                  },
+                  "required": [
+                    "ref"
+                  ]
+                },
+                "role": {
+                  "not": {
+                    "enum": [
+                      "EFFECT_INTENT",
+                      "TRANSACTION_PROFILE",
+                      "TRANSACTION_TIME_POLICY",
+                      "PRIOR_ASSERTION",
+                      "PRIOR_CREATION_EVIDENCE"
+                    ]
+                  }
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "binding": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "revisionRef": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    }
+                  },
+                  "required": [
+                    "ref",
+                    "digest"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 4096
+    },
+    "requiredNegativeReads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "predicateDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "purpose": {
+            "enum": [
+              "ASSERTION_ID_ABSENCE",
+              "OTHER_REQUIRED_ABSENCE"
+            ]
+          }
+        },
+        "required": [
+          "key",
+          "predicateDigest",
+          "purpose"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 4096
+    },
+    "requiredSetReads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "predicateDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "revisionRef": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    }
+                  },
+                  "required": [
+                    "ref",
+                    "digest"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "revisionRef": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "digestMode": {
+                      "const": "RAW_BYTES"
+                    },
+                    "rawSha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  },
+                  "required": [
+                    "ref",
+                    "digestMode",
+                    "rawSha256"
+                  ]
+                }
+              ]
+            },
+            "minItems": 0,
+            "maxItems": 4096
+          }
+        },
+        "required": [
+          "key",
+          "predicateDigest",
+          "members"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 4096
+    },
+    "governanceContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "boundaryKind": {
+          "enum": [
+            "TENANT",
+            "DEPLOYMENT"
+          ]
+        },
+        "boundaryRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "twin": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "posture": {
+                  "const": "NOT_APPLICABLE"
+                }
+              },
+              "required": [
+                "posture"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "posture": {
+                  "const": "APPLICABLE"
+                },
+                "twinRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                }
+              },
+              "required": [
+                "posture",
+                "twinRef"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "boundaryKind",
+        "boundaryRef",
+        "twin"
+      ]
+    },
+    "proofId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "priorAssertion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ref": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "digest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "ref",
+                "digest"
+              ]
+            },
+            "rawSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "binding",
+            "rawSha256"
+          ]
+        },
+        "creationEvidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ref": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "digest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "ref",
+                "digest"
+              ]
+            },
+            "rawSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "binding",
+            "rawSha256"
+          ]
+        }
+      },
+      "required": [
+        "record",
+        "creationEvidence"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "contextId",
+    "storageOwnerRef",
+    "attempt",
+    "actionClass",
+    "effectIntent",
+    "proposedAssertion",
+    "proposedAssertionId",
+    "transactionProfile",
+    "transactionTimePolicy",
+    "requiredReads",
+    "requiredNegativeReads",
+    "requiredSetReads",
+    "governanceContext",
+    "proofId"
+  ]
+}

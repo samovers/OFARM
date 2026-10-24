@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "ofarm.preVerdictProtectedStateProof.v0.1",
+  "proofId": "fixture:state-proof:assert_operation_claim-correction-legacy_immutable_ingress",
+  "storageOwnerRef": "fixture:storage-owner:one",
+  "transactionAttemptId": "fixture:attempt:assert_operation_claim-correction-legacy_immutable_ingress",
+  "context": {
+    "ref": "fixture:state-context:assert_operation_claim-correction-legacy_immutable_ingress",
+    "digest": "sha256:c839a34d9968a9cb2b1eff5154935ee2f2caece8a2c27f301bc03077580b9923"
+  },
+  "snapshot": {
+    "ref": "fixture:snapshot:assert_operation_claim-correction-legacy_immutable_ingress",
+    "digest": "sha256:bd83b45d4f9f5603daa921bb3ce5284053a0202b3caeefe22763c6ddde8561d0"
+  },
+  "guardPolicy": {
+    "ref": "fixture:guard-policy:one",
+    "digest": "sha256:e08f11a96b1db5c02c7243d23913dfada23983ea0444c969d6792207e26606bf"
+  },
+  "phase": "AFTER_PROPOSED_WRITES_BEFORE_DOMAIN_VERDICT",
+  "readGuards": [
+    {
+      "key": "intent",
+      "binding": {
+        "ref": "fixture:intent:assert_operation_claim-correction-legacy_immutable_ingress",
+        "digest": "sha256:d720ee80af80988cda8c820750571b56175a9b2f4668ca3f5a7b990c37a56d71"
+      },
+      "rawSha256": "6c38acde5db50df12569b09e8baea6288fd070972cf5443609e1da609f847c88",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:intent",
+      "observedVersion": "fixture:row-version:intent"
+    },
+    {
+      "key": "transaction-profile",
+      "binding": {
+        "ref": "fixture:transaction-profile:assert_operation_claim-correction-legacy_immutable_ingress",
+        "digest": "sha256:99ca60c0c70bb80e7945cb5f021a5a48b1d4818e6cc04f534af497ee0f4cd562"
+      },
+      "rawSha256": "e76d1587e1993486a79703ac1e9994fefe0fce9507774d1099a6fce7e96c50c0",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:transaction-profile",
+      "observedVersion": "fixture:row-version:transaction-profile"
+    },
+    {
+      "key": "time-policy",
+      "binding": {
+        "ref": "fixture:time-policy:one",
+        "digest": "sha256:3b0a158a8354924fd19aa850ee0a69e0db2d37326739c2eaa65a722d7bddde67"
+      },
+      "rawSha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:time-policy",
+      "observedVersion": "fixture:row-version:time-policy"
+    },
+    {
+      "key": "prior-record",
+      "binding": {
+        "ref": "assertion:field-17:pruning-operation-claim:2026-04-08",
+        "digest": "sha256:6c999d55e809d37e97b3bb82e850717c440be5f128b7c81b6ee542b7dc8914b3"
+      },
+      "rawSha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:prior-record",
+      "observedVersion": "fixture:row-version:prior-record"
+    },
+    {
+      "key": "prior-creation",
+      "binding": {
+        "ref": "fixture:prior-creation-extraction:assert_operation_claim-correction-legacy_immutable_ingress",
+        "digest": "sha256:7418594789328bf991f9c3abfd8652f0d5248de1f0db276dab80bd292e1b728b"
+      },
+      "rawSha256": "3618d86e05530c5768e644619ee424543341f968e5a97b13ce183898f8643f36",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:prior-creation",
+      "observedVersion": "fixture:row-version:prior-creation"
+    },
+    {
+      "key": "prior-source",
+      "binding": {
+        "ref": "fixture:prior-creation-source:assert_operation_claim-correction-legacy_immutable_ingress",
+        "digest": "sha256:a35b3b7c8da9fac3f1d57401aab3e4717349049c478ab800d2a66ba07a8a330d"
+      },
+      "rawSha256": "c6ce2bac4d4b4e4859a032837ca462136a8e038eb2b489c4a2199f7df21b4d53",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:prior-source",
+      "observedVersion": "fixture:row-version:prior-source"
+    }
+  ],
+  "negativeGuards": [
+    {
+      "key": "fixture:assertion:new:assert_operation_claim-correction-legacy_immutable_ingress",
+      "predicateDigest": "sha256:40cf796e653b36a2a63ab26fc6a73a372bbc9541dd88878b079e1b35a10d5287",
+      "purpose": "ASSERTION_ID_ABSENCE",
+      "snapshotVersion": "fixture:negative-version:one",
+      "observedVersion": "fixture:negative-version:one",
+      "observation": "ABSENT"
+    }
+  ],
+  "setGuards": [
+    {
+      "key": "fixture:eligibility-set:one",
+      "predicateDigest": "sha256:5dc6d33d2d3bf6baf5ffec0391f231cb153c7f710da674090bb39d194261f93d",
+      "members": [
+        {
+          "ref": "fixture:intent:assert_operation_claim-correction-legacy_immutable_ingress",
+          "digest": "sha256:d720ee80af80988cda8c820750571b56175a9b2f4668ca3f5a7b990c37a56d71"
+        }
+      ],
+      "snapshotVersion": "fixture:set-version:one",
+      "observedVersion": "fixture:set-version:one"
+    }
+  ],
+  "proposedDomainWrites": [
+    {
+      "operation": "INSERT",
+      "recordType": "AssertionRecord",
+      "key": "fixture:assertion:new:assert_operation_claim-correction-legacy_immutable_ingress",
+      "binding": {
+        "ref": "fixture:assertion:new:assert_operation_claim-correction-legacy_immutable_ingress",
+        "digest": "sha256:73ae6c01856d0c408e44398fec07a0d5190356a2436f73ce96dece5ca2e7826f"
+      },
+      "rawSha256": "90130e56c593b5d722054ee670c36fc83586b9546cb6f2cdde6fa4f7b3fcc403"
+    }
+  ]
+}

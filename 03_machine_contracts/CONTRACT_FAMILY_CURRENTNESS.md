@@ -208,3 +208,5 @@ CP14 adds `03_machine_contracts/CONTRACT_FAMILY_CURRENTNESS_CP14_FINAL_DRAFT_ADD
 AuthorizationFinalizationEvidence adds one draft component schema under
 `drafts_non_default/authorization_finalization_evidence/`. It has no current/default
 schema and does not complete the selected release or enable runtime use.
+
+PreVerdictProtectedStateEvidence adds eight draft/non-default schemas for conditional offline snapshot/guard and proposed-state evidence. It changes no current/default selection and does not establish runtime protection.

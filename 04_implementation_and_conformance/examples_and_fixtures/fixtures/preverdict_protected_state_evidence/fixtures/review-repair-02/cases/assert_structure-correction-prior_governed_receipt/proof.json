@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "ofarm.preVerdictProtectedStateProof.v0.1",
+  "proofId": "fixture:state-proof:assert_structure-correction-prior_governed_receipt",
+  "storageOwnerRef": "fixture:storage-owner:one",
+  "transactionAttemptId": "fixture:attempt:assert_structure-correction-prior_governed_receipt",
+  "context": {
+    "ref": "fixture:state-context:assert_structure-correction-prior_governed_receipt",
+    "digest": "sha256:2f7cc899b121c3d6bcce4a1ee37f0950fcaaf2d468fb6cf3dd3713de589f07d8"
+  },
+  "snapshot": {
+    "ref": "fixture:snapshot:assert_structure-correction-prior_governed_receipt",
+    "digest": "sha256:1ff65580bf26dfae9043a9caa91082fee0adf7bd31ea372112130d12fe7ed1d8"
+  },
+  "guardPolicy": {
+    "ref": "fixture:guard-policy:one",
+    "digest": "sha256:e08f11a96b1db5c02c7243d23913dfada23983ea0444c969d6792207e26606bf"
+  },
+  "phase": "AFTER_PROPOSED_WRITES_BEFORE_DOMAIN_VERDICT",
+  "readGuards": [
+    {
+      "key": "intent",
+      "binding": {
+        "ref": "fixture:intent:assert_structure-correction-prior_governed_receipt",
+        "digest": "sha256:77e2e0bb313e9d0975e6f63193c1d870f6c40275fbe5d97824860248e4919510"
+      },
+      "rawSha256": "e791767341824b035c4c8785764a39b6d7ff33cb1d631bd76cf2ea488eaa7e36",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:intent",
+      "observedVersion": "fixture:row-version:intent"
+    },
+    {
+      "key": "transaction-profile",
+      "binding": {
+        "ref": "fixture:transaction-profile:assert_structure-correction-prior_governed_receipt",
+        "digest": "sha256:d0a3357cfcf6a96a79ebb6a796ab38b8d8ef947983b8359b12a5b3a897105d4a"
+      },
+      "rawSha256": "00df4bcc07d31e55c58a0cbe741421cc67c7e4d9732662453c1da349240edccd",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:transaction-profile",
+      "observedVersion": "fixture:row-version:transaction-profile"
+    },
+    {
+      "key": "time-policy",
+      "binding": {
+        "ref": "fixture:time-policy:one",
+        "digest": "sha256:3b0a158a8354924fd19aa850ee0a69e0db2d37326739c2eaa65a722d7bddde67"
+      },
+      "rawSha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:time-policy",
+      "observedVersion": "fixture:row-version:time-policy"
+    },
+    {
+      "key": "prior-record",
+      "binding": {
+        "ref": "assertion:field-17:pruning-operation-claim:2026-04-08",
+        "digest": "sha256:6c999d55e809d37e97b3bb82e850717c440be5f128b7c81b6ee542b7dc8914b3"
+      },
+      "rawSha256": "86f794a3085d05009d6a4f46ac403007c2693d85a2d7cc6e3d9df5ffaa9eb404",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:prior-record",
+      "observedVersion": "fixture:row-version:prior-record"
+    },
+    {
+      "key": "prior-creation",
+      "binding": {
+        "ref": "fixture:prior-creation-extraction:assert_structure-correction-prior_governed_receipt",
+        "digest": "sha256:8c679f25faee707c72af34441149aece5b43abb1d0e9d6084463caf7ac41eaf7"
+      },
+      "rawSha256": "34180ca0964260fb0cb80da92801f507dff20cd2370baf3d05335f00d0922e6c",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:prior-creation",
+      "observedVersion": "fixture:row-version:prior-creation"
+    },
+    {
+      "key": "prior-source",
+      "binding": {
+        "ref": "fixture:prior-creation-source:assert_structure-correction-prior_governed_receipt",
+        "digest": "sha256:0e97a8c2b2f769d39f1f857b15944e1ab2cf086093d26d2d0bec4e5f25860446"
+      },
+      "rawSha256": "9f566a016a69ba3b479f115706670c1f77a968b7a357a528fba5a1d7f5fa6a71",
+      "availability": "COMMITTED_AT_TRANSACTION_START",
+      "snapshotVersion": "fixture:row-version:prior-source",
+      "observedVersion": "fixture:row-version:prior-source"
+    }
+  ],
+  "negativeGuards": [
+    {
+      "key": "fixture:assertion:new:assert_structure-correction-prior_governed_receipt",
+      "predicateDigest": "sha256:5b01868e892087e6b335275001ea720088f19eb820febeef89f57e942d535c5e",
+      "purpose": "ASSERTION_ID_ABSENCE",
+      "snapshotVersion": "fixture:negative-version:one",
+      "observedVersion": "fixture:negative-version:one",
+      "observation": "ABSENT"
+    }
+  ],
+  "setGuards": [
+    {
+      "key": "fixture:eligibility-set:one",
+      "predicateDigest": "sha256:5dc6d33d2d3bf6baf5ffec0391f231cb153c7f710da674090bb39d194261f93d",
+      "members": [
+        {
+          "ref": "fixture:intent:assert_structure-correction-prior_governed_receipt",
+          "digest": "sha256:77e2e0bb313e9d0975e6f63193c1d870f6c40275fbe5d97824860248e4919510"
+        }
+      ],
+      "snapshotVersion": "fixture:set-version:one",
+      "observedVersion": "fixture:set-version:one"
+    }
+  ],
+  "proposedDomainWrites": [
+    {
+      "operation": "INSERT",
+      "recordType": "AssertionRecord",
+      "key": "fixture:assertion:new:assert_structure-correction-prior_governed_receipt",
+      "binding": {
+        "ref": "fixture:assertion:new:assert_structure-correction-prior_governed_receipt",
+        "digest": "sha256:fd2fc6f15cb66fab32052d20af201261dabdeed7bea775584143c76e6269cd45"
+      },
+      "rawSha256": "7c2b200df9c2bc88927155d5e4b93cef10d9e860991de24345813df35c4d7bbc"
+    }
+  ]
+}

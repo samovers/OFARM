@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "ofarm.transactionStartSnapshotEvidence.v0.1",
+  "snapshotId": "fixture:snapshot:assert_compliance-initial",
+  "storageOwnerRef": "fixture:storage-owner:one",
+  "transactionAttemptId": "fixture:attempt:assert_compliance-initial",
+  "atomicPersistenceBoundaryRef": "fixture:atomic-boundary:one",
+  "snapshotToken": "fixture:immutable-start-snapshot-token:assert_compliance-initial",
+  "capturePhase": "TRANSACTION_START",
+  "positiveRecords": [
+    {
+      "key": "intent",
+      "binding": {
+        "ref": "fixture:intent:assert_compliance-initial",
+        "digest": "sha256:b887fc04e57dcf1f16f7fbfd5d70c5302092a54ac093151b7b889eec48094f53"
+      },
+      "rawSha256": "e8a3868eaa07a03c9a48a1ca313ae4f932131874d53cb072c6310287424f560e",
+      "rowVersion": "fixture:row-version:intent",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "transaction-profile",
+      "binding": {
+        "ref": "fixture:transaction-profile:assert_compliance-initial",
+        "digest": "sha256:09d68ab12d80c8562f7e436e92933232d50ef8b6239d167e2275fc348c4e8a4a"
+      },
+      "rawSha256": "f482b794fa55b8351966054dbfa10a5d48a72edec8c0862b4c03cbda1804fd15",
+      "rowVersion": "fixture:row-version:transaction-profile",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    },
+    {
+      "key": "time-policy",
+      "binding": {
+        "ref": "fixture:time-policy:one",
+        "digest": "sha256:3b0a158a8354924fd19aa850ee0a69e0db2d37326739c2eaa65a722d7bddde67"
+      },
+      "rawSha256": "9a3121e5ac1e6463e18b5fa56dc21dc9f18ff2c2f4efeddb1a25513236032244",
+      "rowVersion": "fixture:row-version:time-policy",
+      "visibility": "COMMITTED_AT_TRANSACTION_START"
+    }
+  ],
+  "negativeRecords": [
+    {
+      "key": "fixture:assertion:new:assert_compliance-initial",
+      "predicateDigest": "sha256:be3b7d489eedab24c91f9575f9594daa4115f2049366fa0f94839a3d04d1428c",
+      "purpose": "ASSERTION_ID_ABSENCE",
+      "guardVersion": "fixture:negative-version:one",
+      "observation": "ABSENT_AT_TRANSACTION_START"
+    }
+  ],
+  "setRecords": [
+    {
+      "key": "fixture:eligibility-set:one",
+      "predicateDigest": "sha256:5dc6d33d2d3bf6baf5ffec0391f231cb153c7f710da674090bb39d194261f93d",
+      "members": [
+        {
+          "ref": "fixture:intent:assert_compliance-initial",
+          "digest": "sha256:b887fc04e57dcf1f16f7fbfd5d70c5302092a54ac093151b7b889eec48094f53"
+        }
+      ],
+      "guardVersion": "fixture:set-version:one"
+    }
+  ]
+}

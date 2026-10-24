@@ -1,0 +1,895 @@
+{
+  "status": "PASS",
+  "checks": 111,
+  "passed": 111,
+  "runtimeProtection": "NOT_ESTABLISHED",
+  "primaryTrustBoundary": "Transaction and history evidence for protected proposed state",
+  "scopeStayedInsideBoundary": true,
+  "rows": [
+    {
+      "id": "assert_structure-initial",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "assert_structure-correction-legacy_immutable_ingress",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "assert_structure-correction-prior_governed_receipt",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "assert_operation_claim-initial",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "assert_operation_claim-correction-legacy_immutable_ingress",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "assert_operation_claim-correction-prior_governed_receipt",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "assert_compliance-initial",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "assert_compliance-correction-legacy_immutable_ingress",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "assert_compliance-correction-prior_governed_receipt",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "wrong-owner",
+      "expectedStatus": "FAIL",
+      "requiredCode": "OWNER",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "wrong-attempt",
+      "expectedStatus": "FAIL",
+      "requiredCode": "ATTEMPT",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "wrong-snapshot-attempt",
+      "expectedStatus": "FAIL",
+      "requiredCode": "ATTEMPT",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "wrong-boundary",
+      "expectedStatus": "FAIL",
+      "requiredCode": "ATOMIC_BOUNDARY",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "missing-read-guard",
+      "expectedStatus": "FAIL",
+      "requiredCode": "READ_COVERAGE",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "missing-positive-observation",
+      "expectedStatus": "FAIL",
+      "requiredCode": "READ_COVERAGE",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "duplicate-read-key",
+      "expectedStatus": "FAIL",
+      "requiredCode": "DUPLICATE_KEY",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "changed-read-version",
+      "expectedStatus": "FAIL",
+      "requiredCode": "READ_VERSION_intent",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "missing-negative-guard",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": "SCHEMA",
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "changed-negative-version",
+      "expectedStatus": "FAIL",
+      "requiredCode": "NEGATIVE_VERSION_fixture:assertion:new:assert_operation_claim-initial",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "changed-negative-predicate",
+      "expectedStatus": "FAIL",
+      "requiredCode": "NEGATIVE_PREDICATE_fixture:assertion:new:assert_operation_claim-initial",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "missing-set-guard",
+      "expectedStatus": "FAIL",
+      "requiredCode": "SET_COVERAGE",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "changed-set-members",
+      "expectedStatus": "FAIL",
+      "requiredCode": "SET_PREDICATE_fixture:eligibility-set:one",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "changed-set-version",
+      "expectedStatus": "FAIL",
+      "requiredCode": "SET_VERSION_fixture:eligibility-set:one",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "additional-assertion",
+      "expectedStatus": "FAIL",
+      "requiredCode": "ONE_EXACT_INSERT",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "event-write",
+      "expectedStatus": "FAIL",
+      "requiredCode": "ONE_EXACT_INSERT",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "forbidden-update",
+      "expectedStatus": "FAIL",
+      "requiredCode": "ONE_EXACT_INSERT",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "forbidden-delete",
+      "expectedStatus": "FAIL",
+      "requiredCode": "ONE_EXACT_INSERT",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "current-state-write",
+      "expectedStatus": "FAIL",
+      "requiredCode": "ONE_EXACT_INSERT",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "changed-write-bytes",
+      "expectedStatus": "FAIL",
+      "requiredCode": "ONE_EXACT_INSERT",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "wrong-result-id",
+      "expectedStatus": "FAIL",
+      "requiredCode": "RESULT_ID",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "cyclic-receipt",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": "SCHEMA",
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "cyclic-verdict",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": "SCHEMA",
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "late-snapshot",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": "SCHEMA",
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "uncommitted-prior",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": "SCHEMA",
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "timestamp-34",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "timestamp-35",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "timestamp-36",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "timestamp-37",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "timestamp-38",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "timestamp-39",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "timestamp-40",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "expired-at-start",
+      "expectedStatus": "FAIL",
+      "requiredCode": "ATTEMPT_DEADLINE",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "fixed-validation-phase-input",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "changed-fixed-input-version",
+      "expectedStatus": "FAIL",
+      "requiredCode": "FIXED_INPUT_VERSION_intent",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "prior-not-visible-at-start",
+      "expectedStatus": "FAIL",
+      "requiredCode": "PRIOR_READ_record",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "creation-extraction-during-validation",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "wrong-creation-owner",
+      "expectedStatus": "FAIL",
+      "requiredCode": "CREATION_OWNER",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "creation-current-attempt",
+      "expectedStatus": "FAIL",
+      "requiredCode": "PRIOR_ATTEMPT",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "governed-creation-missing-attempt",
+      "expectedStatus": "FAIL",
+      "requiredCode": "SCHEMA",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "creation-source-after-start",
+      "expectedStatus": "FAIL",
+      "requiredCode": "CREATION_SOURCE_COMMITTED_fixture:prior-creation-source:assert_operation_claim-correction-legacy_immutable_ingress",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "wrong-governance-boundary",
+      "expectedStatus": "FAIL",
+      "requiredCode": "GOVERNANCE_CONTEXT",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "wrong-twin",
+      "expectedStatus": "FAIL",
+      "requiredCode": "GOVERNANCE_CONTEXT",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "wrong-creation-id",
+      "expectedStatus": "FAIL",
+      "requiredCode": "CREATION_ID",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "broken-source-selector",
+      "expectedStatus": "FAIL",
+      "requiredCode": "CREATION_DERIVATION_governanceContext",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "extra-creation-source",
+      "expectedStatus": "FAIL",
+      "requiredCode": "DUPLICATE_CREATION_SOURCE",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "null-creation-record",
+      "expectedStatus": "FAIL",
+      "requiredCode": "SCHEMA",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "unselected-record",
+      "expectedStatus": "FAIL",
+      "requiredCode": "INPUT_RECORD_SET",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "missing-record",
+      "expectedStatus": "FAIL",
+      "requiredCode": "BYTES_intent",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-StructureEvent-NUMERIC",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-StructureEvent-CODED",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-StructureEvent-QUALITATIVE",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-StructureEvent-CENSORED_NUMERIC",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-StructureEvent-ABSENT_PENDING",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-ObservationEvent-NUMERIC",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-ObservationEvent-CODED",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-ObservationEvent-QUALITATIVE",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-ObservationEvent-CENSORED_NUMERIC",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-ObservationEvent-ABSENT_PENDING",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-OccurrenceEvent-NUMERIC",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-OccurrenceEvent-CODED",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-OccurrenceEvent-QUALITATIVE",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-OccurrenceEvent-CENSORED_NUMERIC",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-OccurrenceEvent-ABSENT_PENDING",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-InterventionEvent-NUMERIC",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-InterventionEvent-CODED",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-InterventionEvent-QUALITATIVE",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-InterventionEvent-CENSORED_NUMERIC",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-InterventionEvent-ABSENT_PENDING",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-MaterialEvent-NUMERIC",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-MaterialEvent-CODED",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-MaterialEvent-QUALITATIVE",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-MaterialEvent-CENSORED_NUMERIC",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-MaterialEvent-ABSENT_PENDING",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-EvidenceEvent-NUMERIC",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-EvidenceEvent-CODED",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-EvidenceEvent-QUALITATIVE",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-EvidenceEvent-CENSORED_NUMERIC",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-EvidenceEvent-ABSENT_PENDING",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-GovernanceEvent-NUMERIC",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-GovernanceEvent-CODED",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-GovernanceEvent-QUALITATIVE",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-GovernanceEvent-CENSORED_NUMERIC",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "opaque-GovernanceEvent-ABSENT_PENDING",
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "requiredCode": null,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "changed-raw-source-whitespace",
+      "expectedStatus": "FAIL",
+      "requiredCode": "BYTES_intent",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "duplicate-json",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "bom",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "invalid-utf8",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "nonfinite",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "unsafe-integer",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "deep-json",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "oversize",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "wrong-independent-context-pin",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "wrong-independent-proof-binding",
+      "expectedStatus": "FAIL",
+      "requiredCode": "INDEPENDENT_PROOF_BINDING",
+      "status": "FAIL",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "package-mismatch-proof.schema.json",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "package-mismatch-report.schema.json",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "package-mismatch-transaction.v0.2.schema.json",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "package-mismatch-transaction-rfc.md",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "unsupported-reselected-schema-closure",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "malformed-selected-contract",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "missing-package",
+      "expectedStatus": "INPUT_ERROR",
+      "requiredCode": null,
+      "status": "INPUT_ERROR",
+      "reportSchemaValid": true,
+      "pass": true
+    },
+    {
+      "id": "public-cli",
+      "pass": true,
+      "exitCode": 0
+    }
+  ]
+}

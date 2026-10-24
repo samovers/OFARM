@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "ofarm.preVerdictProtectedStateContract.v0.1",
+  "contractId": "ofarm.pre-verdict-protected-state.v0.1",
+  "primaryTrustBoundary": "Transaction and history evidence for protected proposed state",
+  "status": "DRAFT_NON_DEFAULT",
+  "schemas": [
+    {
+      "path": "schemas/context.schema.json",
+      "rawSha256": "0c88075a5e7801a4b6560ea863bac41323548dbfafaf4c6f2e413195b30291a5"
+    },
+    {
+      "path": "schemas/contract.schema.json",
+      "rawSha256": "a293a7f77c657d5545da355ce72b1be29ad55da1e32078e6e357e07838f28a78"
+    },
+    {
+      "path": "schemas/creation.schema.json",
+      "rawSha256": "f595a84ad32ed3c83a784fd2d4633d962a9c2667d94e58787b495629b9aec709"
+    },
+    {
+      "path": "schemas/policy.schema.json",
+      "rawSha256": "b3ed60dc0483fb562d0705531bb75a2b3ae137244879963e513e83994f8042c9"
+    },
+    {
+      "path": "schemas/proof.schema.json",
+      "rawSha256": "7b4549664d04eaec8e39ba1932eac2cbc4a80349cc7a6ef0a389fd71fe9810f6"
+    },
+    {
+      "path": "schemas/report.schema.json",
+      "rawSha256": "f9d415e23578daf356d64be6cadca1f58363f1dd58fb6abc83c97f6762e079f8"
+    },
+    {
+      "path": "schemas/selection.schema.json",
+      "rawSha256": "9b078d0dad687a4ba76631ae277ee2c028064f504e54ce57c243dcc7b60a9646"
+    },
+    {
+      "path": "schemas/snapshot.schema.json",
+      "rawSha256": "03a17531f52454d5bdd3c22db1c6111e8a0f1a20ae114bbf0154c163acaace03"
+    },
+    {
+      "path": "source-contracts/transaction.v0.2.schema.json",
+      "rawSha256": "cfd8b67644edc39da92edf77a48c6002d353be71641ac512cd0eb0d24d0ebee5"
+    }
+  ],
+  "sources": [
+    {
+      "path": "sources/assertion-rfc.md",
+      "rawSha256": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809"
+    },
+    {
+      "path": "sources/time-policy.md",
+      "rawSha256": "732d1b8740d03f3835903fa4b3f31b8752a953739b6a748f95ee1fc4d0d33433"
+    },
+    {
+      "path": "sources/transaction-rfc.md",
+      "rawSha256": "dcae358c76742f93964a9aa348808351a763d355b51fab3707994a3bd0714165"
+    },
+    {
+      "path": "sources/write-boundary.md",
+      "rawSha256": "657065d9ec482fe9a9d07b6fffb7b26cc55a185b9b2d0409ddbd6af10145c672"
+    }
+  ],
+  "checker": [
+    {
+      "path": "package_contract.py",
+      "rawSha256": "f753f966613aa043f0243e3af73d4539f9b30f2cd56919b4d73985af584d62e2"
+    },
+    {
+      "path": "verify_state.py",
+      "rawSha256": "f39246128862e7eab65aa17855c2ada177b32b23cac38aede3e9e9915c5ec4d5"
+    }
+  ],
+  "dependencies": {
+    "rfc8785": "0.1.4",
+    "jsonschema": "4.26.0"
+  },
+  "limits": {
+    "maxInputBytes": 2097152,
+    "maxBundleBytes": 16777216,
+    "maxDepth": 64
+  },
+  "interpretation": "CONDITIONAL_OWNER_EVIDENCE_CONFORMANCE_ONLY",
+  "contractDigest": "sha256:bacaec901fa0e6f4c3e8eedb8a6075f052f2101929dddf269f982e783ee8f2ed"
+}

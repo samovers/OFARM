@@ -1,0 +1,35 @@
+--- sealed-original/late_shape_probes.py
++++ portable/run_independent_late_shapes_02.py
+@@ -1,10 +1,30 @@
+ """Fresh R1 probes: non-string labels must not hide recognized later shapes."""
++import argparse
+ import copy
++import hashlib
++import importlib.util
+ import json
+ from pathlib import Path
+-import review_probes as p
++import sys
+ 
+-HERE=Path(__file__).resolve().parent
++parser=argparse.ArgumentParser(description=__doc__)
++parser.add_argument('--repository-root',type=Path,required=True)
++parser.add_argument('--output-dir',type=Path,required=True)
++args=parser.parse_args()
++HERE=args.output_dir.resolve()
++helper=args.repository_root.resolve()/'04_implementation_and_conformance/conformance_runners/preverdict_protected_state_evidence/run_independent_review_02.py'
++expected='15e2bccb691d79958a8f70821b31584c77788d5c8f75b20db904f05c8f51a393'
++if hashlib.sha256(helper.read_bytes()).hexdigest()!=expected:
++    raise SystemExit('The separately reviewed independent generator pin does not match.')
++# Import only the independently authored helper, not the authored test suites.
++original_argv=sys.argv
++try:
++    sys.argv=[str(helper),'--output-dir',str(HERE)]
++    spec=importlib.util.spec_from_file_location('pinned_independent_review',helper)
++    p=importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(p)
++finally:
++    sys.argv=original_argv
+ p.OUT=HERE/'late-shape-cases'
+ base=p.load_case('assert_operation_claim-initial')
+ attempt=base['context']['attempt']['transactionAttemptId']
