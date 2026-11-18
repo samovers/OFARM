@@ -1,0 +1,186 @@
+{
+  "sourceHead": "389a8f6b6bb2f43435c35f32df769e723d736856",
+  "sources": [
+    {
+      "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_OperationAssertionEffectIntent_schema_v0_2.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+      "locator": "/properties; /$defs"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_StructureAssertionEffectIntent_schema_v0_2.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "56cf55fcb46cc39990b61261d62f307500e2da55dca1dd1ff831fb27997e93ad",
+      "locator": "/properties; /$defs"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_ComplianceAssertionEffectIntent_schema_v0_2.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "1dc0d24b909aaabd39ddea2df89bdea1184d5c727ba7cbd488c8489cd26fe722",
+      "locator": "/properties; /$defs"
+    },
+    {
+      "path": "03_machine_contracts/schemas/evidence/OFARM_MeasurementEvidence_schema_v0_1.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "90c4cf2d1387633172e772c970d0c76889ceec0fca4682a5053914375bdc9280"
+    },
+    {
+      "path": "03_machine_contracts/schemas/agronomic/OFARM_AgronomicObservationContext_schema_v0_1.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "9b7919083305f7fa3739580f9a8cd2b63ec7938c4cf5a75249ea32f991556ebe",
+      "locator": "/properties/subject; /properties/spatialContext; /properties/procedure; /properties/promotionUse"
+    },
+    {
+      "path": "03_machine_contracts/schemas/agronomic/OFARM_InterventionIntentPayload_schema_v0_1.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "72e4603d3cc98fcd99439f8a06c80724e14d4961031ff3b0a1774f3407725ec0",
+      "locator": "/properties/intendedTimeWindow; /properties/quantityParameters"
+    },
+    {
+      "path": "03_machine_contracts/schemas/agronomic/OFARM_ExecutionRecordPayload_schema_v0_1.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "ca62f01d056794ee588d55c3f5df652fc039124b76af5631d417714bc7059ff0"
+    },
+    {
+      "path": "03_machine_contracts/schemas/authority/OFARM_PartyRelationship_schema_v0_1.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "b174fdf68ae0f96e35a4e15073af84795ba66959bef2e2f3d1f0fc466f12cc65",
+      "locator": "/properties/relationshipDirectionality; /properties/validFrom"
+    },
+    {
+      "path": "03_machine_contracts/schemas/identity_lifecycle/OFARM_ScopeResponsibilityRelationship_schema_v0_1.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "be3df953ae8a7917c5bb4df12b9dedbcc5cb8602dee66dbfb74c622bc46fcfa4",
+      "locator": "/properties/partyRef; /properties/targetScope; /properties/validFrom"
+    },
+    {
+      "path": "03_machine_contracts/schemas/identity_lifecycle/OFARM_ReferenceResolutionReport_schema_v0_1.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "efa4845ddd450191180395c4e051d513d6143d2c663b0788b65cf3b6c463ceab",
+      "locator": "/properties/runner; /properties/findings; /properties/overallStatus"
+    },
+    {
+      "path": "03_machine_contracts/schemas/event_ingress/OFARM_CommitIngressResult_schema_v0_1.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "55a21c697a651cdff6ce8d64dd7c29dd2afaa329047b4ebd55c94497a411e7d5",
+      "locator": "/properties/processedAt; /properties/promotionTraceRef; /properties/primaryEventFamily"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/protected_effect_validation/OFARM_ProtectedEffectValidationTrace_envelope_schema_v0_1.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "a5150119555a2faaa0531ae96e650dcefd5cb491fa30fd8ffe337c873f6cdae3",
+      "locator": "/properties/domainPayload; /properties/selectedActionBodySchemaBinding"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/NOT_REQUIRED_TRANSACTION_EVIDENCE_manifest_v0_1.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "be1307aee4c265d1e433309501e0dec0b9a8b9158e1a12745df9425946e39af6",
+      "locator": "/profiles; /executable; /selectedReleaseClosureComplete"
+    },
+    {
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/PHASE_A.md",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "73ee5c3b000f4ef3c82dacc47175407d0fb01932051c523f0d4c29172d14fca1",
+      "locator": "Evidence dependencies and completion floor; Authority map and effects"
+    },
+    {
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/reviewed-input/canonical/inventory.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "4aec570ad05349924218a1ccef4d9c2e017f27f8ca986a274779f1fe8a970557"
+    },
+    {
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/reviewed-input/domain/requirements.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "2f61281b5ede98a6774785f592e303a4237f49e7c318bffc44724f7a4850ec19"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/ASSERTION_RECORD_SUBMISSION_manifest_v0_2.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "b662eb2cd1eb51b577c840a1efa101f7cc8ab75b5b3964e57661ae8a63fc4c52",
+      "locator": "/unmaterializedDependencies/1; /unmaterializedDependencies/2; /unmaterializedDependencies/3; /unmaterializedDependencies/5; /fixtureVerificationLimit"
+    },
+    {
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/review-amendment-02/canonical-owner/resolution.md",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "299d6e3e4c1e0c36314983a396f49d60e7b514bfd959afa293a4bec2cd513923",
+      "locator": "What must exist before hashing, and what may come later; Finite construction order"
+    },
+    {
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/reviewed-input/domain/inventory.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "56997a2e844fa3384d19ae75c89317cde5b1245bee44a62d8bd6beab02128d0c"
+    },
+    {
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/reviewed-input/domain/quantity-contract.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "0860eda17b83e48e500557391b5b96754856e1438aa271f4ead8d11fa8712973"
+    },
+    {
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/reviewed-input/domain/operation-profile-contract.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "677fd66b099cc8560f41b38f4b218674a312a4b06e18437c72146d181c2e83b7"
+    },
+    {
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/reviewed-input/domain/atom-contract.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "c70566d0fe6a066a63d3dc4c3a30e7d8c54139494b5505a38169abb8139258d9"
+    },
+    {
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/reviewed-input/domain/work-condition-definitions.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "3334642f506968c8970945bd27be3b569946e5453b75757af31f32e61064dd11"
+    },
+    {
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/reviewed-input/domain/occurrence-definitions.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "f33204fc3167b8b6db6fa5d1f9f0ff84500f3bb913377ca6fa35947133ffabf0"
+    },
+    {
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/review-amendment-03/candidate-examples-v4.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "9847e99bd5a820acd060a39971b3c26bf2c2debf0420aadb9e120a3f17b4e50a"
+    },
+    {
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/review-amendment-02/compliance-role-cases-v3.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "e2447ae4910f4c2e29ecd97ee43c6944c2e306bc606f7aeb45ef181f556a6925"
+    },
+    {
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/review-amendment-03/evidence-selectors-v4.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "6683b9066b6fa190e5155d1a95407c0586b609a192976cef0af6999dceb9cbef"
+    },
+    {
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/review-amendment-03/measurement-role-contract-v4.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "b7a4ed1a356d2038b469ed813e1150eec7ca8535223beedae52a873b39e989be"
+    },
+    {
+      "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/review-amendment-02/event-compatibility-package-v3.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "54513a2a42b2c4eeaad6d1b29f87bf8ce1b50d68ab1b5d392e9badd03b3b2fac"
+    },
+    {
+      "path": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/OFARM_AuthorizationFinalizationEvidence_not_required_schema_v0_2.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "cfd8b67644edc39da92edf77a48c6002d353be71641ac512cd0eb0d24d0ebee5",
+      "locator": "/$defs/transactionAttempt; /$defs/attemptContext; /$defs/transactionAttempt/properties/completeGuardEvidence"
+    },
+    {
+      "path": "03_machine_contracts/schemas/event_ingress/OFARM_SemanticEventEnvelope_schema_v0_1.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "75662a6c4952a62b7e8f8e9de99c23c98899c692914a98ba4b752873f48bd1a4"
+    },
+    {
+      "path": "03_machine_contracts/schemas/evidence/OFARM_EvidenceSufficiencyCase_schema_v0_2.json",
+      "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+      "sha256": "b3d93fa6ce4d6ff0693e5a71791a4429fb39753e7e9ba2cac192d53216c7a1ab"
+    }
+  ],
+  "next": "Verify this exact source closure before construction checks."
+}

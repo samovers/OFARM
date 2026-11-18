@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "fixture.consumerDependencySelection.v0.1",
+  "status": "EXACT_LOCAL_CONSTRUCTION_SELECTION_NOT_OWNER_ADMISSION",
+  "primaryTrustBoundary": "AssertionRecord domain meaning and validation integrity",
+  "interpreter": {
+    "path": "external/runtime/bin/python3.12",
+    "rawSha256": "811e2679c20fd2c7413f7c5ca28ce903065eea8dadb8660f1b9379a28959a480",
+    "version": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "stdlibRoot": "external/runtime/lib/python3.12",
+    "implementation": "cpython",
+    "cacheTag": "cpython-312",
+    "platform": "Darwin",
+    "machine": "arm64",
+    "stdlibManifestPath": "worker/dependency-manifests/stdlib.json",
+    "stdlibManifestRawSha256": "3a7fbaa7506ac1ede8487aeb4ca662f661f43a60e3bc793be7c46460cc3484bf",
+    "stdlibFileCount": 935,
+    "extensionRoot": "external/runtime/lib/python3.12/lib-dynload",
+    "flags": [
+      "-I",
+      "-S",
+      "-B"
+    ],
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1"
+    }
+  },
+  "owners": {
+    "act": {
+      "root": "external/owners/act",
+      "checkerRoot": "external/owners/act",
+      "contractRoot": "external/owners/act",
+      "sourceRoot": "external/owners/act",
+      "manifestPath": "worker/dependency-manifests/act.json",
+      "manifestRawSha256": "5acded8b6468dc11688d54b259a6e51aae8adaaa528e54a6d1ec1f32463878a5",
+      "fileCount": 29,
+      "module": "verify_assertion_act",
+      "function": "verify",
+      "executableFiles": [
+        "act_common.py",
+        "act_report_contract.py",
+        "verify_assertion_act.py"
+      ],
+      "selection": "UNCHANGED_FROZEN_EXTERNAL_SUBSET"
+    },
+    "event": {
+      "root": "external/owners/event",
+      "checkerRoot": "external/owners/event",
+      "contractRoot": "external/owners/event",
+      "sourceRoot": "external/owners/event",
+      "manifestPath": "worker/dependency-manifests/event.json",
+      "manifestRawSha256": "8295e586f331da197a46748819e16e846b45857c5017922bdb8636f116c38ab5",
+      "fileCount": 15,
+      "module": "verify_event_proof",
+      "function": "verify",
+      "executableFiles": [
+        "report_contract.py",
+        "verify_event_proof.py"
+      ],
+      "selection": "UNCHANGED_FROZEN_EXTERNAL_SUBSET"
+    },
+    "authorization": {
+      "root": "external/owners/authorization",
+      "checkerRoot": "external/owners/authorization",
+      "contractRoot": "external/owners/authorization",
+      "sourceRoot": "external/owners/authorization",
+      "manifestPath": "worker/dependency-manifests/authorization.json",
+      "manifestRawSha256": "4a3a50451b6ce64c9c336b4d7bbe15aebddd799f85e73862d2cf4263ef20023c",
+      "fileCount": 14,
+      "module": "verify_success_path",
+      "function": "verify",
+      "executableFiles": [
+        "path_common.py",
+        "verify_success_path.py"
+      ],
+      "selection": "UNCHANGED_FROZEN_EXTERNAL_SUBSET"
+    },
+    "occupancy": {
+      "root": "external/owners/occupancy",
+      "checkerRoot": "external/owners/occupancy",
+      "contractRoot": "external/owners/occupancy",
+      "sourceRoot": "external/owners/occupancy",
+      "manifestPath": "worker/dependency-manifests/occupancy.json",
+      "manifestRawSha256": "9767cdd2add3d4fb5311b38de552ae549fa564bdcc2a48eeb884b96302516c76",
+      "fileCount": 12,
+      "module": "verify_occupancy",
+      "function": "verify",
+      "executableFiles": [
+        "verify_occupancy.py"
+      ],
+      "selection": "UNCHANGED_FROZEN_EXTERNAL_SUBSET"
+    },
+    "state": {
+      "root": "external/owners/state",
+      "contractRoot": "external/owners/state/03_machine_contracts/drafts_non_default/authorization_finalization_evidence/protected_state_evidence",
+      "checkerRoot": "external/owners/state/04_implementation_and_conformance/conformance_runners/preverdict_protected_state_evidence",
+      "sourceRoot": "external/owners/state/04_implementation_and_conformance/examples_and_fixtures/fixtures/preverdict_protected_state_evidence",
+      "manifestPath": "worker/dependency-manifests/state.json",
+      "manifestRawSha256": "f8b09c6e81624361f999b96cea7e6921f9a50b34d0079c29bbc9d32992bb3d58",
+      "fileCount": 259,
+      "module": "verify_state",
+      "function": "verify_state",
+      "executableFiles": [
+        "04_implementation_and_conformance/conformance_runners/preverdict_protected_state_evidence/verify_state.py",
+        "04_implementation_and_conformance/conformance_runners/preverdict_protected_state_evidence/package_contract.py"
+      ],
+      "archivalRunnerFilesNeverImported": [
+        "04_implementation_and_conformance/conformance_runners/ofarm_preverdict_protected_state_v0_1.py",
+        "04_implementation_and_conformance/conformance_runners/preverdict_protected_state_evidence/run_conformance.py",
+        "04_implementation_and_conformance/conformance_runners/preverdict_protected_state_evidence/run_independent_review_02.py",
+        "04_implementation_and_conformance/conformance_runners/preverdict_protected_state_evidence/run_review_repair_02.py"
+      ],
+      "head": "538d04075881b885ed370d14326acfab7aaf429e",
+      "selection": "EXACT_OFFLINE_GIT_OBJECTS",
+      "contractRawSha256": "4f7cabc08dfc18401d0b8a753f42ef11849b626c6c690dba381e74f6513db4c2"
+    }
+  },
+  "libraries": {
+    "root": "external/libraries",
+    "manifestPath": "worker/dependency-manifests/libraries.json",
+    "manifestRawSha256": "b5603a2aa14144cbb3170020e9b5aeeeae194ae1d983caf5a40a35c1f15ccd0b",
+    "distributions": {
+      "rfc8785": "0.1.4",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "referencing": "0.37.0",
+      "attrs": "26.1.0",
+      "rpds-py": "2026.5.1",
+      "typing-extensions": "4.15.0"
+    }
+  },
+  "workerPolicy": {
+    "timeoutSeconds": 30,
+    "clearEnvironment": true,
+    "isolatedMode": true,
+    "disableSiteStartup": true,
+    "disableBytecodeWrites": true,
+    "moduleOrigins": "Exact selected source/native inventory; source loaded from verified bytes without pyc fallback.",
+    "preflight": "Verify all five owner closures, interpreter, standard library and all library files before launching; audit loaded origins and hashes before any checker invocation.",
+    "timeoutResult": "OWNER_EXECUTION_TIMEOUT with captured partial streams; never an owner verdict.",
+    "externalEffects": "No network operations or runtime writes are implemented. This worker is an integrity boundary, not an OS security sandbox."
+  }
+}

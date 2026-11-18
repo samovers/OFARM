@@ -1,0 +1,364 @@
+{
+  "status": "OWNED_CONSTRUCTION_OPEN_EXACT_FOREIGN_EDGES_REMAIN",
+  "sourceHead": "389a8f6b6bb2f43435c35f32df769e723d736856",
+  "primaryTrustBoundary": "AssertionRecord domain meaning and validation integrity",
+  "scopeStayedInsideBoundary": true,
+  "completeInterfaceClosureEstablished": false,
+  "existingInterfaces": [
+    {
+      "id": "CALLER_RESULT",
+      "source": {
+        "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/OFARM_AssertionRecord_schema_v0_2.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "3a7044086a2b0a226109ac00b361332503d77b07efd602b29402662515b67f1e",
+        "locator": "/$defs/assertionRecord; /$defs/immutableBinding; /$defs/contextBinding"
+      },
+      "schemaId": "https://ofarm.dev/schema/assertionrecord/v0.2",
+      "schemaVersion": null,
+      "existingMeaning": "Existing closed result, binding syntax and nine time profiles. New caller/body schemas need new identities, with domain-owned references repinned mechanically.",
+      "admissionEstablishedBySchema": false
+    },
+    {
+      "id": "OPERATION_INTENT",
+      "source": {
+        "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_OperationAssertionEffectIntent_schema_v0_2.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+        "locator": "/properties; /$defs"
+      },
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2",
+      "schemaVersion": "ofarm.operationassertioneffectintent.v0.2",
+      "existingMeaning": "Existing operation intent and immutable associatedSemanticEventBinding; authorization extraction is retained.",
+      "admissionEstablishedBySchema": false
+    },
+    {
+      "id": "STRUCTURE_INTENT",
+      "source": {
+        "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_StructureAssertionEffectIntent_schema_v0_2.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "56cf55fcb46cc39990b61261d62f307500e2da55dca1dd1ff831fb27997e93ad",
+        "locator": "/properties; /$defs"
+      },
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/structure-assertion-effect-intent/v0.2",
+      "schemaVersion": "ofarm.structureassertioneffectintent.v0.2",
+      "existingMeaning": "Existing structure intent remains non-default; no new action authority.",
+      "admissionEstablishedBySchema": false
+    },
+    {
+      "id": "COMPLIANCE_INTENT",
+      "source": {
+        "path": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_ComplianceAssertionEffectIntent_schema_v0_2.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "1dc0d24b909aaabd39ddea2df89bdea1184d5c727ba7cbd488c8489cd26fe722",
+        "locator": "/properties; /$defs"
+      },
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/compliance-assertion-effect-intent/v0.2",
+      "schemaVersion": "ofarm.complianceassertioneffectintent.v0.2",
+      "existingMeaning": "Existing compliance intent remains non-default; no new action authority.",
+      "admissionEstablishedBySchema": false
+    },
+    {
+      "id": "MEASUREMENT_RECORD",
+      "source": {
+        "path": "03_machine_contracts/schemas/evidence/OFARM_MeasurementEvidence_schema_v0_1.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "90c4cf2d1387633172e772c970d0c76889ceec0fca4682a5053914375bdc9280",
+        "locator": "/properties/result; /properties/phenomenonTime; /properties/source"
+      },
+      "schemaId": "https://ofarm.dev/schema/measurementevidence/v0.1",
+      "schemaVersion": "ofarm.measurementevidence.v0.1",
+      "existingMeaning": "Actual measurement result, source and time schema; source eligibility/admission is separately owned.",
+      "admissionEstablishedBySchema": false
+    },
+    {
+      "id": "OBSERVATION_CONTEXT",
+      "source": {
+        "path": "03_machine_contracts/schemas/agronomic/OFARM_AgronomicObservationContext_schema_v0_1.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "9b7919083305f7fa3739580f9a8cd2b63ec7938c4cf5a75249ea32f991556ebe",
+        "locator": "/properties/subject; /properties/spatialContext; /properties/procedure; /properties/promotionUse"
+      },
+      "schemaId": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1",
+      "schemaVersion": "ofarm.agronomicobservationcontext.v0.1",
+      "existingMeaning": "Actual observation context schema; fields do not authenticate their own eligibility.",
+      "admissionEstablishedBySchema": false
+    },
+    {
+      "id": "INTERVENTION_INTENT",
+      "source": {
+        "path": "03_machine_contracts/schemas/agronomic/OFARM_InterventionIntentPayload_schema_v0_1.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "72e4603d3cc98fcd99439f8a06c80724e14d4961031ff3b0a1774f3407725ec0",
+        "locator": "/properties/intendedTimeWindow; /properties/quantityParameters"
+      },
+      "schemaId": "https://ofarm.dev/schema/interventionintentpayload/v0.1",
+      "schemaVersion": "ofarm.interventionintentpayload.v0.1",
+      "existingMeaning": "Actual intended operation carrier.",
+      "admissionEstablishedBySchema": false
+    },
+    {
+      "id": "EXECUTION_RECORD",
+      "source": {
+        "path": "03_machine_contracts/schemas/agronomic/OFARM_ExecutionRecordPayload_schema_v0_1.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "ca62f01d056794ee588d55c3f5df652fc039124b76af5631d417714bc7059ff0",
+        "locator": "/properties/effectiveTimeInterval; /properties/actualAction; /properties/actualQuantityParameters"
+      },
+      "schemaId": "https://ofarm.dev/schema/executionrecordpayload/v0.1",
+      "schemaVersion": "ofarm.executionrecordpayload.v0.1",
+      "existingMeaning": "Actual performed interval/action/quantity carrier.",
+      "admissionEstablishedBySchema": false
+    },
+    {
+      "id": "RELATION_PARTY",
+      "source": {
+        "path": "03_machine_contracts/schemas/authority/OFARM_PartyRelationship_schema_v0_1.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "b174fdf68ae0f96e35a4e15073af84795ba66959bef2e2f3d1f0fc466f12cc65",
+        "locator": "/properties/relationshipDirectionality; /properties/validFrom"
+      },
+      "schemaId": "https://ofarm.dev/schema/partyrelationship/v0.1",
+      "schemaVersion": "ofarm.partyrelationship.v0.1",
+      "existingMeaning": "Specific Party relationship carrier, not universal subject-to-anchor proof.",
+      "admissionEstablishedBySchema": false
+    },
+    {
+      "id": "RELATION_SCOPE",
+      "source": {
+        "path": "03_machine_contracts/schemas/identity_lifecycle/OFARM_ScopeResponsibilityRelationship_schema_v0_1.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "be3df953ae8a7917c5bb4df12b9dedbcc5cb8602dee66dbfb74c622bc46fcfa4",
+        "locator": "/properties/partyRef; /properties/targetScope; /properties/validFrom"
+      },
+      "schemaId": "https://ofarm.dev/schema/scoperesponsibilityrelationship/v0.1",
+      "schemaVersion": "ofarm.scoperesponsibilityrelationship.v0.1",
+      "existingMeaning": "Specific responsibility carrier, not all typed V06 endpoint relationships.",
+      "admissionEstablishedBySchema": false
+    },
+    {
+      "id": "RESOLUTION_REPORT",
+      "source": {
+        "path": "03_machine_contracts/schemas/identity_lifecycle/OFARM_ReferenceResolutionReport_schema_v0_1.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "efa4845ddd450191180395c4e051d513d6143d2c663b0788b65cf3b6c463ceab",
+        "locator": "/properties/runner; /properties/findings; /properties/overallStatus"
+      },
+      "schemaId": "https://ofarm.dev/schema/referenceresolutionreport/v0.1",
+      "schemaVersion": "ofarm.referenceresolutionreport.v0.1",
+      "existingMeaning": "Artifact-reference report; supplied success fields are not a governed immutable-record admission mechanism.",
+      "admissionEstablishedBySchema": false
+    },
+    {
+      "id": "INGRESS_RESULT",
+      "source": {
+        "path": "03_machine_contracts/schemas/event_ingress/OFARM_CommitIngressResult_schema_v0_1.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "55a21c697a651cdff6ce8d64dd7c29dd2afaa329047b4ebd55c94497a411e7d5",
+        "locator": "/properties/processedAt; /properties/promotionTraceRef; /properties/primaryEventFamily"
+      },
+      "schemaId": "https://ofarm.dev/schema/commitingressresult/v0.1",
+      "schemaVersion": "ofarm.commitingressresult.v0.1",
+      "existingMeaning": "Processed ingress outcome. Cannot be relabelled as earlier independently admitted classification proof.",
+      "admissionEstablishedBySchema": false
+    },
+    {
+      "id": "PR43_ENVELOPE",
+      "source": {
+        "path": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/protected_effect_validation/OFARM_ProtectedEffectValidationTrace_envelope_schema_v0_1.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "a5150119555a2faaa0531ae96e650dcefd5cb491fa30fd8ffe337c873f6cdae3",
+        "locator": "/properties/domainPayload; /properties/selectedActionBodySchemaBinding"
+      },
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1",
+      "schemaVersion": "ofarm.protectedEffectValidationTrace.v0.1",
+      "existingMeaning": "Shared envelope exists. Domain-owned complete contract/payload can be constructed here without changing the envelope.",
+      "admissionEstablishedBySchema": false
+    },
+    {
+      "id": "TRANSACTION_PROFILES",
+      "source": {
+        "path": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/NOT_REQUIRED_TRANSACTION_EVIDENCE_manifest_v0_1.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "be1307aee4c265d1e433309501e0dec0b9a8b9158e1a12745df9425946e39af6",
+        "locator": "/profiles; /executable; /selectedReleaseClosureComplete"
+      },
+      "schemaId": null,
+      "schemaVersion": "ofarm.authorizationFinalizationEvidence.componentManifest.v0.2",
+      "existingMeaning": "Named draft operationBinding/modeEvidence/transactionAttempt/decisionConsumption/receipt profiles. No actual transaction producer or protected-state guarantee is supplied.",
+      "admissionEstablishedBySchema": false
+    },
+    {
+      "id": "TRANSACTION_RECORD_SCHEMAS",
+      "source": {
+        "path": "03_machine_contracts/drafts_non_default/authorization_finalization_evidence/OFARM_AuthorizationFinalizationEvidence_not_required_schema_v0_2.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "cfd8b67644edc39da92edf77a48c6002d353be71641ac512cd0eb0d24d0ebee5",
+        "locator": "/$defs/transactionAttempt; /$defs/attemptContext; /$defs/transactionAttempt/properties/completeGuardEvidence"
+      },
+      "schemaId": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/not-required/v0.2",
+      "existingMeaning": "Concrete offline schemas for transaction records and exact bound guard/snapshot selectors. Their existence is separate from runtime release posture or actual admission.",
+      "admissionEstablishedBySchema": false
+    },
+    {
+      "id": "EVIDENCE_SUFFICIENCY_V02",
+      "source": {
+        "path": "03_machine_contracts/schemas/evidence/OFARM_EvidenceSufficiencyCase_schema_v0_2.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "b3d93fa6ce4d6ff0693e5a71791a4429fb39753e7e9ba2cac192d53216c7a1ab",
+        "locator": "/properties/subject; /properties/governingPolicyRefs; /properties/claims; /properties/arguments; /properties/evidenceBundles; /properties/outcome"
+      },
+      "schemaId": "https://ofarm.dev/schema/evidencesufficiencycase/v0.2",
+      "existingMeaning": "Existing sufficiency record supports its specific policy/evidence/argument role; its outcome is not self-authenticating and is not arbitrary event/act approval.",
+      "admissionEstablishedBySchema": false
+    }
+  ],
+  "allDefinitionsRetained": 99,
+  "allRequirementsRetained": 42,
+  "prohibitedWorkarounds": [
+    "generic admission Boolean",
+    "fictional owner schema stand-in",
+    "general policy engine",
+    "permanent UNAVAILABLE branch",
+    "dropping an event/measurement/profile case"
+  ],
+  "authorizedWorkContinuing": "Domain-owned definition/requirement mapping, closed candidate row shapes, direct predicates and explicit fictional conformance expectations. Missing foreign interfaces remain separate completion prerequisites; no foreign producer/admission schema will be invented.",
+  "next": "Continue explicit owned types and row semantics; resolve Event Ingress pre-verdict proof first, then narrow act/snapshot and per-source-role adapter selections before complete-verifier acceptance.",
+  "correction": "The original locator /dependencies was wrong; the exact existing array is /unmaterializedDependencies. Non-default/executable/release posture flags are not used as evidence that an offline schema is missing.",
+  "interfaceInvestigations": [
+    {
+      "id": "OWNER_EVENT_CLASSIFICATION",
+      "ownerBoundary": "Event Ingress classification and evidence admission",
+      "needed": "Exact pre-verdict classification-proof schema and immutable producer record, envelope digest, primary family, selected commit class, admission/context/reuse checks and a cycle-free availability milestone.",
+      "existing": [
+        "INGRESS_RESULT"
+      ],
+      "missing": "The current owner resolution explicitly states that CommitIngressResult/PromotionTrace do not close this interface and requires the Event Ingress owner to identify the actual artifact/schema and admission checks.",
+      "source": {
+        "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/review-amendment-02/canonical-owner/resolution.md",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "299d6e3e4c1e0c36314983a396f49d60e7b514bfd959afa293a4bec2cd513923",
+        "locator": "What must exist before hashing, and what may come later; Finite construction order"
+      },
+      "completionEffect": "All event-present cells remain required; a complete public verifier cannot replace this with a caller flag or permanent unavailable branch.",
+      "separatePrerequisite": "Event Ingress owner supplies or separately versions the missing proof/producer/admission contract; do not add it in PR47.",
+      "admittedProductionRecordsEstablished": false,
+      "noAutomaticImplementationBlockFromAbsentProductionRecords": true,
+      "interfaceGapClass": "EXACT_PRE_VERDICT_PROOF_SCHEMA_AND_VERIFICATION_CONTRACT_UNRESOLVED"
+    },
+    {
+      "id": "OWNER_ACT_TIME",
+      "ownerBoundary": "Authorization-selected actor and trusted assertion-act/time evidence",
+      "needed": "Actual online trusted-clock context or admitted offline act record binding Party, source time and exact body content; exact schema, producer and admission procedure.",
+      "existing": [
+        "CALLER_RESULT",
+        "OPERATION_INTENT",
+        "STRUCTURE_INTENT",
+        "COMPLIANCE_INTENT"
+      ],
+      "missing": "The inspected manifest names assertion-act admission and trusted original-context provenance as unmaterialized. The result has a concrete immutable act binding but does not identify the actual offline act-record schema or producer/admission verification contract. This is a specific unresolved input contract, not a conclusion from non-default/executable flags.",
+      "source": {
+        "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/ASSERTION_RECORD_SUBMISSION_manifest_v0_2.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "b662eb2cd1eb51b577c840a1efa101f7cc8ab75b5b3964e57661ae8a63fc4c52",
+        "locator": "/unmaterializedDependencies/1/description; /unmaterializedDependencies/3/description; /fixtureVerificationLimit"
+      },
+      "completionEffect": "Do not authenticate assertedByPartyRef/assertedAt from the proposed result or turn the fictional W25 record into a real owner schema.",
+      "separatePrerequisite": "Act/time and authorization owners identify the concrete existing interface or supply its missing contract separately.",
+      "admittedProductionRecordsEstablished": false,
+      "noAutomaticImplementationBlockFromAbsentProductionRecords": true,
+      "interfaceGapClass": "EXACT_ACT_RECORD_AND_TRUST_VERIFICATION_CONTRACT_UNRESOLVED"
+    },
+    {
+      "id": "OWNER_IDENTITY_RELATION",
+      "ownerBoundary": "Identity resolution, directed relationship proof and scope admission",
+      "needed": "Exact admitted endpoint and relationship interfaces for all V06 rows, with kind, direction, temporal/extent coverage, exact source revision/digest and producer verification; four added subject kinds preserve the existing anchor law.",
+      "existing": [
+        "RELATION_PARTY",
+        "RELATION_SCOPE",
+        "RESOLUTION_REPORT",
+        "CALLER_RESULT"
+      ],
+      "missing": "Specific Party, scope-responsibility, lifecycle, extent and reference-resolution carriers are concrete. The exact subject-to-anchor/typed relation proof record selected by relationshipProofBindings, its owned context and verification contract are not identified in the inspected component. This is narrower than saying no relationship interface exists; missing admitted records are a separate issue.",
+      "source": {
+        "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/reviewed-input/canonical/inventory.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "4aec570ad05349924218a1ccef4d9c2e017f27f8ca986a274779f1fe8a970557",
+        "locator": "/dependencies; /existingSchemaBindings; /actualGovernedPositiveStatus"
+      },
+      "completionEffect": "All 13 subject kinds and V06 relationships remain mapped; no generic admitted Boolean, inverse/transitive shortcut or invented identity carrier.",
+      "separatePrerequisite": "Existing identity/relationship owners supply exact typed proof/admission interfaces; any new authority-scope law stays separate.",
+      "admittedProductionRecordsEstablished": false,
+      "noAutomaticImplementationBlockFromAbsentProductionRecords": true,
+      "interfaceGapClass": "CONCRETE_CARRIERS_PRESENT_TYPED_PROOF_ADAPTER_UNRESOLVED",
+      "constructionDisposition": "SUPPORTED_CARRIERS_ENABLE_OWNED_COMPARISONS_NOW; per-row uncovered proof selections remain investigation, not a category-wide blocker."
+    },
+    {
+      "id": "OWNER_MEASUREMENT_USE",
+      "ownerBoundary": "Measurement provenance, property/method interpretation and eligible use",
+      "needed": "Exact property/context/method/use and sample-to-claim relation evidence, source identity/admission and approved criterion expectations; actual work-facet evidence distinct from analysis output.",
+      "existing": [
+        "MEASUREMENT_RECORD",
+        "OBSERVATION_CONTEXT",
+        "INTERVENTION_INTENT",
+        "EXECUTION_RECORD",
+        "EVIDENCE_SUFFICIENCY_V02"
+      ],
+      "missing": "MeasurementEvidence, observation context, identity/code-binding and payload schemas are concrete offline inputs. Missing admitted production examples alone does not block implementing their comparisons. The remaining unresolved contract is the exact owner interface for operation/facet method-use interpretation, sample-to-claim eligibility and scalar transcription/criterion provenance beyond the finite fixtures; obtain its actual schema and validation contract rather than claim that the basic measurement schemas are absent.",
+      "source": {
+        "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/reviewed-input/canonical/inventory.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "4aec570ad05349924218a1ccef4d9c2e017f27f8ca986a274779f1fe8a970557",
+        "locator": "/dependencies; /existingSchemaBindings; /actualGovernedPositiveStatus"
+      },
+      "completionEffect": "Closed domain rows and comparisons can be built; successful fictional comparison cannot establish admitted operation performance or a real criterion.",
+      "separatePrerequisite": "Measurement/use/criterion owners identify actual schema/producer/admission bindings where absent.",
+      "admittedProductionRecordsEstablished": false,
+      "noAutomaticImplementationBlockFromAbsentProductionRecords": true,
+      "interfaceGapClass": "CONCRETE_CARRIERS_PRESENT_USE_INTERPRETATION_CONTRACT_UNRESOLVED",
+      "constructionDisposition": "SUPPORTED_CARRIERS_ENABLE_OWNED_COMPARISONS_NOW; per-row uncovered proof selections remain investigation, not a category-wide blocker."
+    },
+    {
+      "id": "OWNER_PROTECTED_STATE",
+      "ownerBoundary": "Transaction/history protected proposed state, uniqueness and correction visibility",
+      "needed": "Actual immutable input/transaction attempt context, protected proposed writes, uniqueness/absence and correction creation/visibility proof retained through commit under DC-01.",
+      "existing": [
+        "TRANSACTION_PROFILES"
+      ],
+      "missing": "The transactionAttempt and attemptContext schemas exist and are usable for offline validation. transactionSnapshot, guardPolicyBinding and completeGuardEvidence are record bindings; the inspected schema does not define the bound snapshot/guard record contents or their producer/admission checks. Those exact input interfaces still need owner identification. Absence of admitted production records is separate.",
+      "source": {
+        "path": "03_machine_contracts/drafts_non_default/assertion_record_submission/ASSERTION_RECORD_SUBMISSION_manifest_v0_2.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "b662eb2cd1eb51b577c840a1efa101f7cc8ab75b5b3964e57661ae8a63fc4c52",
+        "locator": "/unmaterializedDependencies/2/description; /unmaterializedDependencies/5/description; /fixtureVerificationLimit"
+      },
+      "completionEffect": "Reuse the actual transaction schema for offline checks. Do not infer protected uniqueness/absence from a supplied binding or unprotected write list; identify the referenced snapshot/guard schema and verification contract. Do not use executable=false or selectedReleaseClosureComplete=false to deny the existing interface.",
+      "separatePrerequisite": "Transaction/history owners supply the exact protected-state producer/admission interface without changing DC-01 in PR47.",
+      "admittedProductionRecordsEstablished": false,
+      "noAutomaticImplementationBlockFromAbsentProductionRecords": true,
+      "interfaceGapClass": "TRANSACTION_SCHEMAS_PRESENT_BOUND_GUARD_SNAPSHOT_INTERFACES_UNRESOLVED"
+    }
+  ],
+  "calculationLimits": [
+    {
+      "id": "PROFILE_NL_CALCULATION_LIMIT",
+      "source": {
+        "path": "package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/reviewed-input/domain/requirements.json",
+        "commit": "389a8f6b6bb2f43435c35f32df769e723d736856",
+        "sha256": "2f61281b5ede98a6774785f592e303a4237f49e7c318bffc44724f7a4850ec19",
+        "locator": "/requirements/37; /requirements/38; /requirements/39"
+      },
+      "ownedExecutableCapability": "Closed qualified C16 organic parcel representation, selected context/evidence selectors, INDETERMINATE/PENDING preservation and rejection of unsupported SATISFIED/exemption claims. C15 history predicates and remaining C16 route variants remain owned implementation, not a blanket foreign prerequisite.",
+      "conditionalOwnerContract": "Only a calculated or authority-determined outcome consumer needs the exact external evaluation-record and verification contract; no fictional wire stand-in is introduced.",
+      "futureProfileImplementation": "R39 preserves missing denominator, rounding, cross-year code, lineage-allocation and exemption-precedence semantics. A GLMC7 calculation engine is outside this candidate and is not a prerequisite for its defined qualified conformance positive.",
+      "interfaceGapClass": "INTENTIONAL_PROFILE_CALCULATION_LIMIT_NOT_GENERAL_CONSTRUCTION_BLOCKER"
+    }
+  ],
+  "reviewResolution": {
+    "finding": "IF-01",
+    "disposition": "RESOLVED_IN_CONSTRUCTION_NOTE_AND_EXECUTABLE_QUALIFIED_C16_VARIANT",
+    "review": "../interface-review/review.md",
+    "reviewSha256": "91132f3e593203c5007148237e8a9ce20356c12a4c0dce8be54d00dfa996d40c",
+    "implementation": "domain_owned.py:OwnedComponent.qualified_nl_errors and owned-value-types.schema.json#/$defs/nlQualifiedOrganicParcelBody",
+    "testStatus": "Independent qualified C16 positive and hostile cases are included in verification-results.json."
+  }
+}

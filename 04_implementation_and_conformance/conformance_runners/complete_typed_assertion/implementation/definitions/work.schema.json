@@ -1,0 +1,274 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/work-specification-definition/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainWorkSpecificationDefinition.v0.1"
+    },
+    "definitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "activityRow": {
+      "enum": [
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O07",
+        "O08",
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O19",
+        "O20",
+        "O21",
+        "O22",
+        "O23",
+        "O24",
+        "O25",
+        "O26",
+        "O27"
+      ]
+    },
+    "activityInstance": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "procedure": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "target": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/typedBinding"
+    },
+    "extent": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/extent"
+    },
+    "intendedPerformer": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "parameters": {
+      "anyOf": [
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O01/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O02/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O03/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O04/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O05/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O06/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O07/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O08/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O09/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O10/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O11/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O12/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O13/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O14/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O15/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O16/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O17/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O18/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O19/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O20/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O21/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O22/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O23/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O24/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O25/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O26/properties/body/properties/parameters"
+        },
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O27/properties/body/properties/parameters"
+        }
+      ]
+    },
+    "startConditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "conditionId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "definitionBinding": {
+            "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+          }
+        },
+        "required": [
+          "conditionId",
+          "definitionBinding"
+        ]
+      }
+    },
+    "inProgressConditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "conditionId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "definitionBinding": {
+            "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+          }
+        },
+        "required": [
+          "conditionId",
+          "definitionBinding"
+        ]
+      }
+    },
+    "finishConditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "conditionId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "definitionBinding": {
+            "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+          }
+        },
+        "required": [
+          "conditionId",
+          "definitionBinding"
+        ]
+      }
+    },
+    "outputSpecification": {
+      "oneOf": [
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "carrierMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "actionType": {
+          "type": "string",
+          "minLength": 1
+        },
+        "interventionKind": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "specificActivity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "methodBinding": {
+          "oneOf": [
+            {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "actionType",
+        "interventionKind",
+        "specificActivity",
+        "methodBinding"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "definitionId",
+    "activityRow",
+    "activityInstance",
+    "procedure",
+    "target",
+    "extent",
+    "intendedPerformer",
+    "parameters",
+    "startConditions",
+    "inProgressConditions",
+    "finishConditions",
+    "outputSpecification",
+    "carrierMeaning"
+  ],
+  "$comment": "New domain-owned normative input. Exact independent selection and protected original bytes are required. No source admission, authority, runtime producer or statutory applicability is asserted."
+}

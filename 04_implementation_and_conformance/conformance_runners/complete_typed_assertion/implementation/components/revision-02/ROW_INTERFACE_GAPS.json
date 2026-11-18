@@ -1,0 +1,65 @@
+{
+  "status": "NARROW_ROW_INTERFACE_INVESTIGATIONS_DURING_OWNED_CONSTRUCTION",
+  "sourceHead": "389a8f6b6bb2f43435c35f32df769e723d736856",
+  "primaryTrustBoundary": "AssertionRecord domain meaning and validation integrity",
+  "gaps": [
+    {
+      "id": "OCCUPANCY_ENDPOINT_INTERVAL_CARRIER",
+      "rows": [
+        "S13",
+        "V06-occupancy"
+      ],
+      "availableSchema": "https://ofarm.dev/schema/identitylifecyclechange/v0.1",
+      "schemaPath": "03_machine_contracts/schemas/identity_lifecycle/OFARM_IdentityLifecycleChange_schema_v0_1.json",
+      "availablePointers": [
+        "/properties/changeKind",
+        "/properties/subjectFamily",
+        "/properties/oldIdentityRefs",
+        "/properties/newIdentityRefs",
+        "/properties/effectiveFrom",
+        "/properties/lineageRelations"
+      ],
+      "preciseUnresolvedRole": "A typed occupancy evidence record binding the occupied material/lot, container or storage-place endpoints, direction, and the complete occupancy interval. OCCUPANCY_EPISODE by itself does not supply those fields; old/new identity lineage cannot be silently reinterpreted as occupancy.",
+      "evidence": "reviewed-input/canonical/inventory.json V06-occupancy explicitly calls for row-specific occupancy evidence in addition to the lifecycle token; the independent interface review confirms that the token alone is insufficient.",
+      "constructionContinuing": "S13 allegation typing, exact endpoint selector syntax, recurring occupancy collection, calendar/start-end checks, source preservation and other V06 carrier adapters proceed. No generic occupancy proof schema or admitted flag is invented.",
+      "ownerAction": "Identify an already available occupancy source format or a separately supplied owner interface. Independent canonical review can assess the concrete evidence and selection-profile option; no independent boundary change is included here.",
+      "productionRecordsRequiredForOfflineConstruction": false,
+      "classification": "NARROW_SOURCE_INTERFACE_INVESTIGATION_NOT_A_BLANKET_ROW_BLOCKER",
+      "additionalInspectedContracts": [
+        {
+          "schemaId": "https://ofarm.dev/schema/lotlineagechange/v0.1",
+          "path": "03_machine_contracts/schemas/core/OFARM_LotLineageChange_schema_v0_1.json",
+          "availablePointers": [
+            "/properties/subjectLotRefs",
+            "/properties/predecessorLotRefs",
+            "/properties/successorLotRefs",
+            "/properties/lineageEdges",
+            "/properties/evaluatedAt"
+          ],
+          "limit": "Only lot lineage endpoints and evaluation time; no typed occupied container/place and occupancy interval."
+        },
+        {
+          "schemaId": "https://ofarm.dev/schema/localartifact/v0.1",
+          "path": "03_machine_contracts/schemas/core/OFARM_LocalArtifact_schema_v0_1.json",
+          "availablePointers": [
+            "/properties/targetScope",
+            "/properties/checksum",
+            "/properties/createdAt",
+            "/properties/artifactKind"
+          ],
+          "limit": "Artifact metadata can bind retained report bytes, but contains no occupancy endpoint or interval content; createdAt is not occupancy time."
+        },
+        {
+          "repository": "samovers/OFARM2",
+          "commit": "92b3c462058a7d1d483225091a84326702d82c32",
+          "path": "CORE.md",
+          "sha256": "c39d38f26cf4fee1e67a1c8224669d1fb2cf0bf0446f40e509f1eba008e1c908",
+          "line": 21,
+          "limit": "The exact implementation source explicitly defers payload contracts for Site, ManagementZone, MicroclimateZone, Lot, Facility, StorageLocation and Container."
+        }
+      ],
+      "rowOwnedSelectionProfileAssessment": "A row-owned profile may select and compare exact occupancy fields from an already existing named source format, with its schema, immutable bytes and endpoint/time semantics selected independently. No such typed format is supplied by the inspected lifecycle, lot-lineage or LocalArtifact records. A profile cannot turn old/new identity arrays into occupied-by relations, treat createdAt/evaluatedAt as occupancy start/end, or assert a new foreign record schema. Raw external report bytes could be supported after the exact existing source format is identified; absent production records alone are not a blocker."
+    }
+  ],
+  "next": "Continue the supported row and carrier comparisons; add only source-demonstrated exact gaps after inspecting existing schemas."
+}

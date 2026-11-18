@@ -1,0 +1,30 @@
+{
+  "definitionId": "candidate:assertion-domain:reviewed-proposition-algebra:v0.1",
+  "source": {
+    "path": "components/revision-02/sources/OFARM/389a8f6b6bb2/package_meta/history/clean_baseline_migration/phase_reports/domain_contract_verifier_delivery_v0_1/reviewed-input/domain/inventory.json",
+    "pointer": "/languageDefinitions"
+  },
+  "status": "CANDIDATE_INTERNAL_INTERPRETATION_NOT_ADMISSION",
+  "composition": {
+    "ATOM": "Exactly one complete row allegation.",
+    "ALL": "Nonempty children, all alleged; all independently satisfy their row contract. No metadata-only child.",
+    "ANY": "Nonempty alternative allegations with complete atoms and explicit separate findings.",
+    "NOT": "Exactly one complete child and scoped negation; lack of evidence is not negation.",
+    "QUALIFIED": "Exactly one complete child, appliesToAtomId equal to that child atomId; qualifiers stay on that atom and cannot alter typed target/time/quantity values. Allowed keys epistemicPosture, sourceQuality, extentQualification; any refinement must also be explicit in atom scope.",
+    "SEQUENCE": "Nonempty complete children and explicit orderRelations {beforeAtomId, afterAtomId, temporalRelation}; relation BEFORE means strict end/instant < start/instant. Never infer time from array position."
+  },
+  "logicalOutcomeAlgebra": {
+    "scope": "Candidate internal proposition/criterion interpretation only; mandatory domain/authority/evidence gates are always independent conjunctive obligations.",
+    "values": [
+      "TRUE",
+      "FALSE",
+      "INDETERMINATE"
+    ],
+    "ALL": "TRUE iff every child TRUE; FALSE if any child FALSE; otherwise INDETERMINATE.",
+    "ANY": "TRUE if any child TRUE; FALSE iff every child FALSE; otherwise INDETERMINATE. Preserve every child finding; an OR cannot bypass a mandatory gate.",
+    "NOT": "TRUE from an evaluated FALSE child, FALSE from TRUE, INDETERMINATE from INDETERMINATE. Missing evidence is not evaluated FALSE.",
+    "SEQUENCE": "Conjunction of each alleged activity plus explicitly stated ordering comparisons; physical time is not inferred from array order.",
+    "qualification": "Apply algebra only after preserving each atom\u2019s exact scope, time, units, uncertainty and source/method meaning. No outcome confers accepted truth."
+  },
+  "epistemic": "ALLEGED, SUSPECTED, ESTIMATED and DISPUTED remain distinct qualifications. A confidence label is not probability or measurement precision unless the bound method defines it."
+}

@@ -1,0 +1,2396 @@
+{
+  "sourceHead": "389a8f6b6bb2f43435c35f32df769e723d736856",
+  "rows": [
+    {
+      "row": "S01",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#S01",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:S01",
+      "sourceRequiredFields": [
+        "crs",
+        "geometryBasis",
+        "operator",
+        "precision",
+        "property",
+        "value"
+      ],
+      "requiredFields": [
+        "crs",
+        "geometryBasis",
+        "operator",
+        "precision",
+        "property",
+        "value"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FARM",
+        "SITE",
+        "FIELD",
+        "ZONE",
+        "FACILITY"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "S02",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#S02",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:S02",
+      "sourceRequiredFields": [
+        "operator",
+        "parent",
+        "property",
+        "relation"
+      ],
+      "requiredFields": [
+        "operator",
+        "parent",
+        "property",
+        "relation"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FARM",
+        "SITE",
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "LOT",
+        "FACILITY",
+        "OPERATION",
+        "INPUT",
+        "EQUIPMENT",
+        "TOOL",
+        "STORAGE_LOCATION",
+        "CONTAINER"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "S03",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#S03",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:S03",
+      "sourceRequiredFields": [
+        "family",
+        "geometry",
+        "property",
+        "purpose",
+        "recurring"
+      ],
+      "requiredFields": [
+        "family",
+        "geometry",
+        "property",
+        "purpose",
+        "recurring"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "ZONE"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "S04",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#S04",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:S04",
+      "sourceRequiredFields": [
+        "attempt",
+        "crop",
+        "establishment",
+        "property",
+        "scope"
+      ],
+      "requiredFields": [
+        "attempt",
+        "crop",
+        "establishment",
+        "property",
+        "scope"
+      ],
+      "optionalFields": [
+        "variety"
+      ],
+      "explicitAmendment": {
+        "optional": [
+          "variety"
+        ],
+        "reason": "typedFieldsAndOperators explicitly permits a variety allegation."
+      },
+      "subjectKinds": [
+        "CROP_CYCLE"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "S05",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#S05",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:S05",
+      "sourceRequiredFields": [
+        "containers",
+        "layout",
+        "property",
+        "storagePlaces"
+      ],
+      "requiredFields": [
+        "containers",
+        "layout",
+        "property",
+        "storagePlaces"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FACILITY"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "S06",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#S06",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:S06",
+      "sourceRequiredFields": [
+        "cohort",
+        "physicalContinuityClass",
+        "property",
+        "traceabilityClaimBasis"
+      ],
+      "requiredFields": [
+        "cohort",
+        "physicalContinuityClass",
+        "property",
+        "traceabilityClaimBasis"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "LOT"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "S07",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#S07",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:S07",
+      "sourceRequiredFields": [
+        "formulation",
+        "identifierRole",
+        "identity",
+        "originalLabel",
+        "property"
+      ],
+      "requiredFields": [
+        "identifierRole",
+        "identity",
+        "originalLabel",
+        "property"
+      ],
+      "optionalFields": [
+        "formulation"
+      ],
+      "explicitAmendment": {
+        "makeOptional": [
+          "formulation"
+        ],
+        "reason": "typedFieldsAndOperators says formulation if alleged; the new contract preserves that unexemplified path."
+      },
+      "subjectKinds": [
+        "INPUT"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "S08",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#S08",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:S08",
+      "sourceRequiredFields": [
+        "activity",
+        "assignedPerformer",
+        "method",
+        "property",
+        "resources",
+        "target"
+      ],
+      "requiredFields": [
+        "activity",
+        "assignedPerformer",
+        "method",
+        "property",
+        "resources",
+        "target"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "S09",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#S09",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:S09",
+      "sourceRequiredFields": [
+        "basis",
+        "case",
+        "lineageRelation",
+        "predecessors",
+        "property",
+        "prospectiveSuccessors"
+      ],
+      "requiredFields": [
+        "basis",
+        "case",
+        "lineageRelation",
+        "predecessors",
+        "property",
+        "prospectiveSuccessors"
+      ],
+      "optionalFields": [
+        "existingSuccessors"
+      ],
+      "explicitAmendment": {
+        "optional": [
+          "existingSuccessors"
+        ],
+        "reason": "typedFieldsAndOperators explicitly includes new or prospective bindings. Existing successors retain immutable selectors; prospective references never acquire them."
+      },
+      "subjectKinds": [
+        "FARM",
+        "SITE",
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "LOT",
+        "FACILITY",
+        "OPERATION",
+        "INPUT",
+        "EQUIPMENT",
+        "TOOL",
+        "STORAGE_LOCATION",
+        "CONTAINER"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "S10",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#S10",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:S10",
+      "sourceRequiredFields": [
+        "attributeDefinition",
+        "identifierRole",
+        "originalLexicalValue",
+        "property",
+        "scheme",
+        "value"
+      ],
+      "requiredFields": [
+        "attributeDefinition",
+        "identifierRole",
+        "originalLexicalValue",
+        "property",
+        "scheme",
+        "value"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FARM",
+        "SITE",
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "LOT",
+        "FACILITY",
+        "OPERATION",
+        "INPUT",
+        "EQUIPMENT",
+        "TOOL",
+        "STORAGE_LOCATION",
+        "CONTAINER"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "S11",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#S11",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:S11",
+      "sourceRequiredFields": [
+        "durableIdentityPosture",
+        "extentRole",
+        "parentScope",
+        "property",
+        "quality",
+        "value"
+      ],
+      "requiredFields": [
+        "durableIdentityPosture",
+        "extentRole",
+        "parentScope",
+        "property",
+        "quality",
+        "value"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FARM",
+        "SITE",
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "FACILITY"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O01",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O01",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O02",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O02",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O02",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O03",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O03",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O03",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O04",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O04",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O04",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O05",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O05",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O05",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O06",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O06",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O06",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O07",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O07",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O07",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "LOT",
+        "FACILITY",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O08",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O08",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O08",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O09",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O09",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O09",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O10",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O10",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O10",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O11",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O11",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O11",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "LOT",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O12",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O12",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O12",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "LOT",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O13",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O13",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O13",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "LOT",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O14",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O14",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O14",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "LOT",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O15",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O15",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O15",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "LOT",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O16",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O16",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O16",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C01",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C01",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C01",
+      "sourceRequiredFields": [
+        "basis",
+        "form",
+        "relevanceRole",
+        "rule"
+      ],
+      "requiredFields": [
+        "basis",
+        "form",
+        "relevanceRole",
+        "rule"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FARM",
+        "SITE",
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "LOT",
+        "FACILITY",
+        "OPERATION",
+        "INPUT",
+        "EQUIPMENT",
+        "TOOL",
+        "STORAGE_LOCATION",
+        "CONTAINER"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C02",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C02",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C02",
+      "sourceRequiredFields": [
+        "assertedApplicability",
+        "crop",
+        "form",
+        "jurisdiction",
+        "rule",
+        "use"
+      ],
+      "requiredFields": [
+        "assertedApplicability",
+        "crop",
+        "form",
+        "jurisdiction",
+        "rule",
+        "use"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FARM",
+        "SITE",
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "LOT",
+        "FACILITY",
+        "OPERATION",
+        "INPUT",
+        "EQUIPMENT",
+        "TOOL",
+        "STORAGE_LOCATION",
+        "CONTAINER"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C03",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C03",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C03",
+      "sourceRequiredFields": [
+        "allegedOutcome",
+        "criterion",
+        "form",
+        "measurement",
+        "operandPointer",
+        "operator",
+        "threshold"
+      ],
+      "requiredFields": [
+        "allegedOutcome",
+        "criterion",
+        "form",
+        "measurement",
+        "operandPointer",
+        "operator",
+        "threshold",
+        "measurementSource"
+      ],
+      "optionalFields": [
+        "measuredQualification"
+      ],
+      "explicitAmendment": {
+        "required": [
+          "measurementSource"
+        ],
+        "optional": [
+          "measuredQualification"
+        ],
+        "reason": "Amendment 02 measured role and qualification requirements."
+      },
+      "subjectKinds": [
+        "FARM",
+        "SITE",
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "LOT",
+        "FACILITY",
+        "OPERATION",
+        "INPUT",
+        "EQUIPMENT",
+        "TOOL",
+        "STORAGE_LOCATION",
+        "CONTAINER"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C04",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C04",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C04",
+      "sourceRequiredFields": [
+        "allegedOutcome",
+        "form",
+        "operand",
+        "operator",
+        "threshold"
+      ],
+      "requiredFields": [
+        "allegedOutcome",
+        "form",
+        "operand",
+        "operator",
+        "threshold",
+        "criterion"
+      ],
+      "optionalFields": [
+        "measuredQualification"
+      ],
+      "explicitAmendment": {
+        "required": [
+          "criterion"
+        ],
+        "optional": [
+          "measuredQualification"
+        ],
+        "reason": "Amendments 02/03 require exact criterion, source tuple, admissible set and scalar provenance; all result forms remain distinct."
+      },
+      "subjectKinds": [
+        "FARM",
+        "SITE",
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "LOT",
+        "FACILITY",
+        "OPERATION",
+        "INPUT",
+        "EQUIPMENT",
+        "TOOL",
+        "STORAGE_LOCATION",
+        "CONTAINER"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C05",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C05",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C05",
+      "sourceRequiredFields": [
+        "allegedOutcome",
+        "form",
+        "jurisdiction",
+        "officialIdentifier",
+        "profile",
+        "snapshots",
+        "verificationTrace"
+      ],
+      "requiredFields": [
+        "allegedOutcome",
+        "form",
+        "jurisdiction",
+        "officialIdentifier",
+        "profile",
+        "snapshots",
+        "verificationTrace"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "INPUT",
+        "OPERATION",
+        "FIELD",
+        "CROP_CYCLE",
+        "LOT"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C06",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C06",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C06",
+      "sourceRequiredFields": [
+        "allegedOutcome",
+        "boundFrom",
+        "condition",
+        "crop",
+        "form",
+        "operator",
+        "product",
+        "rate",
+        "target"
+      ],
+      "requiredFields": [
+        "allegedOutcome",
+        "boundFrom",
+        "condition",
+        "crop",
+        "form",
+        "operator",
+        "product",
+        "rate",
+        "target",
+        "rateSource"
+      ],
+      "optionalFields": [
+        "measuredQualification"
+      ],
+      "explicitAmendment": {
+        "required": [
+          "rateSource"
+        ],
+        "optional": [
+          "measuredQualification"
+        ],
+        "reason": "Amendment 02 distinguishes human, operation-parameter and measured sources."
+      },
+      "subjectKinds": [
+        "INPUT",
+        "OPERATION",
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "LOT"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C07",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C07",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C07",
+      "sourceRequiredFields": [
+        "allegedOutcome",
+        "basis",
+        "continuityClass",
+        "criterion",
+        "form",
+        "model"
+      ],
+      "requiredFields": [
+        "allegedOutcome",
+        "basis",
+        "continuityClass",
+        "criterion",
+        "form",
+        "model"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "LOT",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C08",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C08",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C08",
+      "sourceRequiredFields": [
+        "decision",
+        "finding",
+        "form",
+        "rule",
+        "subject"
+      ],
+      "requiredFields": [
+        "decision",
+        "finding",
+        "form",
+        "rule",
+        "subject"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FARM",
+        "SITE",
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "LOT",
+        "FACILITY",
+        "OPERATION",
+        "INPUT",
+        "EQUIPMENT",
+        "TOOL",
+        "STORAGE_LOCATION",
+        "CONTAINER"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C09",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C09",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C09",
+      "sourceRequiredFields": [
+        "allegedOutcome",
+        "charter",
+        "claimBasis",
+        "evidencePosture",
+        "form",
+        "metric"
+      ],
+      "requiredFields": [
+        "allegedOutcome",
+        "charter",
+        "claimBasis",
+        "evidencePosture",
+        "form",
+        "metric"
+      ],
+      "optionalFields": [
+        "measurementSource",
+        "measuredQualification"
+      ],
+      "explicitAmendment": {
+        "optional": [
+          "measurementSource",
+          "measuredQualification"
+        ],
+        "reason": "Amendment 02 requires measurementSource exactly for the measured branch; selected use independently determines qualification requirements."
+      },
+      "subjectKinds": [
+        "FARM",
+        "SITE",
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "LOT",
+        "FACILITY",
+        "OPERATION",
+        "INPUT",
+        "EQUIPMENT",
+        "TOOL",
+        "STORAGE_LOCATION",
+        "CONTAINER"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C10",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C10",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C10",
+      "sourceRequiredFields": [
+        "allegedOutcome",
+        "evidenceSet",
+        "form",
+        "missingKinds",
+        "policy",
+        "requiredUse"
+      ],
+      "requiredFields": [
+        "allegedOutcome",
+        "evidenceSet",
+        "form",
+        "missingKinds",
+        "policy",
+        "requiredUse"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FARM",
+        "SITE",
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "LOT",
+        "FACILITY",
+        "OPERATION",
+        "INPUT",
+        "EQUIPMENT",
+        "TOOL",
+        "STORAGE_LOCATION",
+        "CONTAINER"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "S12",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#S12",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:S12",
+      "sourceRequiredFields": [
+        "asset",
+        "assetKind",
+        "configuration",
+        "inspectionEvidence",
+        "property"
+      ],
+      "requiredFields": [
+        "asset",
+        "assetKind",
+        "configuration",
+        "inspectionEvidence",
+        "property"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "EQUIPMENT",
+        "TOOL"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "S13",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#S13",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:S13",
+      "sourceRequiredFields": [
+        "container",
+        "occupancies",
+        "property",
+        "reusable"
+      ],
+      "requiredFields": [
+        "container",
+        "property",
+        "reusable"
+      ],
+      "optionalFields": [
+        "occupancies",
+        "occupancyEvidence",
+        "occupancyClaimPosture"
+      ],
+      "explicitAmendment": {
+        "makeOptional": [
+          "occupancies"
+        ],
+        "optional": [
+          "occupancyEvidence",
+          "occupancyClaimPosture"
+        ],
+        "reason": "PR57 R3 supplies the complete ordered inventory of overlapping reported episodes, including repeated visits. The complete branch retains every original endpoint, interval posture, amount, unit, cohort, extent and source qualification, and the consumer retains query intersections, supported applicability and coverage. UNQUALIFIED_EPISODES_DURING_WINDOW is a distinct domain meaning for clean support over retained intersections; it does not assert occupancy throughout the window or actual inventory completeness. UNQUALIFIED_OCCUPANCY continues to require full-window support for each episode. Legacy lot/start/end allegations remain shape-valid but cannot discharge complete source comparison."
+      },
+      "subjectKinds": [
+        "CONTAINER"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "S14",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#S14",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:S14",
+      "sourceRequiredFields": [
+        "facility",
+        "layoutPosition",
+        "location",
+        "property"
+      ],
+      "requiredFields": [
+        "facility",
+        "layoutPosition",
+        "location",
+        "property"
+      ],
+      "optionalFields": [
+        "lineage"
+      ],
+      "explicitAmendment": {
+        "optional": [
+          "lineage"
+        ],
+        "reason": "typedFieldsAndOperators explicitly includes lineage if restructured."
+      },
+      "subjectKinds": [
+        "STORAGE_LOCATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O17",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O17",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O17",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "EQUIPMENT",
+        "TOOL",
+        "CONTAINER",
+        "FACILITY",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O18",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O18",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O18",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "EQUIPMENT",
+        "TOOL",
+        "CONTAINER",
+        "FACILITY",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O19",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O19",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FIELD",
+        "ZONE",
+        "CROP_CYCLE",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O20",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O20",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O20",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FACILITY",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O21",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O21",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O21",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "LOT",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C11",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C11",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C11",
+      "sourceRequiredFields": [
+        "allegedStatus",
+        "form",
+        "holding",
+        "holdingIdentifier",
+        "officialArtefact",
+        "profile",
+        "renewal",
+        "reviewState",
+        "statusDate",
+        "statusKind"
+      ],
+      "requiredFields": [
+        "allegedStatus",
+        "form",
+        "holding",
+        "holdingIdentifier",
+        "officialArtefact",
+        "profile",
+        "renewal",
+        "reviewState",
+        "statusDate",
+        "statusKind"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FARM"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C12",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C12",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C12",
+      "sourceRequiredFields": [
+        "accreditationSnapshot",
+        "adverseStatus",
+        "category",
+        "certificate",
+        "certificateSubject",
+        "form",
+        "holding",
+        "issuer",
+        "ministrySnapshot",
+        "profile",
+        "reviewState",
+        "validFrom",
+        "validUntil"
+      ],
+      "requiredFields": [
+        "accreditationSnapshot",
+        "adverseStatus",
+        "category",
+        "certificate",
+        "certificateSubject",
+        "form",
+        "holding",
+        "issuer",
+        "ministrySnapshot",
+        "profile",
+        "reviewState",
+        "validFrom",
+        "validUntil"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FARM",
+        "LOT",
+        "INPUT"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C13",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C13",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C13",
+      "sourceRequiredFields": [
+        "accreditationSnapshot",
+        "at",
+        "certifier",
+        "form",
+        "ministrySnapshot",
+        "profile",
+        "reportedStatus",
+        "scope"
+      ],
+      "requiredFields": [
+        "accreditationSnapshot",
+        "at",
+        "certifier",
+        "form",
+        "ministrySnapshot",
+        "profile",
+        "reportedStatus",
+        "scope"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FARM"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C14",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C14",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C14",
+      "sourceRequiredFields": [
+        "authorityAddressed",
+        "challengedAct",
+        "form",
+        "profile",
+        "reviewArtefact",
+        "reviewState",
+        "serviceProof"
+      ],
+      "requiredFields": [
+        "authorityAddressed",
+        "challengedAct",
+        "form",
+        "profile",
+        "reviewArtefact",
+        "reviewState",
+        "serviceProof"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FARM",
+        "LOT"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C15",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C15",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C15",
+      "sourceRequiredFields": [
+        "claimYear",
+        "cropCodes",
+        "filedGO",
+        "form",
+        "history",
+        "holding",
+        "lineage",
+        "parcel",
+        "parcelSnapshot",
+        "profile",
+        "scopeDate"
+      ],
+      "requiredFields": [
+        "claimYear",
+        "cropCodes",
+        "filedGO",
+        "form",
+        "history",
+        "holding",
+        "lineage",
+        "parcel",
+        "parcelSnapshot",
+        "profile",
+        "scopeDate"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FARM",
+        "FIELD"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C16",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C16",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C16",
+      "sourceRequiredFields": [
+        "allegedOutcome",
+        "claimYear",
+        "evaluationBasis",
+        "form",
+        "historyClaim",
+        "parcel",
+        "profile",
+        "reviewState",
+        "route",
+        "routeEvidence",
+        "routeScope",
+        "rustgewasEvidence",
+        "soilCategory",
+        "soilEvidence"
+      ],
+      "requiredFields": [
+        "allegedOutcome",
+        "claimYear",
+        "evaluationBasis",
+        "form",
+        "historyClaim",
+        "parcel",
+        "profile",
+        "reviewState",
+        "route",
+        "routeEvidence",
+        "routeScope",
+        "rustgewasEvidence",
+        "soilCategory",
+        "soilEvidence"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FARM",
+        "FIELD"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "C17",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#C17",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:C17",
+      "sourceRequiredFields": [
+        "allegedOutcome",
+        "form",
+        "lawfulUseAlleged",
+        "profile",
+        "record",
+        "requirementsRevision",
+        "useType"
+      ],
+      "requiredFields": [
+        "allegedOutcome",
+        "form",
+        "lawfulUseAlleged",
+        "profile",
+        "record",
+        "requirementsRevision",
+        "useType"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FIELD",
+        "CROP_CYCLE",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O22",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O22",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O22",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O23",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O23",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O23",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O24",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O24",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O24",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "LOT",
+        "INPUT",
+        "FACILITY",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O25",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O25",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O25",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "LOT",
+        "INPUT",
+        "FACILITY",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O26",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O26",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O26",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "LOT",
+        "INPUT",
+        "FACILITY",
+        "OPERATION"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    },
+    {
+      "row": "O27",
+      "sourceDefinition": "local-candidate:complete-claims:2026-10-20:r4#O27",
+      "newDefinition": "candidate:assertion-domain-construction:2026-10-21:r2:O27",
+      "sourceRequiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "requiredFields": [
+        "activity",
+        "activityInstance",
+        "claimPosture",
+        "extent",
+        "interventionKind",
+        "parameters",
+        "performanceFacet",
+        "performedBy",
+        "quantityParameters",
+        "target",
+        "workSpecification"
+      ],
+      "optionalFields": [],
+      "explicitAmendment": {},
+      "subjectKinds": [
+        "FIELD",
+        "CROP_CYCLE",
+        "FACILITY",
+        "OPERATION",
+        "LOT"
+      ],
+      "subjectPostures": [
+        "EXISTING_SUBJECT",
+        "PROSPECTIVE_SUBJECT"
+      ],
+      "semanticLimits": "Field typing alone does not establish selected-source meaning, admission or the outer carrier prospective-subject obligations."
+    }
+  ],
+  "counts": {
+    "rows": 58,
+    "completeSemanticEvaluatorClaims": 0
+  },
+  "next": "Verify the complete row field contracts and implement their source-backed intrinsic and carrier comparisons."
+}

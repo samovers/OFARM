@@ -1,0 +1,396 @@
+{
+  "status": "ALL_49_RETAINED_NO_COMPONENT_COMPLETION_CLAIM",
+  "constructionSource": {
+    "path": "../owned-contract/source-duties.json",
+    "sha256": "3a2c48335c446e3423f777833942bf9c8035b57622ac51a41764fae05a8bb16c"
+  },
+  "originalSource": {
+    "commit": "6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f",
+    "path": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+    "sections": [
+      "8.1",
+      "8.2",
+      "10.1",
+      "10.2"
+    ]
+  },
+  "counts": {
+    "AR": 29,
+    "PC": 20
+  },
+  "duties": [
+    {
+      "id": "AR_SCHEMA",
+      "sourceColumns": [
+        "selected result-schema binding",
+        "`schemaVersion` is exactly `ofarm.assertionrecord.v0.2`"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_ACTION_PROFILE",
+      "sourceColumns": [
+        "selected action rule and rule-bound intent schema",
+        "both must match one row in section 7.2"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_EFFECT_SUBJECT",
+      "sourceColumns": [
+        "intent effect subject",
+        "kind and proposed ID match section 7.2 and `assertionRecordId` exactly"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_ID",
+      "sourceColumns": [
+        "intent proposed assertion ID",
+        "exact copy to `assertionRecordId`"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_TYPE",
+      "sourceColumns": [
+        "section 7.2 action/effect-subject row",
+        "exact derived `assertionType`; no caller or result override"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_SUBJECT",
+      "sourceColumns": [
+        "intent assertion-subject binding covered by `effectIntentDigest`",
+        "exact copy to `subject`, including posture and conditional immutable selector"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_SCOPE",
+      "sourceColumns": [
+        "sole rule-extracted `RP_SCOPE_ONE` `TARGET_SCOPE`",
+        "exact one-element `NARROWING` mapping to `anchorScopes`, including kind, ref, and immutable selector; other claim context remains in typed body/proof bindings"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_SUBJECT_SCOPE_PROOF",
+      "sourceColumns": [
+        "intent relationship-proof bindings, conditional under section 5.2",
+        "exact copy or required absence, followed by relationship validation"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_ASSERTOR",
+      "sourceColumns": [
+        "canonical selected path's `authoritySubjectPartyRef`",
+        "exact copy to `assertedByPartyRef`"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_ASSERTED_AT",
+      "sourceColumns": [
+        "validated intent `/assertedAt` under section 6.2 posture",
+        "exact copy to result `/assertedAt`; never derive from `writeAuthorizationCheckedAt`, `effectCommittedAt`, `humanActedAt`, receipt, or subject time"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_ASSERTION_ACT_POSTURE",
+      "sourceColumns": [
+        "intent `/assertionActPosture`",
+        "exact copy to result; only the two section 6.2 values are allowed"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_ASSERTION_ACT_EVIDENCE",
+      "sourceColumns": [
+        "conditional intent `/assertionActEvidenceBinding`",
+        "exact immutable copy for `VERIFIED_OFFLINE_SUBMISSION`; required absence for `TRUSTED_ONLINE_SUBMISSION`"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_SUBJECT_TIME",
+      "sourceColumns": [
+        "intent `/subjectTime`",
+        "exact copy of one section 6.4 object to result `/subjectTime`, including allowed discriminator, members, and endpoint posture"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_BODY",
+      "sourceColumns": [
+        "intent action-typed assertion body",
+        "exact complete copy to `assertionBody`; no summarization, compilation replacement, or notes side channel"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_EVIDENCE",
+      "sourceColumns": [
+        "intent evidence revision bindings",
+        "exact complete non-empty array in `evidenceBindings`; no addition, omission, mutable ref, or ref-only downgrade"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_CLAIM_STATE",
+      "sourceColumns": [
+        "contract constant",
+        "exactly `PENDING_REVIEW`"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_EVENT_ASSOCIATION",
+      "sourceColumns": [
+        "optional intent `/associatedSemanticEventBinding` plus separately passing Event Ingress output",
+        "section 7.3 compatibility and trace binding; no AssertionRecord destination and no event-family derivation; legitimate `NOT_APPLICABLE` only when binding is absent"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_OPERATION_POSTURE",
+      "sourceColumns": [
+        "operation only",
+        "exact copy of intent `claimPosture` to `operationClaimContext.claimPosture`"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_OPERATION_PERFORMER",
+      "sourceColumns": [
+        "operation only",
+        "exact copy of intent `performedByPartyRef`; never derive from reporter or authority subject"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_OPERATION_AGENT_ACTORSHIP",
+      "sourceColumns": [
+        "operation only",
+        "exact immutable array when posture is `PERFORMED` and the intent alleges agent performance; otherwise required absence"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_OPERATION_PERFORMER_AUTHORITY",
+      "sourceColumns": [
+        "operation only",
+        "exact optional immutable array only for `PERFORMED`; trace retains `NOT_EVALUATED_BY_AUTHORIZATION` regardless of presence"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_OPERATION_PAYLOADS",
+      "sourceColumns": [
+        "operation only",
+        "any admitted intent/execution payload bindings remain exact inside the typed body; otherwise required absence"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_COMPLIANCE_RULES",
+      "sourceColumns": [
+        "compliance only",
+        "exact complete non-empty rule-revision array to `complianceBasis.ruleRevisionBindings`"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_COMPLIANCE_EVIDENCE_POLICY",
+      "sourceColumns": [
+        "compliance only",
+        "exact complete non-empty evidence-policy-revision array to `complianceBasis.evidencePolicyRevisionBindings`"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_CORRECTION_LINEAGE",
+      "sourceColumns": [
+        "every subtype",
+        "when absolute `/assertionBody/assertionPosture` is `CORRECTION`, copy `/supersedesAssertionRecordBinding` exactly and require every section 5.5 compatibility condition to pass; require the binding absent for `INITIAL`"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_STRUCTURE_BRANCH_ABSENCE",
+      "sourceColumns": [
+        "structure only",
+        "`operationClaimContext` and `complianceBasis` are absent"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_OPERATION_BRANCH_ABSENCE",
+      "sourceColumns": [
+        "operation only",
+        "`complianceBasis` is absent"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_COMPLIANCE_BRANCH_ABSENCE",
+      "sourceColumns": [
+        "compliance only",
+        "`operationClaimContext` is absent"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "AR_LEGACY_ABSENCE",
+      "sourceColumns": [
+        "all branches",
+        "`benefitingPartyRef`, flat legacy time fields, loose provenance/payload refs, legacy `supersedesAssertionRecordRef`, `supersededByReviewDecisionRef`, and `notes` are absent"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_ONE_ASSERTION",
+      "sourceColumns": [
+        "exactly one new assertion ID resolves to one schema-valid immutable result"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_VALIDATED_BYTES",
+      "sourceColumns": [
+        "committed AssertionRecord bytes equal the bytes validated by this contract"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_INPUTS_IMMUTABLE",
+      "sourceColumns": [
+        "assertion-act evidence, subject, scope, proof, semantic event, evidence, payload, prior assertion and its creation/ingress evidence, rule, and evidence-policy inputs remain byte-identical"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_ACTION_TYPE",
+      "sourceColumns": [
+        "action, intent profile, effect subject, assertion subtype, and commit-class semantic-label/serialization-token pair match one section 7.2 row; no event family is inferred"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_PENDING_REVIEW",
+      "sourceColumns": [
+        "result `claimState` is `PENDING_REVIEW`; no accepted or in-force result is emitted"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_SUBJECT_SCOPE",
+      "sourceColumns": [
+        "subject posture is truthful and the subject is exactly equal to, or proven within the governed relation to, the sole anchor scope"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_ASSERTOR",
+      "sourceColumns": [
+        "asserting Party is the canonical selected authority subject and is not substituted by an approver, sponsor, principal, performer, or beneficiary"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_ASSERTION_ACT",
+      "sourceColumns": [
+        "`assertedAt`, act posture, conditional act evidence, and asserting Party satisfy section 6.2"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_SUBJECT_TIME",
+      "sourceColumns": [
+        "the exact branch/posture profile, members, canonical timestamps, endpoint order, source selectors, and conditional payload equality satisfy sections 6.3 and 6.4"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_TEMPORAL_SEPARATION",
+      "sourceColumns": [
+        "the proposed AssertionRecord preserves exact governed assertedAt and subjectTime from its available inputs without substituting evidence/capture, ingress, approval, authorization, checkpoint or physical time; the selected branch adds no checkpoint or physical commit/consumption field to this result. This pre-T domain check does not validate later transaction evidence members; PR #26 sections 9.4/13.3 own them"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_EVENT_ASSOCIATION",
+      "sourceColumns": [
+        "section 7.3 association passes when bound and is `NOT_APPLICABLE` when absent; AssertionRecord subtype never selects a family"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_CORRECTION_LINEAGE",
+      "sourceColumns": [
+        "section 5.5 posture, exact immutable prior binding, positive prior-record visibility in the trusted transaction-start snapshot, subtype, governance boundary/twin, authority anchor, and logical subject all agree without mutating or deactivating the prior assertion"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_NO_UNBOUND_EFFECT",
+      "sourceColumns": [
+        "no prior record mutation, event envelope, review, consequence, materialization, or other governed result is inserted or changed without its own applicable authority and contract"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_NO_CURRENT_STATE",
+      "sourceColumns": [
+        "this contract neither writes current state nor marks the assertion accepted solely because submission passed"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_TRANSACTION_HANDOFF",
+      "sourceColumns": [
+        "the applicable transaction gate binds the exact passing result/trace and commits the effect, authorization/finalization evidence, receipt, and single-use consumption atomically"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_UNIQUE_ID",
+      "sourceColumns": [
+        "a duplicate assertion ID with different bytes is rejected"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_STRUCTURE",
+      "sourceColumns": [
+        "only a pending structure claim is created; no durable structure identity, revision, boundary, role, pack state, or current structural state changes"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_OPERATION",
+      "sourceColumns": [
+        "claim posture, reporter, performer, agent actorship, performer-authority evidence, closed subject-time profile, and payloads satisfy sections 5.3 and 6.4; no execution is accepted"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_COMPLIANCE",
+      "sourceColumns": [
+        "exact rules, evidence policies, evidence, closed subject-time profile, and body satisfy sections 5.4 and 6.4; no compliance fact or certification state is created"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    },
+    {
+      "id": "PC_BRANCH_ABSENCE",
+      "sourceColumns": [
+        "every field inapplicable to the selected branch is absent"
+      ],
+      "scope": "Complete public verifier integration obligation; this bounded component does not discharge it."
+    }
+  ],
+  "next": "Integrate all AR/PC duties with the coordinator-owned payload and public verifier; do not substitute component test counts."
+}

@@ -1,0 +1,3053 @@
+{
+  "status": "BOUNDED_OWNED_COMPONENT_CHECKS_PASSED",
+  "primaryTrustBoundary": "AssertionRecord domain meaning and validation integrity",
+  "scopeStayedInsideBoundary": true,
+  "completePublicVerifierEstablished": false,
+  "completeDefinitionSemanticsEstablished": 0,
+  "admittedFactsEstablished": false,
+  "sourceHead": "389a8f6b6bb2f43435c35f32df769e723d736856",
+  "pinnedRepositorySourcesChecked": 33,
+  "counts": {
+    "checks": 599,
+    "passed": 599,
+    "failed": 0,
+    "independentlyAuthoredCases": 385,
+    "finiteReviewedForms": 86
+  },
+  "categories": {
+    "schema-meta": 2,
+    "explicit-value-types": 6,
+    "unexemplified-valid": 13,
+    "role-type-only": 31,
+    "intrinsic": 122,
+    "material-basis-gates": 18,
+    "quantity-context-gates": 12,
+    "mathematical-expectation": 20,
+    "proposition-algebra": 10,
+    "nine-time-profiles": 9,
+    "17-event-profile-cells": 17,
+    "prohibited-event-cell": 1,
+    "selected-time-comparison": 12,
+    "O22-profile-facet-output-matrix": 36,
+    "explicit-O22-row-matrix": 36,
+    "five-result-forms": 5,
+    "five-results-by-six-time-roles": 30,
+    "event-literal-comparison": 6,
+    "qualified-C16": 1,
+    "finite-reviewed-form": 86,
+    "finite-reviewed-form-hostile": 116,
+    "source-accounting": 10
+  },
+  "testedInputHashes": {
+    "independent-cases.json": "fb47e74a95ead4c49fca61286f57285995abb66c4ac9abdcfc0a6c73691e9d85",
+    "finite-form-positives.json": "d8fe8f35e629f7f12edd0b56a3abdee3dfe957ef34ece15a986d17cb62248598",
+    "owned-value-types.schema.json": "0b337234dd36e686f819455d352ec417a877d8483b7395a39897ce3cc5679582",
+    "finite-reviewed-forms.schema.json": "34f154c754192a207e1eb471ed4c304d16c3f0dfcbcc6e08689935af50c74e69",
+    "owned-contract-inputs.json": "3e1ee609d4f7b3aab707a066607248bb30c6e3e24e8763f9ca0cb2f3b0b8a57f",
+    "execution-map.json": "cc027dce34772095408a8d466c7776ea8efc95efc3e288a3fc2da895e4ba5669",
+    "obligation-retention-map.json": "0951394e2c20dedfa66da790a5586507565d82250fc6b4f6d8c8fa0e59753dae",
+    "domain_owned.py": "7ed02a8ab2b0ee5f4f0d233b715940c0b33c73d24cdccd6ffd6f34f9e71dfe35",
+    "build_value_types.py": "b099c17cddea2bdf844f0bbd7aa4d47c061a7e65213c6ff0c3d37852f6a2f883",
+    "build_owned_inputs.py": "a1dcf5fd159cb82b17bf97f15d3640e364503709f1872724e413e3c197eae1e9",
+    "build_owned_cases.py": "4368fa39af52c7e2f089cb6b0528c414d7d5c7ad0a67ba0e07d62e8937223a54",
+    "build_execution_map.py": "6075846e1177eb9ca58ef1b202802881cf1b06a058b3b7241d0b177d037b25af"
+  },
+  "checks": [
+    {
+      "id": "schema-meta/finite-reviewed-forms.schema.json",
+      "category": "schema-meta",
+      "passed": true
+    },
+    {
+      "id": "schema-meta/owned-value-types.schema.json",
+      "category": "schema-meta",
+      "passed": true
+    },
+    {
+      "id": "quantity/base",
+      "category": "explicit-value-types",
+      "passed": true
+    },
+    {
+      "id": "quantity/normalized-with-source-parameter",
+      "category": "unexemplified-valid",
+      "passed": true
+    },
+    {
+      "id": "quantity/original-explicitly-unreported",
+      "category": "unexemplified-valid",
+      "passed": true
+    },
+    {
+      "id": "quantity/role/RATE",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/role/DOSE",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/role/CONCENTRATION",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/role/TOTAL_QUANTITY",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/role/CARRIER_VOLUME",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/role/WATER_VOLUME",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/role/SEED_RATE",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/role/NUTRIENT_RATE",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/role/PRESSURE",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/role/FLOW_RATE",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/role/SPEED",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/role/TIMING_INTERVAL",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/role/APPLICATION_VOLUME",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/role/OTHER_PARAMETER",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/material/PRODUCT",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/material/ACTIVE_SUBSTANCE",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/material/CARRIER",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/material/WATER",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/material/SEED",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/material/FERTILIZER",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/material/NUTRIENT",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/material/OTHER_MATERIAL",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/posture/ACTUAL",
+      "category": "explicit-value-types",
+      "passed": true
+    },
+    {
+      "id": "quantity/posture/PLANNED",
+      "category": "explicit-value-types",
+      "passed": true
+    },
+    {
+      "id": "quantity/posture/TARGET",
+      "category": "explicit-value-types",
+      "passed": true
+    },
+    {
+      "id": "quantity/posture/LIMIT",
+      "category": "explicit-value-types",
+      "passed": true
+    },
+    {
+      "id": "quantity/qualifier/EXACT",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/qualifier/ESTIMATED",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/qualifier/MINIMUM",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/qualifier/MAXIMUM",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/qualifier/RANGE_MIDPOINT",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/qualifier/LABEL_LIMIT",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/qualifier/MACHINE_REPORTED",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/qualifier/HUMAN_REPORTED",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/qualifier/UNKNOWN",
+      "category": "role-type-only",
+      "passed": true
+    },
+    {
+      "id": "quantity/other-role/DEPTH",
+      "category": "unexemplified-valid",
+      "passed": true
+    },
+    {
+      "id": "quantity/other-role/MOISTURE_TARGET",
+      "category": "unexemplified-valid",
+      "passed": true
+    },
+    {
+      "id": "quantity/other-role/TREATED_AREA",
+      "category": "unexemplified-valid",
+      "passed": true
+    },
+    {
+      "id": "quantity/other-role/TREATED_AMOUNT",
+      "category": "unexemplified-valid",
+      "passed": true
+    },
+    {
+      "id": "quantity/other-role/MATERIAL_HANDLED",
+      "category": "unexemplified-valid",
+      "passed": true
+    },
+    {
+      "id": "quantity/unreported-not-zero",
+      "category": "unexemplified-valid",
+      "passed": true
+    },
+    {
+      "id": "quantity/non-ratio-process",
+      "category": "unexemplified-valid",
+      "passed": true
+    },
+    {
+      "id": "quantity/mixture",
+      "category": "explicit-value-types",
+      "passed": true
+    },
+    {
+      "id": "quantity/duplicate-components",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/mixture-is-component",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/unresolved-application",
+      "category": "unexemplified-valid",
+      "passed": true
+    },
+    {
+      "id": "quantity/invalid/parameterRole/UNKNOWN_ROLE",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/invalid/valuePosture/PERFORMED",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/invalid/value/qualifier/LAB_AUTOMATIC",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/invalid/value/quantity/decimal/1e3",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/invalid/value/quantity/decimal/1\n",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/invalid/value/quantity/decimal/True",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/invalid/material/materialRole/DRUG",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/invalid/material/presence/UNREPORTED",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/invalid/basis/massBasis/GUESS",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/invalid/value/original/sourcePointer//bad~2escape",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/invalid/otherRoleDefinition/DEPTH",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/invalid/applicationMaterialInterpretation/AS_IDENTIFIED_MATERIAL",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/closed/root",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/closed/material",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/closed/basis",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/closed/value",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/closed/value/quantity",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/closed/value/original",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/closed/appliesTo",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/closed/appliesTo/target",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/closed/appliesTo/extent",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/missing/parameterId",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/missing/parameterRole",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/missing/activityInstance",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/missing/valuePosture",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/missing/material",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/missing/basis",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/missing/value",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/missing/appliesTo",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "quantity/material-not-applicable/RATE",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/material-not-applicable/DOSE",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/material-not-applicable/CONCENTRATION",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/material-not-applicable/TOTAL_QUANTITY",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/material-not-applicable/CARRIER_VOLUME",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/material-not-applicable/WATER_VOLUME",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/material-not-applicable/SEED_RATE",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/material-not-applicable/NUTRIENT_RATE",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/material-not-applicable/FLOW_RATE",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/material-not-applicable/APPLICATION_VOLUME",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/ratio-basis-not-applicable/RATE",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/ratio-basis-not-applicable/DOSE",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/ratio-basis-not-applicable/CONCENTRATION",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/ratio-basis-not-applicable/SEED_RATE",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/ratio-basis-not-applicable/NUTRIENT_RATE",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/ratio-basis-not-applicable/FLOW_RATE",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/ratio-basis-not-applicable/SPEED",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/ratio-basis-not-applicable/APPLICATION_VOLUME",
+      "category": "material-basis-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/context-exact",
+      "category": "quantity-context-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/context-mismatch/parameterRole",
+      "category": "quantity-context-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/context-mismatch/valuePosture",
+      "category": "quantity-context-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/context-mismatch/activityInstance",
+      "category": "quantity-context-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/context-mismatch/material",
+      "category": "quantity-context-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/context-mismatch/basis",
+      "category": "quantity-context-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/context-mismatch/subjectTime",
+      "category": "quantity-context-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/context-mismatch/extent",
+      "category": "quantity-context-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/context-mismatch/target",
+      "category": "quantity-context-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/context-mismatch/phase",
+      "category": "quantity-context-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/unresolved-context/material",
+      "category": "quantity-context-gates",
+      "passed": true
+    },
+    {
+      "id": "quantity/unresolved-context/basis",
+      "category": "quantity-context-gates",
+      "passed": true
+    },
+    {
+      "id": "math/0",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/1",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/2",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/3",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/4",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/5",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/6",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/7",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/8",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/9",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/10",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/11",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/12",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/13",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/14",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/15",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/16",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/17",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/18",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/19",
+      "category": "mathematical-expectation",
+      "passed": true
+    },
+    {
+      "id": "math/invalid/0",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "math/invalid/1",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "math/invalid/2",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "math/invalid/3",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "math/invalid/4",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "algebra/ALL-TRUE,INDETERMINATE",
+      "category": "proposition-algebra",
+      "passed": true
+    },
+    {
+      "id": "algebra/ALL-TRUE,FALSE",
+      "category": "proposition-algebra",
+      "passed": true
+    },
+    {
+      "id": "algebra/ALL-TRUE",
+      "category": "proposition-algebra",
+      "passed": true
+    },
+    {
+      "id": "algebra/ANY-FALSE,INDETERMINATE",
+      "category": "proposition-algebra",
+      "passed": true
+    },
+    {
+      "id": "algebra/ANY-INDETERMINATE,TRUE",
+      "category": "proposition-algebra",
+      "passed": true
+    },
+    {
+      "id": "algebra/ANY-FALSE",
+      "category": "proposition-algebra",
+      "passed": true
+    },
+    {
+      "id": "algebra/NOT-INDETERMINATE",
+      "category": "proposition-algebra",
+      "passed": true
+    },
+    {
+      "id": "algebra/NOT-FALSE",
+      "category": "proposition-algebra",
+      "passed": true
+    },
+    {
+      "id": "algebra/NOT-TRUE",
+      "category": "proposition-algebra",
+      "passed": true
+    },
+    {
+      "id": "algebra/SEQUENCE-TRUE,FALSE",
+      "category": "proposition-algebra",
+      "passed": true
+    },
+    {
+      "id": "algebra/invalid/ALL",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "algebra/invalid/NOT",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "algebra/invalid/UNKNOWN",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "algebra/invalid/ANY",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "time/STRUCTURE_AS_OF",
+      "category": "nine-time-profiles",
+      "passed": true
+    },
+    {
+      "id": "event-absence/STRUCTURE_AS_OF",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event-presence/STRUCTURE_AS_OF",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event/missing-selected-time/STRUCTURE_AS_OF",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "time/STRUCTURE_EFFECTIVE_FROM",
+      "category": "nine-time-profiles",
+      "passed": true
+    },
+    {
+      "id": "event-absence/STRUCTURE_EFFECTIVE_FROM",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event-presence/STRUCTURE_EFFECTIVE_FROM",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event/missing-selected-time/STRUCTURE_EFFECTIVE_FROM",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "time/STRUCTURE_EFFECTIVE_INTERVAL",
+      "category": "nine-time-profiles",
+      "passed": true
+    },
+    {
+      "id": "event-absence/STRUCTURE_EFFECTIVE_INTERVAL",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event-presence/STRUCTURE_EFFECTIVE_INTERVAL",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event/missing-selected-time/STRUCTURE_EFFECTIVE_INTERVAL",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "time/COMPLIANCE_AS_OF",
+      "category": "nine-time-profiles",
+      "passed": true
+    },
+    {
+      "id": "event-absence/COMPLIANCE_AS_OF",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event-presence/COMPLIANCE_AS_OF",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event/missing-selected-time/COMPLIANCE_AS_OF",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "time/COMPLIANCE_EFFECTIVE_FROM",
+      "category": "nine-time-profiles",
+      "passed": true
+    },
+    {
+      "id": "event-absence/COMPLIANCE_EFFECTIVE_FROM",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event-presence/COMPLIANCE_EFFECTIVE_FROM",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event/missing-selected-time/COMPLIANCE_EFFECTIVE_FROM",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "time/COMPLIANCE_EFFECTIVE_INTERVAL",
+      "category": "nine-time-profiles",
+      "passed": true
+    },
+    {
+      "id": "event-absence/COMPLIANCE_EFFECTIVE_INTERVAL",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event-presence/COMPLIANCE_EFFECTIVE_INTERVAL",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event/missing-selected-time/COMPLIANCE_EFFECTIVE_INTERVAL",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "time/INTENDED_WINDOW",
+      "category": "nine-time-profiles",
+      "passed": true
+    },
+    {
+      "id": "event-absence/INTENDED_WINDOW",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event-presence/INTENDED_WINDOW",
+      "category": "prohibited-event-cell",
+      "passed": true
+    },
+    {
+      "id": "time/PERFORMED_INSTANT",
+      "category": "nine-time-profiles",
+      "passed": true
+    },
+    {
+      "id": "event-absence/PERFORMED_INSTANT",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event-presence/PERFORMED_INSTANT",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event/missing-selected-time/PERFORMED_INSTANT",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "time/PERFORMED_INTERVAL",
+      "category": "nine-time-profiles",
+      "passed": true
+    },
+    {
+      "id": "event-absence/PERFORMED_INTERVAL",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event-presence/PERFORMED_INTERVAL",
+      "category": "17-event-profile-cells",
+      "passed": true
+    },
+    {
+      "id": "event/missing-selected-time/PERFORMED_INTERVAL",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "event/selector/STRUCTURE_AS_OF/eventTime",
+      "category": "selected-time-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/selector/STRUCTURE_AS_OF/observationTime",
+      "category": "selected-time-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/selector/STRUCTURE_AS_OF/decisionTime",
+      "category": "selected-time-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/selector/STRUCTURE_AS_OF/effectiveFrom",
+      "category": "selected-time-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/selector/COMPLIANCE_AS_OF/eventTime",
+      "category": "selected-time-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/selector/COMPLIANCE_AS_OF/observationTime",
+      "category": "selected-time-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/selector/COMPLIANCE_AS_OF/decisionTime",
+      "category": "selected-time-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/selector/COMPLIANCE_AS_OF/effectiveFrom",
+      "category": "selected-time-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/selector/PERFORMED_INSTANT/eventTime",
+      "category": "selected-time-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/selector/PERFORMED_INSTANT/observationTime",
+      "category": "selected-time-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/selector/PERFORMED_INSTANT/decisionTime",
+      "category": "selected-time-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/selector/PERFORMED_INSTANT/effectiveFrom",
+      "category": "selected-time-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/record-time-forbidden",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "time/invalid/2026-02-30T00:00:00Z",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "time/invalid/2026-05-07T10:00:00.100Z",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "time/invalid/2026-05-07T10:00:00+00:00",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "time/invalid/2026-05-07T10:00:00.1234567891Z",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "time/nanosecond-distinct",
+      "category": "unexemplified-valid",
+      "passed": true
+    },
+    {
+      "id": "time/nanosecond-reversed",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "O22/INTENDED_WINDOW/OCCURRENCE/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/INTENDED_WINDOW/OCCURRENCE/PENDING_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/INTENDED_WINDOW/OCCURRENCE/ACTUAL_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/INTENDED_WINDOW/OCCURRENCE/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/INTENDED_WINDOW/OCCURRENCE/PENDING_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/INTENDED_WINDOW/OCCURRENCE/ACTUAL_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/INTENDED_WINDOW/STARTED/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/INTENDED_WINDOW/STARTED/PENDING_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/INTENDED_WINDOW/STARTED/ACTUAL_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/INTENDED_WINDOW/STARTED/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/INTENDED_WINDOW/STARTED/PENDING_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/INTENDED_WINDOW/STARTED/ACTUAL_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/INTENDED_WINDOW/IN_PROGRESS/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/INTENDED_WINDOW/IN_PROGRESS/PENDING_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/INTENDED_WINDOW/IN_PROGRESS/ACTUAL_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/INTENDED_WINDOW/IN_PROGRESS/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/INTENDED_WINDOW/IN_PROGRESS/PENDING_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/INTENDED_WINDOW/IN_PROGRESS/ACTUAL_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/INTENDED_WINDOW/COMPLETED/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/INTENDED_WINDOW/COMPLETED/PENDING_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/INTENDED_WINDOW/COMPLETED/ACTUAL_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/INTENDED_WINDOW/COMPLETED/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/INTENDED_WINDOW/COMPLETED/PENDING_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/INTENDED_WINDOW/COMPLETED/ACTUAL_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INSTANT/OCCURRENCE/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INSTANT/OCCURRENCE/PENDING_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INSTANT/OCCURRENCE/ACTUAL_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INSTANT/OCCURRENCE/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INSTANT/OCCURRENCE/PENDING_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INSTANT/OCCURRENCE/ACTUAL_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INSTANT/STARTED/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INSTANT/STARTED/PENDING_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INSTANT/STARTED/ACTUAL_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INSTANT/STARTED/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INSTANT/STARTED/PENDING_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INSTANT/STARTED/ACTUAL_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INSTANT/IN_PROGRESS/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INSTANT/IN_PROGRESS/PENDING_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INSTANT/IN_PROGRESS/ACTUAL_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INSTANT/IN_PROGRESS/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INSTANT/IN_PROGRESS/PENDING_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INSTANT/IN_PROGRESS/ACTUAL_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INSTANT/COMPLETED/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INSTANT/COMPLETED/PENDING_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INSTANT/COMPLETED/ACTUAL_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INSTANT/COMPLETED/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INSTANT/COMPLETED/PENDING_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INSTANT/COMPLETED/ACTUAL_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INTERVAL/OCCURRENCE/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INTERVAL/OCCURRENCE/PENDING_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INTERVAL/OCCURRENCE/ACTUAL_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INTERVAL/OCCURRENCE/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INTERVAL/OCCURRENCE/PENDING_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INTERVAL/OCCURRENCE/ACTUAL_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INTERVAL/STARTED/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INTERVAL/STARTED/PENDING_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INTERVAL/STARTED/ACTUAL_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INTERVAL/STARTED/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INTERVAL/STARTED/PENDING_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INTERVAL/STARTED/ACTUAL_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INTERVAL/IN_PROGRESS/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INTERVAL/IN_PROGRESS/PENDING_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INTERVAL/IN_PROGRESS/ACTUAL_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INTERVAL/IN_PROGRESS/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INTERVAL/IN_PROGRESS/PENDING_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INTERVAL/IN_PROGRESS/ACTUAL_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INTERVAL/COMPLETED/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INTERVAL/COMPLETED/PENDING_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22/PERFORMED_INTERVAL/COMPLETED/ACTUAL_OUTPUT",
+      "category": "O22-profile-facet-output-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INTERVAL/COMPLETED/PROSPECTIVE_OUTPUT_SPECIFICATION",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INTERVAL/COMPLETED/PENDING_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/PERFORMED_INTERVAL/COMPLETED/ACTUAL_OUTPUT",
+      "category": "explicit-O22-row-matrix",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/unexemplified-normalized-quantity",
+      "category": "unexemplified-valid",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/invalid/body/parameters/method",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/invalid/body/workSpecification/activityInstance",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/invalid/body/workSpecification/finishConditionIds",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/invalid/body/performanceFacet",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/invalid/body/claimPosture",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "O22-full-row/invalid/body/parameters/producedResult/outputState",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "O22/pending-unreported",
+      "category": "unexemplified-valid",
+      "passed": true
+    },
+    {
+      "id": "O22/pending-forbids-result",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "O22/wrong-specification",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/fidelity/NUMERIC",
+      "category": "five-result-forms",
+      "passed": true
+    },
+    {
+      "id": "measurement/changed/NUMERIC",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/NUMERIC/OBSERVED_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/NUMERIC/OBSERVED_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/NUMERIC/SAMPLE_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/NUMERIC/SAMPLE_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/NUMERIC/RESULT_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/NUMERIC/RESULT_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/NUMERIC/RECORD_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/NUMERIC/RECORD_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/NUMERIC/ESTIMATED_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/NUMERIC/ESTIMATED_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/NUMERIC/ABSENT",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/NUMERIC/ABSENT",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/fidelity/CODED",
+      "category": "five-result-forms",
+      "passed": true
+    },
+    {
+      "id": "measurement/changed/CODED",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/CODED/OBSERVED_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/CODED/OBSERVED_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/CODED/SAMPLE_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/CODED/SAMPLE_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/CODED/RESULT_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/CODED/RESULT_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/CODED/RECORD_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/CODED/RECORD_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/CODED/ESTIMATED_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/CODED/ESTIMATED_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/CODED/ABSENT",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/CODED/ABSENT",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/fidelity/QUALITATIVE",
+      "category": "five-result-forms",
+      "passed": true
+    },
+    {
+      "id": "measurement/changed/QUALITATIVE",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/QUALITATIVE/OBSERVED_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/QUALITATIVE/OBSERVED_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/QUALITATIVE/SAMPLE_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/QUALITATIVE/SAMPLE_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/QUALITATIVE/RESULT_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/QUALITATIVE/RESULT_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/QUALITATIVE/RECORD_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/QUALITATIVE/RECORD_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/QUALITATIVE/ESTIMATED_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/QUALITATIVE/ESTIMATED_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/QUALITATIVE/ABSENT",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/QUALITATIVE/ABSENT",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/fidelity/CENSORED_NUMERIC",
+      "category": "five-result-forms",
+      "passed": true
+    },
+    {
+      "id": "measurement/changed/CENSORED_NUMERIC",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/CENSORED_NUMERIC/OBSERVED_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/CENSORED_NUMERIC/OBSERVED_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/CENSORED_NUMERIC/SAMPLE_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/CENSORED_NUMERIC/SAMPLE_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/CENSORED_NUMERIC/RESULT_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/CENSORED_NUMERIC/RESULT_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/CENSORED_NUMERIC/RECORD_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/CENSORED_NUMERIC/RECORD_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/CENSORED_NUMERIC/ESTIMATED_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/CENSORED_NUMERIC/ESTIMATED_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/CENSORED_NUMERIC/ABSENT",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/CENSORED_NUMERIC/ABSENT",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/fidelity/ABSENT_PENDING",
+      "category": "five-result-forms",
+      "passed": true
+    },
+    {
+      "id": "measurement/changed/ABSENT_PENDING",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/ABSENT_PENDING/OBSERVED_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/ABSENT_PENDING/OBSERVED_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/ABSENT_PENDING/SAMPLE_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/ABSENT_PENDING/SAMPLE_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/ABSENT_PENDING/RESULT_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/ABSENT_PENDING/RESULT_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/ABSENT_PENDING/RECORD_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/ABSENT_PENDING/RECORD_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/ABSENT_PENDING/ESTIMATED_TIME",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/ABSENT_PENDING/ESTIMATED_TIME",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/time/ABSENT_PENDING/ABSENT",
+      "category": "five-results-by-six-time-roles",
+      "passed": true
+    },
+    {
+      "id": "measurement/no-capture-fallback/ABSENT_PENDING/ABSENT",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/omission-not-null",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "measurement/empty-result",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "event/literal-exact",
+      "category": "event-literal-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/literal-changed/eventSubtypeId",
+      "category": "event-literal-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/literal-changed/dominantSemanticConsequence",
+      "category": "event-literal-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/literal-changed/primaryEventFamily",
+      "category": "event-literal-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/subtype-omitted",
+      "category": "event-literal-comparison",
+      "passed": true
+    },
+    {
+      "id": "event/subtype-null-not-absent",
+      "category": "event-literal-comparison",
+      "passed": true
+    },
+    {
+      "id": "C16/qualified-positive",
+      "category": "qualified-C16",
+      "passed": true
+    },
+    {
+      "id": "C16/hostile/allegedOutcome/SATISFIED",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/hostile/allegedOutcome/EXEMPT",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/hostile/reviewState/ACCEPTED",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/hostile/claimYear/2027",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/hostile/route/UNDER_30_HECTARES",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/hostile/routeScope/HOLDING",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/hostile/parcel/{'ref': 'fiction:other-parcel', 'revisionRef': 'r1'}",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/hostile/routeEvidence/{'ref': 'fiction:public-current-state', 'revisionRef': 'r1'}",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/hostile/historyClaim/{'ref': 'fiction:wrong-history', 'revisionRef': 'r1'}",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/missing/form",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/missing/profile",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/missing/claimYear",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/missing/route",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/missing/routeScope",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/missing/parcel",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/missing/historyClaim",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/missing/soilCategory",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/missing/soilEvidence",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/missing/rustgewasEvidence",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/missing/routeEvidence",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/missing/evaluationBasis",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/missing/allegedOutcome",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "C16/missing/reviewState",
+      "category": "intrinsic",
+      "passed": true
+    },
+    {
+      "id": "finite/S01_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/S02_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/S03_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/S04_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/S05_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/S06_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/S07_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/S08_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/S09_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/S10_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/S10_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/S11_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O01_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O01_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O02_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O03_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O04_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O04_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O05_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O06_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O07_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O08_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O08_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O08_SHAPE_3",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O08_SHAPE_4",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O09_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O10_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O10_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O11_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O12_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O13_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O14_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O15_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O16_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C01_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C02_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C03_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C03_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C04_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C05_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C06_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C06_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C06_SHAPE_3",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C07_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C08_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C09_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C09_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C10_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/S12_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/S12_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/S13_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/S14_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O17_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O18_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O19_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O19_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O19_SHAPE_3",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O20_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O21_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C11_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C12_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C12_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C13_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C14_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C15_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C16_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C16_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/C17_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O22_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O22_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O22_SHAPE_3",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O22_SHAPE_4",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O22_SHAPE_5",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O22_SHAPE_6",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O22_SHAPE_7",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O23_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O23_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O23_SHAPE_3",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O24_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O24_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O25_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O25_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O26_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O26_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O27_SHAPE_1",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite/O27_SHAPE_2",
+      "category": "finite-reviewed-form",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/S01",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/S01",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/S02",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/S02",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/S03",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/S03",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/S04",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/S04",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/S05",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/S05",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/S06",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/S06",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/S07",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/S07",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/S08",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/S08",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/S09",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/S09",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/S10",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/S10",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/S11",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/S11",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O01",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O01",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O02",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O02",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O03",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O03",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O04",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O04",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O05",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O05",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O06",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O06",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O07",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O07",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O08",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O08",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O09",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O09",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O10",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O10",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O11",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O11",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O12",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O12",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O13",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O13",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O14",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O14",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O15",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O15",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O16",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O16",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C01",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C01",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C02",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C02",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C03",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C03",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C04",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C04",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C05",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C05",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C06",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C06",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C07",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C07",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C08",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C08",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C09",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C09",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C10",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C10",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/S12",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/S12",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/S13",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/S13",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/S14",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/S14",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O17",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O17",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O18",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O18",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O19",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O19",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O20",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O20",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O21",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O21",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C11",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C11",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C12",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C12",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C13",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C13",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C14",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C14",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C15",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C15",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C16",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C16",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/C17",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/C17",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O22",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O22",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O23",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O23",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O24",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O24",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O25",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O25",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O26",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O26",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-extra/O27",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "finite-missing-time/O27",
+      "category": "finite-reviewed-form-hostile",
+      "passed": true
+    },
+    {
+      "id": "coverage/99-distinct-definitions",
+      "category": "source-accounting",
+      "passed": true
+    },
+    {
+      "id": "coverage/42-distinct-requirements",
+      "category": "source-accounting",
+      "passed": true
+    },
+    {
+      "id": "coverage/25-whole-meanings",
+      "category": "source-accounting",
+      "passed": true
+    },
+    {
+      "id": "coverage/nine-profiles",
+      "category": "source-accounting",
+      "passed": true
+    },
+    {
+      "id": "coverage/17-retained-event-profile-cells",
+      "category": "source-accounting",
+      "passed": true
+    },
+    {
+      "id": "coverage/30-result-time-cells",
+      "category": "source-accounting",
+      "passed": true
+    },
+    {
+      "id": "coverage/36-output-profile-facet-cells",
+      "category": "source-accounting",
+      "passed": true
+    },
+    {
+      "id": "coverage/exact-source-definition-ids",
+      "category": "source-accounting",
+      "passed": true
+    },
+    {
+      "id": "coverage/49-retained-duties",
+      "category": "source-accounting",
+      "passed": true
+    },
+    {
+      "id": "coverage/execution-map-denominator",
+      "category": "source-accounting",
+      "passed": true
+    }
+  ],
+  "next": "Integrate these bounded executable inputs without treating scaffolding or source-accounting counts as complete row semantics; continue the remaining owned rows and exact foreign interfaces."
+}

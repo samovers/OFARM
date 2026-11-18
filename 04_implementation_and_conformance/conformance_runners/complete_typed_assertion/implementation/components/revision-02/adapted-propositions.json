@@ -1,0 +1,4403 @@
+{
+  "sourceHead": "389a8f6b6bb2f43435c35f32df769e723d736856",
+  "count": 25,
+  "examples": [
+    {
+      "id": "W01_EQUIPMENT",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W01_EQUIPMENT",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:S12",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "EQUIPMENT",
+            "subjectRef": "equipment:sprayer-fictional",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "STRUCTURE_EFFECTIVE_FROM",
+            "start": "2026-05-07T00:00:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "equipment:sprayer-fictional",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "property": "asset.configuration",
+          "assetKind": "EQUIPMENT",
+          "asset": {
+            "ref": "equipment:sprayer-fictional",
+            "revisionRef": "r1"
+          },
+          "configuration": {
+            "ref": "configuration:sprayer-C",
+            "revisionRef": "r1"
+          },
+          "inspectionEvidence": [
+            {
+              "ref": "inspection:fictional",
+              "revisionRef": "r1"
+            }
+          ]
+        }
+      },
+      "sourceClaimContentDigest": "sha256:b220629aa463cdb6db780be6811fe23c7913c585b57188275a9e663d6e69920c",
+      "sourceRenderedTextDigest": "sha256:6fa17d74ad052a3502fcb3c091c1e2673b87a0864a34d2c5872ac189d3685c36",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W02_SI_QUALIFIED_PARTIAL_USE",
+      "proposition": {
+        "form": "QUALIFIED",
+        "appliesToAtomId": "atom:W02_SI_QUALIFIED_PARTIAL_USE",
+        "child": {
+          "form": "ATOM",
+          "atomId": "atom:W02_SI_QUALIFIED_PARTIAL_USE",
+          "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O19",
+          "scope": {
+            "subject": {
+              "subjectPosture": "EXISTING_SUBJECT",
+              "subjectType": "FIELD",
+              "subjectRef": "field:fictional",
+              "revisionRef": "r1"
+            },
+            "subjectTime": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-05-07T17:10:00Z",
+              "end": "2026-05-07T18:25:00Z"
+            },
+            "extent": {
+              "posture": "PARTIAL_TARGET_SCOPE",
+              "binding": {
+                "ref": "extent:partial",
+                "revisionRef": "r1"
+              }
+            }
+          },
+          "body": {
+            "activity": "APPLY_INPUT",
+            "interventionKind": "CROP_PROTECTION",
+            "claimPosture": "PERFORMED",
+            "performanceFacet": "OCCURRENCE",
+            "activityInstance": {
+              "ref": "work:O19:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "FIELD",
+              "binding": {
+                "ref": "field:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "performedBy": {
+              "ref": "party:performer-fictional",
+              "revisionRef": "r1"
+            },
+            "extent": {
+              "posture": "PARTIAL_TARGET_SCOPE",
+              "binding": {
+                "ref": "extent:partial",
+                "revisionRef": "r1"
+              }
+            },
+            "parameters": {
+              "useType": "SURFACE_AREA",
+              "profile": "profile:si.ffs.recordkeeping.v0_1",
+              "product": {
+                "ref": "product:fictional",
+                "revisionRef": "r1"
+              },
+              "capturedProductName": "Fictional product",
+              "officialIdentity": {
+                "ref": "SI-product-authorisation:fictional",
+                "revisionRef": "r1"
+              },
+              "useDate": "2026-05-07",
+              "timeRelevance": "SOURCE_RULE_REQUIRES_START_TIME",
+              "dose": {
+                "quantityParameterId": "q:dose"
+              },
+              "parcel": {
+                "scheme": "SI:GERK",
+                "binding": {
+                  "ref": "field:fictional",
+                  "revisionRef": "r1"
+                },
+                "snapshot": {
+                  "ref": "parcel-snapshot:fictional",
+                  "revisionRef": "r1"
+                }
+              },
+              "treatedArea": {
+                "quantityParameterId": "q:treatedArea"
+              },
+              "crop": {
+                "ref": "crop:versioned-EPPO",
+                "revisionRef": "r1"
+              },
+              "stage": {
+                "posture": "NOT_REQUIRED_BY_BOUND_USE",
+                "basis": {
+                  "ref": "use-context:fictional",
+                  "revisionRef": "r1"
+                }
+              },
+              "professionalUser": {
+                "ref": "party:performer-fictional",
+                "revisionRef": "r1"
+              },
+              "trainingEvidence": {
+                "ref": "training:fictional",
+                "revisionRef": "r1"
+              },
+              "equipment": {
+                "kind": "EQUIPMENT",
+                "binding": {
+                  "ref": "equipment:fictional",
+                  "revisionRef": "r1"
+                },
+                "inspection": {
+                  "ref": "inspection:fictional",
+                  "revisionRef": "r1"
+                }
+              }
+            },
+            "quantityParameters": [
+              {
+                "parameterId": "q:dose",
+                "parameterRole": "DOSE",
+                "activityInstance": {
+                  "ref": "work:O19:fictional",
+                  "revisionRef": "r1"
+                },
+                "valuePosture": "ACTUAL",
+                "material": {
+                  "presence": "PRESENT",
+                  "materialRole": "PRODUCT",
+                  "binding": {
+                    "ref": "product:fictional",
+                    "revisionRef": "r1"
+                  }
+                },
+                "basis": {
+                  "presence": "PRESENT",
+                  "quantity": {
+                    "quantityKind": "qudt:Area",
+                    "unit": "ucum:ha",
+                    "decimal": "1"
+                  },
+                  "subject": {
+                    "kind": "FIELD",
+                    "binding": {
+                      "ref": "field:fictional",
+                      "revisionRef": "r1"
+                    }
+                  }
+                },
+                "value": {
+                  "state": "UNREPORTED",
+                  "reason": "SOURCE_DID_NOT_REPORT_ACTUAL_RATE"
+                },
+                "appliesTo": {
+                  "target": {
+                    "kind": "FIELD",
+                    "binding": {
+                      "ref": "field:fictional",
+                      "revisionRef": "r1"
+                    }
+                  },
+                  "extent": {
+                    "posture": "PARTIAL_TARGET_SCOPE",
+                    "binding": {
+                      "ref": "extent:partial",
+                      "revisionRef": "r1"
+                    }
+                  },
+                  "subjectTime": {
+                    "profile": "PERFORMED_INTERVAL",
+                    "start": "2026-05-07T17:10:00Z",
+                    "end": "2026-05-07T18:25:00Z"
+                  },
+                  "processPoint": {
+                    "ref": "process-point:whole-activity",
+                    "revisionRef": "r1"
+                  },
+                  "phase": "WHOLE_ACTIVITY"
+                }
+              },
+              {
+                "parameterId": "q:treatedArea",
+                "parameterRole": "OTHER_PARAMETER",
+                "activityInstance": {
+                  "ref": "work:O19:fictional",
+                  "revisionRef": "r1"
+                },
+                "valuePosture": "ACTUAL",
+                "material": {
+                  "presence": "NOT_APPLICABLE",
+                  "reason": "PROCESS_OR_EXTENT_QUANTITY"
+                },
+                "basis": {
+                  "presence": "NOT_APPLICABLE",
+                  "reason": "NON_RATIO_QUANTITY"
+                },
+                "value": {
+                  "state": "STATED",
+                  "quantity": {
+                    "quantityKind": "qudt:Area",
+                    "unit": "ucum:ha",
+                    "decimal": "0.72"
+                  },
+                  "qualifier": "MACHINE_REPORTED",
+                  "unitProfile": {
+                    "ref": "unit-profile:fictional",
+                    "revisionRef": "r1"
+                  },
+                  "original": {
+                    "presence": "PRESENT",
+                    "lexicalValue": "0.72",
+                    "unitText": "ucum:ha",
+                    "sourceBinding": {
+                      "ref": "source:fictional:treatedArea",
+                      "revisionRef": "r1"
+                    },
+                    "sourcePointer": "/reported/treatedArea"
+                  }
+                },
+                "appliesTo": {
+                  "target": {
+                    "kind": "FIELD",
+                    "binding": {
+                      "ref": "field:fictional",
+                      "revisionRef": "r1"
+                    }
+                  },
+                  "extent": {
+                    "posture": "PARTIAL_TARGET_SCOPE",
+                    "binding": {
+                      "ref": "extent:partial",
+                      "revisionRef": "r1"
+                    }
+                  },
+                  "subjectTime": {
+                    "profile": "PERFORMED_INTERVAL",
+                    "start": "2026-05-07T17:10:00Z",
+                    "end": "2026-05-07T18:25:00Z"
+                  },
+                  "processPoint": {
+                    "ref": "process-point:whole-activity",
+                    "revisionRef": "r1"
+                  },
+                  "phase": "WHOLE_ACTIVITY"
+                },
+                "otherRoleDefinition": "TREATED_AREA"
+              },
+              {
+                "parameterId": "q:planned-product-rate",
+                "parameterRole": "RATE",
+                "activityInstance": {
+                  "ref": "work:O19:fictional",
+                  "revisionRef": "r1"
+                },
+                "valuePosture": "PLANNED",
+                "material": {
+                  "presence": "PRESENT",
+                  "materialRole": "PRODUCT",
+                  "binding": {
+                    "ref": "product:fictional",
+                    "revisionRef": "r1"
+                  }
+                },
+                "basis": {
+                  "presence": "PRESENT",
+                  "quantity": {
+                    "quantityKind": "qudt:Area",
+                    "unit": "ucum:ha",
+                    "decimal": "1"
+                  },
+                  "subject": {
+                    "kind": "FIELD",
+                    "binding": {
+                      "ref": "field:fictional",
+                      "revisionRef": "r1"
+                    }
+                  }
+                },
+                "value": {
+                  "state": "STATED",
+                  "quantity": {
+                    "quantityKind": "qudt:VolumePerArea",
+                    "unit": "ucum:L.ha-1",
+                    "decimal": "2"
+                  },
+                  "qualifier": "HUMAN_REPORTED",
+                  "unitProfile": {
+                    "ref": "unit-profile:fictional",
+                    "revisionRef": "r1"
+                  },
+                  "original": {
+                    "presence": "PRESENT",
+                    "lexicalValue": "2",
+                    "unitText": "L/ha",
+                    "sourceBinding": {
+                      "ref": "plan:fictional",
+                      "revisionRef": "r1"
+                    },
+                    "sourcePointer": "/quantityParameters/0/value"
+                  }
+                },
+                "appliesTo": {
+                  "target": {
+                    "kind": "FIELD",
+                    "binding": {
+                      "ref": "field:fictional",
+                      "revisionRef": "r1"
+                    }
+                  },
+                  "extent": {
+                    "posture": "PARTIAL_TARGET_SCOPE",
+                    "binding": {
+                      "ref": "extent:partial",
+                      "revisionRef": "r1"
+                    }
+                  },
+                  "subjectTime": {
+                    "profile": "PERFORMED_INTERVAL",
+                    "start": "2026-05-07T17:10:00Z",
+                    "end": "2026-05-07T18:25:00Z"
+                  },
+                  "processPoint": {
+                    "ref": "process-point:whole-activity",
+                    "revisionRef": "r1"
+                  },
+                  "phase": "WHOLE_ACTIVITY"
+                }
+              }
+            ],
+            "workSpecification": {
+              "binding": {
+                "ref": "work-spec:O19:fictional",
+                "revisionRef": "r1"
+              },
+              "activityInstance": {
+                "ref": "work:O19:fictional",
+                "revisionRef": "r1"
+              },
+              "procedure": {
+                "ref": "procedure:O19:fictional",
+                "revisionRef": "r1"
+              },
+              "target": {
+                "kind": "FIELD",
+                "binding": {
+                  "ref": "field:fictional",
+                  "revisionRef": "r1"
+                }
+              },
+              "extent": {
+                "posture": "PARTIAL_TARGET_SCOPE",
+                "binding": {
+                  "ref": "extent:partial",
+                  "revisionRef": "r1"
+                }
+              },
+              "startConditionIds": [
+                "start:O19"
+              ],
+              "inProgressConditionIds": [
+                "progress:O19"
+              ],
+              "finishConditionIds": [
+                "finish:O19"
+              ]
+            }
+          }
+        },
+        "qualifiers": {
+          "extentQualification": "PARTIAL_ONLY",
+          "sourceQuality": "MACHINE_REPORTED"
+        }
+      },
+      "sourceClaimContentDigest": "sha256:101fd25e73331ecc6c4f3f864ea6cd380a87296bb28911b602e98502049883d7",
+      "sourceRenderedTextDigest": "sha256:d9f21a9ce629982f043847d2502e83f58881d0891e1922c410ce93a989867f06",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W03_MEASURED_PRUNING_NO_EVENT",
+      "proposition": {
+        "form": "QUALIFIED",
+        "appliesToAtomId": "atom:W03_MEASURED_PRUNING_NO_EVENT",
+        "child": {
+          "form": "ATOM",
+          "atomId": "atom:W03_MEASURED_PRUNING_NO_EVENT",
+          "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O08",
+          "scope": {
+            "subject": {
+              "subjectPosture": "EXISTING_SUBJECT",
+              "subjectType": "FIELD",
+              "subjectRef": "field:fictional",
+              "revisionRef": "r1"
+            },
+            "subjectTime": {
+              "profile": "PERFORMED_INSTANT",
+              "at": "2026-05-07T18:25:00Z"
+            },
+            "extent": {
+              "posture": "PARTIAL_TARGET_SCOPE",
+              "binding": {
+                "ref": "extent:west-edge-fictional",
+                "revisionRef": "r1"
+              }
+            }
+          },
+          "body": {
+            "activity": "PRUNE",
+            "interventionKind": "PRUNING",
+            "claimPosture": "PERFORMED",
+            "performanceFacet": "COMPLETED",
+            "activityInstance": {
+              "ref": "work:O08:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "FIELD",
+              "binding": {
+                "ref": "field:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "performedBy": {
+              "ref": "party:performer-fictional",
+              "revisionRef": "r1"
+            },
+            "extent": {
+              "posture": "PARTIAL_TARGET_SCOPE",
+              "binding": {
+                "ref": "extent:west-edge-fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "parameters": {
+              "method": {
+                "ref": "method:row-selective-fictional",
+                "revisionRef": "r1"
+              },
+              "plantPart": {
+                "ref": "plant-part:canopy",
+                "revisionRef": "r1"
+              },
+              "workExtent": "WEST_EDGE_ONLY"
+            },
+            "quantityParameters": [],
+            "workSpecification": {
+              "binding": {
+                "ref": "work-spec:O08:fictional",
+                "revisionRef": "r1"
+              },
+              "activityInstance": {
+                "ref": "work:O08:fictional",
+                "revisionRef": "r1"
+              },
+              "procedure": {
+                "ref": "method:row-selective-fictional",
+                "revisionRef": "r1"
+              },
+              "target": {
+                "kind": "FIELD",
+                "binding": {
+                  "ref": "field:fictional",
+                  "revisionRef": "r1"
+                }
+              },
+              "extent": {
+                "posture": "PARTIAL_TARGET_SCOPE",
+                "binding": {
+                  "ref": "extent:west-edge-fictional",
+                  "revisionRef": "r1"
+                }
+              },
+              "startConditionIds": [
+                "start:O08"
+              ],
+              "inProgressConditionIds": [
+                "progress:O08"
+              ],
+              "finishConditionIds": [
+                "finish:O08"
+              ]
+            }
+          }
+        },
+        "qualifiers": {
+          "epistemicPosture": "ALLEGED"
+        }
+      },
+      "sourceClaimContentDigest": "sha256:f207688adf2e428d5e0f2b598c49d0144fbe2dbd94fbd1e699d67772570a8b18",
+      "sourceRenderedTextDigest": "sha256:715df6e20b0daa030ca09275cdf032424acefa1ec641a9122bb8338bc8cff0ad",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W04_MEASURED_PRUNING_WITH_EVENT",
+      "proposition": {
+        "form": "QUALIFIED",
+        "appliesToAtomId": "atom:W04_MEASURED_PRUNING_WITH_EVENT",
+        "child": {
+          "form": "ATOM",
+          "atomId": "atom:W04_MEASURED_PRUNING_WITH_EVENT",
+          "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O08",
+          "scope": {
+            "subject": {
+              "subjectPosture": "EXISTING_SUBJECT",
+              "subjectType": "FIELD",
+              "subjectRef": "field:fictional",
+              "revisionRef": "r1"
+            },
+            "subjectTime": {
+              "profile": "PERFORMED_INSTANT",
+              "at": "2026-05-07T18:25:00Z"
+            },
+            "extent": {
+              "posture": "PARTIAL_TARGET_SCOPE",
+              "binding": {
+                "ref": "extent:west-edge-fictional",
+                "revisionRef": "r1"
+              }
+            }
+          },
+          "body": {
+            "activity": "PRUNE",
+            "interventionKind": "PRUNING",
+            "claimPosture": "PERFORMED",
+            "performanceFacet": "COMPLETED",
+            "activityInstance": {
+              "ref": "work:O08:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "FIELD",
+              "binding": {
+                "ref": "field:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "performedBy": {
+              "ref": "party:performer-fictional",
+              "revisionRef": "r1"
+            },
+            "extent": {
+              "posture": "PARTIAL_TARGET_SCOPE",
+              "binding": {
+                "ref": "extent:west-edge-fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "parameters": {
+              "method": {
+                "ref": "method:row-selective-fictional",
+                "revisionRef": "r1"
+              },
+              "plantPart": {
+                "ref": "plant-part:canopy",
+                "revisionRef": "r1"
+              },
+              "workExtent": "WEST_EDGE_ONLY"
+            },
+            "quantityParameters": [],
+            "workSpecification": {
+              "binding": {
+                "ref": "work-spec:O08:fictional",
+                "revisionRef": "r1"
+              },
+              "activityInstance": {
+                "ref": "work:O08:fictional",
+                "revisionRef": "r1"
+              },
+              "procedure": {
+                "ref": "method:row-selective-fictional",
+                "revisionRef": "r1"
+              },
+              "target": {
+                "kind": "FIELD",
+                "binding": {
+                  "ref": "field:fictional",
+                  "revisionRef": "r1"
+                }
+              },
+              "extent": {
+                "posture": "PARTIAL_TARGET_SCOPE",
+                "binding": {
+                  "ref": "extent:west-edge-fictional",
+                  "revisionRef": "r1"
+                }
+              },
+              "startConditionIds": [
+                "start:O08"
+              ],
+              "inProgressConditionIds": [
+                "progress:O08"
+              ],
+              "finishConditionIds": [
+                "finish:O08"
+              ]
+            }
+          }
+        },
+        "qualifiers": {
+          "epistemicPosture": "ALLEGED"
+        }
+      },
+      "sourceClaimContentDigest": "sha256:c6401d62cda670741c2e28b737f1a7a1360ee1d8570d4716e8fc842d47ce0531",
+      "sourceRenderedTextDigest": "sha256:6acf466033cc6948b0870ad2357e3f1d7ee4744db9192e265a1725b0fbd14380",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W05_CENSORED_CRITERION",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W05_CENSORED_CRITERION",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:C04",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "FIELD",
+            "subjectRef": "field:fictional",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "COMPLIANCE_AS_OF",
+            "at": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "field:fictional",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "form": "CRITERION_OUTCOME",
+          "operand": {
+            "resultKind": "CENSORED_NUMERIC",
+            "qualifier": "BELOW_LOQ",
+            "limit": {
+              "quantityKind": "qudt:MassFraction",
+              "unit": "ucum:mg.kg-1",
+              "decimal": "2",
+              "qualifier": "HUMAN_REPORTED",
+              "originalLexicalValue": "2",
+              "unitProfile": {
+                "ref": "unit-profile:example",
+                "revisionRef": "r1"
+              },
+              "provenance": {
+                "sourceBinding": {
+                  "ref": "quantity-source:W05-lab-transcription-fictional",
+                  "revisionRef": "r1"
+                },
+                "valuePointer": "/loq",
+                "lexicalPointer": "/loq/originalLexicalValue",
+                "qualifierPointer": "/loq/qualifier"
+              }
+            },
+            "nonnegative": true,
+            "source": {
+              "role": "MEASURED_COMPLIANCE_OPERAND",
+              "measurementBinding": {
+                "ref": "nitrate-measurement:fictional",
+                "revisionRef": "r1"
+              },
+              "resultPointer": "/result",
+              "contextBinding": {
+                "ref": "observation-context:W05-nitrate-fictional",
+                "revisionRef": "r1"
+              },
+              "subjectRelationBinding": {
+                "ref": "sample-to-field:fictional",
+                "revisionRef": "r1"
+              },
+              "methodUseBinding": {
+                "ref": "method-use:W05-nitrate-fictional",
+                "revisionRef": "r1"
+              },
+              "qualificationPointers": [
+                "/uncertainty"
+              ]
+            },
+            "admissibleValues": {
+              "kind": "INTERVAL",
+              "lower": {
+                "decimal": "0",
+                "inclusive": true
+              },
+              "upper": {
+                "decimal": "2",
+                "inclusive": false
+              },
+              "basis": "METHOD_NONNEGATIVE_BELOW_LOQ"
+            }
+          },
+          "operator": "LE",
+          "threshold": {
+            "quantityKind": "qudt:MassFraction",
+            "unit": "ucum:mg.kg-1",
+            "decimal": "1",
+            "qualifier": "HUMAN_REPORTED",
+            "originalLexicalValue": "1",
+            "unitProfile": {
+              "ref": "unit-profile:example",
+              "revisionRef": "r1"
+            },
+            "provenance": {
+              "sourceBinding": {
+                "ref": "criterion:W05-nitrate-fictional",
+                "revisionRef": "r1"
+              },
+              "valuePointer": "/threshold",
+              "lexicalPointer": "/threshold/originalLexicalValue",
+              "qualifierPointer": "/threshold/qualifier"
+            }
+          },
+          "allegedOutcome": "INDETERMINATE",
+          "criterion": {
+            "ref": "criterion:W05-nitrate-fictional",
+            "revisionRef": "r1"
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:59aa6c42076a0c243597f5ddad909531ee6d342fda0deb8f985e55de2b263d49",
+      "sourceRenderedTextDigest": "sha256:345ea5abab5a7429a951fb53506bab73c6f5ced047e6b6f290283a5c9be6f03a",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W06_RS_SUSPENDED_CERTIFICATE",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W06_RS_SUSPENDED_CERTIFICATE",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:C12",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "FARM",
+            "subjectRef": "farm:fictional",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "COMPLIANCE_AS_OF",
+            "at": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "farm:fictional",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "form": "PROFILE_CERTIFICATE_STATUS",
+          "profile": "profile:rs.organic-crop.farm-reg-cert.v0_1",
+          "certificate": {
+            "ref": "certificate:fictional",
+            "revisionRef": "r1"
+          },
+          "certificateSubject": {
+            "kind": "PARTY",
+            "binding": {
+              "ref": "party:fictional-operator",
+              "revisionRef": "r1"
+            }
+          },
+          "holding": {
+            "ref": "holding:fictional",
+            "revisionRef": "r1"
+          },
+          "validFrom": "2026-01-01T00:00:00Z",
+          "validUntil": "2027-01-01T00:00:00Z",
+          "category": {
+            "ref": "certificate-category:crop",
+            "revisionRef": "r1"
+          },
+          "issuer": {
+            "kind": "PARTY",
+            "binding": {
+              "ref": "certifier:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "adverseStatus": "SUSPENDED",
+          "ministrySnapshot": {
+            "ref": "ministry-snapshot:fictional",
+            "revisionRef": "r1"
+          },
+          "accreditationSnapshot": {
+            "ref": "ATS-snapshot:fictional",
+            "revisionRef": "r1"
+          },
+          "reviewState": "PENDING"
+        }
+      },
+      "sourceClaimContentDigest": "sha256:391c3b5b47002942fa63c7ad6c7c85f4461a1d9067629d29d55122abf44eeb30",
+      "sourceRenderedTextDigest": "sha256:6c41d69d54bdf86b3f21445d243458aed2024d4a31a80462276608d422c60146",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W07_NL_ROUTE_QUALIFIED",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W07_NL_ROUTE_QUALIFIED",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:C16",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "FIELD",
+            "subjectRef": "parcel:fictional",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "COMPLIANCE_AS_OF",
+            "at": "2026-05-15T00:00:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "parcel:fictional",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "form": "PROFILE_ROUTE_OUTCOME",
+          "profile": "profile:nl.go-glmc7.2026.v0_1",
+          "claimYear": 2026,
+          "route": "ORGANIC_OR_IN_CONVERSION",
+          "routeScope": "PARCEL",
+          "parcel": {
+            "ref": "parcel:fictional",
+            "revisionRef": "r1"
+          },
+          "historyClaim": {
+            "ref": "history-claim:fictional",
+            "revisionRef": "r1"
+          },
+          "soilCategory": "SAND_OR_LOESS",
+          "soilEvidence": {
+            "ref": "soil-source:fictional",
+            "revisionRef": "r1"
+          },
+          "rustgewasEvidence": {
+            "ref": "rustgewas-history:fictional",
+            "revisionRef": "r1"
+          },
+          "routeEvidence": {
+            "ref": "Skal-or-RVO-route:fictional",
+            "revisionRef": "r1"
+          },
+          "evaluationBasis": {
+            "kind": "PROFILE_OWNER_EVALUATION",
+            "binding": {
+              "ref": "profile-evaluation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "allegedOutcome": "INDETERMINATE",
+          "reviewState": "PENDING"
+        }
+      },
+      "sourceClaimContentDigest": "sha256:e23881ec46577bc79c44fa998126867ce997ef1390a0e884058184bc28aeccdc",
+      "sourceRenderedTextDigest": "sha256:efeb669e983968b5ee411a6a78aa183b9d0975857757b66b771a3c6e47c2d05b",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W08_SI_COMPLETE_TYPED_USE",
+      "proposition": {
+        "form": "QUALIFIED",
+        "appliesToAtomId": "atom:W08_SI_COMPLETE_TYPED_USE",
+        "child": {
+          "form": "ATOM",
+          "atomId": "atom:W08_SI_COMPLETE_TYPED_USE",
+          "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O19",
+          "scope": {
+            "subject": {
+              "subjectPosture": "EXISTING_SUBJECT",
+              "subjectType": "FIELD",
+              "subjectRef": "field:fictional",
+              "revisionRef": "r1"
+            },
+            "subjectTime": {
+              "profile": "PERFORMED_INTERVAL",
+              "start": "2026-05-07T17:10:00Z",
+              "end": "2026-05-07T18:25:00Z"
+            },
+            "extent": {
+              "posture": "PARTIAL_TARGET_SCOPE",
+              "binding": {
+                "ref": "extent:partial",
+                "revisionRef": "r1"
+              }
+            }
+          },
+          "body": {
+            "activity": "APPLY_INPUT",
+            "interventionKind": "CROP_PROTECTION",
+            "claimPosture": "PERFORMED",
+            "performanceFacet": "OCCURRENCE",
+            "activityInstance": {
+              "ref": "work:O19:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "FIELD",
+              "binding": {
+                "ref": "field:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "performedBy": {
+              "ref": "party:performer-fictional",
+              "revisionRef": "r1"
+            },
+            "extent": {
+              "posture": "PARTIAL_TARGET_SCOPE",
+              "binding": {
+                "ref": "extent:partial",
+                "revisionRef": "r1"
+              }
+            },
+            "parameters": {
+              "useType": "SURFACE_AREA",
+              "profile": "profile:si.ffs.recordkeeping.v0_1",
+              "product": {
+                "ref": "product:fictional",
+                "revisionRef": "r1"
+              },
+              "capturedProductName": "Fictional product",
+              "officialIdentity": {
+                "ref": "SI-product-authorisation:fictional",
+                "revisionRef": "r1"
+              },
+              "useDate": "2026-05-07",
+              "timeRelevance": "SOURCE_RULE_REQUIRES_START_TIME",
+              "dose": {
+                "quantityParameterId": "q:dose"
+              },
+              "parcel": {
+                "scheme": "SI:GERK",
+                "binding": {
+                  "ref": "field:fictional",
+                  "revisionRef": "r1"
+                },
+                "snapshot": {
+                  "ref": "parcel-snapshot:fictional",
+                  "revisionRef": "r1"
+                }
+              },
+              "treatedArea": {
+                "quantityParameterId": "q:treatedArea"
+              },
+              "crop": {
+                "ref": "crop:versioned-EPPO",
+                "revisionRef": "r1"
+              },
+              "stage": {
+                "posture": "NOT_REQUIRED_BY_BOUND_USE",
+                "basis": {
+                  "ref": "use-context:fictional",
+                  "revisionRef": "r1"
+                }
+              },
+              "professionalUser": {
+                "ref": "party:performer-fictional",
+                "revisionRef": "r1"
+              },
+              "trainingEvidence": {
+                "ref": "training:fictional",
+                "revisionRef": "r1"
+              },
+              "equipment": {
+                "kind": "EQUIPMENT",
+                "binding": {
+                  "ref": "equipment:fictional",
+                  "revisionRef": "r1"
+                },
+                "inspection": {
+                  "ref": "inspection:fictional",
+                  "revisionRef": "r1"
+                }
+              }
+            },
+            "quantityParameters": [
+              {
+                "parameterId": "q:dose",
+                "parameterRole": "DOSE",
+                "activityInstance": {
+                  "ref": "work:O19:fictional",
+                  "revisionRef": "r1"
+                },
+                "valuePosture": "ACTUAL",
+                "material": {
+                  "presence": "PRESENT",
+                  "materialRole": "PRODUCT",
+                  "binding": {
+                    "ref": "product:fictional",
+                    "revisionRef": "r1"
+                  }
+                },
+                "basis": {
+                  "presence": "PRESENT",
+                  "quantity": {
+                    "quantityKind": "qudt:Area",
+                    "unit": "ucum:ha",
+                    "decimal": "1"
+                  },
+                  "subject": {
+                    "kind": "FIELD",
+                    "binding": {
+                      "ref": "field:fictional",
+                      "revisionRef": "r1"
+                    }
+                  }
+                },
+                "value": {
+                  "state": "STATED",
+                  "quantity": {
+                    "quantityKind": "qudt:VolumePerArea",
+                    "unit": "ucum:L.ha-1",
+                    "decimal": "2"
+                  },
+                  "qualifier": "HUMAN_REPORTED",
+                  "unitProfile": {
+                    "ref": "unit-profile:fictional",
+                    "revisionRef": "r1"
+                  },
+                  "original": {
+                    "presence": "PRESENT",
+                    "lexicalValue": "2",
+                    "unitText": "ucum:L.ha-1",
+                    "sourceBinding": {
+                      "ref": "source:fictional:dose",
+                      "revisionRef": "r1"
+                    },
+                    "sourcePointer": "/reported/dose"
+                  }
+                },
+                "appliesTo": {
+                  "target": {
+                    "kind": "FIELD",
+                    "binding": {
+                      "ref": "field:fictional",
+                      "revisionRef": "r1"
+                    }
+                  },
+                  "extent": {
+                    "posture": "PARTIAL_TARGET_SCOPE",
+                    "binding": {
+                      "ref": "extent:partial",
+                      "revisionRef": "r1"
+                    }
+                  },
+                  "subjectTime": {
+                    "profile": "PERFORMED_INTERVAL",
+                    "start": "2026-05-07T17:10:00Z",
+                    "end": "2026-05-07T18:25:00Z"
+                  },
+                  "processPoint": {
+                    "ref": "process-point:whole-activity",
+                    "revisionRef": "r1"
+                  },
+                  "phase": "WHOLE_ACTIVITY"
+                }
+              },
+              {
+                "parameterId": "q:treatedArea",
+                "parameterRole": "OTHER_PARAMETER",
+                "activityInstance": {
+                  "ref": "work:O19:fictional",
+                  "revisionRef": "r1"
+                },
+                "valuePosture": "ACTUAL",
+                "material": {
+                  "presence": "NOT_APPLICABLE",
+                  "reason": "PROCESS_OR_EXTENT_QUANTITY"
+                },
+                "basis": {
+                  "presence": "NOT_APPLICABLE",
+                  "reason": "NON_RATIO_QUANTITY"
+                },
+                "value": {
+                  "state": "STATED",
+                  "quantity": {
+                    "quantityKind": "qudt:Area",
+                    "unit": "ucum:ha",
+                    "decimal": "0.72"
+                  },
+                  "qualifier": "MACHINE_REPORTED",
+                  "unitProfile": {
+                    "ref": "unit-profile:fictional",
+                    "revisionRef": "r1"
+                  },
+                  "original": {
+                    "presence": "PRESENT",
+                    "lexicalValue": "0.72",
+                    "unitText": "ucum:ha",
+                    "sourceBinding": {
+                      "ref": "source:fictional:treatedArea",
+                      "revisionRef": "r1"
+                    },
+                    "sourcePointer": "/reported/treatedArea"
+                  }
+                },
+                "appliesTo": {
+                  "target": {
+                    "kind": "FIELD",
+                    "binding": {
+                      "ref": "field:fictional",
+                      "revisionRef": "r1"
+                    }
+                  },
+                  "extent": {
+                    "posture": "PARTIAL_TARGET_SCOPE",
+                    "binding": {
+                      "ref": "extent:partial",
+                      "revisionRef": "r1"
+                    }
+                  },
+                  "subjectTime": {
+                    "profile": "PERFORMED_INTERVAL",
+                    "start": "2026-05-07T17:10:00Z",
+                    "end": "2026-05-07T18:25:00Z"
+                  },
+                  "processPoint": {
+                    "ref": "process-point:whole-activity",
+                    "revisionRef": "r1"
+                  },
+                  "phase": "WHOLE_ACTIVITY"
+                },
+                "otherRoleDefinition": "TREATED_AREA"
+              }
+            ],
+            "workSpecification": {
+              "binding": {
+                "ref": "work-spec:O19:fictional",
+                "revisionRef": "r1"
+              },
+              "activityInstance": {
+                "ref": "work:O19:fictional",
+                "revisionRef": "r1"
+              },
+              "procedure": {
+                "ref": "procedure:O19:fictional",
+                "revisionRef": "r1"
+              },
+              "target": {
+                "kind": "FIELD",
+                "binding": {
+                  "ref": "field:fictional",
+                  "revisionRef": "r1"
+                }
+              },
+              "extent": {
+                "posture": "PARTIAL_TARGET_SCOPE",
+                "binding": {
+                  "ref": "extent:partial",
+                  "revisionRef": "r1"
+                }
+              },
+              "startConditionIds": [
+                "start:O19"
+              ],
+              "inProgressConditionIds": [
+                "progress:O19"
+              ],
+              "finishConditionIds": [
+                "finish:O19"
+              ]
+            }
+          }
+        },
+        "qualifiers": {
+          "extentQualification": "PARTIAL_ONLY",
+          "sourceQuality": "MACHINE_REPORTED"
+        }
+      },
+      "sourceClaimContentDigest": "sha256:7d53a0639f2a96a2dcca896fa172f61bb374ffe45ba1419a91623ae77d159f56",
+      "sourceRenderedTextDigest": "sha256:d192d44ec07acad67555a3c8296da48943f08a1e95fbefce2f2f0372c142d394",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W09_COLLECTION_WITH_PENDING_ANALYSIS",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W09_COLLECTION_WITH_PENDING_ANALYSIS",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O10",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "FIELD",
+            "subjectRef": "field:fictional",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "PERFORMED_INSTANT",
+            "at": "2026-05-06T10:05:00Z"
+          },
+          "extent": {
+            "posture": "PARTIAL_TARGET_SCOPE",
+            "binding": {
+              "ref": "sampling-support:fictional-composite",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "OTHER_ACTION",
+          "interventionKind": "OTHER_INTERVENTION",
+          "claimPosture": "PERFORMED",
+          "performanceFacet": "OCCURRENCE",
+          "activityInstance": {
+            "ref": "work:O10:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "FIELD",
+            "binding": {
+              "ref": "field:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "PARTIAL_TARGET_SCOPE",
+            "binding": {
+              "ref": "sampling-support:fictional-composite",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "specificActivity": "SAMPLE_COLLECTION",
+            "sample": {
+              "ref": "sample:fictional-composite",
+              "revisionRef": "r1"
+            },
+            "sampledProperty": {
+              "ref": "observed-property:soil-nitrate-n",
+              "revisionRef": "r1"
+            },
+            "samplingProcedure": {
+              "ref": "sampling-protocol:fictional",
+              "revisionRef": "r1"
+            },
+            "analyticalResult": {
+              "kind": "ABSENT_PENDING"
+            },
+            "custodyPosture": "PARTIAL",
+            "evidencePosture": "REVIEW_REQUIRED"
+          },
+          "quantityParameters": [],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O10:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O10:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "sampling-protocol:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "FIELD",
+              "binding": {
+                "ref": "field:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "PARTIAL_TARGET_SCOPE",
+              "binding": {
+                "ref": "sampling-support:fictional-composite",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O10"
+            ],
+            "inProgressConditionIds": [
+              "progress:O10"
+            ],
+            "finishConditionIds": [
+              "finish:O10"
+            ]
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:3677031e104dc47ad2dbb97b3df6938fdf100f1108451a6b292d9531cc3c621f",
+      "sourceRenderedTextDigest": "sha256:a9454b2d8ea84276d787c1506890c8aec98776ce85a5267822adf00bd0fe0814",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W10_RECEIVE",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W10_RECEIVE",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O24",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "LOT",
+            "subjectRef": "lot:received",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "PERFORMED_INTERVAL",
+            "start": "2026-05-07T17:10:00Z",
+            "end": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "PARTIAL_TARGET_SCOPE",
+            "binding": {
+              "ref": "extent:90kg-received",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "OTHER_ACTION",
+          "interventionKind": "OTHER_INTERVENTION",
+          "claimPosture": "PERFORMED",
+          "performanceFacet": "OCCURRENCE",
+          "activityInstance": {
+            "ref": "work:O24:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "LOT",
+            "binding": {
+              "ref": "lot:received",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "PARTIAL_TARGET_SCOPE",
+            "binding": {
+              "ref": "extent:90kg-received",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "specificActivity": "MATERIAL_RECEIPT",
+            "material": {
+              "kind": "LOT",
+              "binding": {
+                "ref": "lot:received",
+                "revisionRef": "r1"
+              }
+            },
+            "sender": {
+              "ref": "party:sender",
+              "revisionRef": "r1"
+            },
+            "receiver": {
+              "ref": "party:receiver",
+              "revisionRef": "r1"
+            },
+            "origin": {
+              "kind": "FACILITY",
+              "binding": {
+                "ref": "facility:origin",
+                "revisionRef": "r1"
+              }
+            },
+            "destination": {
+              "kind": "STORAGE_LOCATION",
+              "binding": {
+                "ref": "storage:receiving",
+                "revisionRef": "r1"
+              }
+            },
+            "deliveryReference": {
+              "ref": "delivery:receipt",
+              "revisionRef": "r1"
+            },
+            "receiptMethod": {
+              "ref": "method:physical-handover",
+              "revisionRef": "r1"
+            },
+            "custodyPosture": "PHYSICAL_RECEIPT_ONLY",
+            "titleTransferAlleged": false,
+            "handledQuantity": {
+              "quantityParameterId": "q:handledQuantity"
+            },
+            "receivedCondition": {
+              "state": "STATED",
+              "condition": {
+                "ref": "condition:packaging-intact",
+                "revisionRef": "r1"
+              }
+            }
+          },
+          "quantityParameters": [
+            {
+              "parameterId": "q:handledQuantity",
+              "parameterRole": "TOTAL_QUANTITY",
+              "activityInstance": {
+                "ref": "work:O24:fictional",
+                "revisionRef": "r1"
+              },
+              "valuePosture": "ACTUAL",
+              "material": {
+                "presence": "PRESENT",
+                "materialRole": "OTHER_MATERIAL",
+                "binding": {
+                  "ref": "lot:received",
+                  "revisionRef": "r1"
+                },
+                "materialDefinition": {
+                  "ref": "material-definition:traceability-cohort",
+                  "revisionRef": "r1"
+                }
+              },
+              "basis": {
+                "presence": "NOT_APPLICABLE",
+                "reason": "NON_RATIO_QUANTITY"
+              },
+              "value": {
+                "state": "STATED",
+                "quantity": {
+                  "quantityKind": "qudt:Mass",
+                  "unit": "ucum:kg",
+                  "decimal": "90"
+                },
+                "qualifier": "HUMAN_REPORTED",
+                "unitProfile": {
+                  "ref": "unit-profile:fictional",
+                  "revisionRef": "r1"
+                },
+                "original": {
+                  "presence": "PRESENT",
+                  "lexicalValue": "90",
+                  "unitText": "kg",
+                  "sourceBinding": {
+                    "ref": "source:fictional:handledQuantity",
+                    "revisionRef": "r1"
+                  },
+                  "sourcePointer": "/reported/handledQuantity"
+                }
+              },
+              "appliesTo": {
+                "target": {
+                  "kind": "LOT",
+                  "binding": {
+                    "ref": "lot:received",
+                    "revisionRef": "r1"
+                  }
+                },
+                "extent": {
+                  "posture": "PARTIAL_TARGET_SCOPE",
+                  "binding": {
+                    "ref": "extent:90kg-received",
+                    "revisionRef": "r1"
+                  }
+                },
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-05-07T17:10:00Z",
+                  "end": "2026-05-07T18:25:00Z"
+                },
+                "processPoint": {
+                  "ref": "process-point:whole-activity",
+                  "revisionRef": "r1"
+                },
+                "phase": "WHOLE_ACTIVITY"
+              }
+            }
+          ],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O24:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O24:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "procedure:O24:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "LOT",
+              "binding": {
+                "ref": "lot:received",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "PARTIAL_TARGET_SCOPE",
+              "binding": {
+                "ref": "extent:90kg-received",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O24"
+            ],
+            "inProgressConditionIds": [
+              "progress:O24"
+            ],
+            "finishConditionIds": [
+              "finish:O24"
+            ]
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:f2b908355af5eb5099a5164ce0acd736d01c99ccf37619403080eab8a34e35d5",
+      "sourceRenderedTextDigest": "sha256:6f270f79e8bf20b44d54bdb79200a7af3329d57740f06a6cbcb29fa9b2401acd",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W11_RECLASSIFY",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W11_RECLASSIFY",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O25",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "LOT",
+            "subjectRef": "lot:reclassified",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "PERFORMED_INTERVAL",
+            "start": "2026-05-07T17:10:00Z",
+            "end": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "lot:reclassified",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "OTHER_ACTION",
+          "interventionKind": "OTHER_INTERVENTION",
+          "claimPosture": "PERFORMED",
+          "performanceFacet": "OCCURRENCE",
+          "activityInstance": {
+            "ref": "work:O25:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "LOT",
+            "binding": {
+              "ref": "lot:reclassified",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "lot:reclassified",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "specificActivity": "MATERIAL_RECLASSIFICATION",
+            "material": {
+              "kind": "LOT",
+              "binding": {
+                "ref": "lot:reclassified",
+                "revisionRef": "r1"
+              }
+            },
+            "classificationScheme": {
+              "ref": "classification-scheme:quality",
+              "revisionRef": "r1"
+            },
+            "fromClass": {
+              "ref": "class:grade-A",
+              "revisionRef": "r1"
+            },
+            "toClass": {
+              "ref": "class:grade-B",
+              "revisionRef": "r1"
+            },
+            "classificationBasis": {
+              "ref": "classification-evidence:inspection",
+              "revisionRef": "r1"
+            },
+            "method": {
+              "ref": "method:regrading",
+              "revisionRef": "r1"
+            },
+            "identityDisposition": "SAME_COHORT_CLASSIFICATION_ONLY",
+            "beforeClaimBasis": {
+              "ref": "claim-basis:physical",
+              "revisionRef": "r1"
+            },
+            "afterClaimBasis": {
+              "ref": "claim-basis:physical",
+              "revisionRef": "r1"
+            },
+            "successorProposal": {
+              "presence": "ABSENT"
+            },
+            "handledQuantity": {
+              "quantityParameterId": "q:handledQuantity"
+            }
+          },
+          "quantityParameters": [
+            {
+              "parameterId": "q:handledQuantity",
+              "parameterRole": "TOTAL_QUANTITY",
+              "activityInstance": {
+                "ref": "work:O25:fictional",
+                "revisionRef": "r1"
+              },
+              "valuePosture": "ACTUAL",
+              "material": {
+                "presence": "PRESENT",
+                "materialRole": "OTHER_MATERIAL",
+                "binding": {
+                  "ref": "lot:reclassified",
+                  "revisionRef": "r1"
+                },
+                "materialDefinition": {
+                  "ref": "material-definition:traceability-cohort",
+                  "revisionRef": "r1"
+                }
+              },
+              "basis": {
+                "presence": "NOT_APPLICABLE",
+                "reason": "NON_RATIO_QUANTITY"
+              },
+              "value": {
+                "state": "STATED",
+                "quantity": {
+                  "quantityKind": "qudt:Mass",
+                  "unit": "ucum:kg",
+                  "decimal": "100"
+                },
+                "qualifier": "HUMAN_REPORTED",
+                "unitProfile": {
+                  "ref": "unit-profile:fictional",
+                  "revisionRef": "r1"
+                },
+                "original": {
+                  "presence": "PRESENT",
+                  "lexicalValue": "100",
+                  "unitText": "kg",
+                  "sourceBinding": {
+                    "ref": "source:fictional:handledQuantity",
+                    "revisionRef": "r1"
+                  },
+                  "sourcePointer": "/reported/handledQuantity"
+                }
+              },
+              "appliesTo": {
+                "target": {
+                  "kind": "LOT",
+                  "binding": {
+                    "ref": "lot:reclassified",
+                    "revisionRef": "r1"
+                  }
+                },
+                "extent": {
+                  "posture": "FULL_TARGET_SCOPE",
+                  "binding": {
+                    "ref": "lot:reclassified",
+                    "revisionRef": "r1"
+                  }
+                },
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-05-07T17:10:00Z",
+                  "end": "2026-05-07T18:25:00Z"
+                },
+                "processPoint": {
+                  "ref": "process-point:whole-activity",
+                  "revisionRef": "r1"
+                },
+                "phase": "WHOLE_ACTIVITY"
+              }
+            }
+          ],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O25:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O25:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "method:regrading",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "LOT",
+              "binding": {
+                "ref": "lot:reclassified",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "FULL_TARGET_SCOPE",
+              "binding": {
+                "ref": "lot:reclassified",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O25"
+            ],
+            "inProgressConditionIds": [
+              "progress:O25"
+            ],
+            "finishConditionIds": [
+              "finish:O25"
+            ]
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:f55e1c1dd89e08d23bb2fd0ab6be80f15640f74e963d9b69f168c42a18204bd4",
+      "sourceRenderedTextDigest": "sha256:9a1f3532d8627b1949a1af1ace258dd39f60d33d0dd8453202c628b263b90ead",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W12_DISPOSE",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W12_DISPOSE",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O26",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "LOT",
+            "subjectRef": "lot:disposed",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "PERFORMED_INTERVAL",
+            "start": "2026-05-07T17:10:00Z",
+            "end": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "PARTIAL_TARGET_SCOPE",
+            "binding": {
+              "ref": "extent:20kg-disposed",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "OTHER_ACTION",
+          "interventionKind": "OTHER_INTERVENTION",
+          "claimPosture": "PERFORMED",
+          "performanceFacet": "OCCURRENCE",
+          "activityInstance": {
+            "ref": "work:O26:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "LOT",
+            "binding": {
+              "ref": "lot:disposed",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "PARTIAL_TARGET_SCOPE",
+            "binding": {
+              "ref": "extent:20kg-disposed",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "specificActivity": "MATERIAL_DISPOSAL",
+            "material": {
+              "kind": "LOT",
+              "binding": {
+                "ref": "lot:disposed",
+                "revisionRef": "r1"
+              }
+            },
+            "disposalMethod": {
+              "ref": "method:documented-destruction",
+              "revisionRef": "r1"
+            },
+            "destination": {
+              "kind": "FACILITY",
+              "binding": {
+                "ref": "facility:disposal",
+                "revisionRef": "r1"
+              }
+            },
+            "disposalRoute": {
+              "ref": "route:destruction",
+              "revisionRef": "r1"
+            },
+            "reason": {
+              "ref": "reason:spoiled-material",
+              "revisionRef": "r1"
+            },
+            "residualDisposition": "NO_USABLE_SUCCESSOR_ALLEGED",
+            "disposalRecord": {
+              "ref": "disposal-record:fictional",
+              "revisionRef": "r1"
+            },
+            "handledQuantity": {
+              "quantityParameterId": "q:handledQuantity"
+            },
+            "residualMaterial": {
+              "state": "UNREPORTED",
+              "reason": "NO_RESIDUAL_QUANTITY_CLAIMED"
+            }
+          },
+          "quantityParameters": [
+            {
+              "parameterId": "q:handledQuantity",
+              "parameterRole": "TOTAL_QUANTITY",
+              "activityInstance": {
+                "ref": "work:O26:fictional",
+                "revisionRef": "r1"
+              },
+              "valuePosture": "ACTUAL",
+              "material": {
+                "presence": "PRESENT",
+                "materialRole": "OTHER_MATERIAL",
+                "binding": {
+                  "ref": "lot:disposed",
+                  "revisionRef": "r1"
+                },
+                "materialDefinition": {
+                  "ref": "material-definition:traceability-cohort",
+                  "revisionRef": "r1"
+                }
+              },
+              "basis": {
+                "presence": "NOT_APPLICABLE",
+                "reason": "NON_RATIO_QUANTITY"
+              },
+              "value": {
+                "state": "STATED",
+                "quantity": {
+                  "quantityKind": "qudt:Mass",
+                  "unit": "ucum:kg",
+                  "decimal": "20"
+                },
+                "qualifier": "HUMAN_REPORTED",
+                "unitProfile": {
+                  "ref": "unit-profile:fictional",
+                  "revisionRef": "r1"
+                },
+                "original": {
+                  "presence": "PRESENT",
+                  "lexicalValue": "20",
+                  "unitText": "kg",
+                  "sourceBinding": {
+                    "ref": "source:fictional:handledQuantity",
+                    "revisionRef": "r1"
+                  },
+                  "sourcePointer": "/reported/handledQuantity"
+                }
+              },
+              "appliesTo": {
+                "target": {
+                  "kind": "LOT",
+                  "binding": {
+                    "ref": "lot:disposed",
+                    "revisionRef": "r1"
+                  }
+                },
+                "extent": {
+                  "posture": "PARTIAL_TARGET_SCOPE",
+                  "binding": {
+                    "ref": "extent:20kg-disposed",
+                    "revisionRef": "r1"
+                  }
+                },
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-05-07T17:10:00Z",
+                  "end": "2026-05-07T18:25:00Z"
+                },
+                "processPoint": {
+                  "ref": "process-point:whole-activity",
+                  "revisionRef": "r1"
+                },
+                "phase": "WHOLE_ACTIVITY"
+              }
+            }
+          ],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O26:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O26:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "procedure:O26:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "LOT",
+              "binding": {
+                "ref": "lot:disposed",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "PARTIAL_TARGET_SCOPE",
+              "binding": {
+                "ref": "extent:20kg-disposed",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O26"
+            ],
+            "inProgressConditionIds": [
+              "progress:O26"
+            ],
+            "finishConditionIds": [
+              "finish:O26"
+            ]
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:37681fc49cb69d80c2c14b79c4eb17f16c25ff673d5aa41c746ad067e0ddf428",
+      "sourceRenderedTextDigest": "sha256:f52512dba2a1d86a109fdb2d4fc30ff4ae95b8549cbb9f391d464fdd61ce7bce",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W13_CREATE_LOT_ALLEGATION",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W13_CREATE_LOT_ALLEGATION",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O27",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "FIELD",
+            "subjectRef": "field:creation-origin",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "PERFORMED_INTERVAL",
+            "start": "2026-05-07T17:10:00Z",
+            "end": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "field:creation-origin",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "OTHER_ACTION",
+          "interventionKind": "OTHER_INTERVENTION",
+          "claimPosture": "PERFORMED",
+          "performanceFacet": "OCCURRENCE",
+          "activityInstance": {
+            "ref": "work:O27:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "FIELD",
+            "binding": {
+              "ref": "field:creation-origin",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "field:creation-origin",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "specificActivity": "LOT_CREATION_ALLEGATION",
+            "prospectiveLot": {
+              "proposalId": "proposed-cohort:harvest-01",
+              "materialIdentity": {
+                "ref": "material:harvested-crop",
+                "revisionRef": "r1"
+              },
+              "cohortBoundary": {
+                "ref": "cohort-spec:field-harvest",
+                "revisionRef": "r1"
+              },
+              "claimBasis": {
+                "ref": "claim-basis:physical",
+                "revisionRef": "r1"
+              },
+              "identityStatus": "PROPOSED_NOT_CREATED"
+            },
+            "originActivity": {
+              "ref": "work:harvest-origin",
+              "revisionRef": "r1"
+            },
+            "creationBasis": "HARVEST_OUTPUT",
+            "predecessors": [],
+            "lineageRelation": "producedBy",
+            "creationProcedure": {
+              "ref": "method:cohort-establishment",
+              "revisionRef": "r1"
+            },
+            "creationEffectRequested": false,
+            "handledQuantity": {
+              "quantityParameterId": "q:handledQuantity"
+            }
+          },
+          "quantityParameters": [
+            {
+              "parameterId": "q:handledQuantity",
+              "parameterRole": "TOTAL_QUANTITY",
+              "activityInstance": {
+                "ref": "work:O27:fictional",
+                "revisionRef": "r1"
+              },
+              "valuePosture": "ACTUAL",
+              "material": {
+                "presence": "PRESENT",
+                "materialRole": "OTHER_MATERIAL",
+                "binding": {
+                  "ref": "material:harvested-crop",
+                  "revisionRef": "r1"
+                },
+                "materialDefinition": {
+                  "ref": "material-definition:traceability-cohort",
+                  "revisionRef": "r1"
+                }
+              },
+              "basis": {
+                "presence": "NOT_APPLICABLE",
+                "reason": "NON_RATIO_QUANTITY"
+              },
+              "value": {
+                "state": "STATED",
+                "quantity": {
+                  "quantityKind": "qudt:Mass",
+                  "unit": "ucum:kg",
+                  "decimal": "500"
+                },
+                "qualifier": "HUMAN_REPORTED",
+                "unitProfile": {
+                  "ref": "unit-profile:fictional",
+                  "revisionRef": "r1"
+                },
+                "original": {
+                  "presence": "PRESENT",
+                  "lexicalValue": "500",
+                  "unitText": "kg",
+                  "sourceBinding": {
+                    "ref": "source:fictional:handledQuantity",
+                    "revisionRef": "r1"
+                  },
+                  "sourcePointer": "/reported/handledQuantity"
+                }
+              },
+              "appliesTo": {
+                "target": {
+                  "kind": "FIELD",
+                  "binding": {
+                    "ref": "field:creation-origin",
+                    "revisionRef": "r1"
+                  }
+                },
+                "extent": {
+                  "posture": "FULL_TARGET_SCOPE",
+                  "binding": {
+                    "ref": "field:creation-origin",
+                    "revisionRef": "r1"
+                  }
+                },
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-05-07T17:10:00Z",
+                  "end": "2026-05-07T18:25:00Z"
+                },
+                "processPoint": {
+                  "ref": "process-point:whole-activity",
+                  "revisionRef": "r1"
+                },
+                "phase": "WHOLE_ACTIVITY"
+              }
+            }
+          ],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O27:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O27:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "method:cohort-establishment",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "FIELD",
+              "binding": {
+                "ref": "field:creation-origin",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "FULL_TARGET_SCOPE",
+              "binding": {
+                "ref": "field:creation-origin",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O27"
+            ],
+            "inProgressConditionIds": [
+              "progress:O27"
+            ],
+            "finishConditionIds": [
+              "finish:O27"
+            ]
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:4502033fd6a66d9eca8616ec4173cfe157805893d3a0aefc45eb6c1ca6f00f32",
+      "sourceRenderedTextDigest": "sha256:9fcfb2f0944bbbebef1e8ef466146f255c961fefd515c6cf959014561f03014c",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W14_MULTI_ROLE_APPLICATION",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W14_MULTI_ROLE_APPLICATION",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O01",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "FIELD",
+            "subjectRef": "field:F",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "PERFORMED_INTERVAL",
+            "start": "2026-05-07T17:10:00Z",
+            "end": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "field:F",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "APPLY_INPUT",
+          "interventionKind": "CROP_PROTECTION",
+          "claimPosture": "PERFORMED",
+          "performanceFacet": "OCCURRENCE",
+          "activityInstance": {
+            "ref": "work:O01:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "FIELD",
+            "binding": {
+              "ref": "field:F",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "field:F",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "product": {
+              "ref": "product:P",
+              "revisionRef": "r1"
+            },
+            "targetOrganism": {
+              "ref": "weed:W",
+              "revisionRef": "r1"
+            },
+            "method": {
+              "ref": "method:spot-spray",
+              "revisionRef": "r1"
+            },
+            "rate": {
+              "quantityParameterId": "q:rate"
+            },
+            "applicationVolume": {
+              "quantityParameterId": "q:applicationVolume"
+            },
+            "overallWorkCoverage": {
+              "posture": "PARTIAL_OVERALL_WORK",
+              "overallWorkSpecification": {
+                "ref": "overall-work-spec:application-job",
+                "revisionRef": "r1"
+              }
+            }
+          },
+          "quantityParameters": [
+            {
+              "parameterId": "q:rate",
+              "parameterRole": "RATE",
+              "activityInstance": {
+                "ref": "work:O01:fictional",
+                "revisionRef": "r1"
+              },
+              "valuePosture": "ACTUAL",
+              "material": {
+                "presence": "PRESENT",
+                "materialRole": "PRODUCT",
+                "binding": {
+                  "ref": "product:P",
+                  "revisionRef": "r1"
+                }
+              },
+              "basis": {
+                "presence": "PRESENT",
+                "quantity": {
+                  "quantityKind": "qudt:Area",
+                  "unit": "ucum:ha",
+                  "decimal": "1"
+                },
+                "subject": {
+                  "kind": "FIELD",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                }
+              },
+              "value": {
+                "state": "STATED",
+                "quantity": {
+                  "quantityKind": "qudt:VolumePerArea",
+                  "unit": "ucum:L.ha-1",
+                  "decimal": "2"
+                },
+                "qualifier": "HUMAN_REPORTED",
+                "unitProfile": {
+                  "ref": "unit-profile:example",
+                  "revisionRef": "r1"
+                },
+                "original": {
+                  "presence": "PRESENT",
+                  "lexicalValue": "2 L/ha",
+                  "unitText": null,
+                  "sourceBinding": {
+                    "ref": "source:fictional:rate",
+                    "revisionRef": "r1"
+                  },
+                  "sourcePointer": "/reported/rate"
+                }
+              },
+              "appliesTo": {
+                "target": {
+                  "kind": "FIELD",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "extent": {
+                  "posture": "FULL_TARGET_SCOPE",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-05-07T17:10:00Z",
+                  "end": "2026-05-07T18:25:00Z"
+                },
+                "processPoint": {
+                  "ref": "process-point:whole-activity",
+                  "revisionRef": "r1"
+                },
+                "phase": "WHOLE_ACTIVITY"
+              }
+            },
+            {
+              "parameterId": "q:applicationVolume",
+              "parameterRole": "APPLICATION_VOLUME",
+              "activityInstance": {
+                "ref": "work:O01:fictional",
+                "revisionRef": "r1"
+              },
+              "valuePosture": "ACTUAL",
+              "material": {
+                "presence": "PRESENT",
+                "materialRole": "OTHER_MATERIAL",
+                "binding": {
+                  "ref": "mixture:application-batch-fictional",
+                  "revisionRef": "r1"
+                },
+                "materialDefinition": {
+                  "ref": "mixture-definition:product-and-carrier-fictional",
+                  "revisionRef": "r1"
+                },
+                "components": [
+                  {
+                    "materialRole": "PRODUCT",
+                    "binding": {
+                      "ref": "product:P",
+                      "revisionRef": "r1"
+                    }
+                  },
+                  {
+                    "materialRole": "CARRIER",
+                    "binding": {
+                      "ref": "material:fictional:carrier",
+                      "revisionRef": "r1"
+                    }
+                  }
+                ]
+              },
+              "basis": {
+                "presence": "PRESENT",
+                "quantity": {
+                  "quantityKind": "qudt:Area",
+                  "unit": "ucum:ha",
+                  "decimal": "1"
+                },
+                "subject": {
+                  "kind": "FIELD",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                }
+              },
+              "value": {
+                "state": "STATED",
+                "quantity": {
+                  "quantityKind": "qudt:VolumePerArea",
+                  "unit": "ucum:L.ha-1",
+                  "decimal": "200"
+                },
+                "qualifier": "HUMAN_REPORTED",
+                "unitProfile": {
+                  "ref": "unit-profile:example",
+                  "revisionRef": "r1"
+                },
+                "original": {
+                  "presence": "PRESENT",
+                  "lexicalValue": "200",
+                  "unitText": null,
+                  "sourceBinding": {
+                    "ref": "source:fictional:applicationVolume",
+                    "revisionRef": "r1"
+                  },
+                  "sourcePointer": "/reported/applicationVolume"
+                }
+              },
+              "appliesTo": {
+                "target": {
+                  "kind": "FIELD",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "extent": {
+                  "posture": "FULL_TARGET_SCOPE",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-05-07T17:10:00Z",
+                  "end": "2026-05-07T18:25:00Z"
+                },
+                "processPoint": {
+                  "ref": "process-point:whole-activity",
+                  "revisionRef": "r1"
+                },
+                "phase": "WHOLE_ACTIVITY"
+              },
+              "applicationMaterialInterpretation": "MIXTURE_AS_APPLIED"
+            },
+            {
+              "parameterId": "q:flow",
+              "parameterRole": "FLOW_RATE",
+              "activityInstance": {
+                "ref": "work:O01:fictional",
+                "revisionRef": "r1"
+              },
+              "valuePosture": "ACTUAL",
+              "material": {
+                "presence": "PRESENT",
+                "materialRole": "CARRIER",
+                "binding": {
+                  "ref": "material:fictional:carrier",
+                  "revisionRef": "r1"
+                }
+              },
+              "basis": {
+                "presence": "PRESENT",
+                "quantity": {
+                  "quantityKind": "qudt:Time",
+                  "unit": "ucum:min",
+                  "decimal": "1"
+                },
+                "subject": {
+                  "ref": "work:O01:fictional",
+                  "revisionRef": "r1"
+                }
+              },
+              "value": {
+                "state": "STATED",
+                "quantity": {
+                  "quantityKind": "qudt:VolumeFlowRate",
+                  "unit": "ucum:L.min-1",
+                  "decimal": "5"
+                },
+                "qualifier": "HUMAN_REPORTED",
+                "unitProfile": {
+                  "ref": "unit-profile:example",
+                  "revisionRef": "r1"
+                },
+                "original": {
+                  "presence": "PRESENT",
+                  "lexicalValue": "5",
+                  "unitText": "ucum:L.min-1",
+                  "sourceBinding": {
+                    "ref": "source:fictional:rate",
+                    "revisionRef": "r1"
+                  },
+                  "sourcePointer": "/parameters/flow"
+                }
+              },
+              "appliesTo": {
+                "target": {
+                  "kind": "FIELD",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "extent": {
+                  "posture": "FULL_TARGET_SCOPE",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-05-07T17:10:00Z",
+                  "end": "2026-05-07T18:25:00Z"
+                },
+                "processPoint": {
+                  "ref": "process-point:whole-activity",
+                  "revisionRef": "r1"
+                },
+                "phase": "WHOLE_ACTIVITY"
+              }
+            },
+            {
+              "parameterId": "q:total",
+              "parameterRole": "TOTAL_QUANTITY",
+              "activityInstance": {
+                "ref": "work:O01:fictional",
+                "revisionRef": "r1"
+              },
+              "valuePosture": "ACTUAL",
+              "material": {
+                "presence": "PRESENT",
+                "materialRole": "PRODUCT",
+                "binding": {
+                  "ref": "product:P",
+                  "revisionRef": "r1"
+                }
+              },
+              "basis": {
+                "presence": "NOT_APPLICABLE",
+                "reason": "NON_RATIO_QUANTITY"
+              },
+              "value": {
+                "state": "STATED",
+                "quantity": {
+                  "quantityKind": "qudt:Volume",
+                  "unit": "ucum:L",
+                  "decimal": "2"
+                },
+                "qualifier": "HUMAN_REPORTED",
+                "unitProfile": {
+                  "ref": "unit-profile:example",
+                  "revisionRef": "r1"
+                },
+                "original": {
+                  "presence": "PRESENT",
+                  "lexicalValue": "2",
+                  "unitText": "ucum:L",
+                  "sourceBinding": {
+                    "ref": "source:fictional:rate",
+                    "revisionRef": "r1"
+                  },
+                  "sourcePointer": "/parameters/total"
+                }
+              },
+              "appliesTo": {
+                "target": {
+                  "kind": "FIELD",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "extent": {
+                  "posture": "FULL_TARGET_SCOPE",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-05-07T17:10:00Z",
+                  "end": "2026-05-07T18:25:00Z"
+                },
+                "processPoint": {
+                  "ref": "process-point:whole-activity",
+                  "revisionRef": "r1"
+                },
+                "phase": "WHOLE_ACTIVITY"
+              }
+            },
+            {
+              "parameterId": "q:concentration",
+              "parameterRole": "CONCENTRATION",
+              "activityInstance": {
+                "ref": "work:O01:fictional",
+                "revisionRef": "r1"
+              },
+              "valuePosture": "ACTUAL",
+              "material": {
+                "presence": "PRESENT",
+                "materialRole": "PRODUCT",
+                "binding": {
+                  "ref": "product:P",
+                  "revisionRef": "r1"
+                }
+              },
+              "basis": {
+                "presence": "PRESENT",
+                "quantity": {
+                  "quantityKind": "qudt:Volume",
+                  "unit": "ucum:L",
+                  "decimal": "1"
+                },
+                "subject": {
+                  "ref": "material:mixture",
+                  "revisionRef": "r1"
+                }
+              },
+              "value": {
+                "state": "STATED",
+                "quantity": {
+                  "quantityKind": "qudt:MassConcentration",
+                  "unit": "ucum:g.L-1",
+                  "decimal": "10"
+                },
+                "qualifier": "HUMAN_REPORTED",
+                "unitProfile": {
+                  "ref": "unit-profile:example",
+                  "revisionRef": "r1"
+                },
+                "original": {
+                  "presence": "PRESENT",
+                  "lexicalValue": "10",
+                  "unitText": "ucum:g.L-1",
+                  "sourceBinding": {
+                    "ref": "source:fictional:rate",
+                    "revisionRef": "r1"
+                  },
+                  "sourcePointer": "/parameters/concentration"
+                }
+              },
+              "appliesTo": {
+                "target": {
+                  "kind": "FIELD",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "extent": {
+                  "posture": "FULL_TARGET_SCOPE",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-05-07T17:10:00Z",
+                  "end": "2026-05-07T18:25:00Z"
+                },
+                "processPoint": {
+                  "ref": "process-point:whole-activity",
+                  "revisionRef": "r1"
+                },
+                "phase": "WHOLE_ACTIVITY"
+              }
+            },
+            {
+              "parameterId": "q:carrier",
+              "parameterRole": "CARRIER_VOLUME",
+              "activityInstance": {
+                "ref": "work:O01:fictional",
+                "revisionRef": "r1"
+              },
+              "valuePosture": "ACTUAL",
+              "material": {
+                "presence": "PRESENT",
+                "materialRole": "CARRIER",
+                "binding": {
+                  "ref": "material:fictional:carrier",
+                  "revisionRef": "r1"
+                }
+              },
+              "basis": {
+                "presence": "NOT_APPLICABLE",
+                "reason": "NON_RATIO_QUANTITY"
+              },
+              "value": {
+                "state": "STATED",
+                "quantity": {
+                  "quantityKind": "qudt:Volume",
+                  "unit": "ucum:L",
+                  "decimal": "198"
+                },
+                "qualifier": "HUMAN_REPORTED",
+                "unitProfile": {
+                  "ref": "unit-profile:example",
+                  "revisionRef": "r1"
+                },
+                "original": {
+                  "presence": "PRESENT",
+                  "lexicalValue": "198",
+                  "unitText": "ucum:L",
+                  "sourceBinding": {
+                    "ref": "source:fictional:rate",
+                    "revisionRef": "r1"
+                  },
+                  "sourcePointer": "/parameters/carrier"
+                }
+              },
+              "appliesTo": {
+                "target": {
+                  "kind": "FIELD",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "extent": {
+                  "posture": "FULL_TARGET_SCOPE",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-05-07T17:10:00Z",
+                  "end": "2026-05-07T18:25:00Z"
+                },
+                "processPoint": {
+                  "ref": "process-point:whole-activity",
+                  "revisionRef": "r1"
+                },
+                "phase": "WHOLE_ACTIVITY"
+              }
+            },
+            {
+              "parameterId": "q:pressure",
+              "parameterRole": "PRESSURE",
+              "activityInstance": {
+                "ref": "work:O01:fictional",
+                "revisionRef": "r1"
+              },
+              "valuePosture": "ACTUAL",
+              "material": {
+                "presence": "NOT_APPLICABLE",
+                "reason": "EQUIPMENT_PROCESS_QUANTITY"
+              },
+              "basis": {
+                "presence": "NOT_APPLICABLE",
+                "reason": "NON_RATIO_QUANTITY"
+              },
+              "value": {
+                "state": "STATED",
+                "quantity": {
+                  "quantityKind": "qudt:Pressure",
+                  "unit": "ucum:bar",
+                  "decimal": "3"
+                },
+                "qualifier": "HUMAN_REPORTED",
+                "unitProfile": {
+                  "ref": "unit-profile:example",
+                  "revisionRef": "r1"
+                },
+                "original": {
+                  "presence": "PRESENT",
+                  "lexicalValue": "3",
+                  "unitText": "ucum:bar",
+                  "sourceBinding": {
+                    "ref": "source:fictional:rate",
+                    "revisionRef": "r1"
+                  },
+                  "sourcePointer": "/parameters/pressure"
+                }
+              },
+              "appliesTo": {
+                "target": {
+                  "kind": "FIELD",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "extent": {
+                  "posture": "FULL_TARGET_SCOPE",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-05-07T17:10:00Z",
+                  "end": "2026-05-07T18:25:00Z"
+                },
+                "processPoint": {
+                  "ref": "process-point:whole-activity",
+                  "revisionRef": "r1"
+                },
+                "phase": "WHOLE_ACTIVITY"
+              }
+            },
+            {
+              "parameterId": "q:speed",
+              "parameterRole": "SPEED",
+              "activityInstance": {
+                "ref": "work:O01:fictional",
+                "revisionRef": "r1"
+              },
+              "valuePosture": "ACTUAL",
+              "material": {
+                "presence": "NOT_APPLICABLE",
+                "reason": "EQUIPMENT_PROCESS_QUANTITY"
+              },
+              "basis": {
+                "presence": "PRESENT",
+                "quantity": {
+                  "quantityKind": "qudt:Time",
+                  "unit": "ucum:h",
+                  "decimal": "1"
+                },
+                "subject": {
+                  "ref": "work:O01:fictional",
+                  "revisionRef": "r1"
+                }
+              },
+              "value": {
+                "state": "STATED",
+                "quantity": {
+                  "quantityKind": "qudt:Velocity",
+                  "unit": "ucum:km.h-1",
+                  "decimal": "6"
+                },
+                "qualifier": "HUMAN_REPORTED",
+                "unitProfile": {
+                  "ref": "unit-profile:example",
+                  "revisionRef": "r1"
+                },
+                "original": {
+                  "presence": "PRESENT",
+                  "lexicalValue": "6",
+                  "unitText": "ucum:km.h-1",
+                  "sourceBinding": {
+                    "ref": "source:fictional:rate",
+                    "revisionRef": "r1"
+                  },
+                  "sourcePointer": "/parameters/speed"
+                }
+              },
+              "appliesTo": {
+                "target": {
+                  "kind": "FIELD",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "extent": {
+                  "posture": "FULL_TARGET_SCOPE",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-05-07T17:10:00Z",
+                  "end": "2026-05-07T18:25:00Z"
+                },
+                "processPoint": {
+                  "ref": "process-point:whole-activity",
+                  "revisionRef": "r1"
+                },
+                "phase": "WHOLE_ACTIVITY"
+              }
+            },
+            {
+              "parameterId": "q:timing",
+              "parameterRole": "TIMING_INTERVAL",
+              "activityInstance": {
+                "ref": "work:O01:fictional",
+                "revisionRef": "r1"
+              },
+              "valuePosture": "ACTUAL",
+              "material": {
+                "presence": "NOT_APPLICABLE",
+                "reason": "EQUIPMENT_PROCESS_QUANTITY"
+              },
+              "basis": {
+                "presence": "NOT_APPLICABLE",
+                "reason": "NON_RATIO_QUANTITY"
+              },
+              "value": {
+                "state": "STATED",
+                "quantity": {
+                  "quantityKind": "qudt:Time",
+                  "unit": "ucum:s",
+                  "decimal": "10"
+                },
+                "qualifier": "HUMAN_REPORTED",
+                "unitProfile": {
+                  "ref": "unit-profile:example",
+                  "revisionRef": "r1"
+                },
+                "original": {
+                  "presence": "PRESENT",
+                  "lexicalValue": "10",
+                  "unitText": "ucum:s",
+                  "sourceBinding": {
+                    "ref": "source:fictional:rate",
+                    "revisionRef": "r1"
+                  },
+                  "sourcePointer": "/parameters/timing"
+                }
+              },
+              "appliesTo": {
+                "target": {
+                  "kind": "FIELD",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "extent": {
+                  "posture": "FULL_TARGET_SCOPE",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-05-07T17:10:00Z",
+                  "end": "2026-05-07T18:25:00Z"
+                },
+                "processPoint": {
+                  "ref": "process-point:whole-activity",
+                  "revisionRef": "r1"
+                },
+                "phase": "WHOLE_ACTIVITY"
+              }
+            }
+          ],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O01:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O01:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "method:spot-spray",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "FIELD",
+              "binding": {
+                "ref": "field:F",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "FULL_TARGET_SCOPE",
+              "binding": {
+                "ref": "field:F",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O01"
+            ],
+            "inProgressConditionIds": [
+              "progress:O01"
+            ],
+            "finishConditionIds": [
+              "finish:O01"
+            ]
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:8797046ed7e697f39fb4ac3f1ef7826b7b0cc728cb1476234cf9a262f7fb5eee",
+      "sourceRenderedTextDigest": "sha256:a6ae49479b2d18851db3100274523c41cf92b6b2c2828bc7fe87658a3d683b53",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W15_IRRIGATION_VOLUME_AND_FLOW",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W15_IRRIGATION_VOLUME_AND_FLOW",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O04",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "FIELD",
+            "subjectRef": "field:F",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "PERFORMED_INTERVAL",
+            "start": "2026-05-07T17:10:00Z",
+            "end": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "field:F",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "IRRIGATE",
+          "interventionKind": "IRRIGATION",
+          "claimPosture": "PERFORMED",
+          "performanceFacet": "OCCURRENCE",
+          "activityInstance": {
+            "ref": "work:O04:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "FIELD",
+            "binding": {
+              "ref": "field:F",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "field:F",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "waterVolume": {
+              "quantityParameterId": "q:waterVolume"
+            },
+            "method": {
+              "ref": "method:drip",
+              "revisionRef": "r1"
+            },
+            "waterSource": {
+              "ref": "water-source:W",
+              "revisionRef": "r1"
+            }
+          },
+          "quantityParameters": [
+            {
+              "parameterId": "q:waterVolume",
+              "parameterRole": "WATER_VOLUME",
+              "activityInstance": {
+                "ref": "work:O04:fictional",
+                "revisionRef": "r1"
+              },
+              "valuePosture": "ACTUAL",
+              "material": {
+                "presence": "PRESENT",
+                "materialRole": "WATER",
+                "binding": {
+                  "ref": "water-source:W",
+                  "revisionRef": "r1"
+                }
+              },
+              "basis": {
+                "presence": "NOT_APPLICABLE",
+                "reason": "NON_RATIO_QUANTITY"
+              },
+              "value": {
+                "state": "STATED",
+                "quantity": {
+                  "quantityKind": "qudt:Volume",
+                  "unit": "ucum:L",
+                  "decimal": "1000"
+                },
+                "qualifier": "HUMAN_REPORTED",
+                "unitProfile": {
+                  "ref": "unit-profile:example",
+                  "revisionRef": "r1"
+                },
+                "original": {
+                  "presence": "PRESENT",
+                  "lexicalValue": "1000",
+                  "unitText": null,
+                  "sourceBinding": {
+                    "ref": "source:fictional:waterVolume",
+                    "revisionRef": "r1"
+                  },
+                  "sourcePointer": "/reported/waterVolume"
+                }
+              },
+              "appliesTo": {
+                "target": {
+                  "kind": "FIELD",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "extent": {
+                  "posture": "FULL_TARGET_SCOPE",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-05-07T17:10:00Z",
+                  "end": "2026-05-07T18:25:00Z"
+                },
+                "processPoint": {
+                  "ref": "process-point:whole-activity",
+                  "revisionRef": "r1"
+                },
+                "phase": "WHOLE_ACTIVITY"
+              }
+            },
+            {
+              "parameterId": "q:flow",
+              "parameterRole": "FLOW_RATE",
+              "activityInstance": {
+                "ref": "work:O04:fictional",
+                "revisionRef": "r1"
+              },
+              "valuePosture": "ACTUAL",
+              "material": {
+                "presence": "PRESENT",
+                "materialRole": "WATER",
+                "binding": {
+                  "ref": "water-source:W",
+                  "revisionRef": "r1"
+                }
+              },
+              "basis": {
+                "presence": "PRESENT",
+                "quantity": {
+                  "quantityKind": "qudt:Time",
+                  "unit": "ucum:min",
+                  "decimal": "1"
+                },
+                "subject": {
+                  "ref": "work:O04:fictional",
+                  "revisionRef": "r1"
+                }
+              },
+              "value": {
+                "state": "STATED",
+                "quantity": {
+                  "quantityKind": "qudt:VolumeFlowRate",
+                  "unit": "ucum:L.min-1",
+                  "decimal": "5"
+                },
+                "qualifier": "HUMAN_REPORTED",
+                "unitProfile": {
+                  "ref": "unit-profile:example",
+                  "revisionRef": "r1"
+                },
+                "original": {
+                  "presence": "PRESENT",
+                  "lexicalValue": "5",
+                  "unitText": "ucum:L.min-1",
+                  "sourceBinding": {
+                    "ref": "source:fictional:rate",
+                    "revisionRef": "r1"
+                  },
+                  "sourcePointer": "/parameters/flow"
+                }
+              },
+              "appliesTo": {
+                "target": {
+                  "kind": "FIELD",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "extent": {
+                  "posture": "FULL_TARGET_SCOPE",
+                  "binding": {
+                    "ref": "field:F",
+                    "revisionRef": "r1"
+                  }
+                },
+                "subjectTime": {
+                  "profile": "PERFORMED_INTERVAL",
+                  "start": "2026-05-07T17:10:00Z",
+                  "end": "2026-05-07T18:25:00Z"
+                },
+                "processPoint": {
+                  "ref": "process-point:water-inlet",
+                  "revisionRef": "r1"
+                },
+                "phase": "WHOLE_ACTIVITY"
+              }
+            }
+          ],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O04:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O04:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "method:drip",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "FIELD",
+              "binding": {
+                "ref": "field:F",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "FULL_TARGET_SCOPE",
+              "binding": {
+                "ref": "field:F",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O04"
+            ],
+            "inProgressConditionIds": [
+              "progress:O04"
+            ],
+            "finishConditionIds": [
+              "finish:O04"
+            ]
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:1ceff154da6fca398db91097085aedf244e7adcc6177521aafe78bf973e686dd",
+      "sourceRenderedTextDigest": "sha256:25a54505760475fed0a913826da4b9c98b8dcd9e501ca18ebc2aef9bf1b8e5fd",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W16_O22_INTENDED_WINDOW",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W16_O22_INTENDED_WINDOW",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O22",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "OPERATION",
+            "subjectRef": "operation:fictional",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "INTENDED_WINDOW",
+            "start": "2026-05-07T17:10:00Z",
+            "end": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "PRODUCE_ANALYSIS_RESULT",
+          "interventionKind": "OTHER_INTERVENTION",
+          "claimPosture": "INTENDED",
+          "performanceFacet": "OCCURRENCE",
+          "activityInstance": {
+            "ref": "work:O22:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "OPERATION",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "sample": {
+              "ref": "sample:fictional",
+              "revisionRef": "r1"
+            },
+            "property": {
+              "ref": "observed-property:fictional",
+              "revisionRef": "r1"
+            },
+            "method": {
+              "ref": "analysis-method:fictional",
+              "revisionRef": "r1"
+            },
+            "producedResult": {
+              "role": "PROSPECTIVE_OUTPUT_SPECIFICATION",
+              "specificationBinding": {
+                "ref": "output-spec:analysis-fictional",
+                "revisionRef": "r1"
+              }
+            }
+          },
+          "quantityParameters": [],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O22:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O22:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "analysis-method:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "OPERATION",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "FULL_TARGET_SCOPE",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O22"
+            ],
+            "inProgressConditionIds": [
+              "progress:O22"
+            ],
+            "finishConditionIds": [
+              "finish:O22"
+            ],
+            "outputSpecification": {
+              "ref": "output-spec:analysis-fictional",
+              "revisionRef": "r1"
+            }
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:458c1a66617d8d5861ec23a26822f2f8dc592a04461d39bbf4c11cab4f7bd51f",
+      "sourceRenderedTextDigest": "sha256:ae4d05c15fab7e6a8e7b705b4116d69b9ce2a6ee96e3dd77cd236fbfe6f270b2",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W17_O22_PERFORMED_INTERVAL",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W17_O22_PERFORMED_INTERVAL",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O22",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "OPERATION",
+            "subjectRef": "operation:fictional",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "PERFORMED_INTERVAL",
+            "start": "2026-05-07T17:10:00Z",
+            "end": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "PRODUCE_ANALYSIS_RESULT",
+          "interventionKind": "OTHER_INTERVENTION",
+          "claimPosture": "PERFORMED",
+          "performanceFacet": "OCCURRENCE",
+          "activityInstance": {
+            "ref": "work:O22:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "OPERATION",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "sample": {
+              "ref": "sample:fictional",
+              "revisionRef": "r1"
+            },
+            "property": {
+              "ref": "observed-property:fictional",
+              "revisionRef": "r1"
+            },
+            "method": {
+              "ref": "analysis-method:fictional",
+              "revisionRef": "r1"
+            },
+            "producedResult": {
+              "role": "ACTUAL_OUTPUT",
+              "specificationBinding": {
+                "ref": "output-spec:analysis-fictional",
+                "revisionRef": "r1"
+              },
+              "binding": {
+                "ref": "analysis-result:fictional",
+                "revisionRef": "r1"
+              }
+            }
+          },
+          "quantityParameters": [],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O22:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O22:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "analysis-method:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "OPERATION",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "FULL_TARGET_SCOPE",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O22"
+            ],
+            "inProgressConditionIds": [
+              "progress:O22"
+            ],
+            "finishConditionIds": [
+              "finish:O22"
+            ],
+            "outputSpecification": {
+              "ref": "output-spec:analysis-fictional",
+              "revisionRef": "r1"
+            }
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:4e4e12f62011a9381a58cc820ee7f1427404ff05baa600a6cf9b97a38bee5487",
+      "sourceRenderedTextDigest": "sha256:b290faa6ee2a031cf5318c88bcda5dcacfdbba31767463ea4c7bcdee763ad67a",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W18_O23_INTENDED_WINDOW",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W18_O23_INTENDED_WINDOW",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O23",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "OPERATION",
+            "subjectRef": "operation:fictional",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "INTENDED_WINDOW",
+            "start": "2026-05-07T17:10:00Z",
+            "end": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "INGEST_REPORT",
+          "interventionKind": "OTHER_INTERVENTION",
+          "claimPosture": "INTENDED",
+          "performanceFacet": "OCCURRENCE",
+          "activityInstance": {
+            "ref": "work:O23:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "OPERATION",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "report": {
+              "role": "INTENDED_REPORT_OR_SELECTION",
+              "binding": {
+                "ref": "report-selection:intended-import",
+                "revisionRef": "r1"
+              }
+            },
+            "destinationContext": {
+              "ref": "evidence-context:fictional",
+              "revisionRef": "r1"
+            },
+            "sourceSystem": {
+              "ref": "source-system:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "quantityParameters": [],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O23:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O23:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "procedure:O23:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "OPERATION",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "FULL_TARGET_SCOPE",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O23"
+            ],
+            "inProgressConditionIds": [
+              "progress:O23"
+            ],
+            "finishConditionIds": [
+              "finish:O23"
+            ]
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:c0bb8c36e2b32a50240497438aac14c876f1f892599f5d7d124590f216ce04c5",
+      "sourceRenderedTextDigest": "sha256:9906bf913ac60b1fd973c7ca1e584a2e14fcd26911d627d7ed56edc3b0c5ec0e",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W19_O23_PERFORMED_INTERVAL",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W19_O23_PERFORMED_INTERVAL",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O23",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "OPERATION",
+            "subjectRef": "operation:fictional",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "PERFORMED_INTERVAL",
+            "start": "2026-05-07T17:10:00Z",
+            "end": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "INGEST_REPORT",
+          "interventionKind": "OTHER_INTERVENTION",
+          "claimPosture": "PERFORMED",
+          "performanceFacet": "OCCURRENCE",
+          "activityInstance": {
+            "ref": "work:O23:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "OPERATION",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "report": {
+              "role": "ACTUAL_REPORT",
+              "binding": {
+                "ref": "report:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "destinationContext": {
+              "ref": "evidence-context:fictional",
+              "revisionRef": "r1"
+            },
+            "sourceSystem": {
+              "ref": "source-system:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "quantityParameters": [],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O23:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O23:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "procedure:O23:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "OPERATION",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "FULL_TARGET_SCOPE",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O23"
+            ],
+            "inProgressConditionIds": [
+              "progress:O23"
+            ],
+            "finishConditionIds": [
+              "finish:O23"
+            ]
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:6c2eb5ba0ce60bebd424570c8bbc97970d138dbd67dfd2f73717b459cca3192a",
+      "sourceRenderedTextDigest": "sha256:0f6eebd73c1e02e4f5c26539e748221671454f012ec1f17a65cb5527b305eb38",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W20_O22_STARTED_PENDING_OUTPUT",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W20_O22_STARTED_PENDING_OUTPUT",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O22",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "OPERATION",
+            "subjectRef": "operation:fictional",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "PERFORMED_INTERVAL",
+            "start": "2026-05-07T17:10:00Z",
+            "end": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "PRODUCE_ANALYSIS_RESULT",
+          "interventionKind": "OTHER_INTERVENTION",
+          "claimPosture": "PERFORMED",
+          "performanceFacet": "STARTED",
+          "activityInstance": {
+            "ref": "work:O22:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "OPERATION",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "sample": {
+              "ref": "sample:fictional",
+              "revisionRef": "r1"
+            },
+            "property": {
+              "ref": "observed-property:fictional",
+              "revisionRef": "r1"
+            },
+            "method": {
+              "ref": "analysis-method:fictional",
+              "revisionRef": "r1"
+            },
+            "producedResult": {
+              "role": "PENDING_OUTPUT",
+              "specificationBinding": {
+                "ref": "output-spec:analysis-fictional",
+                "revisionRef": "r1"
+              },
+              "outputState": "NOT_YET_PRODUCED"
+            }
+          },
+          "quantityParameters": [],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O22:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O22:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "analysis-method:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "OPERATION",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "FULL_TARGET_SCOPE",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O22"
+            ],
+            "inProgressConditionIds": [
+              "progress:O22"
+            ],
+            "finishConditionIds": [
+              "finish:O22"
+            ],
+            "outputSpecification": {
+              "ref": "output-spec:analysis-fictional",
+              "revisionRef": "r1"
+            }
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:fbd057960d102f2368b9589e816c4e809eecb59ef9a2849c52013be3c541b8da",
+      "sourceRenderedTextDigest": "sha256:e17e46aef08be43d41d1abbfc733acd26fd441d6e4b9575aa2f8354c2cc54bda",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W21_O22_IN_PROGRESS_PENDING_NO_EVENT",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W21_O22_IN_PROGRESS_PENDING_NO_EVENT",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O22",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "OPERATION",
+            "subjectRef": "operation:fictional",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "PERFORMED_INSTANT",
+            "at": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "PRODUCE_ANALYSIS_RESULT",
+          "interventionKind": "OTHER_INTERVENTION",
+          "claimPosture": "PERFORMED",
+          "performanceFacet": "IN_PROGRESS",
+          "activityInstance": {
+            "ref": "work:O22:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "OPERATION",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "sample": {
+              "ref": "sample:fictional",
+              "revisionRef": "r1"
+            },
+            "property": {
+              "ref": "observed-property:fictional",
+              "revisionRef": "r1"
+            },
+            "method": {
+              "ref": "analysis-method:fictional",
+              "revisionRef": "r1"
+            },
+            "producedResult": {
+              "role": "PENDING_OUTPUT",
+              "specificationBinding": {
+                "ref": "output-spec:analysis-fictional",
+                "revisionRef": "r1"
+              },
+              "outputState": "NOT_YET_PRODUCED"
+            }
+          },
+          "quantityParameters": [],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O22:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O22:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "analysis-method:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "OPERATION",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "FULL_TARGET_SCOPE",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O22"
+            ],
+            "inProgressConditionIds": [
+              "progress:O22"
+            ],
+            "finishConditionIds": [
+              "finish:O22"
+            ],
+            "outputSpecification": {
+              "ref": "output-spec:analysis-fictional",
+              "revisionRef": "r1"
+            }
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:04bba62219bdf9bd1bb885d75fbb6aa59876b4d90fe9c260ba74cfb673e5d6b7",
+      "sourceRenderedTextDigest": "sha256:3a996a74a9cc90ac0e916c533faf715151c090575ad5dc011ca7d4362b2040cc",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W22_O22_IN_PROGRESS_PENDING_WITH_EVENT",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W22_O22_IN_PROGRESS_PENDING_WITH_EVENT",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O22",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "OPERATION",
+            "subjectRef": "operation:fictional",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "PERFORMED_INSTANT",
+            "at": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "PRODUCE_ANALYSIS_RESULT",
+          "interventionKind": "OTHER_INTERVENTION",
+          "claimPosture": "PERFORMED",
+          "performanceFacet": "IN_PROGRESS",
+          "activityInstance": {
+            "ref": "work:O22:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "OPERATION",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "sample": {
+              "ref": "sample:fictional",
+              "revisionRef": "r1"
+            },
+            "property": {
+              "ref": "observed-property:fictional",
+              "revisionRef": "r1"
+            },
+            "method": {
+              "ref": "analysis-method:fictional",
+              "revisionRef": "r1"
+            },
+            "producedResult": {
+              "role": "PENDING_OUTPUT",
+              "specificationBinding": {
+                "ref": "output-spec:analysis-fictional",
+                "revisionRef": "r1"
+              },
+              "outputState": "NOT_YET_PRODUCED"
+            }
+          },
+          "quantityParameters": [],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O22:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O22:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "analysis-method:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "OPERATION",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "FULL_TARGET_SCOPE",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O22"
+            ],
+            "inProgressConditionIds": [
+              "progress:O22"
+            ],
+            "finishConditionIds": [
+              "finish:O22"
+            ],
+            "outputSpecification": {
+              "ref": "output-spec:analysis-fictional",
+              "revisionRef": "r1"
+            }
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:971fd536f02d7df8309629cb75099000775cb2396ef10cf35d6ffa7a403e0265",
+      "sourceRenderedTextDigest": "sha256:0f1402b243d922fe62db7577fd55890898567d72fbc2d0a6ff63cf558157a8a4",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W23_O22_COMPLETED_ACTUAL_OUTPUT",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W23_O22_COMPLETED_ACTUAL_OUTPUT",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O22",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "OPERATION",
+            "subjectRef": "operation:fictional",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "PERFORMED_INSTANT",
+            "at": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "activity": "PRODUCE_ANALYSIS_RESULT",
+          "interventionKind": "OTHER_INTERVENTION",
+          "claimPosture": "PERFORMED",
+          "performanceFacet": "COMPLETED",
+          "activityInstance": {
+            "ref": "work:O22:fictional",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "OPERATION",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "performedBy": {
+            "ref": "party:performer-fictional",
+            "revisionRef": "r1"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "operation:fictional",
+              "revisionRef": "r1"
+            }
+          },
+          "parameters": {
+            "sample": {
+              "ref": "sample:fictional",
+              "revisionRef": "r1"
+            },
+            "property": {
+              "ref": "observed-property:fictional",
+              "revisionRef": "r1"
+            },
+            "method": {
+              "ref": "analysis-method:fictional",
+              "revisionRef": "r1"
+            },
+            "producedResult": {
+              "role": "ACTUAL_OUTPUT",
+              "specificationBinding": {
+                "ref": "output-spec:analysis-fictional",
+                "revisionRef": "r1"
+              },
+              "binding": {
+                "ref": "analysis-result:fictional",
+                "revisionRef": "r1"
+              }
+            }
+          },
+          "quantityParameters": [],
+          "workSpecification": {
+            "binding": {
+              "ref": "work-spec:O22:fictional",
+              "revisionRef": "r1"
+            },
+            "activityInstance": {
+              "ref": "work:O22:fictional",
+              "revisionRef": "r1"
+            },
+            "procedure": {
+              "ref": "analysis-method:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "OPERATION",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "extent": {
+              "posture": "FULL_TARGET_SCOPE",
+              "binding": {
+                "ref": "operation:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "startConditionIds": [
+              "start:O22"
+            ],
+            "inProgressConditionIds": [
+              "progress:O22"
+            ],
+            "finishConditionIds": [
+              "finish:O22"
+            ],
+            "outputSpecification": {
+              "ref": "output-spec:analysis-fictional",
+              "revisionRef": "r1"
+            }
+          }
+        }
+      },
+      "sourceClaimContentDigest": "sha256:1945d5f88d979c3573fc5ac8c2a2f45f9030ff9a6489475a0b5c349f252ea01f",
+      "sourceRenderedTextDigest": "sha256:9e682839298e85112bdcbb04ede0a1404fa9aed05493b42aff18eac16154c357",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W24_EXISTING_FARM_IDENTIFIER",
+      "proposition": {
+        "form": "ATOM",
+        "atomId": "atom:W24_EXISTING_FARM_IDENTIFIER",
+        "definition": "candidate:assertion-domain-construction:2026-10-21:r2:S10",
+        "scope": {
+          "subject": {
+            "subjectPosture": "EXISTING_SUBJECT",
+            "subjectType": "FARM",
+            "subjectRef": "subject:S10:fictional",
+            "revisionRef": "r1"
+          },
+          "subjectTime": {
+            "profile": "STRUCTURE_AS_OF",
+            "at": "2026-05-07T18:25:00Z"
+          },
+          "extent": {
+            "posture": "FULL_TARGET_SCOPE",
+            "binding": {
+              "ref": "subject:S10:fictional",
+              "revisionRef": "r1"
+            }
+          }
+        },
+        "body": {
+          "property": "identity.namedAttribute",
+          "attributeDefinition": "EXTERNAL_IDENTIFIER",
+          "identifierRole": "COMMERCIAL_REFERENCE",
+          "scheme": {
+            "ref": "scheme:shipment",
+            "revisionRef": "r1"
+          },
+          "value": "shipment-123",
+          "originalLexicalValue": "shipment-123"
+        }
+      },
+      "sourceClaimContentDigest": "sha256:85ac724eab6dc9b4477805b7664e0dafce664a1662db9436b6e11ccda3f198d7",
+      "sourceRenderedTextDigest": "sha256:f368207d2e288c827e39a6bb9bf37a044b846474a3eb0be208fc9b4fd8bd6bab",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "W25_OFFLINE_DIGEST_BOUND_PRUNING",
+      "proposition": {
+        "form": "QUALIFIED",
+        "appliesToAtomId": "atom:W03_MEASURED_PRUNING_NO_EVENT",
+        "child": {
+          "form": "ATOM",
+          "atomId": "atom:W03_MEASURED_PRUNING_NO_EVENT",
+          "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O08",
+          "scope": {
+            "subject": {
+              "subjectPosture": "EXISTING_SUBJECT",
+              "subjectType": "FIELD",
+              "subjectRef": "field:fictional",
+              "revisionRef": "r1"
+            },
+            "subjectTime": {
+              "profile": "PERFORMED_INSTANT",
+              "at": "2026-05-07T18:25:00Z"
+            },
+            "extent": {
+              "posture": "PARTIAL_TARGET_SCOPE",
+              "binding": {
+                "ref": "extent:west-edge-fictional",
+                "revisionRef": "r1"
+              }
+            }
+          },
+          "body": {
+            "activity": "PRUNE",
+            "interventionKind": "PRUNING",
+            "claimPosture": "PERFORMED",
+            "performanceFacet": "COMPLETED",
+            "activityInstance": {
+              "ref": "work:O08:fictional",
+              "revisionRef": "r1"
+            },
+            "target": {
+              "kind": "FIELD",
+              "binding": {
+                "ref": "field:fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "performedBy": {
+              "ref": "party:performer-fictional",
+              "revisionRef": "r1"
+            },
+            "extent": {
+              "posture": "PARTIAL_TARGET_SCOPE",
+              "binding": {
+                "ref": "extent:west-edge-fictional",
+                "revisionRef": "r1"
+              }
+            },
+            "parameters": {
+              "method": {
+                "ref": "method:row-selective-fictional",
+                "revisionRef": "r1"
+              },
+              "plantPart": {
+                "ref": "plant-part:canopy",
+                "revisionRef": "r1"
+              },
+              "workExtent": "WEST_EDGE_ONLY"
+            },
+            "quantityParameters": [],
+            "workSpecification": {
+              "binding": {
+                "ref": "work-spec:O08:fictional",
+                "revisionRef": "r1"
+              },
+              "activityInstance": {
+                "ref": "work:O08:fictional",
+                "revisionRef": "r1"
+              },
+              "procedure": {
+                "ref": "method:row-selective-fictional",
+                "revisionRef": "r1"
+              },
+              "target": {
+                "kind": "FIELD",
+                "binding": {
+                  "ref": "field:fictional",
+                  "revisionRef": "r1"
+                }
+              },
+              "extent": {
+                "posture": "PARTIAL_TARGET_SCOPE",
+                "binding": {
+                  "ref": "extent:west-edge-fictional",
+                  "revisionRef": "r1"
+                }
+              },
+              "startConditionIds": [
+                "start:O08"
+              ],
+              "inProgressConditionIds": [
+                "progress:O08"
+              ],
+              "finishConditionIds": [
+                "finish:O08"
+              ]
+            }
+          }
+        },
+        "qualifiers": {
+          "epistemicPosture": "ALLEGED"
+        }
+      },
+      "sourceClaimContentDigest": "sha256:f207688adf2e428d5e0f2b598c49d0144fbe2dbd94fbd1e699d67772570a8b18",
+      "sourceRenderedTextDigest": "sha256:715df6e20b0daa030ca09275cdf032424acefa1ec641a9122bb8338bc8cff0ad",
+      "foreignAdmission": "NOT_ESTABLISHED"
+    }
+  ],
+  "next": "Root-owned projection transforms the outer carrier and rerenders; this file owns only the proposition transformation."
+}

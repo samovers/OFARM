@@ -1,0 +1,484 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/construction-evaluation/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.domainConstructionEvaluation.v0.1"
+    },
+    "status": {
+      "enum": [
+        "INPUT_ERROR",
+        "DEPENDENCY_UNAVAILABLE",
+        "FAIL"
+      ]
+    },
+    "implementationCompleteness": {
+      "const": "INCOMPLETE"
+    },
+    "runtimeAdmission": {
+      "const": "NOT_ESTABLISHED"
+    },
+    "atomicCommit": {
+      "const": "NOT_EVALUATED"
+    },
+    "primaryTrustBoundary": {
+      "const": "AssertionRecord domain meaning and validation integrity"
+    },
+    "scopeStayedInsideBoundary": {
+      "const": true
+    },
+    "inputBindings": {
+      "type": "object"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "ownerReports": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "act": {
+          "type": "object"
+        },
+        "event": {
+          "type": "object"
+        },
+        "state": {
+          "type": "object"
+        },
+        "authorization": {
+          "type": "object"
+        },
+        "occupancy": {
+          "type": "object"
+        }
+      },
+      "required": []
+    },
+    "ownerInvocations": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "act": {
+          "type": "object"
+        },
+        "event": {
+          "type": "object"
+        },
+        "state": {
+          "type": "object"
+        },
+        "authorization": {
+          "type": "object"
+        },
+        "occupancy": {
+          "type": "object"
+        }
+      },
+      "required": []
+    },
+    "componentReports": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "dependencyFindings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "mappingFindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "disposition": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT_APPLICABLE",
+              "NOT_EVALUATED"
+            ]
+          },
+          "comparisons": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "diagnostics": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "failedPrerequisites": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "branchReason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "disposition",
+          "comparisons",
+          "diagnostics"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "disposition": {
+                  "const": "NOT_EVALUATED"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "failedPrerequisites"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "failedPrerequisites"
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "disposition": {
+                  "const": "NOT_APPLICABLE"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "branchReason"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "branchReason"
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "disposition": {
+                  "const": "FAIL"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "diagnostics": {
+                  "minItems": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "postconditionFindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "disposition": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT_APPLICABLE",
+              "NOT_EVALUATED"
+            ]
+          },
+          "comparisons": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "diagnostics": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "failedPrerequisites": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "branchReason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "disposition",
+          "comparisons",
+          "diagnostics"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "disposition": {
+                  "const": "NOT_EVALUATED"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "failedPrerequisites"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "failedPrerequisites"
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "disposition": {
+                  "const": "NOT_APPLICABLE"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "branchReason"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "branchReason"
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "disposition": {
+                  "const": "FAIL"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "diagnostics": {
+                  "minItems": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "payload": {
+      "type": "null"
+    },
+    "packageManifestRawSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "intrinsicFinding": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "schemaFindings": {
+      "type": "object"
+    },
+    "exactRenderedText": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claimProjectionDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "operationPerformerAuthorityDisposition": {
+      "const": "NOT_EVALUATED_BY_AUTHORIZATION"
+    },
+    "unresolvedSourceRoles": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "payloadUnavailableReason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "next": {
+      "type": "string",
+      "minLength": 1
+    },
+    "referenceInventory": {
+      "type": "object"
+    },
+    "originalInventory": {
+      "type": "object"
+    },
+    "eventCaseDefinitionBinding": {
+      "type": "object"
+    },
+    "immutableInputManifest": {
+      "type": "object"
+    },
+    "automaticSourceComparisons": {
+      "type": "object"
+    },
+    "temporalSources": {
+      "type": "object"
+    },
+    "resolvedOwnerInputs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "correctionContext": {
+      "type": "object"
+    },
+    "authorizationSourceComparisons": {
+      "type": "object"
+    },
+    "sourceTrace": {
+      "type": "object"
+    },
+    "resolvedDomainInputs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "partialRequirementGraph": {
+      "type": "object"
+    },
+    "protectedIdentityProvenance": {
+      "type": "object"
+    },
+    "knownIdentityComparison": {
+      "type": "object"
+    },
+    "protectedKnownWrite": {
+      "type": "object"
+    },
+    "protectedStateComparison": {
+      "type": "object"
+    },
+    "failedDependencyIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "identitySourceComparisons": {
+      "type": "object"
+    },
+    "eventSourceComparisons": {
+      "type": "object"
+    },
+    "evidenceSourceComparisons": {
+      "type": "object"
+    },
+    "complianceSourceComparisons": {
+      "type": "object"
+    },
+    "contextSourceComparisons": {
+      "type": "object"
+    },
+    "propositionEvaluation": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "status",
+    "implementationCompleteness",
+    "runtimeAdmission",
+    "atomicCommit",
+    "primaryTrustBoundary",
+    "scopeStayedInsideBoundary",
+    "inputBindings",
+    "errors",
+    "ownerReports",
+    "componentReports",
+    "dependencyFindings",
+    "mappingFindings",
+    "postconditionFindings",
+    "payload",
+    "next"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "FAIL",
+              "DEPENDENCY_UNAVAILABLE"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "mappingFindings": {
+            "minItems": 29,
+            "maxItems": 29
+          },
+          "postconditionFindings": {
+            "minItems": 20,
+            "maxItems": 20
+          }
+        }
+      }
+    }
+  ]
+}

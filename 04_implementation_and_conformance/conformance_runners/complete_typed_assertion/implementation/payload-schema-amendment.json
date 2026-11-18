@@ -1,0 +1,26 @@
+{
+  "status": "UNSEALED_DOMAIN_OWNED_PAYLOAD_AMENDMENT",
+  "primaryTrustBoundary": "AssertionRecord domain meaning and validation integrity",
+  "scopeStayedInsideBoundary": true,
+  "base": {
+    "path": "outer/payload-schema.json",
+    "rawSha256": "1a1622fdce7d4437c5d63afbb6888e17a01c89dba8fb363cf7a051ace6493add"
+  },
+  "active": {
+    "path": "payload-schema-amendment.schema.json",
+    "rawSha256": "b9427383940f426d8889a1757748630f5fbea1a7d7c33682b57fabf622e0d812",
+    "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1"
+  },
+  "changedDefinition": "eventAssociation",
+  "changedDefinitions": [
+    "eventAssociation",
+    "atomFinding",
+    "dutyFinding"
+  ],
+  "addedDefinitions": [
+    "absentSourceSelection",
+    "operandAvailabilityFinding"
+  ],
+  "meaning": "Preserve every duty, exact unresolved event selector and verifiable original operand absence. Missing values have no fabricated digest or successful comparison; only the existing ancestor has a digest.",
+  "next": "Check unresolved event and absent-operand payloads through the public evaluator and retain the original schema pin."
+}

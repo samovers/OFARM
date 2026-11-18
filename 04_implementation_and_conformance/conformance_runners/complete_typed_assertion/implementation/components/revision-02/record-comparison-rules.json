@@ -1,0 +1,73 @@
+{
+  "definitionId": "candidate:assertion-domain:record-comparison-rules:v0.1",
+  "status": "UNSEALED_DOMAIN_NORMATIVE_COMPARISON_RULES_NOT_OBSERVATIONS",
+  "rules": {
+    "S02": {
+      "subjectKindByCarrier": {
+        "field": "FIELD",
+        "cycle": "CROP_CYCLE"
+      },
+      "fieldParentKind": "FARM"
+    },
+    "S09": {
+      "revisionOnlyContinuity": "SAME_IDENTITY_NEW_REVISION",
+      "sameIdentityOutcomes": [
+        "SAME_IDENTITY_STATE_ONLY",
+        "SAME_IDENTITY_NEW_REVISION"
+      ],
+      "sameIdentityContinuityClass": "ONE_TO_ONE",
+      "successorEdgeDirections": {
+        "revises": "SUCCESSOR_TO_PREDECESSOR",
+        "replaces": "SUCCESSOR_TO_PREDECESSOR",
+        "splitFrom": "SUCCESSOR_TO_PREDECESSOR",
+        "mergedFrom": "SUCCESSOR_TO_PREDECESSOR",
+        "succeeds": "SUCCESSOR_TO_PREDECESSOR",
+        "derivedFrom": "SUCCESSOR_TO_PREDECESSOR",
+        "overlapsWith": "EITHER_DIRECTION_BETWEEN_SELECTED_ENDPOINT_SETS"
+      },
+      "forbiddenSuccessorOutcomes": [
+        "SAME_IDENTITY_NEW_REVISION",
+        "SAME_IDENTITY_STATE_ONLY",
+        "NOT_CONSTITUTIONAL_IDENTITY",
+        "RETIRED_NO_SUCCESSOR"
+      ]
+    },
+    "S10": {
+      "candidateIdentifierFields": ["code", "normalizedLabel", "uri", "registrationRef", "authorisationRef", "gtin", "batchLot", "digitalLinkUri", "lotNumber", "seedCertificateRef"]
+    },
+    "S11": {
+      "durableIdentityPosture": {
+        "EVENT_BOUND": "EVENT_BOUND_ONLY",
+        "NO_NEW_CONSTITUTIONAL_IDENTITY": "NO_NEW_CONSTITUTIONAL_IDENTITY",
+        "REUSES_EXISTING_SCOPE": "REUSES_EXISTING_SCOPE",
+        "CREATES_OR_REVISES_DURABLE_SCOPE": "CREATES_OR_REVISES_DURABLE_SCOPE",
+        "REVIEW_REQUIRED": "REVIEW_REQUIRED"
+      }
+    },
+    "S14": {
+      "lineageSubjectFamily": "STORAGE_LOCATION"
+    },
+    "C03": {
+      "numericResultPointer": "/result/numericValue",
+      "numericResultKind": "NUMERIC"
+    },
+    "C04": {
+      "fullResultPointer": "/result"
+    },
+    "C05": {
+      "verificationPurpose": "PRODUCT_AUTHORISATION_IDENTITY",
+      "unambiguousCandidateCount": 1,
+      "authorizationIdentifierRoles": [
+        "AUTHORISATION_NUMBER",
+        "PARALLEL_TRADE_PERMIT_NUMBER"
+      ],
+      "reportedSuccessfulOutcome": "PASS"
+    },
+    "C06": {
+      "directProductMaterialRole": "PRODUCT",
+      "allowedOperationParameterRoles": ["RATE", "DOSE"],
+      "numericResultPointer": "/result/numericValue",
+      "numericResultKind": "NUMERIC"
+    }
+  }
+}

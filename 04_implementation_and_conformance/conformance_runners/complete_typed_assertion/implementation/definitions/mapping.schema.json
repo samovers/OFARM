@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/result-mapping-definition/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainResultMappingDefinition.v0.1"
+    },
+    "definitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "quantityContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "quantityKind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unitProfile": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        }
+      },
+      "required": [
+        "quantityKind",
+        "unit",
+        "unitProfile"
+      ]
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "resultKind": {
+            "enum": [
+              "CODED",
+              "QUALITATIVE"
+            ]
+          },
+          "sourceValue": {
+            "type": "string",
+            "minLength": 1
+          },
+          "admissibleValues": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "lower": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "decimal": {
+                        "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/decimal"
+                      },
+                      "inclusive": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "decimal",
+                      "inclusive"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "kind": {
+                        "const": "UNBOUNDED"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              },
+              "upper": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "decimal": {
+                        "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/decimal"
+                      },
+                      "inclusive": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "decimal",
+                      "inclusive"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "kind": {
+                        "const": "UNBOUNDED"
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ]
+                  }
+                ]
+              }
+            },
+            "required": [
+              "lower",
+              "upper"
+            ]
+          },
+          "basis": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "resultKind",
+          "sourceValue",
+          "admissibleValues",
+          "basis"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "definitionId",
+    "quantityContext",
+    "entries"
+  ],
+  "$comment": "New domain-owned normative input. Exact independent selection and protected original bytes are required. No source admission, authority, runtime producer or statutory applicability is asserted."
+}

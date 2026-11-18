@@ -1,0 +1,411 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/measurement-use-definition/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainMeasurementUseDefinition.v0.1"
+    },
+    "definitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/C04/properties/scope"
+    },
+    "extentTemporalMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "extentBinding": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        },
+        "sourceTimeType": {
+          "enum": [
+            "INTERVAL",
+            "OPEN_INTERVAL"
+          ]
+        },
+        "timeBasis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "startBoundary": {
+          "enum": [
+            "INCLUSIVE",
+            "EXCLUSIVE"
+          ]
+        },
+        "endBoundary": {
+          "enum": [
+            "INCLUSIVE",
+            "EXCLUSIVE",
+            "UNBOUNDED"
+          ]
+        }
+      },
+      "required": [
+        "extentBinding",
+        "sourceTimeType",
+        "timeBasis",
+        "startBoundary",
+        "endBoundary"
+      ]
+    },
+    "propertyBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "methodBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "protocolBinding": {
+      "oneOf": [
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "contextBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "subjectRelationBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "quantityContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "quantityKind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unitProfile": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        }
+      },
+      "required": [
+        "quantityKind",
+        "unit",
+        "unitProfile"
+      ]
+    },
+    "phenomenonTime": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "timeType": {
+          "enum": [
+            "INSTANT",
+            "INTERVAL",
+            "OPEN_INTERVAL",
+            "AS_OF"
+          ]
+        },
+        "sourceProjection": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/phenomenonTime"
+        }
+      },
+      "required": [
+        "timeType",
+        "sourceProjection"
+      ]
+    },
+    "qualificationPointers": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^(?:/(?:[^~/]|~0|~1)*)*$"
+      }
+    },
+    "qualificationInterpretation": {
+      "enum": [
+        "SOURCE_QUALITY_ONLY",
+        "STATISTICAL_NOT_HARD_BOUND",
+        "METHOD_DEFINED_HARD_BOUND",
+        "EXPLICIT_ESTIMATE",
+        "NOT_APPLICABLE_BY_BOUND_METHOD"
+      ]
+    },
+    "numericSet": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "EXACT_POINT"
+            }
+          },
+          "required": [
+            "kind"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "SOURCE_HARD_INTERVAL"
+            },
+            "lowerPointer": {
+              "type": "string",
+              "pattern": "^(?:/(?:[^~/]|~0|~1)*)*$"
+            },
+            "upperPointer": {
+              "type": "string",
+              "pattern": "^(?:/(?:[^~/]|~0|~1)*)*$"
+            },
+            "lowerInclusive": {
+              "type": "boolean"
+            },
+            "upperInclusive": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "kind",
+            "lowerPointer",
+            "upperPointer",
+            "lowerInclusive",
+            "upperInclusive"
+          ]
+        }
+      ]
+    },
+    "censoringRules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "qualifier": {
+            "type": "string",
+            "minLength": 1
+          },
+          "limitType": {
+            "type": "string",
+            "minLength": 1
+          },
+          "lower": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "origin": {
+                    "enum": [
+                      "ZERO",
+                      "DETECTION_LIMIT"
+                    ]
+                  },
+                  "inclusive": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "origin",
+                  "inclusive"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "origin": {
+                    "const": "UNBOUNDED"
+                  }
+                },
+                "required": [
+                  "origin"
+                ]
+              }
+            ]
+          },
+          "upper": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "origin": {
+                    "enum": [
+                      "ZERO",
+                      "DETECTION_LIMIT"
+                    ]
+                  },
+                  "inclusive": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "origin",
+                  "inclusive"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "origin": {
+                    "const": "UNBOUNDED"
+                  }
+                },
+                "required": [
+                  "origin"
+                ]
+              }
+            ]
+          },
+          "nonnegative": {
+            "type": "boolean"
+          },
+          "basis": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "qualifier",
+          "limitType",
+          "lower",
+          "upper",
+          "nonnegative",
+          "basis"
+        ]
+      }
+    },
+    "mappingBinding": {
+      "oneOf": [
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "scalarSource": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+            },
+            "parameterIndex": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "parameterRole": {
+              "enum": [
+                "CONCENTRATION",
+                "OTHER_PARAMETER"
+              ]
+            },
+            "use": {
+              "enum": [
+                "NUMERIC_READING",
+                "DETECTION_LIMIT"
+              ]
+            }
+          },
+          "required": [
+            "binding",
+            "parameterIndex",
+            "parameterRole",
+            "use"
+          ]
+        }
+      ]
+    },
+    "sourceResultQualification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "requireOriginalLexicalValue": {
+          "type": "boolean"
+        },
+        "permittedEvidenceStatuses": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "requiredDegradationReasons": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "requireOriginalLexicalValue",
+        "permittedEvidenceStatuses",
+        "requiredDegradationReasons"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "definitionId",
+    "scope",
+    "propertyBinding",
+    "methodBinding",
+    "protocolBinding",
+    "contextBinding",
+    "subjectRelationBinding",
+    "quantityContext",
+    "phenomenonTime",
+    "qualificationPointers",
+    "qualificationInterpretation",
+    "numericSet",
+    "censoringRules",
+    "mappingBinding",
+    "scalarSource",
+    "sourceResultQualification"
+  ],
+  "$comment": "New domain-owned normative input. Exact independent selection and protected original bytes are required. No source admission, authority, runtime producer or statutory applicability is asserted.",
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "extentTemporalMeaning"
+        ]
+      },
+      "then": {
+        "properties": {
+          "scope": {
+            "properties": {
+              "extent": {
+                "properties": {
+                  "posture": {
+                    "const": "PARTIAL_TARGET_SCOPE"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

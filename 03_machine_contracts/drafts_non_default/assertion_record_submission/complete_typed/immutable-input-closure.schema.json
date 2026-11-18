@@ -1,0 +1,1835 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.immutableInputClosure.v0.3"
+    },
+    "selectionBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rawSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "wholeJcsDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "rawSha256",
+        "wholeJcsDigest"
+      ]
+    },
+    "rootInputIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      },
+      "minItems": 1
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/requirement"
+      },
+      "minItems": 1
+    },
+    "inventory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "inputId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "result": {
+            "$ref": "#/$defs/inputResult"
+          }
+        },
+        "required": [
+          "inputId",
+          "result"
+        ]
+      },
+      "minItems": 1
+    },
+    "uses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/use"
+      },
+      "minItems": 0
+    },
+    "protectedState": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "const": "OBSERVED"
+            },
+            "contractInputId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "checkerInputId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "selectionInputId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "contextInputId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "policyInputId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "proofInputId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "snapshotInputId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "reportRawSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "reportWholeJcsDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "ownerStatus": {
+              "enum": [
+                "CONDITIONAL_CONFORMANCE_PASS",
+                "FAIL",
+                "INPUT_ERROR",
+                "DEPENDENCY_UNAVAILABLE"
+              ]
+            },
+            "readComparisons": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/readComparison"
+              },
+              "minItems": 0
+            },
+            "guardComparisons": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/guardComparison"
+              },
+              "minItems": 0
+            }
+          },
+          "required": [
+            "status",
+            "contractInputId",
+            "checkerInputId",
+            "selectionInputId",
+            "contextInputId",
+            "policyInputId",
+            "proofInputId",
+            "snapshotInputId",
+            "reportRawSha256",
+            "reportWholeJcsDigest",
+            "ownerStatus",
+            "readComparisons",
+            "guardComparisons"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "const": "NOT_EVALUATED"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            }
+          },
+          "required": [
+            "status",
+            "reason"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "const": "PARTIAL"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "readComparisons": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/readComparison"
+              }
+            },
+            "guardComparisons": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/guardComparison"
+              }
+            }
+          },
+          "required": [
+            "status",
+            "reason",
+            "readComparisons",
+            "guardComparisons"
+          ]
+        }
+      ]
+    },
+    "findingLinks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "payloadPointer": {
+            "type": "string",
+            "pattern": "^(?:/(?:[^~/]|~[01])*)*$"
+          },
+          "requirementIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "minItems": 1
+          },
+          "useIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "minItems": 0
+          },
+          "readKeys": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "minItems": 0
+          },
+          "guardRefs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "NEGATIVE",
+                    "SET",
+                    "WRITE"
+                  ]
+                },
+                "key": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                }
+              },
+              "required": [
+                "kind",
+                "key"
+              ]
+            },
+            "minItems": 0
+          }
+        },
+        "required": [
+          "payloadPointer",
+          "requirementIds",
+          "useIds",
+          "readKeys",
+          "guardRefs"
+        ]
+      },
+      "minItems": 0
+    },
+    "semanticDependencies": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sampleIdentity": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "requirementIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "minItems": 1
+            },
+            "outcome": {
+              "$ref": "#/$defs/outcome"
+            }
+          },
+          "required": [
+            "requirementIds",
+            "outcome"
+          ]
+        },
+        "evidenceUse": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "requirementIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "minItems": 1
+            },
+            "outcome": {
+              "$ref": "#/$defs/outcome"
+            }
+          },
+          "required": [
+            "requirementIds",
+            "outcome"
+          ]
+        },
+        "physicalCustody": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "requirementIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "minItems": 1
+            },
+            "outcome": {
+              "$ref": "#/$defs/outcome"
+            }
+          },
+          "required": [
+            "requirementIds",
+            "outcome"
+          ]
+        },
+        "geometryAcceptance": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "requirementIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "minItems": 1
+            },
+            "outcome": {
+              "$ref": "#/$defs/outcome"
+            }
+          },
+          "required": [
+            "requirementIds",
+            "outcome"
+          ]
+        },
+        "samplingRepresentativeness": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "requirementIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "minItems": 1
+            },
+            "outcome": {
+              "$ref": "#/$defs/outcome"
+            }
+          },
+          "required": [
+            "requirementIds",
+            "outcome"
+          ]
+        }
+      },
+      "required": [
+        "sampleIdentity",
+        "evidenceUse",
+        "physicalCustody",
+        "geometryAcceptance",
+        "samplingRepresentativeness"
+      ]
+    },
+    "closure": {
+      "$ref": "#/$defs/outcome"
+    },
+    "derivation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "COMPLETE",
+            "PARTIAL"
+          ]
+        },
+        "blockedInputIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "knownRequirementCount": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "status",
+        "blockedInputIds",
+        "knownRequirementCount"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "selectionBinding",
+    "rootInputIds",
+    "requirements",
+    "inventory",
+    "uses",
+    "protectedState",
+    "findingLinks",
+    "semanticDependencies",
+    "closure",
+    "derivation"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/immutable-input-closure/v0.3",
+  "$defs": {
+    "locator": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "const": "RESOLVED"
+            },
+            "inputId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "pointer": {
+              "type": "string",
+              "pattern": "^(?:/(?:[^~/]|~[01])*)*$"
+            },
+            "selectedValueDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "status",
+            "inputId",
+            "pointer",
+            "selectedValueDigest"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "const": "UNAVAILABLE"
+            },
+            "inputId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "pointer": {
+              "type": "string",
+              "pattern": "^(?:/(?:[^~/]|~[01])*)*$"
+            },
+            "reason": {
+              "enum": [
+                "ORIGINAL_UNAVAILABLE",
+                "PIN_MISMATCH",
+                "INVALID_JSON",
+                "DEPENDENCY_UNAVAILABLE"
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "inputId",
+            "pointer",
+            "reason"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "const": "BOOTSTRAP"
+            },
+            "pointer": {
+              "type": "string",
+              "pattern": "^(?:/(?:[^~/]|~[01])*)*$"
+            },
+            "selectedValueDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "status",
+            "pointer",
+            "selectedValueDigest"
+          ]
+        }
+      ]
+    },
+    "selectedOriginal": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "inputId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "ref": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "rawSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "byteLength": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "digestMode": {
+              "const": "RAW_BYTES"
+            }
+          },
+          "required": [
+            "inputId",
+            "ref",
+            "rawSha256",
+            "byteLength",
+            "digestMode"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "inputId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "ref": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "rawSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "byteLength": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "digestMode": {
+              "const": "JCS_JSON"
+            },
+            "wholeJcsDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "inputId",
+            "ref",
+            "rawSha256",
+            "byteLength",
+            "digestMode",
+            "wholeJcsDigest"
+          ]
+        }
+      ]
+    },
+    "inputResult": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "const": "MATCHED"
+            },
+            "observedRawSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "byteLength": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "status",
+            "observedRawSha256",
+            "byteLength"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "const": "MISMATCH"
+            },
+            "observedRawSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "byteLength": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            }
+          },
+          "required": [
+            "status",
+            "observedRawSha256",
+            "byteLength",
+            "reason"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "const": "NOT_EVALUATED"
+            },
+            "reason": {
+              "enum": [
+                "ORIGINAL_UNAVAILABLE",
+                "SELECTION_UNAVAILABLE",
+                "DEPENDENCY_UNAVAILABLE",
+                "INVALID_JSON",
+                "INCOMPLETE"
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "reason"
+          ]
+        }
+      ]
+    },
+    "outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "disposition": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "NOT_EVALUATED",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        }
+      },
+      "required": [
+        "disposition",
+        "reason"
+      ]
+    },
+    "requirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "origin": {
+          "$ref": "#/$defs/locator"
+        },
+        "rule": {
+          "$ref": "#/$defs/locator"
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "inputIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "minItems": 0
+        },
+        "dependsOn": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "minItems": 0
+        },
+        "outcome": {
+          "$ref": "#/$defs/outcome"
+        },
+        "observations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/locator"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "origin",
+        "rule",
+        "role",
+        "inputIds",
+        "dependsOn",
+        "outcome"
+      ]
+    },
+    "ownerSelector": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ownerContractInputId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "selector": {
+          "$ref": "#/$defs/locator"
+        }
+      },
+      "required": [
+        "ownerContractInputId",
+        "selector"
+      ]
+    },
+    "use": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "requirementId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "inputId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "ownerSelectors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ownerSelector"
+          },
+          "minItems": 0
+        },
+        "treatment": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "const": "PROTECTED_READ"
+                },
+                "key": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                }
+              },
+              "required": [
+                "kind",
+                "key"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "const": "CONTROL"
+                },
+                "basis": {
+                  "$ref": "#/$defs/locator"
+                }
+              },
+              "required": [
+                "kind",
+                "basis"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "const": "PROPOSED_ASSERTION"
+                },
+                "key": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                }
+              },
+              "required": [
+                "kind",
+                "key"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "const": "DERIVED_TRANSPORT"
+                },
+                "basis": {
+                  "$ref": "#/$defs/locator"
+                },
+                "sourceInputIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  },
+                  "minItems": 1
+                }
+              },
+              "required": [
+                "kind",
+                "basis",
+                "sourceInputIds"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "const": "NOT_EVALUATED"
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                }
+              },
+              "required": [
+                "kind",
+                "reason"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "requirementId",
+        "inputId",
+        "ownerSelectors",
+        "treatment"
+      ]
+    },
+    "stateRead": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "role": {
+          "enum": [
+            "EFFECT_INTENT",
+            "ASSERTION_ACT",
+            "SUBJECT",
+            "SCOPE",
+            "RELATIONSHIP_PROOF",
+            "SEMANTIC_EVENT",
+            "EVENT_INGRESS_PROOF",
+            "EVIDENCE",
+            "PAYLOAD",
+            "PRIOR_ASSERTION",
+            "PRIOR_CREATION_EVIDENCE",
+            "RULE",
+            "EVIDENCE_POLICY",
+            "AUTHORIZATION_VIEW",
+            "TRANSACTION_TIME_POLICY",
+            "TRANSACTION_PROFILE",
+            "OTHER_DOMAIN_INPUT"
+          ]
+        },
+        "binding": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ref": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "revisionRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "digest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "ref",
+                "digest"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ref": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "revisionRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                }
+              },
+              "required": [
+                "ref"
+              ]
+            }
+          ]
+        },
+        "rawSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "revisionRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "availability": {
+          "enum": [
+            "COMMITTED_AT_TRANSACTION_START",
+            "FIXED_BEFORE_DOMAIN_VERDICT"
+          ]
+        },
+        "fixedInputVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "digestMode": {
+          "enum": [
+            "JCS_JSON",
+            "RAW_BYTES"
+          ]
+        }
+      },
+      "required": [
+        "key",
+        "role",
+        "binding",
+        "rawSha256",
+        "availability"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "const": "FIXED_BEFORE_DOMAIN_VERDICT"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "fixedInputVersion"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "fixedInputVersion"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "digestMode"
+            ],
+            "properties": {
+              "digestMode": {
+                "const": "RAW_BYTES"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "binding": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  },
+                  "revisionRef": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  }
+                },
+                "required": [
+                  "ref"
+                ]
+              },
+              "role": {
+                "not": {
+                  "enum": [
+                    "EFFECT_INTENT",
+                    "TRANSACTION_PROFILE",
+                    "TRANSACTION_TIME_POLICY",
+                    "PRIOR_ASSERTION",
+                    "PRIOR_CREATION_EVIDENCE"
+                  ]
+                }
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "binding": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  },
+                  "revisionRef": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  },
+                  "digest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "ref",
+                  "digest"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "stateFact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "role": {
+          "enum": [
+            "EFFECT_INTENT",
+            "ASSERTION_ACT",
+            "SUBJECT",
+            "SCOPE",
+            "RELATIONSHIP_PROOF",
+            "SEMANTIC_EVENT",
+            "EVENT_INGRESS_PROOF",
+            "EVIDENCE",
+            "PAYLOAD",
+            "PRIOR_ASSERTION",
+            "PRIOR_CREATION_EVIDENCE",
+            "RULE",
+            "EVIDENCE_POLICY",
+            "AUTHORIZATION_VIEW",
+            "TRANSACTION_TIME_POLICY",
+            "TRANSACTION_PROFILE",
+            "OTHER_DOMAIN_INPUT"
+          ]
+        },
+        "binding": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ref": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "revisionRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "digest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "ref",
+                "digest"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ref": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "revisionRef": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                }
+              },
+              "required": [
+                "ref"
+              ]
+            }
+          ]
+        },
+        "rawSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "revisionRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "availability": {
+          "enum": [
+            "COMMITTED_AT_TRANSACTION_START",
+            "FIXED_BEFORE_DOMAIN_VERDICT"
+          ]
+        },
+        "fixedInputVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "digestMode": {
+          "enum": [
+            "JCS_JSON",
+            "RAW_BYTES"
+          ]
+        },
+        "snapshotVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "observedVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        }
+      },
+      "required": [
+        "key",
+        "role",
+        "binding",
+        "rawSha256",
+        "availability",
+        "digestMode",
+        "observedVersion"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "const": "FIXED_BEFORE_DOMAIN_VERDICT"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "fixedInputVersion"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "fixedInputVersion"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "digestMode"
+            ],
+            "properties": {
+              "digestMode": {
+                "const": "RAW_BYTES"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "binding": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  },
+                  "revisionRef": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  }
+                },
+                "required": [
+                  "ref"
+                ]
+              },
+              "role": {
+                "not": {
+                  "enum": [
+                    "EFFECT_INTENT",
+                    "TRANSACTION_PROFILE",
+                    "TRANSACTION_TIME_POLICY",
+                    "PRIOR_ASSERTION",
+                    "PRIOR_CREATION_EVIDENCE"
+                  ]
+                }
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "binding": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  },
+                  "revisionRef": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
+                  },
+                  "digest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "ref",
+                  "digest"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "const": "COMMITTED_AT_TRANSACTION_START"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "snapshotVersion"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "snapshotVersion"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "readComparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "inputId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "requirementIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "minItems": 1
+        },
+        "expected": {
+          "$ref": "#/$defs/stateRead"
+        },
+        "contextSelection": {
+          "$ref": "#/$defs/locator"
+        },
+        "proofGuard": {
+          "$ref": "#/$defs/locator"
+        },
+        "snapshotObservation": {
+          "$ref": "#/$defs/locator"
+        },
+        "returnedFact": {
+          "$ref": "#/$defs/stateFact"
+        },
+        "outcome": {
+          "$ref": "#/$defs/outcome"
+        }
+      },
+      "required": [
+        "key",
+        "inputId",
+        "requirementIds",
+        "expected",
+        "outcome"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "properties": {
+                  "disposition": {
+                    "const": "PASS"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "contextSelection",
+              "proofGuard",
+              "returnedFact"
+            ],
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "expected": {
+                      "properties": {
+                        "availability": {
+                          "const": "COMMITTED_AT_TRANSACTION_START"
+                        }
+                      }
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "snapshotObservation"
+                  ]
+                },
+                "else": {
+                  "not": {
+                    "required": [
+                      "snapshotObservation"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "guardComparison": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "NEGATIVE"
+            },
+            "key": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "requirementIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "minItems": 1
+            },
+            "expected": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "predicateDigest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                },
+                "purpose": {
+                  "enum": [
+                    "ASSERTION_ID_ABSENCE",
+                    "OTHER_REQUIRED_ABSENCE"
+                  ]
+                }
+              },
+              "required": [
+                "key",
+                "predicateDigest",
+                "purpose"
+              ]
+            },
+            "proofObservation": {
+              "$ref": "#/$defs/locator"
+            },
+            "outcome": {
+              "$ref": "#/$defs/outcome"
+            },
+            "contextSelection": {
+              "$ref": "#/$defs/locator"
+            },
+            "snapshotObservation": {
+              "$ref": "#/$defs/locator"
+            }
+          },
+          "required": [
+            "kind",
+            "key",
+            "requirementIds",
+            "expected",
+            "outcome"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "outcome": {
+                    "properties": {
+                      "disposition": {
+                        "const": "PASS"
+                      }
+                    }
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "proofObservation",
+                  "contextSelection",
+                  "snapshotObservation"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "SET"
+            },
+            "key": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "requirementIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "minItems": 1
+            },
+            "expected": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "predicateDigest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                },
+                "members": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "ref": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 4096
+                          },
+                          "revisionRef": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 4096
+                          },
+                          "digest": {
+                            "type": "string",
+                            "pattern": "^sha256:[0-9a-f]{64}$"
+                          }
+                        },
+                        "required": [
+                          "ref",
+                          "digest"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "ref": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 4096
+                          },
+                          "revisionRef": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 4096
+                          },
+                          "digestMode": {
+                            "const": "RAW_BYTES"
+                          },
+                          "rawSha256": {
+                            "type": "string",
+                            "pattern": "^[0-9a-f]{64}$"
+                          }
+                        },
+                        "required": [
+                          "ref",
+                          "digestMode",
+                          "rawSha256"
+                        ]
+                      }
+                    ]
+                  },
+                  "minItems": 0,
+                  "maxItems": 4096
+                }
+              },
+              "required": [
+                "key",
+                "predicateDigest",
+                "members"
+              ]
+            },
+            "proofObservation": {
+              "$ref": "#/$defs/locator"
+            },
+            "outcome": {
+              "$ref": "#/$defs/outcome"
+            },
+            "contextSelection": {
+              "$ref": "#/$defs/locator"
+            },
+            "snapshotObservation": {
+              "$ref": "#/$defs/locator"
+            }
+          },
+          "required": [
+            "kind",
+            "key",
+            "requirementIds",
+            "expected",
+            "outcome"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "outcome": {
+                    "properties": {
+                      "disposition": {
+                        "const": "PASS"
+                      }
+                    }
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "proofObservation",
+                  "contextSelection",
+                  "snapshotObservation"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "WRITE"
+            },
+            "key": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "requirementIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              "minItems": 1
+            },
+            "expected": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "operation": {
+                  "enum": [
+                    "INSERT",
+                    "UPDATE",
+                    "DELETE"
+                  ]
+                },
+                "recordType": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "key": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "binding": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    }
+                  },
+                  "required": [
+                    "ref",
+                    "digest"
+                  ]
+                },
+                "rawSha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "operation",
+                "recordType",
+                "key",
+                "binding",
+                "rawSha256"
+              ]
+            },
+            "proofObservation": {
+              "$ref": "#/$defs/locator"
+            },
+            "outcome": {
+              "$ref": "#/$defs/outcome"
+            }
+          },
+          "required": [
+            "kind",
+            "key",
+            "requirementIds",
+            "expected",
+            "outcome"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "outcome": {
+                    "properties": {
+                      "disposition": {
+                        "const": "PASS"
+                      }
+                    }
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "proofObservation"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "$comment": "Domain collection bounds are exact independently derived cardinalities, not a uniform 4096 cap. See CAPACITY.md. Foreign #51 schemas and limits are unchanged."
+}

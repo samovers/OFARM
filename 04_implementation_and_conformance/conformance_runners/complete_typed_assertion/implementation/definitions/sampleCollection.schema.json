@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/sample-collection-specification/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainSampleCollectionSpecification.v0.1"
+    },
+    "definitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "activityRow": {
+      "const": "O10"
+    },
+    "workSpecificationBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "procedureBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "sampleBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "sampledPropertyBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "samplingProcedureBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "samplingProcedureVersionRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "collectionMeasurementBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "collectionContextBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "sampleTargetRelationProofBindings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+      }
+    },
+    "sampleTarget": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "FIELD",
+            "ZONE",
+            "CROP_CYCLE",
+            "LOT",
+            "PARTIAL_EXTENT"
+          ]
+        },
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        }
+      },
+      "required": [
+        "kind",
+        "binding"
+      ]
+    },
+    "completionProperty": {
+      "const": "PROTOCOL_SAMPLE_AND_SUPPORT_COLLECTION_RECORDED"
+    },
+    "custodyMeaning": {
+      "const": "PRESERVED_IS_COMPLETE_PARTIAL_AND_UNKNOWN_RETAIN_THEIR_NAMES"
+    },
+    "interpretationScope": {
+      "const": "REPORTED_COLLECTION_AND_SUPPORT_NOT_ANALYTICAL_TRUTH_OR_ADMISSION"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "definitionId",
+    "activityRow",
+    "workSpecificationBinding",
+    "procedureBinding",
+    "sampleBinding",
+    "sampledPropertyBinding",
+    "samplingProcedureBinding",
+    "samplingProcedureVersionRef",
+    "collectionMeasurementBinding",
+    "collectionContextBinding",
+    "completionProperty",
+    "custodyMeaning",
+    "interpretationScope"
+  ],
+  "$comment": "New domain-owned normative input. Exact independent selection and protected original bytes are required. No source admission, authority, runtime producer or statutory applicability is asserted.",
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "sampleTargetRelationProofBindings"
+        ]
+      },
+      "then": {
+        "required": [
+          "sampleTarget"
+        ]
+      }
+    }
+  ]
+}

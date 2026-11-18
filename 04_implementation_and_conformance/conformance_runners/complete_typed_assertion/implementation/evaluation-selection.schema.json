@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/evaluation-selection/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "selectionId",
+    "effectIntent",
+    "authorizationResult",
+    "currentActionRuleBinding"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainEvaluationSelection.v0.1"
+    },
+    "selectionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "effectIntent": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1#/$defs/recordBinding"
+    },
+    "authorizationResult": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1#/$defs/recordBinding"
+    },
+    "currentActionRuleBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1#/$defs/ruleBinding"
+    },
+    "sourceSelections": {
+      "type": "array",
+      "maxItems": 4096,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "binding",
+          "rawSha256",
+          "valueDigest"
+        ],
+        "properties": {
+          "binding": {
+            "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+          },
+          "rawSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "valueDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        }
+      }
+    }
+  },
+  "$comment": "Independently pinned domain input selection only. The authorization owner must verify its selected path/result/rule. This record never declares ALLOW, admission, eligibility or an authority subject."
+}

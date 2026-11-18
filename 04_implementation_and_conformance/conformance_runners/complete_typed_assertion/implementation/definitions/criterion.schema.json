@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/criterion-definition/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainCriterionDefinition.v0.1"
+    },
+    "definitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domainRow": {
+      "const": "C04"
+    },
+    "methodUseBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "operator": {
+      "enum": [
+        "LT",
+        "LE",
+        "GE",
+        "GT",
+        "BETWEEN"
+      ]
+    },
+    "threshold": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "quantityKind": {
+              "type": "string",
+              "minLength": 1
+            },
+            "unit": {
+              "type": "string",
+              "minLength": 1
+            },
+            "decimal": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/decimal"
+            },
+            "qualifier": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/complianceQuantity/properties/qualifier"
+            },
+            "originalLexicalValue": {
+              "type": "string",
+              "minLength": 1
+            },
+            "unitProfile": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+            },
+            "originalUnitText": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "quantityKind",
+            "unit",
+            "decimal",
+            "qualifier",
+            "originalLexicalValue",
+            "unitProfile"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "lower": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "quantityKind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "unit": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "decimal": {
+                  "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/decimal"
+                },
+                "qualifier": {
+                  "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/complianceQuantity/properties/qualifier"
+                },
+                "originalLexicalValue": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "unitProfile": {
+                  "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+                },
+                "originalUnitText": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "quantityKind",
+                "unit",
+                "decimal",
+                "qualifier",
+                "originalLexicalValue",
+                "unitProfile"
+              ]
+            },
+            "upper": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "quantityKind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "unit": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "decimal": {
+                  "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/decimal"
+                },
+                "qualifier": {
+                  "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/complianceQuantity/properties/qualifier"
+                },
+                "originalLexicalValue": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "unitProfile": {
+                  "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+                },
+                "originalUnitText": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "quantityKind",
+                "unit",
+                "decimal",
+                "qualifier",
+                "originalLexicalValue",
+                "unitProfile"
+              ]
+            },
+            "lowerInclusive": {
+              "type": "boolean"
+            },
+            "upperInclusive": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "lower",
+            "upper",
+            "lowerInclusive",
+            "upperInclusive"
+          ]
+        }
+      ]
+    },
+    "permittedResultKinds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "NUMERIC",
+          "CENSORED_NUMERIC",
+          "CODED",
+          "QUALITATIVE",
+          "ABSENT_PENDING"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "definitionId",
+    "domainRow",
+    "methodUseBinding",
+    "operator",
+    "threshold",
+    "permittedResultKinds"
+  ],
+  "$comment": "New domain-owned normative input. Exact independent selection and protected original bytes are required. No source admission, authority, runtime producer or statutory applicability is asserted.",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operator": {
+            "const": "BETWEEN"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "threshold": {
+            "required": [
+              "lower",
+              "upper"
+            ]
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "threshold": {
+            "required": [
+              "decimal"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

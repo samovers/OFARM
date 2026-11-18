@@ -1,0 +1,508 @@
+{
+  "status": "UNREVIEWED_CONSTRUCTION_GRAPH",
+  "duties": [
+    {
+      "id": "AR_SCHEMA",
+      "sourceColumns": [
+        "selected result-schema binding",
+        "`schemaVersion` is exactly `ofarm.assertionrecord.v0.2`"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "AR_ACTION_PROFILE",
+      "sourceColumns": [
+        "selected action rule and rule-bound intent schema",
+        "both must match one row in section 7.2"
+      ],
+      "prerequisites": [
+        "SELECTED_AUTHORIZATION_PATH"
+      ]
+    },
+    {
+      "id": "AR_EFFECT_SUBJECT",
+      "sourceColumns": [
+        "intent effect subject",
+        "kind and proposed ID match section 7.2 and `assertionRecordId` exactly"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "AR_ID",
+      "sourceColumns": [
+        "intent proposed assertion ID",
+        "exact copy to `assertionRecordId`"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "AR_TYPE",
+      "sourceColumns": [
+        "section 7.2 action/effect-subject row",
+        "exact derived `assertionType`; no caller or result override"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "AR_SUBJECT",
+      "sourceColumns": [
+        "intent assertion-subject binding covered by `effectIntentDigest`",
+        "exact copy to `subject`, including posture and conditional immutable selector"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "AR_SCOPE",
+      "sourceColumns": [
+        "sole rule-extracted `RP_SCOPE_ONE` `TARGET_SCOPE`",
+        "exact one-element `NARROWING` mapping to `anchorScopes`, including kind, ref, and immutable selector; other claim context remains in typed body/proof bindings"
+      ],
+      "prerequisites": [
+        "SELECTED_AUTHORIZATION_PATH"
+      ]
+    },
+    {
+      "id": "AR_SUBJECT_SCOPE_PROOF",
+      "sourceColumns": [
+        "intent relationship-proof bindings, conditional under section 5.2",
+        "exact copy or required absence, followed by relationship validation"
+      ],
+      "prerequisites": [
+        "SUBJECT_SCOPE_RELATION"
+      ]
+    },
+    {
+      "id": "AR_ASSERTOR",
+      "sourceColumns": [
+        "canonical selected path's `authoritySubjectPartyRef`",
+        "exact copy to `assertedByPartyRef`"
+      ],
+      "prerequisites": [
+        "SELECTED_AUTHORIZATION_PATH"
+      ]
+    },
+    {
+      "id": "AR_ASSERTED_AT",
+      "sourceColumns": [
+        "validated intent `/assertedAt` under section 6.2 posture",
+        "exact copy to result `/assertedAt`; never derive from `writeAuthorizationCheckedAt`, `effectCommittedAt`, `humanActedAt`, receipt, or subject time"
+      ],
+      "prerequisites": [
+        "ASSERTION_ACT"
+      ]
+    },
+    {
+      "id": "AR_ASSERTION_ACT_POSTURE",
+      "sourceColumns": [
+        "intent `/assertionActPosture`",
+        "exact copy to result; only the two section 6.2 values are allowed"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "AR_ASSERTION_ACT_EVIDENCE",
+      "sourceColumns": [
+        "conditional intent `/assertionActEvidenceBinding`",
+        "exact immutable copy for `VERIFIED_OFFLINE_SUBMISSION`; required absence for `TRUSTED_ONLINE_SUBMISSION`"
+      ],
+      "prerequisites": [
+        "ASSERTION_ACT"
+      ]
+    },
+    {
+      "id": "AR_SUBJECT_TIME",
+      "sourceColumns": [
+        "intent `/subjectTime`",
+        "exact copy of one section 6.4 object to result `/subjectTime`, including allowed discriminator, members, and endpoint posture"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "AR_BODY",
+      "sourceColumns": [
+        "intent action-typed assertion body",
+        "exact complete copy to `assertionBody`; no summarization, compilation replacement, or notes side channel"
+      ],
+      "prerequisites": [
+        "DOMAIN_MEANING",
+        "CONTEXT_IDENTITIES_AND_RELATIONS"
+      ]
+    },
+    {
+      "id": "AR_EVIDENCE",
+      "sourceColumns": [
+        "intent evidence revision bindings",
+        "exact complete non-empty array in `evidenceBindings`; no addition, omission, mutable ref, or ref-only downgrade"
+      ],
+      "prerequisites": [
+        "EVIDENCE_USE_AND_CITATION_CLOSURE"
+      ]
+    },
+    {
+      "id": "AR_CLAIM_STATE",
+      "sourceColumns": [
+        "contract constant",
+        "exactly `PENDING_REVIEW`"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "AR_EVENT_ASSOCIATION",
+      "sourceColumns": [
+        "optional intent `/associatedSemanticEventBinding` plus separately passing Event Ingress output",
+        "section 7.3 compatibility and trace binding; no AssertionRecord destination and no event-family derivation; legitimate `NOT_APPLICABLE` only when binding is absent"
+      ],
+      "prerequisites": [
+        "EVENT_OWNER",
+        "EVENT_DOMAIN"
+      ]
+    },
+    {
+      "id": "AR_OPERATION_POSTURE",
+      "sourceColumns": [
+        "operation only",
+        "exact copy of intent `claimPosture` to `operationClaimContext.claimPosture`"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "AR_OPERATION_PERFORMER",
+      "sourceColumns": [
+        "operation only",
+        "exact copy of intent `performedByPartyRef`; never derive from reporter or authority subject"
+      ],
+      "prerequisites": [
+        "PERFORMER_IDENTITY"
+      ]
+    },
+    {
+      "id": "AR_OPERATION_AGENT_ACTORSHIP",
+      "sourceColumns": [
+        "operation only",
+        "exact immutable array when posture is `PERFORMED` and the intent alleges agent performance; otherwise required absence"
+      ],
+      "prerequisites": [
+        "AGENT_ACTORSHIP"
+      ]
+    },
+    {
+      "id": "AR_OPERATION_PERFORMER_AUTHORITY",
+      "sourceColumns": [
+        "operation only",
+        "exact optional immutable array only for `PERFORMED`; trace retains `NOT_EVALUATED_BY_AUTHORIZATION` regardless of presence"
+      ],
+      "prerequisites": [
+        "PERFORMER_AUTHORITY_EVIDENCE"
+      ]
+    },
+    {
+      "id": "AR_OPERATION_PAYLOADS",
+      "sourceColumns": [
+        "operation only",
+        "any admitted intent/execution payload bindings remain exact inside the typed body; otherwise required absence"
+      ],
+      "prerequisites": [
+        "OPERATION_SOURCES"
+      ]
+    },
+    {
+      "id": "AR_COMPLIANCE_RULES",
+      "sourceColumns": [
+        "compliance only",
+        "exact complete non-empty rule-revision array to `complianceBasis.ruleRevisionBindings`"
+      ],
+      "prerequisites": [
+        "COMPLIANCE_RULE_SELECTION"
+      ]
+    },
+    {
+      "id": "AR_COMPLIANCE_EVIDENCE_POLICY",
+      "sourceColumns": [
+        "compliance only",
+        "exact complete non-empty evidence-policy-revision array to `complianceBasis.evidencePolicyRevisionBindings`"
+      ],
+      "prerequisites": [
+        "EVIDENCE_POLICY_SELECTION"
+      ]
+    },
+    {
+      "id": "AR_CORRECTION_LINEAGE",
+      "sourceColumns": [
+        "every subtype",
+        "when absolute `/assertionBody/assertionPosture` is `CORRECTION`, copy `/supersedesAssertionRecordBinding` exactly and require every section 5.5 compatibility condition to pass; require the binding absent for `INITIAL`"
+      ],
+      "prerequisites": [
+        "PRIOR_ASSERTION_CONTEXT"
+      ]
+    },
+    {
+      "id": "AR_STRUCTURE_BRANCH_ABSENCE",
+      "sourceColumns": [
+        "structure only",
+        "`operationClaimContext` and `complianceBasis` are absent"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "AR_OPERATION_BRANCH_ABSENCE",
+      "sourceColumns": [
+        "operation only",
+        "`complianceBasis` is absent"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "AR_COMPLIANCE_BRANCH_ABSENCE",
+      "sourceColumns": [
+        "compliance only",
+        "`operationClaimContext` is absent"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "AR_LEGACY_ABSENCE",
+      "sourceColumns": [
+        "all branches",
+        "`benefitingPartyRef`, flat legacy time fields, loose provenance/payload refs, legacy `supersedesAssertionRecordRef`, `supersededByReviewDecisionRef`, and `notes` are absent"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "PC_ONE_ASSERTION",
+      "sourceColumns": [
+        "exactly one new assertion ID resolves to one schema-valid immutable result"
+      ],
+      "prerequisites": [
+        "AR_SCHEMA",
+        "PROTECTED_PROPOSED_STATE"
+      ]
+    },
+    {
+      "id": "PC_VALIDATED_BYTES",
+      "sourceColumns": [
+        "committed AssertionRecord bytes equal the bytes validated by this contract"
+      ],
+      "prerequisites": [
+        "PROTECTED_PROPOSED_STATE",
+        "TRANSACTION_GATE_SELECTION"
+      ]
+    },
+    {
+      "id": "PC_INPUTS_IMMUTABLE",
+      "sourceColumns": [
+        "assertion-act evidence, subject, scope, proof, semantic event, evidence, payload, prior assertion and its creation/ingress evidence, rule, and evidence-policy inputs remain byte-identical"
+      ],
+      "prerequisites": [
+        "PROTECTED_PROPOSED_STATE",
+        "RESOLVED_INPUT_CLOSURE"
+      ]
+    },
+    {
+      "id": "PC_ACTION_TYPE",
+      "sourceColumns": [
+        "action, intent profile, effect subject, assertion subtype, and commit-class semantic-label/serialization-token pair match one section 7.2 row; no event family is inferred"
+      ],
+      "prerequisites": [
+        "AR_ACTION_PROFILE",
+        "AR_EFFECT_SUBJECT",
+        "AR_TYPE"
+      ]
+    },
+    {
+      "id": "PC_PENDING_REVIEW",
+      "sourceColumns": [
+        "result `claimState` is `PENDING_REVIEW`; no accepted or in-force result is emitted"
+      ],
+      "prerequisites": [
+        "AR_CLAIM_STATE"
+      ]
+    },
+    {
+      "id": "PC_SUBJECT_SCOPE",
+      "sourceColumns": [
+        "subject posture is truthful and the subject is exactly equal to, or proven within the governed relation to, the sole anchor scope"
+      ],
+      "prerequisites": [
+        "AR_SUBJECT",
+        "AR_SCOPE",
+        "AR_SUBJECT_SCOPE_PROOF"
+      ]
+    },
+    {
+      "id": "PC_ASSERTOR",
+      "sourceColumns": [
+        "asserting Party is the canonical selected authority subject and is not substituted by an approver, sponsor, principal, performer, or beneficiary"
+      ],
+      "prerequisites": [
+        "AR_ASSERTOR"
+      ]
+    },
+    {
+      "id": "PC_ASSERTION_ACT",
+      "sourceColumns": [
+        "`assertedAt`, act posture, conditional act evidence, and asserting Party satisfy section 6.2"
+      ],
+      "prerequisites": [
+        "AR_ASSERTOR",
+        "AR_ASSERTED_AT",
+        "AR_ASSERTION_ACT_POSTURE",
+        "AR_ASSERTION_ACT_EVIDENCE"
+      ]
+    },
+    {
+      "id": "PC_SUBJECT_TIME",
+      "sourceColumns": [
+        "the exact branch/posture profile, members, canonical timestamps, endpoint order, source selectors, and conditional payload equality satisfy sections 6.3 and 6.4"
+      ],
+      "prerequisites": [
+        "AR_SUBJECT_TIME",
+        "SUBJECT_TIME_SOURCES"
+      ]
+    },
+    {
+      "id": "PC_TEMPORAL_SEPARATION",
+      "sourceColumns": [
+        "the proposed AssertionRecord preserves exact governed assertedAt and subjectTime from its available inputs without substituting evidence/capture, ingress, approval, authorization, checkpoint or physical time; the selected branch adds no checkpoint or physical commit/consumption field to this result. This pre-T domain check does not validate later transaction evidence members; PR #26 sections 9.4/13.3 own them"
+      ],
+      "prerequisites": []
+    },
+    {
+      "id": "PC_EVENT_ASSOCIATION",
+      "sourceColumns": [
+        "section 7.3 association passes when bound and is `NOT_APPLICABLE` when absent; AssertionRecord subtype never selects a family"
+      ],
+      "prerequisites": [
+        "AR_EVENT_ASSOCIATION"
+      ]
+    },
+    {
+      "id": "PC_CORRECTION_LINEAGE",
+      "sourceColumns": [
+        "section 5.5 posture, exact immutable prior binding, positive prior-record visibility in the trusted transaction-start snapshot, subtype, governance boundary/twin, authority anchor, and logical subject all agree without mutating or deactivating the prior assertion"
+      ],
+      "prerequisites": [
+        "AR_CORRECTION_LINEAGE"
+      ]
+    },
+    {
+      "id": "PC_NO_UNBOUND_EFFECT",
+      "sourceColumns": [
+        "no prior record mutation, event envelope, review, consequence, materialization, or other governed result is inserted or changed without its own applicable authority and contract"
+      ],
+      "prerequisites": [
+        "PROTECTED_PROPOSED_STATE"
+      ]
+    },
+    {
+      "id": "PC_NO_CURRENT_STATE",
+      "sourceColumns": [
+        "this contract neither writes current state nor marks the assertion accepted solely because submission passed"
+      ],
+      "prerequisites": [
+        "PROTECTED_PROPOSED_STATE",
+        "AR_CLAIM_STATE"
+      ]
+    },
+    {
+      "id": "PC_TRANSACTION_HANDOFF",
+      "sourceColumns": [
+        "the applicable transaction gate binds the exact passing result/trace and commits the effect, authorization/finalization evidence, receipt, and single-use consumption atomically"
+      ],
+      "prerequisites": [
+        "TRANSACTION_GATE_SELECTION"
+      ]
+    },
+    {
+      "id": "PC_UNIQUE_ID",
+      "sourceColumns": [
+        "a duplicate assertion ID with different bytes is rejected"
+      ],
+      "prerequisites": [
+        "PROTECTED_PROPOSED_STATE"
+      ]
+    },
+    {
+      "id": "PC_STRUCTURE",
+      "sourceColumns": [
+        "only a pending structure claim is created; no durable structure identity, revision, boundary, role, pack state, or current structural state changes"
+      ],
+      "prerequisites": [
+        "AR_BODY",
+        "PC_NO_UNBOUND_EFFECT",
+        "PC_PENDING_REVIEW"
+      ]
+    },
+    {
+      "id": "PC_OPERATION",
+      "sourceColumns": [
+        "claim posture, reporter, performer, agent actorship, performer-authority evidence, closed subject-time profile, and payloads satisfy sections 5.3 and 6.4; no execution is accepted"
+      ],
+      "prerequisites": [
+        "AR_OPERATION_POSTURE",
+        "AR_OPERATION_PERFORMER",
+        "AR_OPERATION_AGENT_ACTORSHIP",
+        "AR_OPERATION_PERFORMER_AUTHORITY",
+        "AR_OPERATION_PAYLOADS",
+        "PC_SUBJECT_TIME",
+        "AR_BODY",
+        "PC_NO_UNBOUND_EFFECT",
+        "PC_PENDING_REVIEW"
+      ]
+    },
+    {
+      "id": "PC_COMPLIANCE",
+      "sourceColumns": [
+        "exact rules, evidence policies, evidence, closed subject-time profile, and body satisfy sections 5.4 and 6.4; no compliance fact or certification state is created"
+      ],
+      "prerequisites": [
+        "AR_COMPLIANCE_RULES",
+        "AR_COMPLIANCE_EVIDENCE_POLICY",
+        "AR_EVIDENCE",
+        "PC_SUBJECT_TIME",
+        "AR_BODY",
+        "PC_NO_UNBOUND_EFFECT",
+        "PC_PENDING_REVIEW"
+      ]
+    },
+    {
+      "id": "PC_BRANCH_ABSENCE",
+      "sourceColumns": [
+        "every field inapplicable to the selected branch is absent"
+      ],
+      "prerequisites": [
+        "AR_STRUCTURE_BRANCH_ABSENCE",
+        "AR_OPERATION_BRANCH_ABSENCE",
+        "AR_COMPLIANCE_BRANCH_ABSENCE",
+        "AR_LEGACY_ABSENCE"
+      ]
+    }
+  ],
+  "ownerDependencies": {
+    "SELECTED_AUTHORIZATION_PATH": "Existing authorization owner must supply the canonical selected authoritySubjectPartyRef, path basis and exact action/rule/schema/contract selection. actingPartyRef and the act fixture expectation are not substitutes.",
+    "SUBJECT_SCOPE_RELATION": "Typed immutable subject/anchor resolution and any required directed relation at the selected time and extent.",
+    "ASSERTION_ACT": "Exact act owner checker over original content, intent, source, context, policy and profile bytes.",
+    "DOMAIN_MEANING": "All source predicates and returned source roles for every recursive atom, not only intrinsic or selected-meaning equality.",
+    "CONTEXT_IDENTITIES_AND_RELATIONS": "Every typed body context resolves at its exact selected identity and directed relation use time, without widening the sole authority anchor.",
+    "EVIDENCE_USE_AND_CITATION_CLOSURE": "Typed role table, every selected original evidence record and its existing use/admission mechanism.",
+    "EVENT_OWNER": "Exact pre-verdict Event Ingress checker; no later ingress result substitutes for it.",
+    "EVENT_DOMAIN": "Complete selected event meaning, subject/anchor, time and body/payload comparisons.",
+    "PERFORMER_IDENTITY": "Selected performer identity and source linkage, distinct from reporter and authority subject.",
+    "AGENT_ACTORSHIP": "Existing agent actorship evidence for performed software-agent allegations.",
+    "PERFORMER_AUTHORITY_EVIDENCE": "Actual optional evidence comparison; it never changes NOT_EVALUATED_BY_AUTHORIZATION.",
+    "OPERATION_SOURCES": "Actual intent/execution sources plus every row-required source role.",
+    "COMPLIANCE_RULE_SELECTION": "Exact selected governing rule revisions and their applicability predicates.",
+    "EVIDENCE_POLICY_SELECTION": "Exact selected evidence-policy revisions and eligible-use predicates.",
+    "PRIOR_ASSERTION_CONTEXT": "Storage-owner positive start-snapshot visibility plus subtype, boundary/twin, anchor and logical-subject comparisons.",
+    "PROTECTED_PROPOSED_STATE": "Exact pre-verdict state-owner checker and binding to these original intent/result bytes.",
+    "TRANSACTION_GATE_SELECTION": "Reviewed owner selection of the applicable later atomic gate and pre-verdict handoff predicate. This is not a receipt or proof of an already completed atomic commit.",
+    "RESOLVED_INPUT_CLOSURE": "Every selected immutable input and original raw byte hash appears in the protected read set.",
+    "SUBJECT_TIME_SOURCES": "Exact profile-specific source selectors, including independent measurement for PERFORMED_INSTANT."
+  },
+  "sequence": [
+    "original immutable input closure",
+    "pre-verdict owned and owner comparisons",
+    "domain payload and separate trace when implementation is complete",
+    "later applicable atomic transaction gate"
+  ],
+  "transactionConstraint": "No earlier domain evaluation accepts or requires its own later receipt, checkpoint or trace. The pre-verdict handoff predicate needs exact owner review; state conformance alone is insufficient."
+}
