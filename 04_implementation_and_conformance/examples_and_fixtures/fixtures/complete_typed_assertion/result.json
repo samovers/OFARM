@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "ofarm.assertionrecord.typed.v0.1",
+  "assertionRecordId": "assertion:fictional:performed_interval",
+  "assertionType": "OPERATION_CLAIM_ASSERTION",
+  "anchorScopes": [
+    {
+      "scopeType": "FIELD",
+      "scopeRef": "field:17",
+      "revisionRef": "r1"
+    }
+  ],
+  "assertedByPartyRef": "party:fictional:natural_person_self",
+  "claimState": "PENDING_REVIEW",
+  "subject": {
+    "subjectPosture": "EXISTING_SUBJECT",
+    "subjectType": "FIELD",
+    "subjectRef": "field:17",
+    "revisionRef": "r1"
+  },
+  "assertedAt": "2026-10-20T12:34:56.123456789Z",
+  "assertionActPosture": "TRUSTED_ONLINE_SUBMISSION",
+  "subjectTime": {
+    "profile": "PERFORMED_INTERVAL",
+    "start": "2026-05-07T17:10:00Z",
+    "end": "2026-05-07T18:25:00Z"
+  },
+  "assertionBody": {
+    "assertionPosture": "INITIAL",
+    "claimText": "Pending claim: {\"allegesSoftwareAgentPerformance\":false,\"assertionPosture\":\"INITIAL\",\"candidateGrammar\":\"ofarm.complete-typed-claims.v0.1\",\"claimPosture\":\"PERFORMED\",\"claimState\":\"PENDING_REVIEW\",\"evidenceBindings\":[{\"digest\":\"sha256:a0e74e8715bf08d2fc9c0c8218042c27d6498e75abc58bcb3a0879870f32f921\",\"ref\":\"measurement-evidence:field-17:weed-patch-photo-count:2026-05-06\"},{\"digest\":\"sha256:b8e2f24404326f37bdb106c606ab2c0ad24c139b408f6c79631ee61ed87e8429\",\"ref\":\"measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq\"}],\"executionRecordPayloadBindings\":[{\"digest\":\"sha256:d84de6cd6c60631b99c5dc84f63cb85b1a6bc2f26d3be1632e974b9fdb7aea80\",\"ref\":\"execution:fiction:O08:not-linked\",\"schemaDigest\":\"sha256:ca62f01d056794ee588d55c3f5df652fc039124b76af5631d417714bc7059ff0\",\"schemaRef\":\"https://ofarm.dev/schema/executionrecordpayload/v0.1\",\"schemaVersion\":\"ofarm.executionrecordpayload.v0.1\"}],\"performedBy\":{\"ref\":\"party:performer-fictional\",\"revisionRef\":\"r1\"},\"proposition\":{\"atomId\":\"atom:O08\",\"body\":{\"activity\":\"PRUNE\",\"activityInstance\":{\"ref\":\"work:O08:fictional\",\"revisionRef\":\"r1\"},\"claimPosture\":\"PERFORMED\",\"extent\":{\"binding\":{\"ref\":\"extent:E\",\"revisionRef\":\"r1\"},\"posture\":\"PARTIAL_TARGET_SCOPE\"},\"interventionKind\":\"PRUNING\",\"parameters\":{\"method\":{\"ref\":\"method:row-selective-pruning\",\"revisionRef\":\"r1\"},\"plantPart\":{\"ref\":\"plant-part:canopy\",\"revisionRef\":\"r1\"},\"workExtent\":\"WEST_EDGE_ONLY\"},\"performanceFacet\":\"OCCURRENCE\",\"performedBy\":{\"ref\":\"party:performer-fictional\",\"revisionRef\":\"r1\"},\"quantityParameters\":[],\"target\":{\"binding\":{\"ref\":\"field:17\",\"revisionRef\":\"r1\"},\"kind\":\"FIELD\"},\"workSpecification\":{\"activityInstance\":{\"ref\":\"work:O08:fictional\",\"revisionRef\":\"r1\"},\"binding\":{\"ref\":\"work-spec:O08:fictional\",\"revisionRef\":\"r1\"},\"extent\":{\"binding\":{\"ref\":\"extent:E\",\"revisionRef\":\"r1\"},\"posture\":\"PARTIAL_TARGET_SCOPE\"},\"finishConditionIds\":[\"finish:O08\"],\"inProgressConditionIds\":[\"progress:O08\"],\"procedure\":{\"ref\":\"method:row-selective-pruning\",\"revisionRef\":\"r1\"},\"startConditionIds\":[\"start:O08\"],\"target\":{\"binding\":{\"ref\":\"field:17\",\"revisionRef\":\"r1\"},\"kind\":\"FIELD\"}}},\"definition\":\"candidate:assertion-domain-construction:2026-10-21:r2:O08\",\"form\":\"ATOM\",\"scope\":{\"extent\":{\"binding\":{\"ref\":\"extent:E\",\"revisionRef\":\"r1\"},\"posture\":\"PARTIAL_TARGET_SCOPE\"},\"subject\":{\"revisionRef\":\"r1\",\"subjectPosture\":\"EXISTING_SUBJECT\",\"subjectRef\":\"field:17\",\"subjectType\":\"FIELD\"},\"subjectTime\":{\"end\":\"2026-05-07T18:25:00Z\",\"profile\":\"PERFORMED_INTERVAL\",\"start\":\"2026-05-07T17:10:00Z\"}}},\"selectedAction\":\"ASSERT_OPERATION_CLAIM\",\"soleAuthorityAnchor\":{\"revisionRef\":\"r1\",\"scopeRef\":\"field:17\",\"scopeType\":\"FIELD\"},\"subject\":{\"revisionRef\":\"r1\",\"subjectPosture\":\"EXISTING_SUBJECT\",\"subjectRef\":\"field:17\",\"subjectType\":\"FIELD\"},\"subjectTime\":{\"end\":\"2026-05-07T18:25:00Z\",\"profile\":\"PERFORMED_INTERVAL\",\"start\":\"2026-05-07T17:10:00Z\"},\"temporalBasis\":{\"sourceKind\":\"BODY_TIME\",\"time\":{\"end\":\"2026-05-07T18:25:00Z\",\"profile\":\"PERFORMED_INTERVAL\",\"start\":\"2026-05-07T17:10:00Z\"}}}.",
+    "allegesSoftwareAgentPerformance": false,
+    "temporalBasis": {
+      "sourceKind": "BODY_TIME",
+      "time": {
+        "profile": "PERFORMED_INTERVAL",
+        "start": "2026-05-07T17:10:00Z",
+        "end": "2026-05-07T18:25:00Z"
+      }
+    },
+    "claimLanguageRevision": "ofarm.complete-typed-claims.v0.1",
+    "proposition": {
+      "form": "ATOM",
+      "atomId": "atom:O08",
+      "definition": "candidate:assertion-domain-construction:2026-10-21:r2:O08",
+      "scope": {
+        "subject": {
+          "subjectPosture": "EXISTING_SUBJECT",
+          "subjectType": "FIELD",
+          "subjectRef": "field:17",
+          "revisionRef": "r1"
+        },
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-05-07T17:10:00Z",
+          "end": "2026-05-07T18:25:00Z"
+        },
+        "extent": {
+          "posture": "PARTIAL_TARGET_SCOPE",
+          "binding": {
+            "ref": "extent:E",
+            "revisionRef": "r1"
+          }
+        }
+      },
+      "body": {
+        "activity": "PRUNE",
+        "interventionKind": "PRUNING",
+        "claimPosture": "PERFORMED",
+        "performanceFacet": "OCCURRENCE",
+        "activityInstance": {
+          "ref": "work:O08:fictional",
+          "revisionRef": "r1"
+        },
+        "target": {
+          "kind": "FIELD",
+          "binding": {
+            "ref": "field:17",
+            "revisionRef": "r1"
+          }
+        },
+        "performedBy": {
+          "ref": "party:performer-fictional",
+          "revisionRef": "r1"
+        },
+        "extent": {
+          "posture": "PARTIAL_TARGET_SCOPE",
+          "binding": {
+            "ref": "extent:E",
+            "revisionRef": "r1"
+          }
+        },
+        "parameters": {
+          "method": {
+            "ref": "method:row-selective-pruning",
+            "revisionRef": "r1"
+          },
+          "plantPart": {
+            "ref": "plant-part:canopy",
+            "revisionRef": "r1"
+          },
+          "workExtent": "WEST_EDGE_ONLY"
+        },
+        "quantityParameters": [],
+        "workSpecification": {
+          "binding": {
+            "ref": "work-spec:O08:fictional",
+            "revisionRef": "r1"
+          },
+          "activityInstance": {
+            "ref": "work:O08:fictional",
+            "revisionRef": "r1"
+          },
+          "procedure": {
+            "ref": "method:row-selective-pruning",
+            "revisionRef": "r1"
+          },
+          "target": {
+            "kind": "FIELD",
+            "binding": {
+              "ref": "field:17",
+              "revisionRef": "r1"
+            }
+          },
+          "extent": {
+            "posture": "PARTIAL_TARGET_SCOPE",
+            "binding": {
+              "ref": "extent:E",
+              "revisionRef": "r1"
+            }
+          },
+          "startConditionIds": [
+            "start:O08"
+          ],
+          "inProgressConditionIds": [
+            "progress:O08"
+          ],
+          "finishConditionIds": [
+            "finish:O08"
+          ]
+        }
+      }
+    },
+    "performedByBinding": {
+      "ref": "party:performer-fictional",
+      "revisionRef": "r1"
+    },
+    "executionRecordPayloadBindings": [
+      {
+        "ref": "execution:fiction:O08:not-linked",
+        "schemaVersion": "ofarm.executionrecordpayload.v0.1",
+        "schemaRef": "https://ofarm.dev/schema/executionrecordpayload/v0.1",
+        "schemaDigest": "sha256:ca62f01d056794ee588d55c3f5df652fc039124b76af5631d417714bc7059ff0",
+        "digest": "sha256:d84de6cd6c60631b99c5dc84f63cb85b1a6bc2f26d3be1632e974b9fdb7aea80"
+      }
+    ]
+  },
+  "evidenceBindings": [
+    {
+      "ref": "measurement-evidence:field-17:weed-patch-photo-count:2026-05-06",
+      "digest": "sha256:a0e74e8715bf08d2fc9c0c8218042c27d6498e75abc58bcb3a0879870f32f921"
+    },
+    {
+      "ref": "measurement-evidence:field-17:soil-nitrate:2026-05-08:below-loq",
+      "digest": "sha256:b8e2f24404326f37bdb106c606ab2c0ad24c139b408f6c79631ee61ed87e8429"
+    }
+  ],
+  "operationClaimContext": {
+    "claimPosture": "PERFORMED",
+    "performedByPartyRef": "party:performer-fictional"
+  }
+}

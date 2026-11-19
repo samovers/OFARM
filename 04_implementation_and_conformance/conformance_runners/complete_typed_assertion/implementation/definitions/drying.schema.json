@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/drying-finish-specification/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainDryingFinishSpecification.v0.1"
+    },
+    "definitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "activityRow": {
+      "const": "O07"
+    },
+    "workSpecificationBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "procedureBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "inputLot": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "targetMoistureParameter": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O07/properties/body/properties/quantityParameters/items"
+    },
+    "propertyBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "quantityContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "quantityKind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unitProfile": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        }
+      },
+      "required": [
+        "quantityKind",
+        "unit",
+        "unitProfile"
+      ]
+    },
+    "ratioMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "numerator": {
+          "const": "WATER_MASS"
+        },
+        "massBasis": {
+          "enum": [
+            "WET_BASIS",
+            "DRY_BASIS"
+          ]
+        },
+        "denominator": {
+          "enum": [
+            "TOTAL_WET_MASS",
+            "DRY_SOLIDS_MASS"
+          ]
+        },
+        "scale": {
+          "enum": [
+            1,
+            100
+          ]
+        }
+      },
+      "required": [
+        "numerator",
+        "massBasis",
+        "denominator",
+        "scale"
+      ]
+    },
+    "thresholdOperator": {
+      "enum": [
+        "LE",
+        "LT"
+      ]
+    },
+    "targetThresholdMeaning": {
+      "const": "SELECTED_UPPER_BOUND_WITH_REPORTING_QUALIFICATIONS_RETAINED"
+    },
+    "finishConditionIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "interpretationScope": {
+      "const": "MOISTURE_TARGET_AND_EVERY_BOUND_PROCEDURE_FINISH_CONDITION"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "definitionId",
+    "activityRow",
+    "workSpecificationBinding",
+    "procedureBinding",
+    "inputLot",
+    "targetMoistureParameter",
+    "propertyBinding",
+    "quantityContext",
+    "ratioMeaning",
+    "thresholdOperator",
+    "targetThresholdMeaning",
+    "finishConditionIds",
+    "interpretationScope"
+  ],
+  "$comment": "New domain-owned normative input. Exact independent selection and protected original bytes are required. No source admission, authority, runtime producer or statutory applicability is asserted.",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "ratioMeaning": {
+            "properties": {
+              "massBasis": {
+                "const": "WET_BASIS"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "ratioMeaning": {
+            "properties": {
+              "denominator": {
+                "const": "TOTAL_WET_MASS"
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "ratioMeaning": {
+            "properties": {
+              "denominator": {
+                "const": "DRY_SOLIDS_MASS"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

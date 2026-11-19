@@ -1,0 +1,119 @@
+{
+  "contractId": "ofarm.protectedeffect.assertionrecord.complete-typed.submit.v0.1",
+  "contractVersion": "0.1",
+  "contractRef": "candidate:assertion-domain:complete-typed-submit:v0.1",
+  "status": "DRAFT_NON_DEFAULT_CONSTRUCTION",
+  "implementationCompleteness": "INCOMPLETE",
+  "primaryTrustBoundary": "AssertionRecord domain meaning and validation integrity",
+  "canonicalization": "JCS_RFC8785_SHA256",
+  "resultSchemaBinding": {
+    "schemaRef": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1",
+    "schemaVersion": "ofarm.assertionrecord.typed.v0.1",
+    "schemaDigest": "sha256:f3362cbbb135584f8d7c96dcf01c27c60e727b48b1b1f8700f9f57ec0bbe9f05",
+    "canonicalization": "JCS_RFC8785_SHA256"
+  },
+  "payloadSchemaBinding": {
+    "schemaRef": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.4",
+    "schemaVersion": "ofarm.assertionRecordDomainValidationPayload.v0.4",
+    "schemaDigest": "sha256:674c84e2c8fe56da2c10e95dd25957d323f911f5771ff86bf04ba5381e278557",
+    "canonicalization": "JCS_RFC8785_SHA256"
+  },
+  "definitionRegistryDigest": "sha256:f9d22cfc6a2af4b08e48fef60da175672ca57fbe2cbfbbf74534a6d6b0d19117",
+  "dutyGraphDigest": "sha256:cf20d4a7560e9396d1551006de08857a0131c7da0f823d8cb399696feabdb309",
+  "actions": {
+    "ASSERT_STRUCTURE": {
+      "intentSchemaBinding": {
+        "schemaRef": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1",
+        "schemaVersion": "ofarm.structureassertioneffectintent.typed.v0.1",
+        "schemaDigest": "sha256:e1f2388d8a277a0083bdd6c68549a674280d14449d7d83e74c237a137eb83817",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      },
+      "bodySchemaBinding": {
+        "schemaRef": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/structureAssertionBody",
+        "schemaVersion": "ofarm.complete-typed-claims.v0.1",
+        "schemaDigest": "sha256:f3362cbbb135584f8d7c96dcf01c27c60e727b48b1b1f8700f9f57ec0bbe9f05",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      },
+      "recordCommitClass": {
+        "constitutionalLabel": "structure assertion",
+        "serializationToken": "STRUCTURE_ASSERTION"
+      },
+      "predicateConstants": {
+        "intent.schemaVersion": "ofarm.structureassertioneffectintent.typed.v0.1",
+        "result.schemaVersion": "ofarm.assertionrecord.typed.v0.1",
+        "intent.effectKind": "STRUCTURE_ASSERTION",
+        "intent.effectPosture": "PROSPECTIVE_TARGET_ALLOWED",
+        "result.assertionType": "STRUCTURE_ASSERTION",
+        "result.pending": "PENDING_REVIEW"
+      }
+    },
+    "ASSERT_OPERATION_CLAIM": {
+      "intentSchemaBinding": {
+        "schemaRef": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/operation-intent/v0.1",
+        "schemaVersion": "ofarm.operationassertioneffectintent.typed.v0.1",
+        "schemaDigest": "sha256:bacf7bc27ae430e79fc5c5c084a7fe1bef529ef8d6a5487c384ee5e69b485c71",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      },
+      "bodySchemaBinding": {
+        "schemaRef": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/operationClaimBody",
+        "schemaVersion": "ofarm.complete-typed-claims.v0.1",
+        "schemaDigest": "sha256:f3362cbbb135584f8d7c96dcf01c27c60e727b48b1b1f8700f9f57ec0bbe9f05",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      },
+      "recordCommitClass": {
+        "constitutionalLabel": "operation claim",
+        "serializationToken": "OPERATION_CLAIM"
+      },
+      "predicateConstants": {
+        "intent.schemaVersion": "ofarm.operationassertioneffectintent.typed.v0.1",
+        "result.schemaVersion": "ofarm.assertionrecord.typed.v0.1",
+        "intent.effectKind": "OPERATION_ASSERTION",
+        "intent.effectPosture": "PROSPECTIVE_TARGET_ALLOWED",
+        "result.assertionType": "OPERATION_CLAIM_ASSERTION",
+        "result.pending": "PENDING_REVIEW"
+      }
+    },
+    "ASSERT_COMPLIANCE": {
+      "intentSchemaBinding": {
+        "schemaRef": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/compliance-intent/v0.1",
+        "schemaVersion": "ofarm.complianceassertioneffectintent.typed.v0.1",
+        "schemaDigest": "sha256:91dcf0b8764762dd494fb082c7fa341320f90fddce9674af4feadd1fec474cac",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      },
+      "bodySchemaBinding": {
+        "schemaRef": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/complianceAssertionBody",
+        "schemaVersion": "ofarm.complete-typed-claims.v0.1",
+        "schemaDigest": "sha256:f3362cbbb135584f8d7c96dcf01c27c60e727b48b1b1f8700f9f57ec0bbe9f05",
+        "canonicalization": "JCS_RFC8785_SHA256"
+      },
+      "recordCommitClass": {
+        "constitutionalLabel": "compliance assertion",
+        "serializationToken": "COMPLIANCE_ASSERTION"
+      },
+      "predicateConstants": {
+        "intent.schemaVersion": "ofarm.complianceassertioneffectintent.typed.v0.1",
+        "result.schemaVersion": "ofarm.assertionrecord.typed.v0.1",
+        "intent.effectKind": "COMPLIANCE_ASSERTION",
+        "intent.effectPosture": "PROSPECTIVE_TARGET_ALLOWED",
+        "result.assertionType": "COMPLIANCE_ASSERTION",
+        "result.pending": "PENDING_REVIEW"
+      }
+    }
+  },
+  "confirmedForeignInterfacePrerequisites": [],
+  "reviewedAuthorizationInterface": {
+    "pullRequest": 56,
+    "head": "b1bf4f56fbdff604e9f5610cc29e8b3e9b31a224",
+    "contractRawSha256": "a743f18edb78769a24499ce933ff6af4c4ed89f781566d3a739ac9defa1f9a79",
+    "scope": "SELECTED_OWNER_OUTPUT_INTEGRITY_ONLY"
+  },
+  "reviewedOccupancyInterface": {
+    "pullRequest": 57,
+    "head": "96d3cbc511c083f16458d4bd6d9c774be1115029",
+    "contractRawSha256": "8d0bf72d370b08601d5bd8e909609095f54ab15bb20d95d0c28beea70a188ea0",
+    "scope": "CONDITIONAL_SELECTED_SOURCE_EVIDENCE_ONLY"
+  },
+  "laterTransactionGate": "Evaluated after this domain payload/trace. No later receipt, checkpoint or trace is an input to this verifier.",
+  "hashRule": "Whole RFC8785 contract value excluding exactly its own top-level contractDigest.",
+  "contractDigest": "sha256:ab41daa1426672b38bf98e6b4358f133b4a97639e26b8847e35116a70ef48e24"
+}

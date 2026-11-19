@@ -1,0 +1,142 @@
+{
+  "id": "fictional-criterion-owner:W05:v3",
+  "status": "FICTIONAL_PINNED_EXPECTATIONS_NOT_ADOPTED_RULE_OR_OWNER_ADMISSION",
+  "criterionBinding": {
+    "fixtureLogicalRef": "criterion:W05-nitrate-fictional",
+    "fixtureRevision": "r1",
+    "admittedRuntimeBinding": false
+  },
+  "ruleBinding": {
+    "fixtureLogicalRef": "rule:fictional",
+    "fixtureRevision": "r1",
+    "admittedRuntimeBinding": false
+  },
+  "evidencePolicyBinding": {
+    "fixtureLogicalRef": "policy:fictional",
+    "fixtureRevision": "r1",
+    "admittedRuntimeBinding": false
+  },
+  "definition": "local-candidate:complete-claims:2026-10-21:amendment-02#C04",
+  "declaredUse": "PENDING_COMPLIANCE_ALLEGATION_ONLY",
+  "subject": {
+    "kind": "FIELD",
+    "binding": {
+      "fixtureLogicalRef": "field:fictional",
+      "fixtureRevision": "r1",
+      "admittedRuntimeBinding": false
+    }
+  },
+  "subjectTime": {
+    "profile": "COMPLIANCE_AS_OF",
+    "at": "2026-05-07T18:25:00Z"
+  },
+  "extent": {
+    "posture": "FULL_TARGET_SCOPE",
+    "binding": {
+      "fixtureLogicalRef": "field:fictional",
+      "fixtureRevision": "r1",
+      "admittedRuntimeBinding": false
+    }
+  },
+  "sampleRef": "sample:W05-soil-fictional",
+  "observedPropertyRef": "observed-property:soil-nitrate-n",
+  "matrixRef": "matrix:soil",
+  "analyteRefs": [
+    "analyte:nitrate-n"
+  ],
+  "phenomenonTime": {
+    "timeType": "INSTANT",
+    "instant": "2026-05-06T10:05:00Z",
+    "timeBasis": "SAMPLE_TIME"
+  },
+  "timeUse": {
+    "sampleMustBeNoLaterThanAsOf": true,
+    "resultMayArriveAfterAsOf": true,
+    "claimDoesNotAllegeAnalysisAtSampleTime": true
+  },
+  "samplingProtocol": {
+    "procedureRef": "protocol:soil-sampling:composite-topsoil:v1",
+    "procedureStatus": "DOCUMENTED_METHOD",
+    "issuerRef": "issuer:ofarm-example-profile",
+    "versionRef": "v1"
+  },
+  "measurementMethod": {
+    "procedureRef": "method:soil-nitrate-colorimetric:example-v2",
+    "procedureStatus": "DOCUMENTED_METHOD",
+    "issuerRef": "lab:soil-lab-alpha",
+    "versionRef": "v2"
+  },
+  "contextRef": "observation-context:W05-nitrate-fictional",
+  "spatialBasis": "COMPOSITE_SAMPLE_SUPPORT",
+  "supportExtentRef": "extent:W05-composite-fictional",
+  "geometryBasisRef": "geometry:W05-composite-fictional",
+  "measurementBinding": {
+    "fixtureLogicalRef": "nitrate-measurement:fictional",
+    "fixtureRevision": "r1",
+    "admittedRuntimeBinding": false
+  },
+  "contextBinding": {
+    "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+    "fixtureRevision": "r1",
+    "admittedRuntimeBinding": false
+  },
+  "subjectRelationBinding": {
+    "fixtureLogicalRef": "sample-to-field:fictional",
+    "fixtureRevision": "r1",
+    "admittedRuntimeBinding": false
+  },
+  "methodUseBinding": {
+    "fixtureLogicalRef": "method-use:W05-nitrate-fictional",
+    "fixtureRevision": "r1",
+    "admittedRuntimeBinding": false
+  },
+  "resultPointer": "/result",
+  "qualificationPointers": [
+    "/uncertainty"
+  ],
+  "resultKind": "CENSORED_NUMERIC",
+  "censoringQualifier": "BELOW_LOQ",
+  "limit": {
+    "limitType": "LOQ",
+    "quantityKindRef": "qudt:MassFraction",
+    "unitRef": "ucum:mg.kg-1",
+    "value": 2,
+    "qualifier": "below quantification limit"
+  },
+  "originalResultLexicalValue": "< 2 mg/kg",
+  "originalUnitText": "mg/kg",
+  "uncertainty": {
+    "uncertaintyClass": "QUALITATIVE",
+    "statement": "Below-LOQ result is analytically qualified; do not convert to exact zero."
+  },
+  "admissibleValues": {
+    "kind": "INTERVAL",
+    "lower": {
+      "decimal": "0",
+      "inclusive": true
+    },
+    "upper": {
+      "decimal": "2",
+      "inclusive": false
+    },
+    "basis": "METHOD_NONNEGATIVE_BELOW_LOQ"
+  },
+  "operator": "LE",
+  "threshold": {
+    "quantityKind": "qudt:MassFraction",
+    "unit": "ucum:mg.kg-1",
+    "decimal": "1",
+    "qualifier": "HUMAN_REPORTED",
+    "originalLexicalValue": "1",
+    "unitProfile": {
+      "fixtureLogicalRef": "unit-profile:example",
+      "fixtureRevision": "r1",
+      "admittedRuntimeBinding": false
+    }
+  },
+  "allegedOutcome": "INDETERMINATE",
+  "evidenceStatus": "REVIEW_REQUIRED",
+  "chainOfCustodyStatus": "PRESERVED",
+  "scopeLimit": "The sample-support-to-field use is a separately fictional owner qualification. The original canonical field-17 sample is not evidence about field:fictional. No general sample-to-whole-field inference is admitted.",
+  "provenance": "C04 meaning and threshold come from the frozen W05. Property, protocol/method and LOQ shape are illustrative nitrate source concepts. Exact target/sample/extent and use permission are newly authored fictional owner assumptions, pinned here before record resolution; no statutory criterion or real owner determination is claimed."
+}

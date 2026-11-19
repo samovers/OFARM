@@ -1,0 +1,236 @@
+{
+  "reviewId": "inventory-review-03",
+  "reviewedAtUtc": "2026-10-20T21:47:45.054533+00:00",
+  "userFacingDate": "2026-10-20",
+  "status": "COMPLETE_SOURCE_BOUNDED_CANDIDATE_INVENTORY",
+  "blockingFindings": 0,
+  "findings": [],
+  "primaryTrustBoundary": "AssertionRecord domain meaning and validation integrity",
+  "intendedPRBoundary": "Future domain meaning/body/validation contract only; this review makes no implementation or adoption change.",
+  "scopeStayedInsideBoundary": true,
+  "reviewScope": [
+    "B02-R1",
+    "B04-R1",
+    "affected invariants"
+  ],
+  "closedPriorScope": [
+    "B01",
+    "B03",
+    "earlier broad review except the now-closed B02/B04 remnants"
+  ],
+  "unconstrainedReviewReopened": false,
+  "freeze": "reviewed-input",
+  "frozenManifestSha256": "7aa1ff8ef084a88808717b93f23b83c06c5bc74801ae46cfae6d7fadb92384fc",
+  "domainRevision": "local-candidate:complete-claims:2026-10-20:r4",
+  "canonicalRevision": "canonical-claim-inventory-02.1-proposed",
+  "closureAssessments": [
+    {
+      "id": "B02-R1",
+      "status": "CLOSED_FOR_SOURCE_BOUNDED_CANDIDATE_SCOPE",
+      "title": "Application material is explicit and mixture stays distinct from carrier",
+      "locations": [
+        {
+          "file": "reviewed-input/domain/quantity-contract.json",
+          "line": 115,
+          "selector": "/applicationVolumeMaterialContract"
+        },
+        {
+          "file": "reviewed-input/domain/inventory.json",
+          "line": 3342,
+          "selector": "/rows[id=O01]/parameterContract/quantityFieldMaterialContracts"
+        },
+        {
+          "file": "reviewed-input/domain/whole-claim-examples.json",
+          "line": 3867,
+          "selector": "/examples[id=W14_MULTI_ROLE_APPLICATION]"
+        }
+      ],
+      "reason": "The old CARRIER-only alias is removed. MIXTURE_AS_APPLIED uses existing OTHER_MATERIAL with an exact mixture definition and a distinct identity from every named constituent. AS_IDENTIFIED_MATERIAL retains the reported product/WATER/carrier identity. UNRESOLVED_SOURCE_MATERIAL keeps known numeric/source data without asserting an identified material or satisfying a material-specific comparison.",
+      "sourceInterpretation": "The pinned machine source actually reports APPLICATION_VOLUME/WATER/material:water/200 L/ha. It does not establish total mixture volume or additive volume arithmetic. The source-owner note is hash-bound; the O01 candidate represents named WATER, and W14 is separately labelled as a fictional mixture.",
+      "independentCases": [
+        "Accepted W14 distinct mixture and verified its definition/components against the bound fixture.",
+        "Resolved O01 template, row projection and W14 aliases to same-atom quantities and exact work/time/extent.",
+        "Rejected mixture labelled CARRIER, mixture aliasing a constituent, missing identity/definition, and mismatched component definition.",
+        "Accepted identified WATER and product-as-supplied cases; missing material stayed unresolved with its original value/basis/scope retained.",
+        "Verified all nine W14 quantity values survived; changing 5 to 10 L/min changed only the flow entry.",
+        "Confirmed all 14 source parameter roles and eight material roles are unchanged; no adopted MIXTURE enum."
+      ],
+      "remainingCompletenessBlocker": false
+    },
+    {
+      "id": "B04-R1",
+      "status": "CLOSED_FOR_SOURCE_BOUNDED_CANDIDATE_SCOPE",
+      "title": "Early analysis can precede an output; completion still needs produced output and finish evidence",
+      "locations": [
+        {
+          "file": "reviewed-input/domain/inventory.json",
+          "line": 19801,
+          "selector": "/rows[id=O22]/parameterContract/outputContract"
+        },
+        {
+          "file": "reviewed-input/domain/operation-profile-contract.json",
+          "line": 84,
+          "selector": "/O22OutputContract"
+        },
+        {
+          "file": "reviewed-input/domain/whole-claim-examples.json",
+          "line": 6411,
+          "selector": "/examples[id=W20_O22_STARTED_PENDING_OUTPUT]"
+        },
+        {
+          "file": "reviewed-input/domain/whole-claim-examples.json",
+          "line": 6704,
+          "selector": "/examples[id=W21_O22_IN_PROGRESS_PENDING_NO_EVENT]"
+        },
+        {
+          "file": "reviewed-input/domain/whole-claim-examples.json",
+          "line": 7006,
+          "selector": "/examples[id=W22_O22_IN_PROGRESS_PENDING_WITH_EVENT]"
+        },
+        {
+          "file": "reviewed-input/domain/whole-claim-examples.json",
+          "line": 7320,
+          "selector": "/examples[id=W23_O22_COMPLETED_ACTUAL_OUTPUT]"
+        }
+      ],
+      "reason": "Output form is selected by time profile, posture and facet. Intended claims bind prospective output specifications. Performed OCCURRENCE/STARTED/IN_PROGRESS permit PENDING_OUTPUT without result identity and distinguish NOT_YET_PRODUCED from UNREPORTED. An evidenced early actual output is also expressible. COMPLETED requires actual output, exact expected specification, independent output/provenance evidence and every finish condition.",
+      "independentCases": [
+        "Accepted pending OCCURRENCE, STARTED and IN_PROGRESS under both performed profiles, with both pending-state meanings.",
+        "Accepted all four intended milestones without an actual result.",
+        "Checked W20 interval start and W21/W22 measured progress without/with an event; work-facet measurement stays separate from the absent assay output.",
+        "Rejected pending completion, fabricated result identity in pending form, missing actual result binding, mismatched work specification and wrong sample.",
+        "A finish flag without output evidence failed; exact hypothetical output plus finish evidence passed; output alone, wrong work/sample and unverified provenance failed.",
+        "Verified shared, row, occurrence and profile definitions agree, and existing time-source/event rules remain unchanged."
+      ],
+      "remainingCompletenessBlocker": false
+    }
+  ],
+  "candidateCompletenessApproved": true,
+  "allSevenInventoryInputsComplete": true,
+  "completenessQualifier": "SOURCE-BOUNDED CANDIDATE only: selected complete typed claims and exact rendered text for the named pinned sources and 42-requirement denominator. Not universal vocabulary, canonical adoption, admitted evidence or production readiness.",
+  "inputAssessments": [
+    {
+      "id": "V01",
+      "name": "Structure",
+      "status": "COMPLETE_SOURCE_BOUNDED_CANDIDATE",
+      "count": 14,
+      "basis": "Prior broad review retained; structure rows and semantics remain unchanged apart from mechanical revision/render updates."
+    },
+    {
+      "id": "V02",
+      "name": "Operation",
+      "status": "COMPLETE_SOURCE_BOUNDED_CANDIDATE",
+      "count": 27,
+      "basis": "B01/B03 remain closed; the two remaining B02/B04 corrections are closed by this focused review."
+    },
+    {
+      "id": "V03",
+      "name": "Compliance",
+      "status": "COMPLETE_SOURCE_BOUNDED_CANDIDATE",
+      "count": 17,
+      "basis": "Prior broad review retained; compliance meanings, qualifications and profile limits remain unchanged."
+    },
+    {
+      "id": "V04",
+      "name": "Events",
+      "status": "COMPLETE_SOURCE_BOUNDED_CANDIDATE",
+      "count": 12,
+      "basis": "Canonical event rows are byte-preserved; affected O22 cases remain facet-specific candidates with existing ingress and temporal obligations."
+    },
+    {
+      "id": "V05",
+      "name": "Measured performance",
+      "status": "COMPLETE_SOURCE_BOUNDED_CANDIDATE",
+      "count": 17,
+      "basis": "Canonical measurement rows are byte-preserved; early work-facet evidence and analysis output are distinct, and completion still requires both output and finish evidence."
+    },
+    {
+      "id": "V06",
+      "name": "Relationships",
+      "status": "COMPLETE_SOURCE_BOUNDED_CANDIDATE",
+      "count": 12,
+      "basis": "Canonical relationship rows and proof-owner dependencies are byte-preserved; no authority or identity effect is introduced."
+    },
+    {
+      "id": "V07",
+      "name": "Requirement reconciliation",
+      "status": "COMPLETE_SOURCE_BOUNDED_CANDIDATE",
+      "count": 42,
+      "basis": "All 42 source-bounded requirements map to the 58 domain and 41 canonical rows; no unmapped requirement remains in this selected denominator."
+    }
+  ],
+  "counts": {
+    "domainRows": 58,
+    "operationRows": 27,
+    "wholeExamples": 23,
+    "requirements": 42,
+    "canonicalRows": 41
+  },
+  "verification": {
+    "file": "inventory-review/verification-03.json",
+    "sha256": "3d43d2b15e38edab1430f04afc4be77ba8ed5cc9a69ddb652e8fbbdea900fe6e",
+    "script": "unbundled-source:review/review_inventory_03.py",
+    "checks": 946,
+    "passed": 946,
+    "failures": 0,
+    "focusedCases": 42,
+    "authorScriptsExecuted": false,
+    "productionValidatorExecuted": false
+  },
+  "preservation": {
+    "sourcePinEntries": 119,
+    "uniqueGitSources": 67,
+    "frozen03Members": 48,
+    "frozen02Members": 40,
+    "frozen01Members": 27,
+    "canonicalFilesByteUnchangedAcrossAllFreezes": 8,
+    "canonicalRowsUnchanged": 41,
+    "otherDomainRowsSemanticallyPreserved": 56,
+    "priorReviewsAndVerificationPreserved": true,
+    "sourceOwnerNotePinned": true,
+    "all23WholeClaimsRemainPending": true,
+    "actualSnapshotOrSourceMismatches": [],
+    "workingDraftNotRequiredToEqualFrozenSnapshot": true
+  },
+  "affectedInvariants": {
+    "ARAndPCDuties": 49,
+    "timeProfiles": 9,
+    "eligibleProfileEventCells": 17,
+    "sourceParameterRoles": 14,
+    "sourceMaterialRoles": 8,
+    "existingAuthorityAnchorsPreserved": true,
+    "subjectKindProposalsPreserved": true,
+    "sourceOwnerProofBoundariesPreserved": true,
+    "DC01ClearancePreserved": true,
+    "profileLimits": [
+      "SI exclusions",
+      "RS hold",
+      "BE locality",
+      "NL calculation dependency"
+    ]
+  },
+  "remainingSeparateDependencies": [
+    "Owner review/adoption of exact candidate body, predicates and governed bindings.",
+    "Actual admitted measurement/property/result/method/provenance evidence, including work-facet measurement independent of analysis output.",
+    "Actual Event Ingress and relationship/typed-resolution proof producers under existing owners.",
+    "Consistent interfaces for proposed new subject/context kinds, with identity writes and authority changes separately scoped.",
+    "NL deterministic calculation contract and actual required profile evidence; existing country-specific holds/exclusions remain.",
+    "Any later selected customer or pack requirements need their own explicit denominator mappings."
+  ],
+  "authorityEffects": {
+    "canonicalAdoption": false,
+    "implementation": false,
+    "runtimeAdmission": false,
+    "ciActivation": false,
+    "merge": false,
+    "unpark392or396": false,
+    "PR421ScopeChanged": false
+  },
+  "writes": [
+    "inventory-review-03.md",
+    "inventory-review-03.json",
+    "inventory-verification-03.json",
+    "review_inventory_03.py"
+  ],
+  "next": "Use frozen-03 and this review as the completed source-bounded candidate inventory input for planning the separately scoped domain contract/verifier Delivery. Preserve all freezes and reviews; keep adoption, admitted-proof, runtime, CI and merge work under their existing boundaries."
+}

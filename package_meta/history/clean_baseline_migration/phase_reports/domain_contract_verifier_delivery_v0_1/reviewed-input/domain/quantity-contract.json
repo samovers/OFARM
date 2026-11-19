@@ -1,0 +1,168 @@
+{
+  "revision": "local-candidate:complete-claims:2026-10-20:r4#quantity-parameters",
+  "sourceBindings": [
+    {
+      "id": "QUANTITY",
+      "repository": "samovers/OFARM",
+      "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+      "path": "02_accepted_rfcs/OFARM_Quantity_Bearing_Intervention_and_As_Applied_RFC_v0_1.md",
+      "sha256": "f12e6fc8e14977890f3fbf8ec5131e219b088bdb3554baa80c5a63bde79656fb",
+      "sourceStatus": "ACCEPTED_RFC",
+      "clause": "1, 2.3, 4–5"
+    },
+    {
+      "id": "INTENT_PAYLOAD",
+      "repository": "samovers/OFARM",
+      "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+      "path": "03_machine_contracts/schemas/agronomic/OFARM_InterventionIntentPayload_schema_v0_1.json",
+      "sha256": "72e4603d3cc98fcd99439f8a06c80724e14d4961031ff3b0a1774f3407725ec0",
+      "sourceStatus": "ACTIVE_CARRIER",
+      "clause": "/properties/quantityParameters/items"
+    },
+    {
+      "id": "EXECUTION_PAYLOAD",
+      "repository": "samovers/OFARM",
+      "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+      "path": "03_machine_contracts/schemas/agronomic/OFARM_ExecutionRecordPayload_schema_v0_1.json",
+      "sha256": "ca62f01d056794ee588d55c3f5df652fc039124b76af5631d417714bc7059ff0",
+      "sourceStatus": "ACTIVE_CARRIER",
+      "clause": "/properties/actualQuantityParameters/items"
+    }
+  ],
+  "parameterRoles": [
+    "RATE",
+    "DOSE",
+    "CONCENTRATION",
+    "TOTAL_QUANTITY",
+    "CARRIER_VOLUME",
+    "WATER_VOLUME",
+    "SEED_RATE",
+    "NUTRIENT_RATE",
+    "PRESSURE",
+    "FLOW_RATE",
+    "SPEED",
+    "TIMING_INTERVAL",
+    "APPLICATION_VOLUME",
+    "OTHER_PARAMETER"
+  ],
+  "materialRoles": [
+    "PRODUCT",
+    "ACTIVE_SUBSTANCE",
+    "CARRIER",
+    "WATER",
+    "SEED",
+    "FERTILIZER",
+    "NUTRIENT",
+    "OTHER_MATERIAL"
+  ],
+  "shape": {
+    "required": [
+      "parameterId",
+      "parameterRole",
+      "activityInstance",
+      "valuePosture",
+      "material",
+      "basis",
+      "value",
+      "appliesTo"
+    ],
+    "optional": [
+      "otherRoleDefinition",
+      "sourceParameterBinding",
+      "applicationMaterialInterpretation"
+    ],
+    "valuePostures": [
+      "ACTUAL",
+      "PLANNED",
+      "LIMIT",
+      "TARGET"
+    ],
+    "valueStates": [
+      "STATED",
+      "UNREPORTED"
+    ]
+  },
+  "roleMeanings": {
+    "RATE": "Material amount per specified basis; does not identify a product without material binding.",
+    "DOSE": "Delivered or planned amount relative to the explicitly identified treated basis.",
+    "CONCENTRATION": "Specified constituent amount relative to an exact mixture basis; not dose per field area.",
+    "TOTAL_QUANTITY": "Total specified material amount over the stated extent/time.",
+    "CARRIER_VOLUME": "Carrier material volume, not product amount.",
+    "WATER_VOLUME": "Water material volume, not irrigation depth unless separately derived.",
+    "SEED_RATE": "Seed count or amount per stated basis.",
+    "NUTRIENT_RATE": "Specified nutrient amount per basis; not fertilizer product rate.",
+    "PRESSURE": "Pressure at the specified equipment/process point.",
+    "FLOW_RATE": "Material amount per time at the specified process point.",
+    "SPEED": "Motion distance per time for the specified equipment/process.",
+    "TIMING_INTERVAL": "Duration or spacing relative to the named process phase; not the authoritative claim timestamp.",
+    "APPLICATION_VOLUME": "Volume of the explicitly identified applied material per the stated basis. applicationMaterialInterpretation distinguishes MIXTURE_AS_APPLIED from AS_IDENTIFIED_MATERIAL. A named water/carrier component is not total mixture volume; a product as supplied is not automatically its diluted application mixture.",
+    "OTHER_PARAMETER": "Requires an exact listed local role definition; no arbitrary string acquires executable meaning."
+  },
+  "otherRoleDefinitions": {
+    "DEPTH": "Intervention depth as length at the stated target.",
+    "MOISTURE_TARGET": "Target moisture mass fraction with wet/dry basis explicitly bound.",
+    "TREATED_AREA": "Treated surface area, preserving partial extent.",
+    "TREATED_AMOUNT": "Treated mass/volume/count, retaining its basis.",
+    "MATERIAL_HANDLED": "Specified amount received, classified, disposed or established; no inventory write."
+  },
+  "multiplicity": "0..n entries per atom; parameterId unique within atom. Role is not a unique key: multiple materials, phases, scopes, planned/actual values or conflicting source readings remain distinct entries. Never overwrite or coalesce entries by role or unit. Empty means no quantities alleged; a required profile quantity must still be present and STATED.",
+  "material": "PRESENT requires materialRole and exact binding. NOT_APPLICABLE needs an explicit process quantity reason (for example equipment speed). UNREPORTED retains missing source identity and cannot satisfy a comparison requiring material identity. OTHER_MATERIAL requires an exact material definition. No role-based inference of identity.",
+  "basis": "PRESENT requires quantityKind, unit, exact decimal and basis subject/material binding. Ratio basis is independent of numerator material. NOT_APPLICABLE is only for non-ratio quantities; UNREPORTED is retained but cannot satisfy a basis-dependent comparison. A wet/dry mass basis is explicit, never inferred from percent.",
+  "value": "STATED stores quantityKind, unit, decimal, qualifier, unitProfile and original {presence, lexicalValue, unitText, sourceBinding, sourcePointer}; absent original lexical/unit data is explicit. Optional normalized {quantityKind, unit, decimal, conversionBinding} coexists with original; conversion must be admitted for exact material/basis. UNREPORTED stores reason and asserts no numeric value. No zero, plan substitution or silent normalization.",
+  "scope": "Every entry repeats exact activityInstance and appliesTo {target, extent, subjectTime, processPoint, phase}. These must equal or explicitly be a proved subextent/time of that atom; no quantity transfers to a sibling activity. Timing intervals are parameter assertions, never a temporal-basis fallback.",
+  "comparison": "Select entries by parameterId and full role/material/basis/posture/scope tuple; compare all claimed values/qualifiers with the designated source entries. A change in flow does not change product rate but does contradict the flow allegation. Compare normalized values only with the bound conversion; missing identity/basis is indeterminate, conflicting claimed value fails the chosen comparison.",
+  "fieldReferences": "Row quantity fields contain only {quantityParameterId}. Resolve exactly one entry in this atom, with the row-defined role/material/posture. Standalone scalar quantity fields are not permitted in current operation bodies. Compliance operands retain their own quantity contract and may reference exact operation parameter IDs with their scope.",
+  "applicationVolumeMaterialContract": {
+    "requiredForRole": "APPLICATION_VOLUME",
+    "interpretationField": "applicationMaterialInterpretation",
+    "variants": {
+      "MIXTURE_AS_APPLIED": {
+        "allowedMaterialRoles": [
+          "OTHER_MATERIAL"
+        ],
+        "requiredMaterialFields": [
+          "presence",
+          "materialRole",
+          "binding",
+          "materialDefinition",
+          "components"
+        ],
+        "definition": "The exact applied mixture has its own immutable identity and definition, separate from its named constituent product and carrier identities. components records each constituent materialRole and binding from that definition; no component is silently the whole mixture. At least two distinct constituent bindings are required for this mixture form."
+      },
+      "AS_IDENTIFIED_MATERIAL": {
+        "allowedMaterialRoles": [
+          "PRODUCT",
+          "ACTIVE_SUBSTANCE",
+          "CARRIER",
+          "WATER",
+          "SEED",
+          "FERTILIZER",
+          "NUTRIENT",
+          "OTHER_MATERIAL"
+        ],
+        "requiredMaterialFields": [
+          "presence",
+          "materialRole",
+          "binding"
+        ],
+        "definition": "The quantity applies only to this exact identified material in its declared role. PRODUCT is the identified product as supplied; WATER or CARRIER is that named component volume. OTHER_MATERIAL additionally requires its exact materialDefinition. This form does not assert the volume of a product-plus-carrier mixture."
+      },
+      "UNRESOLVED_SOURCE_MATERIAL": {
+        "allowedMaterialRoles": [],
+        "requiredMaterialFields": [
+          "presence",
+          "reason"
+        ],
+        "definition": "Retain the reported quantity and original source fields when material identity was not reported/resolved. material.presence is UNREPORTED. This is an explicit incomplete disclosure, not an assertion about an identified mixture/component and cannot satisfy a material-specific comparison."
+      }
+    },
+    "identityRules": [
+      "A positive material-specific application-volume comparison requires material presence PRESENT, exact binding and the matching interpretation; material identity cannot be erased to avoid a mismatch. UNRESOLVED_SOURCE_MATERIAL retains known numeric/source data but yields an unresolved material comparison.",
+      "MIXTURE_AS_APPLIED binding must differ from every constituent binding; the mixture definition and component roles must agree with source evidence. components is a closed list of role/binding pairs for the identified recipe/composition revision, not an unbound display label.",
+      "CARRIER_VOLUME remains a separate parameter role about the identified carrier. No role/unit coincidence proves it equals application volume, and no product-plus-carrier summation is performed without an explicit supported calculation.",
+      "UNREPORTED numeric value does not invent a material identity or mixture; any missing-material disclosure retains its unresolved comparison status."
+    ],
+    "sourcePreservation": "The pinned SPRAY_MACHINE /actualQuantityParameters/1 is APPLICATION_VOLUME, materialRole WATER, material:water, 200 L/ha. Its faithful interpretation is AS_IDENTIFIED_MATERIAL/WATER. The separate W14 mixture example is fictional and is not a reinterpretation of those source bytes.",
+    "rowAlias": "O01.parameters.applicationVolume resolves its same-atom quantityParameterId, requires APPLICATION_VOLUME and then this discriminated material contract. It has no fixed CARRIER-only constraint."
+  }
+}

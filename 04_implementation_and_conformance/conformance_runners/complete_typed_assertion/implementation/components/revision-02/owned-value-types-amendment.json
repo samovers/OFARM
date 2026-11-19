@@ -1,0 +1,19 @@
+{
+  "status": "UNSEALED_DOMAIN_OWNED_SCHEMA_AMENDMENT",
+  "primaryTrustBoundary": "AssertionRecord domain meaning and validation integrity",
+  "scopeStayedInsideBoundary": true,
+  "base": {
+    "path": "../owned-value-types.schema.json",
+    "rawSha256": "0b337234dd36e686f819455d352ec417a877d8483b7395a39897ce3cc5679582",
+    "checkpointManifestRawSha256": "f294ae03ec72ab7fd404b412014261823783a9ce71578fa12884115efa91a775"
+  },
+  "active": {
+    "path": "owned-value-types-amendment.schema.json",
+    "schemaId": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1",
+    "rawSha256": "91ae155c25f0ce0c81d112ec2d60774a8f4992b62e425d643e30909f11751ccc"
+  },
+  "changedDefinition": "originalQuantity",
+  "meaning": "Exact original JSON scalar representation; no source acceptance, quantity conversion, inferred lexical text or manufactured value.",
+  "compatibility": "Existing nonempty text and absent-value branches remain unchanged. Numeric originals now require a numeric reportedValue and PRESENT posture. Empty original strings can be preserved explicitly.",
+  "next": "Verify original-byte operation carriers and active schema closure without changing the sealed checkpoint."
+}

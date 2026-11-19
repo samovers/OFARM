@@ -1,0 +1,122 @@
+{
+  "sourceHead": "37d680d598af0cd321c6d06e91af6aba60a73c8d",
+  "reviewReadComplete": true,
+  "findings": [
+    "F6-R1",
+    "P2-R1"
+  ],
+  "reviewSourcePins": [
+    {
+      "path": "../fresh-review/review.md",
+      "sha256": "4340d2c174b7c42663504974efcead55b12b02c1b8ad426d012ec8d6e31fb9fb"
+    },
+    {
+      "path": "../fresh-review/review.json",
+      "sha256": "e1ff5040bbf7818f1d0cfc72c91506788eefb8046437431e5a9c0f8f7e3270e0"
+    },
+    {
+      "path": "../fresh-review/adversarial_probes.py",
+      "sha256": "7af444ceb6cb5c9bd0cf41d83fbe6046d76fa186f3bf058724ec6e9f8ebf3860"
+    },
+    {
+      "path": "../fresh-review/adversarial-results.json",
+      "sha256": "0065ea92d796d13867c20c3eabd8f058010bc46270b53e8897d7df8c1e01e561"
+    },
+    {
+      "path": "../fresh-review/initial-adversarial-probes.json",
+      "sha256": "b0a3ee6262b3ad249ee16546a7efadaf36b4d69424532c4a5ae8c8ec5b50906d"
+    }
+  ],
+  "resultsFromCurrentRun": {
+    "file": "check-results-fix01.json",
+    "sha256": "d7c740065cd05fc4b9177cb72d03adc37b552e8d6be074a31e93687dc1226366"
+  },
+  "exactReproductionResults": [
+    {
+      "check": "fix01: numeric with /operand/limit/provenance missing",
+      "passed": true,
+      "errors": [
+        {
+          "code": "RESULT_KIND_QUALIFIER_MISMATCH",
+          "pointer": "/operand/resultKind",
+          "expected": "CENSORED_NUMERIC"
+        },
+        {
+          "code": "MISSING_REQUIRED_ROLE",
+          "pointer": "/operand/limit/provenance"
+        }
+      ]
+    },
+    {
+      "check": "fix01: unknown with /operand/limit/provenance missing",
+      "passed": true,
+      "errors": [
+        {
+          "code": "RESULT_KIND_QUALIFIER_MISMATCH",
+          "pointer": "/operand/resultKind",
+          "expected": "CENSORED_NUMERIC"
+        },
+        {
+          "code": "MISSING_REQUIRED_ROLE",
+          "pointer": "/operand/limit/provenance"
+        }
+      ]
+    },
+    {
+      "check": "fix01: wrong independent expected pin quantityProvenanceDigest",
+      "passed": true,
+      "errors": [
+        {
+          "code": "OWNER_PROFILE_QUANTITY_PIN_MISMATCH",
+          "pointer": "/ownerProfile/quantityProvenanceDigest"
+        }
+      ]
+    },
+    {
+      "check": "fix01: r1 rehash cannot authorize lexical",
+      "passed": true,
+      "errors": [
+        {
+          "code": "QUANTITY_OWNER_PIN_MISMATCH",
+          "pointer": null
+        }
+      ]
+    },
+    {
+      "check": "fix01: r1 rehash cannot authorize transcriber",
+      "passed": true,
+      "errors": [
+        {
+          "code": "QUANTITY_OWNER_PIN_MISMATCH",
+          "pointer": null
+        }
+      ]
+    },
+    {
+      "check": "fix01: approved exact r2 positive",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "check": "fix01: r2 normalization rejected",
+      "passed": true,
+      "errors": [
+        {
+          "code": "LOQ_SOURCE_LEXICAL_MISMATCH",
+          "pointer": null
+        }
+      ]
+    },
+    {
+      "check": "fix01: H03 has exactly PROPERTY_MISMATCH",
+      "passed": true,
+      "errors": [
+        {
+          "code": "PROPERTY_MISMATCH",
+          "pointer": null
+        }
+      ]
+    }
+  ],
+  "next": "Independently review these repaired controls at the integrated corrected head."
+}

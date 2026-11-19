@@ -1,0 +1,1182 @@
+--- a/role_checks_v4.py
++++ b/role_checks_v4.py
+@@ -26,7 +26,7 @@
+ def valid_pointer(value):
+     return isinstance(value,str) and value.startswith('/') and not re.search(r'~(?![01])',value)
+ 
+-def required_role_errors(row,body,required_qualification=False):
++def required_role_errors(row,body,required_qualification=False,expected_result_kind=None):
+     errors=[]
+     def err(code,path,**details):errors.append({'code':code,'pointer':path,**details})
+     def get(path):
+@@ -86,12 +86,21 @@
+         binding('/criterion');op=obj('/operand',[])
+         if op is not None:
+             measured('/operand/source');text('/operand/resultKind');obj('/operand/admissibleValues',[])
+-            if op.get('resultKind')=='CENSORED_NUMERIC':
++            selected_kind=expected_result_kind or op.get('resultKind')
++            if expected_result_kind is not None and op.get('resultKind')!=expected_result_kind:err('RESULT_KIND_QUALIFIER_MISMATCH','/operand/resultKind',expected=expected_result_kind)
++            if selected_kind=='CENSORED_NUMERIC':
+                 unknown=sorted(set(op)-{'resultKind','qualifier','limit','nonnegative','admissibleValues','source'})
+                 if unknown:err('UNKNOWN_MEMBERS','/operand',members=unknown)
+                 text('/operand/qualifier');obj('/operand/limit',[]);require('/operand/nonnegative','boolean')
+-            if op.get('resultKind')=='CENSORED_NUMERIC':scalar_provenance('/operand/limit/provenance')
++            if selected_kind=='CENSORED_NUMERIC':scalar_provenance('/operand/limit/provenance')
+         scalar_provenance('/threshold/provenance')
++        if expected_result_kind is not None:
++            # The selected owner profile, not the claim discriminator, requires these scalars.
++            text('/operator');text('/allegedOutcome')
++            for path in ['/operand/limit','/threshold']:
++                if obj(path,[]) is not None:
++                    for field in ['quantityKind','unit','decimal','qualifier','originalLexicalValue']:text(path+'/'+field)
++                    binding(path+'/unitProfile')
+     elif row=='C06':
+         s=obj('/rateSource',[])
+         if s is not None:
+--- a/provenance_checks_v4.py
++++ b/provenance_checks_v4.py
+@@ -33,6 +33,7 @@
+     bad('QUANTITY_SOURCE_BINDING_MISMATCH',lp['sourceBinding']==expect['quantityProvenanceBinding'])
+     bad('CRITERION_SOURCE_BINDING_MISMATCH',tp['sourceBinding']==body['criterion']==expect['criterionOwnerBinding'])
+     bad('CRITERION_OWNER_PIN_MISMATCH',digest(criterion)==expect['criterionOwnerDigest'])
++    bad('QUANTITY_OWNER_PIN_MISMATCH',digest(q)==expect['quantityProvenanceDigest'])
+     bad('QUANTITY_SOURCE_LINK_MISMATCH',q.get('measurementBinding')==body['operand']['source']['measurementBinding'] and q.get('measurementSourceRef')==measurement.get('source',{}).get('sourceRef') and q.get('selectedMeasurementPointer')=='/result/detectionLimit')
+     bad('QUANTITY_SOURCE_POINTER_MISMATCH',lp['valuePointer']=='/loq' and lp['lexicalPointer']=='/loq/originalLexicalValue' and lp['qualifierPointer']=='/loq/qualifier')
+     bad('CRITERION_SOURCE_POINTER_MISMATCH',tp['valuePointer']=='/threshold' and tp['lexicalPointer']=='/threshold/originalLexicalValue' and tp['qualifierPointer']=='/threshold/qualifier')
+--- a/measurement_checks_v4.py
++++ b/measurement_checks_v4.py
+@@ -4,17 +4,18 @@
+ import rfc8785
+ from role_checks_v4 import pointer,required_role_errors,required_role_error_codes,error_codes
+ from provenance_checks_v4 import owner_error_codes,scalar_without_provenance,source_roles
++from w05_profile_checks_fix01 import PROFILE,profile_errors,claim_container_errors,record_errors
+ def digest(x):return 'sha256:'+hashlib.sha256(rfc8785.dumps(x)).hexdigest()
+ def _semantic_error_codes(content,records,expect):
+     """Only the pinned W05 hypothetical owner expectations are evaluated here."""
+-    b=content['proposition']['body'];errors=required_role_error_codes('C04',b)
++    b=content['proposition']['body'];errors=required_role_error_codes('C04',b,expected_result_kind=PROFILE['requiredResultKind'])
+     if errors:return errors
+     s=b['operand']['source'];op=b['operand']
+     def bad(code,condition):
+         if not condition and code not in errors:errors.append(code)
+     def resolve(k):
+         binding=s[k]
+-        hits=[x for x in records if x['binding']==binding]
++        hits=[x for x in records if isinstance(x,dict) and x.get('binding')==binding]
+         if len(hits)!=1:raise ValueError('RESOLUTION_NOT_EXACT:'+k)
+         rec=hits[0];bad('RESOLVED_DIGEST_MISMATCH',digest(rec['record'])==rec['contentDigest'])
+         bad('MISSING_ASSERTION_EVIDENCE:'+k,binding in content['evidenceBindings'])
+@@ -64,14 +65,12 @@
+     try:
+         body=content['proposition']['body']
+     except (KeyError,TypeError):return [{'code':'INVALID_CLAIM_SHAPE','pointer':'/proposition/body'}]
+-    structural=required_role_errors('C04',body)
+-    if structural:return structural
+-    # Guard the scalar containers before the finite semantic comparisons.
+-    for key,path in [('limit','/operand/limit'),('threshold','/threshold')]:
+-        try:value=pointer(body,path)
+-        except (KeyError,TypeError,ValueError,IndexError):return [{'code':'MISSING_REQUIRED_ROLE','pointer':path}]
+-        if not isinstance(value,dict):return [{'code':'INVALID_TYPE','pointer':path,'expected':'object'}]
+-    result=[]
++    selected_profile_errors=profile_errors(expect)
++    structural=required_role_errors('C04',body,expected_result_kind=PROFILE['requiredResultKind'])
++    structural+=claim_container_errors(content)
++    if selected_profile_errors or structural:return selected_profile_errors+structural
++    result,unsafe=record_errors(body,records,expect,digest)
++    if unsafe:return result
+     for code in _semantic_error_codes(content,records,expect):
+         if ':' in code and code.split(':',1)[1].startswith('/'):
+             name,ptr=code.split(':',1);result.append({'code':name,'pointer':ptr})
+--- a/focused_checks_v4.py
++++ b/focused_checks_v4.py
+@@ -87,8 +87,9 @@
+     for field in ['operand/limit','threshold']:
+         for q in ['MACHINE_REPORTED','EXACT','LABEL_LIMIT','UNKNOWN','invented']:
+             x=copy.deepcopy(c);replace(x['proposition']['body'],'/'+field+'/qualifier',q);errs=w05_errors(x,records,expect);check('wrong provenance rejected '+field+' '+q,bool(errs),errors=errs)
+-    # A distinct hypothetical r2 owner record spells the same scalar as 2.00.
+-    varied=copy.deepcopy(c);vr=copy.deepcopy(records);ve=copy.deepcopy(expect);q=next(r for r in vr if r['role']=='QUANTITY_PROVENANCE');oldbinding=copy.deepcopy(q['binding']);q['binding']['fixtureRevision']='r2';q['record']['loq']['originalLexicalValue']='2.00';q['contentDigest']=digest(q['record']);varied['proposition']['body']['operand']['limit']['provenance']['sourceBinding']=copy.deepcopy(q['binding']);varied['proposition']['body']['operand']['limit']['originalLexicalValue']='2.00';varied['evidenceBindings']=[q['binding'] if v==oldbinding else v for v in varied['evidenceBindings']];ve['quantityProvenanceBinding']=copy.deepcopy(q['binding']);ve['quantityProvenanceDigest']=q['contentDigest']
++    # Select the separately authored and independently pinned r2 owner fixture.
++    approved=rd('owner-approved-lexical-r2-fix01.json')['quantityProvenance']
++    varied=copy.deepcopy(c);vr=copy.deepcopy(records);ve=copy.deepcopy(expect);q=next(r for r in vr if r['role']=='QUANTITY_PROVENANCE');oldbinding=copy.deepcopy(q['binding']);q.update(copy.deepcopy(approved));varied['proposition']['body']['operand']['limit']['provenance']['sourceBinding']=copy.deepcopy(q['binding']);varied['proposition']['body']['operand']['limit']['originalLexicalValue']=q['record']['loq']['originalLexicalValue'];varied['evidenceBindings']=[q['binding'] if v==oldbinding else v for v in varied['evidenceBindings']];ve['quantityProvenanceBinding']=copy.deepcopy(q['binding']);ve['quantityProvenanceDigest']=q['contentDigest']
+     errs=w05_errors(varied,vr,ve);check('selected scalar lexical 2.00 positive under separate r2 owner source',errs==[],errors=errs)
+     check('lexical variation preserves censored full result',next(r for r in vr if r['role']=='MEASUREMENT')['record']['result']['originalLexicalValue']=='< 2 mg/kg' and Decimal(varied['proposition']['body']['operand']['limit']['originalLexicalValue'])==Decimal('2'))
+     normalized=copy.deepcopy(varied);normalized['proposition']['body']['operand']['limit']['originalLexicalValue']='2';errs=w05_errors(normalized,vr,ve);check('normalizing the selected 2.00 lexical to 2 fails','LOQ_SOURCE_LEXICAL_MISMATCH' in codes(errs),errors=errs)
+--- a/check_examples_v4.py
++++ b/check_examples_v4.py
+@@ -11,6 +11,7 @@
+  if sha((a.repo_root/pin['path']).read_bytes())!=pin['sha256']:raise ValueError('Canonical source changed: '+pin['path'])
+ if a.dependency_dir:sys.path.insert(0,str(a.dependency_dir.resolve()))
+ sys.path.insert(0,str(O));from focused_checks_v4 import run_focused
++from fix01_checks import run_fix01
+ aliases={
+  'candidate-examples-v4.json':'candidate-examples-v3.json',
+  'projection-contract-v4.json':'projection-contract-v3.json',
+@@ -26,7 +27,7 @@
+   if f.is_file():shutil.copyfile(f,t/f.name)
+  shutil.copytree(prior/'commit-class-sources',t/'commit-class-sources')
+  for source,target in aliases.items():shutil.copyfile(O/source,t/target)
+- for name in ['measurement_checks_v4.py','role_checks_v4.py','provenance_checks_v4.py']:shutil.copyfile(O/name,t/name)
++ for name in ['measurement_checks_v4.py','role_checks_v4.py','provenance_checks_v4.py','w05_profile_checks_fix01.py','w05-owner-profile-fix01.json']:shutil.copyfile(O/name,t/name)
+  cmd=[sys.executable,str(O/'inherited_checks_v4.py'),str(t),'--previous-amendment',str(prior.parent/'review-amendment'),'--packet',str(prior.parent),'--repo-root',str(a.repo_root.resolve()),'--output',str(t/'current-results.json')]
+  if a.frozen_root:cmd+=['--frozen-root',str(a.frozen_root.resolve())]
+  if a.dependency_dir:cmd+=['--dependency-dir',str(a.dependency_dir.resolve())]
+@@ -34,8 +35,9 @@
+  if not (t/'current-results.json').exists():raise RuntimeError(run.stdout+'\n'+run.stderr)
+  inherited=json.loads((t/'current-results.json').read_text())
+  focused=run_focused(O,prior,a.repo_root)
+- results=inherited['results']+focused
+- report={'status':'V4_DESIGN_CHECKS_PASS' if all(x['passed'] for x in results) else 'V4_DESIGN_CHECKS_FAIL','checks':len(results),'passed':sum(x['passed'] for x in results),'failed':sum(not x['passed'] for x in results),'inheritedCurrentRun':{'checks':inherited['checks'],'passed':inherited['passed'],'failed':inherited['failed'],'sourceHead':pins['sourceHead'],'transformFile':'checker-transforms-v4.json','overlayAliases':aliases},'focusedCurrentRun':{'checks':len(focused),'passed':sum(x['passed'] for x in focused)},'results':results,'limits':['Every inherited check was rerun with current v4 inputs. No historical result count is reused.','Finite fictional checks only; no complete verifier, owner admission, source adoption, producer, CI or independent approval.'],'next':'Integrate the sealed v4 packet and obtain fresh exact-head review.'}
++ repair=run_fix01(O)
++ results=inherited['results']+focused+repair
++ report={'status':'V4_FIX01_DESIGN_CHECKS_PASS' if all(x['passed'] for x in results) else 'V4_FIX01_DESIGN_CHECKS_FAIL','checks':len(results),'passed':sum(x['passed'] for x in results),'failed':sum(not x['passed'] for x in results),'inheritedCurrentRun':{'checks':inherited['checks'],'passed':inherited['passed'],'failed':inherited['failed'],'sourceHead':pins['sourceHead'],'transformFile':'checker-transforms-v4.json','overlayAliases':aliases},'focusedCurrentRun':{'checks':len(focused),'passed':sum(x['passed'] for x in focused)},'fix01CurrentRun':{'checks':len(repair),'passed':sum(x['passed'] for x in repair)},'results':results,'limits':['Every inherited check was rerun with current v4 inputs. No historical result count is reused.','Finite fictional checks only; no complete verifier, owner admission, source adoption, producer, CI or independent approval.'],'next':'Integrate the sealed v4 packet and obtain fresh exact-head review.'}
+  if a.output:a.output.write_text(json.dumps(report,indent=2)+'\n')
+  print(json.dumps({k:report[k] for k in ['status','checks','passed','failed']}))
+  for x in results:
+--- a/inherited_checks_v4.py
++++ b/inherited_checks_v4.py
+@@ -283,8 +283,8 @@
+ check('W05 all source and semantic comparisons',w05_errors(w05,fixtures['records'],expect)==[],errors=w05_errors(w05,fixtures['records'],expect))
+ check('W05 original evidence prefix plus exact three new records',w05['evidenceBindings']==prior['examples'][4]['claimContent']['evidenceBindings']+[expect['contextBinding'],expect['methodUseBinding'],expect['quantityProvenanceBinding']])
+ for case in mcases['cases']:
+-    errors=w05_errors(case['claimContent'],case['records'],expect)
+-    check(case['id']+': isolated source failure',errors==case['expectedErrors'],observedErrors=errors)
++    errors=w05_errors(case['claimContent'],case['records'],{**expect,**case.get('ownerProfileSelection',{})})
++    check(case['id']+': source semantic and independent pin comparisons',errors==case['expectedErrors'],observedErrors=errors)
+ wrong=mcases['cases'][0];wc=wrong['claimContent'];ws=wc['proposition']['body']['operand']['source']
+ wm=next(x['record'] for x in wrong['records'] if x['binding']==ws['measurementBinding'])
+ pm=next(x['record'] for x in fixtures['records'] if x['role']=='MEASUREMENT')
+--- a/measurement-hostiles-v4.json
++++ b/measurement-hostiles-v4.json
+@@ -74,7 +74,7 @@
+                 },
+                 "provenance": {
+                   "sourceBinding": {
+-                    "fixtureLogicalRef": "quantity-source:W05-lab-transcription-fictional",
++                    "fixtureLogicalRef": "quantity-source:W05-wrong-property-transcription-fictional",
+                     "fixtureRevision": "r1",
+                     "admittedRuntimeBinding": false
+                   },
+@@ -94,12 +94,12 @@
+                 "resultPointer": "/result",
+                 "contextBinding": {
+                   "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+-                  "fixtureRevision": "r1",
++                  "fixtureRevision": "h03-r1",
+                   "admittedRuntimeBinding": false
+                 },
+                 "subjectRelationBinding": {
+                   "fixtureLogicalRef": "sample-to-field:fictional",
+-                  "fixtureRevision": "r1",
++                  "fixtureRevision": "h03-r1",
+                   "admittedRuntimeBinding": false
+                 },
+                 "methodUseBinding": {
+@@ -163,12 +163,12 @@
+           },
+           {
+             "fixtureLogicalRef": "sample-to-field:fictional",
+-            "fixtureRevision": "r1",
++            "fixtureRevision": "h03-r1",
+             "admittedRuntimeBinding": false
+           },
+           {
+             "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+-            "fixtureRevision": "r1",
++            "fixtureRevision": "h03-r1",
+             "admittedRuntimeBinding": false
+           },
+           {
+@@ -177,7 +177,7 @@
+             "admittedRuntimeBinding": false
+           },
+           {
+-            "fixtureLogicalRef": "quantity-source:W05-lab-transcription-fictional",
++            "fixtureLogicalRef": "quantity-source:W05-wrong-property-transcription-fictional",
+             "fixtureRevision": "r1",
+             "admittedRuntimeBinding": false
+           }
+@@ -288,7 +288,7 @@
+           "role": "OBSERVATION_CONTEXT",
+           "binding": {
+             "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+-            "fixtureRevision": "r1",
++            "fixtureRevision": "h03-r1",
+             "admittedRuntimeBinding": false
+           },
+           "contentDigest": "sha256:60136566d5be6f044e5ab9ec346fa1d7b98095b1ff390713a758c505414b5895",
+@@ -358,16 +358,16 @@
+           "role": "SAMPLE_SUPPORT_RELATION",
+           "binding": {
+             "fixtureLogicalRef": "sample-to-field:fictional",
+-            "fixtureRevision": "r1",
+-            "admittedRuntimeBinding": false
+-          },
+-          "contentDigest": "sha256:f26302f2f3536bcf181167d7d7a9af3854522ad150b903f0337d4572fc66c378",
++            "fixtureRevision": "h03-r1",
++            "admittedRuntimeBinding": false
++          },
++          "contentDigest": "sha256:112a9df659af6d14eb0801886c528402f5aabdc836611118b1fa1121a48c56fd",
+           "record": {
+             "fixtureRecordType": "UNADOPTED_SAMPLE_SUPPORT_RELATION_EXAMPLE",
+             "sampleRef": "sample:W05-soil-fictional",
+             "contextBinding": {
+               "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+-              "fixtureRevision": "r1",
++              "fixtureRevision": "h03-r1",
+               "admittedRuntimeBinding": false
+             },
+             "subject": {
+@@ -447,7 +447,7 @@
+         {
+           "role": "QUANTITY_PROVENANCE",
+           "binding": {
+-            "fixtureLogicalRef": "quantity-source:W05-lab-transcription-fictional",
++            "fixtureLogicalRef": "quantity-source:W05-wrong-property-transcription-fictional",
+             "fixtureRevision": "r1",
+             "admittedRuntimeBinding": false
+           },
+@@ -519,7 +519,30 @@
+             "status": "FICTIONAL_UNADMITTED_NO_REGULATORY_AUTHORITY"
+           }
+         }
+-      ]
++      ],
++      "ownerProfileSelection": {
++        "quantityProvenanceBinding": {
++          "fixtureLogicalRef": "quantity-source:W05-wrong-property-transcription-fictional",
++          "fixtureRevision": "r1",
++          "admittedRuntimeBinding": false
++        },
++        "quantityProvenanceDigest": "sha256:8bef05d46ebb6f0756cd39f9208802a90ed5248822fde6316832c76b8f2e6391",
++        "measurementBinding": {
++          "fixtureLogicalRef": "measurement:wrong-property-fictional",
++          "fixtureRevision": "r1",
++          "admittedRuntimeBinding": false
++        },
++        "contextBinding": {
++          "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
++          "fixtureRevision": "h03-r1",
++          "admittedRuntimeBinding": false
++        },
++        "subjectRelationBinding": {
++          "fixtureLogicalRef": "sample-to-field:fictional",
++          "fixtureRevision": "h03-r1",
++          "admittedRuntimeBinding": false
++        }
++      }
+     },
+     {
+       "id": "H04_MISSING_SOURCE_ROLE",
+@@ -2057,6 +2080,7 @@
+     {
+       "id": "H07_WRONG_TARGET",
+       "expectedErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH",
+         "TARGET_SUPPORT_MISMATCH"
+       ],
+       "claimContent": {
+@@ -2577,6 +2601,7 @@
+     {
+       "id": "H08_WRONG_METHOD_REVISION",
+       "expectedErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH",
+         "METHOD_MISMATCH"
+       ],
+       "claimContent": {
+@@ -3097,6 +3122,7 @@
+     {
+       "id": "H09_LOD_NOT_LOQ",
+       "expectedErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH",
+         "LOQ_VALUE_UNIT_MISMATCH"
+       ],
+       "claimContent": {
+@@ -3617,6 +3643,7 @@
+     {
+       "id": "H10_WRONG_PHENOMENON_TIME",
+       "expectedErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH",
+         "PHENOMENON_TIME_MISMATCH"
+       ],
+       "claimContent": {
+@@ -4657,6 +4684,7 @@
+     {
+       "id": "H12_CONFIDENCE_USED_AS_HARD_BOUND",
+       "expectedErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH",
+         "METHOD_DOMAIN_BOUNDS_MISMATCH"
+       ],
+       "claimContent": {
+@@ -7249,6 +7277,7 @@
+     {
+       "id": "H17_WRONG_SAMPLE",
+       "expectedErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH",
+         "SAMPLE_MISMATCH"
+       ],
+       "claimContent": {
+@@ -7769,6 +7798,7 @@
+     {
+       "id": "H18_WRONG_MATRIX",
+       "expectedErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH",
+         "MATRIX_ANALYTE_MISMATCH"
+       ],
+       "claimContent": {
+@@ -8289,6 +8319,7 @@
+     {
+       "id": "H19_WRONG_LEXICAL_RESULT",
+       "expectedErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH",
+         "LEXICAL_RESULT_MISMATCH"
+       ],
+       "claimContent": {
+@@ -8809,6 +8840,7 @@
+     {
+       "id": "H20_UNCERTAINTY_ERASED",
+       "expectedErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH",
+         "QUALIFICATION_SOURCE_MISMATCH",
+         "QUALIFICATION_POINTER_UNRESOLVED"
+       ],
+@@ -9326,6 +9358,7 @@
+     {
+       "id": "H21_DISPUTED_AS_UNQUALIFIED",
+       "expectedErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH",
+         "SOURCE_POSTURE_MISMATCH"
+       ],
+       "claimContent": {
+--- /dev/null
++++ b/w05_profile_checks_fix01.py
+@@ -0,0 +1,90 @@
++"""Independent finite W05 owner pins and guards; no runtime source admission."""
++import json
++from pathlib import Path
++from role_checks_v4 import json_type, MISSING
++
++PROFILE = json.loads((Path(__file__).with_name('w05-owner-profile-fix01.json')).read_text())
++
++def same_json(left, right):
++    return json.dumps(left, sort_keys=True, separators=(',', ':')) == json.dumps(right, sort_keys=True, separators=(',', ':'))
++
++def profile_errors(expect):
++    if not isinstance(expect, dict):
++        return [{'code': 'INVALID_OWNER_PROFILE', 'pointer': '/ownerProfile', 'expected': 'object'}]
++    errors = []
++    def require(code, key, value):
++        if not same_json(expect.get(key), value):
++            errors.append({'code': code, 'pointer': '/ownerProfile/' + key})
++    require('OWNER_PROFILE_CRITERION_MISMATCH', 'criterionOwnerBinding', PROFILE['criterionBinding'])
++    require('OWNER_PROFILE_CRITERION_MISMATCH', 'criterionBinding', PROFILE['criterionBinding'])
++    require('OWNER_PROFILE_CRITERION_PIN_MISMATCH', 'criterionOwnerDigest', PROFILE['criterionOwnerDigest'])
++    require('OWNER_PROFILE_RESULT_KIND_MISMATCH', 'resultKind', PROFILE['requiredResultKind'])
++    matches = [x for x in PROFILE['approvedQuantitySources'] if same_json(x['binding'], expect.get('quantityProvenanceBinding'))]
++    if len(matches) != 1:
++        errors.append({'code': 'UNAPPROVED_QUANTITY_SOURCE_REVISION', 'pointer': '/ownerProfile/quantityProvenanceBinding'})
++    else:
++        require('OWNER_PROFILE_QUANTITY_PIN_MISMATCH', 'quantityProvenanceDigest', matches[0]['recordDigest'])
++    for role, key in [('MEASUREMENT', 'measurementBinding'), ('OBSERVATION_CONTEXT', 'contextBinding'), ('SAMPLE_SUPPORT_RELATION', 'subjectRelationBinding'), ('METHOD_USE_QUALIFICATION', 'methodUseBinding')]:
++        if not any(p['role'] == role and same_json(p['binding'], expect.get(key)) for p in PROFILE['measurementSources']):
++            errors.append({'code': 'UNAPPROVED_MEASUREMENT_SOURCE_REVISION', 'pointer': '/ownerProfile/' + key})
++    return errors
++
++def claim_container_errors(content):
++    errors = []
++    for key, kind in [('subject', 'object'), ('subjectTime', 'object'), ('evidenceBindings', 'array'), ('ruleRevisionBindings', 'array'), ('evidencePolicyRevisionBindings', 'array')]:
++        value = content.get(key, MISSING)
++        if json_type(value) != kind:
++            errors.append({'code': 'INVALID_TYPE', 'pointer': '/' + key, 'expected': kind, 'actual': json_type(value)})
++    scope = content['proposition'].get('scope', MISSING)
++    if not isinstance(scope, dict):
++        errors.append({'code': 'INVALID_TYPE', 'pointer': '/proposition/scope', 'expected': 'object', 'actual': json_type(scope)})
++    return errors
++
++def record_errors(body, records, expect, digest):
++    """Guard accessed containers before semantics; check independent measurement pins.
++
++    A well-shaped hostile record may still reach semantic checks to retain their
++    useful diagnostics, but an independent pin error always rejects that record.
++    """
++    if not isinstance(records, list):
++        error = {'code': 'INVALID_TYPE', 'pointer': '/resolvedRecords', 'expected': 'array', 'actual': json_type(records)}
++        return [error], True
++    errors = []
++    unsafe = False
++    source = body['operand']['source']
++    selected = [(source[k], '/operand/source/' + k, role) for k, role in [('measurementBinding', 'MEASUREMENT'), ('contextBinding', 'OBSERVATION_CONTEXT'), ('subjectRelationBinding', 'SAMPLE_SUPPORT_RELATION'), ('methodUseBinding', 'METHOD_USE_QUALIFICATION')]]
++    selected += [(body['operand']['limit']['provenance']['sourceBinding'], '/operand/limit/provenance/sourceBinding', 'QUANTITY_PROVENANCE'), (body['threshold']['provenance']['sourceBinding'], '/threshold/provenance/sourceBinding', 'CRITERION_OWNER')]
++    for binding, path, role in selected:
++        matches = [r for r in records if isinstance(r, dict) and same_json(r.get('binding'), binding)]
++        if len(matches) != 1:
++            errors.append({'code': 'SOURCE_RESOLUTION_NOT_EXACT', 'pointer': path})
++            unsafe = True
++            continue
++        resolved = matches[0]
++        record = resolved.get('record', MISSING)
++        if not isinstance(record, dict):
++            errors.append({'code': 'INVALID_SOURCE_RECORD_TYPE', 'pointer': path, 'expected': 'object', 'actual': json_type(record)})
++            unsafe = True
++            continue
++        try:
++            record_digest = digest(record)
++        except (ValueError, TypeError, OverflowError):
++            errors.append({'code': 'INVALID_SOURCE_RECORD_VALUE', 'pointer': path})
++            unsafe = True
++            continue
++        if record_digest != resolved.get('contentDigest'):
++            errors.append({'code': 'RESOLVED_DIGEST_MISMATCH', 'pointer': path})
++        expected_key = {'MEASUREMENT': 'measurementBinding', 'OBSERVATION_CONTEXT': 'contextBinding', 'SAMPLE_SUPPORT_RELATION': 'subjectRelationBinding', 'METHOD_USE_QUALIFICATION': 'methodUseBinding'}.get(role)
++        pin = next((p for p in PROFILE['measurementSources'] if p['role'] == role and same_json(p['binding'], expect.get(expected_key))), None)
++        if pin is not None:
++            if not same_json(binding, pin['binding']):
++                errors.append({'code': 'MEASUREMENT_SOURCE_BINDING_MISMATCH', 'pointer': path})
++            if record_digest != pin['recordDigest']:
++                errors.append({'code': 'MEASUREMENT_SOURCE_PIN_MISMATCH', 'pointer': path, 'role': role})
++        fields = {'MEASUREMENT': [('measurementEvidenceId', 'string'), ('source', 'object'), ('labContext', 'object')], 'OBSERVATION_CONTEXT': [('spatialContext', 'object'), ('procedure', 'object'), ('measurementEvidenceRefs', 'array')], 'CRITERION_OWNER': [('operator', 'string'), ('threshold', 'object')]}.get(role, [])
++        for key, kind in fields:
++            value = record.get(key, MISSING)
++            if json_type(value) != kind:
++                errors.append({'code': 'INVALID_SOURCE_FIELD_TYPE', 'pointer': path, 'recordPointer': '/' + key, 'expected': kind, 'actual': json_type(value)})
++                unsafe = True
++    return errors, unsafe
+--- /dev/null
++++ b/w05-owner-profile-fix01.json
+@@ -0,0 +1,115 @@
++{
++  "id": "fictional-owner-profile:W05:amendment-03:fix01",
++  "status": "UNADOPTED_FINITE_OWNER_PROFILE_NOT_RUNTIME_AUTHORITY",
++  "sourceHead": "37d680d598af0cd321c6d06e91af6aba60a73c8d",
++  "criterionBinding": {
++    "fixtureLogicalRef": "criterion:W05-nitrate-fictional",
++    "fixtureRevision": "r1",
++    "admittedRuntimeBinding": false
++  },
++  "criterionOwnerDigest": "sha256:429e7fe73b7099ebbc81c582b7062b33ba9b8c9829102ed73ae6d34e80c14278",
++  "requiredResultKind": "CENSORED_NUMERIC",
++  "requiredScalarProvenance": [
++    "/operand/limit/provenance",
++    "/threshold/provenance"
++  ],
++  "requiredScalarReportingQualifier": "HUMAN_REPORTED",
++  "approvedQuantitySources": [
++    {
++      "binding": {
++        "fixtureLogicalRef": "quantity-source:W05-lab-transcription-fictional",
++        "fixtureRevision": "r1",
++        "admittedRuntimeBinding": false
++      },
++      "recordDigest": "sha256:1615847aee93447ca908976182e3ef1d4ba8c3585e97cb0beeb41105359a8d70",
++      "ownerRecordSource": "37d680d:review-amendment-03/owner-records-v4.json#/quantityProvenance"
++    },
++    {
++      "binding": {
++        "fixtureLogicalRef": "quantity-source:W05-lab-transcription-fictional",
++        "fixtureRevision": "r2",
++        "admittedRuntimeBinding": false
++      },
++      "recordDigest": "sha256:234b6a8264f04fa7fbfaa34fa1aa0f76d582ec52a4373edbd3409642fafff1de",
++      "ownerRecordSource": "owner-approved-lexical-r2-fix01.json#/quantityProvenance"
++    },
++    {
++      "binding": {
++        "fixtureLogicalRef": "quantity-source:W05-wrong-property-transcription-fictional",
++        "fixtureRevision": "r1",
++        "admittedRuntimeBinding": false
++      },
++      "recordDigest": "sha256:8bef05d46ebb6f0756cd39f9208802a90ed5248822fde6316832c76b8f2e6391",
++      "ownerRecordSource": "owner-approved-h03-fix01.json#/records/QUANTITY_PROVENANCE"
++    }
++  ],
++  "measurementSources": [
++    {
++      "role": "MEASUREMENT",
++      "binding": {
++        "fixtureLogicalRef": "nitrate-measurement:fictional",
++        "fixtureRevision": "r1",
++        "admittedRuntimeBinding": false
++      },
++      "recordDigest": "sha256:a687d9ad31155a01218ecc9d52b8bba584797d0c818452263838ec7d131f8743"
++    },
++    {
++      "role": "OBSERVATION_CONTEXT",
++      "binding": {
++        "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
++        "fixtureRevision": "r1",
++        "admittedRuntimeBinding": false
++      },
++      "recordDigest": "sha256:cad0dcd1c42e4e139c57bdcae8ba1f16aeb1addb222a898e890ee06e303eafd5"
++    },
++    {
++      "role": "SAMPLE_SUPPORT_RELATION",
++      "binding": {
++        "fixtureLogicalRef": "sample-to-field:fictional",
++        "fixtureRevision": "r1",
++        "admittedRuntimeBinding": false
++      },
++      "recordDigest": "sha256:f26302f2f3536bcf181167d7d7a9af3854522ad150b903f0337d4572fc66c378"
++    },
++    {
++      "role": "METHOD_USE_QUALIFICATION",
++      "binding": {
++        "fixtureLogicalRef": "method-use:W05-nitrate-fictional",
++        "fixtureRevision": "r1",
++        "admittedRuntimeBinding": false
++      },
++      "recordDigest": "sha256:8d6c7f8a0903af5760b765687c7e0eb14eb35e741dac8bcaa84aa661c1afbecf"
++    },
++    {
++      "role": "MEASUREMENT",
++      "binding": {
++        "fixtureLogicalRef": "measurement:wrong-property-fictional",
++        "fixtureRevision": "r1",
++        "admittedRuntimeBinding": false
++      },
++      "recordDigest": "sha256:5f4420318f6b5e2bbf05782225c1e4411c66a87a27cd0d764256284aecf2400d",
++      "ownerRecordSource": "owner-approved-h03-fix01.json#/records/MEASUREMENT"
++    },
++    {
++      "role": "OBSERVATION_CONTEXT",
++      "binding": {
++        "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
++        "fixtureRevision": "h03-r1",
++        "admittedRuntimeBinding": false
++      },
++      "recordDigest": "sha256:60136566d5be6f044e5ab9ec346fa1d7b98095b1ff390713a758c505414b5895",
++      "ownerRecordSource": "owner-approved-h03-fix01.json#/records/OBSERVATION_CONTEXT"
++    },
++    {
++      "role": "SAMPLE_SUPPORT_RELATION",
++      "binding": {
++        "fixtureLogicalRef": "sample-to-field:fictional",
++        "fixtureRevision": "h03-r1",
++        "admittedRuntimeBinding": false
++      },
++      "recordDigest": "sha256:112a9df659af6d14eb0801886c528402f5aabdc836611118b1fa1121a48c56fd",
++      "ownerRecordSource": "owner-approved-h03-fix01.json#/records/SAMPLE_SUPPORT_RELATION"
++    }
++  ],
++  "next": "Resolve the selected exact source bytes; claimant discriminators cannot remove this profile’s obligations."
++}
+--- /dev/null
++++ b/owner-approved-lexical-r2-fix01.json
+@@ -0,0 +1,40 @@
++{
++  "status": "FICTIONAL_OWNER_APPROVED_TEST_REVISION_NOT_RUNTIME_ADMISSION",
++  "sourceHead": "37d680d598af0cd321c6d06e91af6aba60a73c8d",
++  "decision": "The separate r2 human transcription preserves scalar spelling 2.00. Its immutable binding and exact record digest are independently selected in w05-owner-profile-fix01.json. This approval is confined to the existing fictional lexical variation test; r1 remains unchanged.",
++  "quantityProvenance": {
++    "binding": {
++      "fixtureLogicalRef": "quantity-source:W05-lab-transcription-fictional",
++      "fixtureRevision": "r2",
++      "admittedRuntimeBinding": false
++    },
++    "record": {
++      "fixtureRecordType": "UNADOPTED_QUANTITY_SOURCE_EXAMPLE",
++      "reportingMethod": "HUMAN_TRANSCRIPTION_OF_LAB_REPORT",
++      "reportedByPartyRef": "party:fictional-lab-report-transcriber",
++      "measurementBinding": {
++        "fixtureLogicalRef": "nitrate-measurement:fictional",
++        "fixtureRevision": "r1",
++        "admittedRuntimeBinding": false
++      },
++      "measurementSourceRef": "lab-report:W05-fictional",
++      "selectedMeasurementPointer": "/result/detectionLimit",
++      "loq": {
++        "quantityKind": "qudt:MassFraction",
++        "unit": "ucum:mg.kg-1",
++        "decimal": "2",
++        "qualifier": "HUMAN_REPORTED",
++        "originalLexicalValue": "2.00",
++        "unitProfile": {
++          "fixtureLogicalRef": "unit-profile:example",
++          "fixtureRevision": "r1",
++          "admittedRuntimeBinding": false
++        }
++      },
++      "scope": "This record explicitly models a person transcribing the reported LOQ scalar. LAB_RESULT alone establishes neither human nor machine reporting. It does not change the laboratory method, censoring qualifier or result meaning.",
++      "status": "FICTIONAL_UNADMITTED"
++    },
++    "contentDigest": "sha256:234b6a8264f04fa7fbfaa34fa1aa0f76d582ec52a4373edbd3409642fafff1de"
++  },
++  "next": "Use only this approved r2 binding and pinned record in the lexical positive."
++}
+--- /dev/null
++++ b/owner-approved-h03-fix01.json
+@@ -0,0 +1,261 @@
++{
++  "status": "FICTIONAL_OWNER_APPROVED_HOSTILE_SOURCES_NOT_RUNTIME_ADMISSION",
++  "sourceHead": "37d680d598af0cd321c6d06e91af6aba60a73c8d",
++  "decision": "H03 has its own exact transcription, context and sample relation identities. The wrong-property measurement remains exactly the reviewed H03 record. Its associated source profile is independently pinned so the only semantic failure remains PROPERTY_MISMATCH. Baseline r1 and lexical r2 bytes are not redefined.",
++  "ownerProfileSelection": {
++    "quantityProvenanceBinding": {
++      "fixtureLogicalRef": "quantity-source:W05-wrong-property-transcription-fictional",
++      "fixtureRevision": "r1",
++      "admittedRuntimeBinding": false
++    },
++    "quantityProvenanceDigest": "sha256:8bef05d46ebb6f0756cd39f9208802a90ed5248822fde6316832c76b8f2e6391",
++    "measurementBinding": {
++      "fixtureLogicalRef": "measurement:wrong-property-fictional",
++      "fixtureRevision": "r1",
++      "admittedRuntimeBinding": false
++    },
++    "contextBinding": {
++      "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
++      "fixtureRevision": "h03-r1",
++      "admittedRuntimeBinding": false
++    },
++    "subjectRelationBinding": {
++      "fixtureLogicalRef": "sample-to-field:fictional",
++      "fixtureRevision": "h03-r1",
++      "admittedRuntimeBinding": false
++    }
++  },
++  "records": {
++    "MEASUREMENT": {
++      "role": "MEASUREMENT",
++      "binding": {
++        "fixtureLogicalRef": "measurement:wrong-property-fictional",
++        "fixtureRevision": "r1",
++        "admittedRuntimeBinding": false
++      },
++      "contentDigest": "sha256:5f4420318f6b5e2bbf05782225c1e4411c66a87a27cd0d764256284aecf2400d",
++      "record": {
++        "schemaVersion": "ofarm.measurementevidence.v0.1",
++        "measurementEvidenceId": "measurement:wrong-property-fictional",
++        "evidenceClass": "LAB_RESULT",
++        "observedPropertyRef": "observed-property:soil-potassium",
++        "resultTime": "2026-05-08T13:30:00Z",
++        "phenomenonTime": {
++          "timeType": "INSTANT",
++          "instant": "2026-05-06T10:05:00Z",
++          "timeBasis": "SAMPLE_TIME"
++        },
++        "sampleRef": "sample:W05-soil-fictional",
++        "source": {
++          "sourceType": "LAB_REPORT",
++          "sourceRef": "lab-report:W05-fictional",
++          "sourceSystemRef": "system:W05-fictional",
++          "sourceCapturedAt": "2026-05-08T13:32:00Z"
++        },
++        "samplingProtocol": {
++          "procedureRef": "protocol:soil-sampling:composite-topsoil:v1",
++          "procedureStatus": "DOCUMENTED_METHOD",
++          "issuerRef": "issuer:ofarm-example-profile",
++          "versionRef": "v1"
++        },
++        "measurementMethod": {
++          "procedureRef": "method:soil-nitrate-colorimetric:example-v2",
++          "procedureStatus": "DOCUMENTED_METHOD",
++          "issuerRef": "lab:soil-lab-alpha",
++          "versionRef": "v2"
++        },
++        "labContext": {
++          "labRef": "lab:soil-lab-alpha",
++          "labMethodRef": "method:soil-nitrate-colorimetric:example-v2",
++          "accreditationRef": "accreditation:lab-alpha:iso17025:example",
++          "matrixRef": "matrix:soil",
++          "analyteRefs": [
++            "analyte:nitrate-n"
++          ]
++        },
++        "result": {
++          "resultKind": "CENSORED_NUMERIC",
++          "quantityKindRef": "qudt:MassFraction",
++          "unitRef": "ucum:mg.kg-1",
++          "originalLexicalValue": "< 2 mg/kg",
++          "originalUnitText": "mg/kg",
++          "censoringQualifier": "BELOW_LOQ",
++          "detectionLimit": {
++            "limitType": "LOQ",
++            "quantityKindRef": "qudt:MassFraction",
++            "unitRef": "ucum:mg.kg-1",
++            "value": 2,
++            "qualifier": "below quantification limit"
++          },
++          "qualifierNote": "Censored result is not zero and must be displayed with qualifier."
++        },
++        "uncertainty": {
++          "uncertaintyClass": "QUALITATIVE",
++          "statement": "Below-LOQ result is analytically qualified; do not convert to exact zero."
++        },
++        "chainOfCustodyStatus": "PRESERVED",
++        "originalPayloadRef": "local-artifact:W05-fictional",
++        "originalPayloadHash": "sha256:fictional-unadmitted-payload",
++        "provenanceRefs": [
++          "provenance:W05-fictional"
++        ],
++        "evidenceStatus": "REVIEW_REQUIRED",
++        "notes": "Fictional W05 design operand only; not the original field-17 record and not admitted.",
++        "agronomicObservationContextRef": "observation-context:W05-nitrate-fictional"
++      }
++    },
++    "OBSERVATION_CONTEXT": {
++      "role": "OBSERVATION_CONTEXT",
++      "binding": {
++        "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
++        "fixtureRevision": "h03-r1",
++        "admittedRuntimeBinding": false
++      },
++      "contentDigest": "sha256:60136566d5be6f044e5ab9ec346fa1d7b98095b1ff390713a758c505414b5895",
++      "record": {
++        "schemaVersion": "ofarm.agronomicobservationcontext.v0.1",
++        "agronomicObservationContextId": "observation-context:W05-nitrate-fictional",
++        "contextState": "REPORTED",
++        "observationClass": "LAB_CONTEXT",
++        "subject": {
++          "subjectType": "SAMPLE",
++          "subjectRef": "sample:W05-soil-fictional"
++        },
++        "targetScope": {
++          "scopeType": "FIELD",
++          "scopeRef": "field:fictional"
++        },
++        "observedPropertyRef": "observed-property:soil-nitrate-n",
++        "phenomenonTime": {
++          "timeType": "INSTANT",
++          "instant": "2026-05-06T10:05:00Z",
++          "timeBasis": "SAMPLE_TIME"
++        },
++        "observationAgent": {
++          "agentType": "PARTY",
++          "agentRef": "lab:soil-lab-alpha"
++        },
++        "spatialContext": {
++          "scope": {
++            "scopeType": "FIELD",
++            "scopeRef": "field:fictional"
++          },
++          "partialExtentRef": "extent:W05-composite-fictional",
++          "geometryBasisRef": "geometry:W05-composite-fictional",
++          "spatialBasis": "COMPOSITE_SAMPLE_SUPPORT",
++          "spatialQuality": "MEASURED"
++        },
++        "procedure": {
++          "procedureRef": "method:soil-nitrate-colorimetric:example-v2",
++          "procedureStatus": "DOCUMENTED_METHOD",
++          "samplingProtocolRef": "protocol:soil-sampling:composite-topsoil:v1",
++          "measurementMethodRef": "method:soil-nitrate-colorimetric:example-v2"
++        },
++        "measurementEvidenceRefs": [
++          "measurement:wrong-property-fictional"
++        ],
++        "evidenceRefs": [
++          "sample-to-field:fictional"
++        ],
++        "uncertainty": {
++          "uncertaintyClass": "QUALITATIVE",
++          "statement": "Below-LOQ result is analytically qualified; do not convert to exact zero."
++        },
++        "contextCompleteness": "DEGRADED_REVIEW_REQUIRED",
++        "promotionUse": {
++          "allowedTwinScope": "COMPLIANCE_BLOCKED",
++          "highConsequenceUse": "REVIEW_REQUIRED",
++          "mustNotPromoteTo": [
++            "COMPLIANCE_FACT",
++            "CURRENT_STATE_DIRECTLY",
++            "ATTESTED_OUTPUT_DIRECTLY"
++          ]
++        },
++        "notes": "Fictional source context; composite support does not itself prove whole-field applicability."
++      }
++    },
++    "SAMPLE_SUPPORT_RELATION": {
++      "role": "SAMPLE_SUPPORT_RELATION",
++      "binding": {
++        "fixtureLogicalRef": "sample-to-field:fictional",
++        "fixtureRevision": "h03-r1",
++        "admittedRuntimeBinding": false
++      },
++      "contentDigest": "sha256:112a9df659af6d14eb0801886c528402f5aabdc836611118b1fa1121a48c56fd",
++      "record": {
++        "fixtureRecordType": "UNADOPTED_SAMPLE_SUPPORT_RELATION_EXAMPLE",
++        "sampleRef": "sample:W05-soil-fictional",
++        "contextBinding": {
++          "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
++          "fixtureRevision": "h03-r1",
++          "admittedRuntimeBinding": false
++        },
++        "subject": {
++          "kind": "FIELD",
++          "binding": {
++            "fixtureLogicalRef": "field:fictional",
++            "fixtureRevision": "r1",
++            "admittedRuntimeBinding": false
++          }
++        },
++        "subjectTime": {
++          "profile": "COMPLIANCE_AS_OF",
++          "at": "2026-05-07T18:25:00Z"
++        },
++        "claimExtent": {
++          "posture": "FULL_TARGET_SCOPE",
++          "binding": {
++            "fixtureLogicalRef": "field:fictional",
++            "fixtureRevision": "r1",
++            "admittedRuntimeBinding": false
++          }
++        },
++        "supportExtentRef": "extent:W05-composite-fictional",
++        "geometryBasisRef": "geometry:W05-composite-fictional",
++        "criterionBinding": {
++          "fixtureLogicalRef": "criterion:W05-nitrate-fictional",
++          "fixtureRevision": "r1",
++          "admittedRuntimeBinding": false
++        },
++        "declaredUse": "PENDING_COMPLIANCE_ALLEGATION_ONLY",
++        "qualification": "FICTIONAL_OWNER_SCOPE_COMPARISON_ASSUMED_NOT_ADMITTED"
++      }
++    },
++    "QUANTITY_PROVENANCE": {
++      "role": "QUANTITY_PROVENANCE",
++      "binding": {
++        "fixtureLogicalRef": "quantity-source:W05-wrong-property-transcription-fictional",
++        "fixtureRevision": "r1",
++        "admittedRuntimeBinding": false
++      },
++      "contentDigest": "sha256:8bef05d46ebb6f0756cd39f9208802a90ed5248822fde6316832c76b8f2e6391",
++      "record": {
++        "fixtureRecordType": "UNADOPTED_QUANTITY_SOURCE_EXAMPLE",
++        "reportingMethod": "HUMAN_TRANSCRIPTION_OF_LAB_REPORT",
++        "reportedByPartyRef": "party:fictional-lab-report-transcriber",
++        "measurementBinding": {
++          "fixtureLogicalRef": "measurement:wrong-property-fictional",
++          "fixtureRevision": "r1",
++          "admittedRuntimeBinding": false
++        },
++        "measurementSourceRef": "lab-report:W05-fictional",
++        "selectedMeasurementPointer": "/result/detectionLimit",
++        "loq": {
++          "quantityKind": "qudt:MassFraction",
++          "unit": "ucum:mg.kg-1",
++          "decimal": "2",
++          "qualifier": "HUMAN_REPORTED",
++          "originalLexicalValue": "2",
++          "unitProfile": {
++            "fixtureLogicalRef": "unit-profile:example",
++            "fixtureRevision": "r1",
++            "admittedRuntimeBinding": false
++          }
++        },
++        "scope": "This record explicitly models a person transcribing the reported LOQ scalar. LAB_RESULT alone establishes neither human nor machine reporting. It does not change the laboratory method, censoring qualifier or result meaning.",
++        "status": "FICTIONAL_UNADMITTED"
++      }
++    }
++  },
++  "next": "Require H03 exact resolution and sole PROPERTY_MISMATCH while preserving the baseline criterion."
++}
+--- /dev/null
++++ b/fix01_checks.py
+@@ -0,0 +1,88 @@
++"""Deterministic regressions for immutable source pins and owner-selected W05 shape."""
++import copy,json,re
++from measurement_checks_v4 import w05_errors,digest
++from role_checks_v4 import required_role_errors
++from w05_profile_checks_fix01 import PROFILE,record_errors
++
++BAD=[('missing',None),('null',None),('empty_object',{}),('string','wrong'),('empty_string',''),('array',[{}]),('empty_array',[]),('number',7),('zero',0),('true',True),('false',False)]
++DEFAULT=object()
++KINDS=[('numeric','NUMERIC'),('unknown','UNKNOWN_KIND'),('missing',None),('null',None),('number',1),('false',False),('array',[]),('object',{})]
++
++def replace(root,path,value,remove=False):
++    tokens=path.strip('/').split('/');current=root
++    for token in tokens[:-1]:current=current[token]
++    if remove:current.pop(tokens[-1],None)
++    else:current[tokens[-1]]=copy.deepcopy(value)
++
++def run_fix01(out):
++    rd=lambda n:json.loads((out/n).read_text())
++    base=rd('candidate-examples-v4.json')['examples'][4]['claimContent'];records=rd('measurement-fixtures-v4.json')['records'];expect=rd('criterion-expectations-v4.json');checks=[]
++    def check(name,ok,**details):checks.append({'check':'fix01: '+name,'passed':bool(ok),**details})
++    def probe(name,c=DEFAULT,r=DEFAULT,e=DEFAULT,want=None,positive=False):
++        try:
++            errors=w05_errors(base if c is DEFAULT else c,records if r is DEFAULT else r,expect if e is DEFAULT else e)
++            structured=isinstance(errors,list) and all(isinstance(x,dict) and isinstance(x.get('code'),str) and 'pointer' in x for x in errors)
++            codes=[x['code'] for x in errors] if structured else []
++            okay=errors==[] if positive else structured and bool(errors) and (want is None or want in codes)
++            check(name,okay,errors=errors)
++            return errors
++        except Exception as exc:
++            check(name,False,exception=type(exc).__name__+': '+str(exc));return None
++    probe('unchanged r1 positive',positive=True)
++    # Every wrong/unknown discriminator is crossed with every required scalar shape.
++    for kind_tag,kind in KINDS:
++        for path in ['/operand/limit','/threshold','/operand/limit/provenance','/threshold/provenance']:
++            for tag,value in BAD:
++                c=copy.deepcopy(base);body=c['proposition']['body'];replace(body,'/operand/resultKind',kind,kind_tag=='missing');replace(body,path,value,tag=='missing')
++                probe(kind_tag+' with '+path+' '+tag,c=c)
++        c=copy.deepcopy(base);replace(c['proposition']['body'],'/operand/resultKind',kind,kind_tag=='missing');probe('discriminator alone '+kind_tag,c=c)
++    for path in ['/operand/limit','/threshold']:
++        for field in ['quantityKind','unit','decimal','qualifier','originalLexicalValue','unitProfile']:
++            c=copy.deepcopy(base);replace(c['proposition']['body'],path+'/'+field,None,True);probe('missing scalar member '+path+'/'+field,c=c)
++    for path in ['/operand/limit/provenance','/threshold/provenance']:
++        for field in ['sourceBinding','valuePointer','lexicalPointer','qualifierPointer']:
++            c=copy.deepcopy(base);replace(c['proposition']['body'],path+'/'+field,None,True);c['proposition']['body']['operand']['resultKind']='NUMERIC';probe('kind cannot hide missing '+path+'/'+field,c=c)
++    c=copy.deepcopy(base);b=c['proposition']['body'];b['operand']['resultKind']='NUMERIC';del b['operand']['limit']['provenance'];b['threshold']['provenance']=[];c['evidenceBindings']=[]
++    errors=probe('combined discriminator both provenance roles and evidence removal',c=c)
++    check('combined shape diagnostics identify both required provenance paths',errors is not None and any(x['pointer']=='/operand/limit/provenance' for x in errors) and any(x['pointer']=='/threshold/provenance' for x in errors))
++    e=copy.deepcopy(expect);e['resultKind']='NUMERIC';probe('claim and expected discriminator cannot replace selected owner profile',c=c,e=e,want='OWNER_PROFILE_RESULT_KIND_MISMATCH')
++    for field in ['quantityProvenanceDigest','criterionOwnerDigest']:
++        e=copy.deepcopy(expect);e[field]='sha256:'+'0'*64;probe('wrong independent expected pin '+field,e=e)
++    for mutation in ['lexical','transcriber','measurement_link','reporting_method','qualifier']:
++        c=copy.deepcopy(base);r=copy.deepcopy(records);q=next(x for x in r if x['role']=='QUANTITY_PROVENANCE')
++        if mutation=='lexical':q['record']['loq']['originalLexicalValue']='2.00';c['proposition']['body']['operand']['limit']['originalLexicalValue']='2.00'
++        elif mutation=='transcriber':q['record']['reportedByPartyRef']='party:replacement'
++        elif mutation=='measurement_link':q['record']['measurementSourceRef']='lab-report:replacement'
++        elif mutation=='reporting_method':q['record']['reportingMethod']='MACHINE_IMPORT'
++        elif mutation=='qualifier':q['record']['loq']['qualifier']='MACHINE_REPORTED';c['proposition']['body']['operand']['limit']['qualifier']='MACHINE_REPORTED'
++        q['contentDigest']=digest(q['record']);probe('r1 rehash cannot authorize '+mutation,c,r,want='QUANTITY_OWNER_PIN_MISMATCH')
++        e=copy.deepcopy(expect);e['quantityProvenanceDigest']=q['contentDigest'];probe('claim plus caller expectation cannot authorize r1 '+mutation,c,r,e,want='OWNER_PROFILE_QUANTITY_PIN_MISMATCH')
++    # Exact independently authored r2 remains a valid source, never a rewrite of r1.
++    approved=rd('owner-approved-lexical-r2-fix01.json')['quantityProvenance'];c=copy.deepcopy(base);r=copy.deepcopy(records);e=copy.deepcopy(expect);q=next(x for x in r if x['role']=='QUANTITY_PROVENANCE');old=copy.deepcopy(q['binding']);q.update(copy.deepcopy(approved));c['proposition']['body']['operand']['limit']['provenance']['sourceBinding']=copy.deepcopy(q['binding']);c['proposition']['body']['operand']['limit']['originalLexicalValue']='2.00';c['evidenceBindings']=[copy.deepcopy(q['binding']) if v==old else v for v in c['evidenceBindings']];e['quantityProvenanceBinding']=copy.deepcopy(q['binding']);e['quantityProvenanceDigest']=q['contentDigest']
++    probe('approved exact r2 positive',c,r,e,positive=True)
++    normalized=copy.deepcopy(c);normalized['proposition']['body']['operand']['limit']['originalLexicalValue']='2';probe('r2 normalization rejected',normalized,r,e,want='LOQ_SOURCE_LEXICAL_MISMATCH')
++    altered=copy.deepcopy(r);aq=next(x for x in altered if x['role']=='QUANTITY_PROVENANCE');aq['record']['reportedByPartyRef']='party:replacement';aq['contentDigest']=digest(aq['record']);probe('r2 cannot change its approved bytes',c,altered,e,want='QUANTITY_OWNER_PIN_MISMATCH')
++    unapproved=copy.deepcopy(e);unapproved['quantityProvenanceBinding']['fixtureRevision']='r3';probe('unapproved r3 has no owner pin',c,r,unapproved,want='UNAPPROVED_QUANTITY_SOURCE_REVISION')
++    # Analogous criterion and measurement record rewrites have independent pins.
++    for role in ['CRITERION_OWNER','MEASUREMENT','OBSERVATION_CONTEXT','SAMPLE_SUPPORT_RELATION','METHOD_USE_QUALIFICATION']:
++        r=copy.deepcopy(records);record=next(x for x in r if x['role']==role);record['record']['fixtureNote']='changed bytes under same binding';record['contentDigest']=digest(record['record']);probe('same-binding record rewrite '+role,r=r,want='CRITERION_OWNER_PIN_MISMATCH' if role=='CRITERION_OWNER' else 'MEASUREMENT_SOURCE_PIN_MISMATCH')
++    for role,field in [('QUANTITY_PROVENANCE','loq'),('CRITERION_OWNER','threshold'),('MEASUREMENT','source'),('MEASUREMENT','labContext'),('OBSERVATION_CONTEXT','spatialContext'),('OBSERVATION_CONTEXT','procedure'),('OBSERVATION_CONTEXT','measurementEvidenceRefs')]:
++        for tag,value in BAD:
++            r=copy.deepcopy(records);rec=next(x for x in r if x['role']==role);replace(rec['record'],'/'+field,value,tag=='missing');rec['contentDigest']=digest(rec['record']);probe('malformed resolved '+role+'/'+field+' '+tag,r=r)
++    for role in ['QUANTITY_PROVENANCE','CRITERION_OWNER','MEASUREMENT']:
++        for tag,value in BAD:
++            r=copy.deepcopy(records);rec=next(x for x in r if x['role']==role)
++            if tag=='missing':rec.pop('record')
++            else:rec['record']=copy.deepcopy(value)
++            probe('malformed record envelope '+role+' '+tag,r=r)
++    for tag,value in BAD:
++        if tag!='missing':probe('malformed resolver collection '+tag,r=value)
++    # The repaired H03 is exactly resolved and pinned; only property meaning fails.
++    h=rd('measurement-hostiles-v4.json')['cases'][0];he={**expect,**h['ownerProfileSelection']};hr=h['records'];hc=h['claimContent'];errs=probe('H03 independent valid source retains wrong-property rejection',hc,hr,he,want='PROPERTY_MISMATCH')
++    check('H03 has exactly PROPERTY_MISMATCH',errs==[{'code':'PROPERTY_MISMATCH','pointer':None}],errors=errs)
++    pin_errors,unsafe=record_errors(hc['proposition']['body'],hr,he,digest);check('H03 exact measurement source pin closure',not pin_errors and not unsafe,errors=pin_errors)
++    hq=next(x for x in hr if x['role']=='QUANTITY_PROVENANCE');check('H03 exact approved transcription pin and distinct identity',hq['contentDigest']==he['quantityProvenanceDigest']==digest(hq['record']) and hq['binding']!=expect['quantityProvenanceBinding'])
++    check('H03 keeps baseline criterion threshold and outcome',hc['proposition']['body']['threshold']==base['proposition']['body']['threshold'] and hc['proposition']['body']['allegedOutcome']==base['proposition']['body']['allegedOutcome'])
++    for role in ['QUANTITY_PROVENANCE','CRITERION_OWNER']:
++        rec=next(x for x in records if x['role']==role);field='loq' if role=='QUANTITY_PROVENANCE' else 'threshold';check('original HUMAN_REPORTED preserved '+role,rec['record'][field]['qualifier']=='HUMAN_REPORTED')
++    return checks
+--- a/build_v4.py
++++ b/build_v4.py
+@@ -1,6 +1,7 @@
+ """Build v4 only from pinned v3 inputs plus independently authored owner records."""
+ import argparse,copy,hashlib,json,sys
+ from pathlib import Path
++from build_fix01_sources import repair_hostiles,extend_role_contract
+ p=argparse.ArgumentParser();p.add_argument('--prior-packet',type=Path,required=True);p.add_argument('--dependency-dir',type=Path,required=True);a=p.parse_args();sys.path.insert(0,str(a.dependency_dir.resolve()));import rfc8785
+ O=Path(__file__).resolve().parent;V='local-candidate:complete-claims:2026-10-21:amendment-03'
+ def sha(b):return hashlib.sha256(b).hexdigest()
+@@ -32,14 +33,14 @@
+ hostiles=rd('measurement-hostiles-v3.json')
+ for h in hostiles['cases']:
+  amend_claim(h['claimContent']);h['records']+=copy.deepcopy(records['records'][-2:])
+- if h['id']=='H03_WRONG_PROPERTY_VALID_SOURCE_AND_MEMBERSHIP':
+-  qr=next(r for r in h['records'] if r['role']=='QUANTITY_PROVENANCE');qr['record']['measurementBinding']=copy.deepcopy(h['claimContent']['proposition']['body']['operand']['source']['measurementBinding']);qr['contentDigest']=dg(qr['record'])
++repair_hostiles(hostiles,O)
+ wr('measurement-hostiles-v4.json',hostiles)
+ proj=rd('projection-contract-v3.json');proj['id']=proj['id'].replace(':v3',':v4');proj['projectionSource']='candidate-examples-v4.json /examples/*/claimContent; v3 definitions remain inherited, W05 uses the explicit v4 C04 extension.';proj['preservation']='24 examples are byte-identical to v3. W05 retains every prior scalar value and qualification, adds exact source provenance and ordinary evidence binding, and is exactly re-rendered under v4. No association metadata is reintroduced.'
+ wr('projection-contract-v4.json',proj)
+ sel=rd('evidence-selectors-v3.json');sel['id']=sel['id'].replace(':v3',':v4');sel['definitionPrefixes'].append(V+'#');next(r for r in sel['rowSelectors'] if r['definition']=='C04')['selectors'].append('/operand/limit/provenance/sourceBinding');sel['separateCompleteInputRoles'].append({'role':'CRITERION_THRESHOLD_DEFINITION_SOURCE','selectors':['/proposition/body/threshold/provenance/sourceBinding'],'includeInAssertionEvidenceByDefault':False,'requirement':'Exact independently authored criterion owner record selected by body.criterion; compare operator, bound, qualifier and source lexical value.'})
+ wr('evidence-selectors-v4.json',sel)
+ contract=rd('measurement-role-contract-v3.json');contract['id']=V+'#measured-compliance-role-contract';contract['independentExpectation']['file']='criterion-expectations-v4.json';contract['independentExpectation']['sha256']=sha((O/'criterion-expectations-v4.json').read_bytes());contract['ownerRecords']={'file':'owner-records-v4.json','sha256':sha((O/'owner-records-v4.json').read_bytes())};contract['v4Extension']={'definition':V+'#C04','inherits':'local-candidate:complete-claims:2026-10-21:amendment-02#C04','requiredAdditions':['operand.limit.provenance','threshold.provenance'],'meaning':'Qualifier belongs to the exact scalar reporting role; censoring qualifier belongs to the complete measured result. LAB_RESULT alone cannot imply MACHINE_REPORTED. W05 explicitly models human transcription of the LOQ and an independently human-authored fictional criterion.','lexical':'Read the LOQ scalar lexical from the resolved quantity record selected by the exact lexicalPointer; full measured result originalLexicalValue remains < 2 mg/kg. No constant 2 comparison or loss of censoring.','threshold':'The independently authored criterion owner record fixes operator, threshold, qualifier, lexical value, rule/policy and property; changing claim and expected mirror together cannot redefine it.','wrongOrUnknownProvenance':'Reject unknown tokens and tokens inconsistent with the resolved source reporting role, including UNKNOWN for this known reporting role. A broader carrier enum is not semantic permission.','traceClosure':'Bind the exact quantity-source and criterion-owner record digests, immutable bindings and selected value/lexical/qualifier pointers in the domain payload. Ordinary quantity evidence additionally requires exact root evidence membership; the criterion record remains a definition input.', 'typeChecks':'Require object shapes before any member or alias access. Required missing/null/empty/wrong types return structured {code,pointer,...}; closed bindings and absolute RFC6901 pointer strings are checked. This does not expand into the complete domain verifier.'}
++extend_role_contract(contract,O)
+ wr('measurement-role-contract-v4.json',contract)
+ wr('transformation-ledger-v4.json',{'sourceHead':pins['sourceHead'],'sourceBundleSha256':sha((a.prior_packet/'candidate-examples-v3.json').read_bytes()),'sourceW05Digest':dg(old),'targetW05Digest':dg(e),'unchangedExampleIds':[x['id'] for i,x in enumerate(bundle['examples']) if i!=4 and x==prior['examples'][i]],'W05Changes':['candidateGrammar and C04 definition version','operand.limit.provenance and threshold.provenance','append one exact ordinary quantity-source binding','typed citation metadata and exact JCS/text/content digests'],'unchangedScalarMeaning':{'limit':'2 mg/kg','threshold':'<= 1 mg/kg','allegedOutcome':'INDETERMINATE','limitQualifier':'HUMAN_REPORTED','thresholdQualifier':'HUMAN_REPORTED'},'ownerInputs':'New explicit fictional source records; no producer or source-adoption claim.'})
+ print('Built v4 bundle, exact owner records, roles and rebased 19 measurement hostiles; 24 examples remain byte-identical.')
+--- a/prepare_checks_v4.py
++++ b/prepare_checks_v4.py
+@@ -15,6 +15,8 @@
+ ("[expect['contextBinding'],expect['methodUseBinding']]","[expect['contextBinding'],expect['methodUseBinding'],expect['quantityProvenanceBinding']]"),
+ ("W05 original evidence prefix plus exact two new records","W05 original evidence prefix plus exact three new records"),
+ ("selected_by_table(missing,empty_table)==[]", "selected_by_table(missing,empty_table)==[]"),
++("w05_errors(case['claimContent'],case['records'],expect)","w05_errors(case['claimContent'],case['records'],{**expect,**case.get('ownerProfileSelection',{})})"),
++("': isolated source failure'","': source semantic and independent pin comparisons'"),
+ ]
+ ledger=[]
+ for before,after in replacements:
+--- /dev/null
++++ b/build_fix01_sources.py
+@@ -0,0 +1,34 @@
++"""Apply independently authored finite fixture choices during v4 regeneration."""
++import copy,hashlib,json
++
++def read(root,name):return json.loads((root/name).read_text())
++def repair_hostiles(hostiles,root):
++    approved=read(root,'owner-approved-h03-fix01.json')
++    h=next(x for x in hostiles['cases'] if x['id']=='H03_WRONG_PROPERTY_VALID_SOURCE_AND_MEMBERSHIP')
++    replacements=[]
++    for role,record in approved['records'].items():
++        index=next(i for i,r in enumerate(h['records']) if r['role']==role)
++        replacements.append((h['records'][index]['binding'],record['binding']))
++        h['records'][index]=copy.deepcopy(record)
++    body=h['claimContent']['proposition']['body'];selection=copy.deepcopy(approved['ownerProfileSelection'])
++    for key in ['measurementBinding','contextBinding','subjectRelationBinding']:body['operand']['source'][key]=copy.deepcopy(selection[key])
++    body['operand']['limit']['provenance']['sourceBinding']=copy.deepcopy(selection['quantityProvenanceBinding'])
++    for old,new in replacements:h['claimContent']['evidenceBindings']=[copy.deepcopy(new) if b==old else b for b in h['claimContent']['evidenceBindings']]
++    h['ownerProfileSelection']=selection
++    assert h['expectedErrors']==['PROPERTY_MISMATCH']
++    for correction in read(root,'hostile-diagnostics-fix01.json')['cases']:
++        case=next(x for x in hostiles['cases'] if x['id']==correction['id'])
++        if case['expectedErrors']!=correction['originalErrors']:raise ValueError('Historical hostile meaning changed: '+case['id'])
++        case['expectedErrors']=correction['additionalErrors']+case['expectedErrors']
++
++def extend_role_contract(contract,root):
++    profile=read(root,'w05-owner-profile-fix01.json')
++    contract['fix01SourceProfile']={
++        'id':profile['id'],'status':profile['status'],
++        'file':'w05-owner-profile-fix01.json',
++        'sha256':hashlib.sha256((root/'w05-owner-profile-fix01.json').read_bytes()).hexdigest(),
++        'requiredResultKind':profile['requiredResultKind'],
++        'requiredScalarProvenance':profile['requiredScalarProvenance'],
++        'rule':'The selected finite owner profile fixes required W05 source roles before dependent access. Claimant discriminator changes cannot remove them. Exact immutable source bytes are checked against independent approved pins, not only self-reported contentDigest.',
++        'separateApprovedFixtures':[{'file':n,'sha256':hashlib.sha256((root/n).read_bytes()).hexdigest()} for n in ['owner-approved-lexical-r2-fix01.json','owner-approved-h03-fix01.json']],
++        'limits':'Fictional non-adopted design fixtures only; no runtime source authority, producer, or general numeric branch engine.'}
+--- /dev/null
++++ b/hostile-diagnostics-fix01.json
+@@ -0,0 +1,98 @@
++{
++  "sourceHead": "37d680d598af0cd321c6d06e91af6aba60a73c8d",
++  "rule": "Preserve every original semantic negative. These ten fixtures deliberately mutate record bytes under the original source binding, so an independent pin diagnostic must also precede their existing semantic failures. H03 instead has separately approved exact identities and must return PROPERTY_MISMATCH only.",
++  "cases": [
++    {
++      "id": "H07_WRONG_TARGET",
++      "originalErrors": [
++        "TARGET_SUPPORT_MISMATCH"
++      ],
++      "additionalErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH"
++      ]
++    },
++    {
++      "id": "H08_WRONG_METHOD_REVISION",
++      "originalErrors": [
++        "METHOD_MISMATCH"
++      ],
++      "additionalErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH"
++      ]
++    },
++    {
++      "id": "H09_LOD_NOT_LOQ",
++      "originalErrors": [
++        "LOQ_VALUE_UNIT_MISMATCH"
++      ],
++      "additionalErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH"
++      ]
++    },
++    {
++      "id": "H10_WRONG_PHENOMENON_TIME",
++      "originalErrors": [
++        "PHENOMENON_TIME_MISMATCH"
++      ],
++      "additionalErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH"
++      ]
++    },
++    {
++      "id": "H12_CONFIDENCE_USED_AS_HARD_BOUND",
++      "originalErrors": [
++        "METHOD_DOMAIN_BOUNDS_MISMATCH"
++      ],
++      "additionalErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH"
++      ]
++    },
++    {
++      "id": "H17_WRONG_SAMPLE",
++      "originalErrors": [
++        "SAMPLE_MISMATCH"
++      ],
++      "additionalErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH"
++      ]
++    },
++    {
++      "id": "H18_WRONG_MATRIX",
++      "originalErrors": [
++        "MATRIX_ANALYTE_MISMATCH"
++      ],
++      "additionalErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH"
++      ]
++    },
++    {
++      "id": "H19_WRONG_LEXICAL_RESULT",
++      "originalErrors": [
++        "LEXICAL_RESULT_MISMATCH"
++      ],
++      "additionalErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH"
++      ]
++    },
++    {
++      "id": "H20_UNCERTAINTY_ERASED",
++      "originalErrors": [
++        "QUALIFICATION_SOURCE_MISMATCH",
++        "QUALIFICATION_POINTER_UNRESOLVED"
++      ],
++      "additionalErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH"
++      ]
++    },
++    {
++      "id": "H21_DISPUTED_AS_UNQUALIFIED",
++      "originalErrors": [
++        "SOURCE_POSTURE_MISMATCH"
++      ],
++      "additionalErrors": [
++        "MEASUREMENT_SOURCE_PIN_MISMATCH"
++      ]
++    }
++  ],
++  "next": "Rebuild exact fixture expectations without removing the semantic reason for rejection."
++}
+--- a/measurement-role-contract-v4.json
++++ b/measurement-role-contract-v4.json
+@@ -104,5 +104,28 @@
+     "wrongOrUnknownProvenance": "Reject unknown tokens and tokens inconsistent with the resolved source reporting role, including UNKNOWN for this known reporting role. A broader carrier enum is not semantic permission.",
+     "traceClosure": "Bind the exact quantity-source and criterion-owner record digests, immutable bindings and selected value/lexical/qualifier pointers in the domain payload. Ordinary quantity evidence additionally requires exact root evidence membership; the criterion record remains a definition input.",
+     "typeChecks": "Require object shapes before any member or alias access. Required missing/null/empty/wrong types return structured {code,pointer,...}; closed bindings and absolute RFC6901 pointer strings are checked. This does not expand into the complete domain verifier."
++  },
++  "fix01SourceProfile": {
++    "id": "fictional-owner-profile:W05:amendment-03:fix01",
++    "status": "UNADOPTED_FINITE_OWNER_PROFILE_NOT_RUNTIME_AUTHORITY",
++    "file": "w05-owner-profile-fix01.json",
++    "sha256": "121888545efeb28fd2e8f6be8d099c93727edb7a42e57d00eed3b74c1bcb1dc4",
++    "requiredResultKind": "CENSORED_NUMERIC",
++    "requiredScalarProvenance": [
++      "/operand/limit/provenance",
++      "/threshold/provenance"
++    ],
++    "rule": "The selected finite owner profile fixes required W05 source roles before dependent access. Claimant discriminator changes cannot remove them. Exact immutable source bytes are checked against independent approved pins, not only self-reported contentDigest.",
++    "separateApprovedFixtures": [
++      {
++        "file": "owner-approved-lexical-r2-fix01.json",
++        "sha256": "9b4d64a0cf434c110ccc2949643615f582841e0f53a4b2d260210a1cee748c06"
++      },
++      {
++        "file": "owner-approved-h03-fix01.json",
++        "sha256": "49882dbea62e61d75e4798d62621564224e6676e3c1cda8d7a9a8b48f5aba955"
++      }
++    ],
++    "limits": "Fictional non-adopted design fixtures only; no runtime source authority, producer, or general numeric branch engine."
+   }
+ }
+--- a/checker-transforms-v4.json
++++ b/checker-transforms-v4.json
+@@ -32,6 +32,14 @@
+     {
+       "exactSource": "selected_by_table(missing,empty_table)==[]",
+       "replacement": "selected_by_table(missing,empty_table)==[]"
++    },
++    {
++      "exactSource": "w05_errors(case['claimContent'],case['records'],expect)",
++      "replacement": "w05_errors(case['claimContent'],case['records'],{**expect,**case.get('ownerProfileSelection',{})})"
++    },
++    {
++      "exactSource": "': isolated source failure'",
++      "replacement": "': source semantic and independent pin comparisons'"
+     }
+   ],
+   "rule": "The full current suite is rerun over the v4 overlay. No historical pass is counted as current."

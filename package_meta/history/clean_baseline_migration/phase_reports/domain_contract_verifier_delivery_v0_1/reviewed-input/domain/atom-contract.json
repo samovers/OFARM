@@ -1,0 +1,45 @@
+{
+  "revision": "local-candidate:complete-claims:2026-10-20:r4#atom-contract",
+  "form": "ATOM",
+  "requiredFields": [
+    "form",
+    "atomId",
+    "definition",
+    "scope",
+    "body"
+  ],
+  "scopeRequired": [
+    "subject",
+    "subjectTime",
+    "extent"
+  ],
+  "definition": "Exact row conceptRevision; body uses that row atomContract and parameterContract. No implicit alternate flattened form. Earlier frozen versions remain historical and are not silently accepted as current r4 atoms.",
+  "identity": "atomId identifies this allegation within the claim. Operation body.activityInstance binds the exact work instance, distinct from canonical OPERATION identity; no identity is created. Repeating an activity across atoms requires that same binding explicitly, never adjacency or equal time.",
+  "scope": "Every atom carries typed subject, exact profile/time and extent. Operation body.target may differ from subject only through the explicit required target relation; operation extent must equal scope.extent. Each whole-example atom repeats its outer subject/time; there is no inherited field.",
+  "composition": {
+    "ATOM": "Exactly one complete row allegation.",
+    "ALL": "Nonempty children, all alleged; all independently satisfy their row contract. No metadata-only child.",
+    "ANY": "Nonempty alternative allegations with complete atoms and explicit separate findings.",
+    "NOT": "Exactly one complete child and scoped negation; lack of evidence is not negation.",
+    "QUALIFIED": "Exactly one complete child, appliesToAtomId equal to that child atomId; qualifiers stay on that atom and cannot alter typed target/time/quantity values. Allowed keys epistemicPosture, sourceQuality, extentQualification; any refinement must also be explicit in atom scope.",
+    "SEQUENCE": "Nonempty complete children and explicit orderRelations {beforeAtomId, afterAtomId, temporalRelation}; relation BEFORE means strict end/instant < start/instant. Never infer time from array position."
+  },
+  "outcomes": {
+    "scope": "Candidate internal proposition/criterion interpretation only; mandatory domain/authority/evidence gates are always independent conjunctive obligations.",
+    "values": [
+      "TRUE",
+      "FALSE",
+      "INDETERMINATE"
+    ],
+    "ALL": "TRUE iff every child TRUE; FALSE if any child FALSE; otherwise INDETERMINATE.",
+    "ANY": "TRUE if any child TRUE; FALSE iff every child FALSE; otherwise INDETERMINATE. Preserve every child finding; an OR cannot bypass a mandatory gate.",
+    "NOT": "TRUE from an evaluated FALSE child, FALSE from TRUE, INDETERMINATE from INDETERMINATE. Missing evidence is not evaluated FALSE.",
+    "SEQUENCE": "Conjunction of each alleged activity plus explicitly stated ordering comparisons; physical time is not inferred from array order.",
+    "qualification": "Apply algebra only after preserving each atom’s exact scope, time, units, uncertainty and source/method meaning. No outcome confers accepted truth."
+  },
+  "outerObligations": "The complete record still carries selectedAction, subject, sole anchor, assertion act, pending state and all applicable 49 duties. Composition does not bypass any mandatory evidence or authority gate. Outer performedBy and claimPosture must match every operation atom in this candidate single-record form; different performers/postures require linked separate claims. Atom time equals the outer subjectTime for a single atom/ALL/ANY/NOT/QUALIFIED claim. A SEQUENCE may use explicitly bounded child intervals/instants within an outer PERFORMED_INTERVAL, with each child independently binding its temporal evidence; no common-time inheritance or outer proof substitution.",
+  "workSpecification": "Every operation atom binds one versioned work specification, activityInstance, procedure, target, extent and explicit start/inProgress/finish condition IDs. All selected IDs must resolve in that exact specification. COMPLETED requires every listed finish condition over the whole stated extent; partial completion must name a smaller extent. Intended facets describe requested milestones, never observed occurrence.",
+  "disclosures": "Quantity disclosures are entries within the exact operation atom, keyed to activityInstance. W02 planned rate and unreported actual dose belong to its O19 instance. They are not separate O01 allegations.",
+  "sample": "O10 uses OTHER_ACTION/OTHER_INTERVENTION and parameters.specificActivity=SAMPLE_COLLECTION, with sample, sampledProperty and samplingProcedure under parameters. Pending analytical result, custody and evidence posture are explicit parameters; sampling extent is scope.extent. No SAMPLE_COLLECTION alternate activity token.",
+  "types": "All binding-shaped values below are visibly fictional immutable design references. Required fields cannot be omitted or replaced by free prose. Quantity references resolve via quantity-contract.json. Row meanings and predicates constrain values beyond this structural contract; this is not production JSON Schema."
+}

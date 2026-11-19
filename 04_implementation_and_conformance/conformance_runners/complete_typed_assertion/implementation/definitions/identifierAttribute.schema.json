@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/identifier-attribute-definition/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainIdentifierAttributeDefinition.v0.1"
+    },
+    "definitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "attributeDefinition": {
+      "type": "string",
+      "minLength": 1
+    },
+    "identifierRole": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/S10/properties/body/properties/identifierRole"
+    },
+    "schemeBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "schemeVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "issuerBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "sourceBindingRole": {
+      "$ref": "https://ofarm.dev/schema/agronomicidentitybinding/v0.1#/properties/bindingRole"
+    },
+    "sourceSubjectType": {
+      "$ref": "https://ofarm.dev/schema/agronomicidentitybinding/v0.1#/$defs/localSubject/properties/subjectType"
+    },
+    "subjectIdentityInterpretation": {
+      "const": "EXACT_SELECTED_IDENTITY_RECORD"
+    },
+    "valueField": {
+      "enum": [
+        "code",
+        "normalizedLabel",
+        "uri",
+        "registrationRef",
+        "authorisationRef",
+        "gtin",
+        "batchLot",
+        "digitalLinkUri",
+        "lotNumber",
+        "seedCertificateRef"
+      ]
+    },
+    "interpretationScope": {
+      "const": "REPORTED_NAMED_IDENTIFIER_NOT_GOVERNANCE_OR_AUTHORIZATION"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "definitionId",
+    "attributeDefinition",
+    "identifierRole",
+    "schemeBinding",
+    "schemeVersion",
+    "issuerBinding",
+    "sourceBindingRole",
+    "sourceSubjectType",
+    "valueField",
+    "interpretationScope"
+  ],
+  "$comment": "New domain-owned normative input. Exact independent selection and protected original bytes are required. No source admission, authority, runtime producer or statutory applicability is asserted.",
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "subjectIdentityInterpretation"
+        ]
+      },
+      "then": {
+        "properties": {
+          "sourceSubjectType": {
+            "const": "OTHER"
+          }
+        }
+      }
+    }
+  ]
+}

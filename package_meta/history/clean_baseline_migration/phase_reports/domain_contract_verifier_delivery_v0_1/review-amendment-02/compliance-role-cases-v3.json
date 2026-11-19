@@ -1,0 +1,543 @@
+{
+  "status": "FINITE_REQUIRED_ROLE_CASES_ONLY",
+  "cases": [
+    {
+      "id": "C03_ROLE_COMPLETE",
+      "definition": "local-candidate:complete-claims:2026-10-21:amendment-02#C03",
+      "body": {
+        "form": "CRITERION_OUTCOME",
+        "criterion": {
+          "fixtureLogicalRef": "criterion:C",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "measurement": {
+          "fixtureLogicalRef": "measurement:M",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "operandPointer": "/result/numericValue",
+        "operator": "LE",
+        "threshold": {
+          "quantityKind": "qudt:MassFraction",
+          "unit": "ucum:mg.kg-1",
+          "decimal": "5",
+          "qualifier": "LABEL_LIMIT",
+          "originalLexicalValue": "5",
+          "unitProfile": {
+            "fixtureLogicalRef": "unit-profile:example",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          }
+        },
+        "allegedOutcome": "SATISFIED",
+        "measurementSource": {
+          "role": "MEASURED_COMPLIANCE_OPERAND",
+          "measurementBinding": {
+            "fixtureLogicalRef": "measurement:M",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "resultPointer": "/result/numericValue",
+          "contextBinding": {
+            "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "subjectRelationBinding": {
+            "fixtureLogicalRef": "sample-to-field:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "methodUseBinding": {
+            "fixtureLogicalRef": "method-use:W05-nitrate-fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "qualificationPointers": [
+            "/uncertainty"
+          ]
+        }
+      },
+      "expectedErrors": [],
+      "limit": "Required-role structure only; no numeric value, source-semantic or owner-admission positive claimed."
+    },
+    {
+      "id": "C03_MISSING_measurement",
+      "definition": "local-candidate:complete-claims:2026-10-21:amendment-02#C03",
+      "body": {
+        "form": "CRITERION_OUTCOME",
+        "criterion": {
+          "fixtureLogicalRef": "criterion:C",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "operandPointer": "/result/numericValue",
+        "operator": "LE",
+        "threshold": {
+          "quantityKind": "qudt:MassFraction",
+          "unit": "ucum:mg.kg-1",
+          "decimal": "5",
+          "qualifier": "LABEL_LIMIT",
+          "originalLexicalValue": "5",
+          "unitProfile": {
+            "fixtureLogicalRef": "unit-profile:example",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          }
+        },
+        "allegedOutcome": "SATISFIED",
+        "measurementSource": {
+          "role": "MEASURED_COMPLIANCE_OPERAND",
+          "measurementBinding": {
+            "fixtureLogicalRef": "measurement:M",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "resultPointer": "/result/numericValue",
+          "contextBinding": {
+            "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "subjectRelationBinding": {
+            "fixtureLogicalRef": "sample-to-field:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "methodUseBinding": {
+            "fixtureLogicalRef": "method-use:W05-nitrate-fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "qualificationPointers": [
+            "/uncertainty"
+          ]
+        }
+      },
+      "expectedErrors": [
+        "MISSING_REQUIRED_ROLE:/measurement"
+      ]
+    },
+    {
+      "id": "C03_MISSING_operandPointer",
+      "definition": "local-candidate:complete-claims:2026-10-21:amendment-02#C03",
+      "body": {
+        "form": "CRITERION_OUTCOME",
+        "criterion": {
+          "fixtureLogicalRef": "criterion:C",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "measurement": {
+          "fixtureLogicalRef": "measurement:M",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "operator": "LE",
+        "threshold": {
+          "quantityKind": "qudt:MassFraction",
+          "unit": "ucum:mg.kg-1",
+          "decimal": "5",
+          "qualifier": "LABEL_LIMIT",
+          "originalLexicalValue": "5",
+          "unitProfile": {
+            "fixtureLogicalRef": "unit-profile:example",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          }
+        },
+        "allegedOutcome": "SATISFIED",
+        "measurementSource": {
+          "role": "MEASURED_COMPLIANCE_OPERAND",
+          "measurementBinding": {
+            "fixtureLogicalRef": "measurement:M",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "resultPointer": "/result/numericValue",
+          "contextBinding": {
+            "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "subjectRelationBinding": {
+            "fixtureLogicalRef": "sample-to-field:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "methodUseBinding": {
+            "fixtureLogicalRef": "method-use:W05-nitrate-fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "qualificationPointers": [
+            "/uncertainty"
+          ]
+        }
+      },
+      "expectedErrors": [
+        "MISSING_REQUIRED_ROLE:/operandPointer"
+      ]
+    },
+    {
+      "id": "C03_MISSING_measurementSource",
+      "definition": "local-candidate:complete-claims:2026-10-21:amendment-02#C03",
+      "body": {
+        "form": "CRITERION_OUTCOME",
+        "criterion": {
+          "fixtureLogicalRef": "criterion:C",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "measurement": {
+          "fixtureLogicalRef": "measurement:M",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "operandPointer": "/result/numericValue",
+        "operator": "LE",
+        "threshold": {
+          "quantityKind": "qudt:MassFraction",
+          "unit": "ucum:mg.kg-1",
+          "decimal": "5",
+          "qualifier": "LABEL_LIMIT",
+          "originalLexicalValue": "5",
+          "unitProfile": {
+            "fixtureLogicalRef": "unit-profile:example",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          }
+        },
+        "allegedOutcome": "SATISFIED"
+      },
+      "expectedErrors": [
+        "MISSING_REQUIRED_ROLE:/measurementSource"
+      ]
+    },
+    {
+      "id": "C06_ROLE_COMPLETE",
+      "definition": "local-candidate:complete-claims:2026-10-21:amendment-02#C06",
+      "body": {
+        "form": "CRITERION_OUTCOME",
+        "condition": {
+          "fixtureLogicalRef": "label-condition:R",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "product": {
+          "fixtureLogicalRef": "product:P",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "crop": {
+          "fixtureLogicalRef": "crop:C",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "target": {
+          "fixtureLogicalRef": "pest:T",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "rate": {
+          "quantityKind": "qudt:VolumePerArea",
+          "unit": "ucum:L.ha-1",
+          "decimal": "2",
+          "qualifier": "HUMAN_REPORTED",
+          "originalLexicalValue": "2",
+          "unitProfile": {
+            "fixtureLogicalRef": "unit-profile:example",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          }
+        },
+        "operator": "LE",
+        "boundFrom": {
+          "fixtureLogicalRef": "label-condition:R",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "allegedOutcome": "SATISFIED",
+        "rateSource": {
+          "sourceKind": "HUMAN_REPORT",
+          "sourceBinding": {
+            "fixtureLogicalRef": "rate-report:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "valuePointer": "/rate"
+        }
+      },
+      "expectedErrors": [],
+      "limit": "Required-role structure only; no numeric value, source-semantic or owner-admission positive claimed."
+    },
+    {
+      "id": "C06_MISSING_rateSource",
+      "definition": "local-candidate:complete-claims:2026-10-21:amendment-02#C06",
+      "body": {
+        "form": "CRITERION_OUTCOME",
+        "condition": {
+          "fixtureLogicalRef": "label-condition:R",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "product": {
+          "fixtureLogicalRef": "product:P",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "crop": {
+          "fixtureLogicalRef": "crop:C",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "target": {
+          "fixtureLogicalRef": "pest:T",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "rate": {
+          "quantityKind": "qudt:VolumePerArea",
+          "unit": "ucum:L.ha-1",
+          "decimal": "2",
+          "qualifier": "HUMAN_REPORTED",
+          "originalLexicalValue": "2",
+          "unitProfile": {
+            "fixtureLogicalRef": "unit-profile:example",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          }
+        },
+        "operator": "LE",
+        "boundFrom": {
+          "fixtureLogicalRef": "label-condition:R",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "allegedOutcome": "SATISFIED"
+      },
+      "expectedErrors": [
+        "MISSING_REQUIRED_ROLE:/rateSource"
+      ]
+    },
+    {
+      "id": "C09_ROLE_COMPLETE",
+      "definition": "local-candidate:complete-claims:2026-10-21:amendment-02#C09",
+      "body": {
+        "form": "CHARTER_CRITERION_OUTCOME",
+        "charter": {
+          "fixtureLogicalRef": "charter:C",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "metric": {
+          "fixtureLogicalRef": "metric:M",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "evidencePosture": "MEASURED",
+        "claimBasis": {
+          "fixtureLogicalRef": "sustainability-basis:B",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "allegedOutcome": "INDETERMINATE",
+        "measurementSource": {
+          "role": "MEASURED_COMPLIANCE_OPERAND",
+          "measurementBinding": {
+            "fixtureLogicalRef": "nitrate-measurement:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "resultPointer": "/result",
+          "contextBinding": {
+            "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "subjectRelationBinding": {
+            "fixtureLogicalRef": "sample-to-field:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "methodUseBinding": {
+            "fixtureLogicalRef": "method-use:W05-nitrate-fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "qualificationPointers": [
+            "/uncertainty"
+          ]
+        }
+      },
+      "expectedErrors": [],
+      "limit": "Required-role structure only; no numeric value, source-semantic or owner-admission positive claimed."
+    },
+    {
+      "id": "C09_MISSING_measurementSource",
+      "definition": "local-candidate:complete-claims:2026-10-21:amendment-02#C09",
+      "body": {
+        "form": "CHARTER_CRITERION_OUTCOME",
+        "charter": {
+          "fixtureLogicalRef": "charter:C",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "metric": {
+          "fixtureLogicalRef": "metric:M",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "evidencePosture": "MEASURED",
+        "claimBasis": {
+          "fixtureLogicalRef": "sustainability-basis:B",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "allegedOutcome": "INDETERMINATE"
+      },
+      "expectedErrors": [
+        "MISSING_REQUIRED_ROLE:/measurementSource"
+      ]
+    },
+    {
+      "id": "C03_REQUIRED_QUALIFICATION_COMPLETE",
+      "definition": "local-candidate:complete-claims:2026-10-21:amendment-02#C03",
+      "body": {
+        "form": "CRITERION_OUTCOME",
+        "criterion": {
+          "fixtureLogicalRef": "criterion:C",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "measurement": {
+          "fixtureLogicalRef": "measurement:M",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "operandPointer": "/result/numericValue",
+        "operator": "LE",
+        "threshold": {
+          "quantityKind": "qudt:MassFraction",
+          "unit": "ucum:mg.kg-1",
+          "decimal": "5",
+          "qualifier": "LABEL_LIMIT",
+          "originalLexicalValue": "5",
+          "unitProfile": {
+            "fixtureLogicalRef": "unit-profile:example",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          }
+        },
+        "allegedOutcome": "SATISFIED",
+        "measurementSource": {
+          "role": "MEASURED_COMPLIANCE_OPERAND",
+          "measurementBinding": {
+            "fixtureLogicalRef": "measurement:M",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "resultPointer": "/result/numericValue",
+          "contextBinding": {
+            "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "subjectRelationBinding": {
+            "fixtureLogicalRef": "sample-to-field:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "methodUseBinding": {
+            "fixtureLogicalRef": "method-use:W05-nitrate-fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "qualificationPointers": [
+            "/uncertainty"
+          ]
+        },
+        "measuredQualification": {
+          "sourceBinding": {
+            "fixtureLogicalRef": "nitrate-measurement:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "sourcePointer": "/uncertainty",
+          "methodUseBinding": {
+            "fixtureLogicalRef": "method-use:W05-nitrate-fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "interpretation": "STATISTICAL_NOT_HARD_BOUND"
+        }
+      },
+      "qualificationRequiredByOwner": true,
+      "expectedErrors": []
+    },
+    {
+      "id": "C03_REQUIRED_QUALIFICATION_REMOVED",
+      "definition": "local-candidate:complete-claims:2026-10-21:amendment-02#C03",
+      "body": {
+        "form": "CRITERION_OUTCOME",
+        "criterion": {
+          "fixtureLogicalRef": "criterion:C",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "measurement": {
+          "fixtureLogicalRef": "measurement:M",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        "operandPointer": "/result/numericValue",
+        "operator": "LE",
+        "threshold": {
+          "quantityKind": "qudt:MassFraction",
+          "unit": "ucum:mg.kg-1",
+          "decimal": "5",
+          "qualifier": "LABEL_LIMIT",
+          "originalLexicalValue": "5",
+          "unitProfile": {
+            "fixtureLogicalRef": "unit-profile:example",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          }
+        },
+        "allegedOutcome": "SATISFIED",
+        "measurementSource": {
+          "role": "MEASURED_COMPLIANCE_OPERAND",
+          "measurementBinding": {
+            "fixtureLogicalRef": "measurement:M",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "resultPointer": "/result/numericValue",
+          "contextBinding": {
+            "fixtureLogicalRef": "observation-context:W05-nitrate-fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "subjectRelationBinding": {
+            "fixtureLogicalRef": "sample-to-field:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "methodUseBinding": {
+            "fixtureLogicalRef": "method-use:W05-nitrate-fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "qualificationPointers": [
+            "/uncertainty"
+          ]
+        }
+      },
+      "qualificationRequiredByOwner": true,
+      "expectedErrors": [
+        "MISSING_REQUIRED_ROLE:/measuredQualification"
+      ]
+    }
+  ]
+}

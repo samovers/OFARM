@@ -1,0 +1,22 @@
+{
+  "canonicalOwner": {
+    "resolutionPath": "canonical-owner/resolution.md",
+    "resolutionSha256": "299d6e3e4c1e0c36314983a396f49d60e7b514bfd959afa293a4bec2cd513923",
+    "checksPath": "canonical-owner/source-checks.json",
+    "checksSha256": "efab59283c05508a592cd94f4177eccff026fc2ec4fd94daf216582269d50dd9"
+  },
+  "decision": "Complete association role excluded from P; exact existing intent envelope slot plus separate owner proof and protected-effect trace. No new authority or producer.",
+  "timing": {
+    "beforeIntentHash": "Fix exact body, expected package and either no association or immutable resolvable envelope binding/bytes.",
+    "beforeDomainPass": "Separate owner proof must be complete, eligible and exact for envelope digest, authoritative family and fixed commit class.",
+    "preSubmissionProofGuaranteed": false,
+    "validationPhaseProof": "Permitted dependency order if independently completed before the verdict consumes it. No existing producer is claimed.",
+    "forbiddenDependencies": [
+      "this domain verdict",
+      "this domain trace",
+      "final assertion effect",
+      "later receipt"
+    ],
+    "openOwnerInterface": "Actual proof artifact/schema, producer, admission/reuse/context and availability milestone. A late CommitIngressResult is not automatically the earlier classification proof."
+  }
+}

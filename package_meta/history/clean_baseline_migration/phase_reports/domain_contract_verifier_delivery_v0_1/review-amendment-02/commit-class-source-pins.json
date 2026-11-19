@@ -1,0 +1,40 @@
+{
+  "status": "EXACT_CANONICAL_SOURCE_BYTES_NOT_GENERATED_EXPECTED_PACKAGE_VALUES",
+  "sources": [
+    {
+      "id": "PR23",
+      "commit": "6c5c6eb754baecfa38b7e364fc3d0318ae1ad89f",
+      "repositoryPath": "package_meta/history/clean_baseline_migration/phase_reports/assertion_record_submission_protected_effect_contract_rfc_candidate_v0_1.md",
+      "file": "commit-class-sources/pr23.md",
+      "sha256": "b4b4b502666f78b69fc54b55ffaeb3b9c6759acde946bbdfdc782b86819e5809",
+      "bytes": 90964
+    },
+    {
+      "id": "INGRESS_REQUEST",
+      "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+      "repositoryPath": "03_machine_contracts/schemas/event_ingress/OFARM_CommitIngressRequest_schema_v0_1.json",
+      "file": "commit-class-sources/ingress-request.json",
+      "sha256": "397ec3a61ed572b14f9916bc9e7b316ff48150c743c6b7aa2eab94a3be3e8ffc",
+      "bytes": 3405
+    },
+    {
+      "id": "INGRESS_RESULT",
+      "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+      "repositoryPath": "03_machine_contracts/schemas/event_ingress/OFARM_CommitIngressResult_schema_v0_1.json",
+      "file": "commit-class-sources/ingress-result.json",
+      "sha256": "55a21c697a651cdff6ce8d64dd7c29dd2afaa329047b4ebd55c94497a411e7d5",
+      "bytes": 5362
+    },
+    {
+      "id": "OPERATION_INTENT",
+      "commit": "2110f6d78451b50712264dba87d0b8989f134907",
+      "repositoryPath": "03_machine_contracts/drafts_non_default/authorization_policy_bundle/effect_intents/OFARM_OperationAssertionEffectIntent_schema_v0_2.json",
+      "file": "commit-class-sources/operation-intent.json",
+      "sha256": "66825f09c714a2f4ad7dea2ee24d7f20bbd3a2c0f3241d5b14a6aff2227cf5f6",
+      "bytes": 11441
+    }
+  ],
+  "mappingSource": "PR23 section 7.2; also section 1 items 1,2,7",
+  "enumPointer": "/properties/commitClass/enum",
+  "resultSubtypeRule": "PR23 table required assertionType, independently distinct from commitClass"
+}

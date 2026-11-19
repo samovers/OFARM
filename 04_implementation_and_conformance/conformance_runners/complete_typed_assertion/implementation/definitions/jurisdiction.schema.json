@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/profile-jurisdiction-definition/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainProfileJurisdictionDefinition.v0.1"
+    },
+    "definitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profileBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "jurisdictionCode": {
+      "type": "string",
+      "minLength": 1
+    },
+    "jurisdictionBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "meaning": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "definitionId",
+    "profileBinding",
+    "jurisdictionCode",
+    "jurisdictionBinding",
+    "meaning"
+  ],
+  "$comment": "New domain-owned normative input. Exact independent selection and protected original bytes are required. No source admission, authority, runtime producer or statutory applicability is asserted."
+}

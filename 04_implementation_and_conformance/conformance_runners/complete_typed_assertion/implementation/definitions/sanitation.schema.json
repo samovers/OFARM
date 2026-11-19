@@ -1,0 +1,264 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/sanitation-finish-specification/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainSanitationFinishSpecification.v0.1"
+    },
+    "definitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "activityRow": {
+      "const": "O17"
+    },
+    "sanitationKind": {
+      "const": "SANITIZE"
+    },
+    "profile": {
+      "const": "MINIMUM_CONTINUOUS_CONTACT_ACROSS_ENTIRE_EXTENT_AND_PROCEDURE_TERMINATION"
+    },
+    "workSpecificationBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "procedureBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "materialBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "contactDurationParameterId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reportedActualDurationMeanings": {
+      "const": {
+        "EXACT": "REPORTED_POINT",
+        "HUMAN_REPORTED": "REPORTED_POINT",
+        "MACHINE_REPORTED": "REPORTED_POINT",
+        "MINIMUM": "INCLUSIVE_LOWER_BOUND",
+        "MAXIMUM": "INCLUSIVE_UPPER_BOUND",
+        "ESTIMATED": "REQUIRES_SELECTED_QUALIFIER_MEANING",
+        "RANGE_MIDPOINT": "REQUIRES_SELECTED_QUALIFIER_MEANING",
+        "LABEL_LIMIT": "REQUIRES_SELECTED_QUALIFIER_MEANING",
+        "UNKNOWN": "REQUIRES_SELECTED_QUALIFIER_MEANING"
+      }
+    },
+    "contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "conditionId": {
+          "const": "finish:O17"
+        },
+        "definitionBinding": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        },
+        "predicateKind": {
+          "const": "SANITATION_REQUIRED_CONTINUOUS_MATERIAL_CONTACT"
+        },
+        "propertyBinding": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        },
+        "quantityContext": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "quantityKind": {
+              "const": "qudt:Time"
+            },
+            "unit": {
+              "type": "string",
+              "minLength": 1
+            },
+            "unitProfile": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+            }
+          },
+          "required": [
+            "quantityKind",
+            "unit",
+            "unitProfile"
+          ]
+        },
+        "operator": {
+          "const": "GE"
+        }
+      },
+      "required": [
+        "conditionId",
+        "definitionBinding",
+        "predicateKind",
+        "propertyBinding",
+        "quantityContext",
+        "operator"
+      ]
+    },
+    "termination": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "conditionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "definitionBinding": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        },
+        "predicateKind": {
+          "const": "SANITATION_PROCEDURE_INACTIVE_AT_FINISH"
+        },
+        "propertyBinding": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        },
+        "quantityContext": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "quantityKind": {
+              "const": "ofarm.quantitykind:ActivityPresence"
+            },
+            "unit": {
+              "const": "ofarm.unit:boolean"
+            },
+            "unitProfile": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+            }
+          },
+          "required": [
+            "quantityKind",
+            "unit",
+            "unitProfile"
+          ]
+        },
+        "operator": {
+          "const": "LE"
+        },
+        "observationDomain": {
+          "const": "EXACT_BOOLEAN_POINT"
+        }
+      },
+      "required": [
+        "conditionId",
+        "definitionBinding",
+        "predicateKind",
+        "propertyBinding",
+        "quantityContext",
+        "operator",
+        "observationDomain"
+      ]
+    },
+    "minimumContactDuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "quantityKind": {
+          "const": "qudt:Time"
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decimal": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/decimal"
+        },
+        "qualifier": {
+          "const": "EXACT"
+        },
+        "originalLexicalValue": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unitProfile": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        },
+        "originalUnitText": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "quantityKind",
+        "unit",
+        "decimal",
+        "qualifier",
+        "originalLexicalValue",
+        "unitProfile"
+      ]
+    },
+    "maximumFinishActivity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "quantityKind": {
+          "const": "ofarm.quantitykind:ActivityPresence"
+        },
+        "unit": {
+          "const": "ofarm.unit:boolean"
+        },
+        "decimal": {
+          "const": "0"
+        },
+        "qualifier": {
+          "const": "EXACT"
+        },
+        "originalLexicalValue": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unitProfile": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        },
+        "originalUnitText": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "quantityKind",
+        "unit",
+        "decimal",
+        "qualifier",
+        "originalLexicalValue",
+        "unitProfile"
+      ]
+    },
+    "finishConditionIds": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "interpretationScope": {
+      "const": "SELECTED_SANITATION_CONTACT_PROCEDURE_COMPLETION_NOT_ACHIEVED_HYGIENE"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "definitionId",
+    "activityRow",
+    "sanitationKind",
+    "profile",
+    "workSpecificationBinding",
+    "procedureBinding",
+    "materialBinding",
+    "contactDurationParameterId",
+    "reportedActualDurationMeanings",
+    "contact",
+    "termination",
+    "minimumContactDuration",
+    "maximumFinishActivity",
+    "finishConditionIds",
+    "interpretationScope"
+  ],
+  "$comment": "New domain-owned normative input. Exact independent selection and protected original bytes are required. No source admission, authority, runtime producer or statutory applicability is asserted."
+}

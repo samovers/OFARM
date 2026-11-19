@@ -1,0 +1,1501 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1",
+  "title": "AssertionRecord domain validation payload \u2014 construction candidate",
+  "description": "Domain-owned payload shape only. This unbound construction artifact is not a complete contract, evaluator, admission mechanism or completed domain verdict.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "proposedResultDigest",
+    "effectIntentDigest",
+    "protectedEffectContractDigest",
+    "selectedActionBodySchemaBinding",
+    "authorizationResult",
+    "currentActionRuleBinding",
+    "effectIntent",
+    "effectIntentSchemaBinding",
+    "proposedResult",
+    "protectedEffectContractBinding",
+    "selectedAction",
+    "recordCommitClass",
+    "assertionAct",
+    "subjectDigest",
+    "soleAuthorityScopeDigest",
+    "subjectTimeDigest",
+    "subjectTimeProfile",
+    "subjectTimeComparisons",
+    "claimProjectionDigest",
+    "exactRenderedText",
+    "resolvedInputs",
+    "mappingFindings",
+    "postconditionFindings",
+    "atomFindings",
+    "eventAssociation",
+    "correction",
+    "overallDisposition"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionRecordDomainValidationPayload.v0.1"
+    },
+    "proposedResultDigest": {
+      "$ref": "#/$defs/digest"
+    },
+    "effectIntentDigest": {
+      "$ref": "#/$defs/digest"
+    },
+    "protectedEffectContractDigest": {
+      "$ref": "#/$defs/digest"
+    },
+    "selectedActionBodySchemaBinding": {
+      "$ref": "#/$defs/schemaBinding"
+    },
+    "authorizationResult": {
+      "$ref": "#/$defs/recordBinding"
+    },
+    "currentActionRuleBinding": {
+      "$ref": "#/$defs/ruleBinding"
+    },
+    "effectIntent": {
+      "$ref": "#/$defs/recordBinding"
+    },
+    "effectIntentSchemaBinding": {
+      "$ref": "#/$defs/schemaBinding"
+    },
+    "proposedResult": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1#/$defs/resultBinding"
+    },
+    "protectedEffectContractBinding": {
+      "$ref": "#/$defs/contractBinding"
+    },
+    "selectedAction": {
+      "enum": [
+        "ASSERT_STRUCTURE",
+        "ASSERT_OPERATION_CLAIM",
+        "ASSERT_COMPLIANCE"
+      ]
+    },
+    "recordCommitClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "constitutionalLabel",
+        "serializationToken"
+      ],
+      "properties": {
+        "constitutionalLabel": {
+          "$ref": "#/$defs/text"
+        },
+        "serializationToken": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "assertionAct": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "posture",
+        "assertedAt",
+        "assertingPartyRef",
+        "resolvedInputIds"
+      ],
+      "properties": {
+        "posture": {
+          "enum": [
+            "TRUSTED_ONLINE_SUBMISSION",
+            "VERIFIED_OFFLINE_SUBMISSION"
+          ]
+        },
+        "assertedAt": {
+          "$ref": "#/$defs/text"
+        },
+        "assertingPartyRef": {
+          "$ref": "#/$defs/text"
+        },
+        "evidenceBinding": {
+          "$ref": "#/$defs/immutableBinding"
+        },
+        "resolvedInputIds": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/$defs/text"
+          }
+        }
+      }
+    },
+    "subjectDigest": {
+      "$ref": "#/$defs/digest"
+    },
+    "soleAuthorityScopeDigest": {
+      "$ref": "#/$defs/digest"
+    },
+    "subjectTimeDigest": {
+      "$ref": "#/$defs/digest"
+    },
+    "subjectTimeProfile": {
+      "enum": [
+        "STRUCTURE_AS_OF",
+        "STRUCTURE_EFFECTIVE_FROM",
+        "STRUCTURE_EFFECTIVE_INTERVAL",
+        "INTENDED_WINDOW",
+        "PERFORMED_INSTANT",
+        "PERFORMED_INTERVAL",
+        "COMPLIANCE_AS_OF",
+        "COMPLIANCE_EFFECTIVE_FROM",
+        "COMPLIANCE_EFFECTIVE_INTERVAL"
+      ]
+    },
+    "subjectTimeComparisons": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/$defs/comparison"
+      }
+    },
+    "claimProjectionDigest": {
+      "$ref": "#/$defs/digest"
+    },
+    "exactRenderedText": {
+      "$ref": "#/$defs/text"
+    },
+    "resolvedInputs": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/$defs/resolvedInput"
+      }
+    },
+    "mappingFindings": {
+      "type": "array",
+      "minItems": 29,
+      "maxItems": 29,
+      "prefixItems": [
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_SCHEMA"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_ACTION_PROFILE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_EFFECT_SUBJECT"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_ID"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_TYPE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_SUBJECT"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_SCOPE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_SUBJECT_SCOPE_PROOF"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_ASSERTOR"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_ASSERTED_AT"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_ASSERTION_ACT_POSTURE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_ASSERTION_ACT_EVIDENCE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_SUBJECT_TIME"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_BODY"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_EVIDENCE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_CLAIM_STATE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_EVENT_ASSOCIATION"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_OPERATION_POSTURE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_OPERATION_PERFORMER"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_OPERATION_AGENT_ACTORSHIP"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_OPERATION_PERFORMER_AUTHORITY"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_OPERATION_PAYLOADS"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_COMPLIANCE_RULES"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_COMPLIANCE_EVIDENCE_POLICY"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_CORRECTION_LINEAGE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_STRUCTURE_BRANCH_ABSENCE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_OPERATION_BRANCH_ABSENCE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_COMPLIANCE_BRANCH_ABSENCE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "AR_LEGACY_ABSENCE"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "items": false
+    },
+    "postconditionFindings": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "prefixItems": [
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_ONE_ASSERTION"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_VALIDATED_BYTES"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_INPUTS_IMMUTABLE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_ACTION_TYPE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_PENDING_REVIEW"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_SUBJECT_SCOPE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_ASSERTOR"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_ASSERTION_ACT"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_SUBJECT_TIME"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_TEMPORAL_SEPARATION"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_EVENT_ASSOCIATION"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_CORRECTION_LINEAGE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_NO_UNBOUND_EFFECT"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_NO_CURRENT_STATE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_TRANSACTION_HANDOFF"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_UNIQUE_ID"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_STRUCTURE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_OPERATION"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_COMPLIANCE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/dutyFinding"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "PC_BRANCH_ABSENCE"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "items": false
+    },
+    "atomFindings": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/$defs/atomFinding"
+      }
+    },
+    "eventAssociation": {
+      "$ref": "#/$defs/eventAssociation"
+    },
+    "correction": {
+      "$ref": "#/$defs/correction"
+    },
+    "operationPerformerAuthorityDisposition": {
+      "const": "NOT_EVALUATED_BY_AUTHORIZATION"
+    },
+    "overallDisposition": {
+      "enum": [
+        "PASS",
+        "FAIL"
+      ]
+    }
+  },
+  "$defs": {
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pointer": {
+      "type": "string",
+      "pattern": "^(?:/(?:[^~/]|~[01])*)*$"
+    },
+    "digest": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1#/$defs/digest"
+    },
+    "schemaBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1#/$defs/schemaBinding"
+    },
+    "recordBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1#/$defs/recordBinding"
+    },
+    "ruleBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1#/$defs/ruleBinding"
+    },
+    "contractBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1#/$defs/contractBinding"
+    },
+    "immutableBinding": {
+      "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+    },
+    "sourceSelection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "inputRole",
+        "pointer",
+        "valueDigest"
+      ],
+      "properties": {
+        "inputRole": {
+          "$ref": "#/$defs/text"
+        },
+        "pointer": {
+          "$ref": "#/$defs/pointer"
+        },
+        "valueDigest": {
+          "$ref": "#/$defs/digest"
+        }
+      }
+    },
+    "comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "predicateId",
+        "source",
+        "destination",
+        "disposition"
+      ],
+      "properties": {
+        "predicateId": {
+          "$ref": "#/$defs/text"
+        },
+        "source": {
+          "$ref": "#/$defs/sourceSelection"
+        },
+        "destination": {
+          "$ref": "#/$defs/sourceSelection"
+        },
+        "disposition": {
+          "enum": [
+            "PASS",
+            "FAIL"
+          ]
+        }
+      }
+    },
+    "diagnostic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "inputRole",
+        "pointer"
+      ],
+      "properties": {
+        "code": {
+          "$ref": "#/$defs/text"
+        },
+        "inputRole": {
+          "$ref": "#/$defs/text"
+        },
+        "pointer": {
+          "$ref": "#/$defs/pointer"
+        }
+      }
+    },
+    "dutyFinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "disposition",
+        "comparisons",
+        "resolvedInputIds",
+        "diagnostics"
+      ],
+      "properties": {
+        "id": {
+          "enum": [
+            "AR_SCHEMA",
+            "AR_ACTION_PROFILE",
+            "AR_EFFECT_SUBJECT",
+            "AR_ID",
+            "AR_TYPE",
+            "AR_SUBJECT",
+            "AR_SCOPE",
+            "AR_SUBJECT_SCOPE_PROOF",
+            "AR_ASSERTOR",
+            "AR_ASSERTED_AT",
+            "AR_ASSERTION_ACT_POSTURE",
+            "AR_ASSERTION_ACT_EVIDENCE",
+            "AR_SUBJECT_TIME",
+            "AR_BODY",
+            "AR_EVIDENCE",
+            "AR_CLAIM_STATE",
+            "AR_EVENT_ASSOCIATION",
+            "AR_OPERATION_POSTURE",
+            "AR_OPERATION_PERFORMER",
+            "AR_OPERATION_AGENT_ACTORSHIP",
+            "AR_OPERATION_PERFORMER_AUTHORITY",
+            "AR_OPERATION_PAYLOADS",
+            "AR_COMPLIANCE_RULES",
+            "AR_COMPLIANCE_EVIDENCE_POLICY",
+            "AR_CORRECTION_LINEAGE",
+            "AR_STRUCTURE_BRANCH_ABSENCE",
+            "AR_OPERATION_BRANCH_ABSENCE",
+            "AR_COMPLIANCE_BRANCH_ABSENCE",
+            "AR_LEGACY_ABSENCE",
+            "PC_ONE_ASSERTION",
+            "PC_VALIDATED_BYTES",
+            "PC_INPUTS_IMMUTABLE",
+            "PC_ACTION_TYPE",
+            "PC_PENDING_REVIEW",
+            "PC_SUBJECT_SCOPE",
+            "PC_ASSERTOR",
+            "PC_ASSERTION_ACT",
+            "PC_SUBJECT_TIME",
+            "PC_TEMPORAL_SEPARATION",
+            "PC_EVENT_ASSOCIATION",
+            "PC_CORRECTION_LINEAGE",
+            "PC_NO_UNBOUND_EFFECT",
+            "PC_NO_CURRENT_STATE",
+            "PC_TRANSACTION_HANDOFF",
+            "PC_UNIQUE_ID",
+            "PC_STRUCTURE",
+            "PC_OPERATION",
+            "PC_COMPLIANCE",
+            "PC_BRANCH_ABSENCE"
+          ]
+        },
+        "disposition": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "NOT_APPLICABLE",
+            "NOT_EVALUATED"
+          ]
+        },
+        "failedPrerequisites": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/$defs/text"
+          }
+        },
+        "branchReason": {
+          "$ref": "#/$defs/text"
+        },
+        "comparisons": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/$defs/comparison"
+          }
+        },
+        "resolvedInputIds": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/$defs/text"
+          }
+        },
+        "diagnostics": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/$defs/diagnostic"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "const": "NOT_EVALUATED"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "failedPrerequisites"
+            ],
+            "properties": {
+              "failedPrerequisites": {
+                "minItems": 1
+              }
+            }
+          },
+          "else": {
+            "not": {
+              "required": [
+                "failedPrerequisites"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "const": "NOT_APPLICABLE"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "branchReason"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "branchReason"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "const": "FAIL"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "diagnostics": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "resolvedInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "role",
+        "selectedBinding",
+        "resolvedDigest",
+        "schemaBinding",
+        "ownerContractBinding",
+        "contextDigest",
+        "admissionEvidenceBindings"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/text"
+        },
+        "role": {
+          "$ref": "#/$defs/text"
+        },
+        "selectedBinding": {
+          "$ref": "#/$defs/immutableBinding"
+        },
+        "resolvedDigest": {
+          "$ref": "#/$defs/digest"
+        },
+        "schemaBinding": {
+          "$ref": "#/$defs/schemaBinding"
+        },
+        "ownerContractBinding": {
+          "$ref": "#/$defs/contractBinding"
+        },
+        "contextDigest": {
+          "$ref": "#/$defs/digest"
+        },
+        "admissionEvidenceBindings": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/$defs/recordBinding"
+          }
+        }
+      }
+    },
+    "atomFinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "atomId",
+        "definitionBinding",
+        "scopeDigest",
+        "bodyDigest",
+        "interpretation",
+        "predicateFindings"
+      ],
+      "properties": {
+        "atomId": {
+          "$ref": "#/$defs/text"
+        },
+        "definitionBinding": {
+          "$ref": "#/$defs/recordBinding"
+        },
+        "scopeDigest": {
+          "$ref": "#/$defs/digest"
+        },
+        "bodyDigest": {
+          "$ref": "#/$defs/digest"
+        },
+        "interpretation": {
+          "enum": [
+            "TRUE",
+            "FALSE",
+            "INDETERMINATE"
+          ]
+        },
+        "predicateFindings": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "predicateId",
+              "disposition",
+              "failedPrerequisites",
+              "comparisons",
+              "resolvedInputIds",
+              "diagnostics"
+            ],
+            "properties": {
+              "predicateId": {
+                "$ref": "#/$defs/text"
+              },
+              "disposition": {
+                "enum": [
+                  "PASS",
+                  "FAIL",
+                  "NOT_EVALUATED"
+                ]
+              },
+              "failedPrerequisites": {
+                "type": "array",
+                "minItems": 0,
+                "items": {
+                  "$ref": "#/$defs/text"
+                }
+              },
+              "comparisons": {
+                "type": "array",
+                "minItems": 0,
+                "items": {
+                  "$ref": "#/$defs/comparison"
+                }
+              },
+              "resolvedInputIds": {
+                "type": "array",
+                "minItems": 0,
+                "items": {
+                  "$ref": "#/$defs/text"
+                }
+              },
+              "diagnostics": {
+                "type": "array",
+                "minItems": 0,
+                "items": {
+                  "$ref": "#/$defs/diagnostic"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "eventSubjectMatch": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mode",
+            "subjectRefsIndex"
+          ],
+          "properties": {
+            "mode": {
+              "const": "DIRECT"
+            },
+            "subjectRefsIndex": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mode",
+            "proofBindings"
+          ],
+          "properties": {
+            "mode": {
+              "const": "RELATIONSHIP"
+            },
+            "proofBindings": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/recordBinding"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "eventAssociation": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "disposition"
+          ],
+          "properties": {
+            "disposition": {
+              "const": "NOT_APPLICABLE"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "disposition",
+            "envelope",
+            "caseDefinitionBinding",
+            "compatibilityFindings",
+            "failedPrerequisites",
+            "diagnostics"
+          ],
+          "properties": {
+            "disposition": {
+              "enum": [
+                "PASS",
+                "FAIL",
+                "NOT_EVALUATED"
+              ]
+            },
+            "envelope": {
+              "$ref": "#/$defs/recordBinding"
+            },
+            "envelopePrimaryFamily": {
+              "$ref": "#/$defs/text"
+            },
+            "ingressEvidence": {
+              "$ref": "#/$defs/recordBinding"
+            },
+            "ingressPrimaryFamily": {
+              "$ref": "#/$defs/text"
+            },
+            "subjectMatch": {
+              "$ref": "#/$defs/eventSubjectMatch"
+            },
+            "anchorScopesIndex": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "caseDefinitionBinding": {
+              "$ref": "#/$defs/recordBinding"
+            },
+            "compatibilityFindings": {
+              "type": "array",
+              "minItems": 0,
+              "items": {
+                "$ref": "#/$defs/comparison"
+              }
+            },
+            "failedPrerequisites": {
+              "type": "array",
+              "minItems": 0,
+              "items": {
+                "$ref": "#/$defs/text"
+              }
+            },
+            "diagnostics": {
+              "type": "array",
+              "minItems": 0,
+              "items": {
+                "$ref": "#/$defs/diagnostic"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "correction": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "posture"
+          ],
+          "properties": {
+            "posture": {
+              "const": "INITIAL"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "posture",
+            "selectedPriorBinding",
+            "comparisons",
+            "failedPrerequisites"
+          ],
+          "properties": {
+            "posture": {
+              "const": "CORRECTION"
+            },
+            "selectedPriorBinding": {
+              "$ref": "#/$defs/immutableBinding"
+            },
+            "transactionSnapshot": {
+              "$ref": "#/$defs/recordBinding"
+            },
+            "priorRecord": {
+              "$ref": "#/$defs/recordBinding"
+            },
+            "priorCreationEvidence": {
+              "$ref": "#/$defs/recordBinding"
+            },
+            "governanceBoundaryDigest": {
+              "$ref": "#/$defs/digest"
+            },
+            "twinPosture": {
+              "$ref": "#/$defs/text"
+            },
+            "comparisons": {
+              "type": "array",
+              "minItems": 0,
+              "items": {
+                "$ref": "#/$defs/comparison"
+              }
+            },
+            "failedPrerequisites": {
+              "type": "array",
+              "minItems": 0,
+              "items": {
+                "$ref": "#/$defs/text"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "selectedAction": {
+            "const": "ASSERT_OPERATION_CLAIM"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "operationPerformerAuthorityDisposition"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "operationPerformerAuthorityDisposition"
+          ]
+        }
+      }
+    }
+  ]
+}

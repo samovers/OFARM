@@ -1,0 +1,312 @@
+{
+  "reviewScope": [
+    "B02-R1",
+    "B04-R1",
+    "affected invariants"
+  ],
+  "status": "PASS_BOUNDED_CANDIDATE_REVIEW_CHECKS",
+  "primaryTrustBoundary": "AssertionRecord domain meaning and validation integrity",
+  "scopeStayedInsideBoundary": true,
+  "frozenManifestSha256": "7aa1ff8ef084a88808717b93f23b83c06c5bc74801ae46cfae6d7fadb92384fc",
+  "sourcePinEntries": 119,
+  "uniqueGitSources": 67,
+  "totalChecks": 946,
+  "passedChecks": 946,
+  "countsByGroup": {
+    "priorManifest": 2,
+    "frozen-01": 27,
+    "frozen-02": 40,
+    "frozen-03": 48,
+    "ownerManifest": 31,
+    "canonicalBytes": 8,
+    "reviewBinding": 4,
+    "livePriorReviewPreserved": 4,
+    "firstReviewPreserved": 3,
+    "sourceMapBytes": 3,
+    "sourcePin": 119,
+    "gitBlob": 80,
+    "invariant": 8,
+    "temporalRulesPreserved": 3,
+    "rowHash": 58,
+    "unrelated56": 56,
+    "unrelatedProjection": 36,
+    "requirementJoin": 58,
+    "canonicalJoin": 58,
+    "canonicalDefinition": 41,
+    "requirement": 42,
+    "atomTemplate": 58,
+    "rowRender": 37,
+    "wholeRender": 23,
+    "wholeScopePending": 23,
+    "affectedWorkBinding": 7,
+    "B02": 10,
+    "B02Alias": 3,
+    "B02Source": 3,
+    "B02Negative": 5,
+    "B04": 1,
+    "B04CrossFile": 4,
+    "B04Example": 9,
+    "B04Temporal": 7,
+    "B04Early": 12,
+    "B04Intended": 4,
+    "B04Negative": 5,
+    "B04Completion": 6
+  },
+  "failures": [],
+  "focusedCases": [
+    {
+      "group": "B02",
+      "case": "distinct mixture accepted",
+      "expected": "IDENTIFIED",
+      "observed": "IDENTIFIED"
+    },
+    {
+      "group": "B02",
+      "case": "source WATER interpretation",
+      "expected": "IDENTIFIED",
+      "observed": "IDENTIFIED"
+    },
+    {
+      "group": "B02Negative",
+      "case": "mixture labelled carrier",
+      "expected": "INVALID",
+      "observed": "INVALID"
+    },
+    {
+      "group": "B02Negative",
+      "case": "mixture aliases carrier",
+      "expected": "INVALID",
+      "observed": "INVALID"
+    },
+    {
+      "group": "B02Negative",
+      "case": "missing mixture definition",
+      "expected": "INVALID",
+      "observed": "INVALID"
+    },
+    {
+      "group": "B02Negative",
+      "case": "missing identity",
+      "expected": "INVALID",
+      "observed": "INVALID"
+    },
+    {
+      "group": "B02Negative",
+      "case": "definition differs from components",
+      "expected": "INVALID",
+      "observed": "INVALID"
+    },
+    {
+      "group": "B02",
+      "case": "identified product expressible",
+      "expected": "IDENTIFIED",
+      "observed": "IDENTIFIED"
+    },
+    {
+      "group": "B02",
+      "case": "unknown material remains unresolved",
+      "expected": "UNRESOLVED",
+      "observed": "UNRESOLVED"
+    },
+    {
+      "group": "B04Example",
+      "case": "W16",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Example",
+      "case": "W17",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Example",
+      "case": "W20",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Example",
+      "case": "W21",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Example",
+      "case": "W22",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Example",
+      "case": "W23",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Early",
+      "case": "PERFORMED_INTERVAL/OCCURRENCE without result",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Early",
+      "case": "PERFORMED_INTERVAL/OCCURRENCE availability unreported",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Early",
+      "case": "PERFORMED_INTERVAL/STARTED without result",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Early",
+      "case": "PERFORMED_INTERVAL/STARTED availability unreported",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Early",
+      "case": "PERFORMED_INTERVAL/IN_PROGRESS without result",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Early",
+      "case": "PERFORMED_INTERVAL/IN_PROGRESS availability unreported",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Early",
+      "case": "PERFORMED_INSTANT/OCCURRENCE without result",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Early",
+      "case": "PERFORMED_INSTANT/OCCURRENCE availability unreported",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Early",
+      "case": "PERFORMED_INSTANT/STARTED without result",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Early",
+      "case": "PERFORMED_INSTANT/STARTED availability unreported",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Early",
+      "case": "PERFORMED_INSTANT/IN_PROGRESS without result",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Early",
+      "case": "PERFORMED_INSTANT/IN_PROGRESS availability unreported",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Intended",
+      "case": "OCCURRENCE without actual result",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Intended",
+      "case": "STARTED without actual result",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Intended",
+      "case": "IN_PROGRESS without actual result",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Intended",
+      "case": "COMPLETED without actual result",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "group": "B04Negative",
+      "case": "pending cannot complete",
+      "expected": true,
+      "observed": true
+    },
+    {
+      "group": "B04Negative",
+      "case": "pending cannot invent result",
+      "expected": true,
+      "observed": true
+    },
+    {
+      "group": "B04Negative",
+      "case": "actual result binding required",
+      "expected": true,
+      "observed": true
+    },
+    {
+      "group": "B04Negative",
+      "case": "expected output must match work",
+      "expected": true,
+      "observed": true
+    },
+    {
+      "group": "B04Negative",
+      "case": "output must match exact sample",
+      "expected": true,
+      "observed": true
+    },
+    {
+      "group": "B04Completion",
+      "case": "finish flag without output evidence",
+      "expected": false,
+      "observed": false
+    },
+    {
+      "group": "B04Completion",
+      "case": "exact hypothetical output plus finish evidence",
+      "expected": true,
+      "observed": true
+    },
+    {
+      "group": "B04Completion",
+      "case": "output alone",
+      "expected": false,
+      "observed": false
+    },
+    {
+      "group": "B04Completion",
+      "case": "wrong work",
+      "expected": false,
+      "observed": false
+    },
+    {
+      "group": "B04Completion",
+      "case": "wrong sample",
+      "expected": false,
+      "observed": false
+    },
+    {
+      "group": "B04Completion",
+      "case": "unverified output",
+      "expected": false,
+      "observed": false
+    }
+  ],
+  "limits": "Independent pin/preservation checks and focused review predicates; no author script execution, production validator, admitted positive, source/runtime edit, CI or merge. Actual evidence owners remain authoritative. The other inputs retain prior review closure; this is not a fresh broad review.",
+  "next": "Record the bounded verdict and the seven source-bounded candidate input statuses; preserve adoption and admitted-proof dependencies."
+}

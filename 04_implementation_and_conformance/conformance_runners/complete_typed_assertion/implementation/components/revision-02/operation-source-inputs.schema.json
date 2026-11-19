@@ -1,0 +1,2923 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/operation-source-inputs/v0.1",
+  "title": "27 operation source consumers",
+  "$defs": {
+    "O01": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O01"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O01"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O02": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O02"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O02"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O03": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O03"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O03"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O04": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O04"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O04"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O05": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O05"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O05"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O06": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O06"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O06"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O07": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O07"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O07"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O08": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O08"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O08"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O09": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O09"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O09"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O10": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O10"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O10"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O11": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O11"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O11"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O12": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O12"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O12"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O13": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O13"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O13"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O14": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O14"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O14"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O15": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O15"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O15"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O16": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O16"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O16"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O17": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O17"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O17"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O18": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O18"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O18"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O19": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O19"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O19"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O20": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O20"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O20"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O21": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O21"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O21"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O22": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O22"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O22"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O23": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O23"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O23"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O24": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O24"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O24"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O25": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O25"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O25"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O26": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O26"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O26"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    },
+    "O27": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O27"
+            },
+            "sourceKind": {
+              "const": "intent"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/intentSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/O27"
+            },
+            "sourceKind": {
+              "const": "execution"
+            },
+            "source": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1#/$defs/executionSource"
+            },
+            "quantitySelections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceIndex": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "parameterId",
+                  "sourceIndex"
+                ]
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "performerPointer": {
+              "enum": [
+                "/actor/actorPartyRef",
+                "/actor/operatorPartyRef",
+                "/actor/contractorPartyRef"
+              ]
+            },
+            "assetTargetRole": {
+              "enum": [
+                "equipmentRef",
+                "tractorOrPowerUnitRef",
+                "implementRef",
+                "controllerRef"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "sourceKind",
+            "source",
+            "quantitySelections",
+            "performerPointer"
+          ]
+        }
+      ]
+    }
+  }
+}

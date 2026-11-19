@@ -1,0 +1,98 @@
+{
+  "sourceHead": "37d680d598af0cd321c6d06e91af6aba60a73c8d",
+  "rule": "Preserve every original semantic negative. These ten fixtures deliberately mutate record bytes under the original source binding, so an independent pin diagnostic must also precede their existing semantic failures. H03 instead has separately approved exact identities and must return PROPERTY_MISMATCH only.",
+  "cases": [
+    {
+      "id": "H07_WRONG_TARGET",
+      "originalErrors": [
+        "TARGET_SUPPORT_MISMATCH"
+      ],
+      "additionalErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH"
+      ]
+    },
+    {
+      "id": "H08_WRONG_METHOD_REVISION",
+      "originalErrors": [
+        "METHOD_MISMATCH"
+      ],
+      "additionalErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH"
+      ]
+    },
+    {
+      "id": "H09_LOD_NOT_LOQ",
+      "originalErrors": [
+        "LOQ_VALUE_UNIT_MISMATCH"
+      ],
+      "additionalErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH"
+      ]
+    },
+    {
+      "id": "H10_WRONG_PHENOMENON_TIME",
+      "originalErrors": [
+        "PHENOMENON_TIME_MISMATCH"
+      ],
+      "additionalErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH"
+      ]
+    },
+    {
+      "id": "H12_CONFIDENCE_USED_AS_HARD_BOUND",
+      "originalErrors": [
+        "METHOD_DOMAIN_BOUNDS_MISMATCH"
+      ],
+      "additionalErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH"
+      ]
+    },
+    {
+      "id": "H17_WRONG_SAMPLE",
+      "originalErrors": [
+        "SAMPLE_MISMATCH"
+      ],
+      "additionalErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH"
+      ]
+    },
+    {
+      "id": "H18_WRONG_MATRIX",
+      "originalErrors": [
+        "MATRIX_ANALYTE_MISMATCH"
+      ],
+      "additionalErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH"
+      ]
+    },
+    {
+      "id": "H19_WRONG_LEXICAL_RESULT",
+      "originalErrors": [
+        "LEXICAL_RESULT_MISMATCH"
+      ],
+      "additionalErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH"
+      ]
+    },
+    {
+      "id": "H20_UNCERTAINTY_ERASED",
+      "originalErrors": [
+        "QUALIFICATION_SOURCE_MISMATCH",
+        "QUALIFICATION_POINTER_UNRESOLVED"
+      ],
+      "additionalErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH"
+      ]
+    },
+    {
+      "id": "H21_DISPUTED_AS_UNQUALIFIED",
+      "originalErrors": [
+        "SOURCE_POSTURE_MISMATCH"
+      ],
+      "additionalErrors": [
+        "MEASUREMENT_SOURCE_PIN_MISMATCH"
+      ]
+    }
+  ],
+  "next": "Rebuild exact fixture expectations without removing the semantic reason for rejection."
+}

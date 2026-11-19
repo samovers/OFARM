@@ -1,0 +1,525 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/work-condition-definition/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainWorkConditionDefinition.v0.1"
+    },
+    "definitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "conditionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "activityRow": {
+      "enum": [
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O07",
+        "O08",
+        "O09",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15",
+        "O16",
+        "O17",
+        "O18",
+        "O19",
+        "O20",
+        "O21",
+        "O22",
+        "O23",
+        "O24",
+        "O25",
+        "O26",
+        "O27"
+      ]
+    },
+    "stage": {
+      "enum": [
+        "START",
+        "IN_PROGRESS",
+        "FINISH"
+      ]
+    },
+    "meaning": {
+      "type": "string",
+      "minLength": 1
+    },
+    "predicateKind": {
+      "enum": [
+        "ANALYSIS_OUTPUT_RECORDED",
+        "EXACT_ALLEGATION_COMMUNICATION_ACTIVE",
+        "EXACT_ALLEGATION_COMMUNICATION_BEGUN",
+        "EXACT_REPORT_DESTINATION_ATTACHMENT_ACTIVE",
+        "EXACT_REPORT_DESTINATION_ATTACHMENT_BEGUN",
+        "EXACT_SAMPLE_PROPERTY_RESULT_PRODUCTION_ACTIVE",
+        "EXACT_SAMPLE_PROPERTY_RESULT_PRODUCTION_BEGUN",
+        "EXACT_SPECIMEN_COLLECTION_ACTIVE",
+        "EXACT_SPECIMEN_COLLECTION_BEGUN",
+        "IRRIGATION_INFLOW_ZERO_AT_FINISH",
+        "IRRIGATION_REQUIRED_VOLUME_DELIVERED",
+        "NO_REQUIRED_CULTIVATION_PASSES_OR_DEPTH_REQUIREMENTS_UNFINISHED",
+        "NO_REQUIRED_PLANTING_POSITIONS_OR_PASSES_UNFINISHED",
+        "NO_SELECTED_CROP_MATERIAL_HANDLING_UNFINISHED",
+        "NO_SELECTED_INPUT_MATERIAL_MIXING_UNFINISHED",
+        "NO_SELECTED_PLANT_ELEMENTS_REMAINING",
+        "NO_SELECTED_SOURCE_MATERIAL_SPLIT_UNFINISHED",
+        "NO_SELECTED_TREATMENT_SEGMENTS_UNFINISHED",
+        "NO_SPECIFIED_FERTILIZATION_PASSES_UNFINISHED",
+        "PROCEDURE_DEFINED_CRITERION",
+        "PRODUCT_REACHING_TREATMENT_EXTENT",
+        "PROPOSED_COHORT_FORMATION_IDENTIFICATION_ACTIVE",
+        "PROPOSED_COHORT_FORMATION_IDENTIFICATION_BEGUN",
+        "PROTOCOL_SAMPLE_AND_SUPPORT_COLLECTION_RECORDED",
+        "PRUNING_ACTIVITY_PRESENT",
+        "REQUIRED_OBSERVATIONS_ACQUIRED_AND_RECORDED",
+        "SANITATION_PROCEDURE_INACTIVE_AT_FINISH",
+        "SANITATION_REQUIRED_CONTINUOUS_MATERIAL_CONTACT",
+        "SCHEME_SPECIFIC_MATERIAL_RECLASSIFICATION_ACTIVE",
+        "SCHEME_SPECIFIC_MATERIAL_RECLASSIFICATION_BEGUN",
+        "SELECTED_CLEANOUT_OR_SANITATION_ACTIVE",
+        "SELECTED_CLEANOUT_OR_SANITATION_BEGUN",
+        "SELECTED_MOVE_OR_DISPATCH_ACTIVE",
+        "SELECTED_MOVE_OR_DISPATCH_BEGUN",
+        "SPECIFIED_ASSET_MAINTENANCE_ACTIVE",
+        "SPECIFIED_ASSET_MAINTENANCE_BEGUN",
+        "SPECIFIED_CLOSED_SPACE_TREATMENT_ACTIVE",
+        "SPECIFIED_CLOSED_SPACE_TREATMENT_BEGUN",
+        "SPECIFIED_COHORT_SEPARATION_ACTIVE",
+        "SPECIFIED_COHORT_SEPARATION_BEGUN",
+        "SPECIFIED_COHORT_UNIFICATION_ACTIVE",
+        "SPECIFIED_COHORT_UNIFICATION_BEGUN",
+        "SPECIFIED_ESTABLISHMENT_ACTIVE",
+        "SPECIFIED_HARVEST_REMOVAL_BEGUN",
+        "SPECIFIED_HARVEST_REMOVAL_COLLECTION_ACTIVE",
+        "SPECIFIED_IMPLEMENT_CULTIVATION_BEGUN",
+        "SPECIFIED_INPUT_MATERIAL_DRYING_ACTIVE",
+        "SPECIFIED_INPUT_MATERIAL_DRYING_BEGUN",
+        "SPECIFIED_MATERIAL_DISPOSAL_ACTIVE",
+        "SPECIFIED_MATERIAL_DISPOSAL_BEGUN",
+        "SPECIFIED_MATERIAL_MIXING_ACTIVE",
+        "SPECIFIED_MATERIAL_MIXING_BEGUN",
+        "SPECIFIED_MATERIAL_TRANSFORMATION_ACTIVE",
+        "SPECIFIED_MATERIAL_TRANSFORMATION_BEGUN",
+        "SPECIFIED_NUTRIENT_DELIVERY_ACTIVE",
+        "SPECIFIED_NUTRIENT_DELIVERY_BEGUN",
+        "SPECIFIED_OBSERVATION_ACQUISITION_ACTIVE",
+        "SPECIFIED_OBSERVATION_ACQUISITION_BEGUN",
+        "SPECIFIED_PLANTING_MATERIAL_PLACEMENT_BEGUN",
+        "SPECIFIED_PRODUCT_APPLICATION_ACTIVE",
+        "SPECIFIED_RECIPIENT_PHYSICAL_DELIVERY_ACTIVE",
+        "SPECIFIED_RECIPIENT_PHYSICAL_HANDOVER_BEGUN",
+        "SPECIFIED_SEED_TREATMENT_ACTIVE",
+        "SPECIFIED_SEED_TREATMENT_BEGUN",
+        "SPECIFIED_SOIL_CULTIVATION_ACTIVE",
+        "SPECIFIED_SURFACE_PRODUCT_USE_ACTIVE",
+        "SPECIFIED_SURFACE_PRODUCT_USE_BEGUN",
+        "TARGET_MOISTURE_ON_DEFINED_MASS_BASIS",
+        "WATER_DELIVERY_TO_TARGET_ACTIVE",
+        "WATER_DELIVERY_TO_TARGET_BEGUN"
+      ]
+    },
+    "criterionBinding": {
+      "oneOf": [
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "measurementBinding": {
+      "oneOf": [
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "resultTerms": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "codedValues": {
+          "type": "array",
+          "items": {
+            "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+          }
+        },
+        "qualitativeScale": {
+          "oneOf": [
+            {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "codedValues",
+        "qualitativeScale"
+      ]
+    },
+    "temporalRole": {
+      "enum": [
+        "AT_WORK_START",
+        "DURING_WORK",
+        "AT_WORK_FINISH"
+      ]
+    },
+    "acquisitionSpecificationBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "dryingSpecificationBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "irrigationSpecificationBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "sanitationSpecificationBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "definitionId",
+    "conditionId",
+    "activityRow",
+    "stage",
+    "meaning",
+    "predicateKind",
+    "criterionBinding",
+    "measurementBinding",
+    "resultTerms",
+    "temporalRole"
+  ],
+  "$comment": "New domain-owned normative input. Exact independent selection and protected original bytes are required. No source admission, authority, runtime producer or statutory applicability is asserted.",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "predicateKind": {
+            "enum": [
+              "ANALYSIS_OUTPUT_RECORDED",
+              "REQUIRED_OBSERVATIONS_ACQUIRED_AND_RECORDED"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "stage": {
+            "const": "FINISH"
+          },
+          "criterionBinding": {
+            "type": "null"
+          },
+          "measurementBinding": {
+            "type": "null"
+          },
+          "resultTerms": {
+            "const": {
+              "codedValues": [],
+              "qualitativeScale": null
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "criterionBinding": {
+            "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+          },
+          "measurementBinding": {
+            "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "predicateKind": {
+            "const": "ANALYSIS_OUTPUT_RECORDED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "activityRow": {
+            "const": "O22"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "predicateKind": {
+            "const": "REQUIRED_OBSERVATIONS_ACQUIRED_AND_RECORDED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "activityRow": {
+            "const": "O09"
+          }
+        },
+        "required": [
+          "acquisitionSpecificationBinding"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "acquisitionSpecificationBinding"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "predicateKind": {
+            "const": "TARGET_MOISTURE_ON_DEFINED_MASS_BASIS"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "activityRow": {
+            "const": "O07"
+          },
+          "stage": {
+            "const": "FINISH"
+          }
+        },
+        "required": [
+          "dryingSpecificationBinding"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "dryingSpecificationBinding"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "predicateKind": {
+            "enum": [
+              "IRRIGATION_REQUIRED_VOLUME_DELIVERED",
+              "IRRIGATION_INFLOW_ZERO_AT_FINISH"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "activityRow": {
+            "const": "O04"
+          },
+          "stage": {
+            "const": "FINISH"
+          }
+        },
+        "required": [
+          "irrigationSpecificationBinding"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "irrigationSpecificationBinding"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "predicateKind": {
+            "enum": [
+              "SANITATION_REQUIRED_CONTINUOUS_MATERIAL_CONTACT",
+              "SANITATION_PROCEDURE_INACTIVE_AT_FINISH"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "activityRow": {
+            "const": "O17"
+          },
+          "stage": {
+            "const": "FINISH"
+          }
+        },
+        "required": [
+          "sanitationSpecificationBinding"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "sanitationSpecificationBinding"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "predicateKind": {
+            "const": "NO_SELECTED_TREATMENT_SEGMENTS_UNFINISHED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "activityRow": {
+            "const": "O01"
+          },
+          "stage": {
+            "const": "FINISH"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "predicateKind": {
+            "const": "NO_SPECIFIED_FERTILIZATION_PASSES_UNFINISHED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "activityRow": {
+            "const": "O02"
+          },
+          "stage": {
+            "const": "FINISH"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "predicateKind": {
+            "const": "NO_REQUIRED_PLANTING_POSITIONS_OR_PASSES_UNFINISHED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "activityRow": {
+            "const": "O03"
+          },
+          "stage": {
+            "const": "FINISH"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "predicateKind": {
+            "const": "NO_REQUIRED_CULTIVATION_PASSES_OR_DEPTH_REQUIREMENTS_UNFINISHED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "activityRow": {
+            "const": "O05"
+          },
+          "stage": {
+            "const": "FINISH"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "predicateKind": {
+            "const": "NO_SELECTED_CROP_MATERIAL_HANDLING_UNFINISHED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "activityRow": {
+            "const": "O06"
+          },
+          "stage": {
+            "const": "FINISH"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "predicateKind": {
+            "const": "NO_SELECTED_SOURCE_MATERIAL_SPLIT_UNFINISHED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "activityRow": {
+            "const": "O11"
+          },
+          "stage": {
+            "const": "FINISH"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "predicateKind": {
+            "const": "NO_SELECTED_INPUT_MATERIAL_MIXING_UNFINISHED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "activityRow": {
+            "const": "O13"
+          },
+          "stage": {
+            "const": "FINISH"
+          }
+        }
+      }
+    }
+  ]
+}

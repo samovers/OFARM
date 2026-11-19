@@ -1,0 +1,375 @@
+{
+  "status": "LOCAL_EXACT_HEAD_DEPENDENCY_CONTENT_REVIEW_COMPLETE_NO_NEW_FINDINGS",
+  "createdAt": "2026-10-21T07:05:50.347215+00:00",
+  "reviewer": {
+    "chat": "Verify authorization input contracts",
+    "kind": "independent local AI review",
+    "humanApproval": false
+  },
+  "primaryTrustBoundary": "read-only security audit of separate pinned component boundaries",
+  "scopeStayedInsideBoundary": true,
+  "implementationChanges": false,
+  "f3Disposition": {
+    "localExactHeadContentReviewGap": "CLOSED_BY_THIS_RECORD",
+    "githubReviewGap": "UNCHANGED_NO_REVIEW_POSTED",
+    "approvalOrSourceAdoption": false,
+    "pr47DesignReview": "SEPARATE_PENDING_AMENDED_HEAD"
+  },
+  "newFindings": [],
+  "newFindingCounts": {
+    "Blocker": 0,
+    "FollowUp": 0,
+    "Preference": 0
+  },
+  "components": [
+    {
+      "pr": 41,
+      "head": "bfd15b98c48f70e679824005c62adf4241dd8b22",
+      "tree": "c784c5bb4d2bab58b65c951e58255b1add7d7594",
+      "boundary": "assertion-domain record integrity",
+      "review": "PRIOR_REVIEW_AND_CORRECTIVE_DELTA_REVIEW",
+      "newFindings": [],
+      "verifiedRepairs": [
+        "B1 local typed prospective identity collision",
+        "F4 finite rejection witnesses"
+      ],
+      "remaining": [
+        "F1 source-time qualifier/absence policy",
+        "F2 qualifier compatibility and absence policy",
+        "F3 explanation does not claim external reviewer acceptance",
+        "P1 whitespace text",
+        "P2 shared subject-kind acceptance and foreign identity admission"
+      ]
+    },
+    {
+      "pr": 42,
+      "head": "471cb1ef20ffde56b1437949975a4c6c86c59dd5",
+      "tree": "d2ea8156c7d14c5fdae5b86916486c561da966a8",
+      "boundary": "authorization-input integrity",
+      "review": "SUBSTANTIVE_INITIAL_REVIEW",
+      "newFindings": [],
+      "verifiedRepairs": [],
+      "remaining": [
+        "source-time and twin applicability",
+        "query/foreign-resolution/authority/read-coverage/transaction prerequisites",
+        "full protected-effect and release binding"
+      ]
+    },
+    {
+      "pr": 43,
+      "head": "546f831f495d60b45e93b55fbaaa601b1374ad7e",
+      "tree": "17dc3c916879e0a6badfa35dc6516dc9a08d9aac",
+      "boundary": "shared validation-evidence integrity",
+      "review": "PRIOR_REVIEW_AND_CORRECTIVE_DELTA_REVIEW",
+      "newFindings": [],
+      "verifiedRepairs": [
+        "selected body-schema binding",
+        "F4 actual body validation",
+        "F1 payload subject equality for PASS and FAIL",
+        "F2 wording",
+        "P1 parser handling",
+        "P2 mechanism wording",
+        "P4 public evidence limits"
+      ],
+      "remaining": [
+        "B1 actual transaction enforcement remains separately owned",
+        "P3 optional hygiene coverage",
+        "real domain/context producers and truthful evaluation"
+      ]
+    },
+    {
+      "pr": 44,
+      "head": "6457009520257f8751ca03caa4b0704cf92160a7",
+      "tree": "2f6536ef91862eff90be03d035b343852810d167",
+      "boundary": "authorization-input projection integrity",
+      "review": "PRIOR_REVIEW_AND_CORRECTIVE_DELTA_REVIEW",
+      "newFindings": [],
+      "verifiedRepairs": [
+        "P1 failure-code annotation consistency",
+        "P2 precise unexpected-member witnesses",
+        "P3 prospective-ID wording"
+      ],
+      "remaining": [
+        "F1 exact event selectors and compatibility predicate",
+        "F2 documented whole-schema repin dependency policy",
+        "P4 subject-kind and whitespace choices",
+        "missing original F1/F2 details not recovered"
+      ]
+    },
+    {
+      "pr": 45,
+      "head": "2110f6d78451b50712264dba87d0b8989f134907",
+      "tree": "2566d0f400db8f6e3c8d65df202342a3c7a2ca14",
+      "boundary": "operation intent-to-result mapping integrity",
+      "review": "PRIOR_REVIEW_AND_CORRECTIVE_DELTA_REVIEW",
+      "newFindings": [],
+      "verifiedRepairs": [
+        "B1 deterministic calendar rejection",
+        "F1 finite report consistency invariants",
+        "F2 subtype preflight disposition",
+        "F3 finite AR traceability/event visibility",
+        "F4 removal of unsupported approval language",
+        "P1 caller-file diagnostics"
+      ],
+      "remaining": [
+        "standalone report cannot authenticate whole-input digests",
+        "full AR/PC, body semantics, event compatibility and runtime unavailable",
+        "missing original F1/F2 and partial F3 details not recovered"
+      ]
+    }
+  ],
+  "freshEvidence": {
+    "componentSuiteRuns": 6,
+    "caseInstances": 2628,
+    "includesRepeated620CasesAtPR44": true,
+    "independentChecks": 161,
+    "optionalCalendarChecks": 6,
+    "integrityChecks": 118,
+    "sourcePins": 19,
+    "reviewedCheckpointFileComparisons": 75,
+    "exportedFilesPreserved": 6474,
+    "repositoryWideSuiteRerun": false,
+    "hostedCIRun": false,
+    "suiteResults": [
+      {
+        "pr": 41,
+        "label": "assertion",
+        "command": [
+          "/opt/homebrew/opt/python@3.14/bin/python3.14",
+          "source-checkout:plans/domain-contract-verifier-20261021/amendment-01/dependency-review/snapshots/41/04_implementation_and_conformance/conformance_runners/ofarm_assertion_record_submission_v0_2.py"
+        ],
+        "exitCode": 0,
+        "summary": {
+          "result": "PASS",
+          "positiveCases": 75,
+          "negativeCases": 452,
+          "failures": []
+        },
+        "stdout": "logs/pr41-assertion.stdout",
+        "stderr": "logs/pr41-assertion.stderr"
+      },
+      {
+        "pr": 42,
+        "label": "inputs",
+        "command": [
+          "/opt/homebrew/opt/python@3.14/bin/python3.14",
+          "source-checkout:plans/domain-contract-verifier-20261021/amendment-01/dependency-review/snapshots/42/04_implementation_and_conformance/conformance_runners/ofarm_authorization_effect_intents_v0_2.py"
+        ],
+        "exitCode": 0,
+        "summary": {
+          "result": "PASS",
+          "positiveCases": 123,
+          "negativeCases": 497,
+          "readKindFormPairs": 60,
+          "failures": []
+        },
+        "stdout": "logs/pr42-inputs.stdout",
+        "stderr": "logs/pr42-inputs.stderr"
+      },
+      {
+        "pr": 43,
+        "label": "trace",
+        "command": [
+          "/opt/homebrew/opt/python@3.14/bin/python3.14",
+          "source-checkout:plans/domain-contract-verifier-20261021/amendment-01/dependency-review/snapshots/43/04_implementation_and_conformance/conformance_runners/ofarm_protected_effect_validation_trace_envelope_v0_1.py"
+        ],
+        "exitCode": 0,
+        "summary": {
+          "result": "PASS",
+          "positiveCases": 24,
+          "negativeCases": 283,
+          "failures": []
+        },
+        "stdout": "logs/pr43-trace.stdout",
+        "stderr": "logs/pr43-trace.stderr"
+      },
+      {
+        "pr": 44,
+        "label": "operation-read",
+        "command": [
+          "/opt/homebrew/opt/python@3.14/bin/python3.14",
+          "source-checkout:plans/domain-contract-verifier-20261021/amendment-01/dependency-review/snapshots/44/04_implementation_and_conformance/conformance_runners/ofarm_authorization_effect_intents_v0_2.py"
+        ],
+        "exitCode": 0,
+        "summary": {
+          "result": "PASS",
+          "positiveCases": 123,
+          "negativeCases": 497,
+          "readKindFormPairs": 60,
+          "failures": []
+        },
+        "stdout": "logs/pr44-operation-read.stdout",
+        "stderr": "logs/pr44-operation-read.stderr"
+      },
+      {
+        "pr": 44,
+        "label": "inactive-inputs",
+        "command": [
+          "/opt/homebrew/opt/python@3.14/bin/python3.14",
+          "source-checkout:plans/domain-contract-verifier-20261021/amendment-01/dependency-review/snapshots/44/04_implementation_and_conformance/conformance_runners/ofarm_authorization_effect_intents_v0_2.py",
+          "--cases",
+          "source-checkout:plans/domain-contract-verifier-20261021/amendment-01/dependency-review/snapshots/44/04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_StructureComplianceEffectIntent_cases_v0_2.json"
+        ],
+        "exitCode": 0,
+        "summary": {
+          "result": "PASS",
+          "positiveCases": 59,
+          "negativeCases": 348,
+          "readKindFormPairs": 0,
+          "failures": []
+        },
+        "stdout": "logs/pr44-inactive-inputs.stdout",
+        "stderr": "logs/pr44-inactive-inputs.stderr"
+      },
+      {
+        "pr": 45,
+        "label": "mapping",
+        "command": [
+          "/opt/homebrew/opt/python@3.14/bin/python3.14",
+          "source-checkout:plans/domain-contract-verifier-20261021/amendment-01/dependency-review/snapshots/45/04_implementation_and_conformance/conformance_runners/ofarm_assertion_record_domain_mappings_v0_1.py"
+        ],
+        "exitCode": 0,
+        "summary": {
+          "result": "PASS",
+          "cases": 147,
+          "outcomes": {
+            "MATCH": 22,
+            "MISMATCH": 26,
+            "UNAVAILABLE": 99
+          },
+          "failures": []
+        },
+        "stdout": "logs/pr45-mapping.stdout",
+        "stderr": "logs/pr45-mapping.stderr"
+      }
+    ]
+  },
+  "priorReviewRecords": [
+    {
+      "path": "plans/parallel-delivery-2026-09-24/assertion-component/reviews-audit/review-disposition-ledger.md",
+      "sha256": "eae4509370a271b850be9a6dbf26848cef5eb62b8d47abfffe552f7da45db20d"
+    },
+    {
+      "path": "plans/parallel-delivery-2026-09-24/assertion-component/integration/review-response-01/review-disposition.md",
+      "sha256": "3376a62a75fed0d13831def3c9aafa311a9075a694e399367b090b263e381471"
+    },
+    {
+      "path": "plans/parallel-delivery-2026-09-24/validation-trace-component/review-response-01/review-ledger.md",
+      "sha256": "e79bd5503f45c737b51ce90879575b3bb556988919d774b4a9a550c7546a0d7e"
+    },
+    {
+      "path": "plans/parallel-delivery-2026-09-24/validation-trace-component/schema-worker/b1-f1-integration-review-06.md",
+      "sha256": "699c090bffcad11f7b0234e920031d5180ee26c1a6f98842e3c4827554c1e474"
+    },
+    {
+      "path": "plans/parallel-delivery-2026-09-24/pr44-pr45-review-response-20261003/review/input-review-01.md",
+      "sha256": "3b482de50f52502d73927b976af71c97cf03b8a862e0a6f1b0f4a60192e21a32"
+    },
+    {
+      "path": "plans/parallel-delivery-2026-09-24/pr44-pr45-review-response-20261003/review/domain-final-review-01.md",
+      "sha256": "624993756dfb3ede86d4a1420c7fca65fc1e9a011359506e7d322a1bd09dbf98"
+    },
+    {
+      "path": "plans/parallel-delivery-2026-09-24/pr44-pr45-review-response-20261003/domain/finding-dispositions.json",
+      "sha256": "e2a5b87641461248011751ad1ba895e98eb902ef1250a89b28cf831e1c9966cf"
+    }
+  ],
+  "preservedConstraints": [
+    "Full event and measurement support remains required downstream",
+    "OFARM2 #392/#396 parked",
+    "No source adoption, approval, merge, CI activation or publication",
+    "No source worktree or Git mutation",
+    "No other chats messaged or agents spawned"
+  ],
+  "evidenceFiles": [
+    {
+      "path": "audit_integrity.py",
+      "sha256": "04c234796e453995afdeea378e8afe517eab171471d1540e6d992e55e6246d45"
+    },
+    {
+      "path": "calendar-with-optional.json",
+      "sha256": "b64db891c5dbd242d4f21014deb9a909a3428ede67aca0d7eead8eef496cb880"
+    },
+    {
+      "path": "f3-source.json",
+      "sha256": "e40b60a2e949a651d76ce2c5fe214353bc30bc2ebd01dee0a4f9c5ee5eb5b764"
+    },
+    {
+      "path": "independent-probes.json",
+      "sha256": "47c72d7c453b5d2362988bdafb3af65cdfdbfe81acc79a3f56b06cb0c9a04991"
+    },
+    {
+      "path": "integrity-results.json",
+      "sha256": "d760c64e974af4bc70848a19dc717f394f5a21e03a2be60e66f1f95753155a47"
+    },
+    {
+      "path": "pr41-changed-paths.json",
+      "sha256": "c59a16cb13019e55d59ce1a414a08096a6634bc278b07cf0bc7b21abe6bc33af"
+    },
+    {
+      "path": "pr41-review-delta.patch",
+      "sha256": "fc717d68b371b863984cfbfc31e145ca696de17516a921990da0a33700076716"
+    },
+    {
+      "path": "pr42-changed-paths.json",
+      "sha256": "0978a8b77969339d765cb7a461b6fdcc2c3ff74af3405998f5333f0493579f20"
+    },
+    {
+      "path": "pr42-review-delta.patch",
+      "sha256": "479bbaefaf6add8a525b99313ed8db4f65454ce09fac6ac1bbd76e5505451e44"
+    },
+    {
+      "path": "pr43-changed-paths.json",
+      "sha256": "0e095c91d14345bf5c3fbb2d1d2bd582a68bb3a2ed1f8131f9de334e05102c4d"
+    },
+    {
+      "path": "pr43-review-delta.patch",
+      "sha256": "e991e84ac4ced54b72c8fc58e5f40b14eb2c0814424748dee9ef971a0c89c46f"
+    },
+    {
+      "path": "pr44-changed-paths.json",
+      "sha256": "3110edb8392301f550aad3291c70cdce15b4467aa06d1c0f4cb2f9d375b25f50"
+    },
+    {
+      "path": "pr44-review-delta.patch",
+      "sha256": "6e839be685f7a43671e5c8e66ae99144445d242869ca58bf29087dd60364b9ae"
+    },
+    {
+      "path": "pr45-changed-paths.json",
+      "sha256": "78746bf32ad14d778e0d4638ce746337089219871076bd11b6bb8d4a7cf11c9f"
+    },
+    {
+      "path": "pr45-review-delta.patch",
+      "sha256": "a0bf68740b7287f0cad785d0aecfdf7723a720c01e4936d3889e4379bc5f2990"
+    },
+    {
+      "path": "prepare_snapshots.py",
+      "sha256": "7403b2713883e8d9d49e786f5e186b073cdcde98e03492eaaebc060cea2a5a19"
+    },
+    {
+      "path": "probes.py",
+      "sha256": "5d7bc7209686a82445a05f2e5ad3b1e0e3510e8504b7ca099b795a7fbd62eaf8"
+    },
+    {
+      "path": "review.md",
+      "sha256": "5ec7f2548ae7b910c26352818562528380a2675a8206fb2ae6611f94664e7c08"
+    },
+    {
+      "path": "run_suites.py",
+      "sha256": "ced5bed82c36a4e77dd47cd1a1c95c9ded0dff48c36f8e66f8ddfcf103260dec"
+    },
+    {
+      "path": "snapshot-integrity.json",
+      "sha256": "ae73bad59d2fbafe20ba6f2d07f7dbfad665068f22c4e2c0ccb43a6f6ec5070f"
+    },
+    {
+      "path": "suite-results.json",
+      "sha256": "bc020ec93ef8012d08b7461e52dc9937732f32203c209bcae1b320aef2589217"
+    },
+    {
+      "path": "write_handoff.py",
+      "sha256": "a1f0baa0499b965fbcc8289e7e205f14099717bac63dad3f14ad3a7952dea132"
+    }
+  ],
+  "next": "Review the amended PR47 head separately; use this record only as dependency content evidence."
+}

@@ -1,0 +1,121 @@
+{
+  "optionalValidatorBlocked": false,
+  "optionalValidatorLoaded": true,
+  "checks": 6,
+  "passed": 6,
+  "failures": [],
+  "results": [
+    {
+      "pr": 45,
+      "name": "baseline mapping",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "pr": 45,
+      "name": "invalid both-side date 2024-02-30T12:00:00Z",
+      "pass": true,
+      "detail": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "SCHEMA",
+          "code": "SCHEMA",
+          "target": "intent",
+          "schemaError": {
+            "instancePath": [
+              "assertedAt"
+            ],
+            "schemaPath": [
+              "properties",
+              "assertedAt",
+              "format"
+            ],
+            "keyword": "format"
+          }
+        }
+      }
+    },
+    {
+      "pr": 45,
+      "name": "invalid both-side date 2023-02-29T12:00:00Z",
+      "pass": true,
+      "detail": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "SCHEMA",
+          "code": "SCHEMA",
+          "target": "intent",
+          "schemaError": {
+            "instancePath": [
+              "assertedAt"
+            ],
+            "schemaPath": [
+              "properties",
+              "assertedAt",
+              "format"
+            ],
+            "keyword": "format"
+          }
+        }
+      }
+    },
+    {
+      "pr": 45,
+      "name": "invalid both-side date 1900-02-29T12:00:00Z",
+      "pass": true,
+      "detail": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "SCHEMA",
+          "code": "SCHEMA",
+          "target": "intent",
+          "schemaError": {
+            "instancePath": [
+              "assertedAt"
+            ],
+            "schemaPath": [
+              "properties",
+              "assertedAt",
+              "format"
+            ],
+            "keyword": "format"
+          }
+        }
+      }
+    },
+    {
+      "pr": 45,
+      "name": "invalid both-side date 2024-04-31T12:00:00Z",
+      "pass": true,
+      "detail": {
+        "componentResult": "UNAVAILABLE",
+        "fullDomainValidation": "UNAVAILABLE",
+        "error": {
+          "layer": "SCHEMA",
+          "code": "SCHEMA",
+          "target": "intent",
+          "schemaError": {
+            "instancePath": [
+              "assertedAt"
+            ],
+            "schemaPath": [
+              "properties",
+              "assertedAt",
+              "format"
+            ],
+            "keyword": "format"
+          }
+        }
+      }
+    },
+    {
+      "pr": 45,
+      "name": "valid Gregorian leap century",
+      "pass": true,
+      "detail": null
+    }
+  ]
+}

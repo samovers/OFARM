@@ -1,0 +1,1334 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/material-occupancy-evidence/request/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.materialOccupancyRequest.v0.1"
+    },
+    "selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "place": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "enum": [
+                "CONTAINER",
+                "STORAGE_LOCATION",
+                "FACILITY"
+              ]
+            },
+            "binding": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                      "maxLength": 1024
+                    },
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    }
+                  },
+                  "required": [
+                    "ref",
+                    "digest"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "ref": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                      "maxLength": 1024
+                    },
+                    "revisionRef": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                      "maxLength": 1024
+                    }
+                  },
+                  "required": [
+                    "ref",
+                    "revisionRef"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "binding"
+          ]
+        },
+        "applicability": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "mode": {
+                  "const": "AS_OF"
+                },
+                "at": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?Z$",
+                  "format": "occupancy-timestamp"
+                }
+              },
+              "required": [
+                "mode",
+                "at"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "mode": {
+                  "const": "INTERVAL"
+                },
+                "start": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?Z$",
+                  "format": "occupancy-timestamp"
+                },
+                "end": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?Z$",
+                  "format": "occupancy-timestamp"
+                },
+                "startInclusive": {
+                  "type": "boolean"
+                },
+                "endInclusive": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "mode",
+                "start",
+                "end",
+                "startInclusive",
+                "endInclusive"
+              ]
+            }
+          ]
+        },
+        "inventoryPosture": {
+          "const": "COMPLETE_FOR_SELECTED_PLACE_AND_APPLICABILITY"
+        },
+        "selectionBasis": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                    "maxLength": 1024
+                  },
+                  "digest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "ref",
+                  "digest"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                    "maxLength": 1024
+                  },
+                  "revisionRef": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                    "maxLength": 1024
+                  }
+                },
+                "required": [
+                  "ref",
+                  "revisionRef"
+                ]
+              }
+            ]
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "place",
+        "applicability",
+        "inventoryPosture",
+        "selectionBasis"
+      ]
+    },
+    "episodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "binding": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                    "maxLength": 1024
+                  },
+                  "digest": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "ref",
+                  "digest"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                    "maxLength": 1024
+                  },
+                  "revisionRef": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                    "maxLength": 1024
+                  }
+                },
+                "required": [
+                  "ref",
+                  "revisionRef"
+                ]
+              }
+            ]
+          },
+          "expectedFacts": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "episodeId": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                "maxLength": 1024
+              },
+              "direction": {
+                "const": "MATERIAL_TO_PLACE"
+              },
+              "relationKind": {
+                "const": "OCCUPIES"
+              },
+              "relationConcept": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "ref": {
+                        "type": "string",
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                        "maxLength": 1024
+                      },
+                      "digest": {
+                        "type": "string",
+                        "pattern": "^sha256:[0-9a-f]{64}$"
+                      }
+                    },
+                    "required": [
+                      "ref",
+                      "digest"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "ref": {
+                        "type": "string",
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                        "maxLength": 1024
+                      },
+                      "revisionRef": {
+                        "type": "string",
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                        "maxLength": 1024
+                      }
+                    },
+                    "required": [
+                      "ref",
+                      "revisionRef"
+                    ]
+                  }
+                ]
+              },
+              "occupant": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "LOT",
+                      "MATERIAL"
+                    ]
+                  },
+                  "binding": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "ref": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                            "maxLength": 1024
+                          },
+                          "digest": {
+                            "type": "string",
+                            "pattern": "^sha256:[0-9a-f]{64}$"
+                          }
+                        },
+                        "required": [
+                          "ref",
+                          "digest"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "ref": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                            "maxLength": 1024
+                          },
+                          "revisionRef": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                            "maxLength": 1024
+                          }
+                        },
+                        "required": [
+                          "ref",
+                          "revisionRef"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "kind",
+                  "binding"
+                ]
+              },
+              "place": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "CONTAINER",
+                      "STORAGE_LOCATION",
+                      "FACILITY"
+                    ]
+                  },
+                  "binding": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "ref": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                            "maxLength": 1024
+                          },
+                          "digest": {
+                            "type": "string",
+                            "pattern": "^sha256:[0-9a-f]{64}$"
+                          }
+                        },
+                        "required": [
+                          "ref",
+                          "digest"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "ref": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                            "maxLength": 1024
+                          },
+                          "revisionRef": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                            "maxLength": 1024
+                          }
+                        },
+                        "required": [
+                          "ref",
+                          "revisionRef"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "kind",
+                  "binding"
+                ]
+              },
+              "interval": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "start": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "posture": {
+                            "const": "KNOWN"
+                          },
+                          "at": {
+                            "type": "string",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?Z$",
+                            "format": "occupancy-timestamp"
+                          },
+                          "inclusive": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "posture",
+                          "at",
+                          "inclusive"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "posture": {
+                            "enum": [
+                              "UNKNOWN",
+                              "UNBOUNDED"
+                            ]
+                          },
+                          "basis": {
+                            "oneOf": [
+                              {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                  "ref": {
+                                    "type": "string",
+                                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                    "maxLength": 1024
+                                  },
+                                  "digest": {
+                                    "type": "string",
+                                    "pattern": "^sha256:[0-9a-f]{64}$"
+                                  }
+                                },
+                                "required": [
+                                  "ref",
+                                  "digest"
+                                ]
+                              },
+                              {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                  "ref": {
+                                    "type": "string",
+                                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                    "maxLength": 1024
+                                  },
+                                  "revisionRef": {
+                                    "type": "string",
+                                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                    "maxLength": 1024
+                                  }
+                                },
+                                "required": [
+                                  "ref",
+                                  "revisionRef"
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "posture",
+                          "basis"
+                        ]
+                      }
+                    ]
+                  },
+                  "end": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "posture": {
+                            "const": "KNOWN"
+                          },
+                          "at": {
+                            "type": "string",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?Z$",
+                            "format": "occupancy-timestamp"
+                          },
+                          "inclusive": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "posture",
+                          "at",
+                          "inclusive"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "posture": {
+                            "const": "OPEN_AS_OF"
+                          },
+                          "asOf": {
+                            "type": "string",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?Z$",
+                            "format": "occupancy-timestamp"
+                          },
+                          "basis": {
+                            "oneOf": [
+                              {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                  "ref": {
+                                    "type": "string",
+                                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                    "maxLength": 1024
+                                  },
+                                  "digest": {
+                                    "type": "string",
+                                    "pattern": "^sha256:[0-9a-f]{64}$"
+                                  }
+                                },
+                                "required": [
+                                  "ref",
+                                  "digest"
+                                ]
+                              },
+                              {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                  "ref": {
+                                    "type": "string",
+                                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                    "maxLength": 1024
+                                  },
+                                  "revisionRef": {
+                                    "type": "string",
+                                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                    "maxLength": 1024
+                                  }
+                                },
+                                "required": [
+                                  "ref",
+                                  "revisionRef"
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "posture",
+                          "asOf",
+                          "basis"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "posture": {
+                            "enum": [
+                              "UNKNOWN",
+                              "UNBOUNDED"
+                            ]
+                          },
+                          "basis": {
+                            "oneOf": [
+                              {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                  "ref": {
+                                    "type": "string",
+                                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                    "maxLength": 1024
+                                  },
+                                  "digest": {
+                                    "type": "string",
+                                    "pattern": "^sha256:[0-9a-f]{64}$"
+                                  }
+                                },
+                                "required": [
+                                  "ref",
+                                  "digest"
+                                ]
+                              },
+                              {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                  "ref": {
+                                    "type": "string",
+                                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                    "maxLength": 1024
+                                  },
+                                  "revisionRef": {
+                                    "type": "string",
+                                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                    "maxLength": 1024
+                                  }
+                                },
+                                "required": [
+                                  "ref",
+                                  "revisionRef"
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "posture",
+                          "basis"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "start",
+                  "end"
+                ]
+              },
+              "applicability": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "mode": {
+                        "const": "AS_OF"
+                      },
+                      "at": {
+                        "type": "string",
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?Z$",
+                        "format": "occupancy-timestamp"
+                      }
+                    },
+                    "required": [
+                      "mode",
+                      "at"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "mode": {
+                        "const": "INTERVAL"
+                      },
+                      "start": {
+                        "type": "string",
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?Z$",
+                        "format": "occupancy-timestamp"
+                      },
+                      "end": {
+                        "type": "string",
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?Z$",
+                        "format": "occupancy-timestamp"
+                      },
+                      "startInclusive": {
+                        "type": "boolean"
+                      },
+                      "endInclusive": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "mode",
+                      "start",
+                      "end",
+                      "startInclusive",
+                      "endInclusive"
+                    ]
+                  }
+                ]
+              },
+              "occupiedQuantity": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "posture": {
+                        "const": "REPORTED"
+                      },
+                      "quantityKind": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "ref": {
+                                "type": "string",
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                "maxLength": 1024
+                              },
+                              "digest": {
+                                "type": "string",
+                                "pattern": "^sha256:[0-9a-f]{64}$"
+                              }
+                            },
+                            "required": [
+                              "ref",
+                              "digest"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "ref": {
+                                "type": "string",
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                "maxLength": 1024
+                              },
+                              "revisionRef": {
+                                "type": "string",
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                "maxLength": 1024
+                              }
+                            },
+                            "required": [
+                              "ref",
+                              "revisionRef"
+                            ]
+                          }
+                        ]
+                      },
+                      "decimal": {
+                        "type": "string",
+                        "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$"
+                      },
+                      "unitIdentity": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "ref": {
+                                "type": "string",
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                "maxLength": 1024
+                              },
+                              "digest": {
+                                "type": "string",
+                                "pattern": "^sha256:[0-9a-f]{64}$"
+                              }
+                            },
+                            "required": [
+                              "ref",
+                              "digest"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "ref": {
+                                "type": "string",
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                "maxLength": 1024
+                              },
+                              "revisionRef": {
+                                "type": "string",
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                "maxLength": 1024
+                              }
+                            },
+                            "required": [
+                              "ref",
+                              "revisionRef"
+                            ]
+                          }
+                        ]
+                      },
+                      "originalLexicalValue": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 4096
+                      },
+                      "originalUnitText": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 4096
+                      },
+                      "qualifier": {
+                        "enum": [
+                          "EXACT",
+                          "ESTIMATED",
+                          "MINIMUM",
+                          "MAXIMUM",
+                          "RANGE_MIDPOINT",
+                          "LABEL_LIMIT",
+                          "MACHINE_REPORTED",
+                          "HUMAN_REPORTED",
+                          "UNKNOWN"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "posture",
+                      "quantityKind",
+                      "decimal",
+                      "unitIdentity",
+                      "originalLexicalValue",
+                      "originalUnitText",
+                      "qualifier"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "posture": {
+                        "const": "UNREPORTED"
+                      },
+                      "unitIdentity": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "ref": {
+                                "type": "string",
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                "maxLength": 1024
+                              },
+                              "digest": {
+                                "type": "string",
+                                "pattern": "^sha256:[0-9a-f]{64}$"
+                              }
+                            },
+                            "required": [
+                              "ref",
+                              "digest"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "ref": {
+                                "type": "string",
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                "maxLength": 1024
+                              },
+                              "revisionRef": {
+                                "type": "string",
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                "maxLength": 1024
+                              }
+                            },
+                            "required": [
+                              "ref",
+                              "revisionRef"
+                            ]
+                          }
+                        ]
+                      },
+                      "reason": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 4096
+                      }
+                    },
+                    "required": [
+                      "posture",
+                      "unitIdentity",
+                      "reason"
+                    ]
+                  }
+                ]
+              },
+              "occupiedCohort": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "posture": {
+                        "const": "IDENTIFIED"
+                      },
+                      "binding": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "ref": {
+                                "type": "string",
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                "maxLength": 1024
+                              },
+                              "digest": {
+                                "type": "string",
+                                "pattern": "^sha256:[0-9a-f]{64}$"
+                              }
+                            },
+                            "required": [
+                              "ref",
+                              "digest"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "ref": {
+                                "type": "string",
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                "maxLength": 1024
+                              },
+                              "revisionRef": {
+                                "type": "string",
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                "maxLength": 1024
+                              }
+                            },
+                            "required": [
+                              "ref",
+                              "revisionRef"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "posture",
+                      "binding"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "posture": {
+                        "const": "UNREPORTED"
+                      },
+                      "reason": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 4096
+                      }
+                    },
+                    "required": [
+                      "posture",
+                      "reason"
+                    ]
+                  }
+                ]
+              },
+              "relevantExtent": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "posture": {
+                        "const": "WHOLE"
+                      }
+                    },
+                    "required": [
+                      "posture"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "posture": {
+                        "const": "PARTIAL"
+                      },
+                      "binding": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "ref": {
+                                "type": "string",
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                "maxLength": 1024
+                              },
+                              "digest": {
+                                "type": "string",
+                                "pattern": "^sha256:[0-9a-f]{64}$"
+                              }
+                            },
+                            "required": [
+                              "ref",
+                              "digest"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "ref": {
+                                "type": "string",
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                "maxLength": 1024
+                              },
+                              "revisionRef": {
+                                "type": "string",
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                                "maxLength": 1024
+                              }
+                            },
+                            "required": [
+                              "ref",
+                              "revisionRef"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "posture",
+                      "binding"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "posture": {
+                        "const": "UNRESOLVED"
+                      },
+                      "reason": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 4096
+                      }
+                    },
+                    "required": [
+                      "posture",
+                      "reason"
+                    ]
+                  }
+                ]
+              },
+              "sourcePosture": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "validity": {
+                    "enum": [
+                      "VALID",
+                      "INVALID",
+                      "UNKNOWN"
+                    ]
+                  },
+                  "dispute": {
+                    "enum": [
+                      "UNDISPUTED",
+                      "DISPUTED",
+                      "UNKNOWN"
+                    ]
+                  },
+                  "revision": {
+                    "enum": [
+                      "CURRENT",
+                      "HISTORICAL_APPLICABLE",
+                      "SUPERSEDED",
+                      "UNKNOWN"
+                    ]
+                  },
+                  "assessedAt": {
+                    "type": "string",
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?Z$",
+                    "format": "occupancy-timestamp"
+                  },
+                  "ownerEvidence": {
+                    "type": "array",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "ref": {
+                              "type": "string",
+                              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                              "maxLength": 1024
+                            },
+                            "digest": {
+                              "type": "string",
+                              "pattern": "^sha256:[0-9a-f]{64}$"
+                            }
+                          },
+                          "required": [
+                            "ref",
+                            "digest"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "ref": {
+                              "type": "string",
+                              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                              "maxLength": 1024
+                            },
+                            "revisionRef": {
+                              "type": "string",
+                              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                              "maxLength": 1024
+                            }
+                          },
+                          "required": [
+                            "ref",
+                            "revisionRef"
+                          ]
+                        }
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "supersededBy": {
+                    "type": "array",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "ref": {
+                              "type": "string",
+                              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                              "maxLength": 1024
+                            },
+                            "digest": {
+                              "type": "string",
+                              "pattern": "^sha256:[0-9a-f]{64}$"
+                            }
+                          },
+                          "required": [
+                            "ref",
+                            "digest"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "ref": {
+                              "type": "string",
+                              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                              "maxLength": 1024
+                            },
+                            "revisionRef": {
+                              "type": "string",
+                              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                              "maxLength": 1024
+                            }
+                          },
+                          "required": [
+                            "ref",
+                            "revisionRef"
+                          ]
+                        }
+                      ]
+                    },
+                    "minItems": 0
+                  }
+                },
+                "required": [
+                  "validity",
+                  "dispute",
+                  "revision",
+                  "assessedAt",
+                  "ownerEvidence",
+                  "supersededBy"
+                ]
+              },
+              "sourceEvidence": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "ref": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                          "maxLength": 1024
+                        },
+                        "digest": {
+                          "type": "string",
+                          "pattern": "^sha256:[0-9a-f]{64}$"
+                        }
+                      },
+                      "required": [
+                        "ref",
+                        "digest"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "ref": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                          "maxLength": 1024
+                        },
+                        "revisionRef": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                          "maxLength": 1024
+                        }
+                      },
+                      "required": [
+                        "ref",
+                        "revisionRef"
+                      ]
+                    }
+                  ]
+                },
+                "minItems": 1
+              },
+              "lifecycleEvidence": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "ref": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                          "maxLength": 1024
+                        },
+                        "digest": {
+                          "type": "string",
+                          "pattern": "^sha256:[0-9a-f]{64}$"
+                        }
+                      },
+                      "required": [
+                        "ref",
+                        "digest"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "ref": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                          "maxLength": 1024
+                        },
+                        "revisionRef": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:/-]*$",
+                          "maxLength": 1024
+                        }
+                      },
+                      "required": [
+                        "ref",
+                        "revisionRef"
+                      ]
+                    }
+                  ]
+                },
+                "minItems": 0
+              }
+            },
+            "required": [
+              "episodeId",
+              "direction",
+              "relationKind",
+              "relationConcept",
+              "occupant",
+              "place",
+              "interval",
+              "applicability",
+              "occupiedQuantity",
+              "occupiedCohort",
+              "relevantExtent",
+              "sourcePosture",
+              "sourceEvidence",
+              "lifecycleEvidence"
+            ]
+          }
+        },
+        "required": [
+          "binding",
+          "expectedFacts"
+        ]
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "selection",
+    "episodes"
+  ]
+}

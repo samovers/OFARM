@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/structure-intent/v0.1",
+  "title": "Complete typed structure assertion intent candidate",
+  "$comment": "DRAFT_NON_DEFAULT domain construction input. New body/subject schema selection only; existing action, resource extraction, scope and effect-subject semantics remain unchanged. No rule adoption, authorization eligibility, approval mode or runtime activation is established. The complete local schema closure must be independently pinned by the domain package.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "resources",
+    "effectSubject",
+    "subject",
+    "assertedAt",
+    "assertionActPosture",
+    "subjectTime",
+    "assertionBody",
+    "evidenceBindings"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.structureassertioneffectintent.typed.v0.1"
+    },
+    "resources": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "prefixItems": [
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-policy-bundle/operation-assertion-effect-intent/v0.2#/$defs/targetScope"
+        }
+      ],
+      "items": false
+    },
+    "effectSubject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subjectKind",
+        "subjectRef",
+        "existencePosture",
+        "effectSubjectProofBindings"
+      ],
+      "properties": {
+        "subjectKind": {
+          "const": "STRUCTURE_ASSERTION"
+        },
+        "subjectRef": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/logicalRef"
+        },
+        "existencePosture": {
+          "const": "PROSPECTIVE_TARGET_ALLOWED"
+        },
+        "effectSubjectProofBindings": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/immutableBinding"
+          }
+        }
+      }
+    },
+    "subject": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/subject"
+    },
+    "assertedAt": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/canonicalTimestamp",
+      "$comment": "Trusted online injection or resolved immutable offline evidence, before validation/digest. JSON Schema validates shape, not origin."
+    },
+    "assertionActPosture": {
+      "enum": [
+        "TRUSTED_ONLINE_SUBMISSION",
+        "VERIFIED_OFFLINE_SUBMISSION"
+      ]
+    },
+    "assertionActEvidenceBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/immutableBinding"
+    },
+    "subjectTime": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/structureTime"
+    },
+    "assertionBody": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/structureAssertionBody",
+      "$comment": "The complete applicability object must equal subjectTime exactly in the component checker. Claim text is preserved, not interpreted or compiled."
+    },
+    "evidenceBindings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/immutableBinding"
+      }
+    },
+    "subjectScopeProofBindings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/immutableBinding"
+      }
+    },
+    "supersedesAssertionRecordBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/immutableBinding"
+    },
+    "associatedSemanticEventBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/immutableBinding",
+      "$comment": "Exact PR23 §7.3 binding shape only; foreign Event Ingress and domain compatibility are separately required. Never derive event family here."
+    },
+    "authorizationUsePurpose": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]{0,127}(?![\\s\\S])"
+    },
+    "scopeProofBindings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/immutableBinding"
+      }
+    },
+    "dataSovereigntyBoundaryBindings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/result/v0.1#/$defs/immutableBinding"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "assertionActPosture"
+        ],
+        "properties": {
+          "assertionActPosture": {
+            "const": "VERIFIED_OFFLINE_SUBMISSION"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "assertionActEvidenceBinding"
+        ]
+      },
+      "else": {
+        "properties": {
+          "assertionActEvidenceBinding": false
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "assertionBody"
+        ],
+        "properties": {
+          "assertionBody": {
+            "required": [
+              "assertionPosture"
+            ],
+            "properties": {
+              "assertionPosture": {
+                "const": "CORRECTION"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "supersedesAssertionRecordBinding"
+        ]
+      },
+      "else": {
+        "properties": {
+          "supersedesAssertionRecordBinding": false
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "subject"
+        ],
+        "properties": {
+          "subject": {
+            "required": [
+              "subjectPosture"
+            ],
+            "properties": {
+              "subjectPosture": {
+                "const": "PROSPECTIVE_SUBJECT"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "subjectScopeProofBindings"
+        ]
+      }
+    }
+  ]
+}

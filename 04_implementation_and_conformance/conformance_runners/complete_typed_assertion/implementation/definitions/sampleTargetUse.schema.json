@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/sample-target-relation-use-definition/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainSampleTargetRelationUseDefinition.v0.1"
+    },
+    "definitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "relationConcept": {
+      "const": "SAMPLE_SOURCE_SUPPORT_TARGET"
+    },
+    "sampleKind": {
+      "const": "SAMPLE"
+    },
+    "sampleBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "FIELD",
+            "ZONE",
+            "CROP_CYCLE",
+            "LOT",
+            "PARTIAL_EXTENT"
+          ]
+        },
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        }
+      },
+      "required": [
+        "kind",
+        "binding"
+      ]
+    },
+    "measurementBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "contextBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "partialExtentBinding": {
+      "oneOf": [
+        {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "samplingProtocolBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "samplingProtocolVersionRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subjectTime": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+    },
+    "phenomenonTimeBasis": {
+      "enum": [
+        "OBSERVED_TIME",
+        "SAMPLE_TIME",
+        "ESTIMATED_TIME"
+      ]
+    },
+    "measurementIntervalMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sourceTimeType": {
+          "const": "INTERVAL"
+        },
+        "timeBasis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "startBoundary": {
+          "enum": [
+            "INCLUSIVE",
+            "EXCLUSIVE"
+          ]
+        },
+        "endBoundary": {
+          "enum": [
+            "INCLUSIVE",
+            "EXCLUSIVE"
+          ]
+        }
+      },
+      "required": [
+        "sourceTimeType",
+        "timeBasis",
+        "startBoundary",
+        "endBoundary"
+      ]
+    },
+    "extentTemporalMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "extentBinding": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        },
+        "sourceTimeType": {
+          "enum": [
+            "INTERVAL",
+            "OPEN_INTERVAL"
+          ]
+        },
+        "timeBasis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "startBoundary": {
+          "enum": [
+            "INCLUSIVE",
+            "EXCLUSIVE"
+          ]
+        },
+        "endBoundary": {
+          "enum": [
+            "INCLUSIVE",
+            "EXCLUSIVE",
+            "UNBOUNDED"
+          ]
+        }
+      },
+      "required": [
+        "extentBinding",
+        "sourceTimeType",
+        "timeBasis",
+        "startBoundary",
+        "endBoundary"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "definitionId",
+    "relationConcept",
+    "sampleKind",
+    "sampleBinding",
+    "target",
+    "measurementBinding",
+    "contextBinding",
+    "partialExtentBinding",
+    "samplingProtocolBinding",
+    "samplingProtocolVersionRef",
+    "subjectTime",
+    "phenomenonTimeBasis"
+  ],
+  "$comment": "New domain-owned normative input. Exact independent selection and protected original bytes are required. No source admission, authority, runtime producer or statutory applicability is asserted.",
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "extentTemporalMeaning"
+        ]
+      },
+      "then": {
+        "properties": {
+          "partialExtentBinding": {
+            "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+          }
+        }
+      }
+    }
+  ]
+}

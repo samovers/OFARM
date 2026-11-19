@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/evaluation-selection/v0.5",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "selectionId",
+    "effectIntent",
+    "authorizationResult",
+    "currentActionRuleBinding",
+    "originalSelections"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainEvaluationSelection.v0.5"
+    },
+    "selectionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "effectIntent": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1#/$defs/recordBinding"
+    },
+    "authorizationResult": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1#/$defs/recordBinding"
+    },
+    "currentActionRuleBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/authorization-finalization-evidence/protected-effect-validation-trace/v0.1#/$defs/ruleBinding"
+    },
+    "sourceSelections": {
+      "type": "array",
+      "maxItems": 4096,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "binding",
+          "rawSha256",
+          "valueDigest"
+        ],
+        "properties": {
+          "binding": {
+            "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+          },
+          "rawSha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "valueDigest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "originalSelections": {
+      "type": "array",
+      "items": {
+        "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/immutable-input-closure/v0.3#/$defs/selectedOriginal"
+      },
+      "minItems": 1
+    },
+    "conditionPropertyRevisionSources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ruleInputId",
+        "mapInputId"
+      ],
+      "properties": {
+        "ruleInputId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mapInputId": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "$comment": "Candidate #47 v0.5 adds optional conditionPropertyRevisionSources selecting distinct existing JCS_JSON original input IDs for the separately governed property revision rule and map. Consumers enforce cross-field references. Selection does not establish source eligibility, domain acceptance, protection or publication readiness; v0.4 remains a separate unchanged schema."
+}

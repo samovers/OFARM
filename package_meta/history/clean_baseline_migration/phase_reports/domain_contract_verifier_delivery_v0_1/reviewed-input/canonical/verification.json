@@ -1,0 +1,81 @@
+{
+  "status": "PASS_LOCAL_INVENTORY_INTEGRITY_NOT_DOMAIN_OR_RUNTIME_VALIDATION",
+  "rowCount": 41,
+  "groups": {
+    "V04": 12,
+    "V05": 17,
+    "V06": 12
+  },
+  "immutableSourcePinsVerified": 58,
+  "retainedProfiles": 9,
+  "retainedEligibleEventCells": 17,
+  "foreignTimeQualifiersCovered": 6,
+  "resultKindsCovered": 5,
+  "measurementClassesRetained": 9,
+  "historicalFamilyRecords": 7,
+  "subtypeControlsRetained": 11,
+  "renderSpecimensRoundTripped": 5,
+  "renderMeaningMutationControls": 5,
+  "renderMeaningDistinctions": [
+    {
+      "specimen": "V04-spray-event",
+      "distinction": "Late reporting versus on-time reporting",
+      "sameRenderedText": false
+    },
+    {
+      "specimen": "V05-time-sample-no-event",
+      "distinction": "Pending analysis versus a negative analysis result",
+      "sameRenderedText": false
+    },
+    {
+      "specimen": "V05-time-sample-event",
+      "distinction": "Pending analysis versus a negative analysis result",
+      "sameRenderedText": false
+    },
+    {
+      "specimen": "V05-result-censored_numeric-no-event",
+      "distinction": "Below-LOQ qualified result versus exact zero",
+      "sameRenderedText": false
+    },
+    {
+      "specimen": "V06-occupancy-no-event",
+      "distinction": "One container identity versus a different container",
+      "sameRenderedText": false
+    }
+  ],
+  "sourceWorktreeStatus": "",
+  "limits": [
+    "No schema or runtime source changes",
+    "No source test suites, database, clocks, CI, publication or merge",
+    "No actual governed measurement/Event Ingress positive established",
+    "No full language coverage claim before V07 reconciliation and frozen review"
+  ],
+  "retainedExactSourceObligationsVerified": 49,
+  "priorFrozenPacketPreservation": [
+    {
+      "path": "plans/claim-language-coverage-20261020/frozen-01/coverage.json",
+      "sha256": "60e8526a3c761bdbfcba4877d62e382d6ff2c51f3dac2f28652c81a9e9f84948",
+      "unchanged": true
+    },
+    {
+      "path": "plans/claim-language-coverage-20261020/frozen-01/handoff.md",
+      "sha256": "77d3275614855c617f8a352bf9483a9e1139111f3b7b83693019cbbd2d389e35",
+      "unchanged": true
+    },
+    {
+      "path": "plans/claim-language-coverage-20261020/frozen-01/manifest.json",
+      "sha256": "7af80f373d36c004f94f83fa1af397149df44dbbf34277e54617ddc45bc27f74",
+      "unchanged": true
+    },
+    {
+      "path": "plans/claim-language-coverage-20261020/frozen-01/proposal.md",
+      "sha256": "f8658090a4398f240fedc92073ac75155163e359a4f5ce5f624a87d3b6c059b2",
+      "unchanged": true
+    },
+    {
+      "path": "plans/claim-language-coverage-20261020/frozen-01/source-map.json",
+      "sha256": "ec99e891b8d9e0ec1f3a04be0ad2eb31a0b38860d1edf99a789b1c18543ca603",
+      "unchanged": true
+    }
+  ]
+}

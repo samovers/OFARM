@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/observation-acquisition-specification/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainObservationAcquisitionSpecification.v0.1"
+    },
+    "definitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "activityRow": {
+      "const": "O09"
+    },
+    "workSpecificationBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "procedureBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "propertyBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "methodBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "methodVersionRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observationContextBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "extentTemporalMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "extentBinding": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+        },
+        "sourceTimeType": {
+          "enum": [
+            "INTERVAL",
+            "OPEN_INTERVAL"
+          ]
+        },
+        "timeBasis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "startBoundary": {
+          "enum": [
+            "INCLUSIVE",
+            "EXCLUSIVE"
+          ]
+        },
+        "endBoundary": {
+          "enum": [
+            "INCLUSIVE",
+            "EXCLUSIVE",
+            "UNBOUNDED"
+          ]
+        }
+      },
+      "required": [
+        "extentBinding",
+        "sourceTimeType",
+        "timeBasis",
+        "startBoundary",
+        "endBoundary"
+      ]
+    },
+    "requiredObservations": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "slotId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "measurementBinding": {
+            "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+          },
+          "permittedResultKinds": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "NUMERIC",
+                "CODED",
+                "QUALITATIVE",
+                "CENSORED_NUMERIC"
+              ]
+            }
+          },
+          "quantityContext": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "quantityKind": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "unit": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "quantityKind",
+                  "unit"
+                ]
+              }
+            ]
+          }
+        },
+        "required": [
+          "slotId",
+          "measurementBinding",
+          "permittedResultKinds",
+          "quantityContext"
+        ]
+      }
+    },
+    "productionTimeRule": {
+      "const": "ALL_REQUIRED_RESULTS_RECORDED_WITHIN_CLAIMED_WORK_TIME"
+    },
+    "interpretationScope": {
+      "const": "REQUIRED_OBSERVATION_RECORDS_NOT_INTERVENTION_OR_MEASURED_TRUTH"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "definitionId",
+    "activityRow",
+    "workSpecificationBinding",
+    "procedureBinding",
+    "propertyBinding",
+    "methodBinding",
+    "methodVersionRef",
+    "observationContextBinding",
+    "requiredObservations",
+    "productionTimeRule",
+    "interpretationScope"
+  ],
+  "$comment": "New domain-owned normative input. Exact independent selection and protected original bytes are required. No source admission, authority, runtime producer or statutory applicability is asserted."
+}

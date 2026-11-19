@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "sourceHead": "37d680d598af0cd321c6d06e91af6aba60a73c8d",
+  "commands": [
+    {
+      "script": "build_v4.py",
+      "exitCode": 0,
+      "stdout": "Built v4 bundle, exact owner records, roles and rebased 19 measurement hostiles; 24 examples remain byte-identical.",
+      "stderr": ""
+    },
+    {
+      "script": "prepare_checks_v4.py",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "generatedFiles": 12,
+  "generatedFilesReproduced": 12,
+  "checks": [
+    {
+      "path": "candidate-examples-v4.json",
+      "beforeSha256": "9847e99bd5a820acd060a39971b3c26bf2c2debf0420aadb9e120a3f17b4e50a",
+      "rebuiltSha256": "9847e99bd5a820acd060a39971b3c26bf2c2debf0420aadb9e120a3f17b4e50a",
+      "passed": true
+    },
+    {
+      "path": "measurement-fixtures-v4.json",
+      "beforeSha256": "6deee09f2231238d19251722d480ccb55a09d84793c6722279645d22c36e830a",
+      "rebuiltSha256": "6deee09f2231238d19251722d480ccb55a09d84793c6722279645d22c36e830a",
+      "passed": true
+    },
+    {
+      "path": "source-resolution-trace-v4.json",
+      "beforeSha256": "6d5ab1d75211c81afc24b80c15527d31aff5bc140d379cc2af73e13d28754a63",
+      "rebuiltSha256": "6d5ab1d75211c81afc24b80c15527d31aff5bc140d379cc2af73e13d28754a63",
+      "passed": true
+    },
+    {
+      "path": "criterion-expectations-v4.json",
+      "beforeSha256": "fca51250017129bfb613d60c9837fa9d793bb8aa91609354f5468bff996897c8",
+      "rebuiltSha256": "fca51250017129bfb613d60c9837fa9d793bb8aa91609354f5468bff996897c8",
+      "passed": true
+    },
+    {
+      "path": "measurement-hostiles-v4.json",
+      "beforeSha256": "3f40f41c4ddea74d8029fb1046e5dbcc6cf0b0c2eddb8822687551538873a689",
+      "rebuiltSha256": "3f40f41c4ddea74d8029fb1046e5dbcc6cf0b0c2eddb8822687551538873a689",
+      "passed": true
+    },
+    {
+      "path": "projection-contract-v4.json",
+      "beforeSha256": "9da537c1a6bd994c2da3cc7030f45771ca59ba596ec4991562de7b48f8d7d1fb",
+      "rebuiltSha256": "9da537c1a6bd994c2da3cc7030f45771ca59ba596ec4991562de7b48f8d7d1fb",
+      "passed": true
+    },
+    {
+      "path": "evidence-selectors-v4.json",
+      "beforeSha256": "6683b9066b6fa190e5155d1a95407c0586b609a192976cef0af6999dceb9cbef",
+      "rebuiltSha256": "6683b9066b6fa190e5155d1a95407c0586b609a192976cef0af6999dceb9cbef",
+      "passed": true
+    },
+    {
+      "path": "measurement-role-contract-v4.json",
+      "beforeSha256": "b7a4ed1a356d2038b469ed813e1150eec7ca8535223beedae52a873b39e989be",
+      "rebuiltSha256": "b7a4ed1a356d2038b469ed813e1150eec7ca8535223beedae52a873b39e989be",
+      "passed": true
+    },
+    {
+      "path": "transformation-ledger-v4.json",
+      "beforeSha256": "ff6af9e83d6873a791f7b2724a990a9d6cdf802cfb41a7d2ffd738d80fad14e6",
+      "rebuiltSha256": "ff6af9e83d6873a791f7b2724a990a9d6cdf802cfb41a7d2ffd738d80fad14e6",
+      "passed": true
+    },
+    {
+      "path": "inherited_checks_v4.py",
+      "beforeSha256": "34f9a97590a968c04cd49bd0b8c1b9593de31368c124911e7608eaee75634e12",
+      "rebuiltSha256": "34f9a97590a968c04cd49bd0b8c1b9593de31368c124911e7608eaee75634e12",
+      "passed": true
+    },
+    {
+      "path": "checker-transforms-v4.json",
+      "beforeSha256": "fccfbb3f39c132fa32c16f11b07d6f8d316b315f78877166cdf65e00247114b4",
+      "rebuiltSha256": "fccfbb3f39c132fa32c16f11b07d6f8d316b315f78877166cdf65e00247114b4",
+      "passed": true
+    },
+    {
+      "path": "source-transform-map-v4.json",
+      "beforeSha256": "a33f80d67242353877a7b614656a87f81951c583192e8e8b49653b28bd0d5fea",
+      "rebuiltSha256": "a33f80d67242353877a7b614656a87f81951c583192e8e8b49653b28bd0d5fea",
+      "passed": true
+    }
+  ],
+  "allOverlayFilesUnchanged": true,
+  "overlayFiles": 40,
+  "sourcePacketPinsVerified": 33,
+  "recipeTransforms": 10,
+  "next": "Integrate corrected bytes with the exact source/transform ledger and obtain fresh review."
+}

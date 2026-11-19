@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/evidence-policy-meaning-definition/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainEvidencePolicyMeaningDefinition.v0.1"
+    },
+    "definitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "policyBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "requiredUse": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sufficiencyCaseBinding": {
+      "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-record-domain-validation/payload/v0.1#/$defs/immutableBinding"
+    },
+    "caseClass": {
+      "enum": [
+        "COMPLIANCE_ASSERTION",
+        "DOCUMENT_ATTESTATION",
+        "SUBMISSION_ASSEMBLY"
+      ]
+    },
+    "targetTwin": {
+      "enum": [
+        "COMPLIANCE",
+        "ADVISORY"
+      ]
+    },
+    "evidenceProjection": {
+      "enum": [
+        "RAW_SOURCES",
+        "NORMALIZED_INTERPRETATIONS",
+        "ALL_SUPPORT_SOURCES"
+      ]
+    },
+    "reasonKindMappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "reasonCode": {
+            "enum": [
+              "MISSING_NORMALIZED_INTERPRETATION",
+              "MISSING_PROVENANCE_LINK",
+              "CHAIN_OF_CUSTODY_PARTIAL",
+              "CHAIN_OF_CUSTODY_UNKNOWN",
+              "BASIS_NOT_RETAINED",
+              "CONFLICTING_EVIDENCE",
+              "ATTESTATION_AUTHORITY_MISSING",
+              "AMBIGUOUS_PRODUCT_ID",
+              "TIMESTAMP_INCOMPLETE",
+              "SOURCE_QUALITY_LOW",
+              "MACHINE_RECORD_PARTIAL",
+              "HUMAN_MACHINE_CONFLICT",
+              "LATE_EVIDENCE_POST_OUTPUT",
+              "LATE_EVIDENCE_POST_SUBMISSION"
+            ]
+          },
+          "kind": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "reasonCode",
+          "kind"
+        ]
+      }
+    },
+    "interpretationScope": {
+      "const": "CONDITIONAL_REPORTED_SUFFICIENCY_ONLY"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "definitionId",
+    "policyBinding",
+    "requiredUse",
+    "sufficiencyCaseBinding",
+    "caseClass",
+    "targetTwin",
+    "evidenceProjection",
+    "reasonKindMappings",
+    "interpretationScope"
+  ],
+  "$comment": "New domain-owned normative input. Exact independent selection and protected original bytes are required. No source admission, authority, runtime producer or statutory applicability is asserted."
+}

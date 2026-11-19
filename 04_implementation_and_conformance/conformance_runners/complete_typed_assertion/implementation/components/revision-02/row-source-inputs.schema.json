@@ -1,0 +1,747 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/row-source-inputs/v0.1",
+  "title": "Structural and compliance actual source consumers",
+  "$defs": {
+    "S01": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/S01"
+        },
+        "extent": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/partialextent/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "extent"
+      ]
+    },
+    "S02": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/S02"
+            },
+            "field": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "binding": {
+                  "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+                },
+                "record": {
+                  "$ref": "https://ofarm.dev/schema/fieldidentitypayload/v0.1"
+                }
+              },
+              "required": [
+                "binding",
+                "record"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "field"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/S02"
+            },
+            "cycle": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "binding": {
+                  "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+                },
+                "record": {
+                  "$ref": "https://ofarm.dev/schema/cropcycleidentitypayload/v0.1"
+                }
+              },
+              "required": [
+                "binding",
+                "record"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "cycle"
+          ]
+        }
+      ]
+    },
+    "S04": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/S04"
+        },
+        "cycle": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/cropcycleidentitypayload/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "cycle"
+      ]
+    },
+    "S06": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/S06"
+        },
+        "traceability": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/traceabilityclaimbasis/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        },
+        "lotLineage": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/lotlineagechange/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "traceability",
+        "lotLineage"
+      ]
+    },
+    "S07": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/S07"
+        },
+        "resource": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/appliedresourceidentitypayload/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        },
+        "code": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/agronomicidentitybinding/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "resource",
+        "code"
+      ]
+    },
+    "S08": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/S08"
+        },
+        "intent": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/interventionintentpayload/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "intent"
+      ]
+    },
+    "S09": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/S09"
+        },
+        "lineage": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/identitylifecyclechange/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "lineage"
+      ]
+    },
+    "S10": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/S10"
+        },
+        "code": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/agronomicidentitybinding/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "code"
+      ]
+    },
+    "S11": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/S11"
+        },
+        "extent": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/partialextent/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "extent"
+      ]
+    },
+    "S12": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/S12"
+        },
+        "equipment": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/equipmentidentitypayload/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "equipment"
+      ]
+    },
+    "S14": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/S14"
+        },
+        "lineage": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/identitylifecyclechange/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "lineage"
+      ]
+    },
+    "C03": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/C03"
+        },
+        "measurement": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        },
+        "context": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "measurement",
+        "context"
+      ]
+    },
+    "C04": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/C04"
+        },
+        "measurement": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        },
+        "context": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "measurement",
+        "context"
+      ]
+    },
+    "C05": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/C05"
+        },
+        "registry": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/externalregistryverificationtrace/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        },
+        "codeProfile": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/agronomiccodebindingprofile/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        },
+        "selectedJurisdictionRef": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/logicalRef"
+        }
+      },
+      "required": [
+        "atom",
+        "registry",
+        "codeProfile",
+        "selectedJurisdictionRef"
+      ]
+    },
+    "C06": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/C06"
+            },
+            "measurement": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "binding": {
+                  "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+                },
+                "record": {
+                  "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1"
+                }
+              },
+              "required": [
+                "binding",
+                "record"
+              ]
+            },
+            "context": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "binding": {
+                  "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+                },
+                "record": {
+                  "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1"
+                }
+              },
+              "required": [
+                "binding",
+                "record"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "measurement",
+            "context"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "atom": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/C06"
+            },
+            "execution": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "binding": {
+                  "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+                },
+                "record": {
+                  "$ref": "https://ofarm.dev/schema/executionrecordpayload/v0.1"
+                }
+              },
+              "required": [
+                "binding",
+                "record"
+              ]
+            }
+          },
+          "required": [
+            "atom",
+            "execution"
+          ]
+        }
+      ]
+    },
+    "C07": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/C07"
+        },
+        "traceability": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/traceabilityclaimbasis/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "traceability"
+      ]
+    },
+    "C08": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/C08"
+        },
+        "decision": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/reviewdecision/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "decision"
+      ]
+    },
+    "C09": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/C09"
+        },
+        "measurement": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        },
+        "context": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "measurement",
+        "context"
+      ]
+    },
+    "C10": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/C10"
+        },
+        "sufficiency": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "binding": {
+              "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+            },
+            "record": {
+              "$ref": "https://ofarm.dev/schema/evidencesufficiencycase/v0.2"
+            }
+          },
+          "required": [
+            "binding",
+            "record"
+          ]
+        }
+      },
+      "required": [
+        "atom",
+        "sufficiency"
+      ]
+    }
+  }
+}

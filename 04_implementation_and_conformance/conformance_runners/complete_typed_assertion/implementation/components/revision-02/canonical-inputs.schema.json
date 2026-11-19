@@ -1,0 +1,2275 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/canonical-inputs/v0.1",
+  "title": "Canonical domain interpretation consumer inputs",
+  "$comment": "41 explicit consumer contracts. Full records retain their actual existing schemas. Selected inputs must be selected independently by the coordinator; passing a projection comparison is not admission.",
+  "$defs": {
+    "eventSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "measurementSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "contextSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "executionSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/executionrecordpayload/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "intentSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/interventionintentpayload/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "extentSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/partialextent/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "lineageSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/identitylifecyclechange/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "partySource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/partyrelationship/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "responsibilitySource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/scoperesponsibilityrelationship/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "commitmentSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/externalcommitmentlink/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "decisionSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/reviewdecision/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "fieldSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/fieldidentitypayload/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "cycleSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/cropcycleidentitypayload/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "equipmentSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/equipmentidentitypayload/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "codeSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/agronomicidentitybinding/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "codeProfileSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/agronomiccodebindingprofile/v0.1"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "sufficiencySource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "record": {
+          "$ref": "https://ofarm.dev/schema/evidencesufficiencycase/v0.2"
+        }
+      },
+      "required": [
+        "binding",
+        "record"
+      ]
+    },
+    "measurementMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "observedPropertyRef": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/observedPropertyRef"
+        },
+        "phenomenonTime": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/phenomenonTime"
+        },
+        "sampleRef": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/sampleRef"
+        },
+        "agronomicObservationContextRef": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/agronomicObservationContextRef"
+        },
+        "source": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/source"
+        },
+        "samplingProtocol": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/samplingProtocol"
+        },
+        "measurementMethod": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/measurementMethod"
+        },
+        "instrument": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/instrument"
+        },
+        "calibration": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/calibration"
+        },
+        "labContext": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/labContext"
+        },
+        "result": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/result"
+        },
+        "uncertainty": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/uncertainty"
+        },
+        "chainOfCustodyStatus": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/chainOfCustodyStatus"
+        },
+        "originalPayloadRef": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/originalPayloadRef"
+        },
+        "originalPayloadHash": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/originalPayloadHash"
+        },
+        "provenanceRefs": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/provenanceRefs"
+        },
+        "referenceSnapshotRefs": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/referenceSnapshotRefs"
+        },
+        "evidenceStatus": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/evidenceStatus"
+        },
+        "degradationReasons": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/degradationReasons"
+        },
+        "upgradeOfMeasurementEvidenceRef": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/upgradeOfMeasurementEvidenceRef"
+        },
+        "supersedesMeasurementEvidenceRef": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/supersedesMeasurementEvidenceRef"
+        },
+        "agronomicIdentityBindingRefs": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/agronomicIdentityBindingRefs"
+        },
+        "agronomicCodeBindingProfileRef": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/agronomicCodeBindingProfileRef"
+        }
+      },
+      "required": [
+        "observedPropertyRef",
+        "source",
+        "result",
+        "provenanceRefs",
+        "evidenceStatus"
+      ]
+    },
+    "contextMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subject": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/subject"
+        },
+        "targetScope": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/targetScope"
+        },
+        "observedPropertyRef": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/observedPropertyRef"
+        },
+        "phenomenonTime": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/phenomenonTime"
+        },
+        "observationAgent": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/observationAgent"
+        },
+        "spatialContext": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/spatialContext"
+        },
+        "procedure": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/procedure"
+        },
+        "cropCycleRef": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/cropCycleRef"
+        },
+        "cropBindings": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/cropBindings"
+        },
+        "phenologyStateBinding": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/phenologyStateBinding"
+        },
+        "targetOrganismBindings": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/targetOrganismBindings"
+        },
+        "partEvaluated": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/partEvaluated"
+        },
+        "severityOrPressure": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/severityOrPressure"
+        },
+        "measurementEvidenceRefs": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/measurementEvidenceRefs"
+        },
+        "confidence": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/confidence"
+        },
+        "uncertainty": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/uncertainty"
+        },
+        "referenceSnapshotRefs": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/referenceSnapshotRefs"
+        },
+        "contextCompleteness": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/contextCompleteness"
+        },
+        "promotionUse": {
+          "$ref": "https://ofarm.dev/schema/agronomicobservationcontext/v0.1#/properties/promotionUse"
+        }
+      },
+      "required": [
+        "subject",
+        "observedPropertyRef",
+        "phenomenonTime",
+        "observationAgent",
+        "spatialContext",
+        "procedure",
+        "contextCompleteness",
+        "promotionUse"
+      ]
+    },
+    "operationTarget": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subject": {
+          "$ref": "https://ofarm.dev/schema/executionrecordpayload/v0.1#/properties/subject"
+        },
+        "executionExtent": {
+          "$ref": "https://ofarm.dev/schema/executionrecordpayload/v0.1#/properties/executionExtent"
+        },
+        "effectiveTimeInterval": {
+          "$ref": "https://ofarm.dev/schema/executionrecordpayload/v0.1#/properties/effectiveTimeInterval"
+        }
+      },
+      "required": [
+        "subject",
+        "executionExtent",
+        "effectiveTimeInterval"
+      ]
+    },
+    "extentMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "extentRole": {
+          "$ref": "https://ofarm.dev/schema/partialextent/v0.1#/properties/extentRole"
+        },
+        "parentScope": {
+          "$ref": "https://ofarm.dev/schema/partialextent/v0.1#/properties/parentScope"
+        },
+        "anchorScope": {
+          "$ref": "https://ofarm.dev/schema/partialextent/v0.1#/properties/anchorScope"
+        },
+        "temporalApplicability": {
+          "$ref": "https://ofarm.dev/schema/partialextent/v0.1#/properties/temporalApplicability"
+        },
+        "geometryBasis": {
+          "$ref": "https://ofarm.dev/schema/partialextent/v0.1#/properties/geometryBasis"
+        },
+        "qualityStatement": {
+          "$ref": "https://ofarm.dev/schema/partialextent/v0.1#/properties/qualityStatement"
+        },
+        "durableIdentityPolicy": {
+          "$ref": "https://ofarm.dev/schema/partialextent/v0.1#/properties/durableIdentityPolicy"
+        }
+      },
+      "required": [
+        "extentRole",
+        "parentScope",
+        "anchorScope",
+        "temporalApplicability",
+        "geometryBasis",
+        "qualityStatement",
+        "durableIdentityPolicy"
+      ]
+    },
+    "decisionMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reviewedArtifactFamily": {
+          "$ref": "https://ofarm.dev/schema/reviewdecision/v0.1#/properties/reviewedArtifactFamily"
+        },
+        "reviewedArtifactRef": {
+          "$ref": "https://ofarm.dev/schema/reviewdecision/v0.1#/properties/reviewedArtifactRef"
+        },
+        "anchorScopes": {
+          "$ref": "https://ofarm.dev/schema/reviewdecision/v0.1#/properties/anchorScopes"
+        },
+        "decidedAt": {
+          "$ref": "https://ofarm.dev/schema/reviewdecision/v0.1#/properties/decidedAt"
+        },
+        "reviewAction": {
+          "$ref": "https://ofarm.dev/schema/reviewdecision/v0.1#/properties/reviewAction"
+        },
+        "decisionOutcomeState": {
+          "$ref": "https://ofarm.dev/schema/reviewdecision/v0.1#/properties/decisionOutcomeState"
+        },
+        "resultingAcceptedConsequenceRefs": {
+          "$ref": "https://ofarm.dev/schema/reviewdecision/v0.1#/properties/resultingAcceptedConsequenceRefs"
+        }
+      },
+      "required": [
+        "reviewedArtifactFamily",
+        "reviewedArtifactRef",
+        "anchorScopes",
+        "decidedAt",
+        "reviewAction",
+        "decisionOutcomeState"
+      ]
+    },
+    "lineageMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subjectFamily": {
+          "$ref": "https://ofarm.dev/schema/identitylifecyclechange/v0.1#/properties/subjectFamily"
+        },
+        "subjectClass": {
+          "$ref": "https://ofarm.dev/schema/identitylifecyclechange/v0.1#/properties/subjectClass"
+        },
+        "changeKind": {
+          "$ref": "https://ofarm.dev/schema/identitylifecyclechange/v0.1#/properties/changeKind"
+        },
+        "continuityOutcome": {
+          "$ref": "https://ofarm.dev/schema/identitylifecyclechange/v0.1#/properties/continuityOutcome"
+        },
+        "identityContinuityClass": {
+          "$ref": "https://ofarm.dev/schema/identitylifecyclechange/v0.1#/properties/identityContinuityClass"
+        },
+        "oldIdentityRefs": {
+          "$ref": "https://ofarm.dev/schema/identitylifecyclechange/v0.1#/properties/oldIdentityRefs"
+        },
+        "newIdentityRefs": {
+          "$ref": "https://ofarm.dev/schema/identitylifecyclechange/v0.1#/properties/newIdentityRefs"
+        },
+        "revisionRefs": {
+          "$ref": "https://ofarm.dev/schema/identitylifecyclechange/v0.1#/properties/revisionRefs"
+        },
+        "lineageRelations": {
+          "$ref": "https://ofarm.dev/schema/identitylifecyclechange/v0.1#/properties/lineageRelations"
+        },
+        "effectiveFrom": {
+          "$ref": "https://ofarm.dev/schema/identitylifecyclechange/v0.1#/properties/effectiveFrom"
+        }
+      },
+      "required": [
+        "subjectFamily",
+        "changeKind",
+        "continuityOutcome",
+        "identityContinuityClass",
+        "oldIdentityRefs",
+        "newIdentityRefs",
+        "lineageRelations"
+      ]
+    },
+    "equipmentUse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subject": {
+          "$ref": "https://ofarm.dev/schema/executionrecordpayload/v0.1#/properties/subject"
+        },
+        "equipment": {
+          "$ref": "https://ofarm.dev/schema/executionrecordpayload/v0.1#/properties/equipment"
+        },
+        "actor": {
+          "$ref": "https://ofarm.dev/schema/executionrecordpayload/v0.1#/properties/actor"
+        },
+        "sourceEventRef": {
+          "$ref": "https://ofarm.dev/schema/executionrecordpayload/v0.1#/properties/sourceEventRef"
+        },
+        "sourcePayload": {
+          "$ref": "https://ofarm.dev/schema/executionrecordpayload/v0.1#/properties/sourcePayload"
+        },
+        "effectiveTimeInterval": {
+          "$ref": "https://ofarm.dev/schema/executionrecordpayload/v0.1#/properties/effectiveTimeInterval"
+        }
+      },
+      "required": [
+        "subject",
+        "equipment",
+        "actor",
+        "sourcePayload",
+        "effectiveTimeInterval"
+      ]
+    },
+    "equipmentIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "identityRecordRef": {
+          "$ref": "https://ofarm.dev/schema/equipmentidentitypayload/v0.1#/properties/identityRecordRef"
+        },
+        "equipmentClass": {
+          "$ref": "https://ofarm.dev/schema/equipmentidentitypayload/v0.1#/properties/equipmentClass"
+        },
+        "inspectionEvidenceRefs": {
+          "$ref": "https://ofarm.dev/schema/equipmentidentitypayload/v0.1#/properties/inspectionEvidenceRefs"
+        }
+      },
+      "required": [
+        "identityRecordRef"
+      ]
+    },
+    "partyMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "partyARef": {
+          "$ref": "https://ofarm.dev/schema/partyrelationship/v0.1#/properties/partyARef"
+        },
+        "partyBRef": {
+          "$ref": "https://ofarm.dev/schema/partyrelationship/v0.1#/properties/partyBRef"
+        },
+        "relationshipKind": {
+          "$ref": "https://ofarm.dev/schema/partyrelationship/v0.1#/properties/relationshipKind"
+        },
+        "relationshipDirectionality": {
+          "$ref": "https://ofarm.dev/schema/partyrelationship/v0.1#/properties/relationshipDirectionality"
+        },
+        "validFrom": {
+          "$ref": "https://ofarm.dev/schema/partyrelationship/v0.1#/properties/validFrom"
+        },
+        "validUntil": {
+          "$ref": "https://ofarm.dev/schema/partyrelationship/v0.1#/properties/validUntil"
+        },
+        "relationshipState": {
+          "$ref": "https://ofarm.dev/schema/partyrelationship/v0.1#/properties/relationshipState"
+        }
+      },
+      "required": [
+        "partyARef",
+        "partyBRef",
+        "relationshipKind",
+        "relationshipDirectionality",
+        "validFrom",
+        "relationshipState"
+      ]
+    },
+    "responsibilityMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "partyRef": {
+          "$ref": "https://ofarm.dev/schema/scoperesponsibilityrelationship/v0.1#/properties/partyRef"
+        },
+        "targetScope": {
+          "$ref": "https://ofarm.dev/schema/scoperesponsibilityrelationship/v0.1#/properties/targetScope"
+        },
+        "relationshipKind": {
+          "$ref": "https://ofarm.dev/schema/scoperesponsibilityrelationship/v0.1#/properties/relationshipKind"
+        },
+        "validFrom": {
+          "$ref": "https://ofarm.dev/schema/scoperesponsibilityrelationship/v0.1#/properties/validFrom"
+        },
+        "validUntil": {
+          "$ref": "https://ofarm.dev/schema/scoperesponsibilityrelationship/v0.1#/properties/validUntil"
+        },
+        "relationshipState": {
+          "$ref": "https://ofarm.dev/schema/scoperesponsibilityrelationship/v0.1#/properties/relationshipState"
+        },
+        "counterpartyRef": {
+          "$ref": "https://ofarm.dev/schema/scoperesponsibilityrelationship/v0.1#/properties/counterpartyRef"
+        },
+        "responsibilityClasses": {
+          "$ref": "https://ofarm.dev/schema/scoperesponsibilityrelationship/v0.1#/properties/responsibilityClasses"
+        }
+      },
+      "required": [
+        "partyRef",
+        "targetScope",
+        "relationshipKind",
+        "validFrom",
+        "relationshipState"
+      ]
+    },
+    "commitmentMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "linkKind": {
+          "$ref": "https://ofarm.dev/schema/externalcommitmentlink/v0.1#/properties/linkKind"
+        },
+        "externalSystemRef": {
+          "$ref": "https://ofarm.dev/schema/externalcommitmentlink/v0.1#/properties/externalSystemRef"
+        },
+        "externalObjectType": {
+          "$ref": "https://ofarm.dev/schema/externalcommitmentlink/v0.1#/properties/externalObjectType"
+        },
+        "externalObjectIdentifier": {
+          "$ref": "https://ofarm.dev/schema/externalcommitmentlink/v0.1#/properties/externalObjectIdentifier"
+        },
+        "linkedPartyRefs": {
+          "$ref": "https://ofarm.dev/schema/externalcommitmentlink/v0.1#/properties/linkedPartyRefs"
+        },
+        "linkedScopes": {
+          "$ref": "https://ofarm.dev/schema/externalcommitmentlink/v0.1#/properties/linkedScopes"
+        },
+        "validFrom": {
+          "$ref": "https://ofarm.dev/schema/externalcommitmentlink/v0.1#/properties/validFrom"
+        },
+        "validUntil": {
+          "$ref": "https://ofarm.dev/schema/externalcommitmentlink/v0.1#/properties/validUntil"
+        },
+        "referencePosture": {
+          "$ref": "https://ofarm.dev/schema/externalcommitmentlink/v0.1#/properties/referencePosture"
+        }
+      },
+      "required": [
+        "linkKind",
+        "externalSystemRef",
+        "externalObjectType",
+        "externalObjectIdentifier",
+        "referencePosture"
+      ]
+    },
+    "fieldParent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "identityRecordRef": {
+          "$ref": "https://ofarm.dev/schema/fieldidentitypayload/v0.1#/properties/identityRecordRef"
+        },
+        "parentFarmIdentityRef": {
+          "$ref": "https://ofarm.dev/schema/fieldidentitypayload/v0.1#/properties/parentFarmIdentityRef"
+        }
+      },
+      "required": [
+        "identityRecordRef",
+        "parentFarmIdentityRef"
+      ]
+    },
+    "cycleParent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "identityRecordRef": {
+          "$ref": "https://ofarm.dev/schema/cropcycleidentitypayload/v0.1#/properties/identityRecordRef"
+        },
+        "parentScopeRefs": {
+          "$ref": "https://ofarm.dev/schema/cropcycleidentitypayload/v0.1#/properties/parentScopeRefs"
+        },
+        "startedAt": {
+          "$ref": "https://ofarm.dev/schema/cropcycleidentitypayload/v0.1#/properties/startedAt"
+        },
+        "endedAt": {
+          "$ref": "https://ofarm.dev/schema/cropcycleidentitypayload/v0.1#/properties/endedAt"
+        },
+        "overlapRelationRefs": {
+          "$ref": "https://ofarm.dev/schema/cropcycleidentitypayload/v0.1#/properties/overlapRelationRefs"
+        }
+      },
+      "required": [
+        "identityRecordRef",
+        "parentScopeRefs"
+      ]
+    },
+    "codeMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "bindingRole": {
+          "$ref": "https://ofarm.dev/schema/agronomicidentitybinding/v0.1#/properties/bindingRole"
+        },
+        "localSubject": {
+          "$ref": "https://ofarm.dev/schema/agronomicidentitybinding/v0.1#/properties/localSubject"
+        },
+        "externalScheme": {
+          "$ref": "https://ofarm.dev/schema/agronomicidentitybinding/v0.1#/properties/externalScheme"
+        },
+        "bindingValue": {
+          "$ref": "https://ofarm.dev/schema/agronomicidentitybinding/v0.1#/properties/bindingValue"
+        },
+        "profileRefs": {
+          "$ref": "https://ofarm.dev/schema/agronomicidentitybinding/v0.1#/properties/profileRefs"
+        },
+        "referenceSnapshotRefs": {
+          "$ref": "https://ofarm.dev/schema/agronomicidentitybinding/v0.1#/properties/referenceSnapshotRefs"
+        },
+        "lineage": {
+          "$ref": "https://ofarm.dev/schema/agronomicidentitybinding/v0.1#/properties/lineage"
+        },
+        "promotionBoundary": {
+          "$ref": "https://ofarm.dev/schema/agronomicidentitybinding/v0.1#/properties/promotionBoundary"
+        }
+      },
+      "required": [
+        "bindingRole",
+        "localSubject",
+        "externalScheme",
+        "bindingValue",
+        "promotionBoundary"
+      ]
+    },
+    "endpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "FARM",
+            "SITE",
+            "FIELD",
+            "ZONE",
+            "CROP_CYCLE",
+            "LOT",
+            "FACILITY",
+            "OPERATION",
+            "INPUT",
+            "EQUIPMENT",
+            "TOOL",
+            "STORAGE_LOCATION",
+            "CONTAINER",
+            "SAMPLE",
+            "PARTIAL_EXTENT",
+            "DOCUMENT",
+            "REVIEW_DECISION",
+            "INSPECTION_RECORD",
+            "PARTY"
+          ]
+        },
+        "binding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        }
+      },
+      "required": [
+        "kind",
+        "binding"
+      ]
+    },
+    "timeSelector": {
+      "oneOf": [
+        {
+          "enum": [
+            "/timeSemantics/eventTime",
+            "/timeSemantics/observationTime",
+            "/timeSemantics/decisionTime",
+            "/timeSemantics/effectiveFrom"
+          ]
+        },
+        {
+          "const": [
+            "/timeSemantics/effectiveFrom",
+            "/timeSemantics/effectiveUntil"
+          ]
+        }
+      ]
+    },
+    "eventMeaning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subtypePresence": {
+          "enum": [
+            "PRESENT",
+            "ABSENT"
+          ]
+        },
+        "eventSubtypeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dominantSemanticConsequence": {
+          "type": "string",
+          "minLength": 1
+        },
+        "concept": {
+          "type": "string",
+          "minLength": 1
+        },
+        "family": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/primaryEventFamily"
+        },
+        "vocabularyBinding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "packBinding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "timeSelector": {
+          "$ref": "#/$defs/timeSelector"
+        }
+      },
+      "required": [
+        "subtypePresence",
+        "dominantSemanticConsequence",
+        "concept",
+        "family",
+        "vocabularyBinding",
+        "packBinding",
+        "timeSelector"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "subtypePresence"
+            ],
+            "properties": {
+              "subtypePresence": {
+                "const": "PRESENT"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "eventSubtypeId"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "eventSubtypeId"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "V04-boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event": {
+          "$ref": "#/$defs/eventSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "selectedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "claimedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "selectedSubject": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/subjectRefs/items"
+        },
+        "selectedAnchor": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/anchorScopes/items"
+        }
+      },
+      "required": [
+        "event",
+        "subjectTime",
+        "selectedMeaning",
+        "claimedMeaning",
+        "selectedSubject",
+        "selectedAnchor"
+      ]
+    },
+    "V04-stand-count": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event": {
+          "$ref": "#/$defs/eventSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "selectedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "claimedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "selectedSubject": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/subjectRefs/items"
+        },
+        "selectedAnchor": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/anchorScopes/items"
+        }
+      },
+      "required": [
+        "event",
+        "subjectTime",
+        "selectedMeaning",
+        "claimedMeaning",
+        "selectedSubject",
+        "selectedAnchor"
+      ]
+    },
+    "V04-hail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event": {
+          "$ref": "#/$defs/eventSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "selectedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "claimedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "selectedSubject": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/subjectRefs/items"
+        },
+        "selectedAnchor": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/anchorScopes/items"
+        }
+      },
+      "required": [
+        "event",
+        "subjectTime",
+        "selectedMeaning",
+        "claimedMeaning",
+        "selectedSubject",
+        "selectedAnchor"
+      ]
+    },
+    "V04-harvest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event": {
+          "$ref": "#/$defs/eventSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "selectedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "claimedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "selectedSubject": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/subjectRefs/items"
+        },
+        "selectedAnchor": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/anchorScopes/items"
+        }
+      },
+      "required": [
+        "event",
+        "subjectTime",
+        "selectedMeaning",
+        "claimedMeaning",
+        "selectedSubject",
+        "selectedAnchor"
+      ]
+    },
+    "V04-lot-split": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event": {
+          "$ref": "#/$defs/eventSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "selectedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "claimedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "selectedSubject": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/subjectRefs/items"
+        },
+        "selectedAnchor": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/anchorScopes/items"
+        }
+      },
+      "required": [
+        "event",
+        "subjectTime",
+        "selectedMeaning",
+        "claimedMeaning",
+        "selectedSubject",
+        "selectedAnchor"
+      ]
+    },
+    "V04-report-ingest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event": {
+          "$ref": "#/$defs/eventSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "selectedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "claimedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "selectedSubject": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/subjectRefs/items"
+        },
+        "selectedAnchor": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/anchorScopes/items"
+        }
+      },
+      "required": [
+        "event",
+        "subjectTime",
+        "selectedMeaning",
+        "claimedMeaning",
+        "selectedSubject",
+        "selectedAnchor"
+      ]
+    },
+    "V04-inspection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event": {
+          "$ref": "#/$defs/eventSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "selectedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "claimedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "selectedSubject": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/subjectRefs/items"
+        },
+        "selectedAnchor": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/anchorScopes/items"
+        }
+      },
+      "required": [
+        "event",
+        "subjectTime",
+        "selectedMeaning",
+        "claimedMeaning",
+        "selectedSubject",
+        "selectedAnchor"
+      ]
+    },
+    "V04-prune": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event": {
+          "$ref": "#/$defs/eventSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "selectedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "claimedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "selectedSubject": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/subjectRefs/items"
+        },
+        "selectedAnchor": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/anchorScopes/items"
+        }
+      },
+      "required": [
+        "event",
+        "subjectTime",
+        "selectedMeaning",
+        "claimedMeaning",
+        "selectedSubject",
+        "selectedAnchor"
+      ]
+    },
+    "V04-spray": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event": {
+          "$ref": "#/$defs/eventSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "selectedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "claimedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "selectedSubject": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/subjectRefs/items"
+        },
+        "selectedAnchor": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/anchorScopes/items"
+        }
+      },
+      "required": [
+        "event",
+        "subjectTime",
+        "selectedMeaning",
+        "claimedMeaning",
+        "selectedSubject",
+        "selectedAnchor"
+      ]
+    },
+    "V04-extension": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event": {
+          "$ref": "#/$defs/eventSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "selectedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "claimedMeaning": {
+          "$ref": "#/$defs/eventMeaning"
+        },
+        "selectedSubject": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/subjectRefs/items"
+        },
+        "selectedAnchor": {
+          "$ref": "https://ofarm.dev/schema/semanticeventenvelope/v0.1#/properties/anchorScopes/items"
+        }
+      },
+      "required": [
+        "event",
+        "subjectTime",
+        "selectedMeaning",
+        "claimedMeaning",
+        "selectedSubject",
+        "selectedAnchor"
+      ]
+    },
+    "V04-action-families": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "activityConcept": {
+          "enum": [
+            "plant",
+            "till",
+            "fertilize",
+            "spray",
+            "irrigate",
+            "prune",
+            "harvest",
+            "cleanout",
+            "sanitize",
+            "maintain",
+            "create-lot",
+            "split-lot",
+            "merge-lots",
+            "move-material",
+            "dispatch",
+            "receive",
+            "reclassify-material",
+            "dispose-material"
+          ]
+        },
+        "atom": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/atom"
+        }
+      },
+      "required": [
+        "activityConcept",
+        "atom"
+      ]
+    },
+    "V04-profiles": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "subjectTime": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+            },
+            "eventPresence": {
+              "const": "ABSENT"
+            }
+          },
+          "required": [
+            "subjectTime",
+            "eventPresence"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "subjectTime": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+            },
+            "eventPresence": {
+              "const": "PRESENT"
+            },
+            "event": {
+              "$ref": "#/$defs/eventSource"
+            },
+            "selectedTimeSelector": {
+              "$ref": "#/$defs/timeSelector"
+            }
+          },
+          "required": [
+            "subjectTime",
+            "eventPresence",
+            "event",
+            "selectedTimeSelector"
+          ]
+        }
+      ]
+    },
+    "V05-time-observed": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/PERFORMED_INSTANT"
+        },
+        "methodUseBinding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "meaningConcept": {
+          "const": "DIRECT_ACTION_OCCURRENCE"
+        },
+        "projection": {
+          "$ref": "#/$defs/measurementMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "subjectTime",
+        "methodUseBinding",
+        "meaningConcept",
+        "projection"
+      ]
+    },
+    "V05-time-sample": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/PERFORMED_INSTANT"
+        },
+        "methodUseBinding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "meaningConcept": {
+          "const": "SAMPLE_COLLECTION_OCCURRED"
+        },
+        "projection": {
+          "$ref": "#/$defs/measurementMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "subjectTime",
+        "methodUseBinding",
+        "meaningConcept",
+        "projection"
+      ]
+    },
+    "V05-time-result": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/PERFORMED_INSTANT"
+        },
+        "methodUseBinding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "meaningConcept": {
+          "const": "RESULT_PRODUCTION_OCCURRED"
+        },
+        "projection": {
+          "$ref": "#/$defs/measurementMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "subjectTime",
+        "methodUseBinding",
+        "meaningConcept",
+        "projection"
+      ]
+    },
+    "V05-time-record": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/PERFORMED_INSTANT"
+        },
+        "methodUseBinding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "meaningConcept": {
+          "const": "RECORDING_ACT_OCCURRED"
+        },
+        "projection": {
+          "$ref": "#/$defs/measurementMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "subjectTime",
+        "methodUseBinding",
+        "meaningConcept",
+        "projection"
+      ]
+    },
+    "V05-time-estimated": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/PERFORMED_INSTANT"
+        },
+        "methodUseBinding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "meaningConcept": {
+          "const": "ESTIMATED_ACTION_OCCURRENCE"
+        },
+        "projection": {
+          "$ref": "#/$defs/measurementMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "subjectTime",
+        "methodUseBinding",
+        "meaningConcept",
+        "projection"
+      ]
+    },
+    "V05-time-omitted": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/PERFORMED_INSTANT"
+        },
+        "methodUseBinding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "meaningConcept": {
+          "const": "EXPLICIT_TIME_ROLE_WITH_OMITTED_TOKEN"
+        },
+        "projection": {
+          "$ref": "#/$defs/measurementMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "subjectTime",
+        "methodUseBinding",
+        "meaningConcept",
+        "projection"
+      ]
+    },
+    "V05-result-numeric": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "claimedResult": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/result"
+        },
+        "methodUseBinding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "projection": {
+          "$ref": "#/$defs/measurementMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "claimedResult",
+        "methodUseBinding",
+        "projection"
+      ]
+    },
+    "V05-result-coded": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "claimedResult": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/result"
+        },
+        "methodUseBinding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "projection": {
+          "$ref": "#/$defs/measurementMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "claimedResult",
+        "methodUseBinding",
+        "projection"
+      ]
+    },
+    "V05-result-qualitative": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "claimedResult": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/result"
+        },
+        "methodUseBinding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "projection": {
+          "$ref": "#/$defs/measurementMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "claimedResult",
+        "methodUseBinding",
+        "projection"
+      ]
+    },
+    "V05-result-censored_numeric": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "claimedResult": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/result"
+        },
+        "methodUseBinding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "projection": {
+          "$ref": "#/$defs/measurementMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "claimedResult",
+        "methodUseBinding",
+        "projection"
+      ]
+    },
+    "V05-result-absent_pending": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "claimedResult": {
+          "$ref": "https://ofarm.dev/schema/measurementevidence/v0.1#/properties/result"
+        },
+        "methodUseBinding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "projection": {
+          "$ref": "#/$defs/measurementMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "claimedResult",
+        "methodUseBinding",
+        "projection"
+      ]
+    },
+    "V05-source-sample_pending": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "projection": {
+          "$ref": "#/$defs/measurementMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "projection"
+      ]
+    },
+    "V05-source-nitrate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "projection": {
+          "$ref": "#/$defs/measurementMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "projection"
+      ]
+    },
+    "V05-source-weeds": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "projection": {
+          "$ref": "#/$defs/measurementMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "projection"
+      ]
+    },
+    "V05-source-wetness": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "projection": {
+          "$ref": "#/$defs/measurementMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "projection"
+      ]
+    },
+    "V05-context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "context": {
+          "$ref": "#/$defs/contextSource"
+        },
+        "measurementProjection": {
+          "$ref": "#/$defs/measurementMeaning"
+        },
+        "contextProjection": {
+          "$ref": "#/$defs/contextMeaning"
+        }
+      },
+      "required": [
+        "measurement",
+        "context",
+        "measurementProjection",
+        "contextProjection"
+      ]
+    },
+    "V05-code-bindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "$ref": "#/$defs/codeSource"
+        },
+        "codeProjection": {
+          "$ref": "#/$defs/codeMeaning"
+        },
+        "profile": {
+          "$ref": "#/$defs/codeProfileSource"
+        },
+        "selectedRole": {
+          "enum": [
+            "SAMPLING_METHOD",
+            "MEASUREMENT_METHOD",
+            "QUANTITY_KIND",
+            "UNIT_CODE",
+            "THRESHOLD_SOURCE"
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "codeProjection",
+        "profile",
+        "selectedRole"
+      ]
+    },
+    "V06-operation-target": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "to": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "event": {
+          "$ref": "#/$defs/eventSource"
+        },
+        "execution": {
+          "$ref": "#/$defs/executionSource"
+        },
+        "projection": {
+          "$ref": "#/$defs/operationTarget"
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "subjectTime",
+        "event",
+        "execution",
+        "projection"
+      ]
+    },
+    "V06-sample-target": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "to": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "context": {
+          "$ref": "#/$defs/contextSource"
+        },
+        "measurementProjection": {
+          "$ref": "#/$defs/measurementMeaning"
+        },
+        "contextProjection": {
+          "$ref": "#/$defs/contextMeaning"
+        },
+        "extent": {
+          "$ref": "#/$defs/extentSource"
+        },
+        "extentProjection": {
+          "$ref": "#/$defs/extentMeaning"
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "subjectTime",
+        "measurement",
+        "context",
+        "measurementProjection",
+        "contextProjection"
+      ],
+      "dependentRequired": {
+        "extent": [
+          "extentProjection"
+        ],
+        "extentProjection": [
+          "extent"
+        ]
+      }
+    },
+    "V06-extent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "to": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "extent": {
+          "$ref": "#/$defs/extentSource"
+        },
+        "projection": {
+          "$ref": "#/$defs/extentMeaning"
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "subjectTime",
+        "extent",
+        "projection"
+      ]
+    },
+    "V06-report-about": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "to": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "measurement": {
+          "$ref": "#/$defs/measurementSource"
+        },
+        "context": {
+          "$ref": "#/$defs/contextSource"
+        },
+        "measurementProjection": {
+          "$ref": "#/$defs/measurementMeaning"
+        },
+        "contextProjection": {
+          "$ref": "#/$defs/contextMeaning"
+        },
+        "extent": {
+          "$ref": "#/$defs/extentSource"
+        },
+        "extentProjection": {
+          "$ref": "#/$defs/extentMeaning"
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "subjectTime",
+        "measurement",
+        "context",
+        "measurementProjection",
+        "contextProjection"
+      ],
+      "dependentRequired": {
+        "extent": [
+          "extentProjection"
+        ],
+        "extentProjection": [
+          "extent"
+        ]
+      }
+    },
+    "V06-decision-applies": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "to": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "decision": {
+          "$ref": "#/$defs/decisionSource"
+        },
+        "projection": {
+          "$ref": "#/$defs/decisionMeaning"
+        },
+        "reviewedArtifactBinding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        },
+        "artifactSubjectRelationBindings": {
+          "type": "array",
+          "items": {
+            "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "subjectTime",
+        "decision",
+        "projection",
+        "reviewedArtifactBinding",
+        "artifactSubjectRelationBindings"
+      ]
+    },
+    "V06-lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "to": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "lineage": {
+          "$ref": "#/$defs/lineageSource"
+        },
+        "projection": {
+          "$ref": "#/$defs/lineageMeaning"
+        },
+        "relationType": {
+          "$ref": "https://ofarm.dev/schema/identitylifecyclechange/v0.1#/properties/lineageRelations/items/properties/relationType"
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "subjectTime",
+        "lineage",
+        "projection",
+        "relationType"
+      ]
+    },
+    "V06-equipment-use": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "to": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "execution": {
+          "$ref": "#/$defs/executionSource"
+        },
+        "equipmentIdentity": {
+          "$ref": "#/$defs/equipmentSource"
+        },
+        "projection": {
+          "$ref": "#/$defs/equipmentUse"
+        },
+        "identityProjection": {
+          "$ref": "#/$defs/equipmentIdentity"
+        },
+        "equipmentRole": {
+          "enum": [
+            "equipmentRef",
+            "tractorOrPowerUnitRef",
+            "implementRef",
+            "controllerRef"
+          ]
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "subjectTime",
+        "execution",
+        "equipmentIdentity",
+        "projection",
+        "identityProjection",
+        "equipmentRole"
+      ]
+    },
+    "V06-occupancy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "to": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "subjectTime": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+        },
+        "occupancyStart": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/canonicalTimestamp"
+        },
+        "occupancyEnd": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/canonicalTimestamp"
+        },
+        "lifecycle": {
+          "$ref": "#/$defs/lineageSource"
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "subjectTime",
+        "occupancyStart",
+        "occupancyEnd",
+        "lifecycle"
+      ]
+    },
+    "V06-party-context": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "from": {
+              "$ref": "#/$defs/endpoint"
+            },
+            "to": {
+              "$ref": "#/$defs/endpoint"
+            },
+            "subjectTime": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+            },
+            "carrierKind": {
+              "const": "party"
+            },
+            "party": {
+              "$ref": "#/$defs/partySource"
+            },
+            "projection": {
+              "$ref": "#/$defs/partyMeaning"
+            }
+          },
+          "required": [
+            "from",
+            "to",
+            "subjectTime",
+            "carrierKind",
+            "party",
+            "projection"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "from": {
+              "$ref": "#/$defs/endpoint"
+            },
+            "to": {
+              "$ref": "#/$defs/endpoint"
+            },
+            "subjectTime": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+            },
+            "carrierKind": {
+              "const": "responsibility"
+            },
+            "responsibility": {
+              "$ref": "#/$defs/responsibilitySource"
+            },
+            "projection": {
+              "$ref": "#/$defs/responsibilityMeaning"
+            }
+          },
+          "required": [
+            "from",
+            "to",
+            "subjectTime",
+            "carrierKind",
+            "responsibility",
+            "projection"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "from": {
+              "$ref": "#/$defs/endpoint"
+            },
+            "to": {
+              "$ref": "#/$defs/endpoint"
+            },
+            "subjectTime": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+            },
+            "carrierKind": {
+              "const": "commitment"
+            },
+            "commitment": {
+              "$ref": "#/$defs/commitmentSource"
+            },
+            "projection": {
+              "$ref": "#/$defs/commitmentMeaning"
+            }
+          },
+          "required": [
+            "from",
+            "to",
+            "subjectTime",
+            "carrierKind",
+            "commitment",
+            "projection"
+          ]
+        }
+      ]
+    },
+    "V06-parent-scope": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "from": {
+              "$ref": "#/$defs/endpoint"
+            },
+            "to": {
+              "$ref": "#/$defs/endpoint"
+            },
+            "subjectTime": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+            },
+            "carrierKind": {
+              "const": "field"
+            },
+            "field": {
+              "$ref": "#/$defs/fieldSource"
+            },
+            "projection": {
+              "$ref": "#/$defs/fieldParent"
+            }
+          },
+          "required": [
+            "from",
+            "to",
+            "subjectTime",
+            "carrierKind",
+            "field",
+            "projection"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "from": {
+              "$ref": "#/$defs/endpoint"
+            },
+            "to": {
+              "$ref": "#/$defs/endpoint"
+            },
+            "subjectTime": {
+              "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/owned-value-types/v0.1#/$defs/subjectTime"
+            },
+            "carrierKind": {
+              "const": "cycle"
+            },
+            "cycle": {
+              "$ref": "#/$defs/cycleSource"
+            },
+            "projection": {
+              "$ref": "#/$defs/cycleParent"
+            }
+          },
+          "required": [
+            "from",
+            "to",
+            "subjectTime",
+            "carrierKind",
+            "cycle",
+            "projection"
+          ]
+        }
+      ]
+    },
+    "V06-endpoints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subject": {
+          "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/domainSubject"
+        },
+        "contexts": {
+          "type": "array",
+          "items": {
+            "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/contextBinding"
+          },
+          "minItems": 0
+        },
+        "evidenceEndpoints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/endpoint"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "subject",
+        "contexts",
+        "evidenceEndpoints"
+      ]
+    },
+    "V06-proof-interface": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subjectScopeProofBindings": {
+          "type": "array",
+          "items": {
+            "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "contextBindings": {
+          "type": "array",
+          "items": {
+            "$ref": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1#/$defs/contextBinding"
+          },
+          "minItems": 0
+        },
+        "associatedSemanticEventBinding": {
+          "$ref": "https://ofarm.dev/schema/assertionrecord/v0.2#/$defs/immutableBinding"
+        }
+      },
+      "required": [
+        "subjectScopeProofBindings",
+        "contextBindings",
+        "associatedSemanticEventBinding"
+      ]
+    }
+  }
+}

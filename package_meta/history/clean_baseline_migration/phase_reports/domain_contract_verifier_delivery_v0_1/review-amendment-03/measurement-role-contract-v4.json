@@ -1,0 +1,131 @@
+{
+  "id": "local-candidate:complete-claims:2026-10-21:amendment-03#measured-compliance-role-contract",
+  "status": "PROPOSED_EXTENSION_NOT_ADOPTED_SCHEMA_OR_VERIFIER",
+  "trustBoundary": "AssertionRecord domain meaning and validation integrity",
+  "independentExpectation": {
+    "file": "criterion-expectations-v4.json",
+    "sha256": "fca51250017129bfb613d60c9837fa9d793bb8aa91609354f5468bff996897c8",
+    "authority": "Fictional independently authored criterion/method-owner expectations. Resolve the selected rule/criterion first; never set expected property, scope or method from the cited measurement. A runtime positive requires real adopted owner inputs."
+  },
+  "definitionOverrides": [
+    {
+      "definition": "local-candidate:complete-claims:2026-10-21:amendment-02#C03",
+      "inherits": "local-candidate:complete-claims:2026-10-20:r4#C03",
+      "change": "Require complete measured source tuple; preserve measurement and operandPointer and compare their exact equality to tuple aliases."
+    },
+    {
+      "definition": "local-candidate:complete-claims:2026-10-21:amendment-02#C04",
+      "inherits": "local-candidate:complete-claims:2026-10-20:r4#C04",
+      "change": "Require criterion, operand.source and explicit admissibleValues; preserve existing resultKind/qualifier/limit/nonnegative/operator/threshold/outcome."
+    },
+    {
+      "definition": "local-candidate:complete-claims:2026-10-21:amendment-02#C06",
+      "inherits": "local-candidate:complete-claims:2026-10-20:r4#C06",
+      "change": "Require rateSource for the relied-on reported rate. Distinguish HUMAN_REPORT, OPERATION_PARAMETER and MEASUREMENT_EVIDENCE; measured branch needs complete measurementSource."
+    },
+    {
+      "definition": "local-candidate:complete-claims:2026-10-21:amendment-02#C09",
+      "inherits": "local-candidate:complete-claims:2026-10-20:r4#C09",
+      "change": "MEASURED requires measurementSource. MODELLED/ESTIMATED/DISPUTED retain exact owner basis and qualifications; no substitution of a measured source."
+    }
+  ],
+  "sourceTuple": {
+    "role": "MEASURED_COMPLIANCE_OPERAND",
+    "required": [
+      "role",
+      "measurementBinding",
+      "resultPointer",
+      "contextBinding",
+      "subjectRelationBinding",
+      "methodUseBinding",
+      "qualificationPointers"
+    ],
+    "bindingShape": "Exact fixture binding here; production exact immutable ref plus revisionRef XOR digest, specialized measurement schema identity separately verified and trace-bound.",
+    "pointerSemantics": "Absolute RFC6901 pointer into the exact resolved measurement; no search/latest/first-member/default. C04 below-LOQ uses /result, then fixed resultKind/censoringQualifier/detectionLimit fields. C03 numeric uses /result/numericValue plus the containing result metadata. No value guessed from the pointer name.",
+    "qualificationPointers": "Nonempty exact pointers for every relied-on uncertainty/quality field required by the selected method/use; explicit NOT_APPLICABLE must itself be method-bound.",
+    "unknownMembers": "The future selected row/body schema must be closed. These are proposed additions, not permissive extras to frozen r4 or base v0.2 schemas."
+  },
+  "requiredBeforeCitationSelection": [
+    "Select exact adopted definition and criterion/evidence-use requirements independently.",
+    "Require every operand and qualification role that definition/use requires, even if no citation or metadata has been supplied.",
+    "Reject missing/empty source bindings and value/qualification pointers; unknown branch or missing branch discriminator cannot suppress a requirement.",
+    "Resolve exact immutable source bytes and schema; prove exact evidenceBindings membership separately.",
+    "Validate source pointers and typed value shape before semantic comparison.",
+    "Compare property, subject/sample/target/support, method/protocol revision, analyte/matrix, phenomenon-time role/value, unit/basis, LOQ/LOD/range and uncertainty against criterion and owner facts.",
+    "Only then calculate the criterion relation using exact supported units and admissible values."
+  ],
+  "C04Branches": {
+    "NUMERIC": "Require exact numeric pointer, quantity/unit/profile and original lexical preservation; uncertainty can widen admissible values only under explicit method rule.",
+    "CENSORED_NUMERIC": "Require full result pointer, qualifier and detectionLimit type/kind/unit/value. BELOW_LOQ cannot use LOD, zero or numericValue. BELOW_LOD, ABOVE_RANGE, NON_DETECT and TRACE_DETECTED need their own method interpretation; no borrowed BELOW_LOQ rule.",
+    "INTERVAL_OR_QUANTIFIED_UNCERTAINTY": "Bind exact source uncertainty fields and separately pinned method rule supplying endpoints, inclusivity, units and interpretation. A confidence interval is not automatically a hard admissible set. Missing endpoints/interpretation prevents the claimed comparison.",
+    "CODED_OR_QUALITATIVE": "A numeric criterion needs an explicitly bound owner mapping that preserves the source code/text semantics; no implicit number conversion.",
+    "ABSENT_PENDING": "No numeric operand exists; keep pending/unknown qualification and INDETERMINATE where the rule permits. Do not invent zero or a limit."
+  },
+  "comparison": "Use exact rule operator and bound. SATISFIED iff all admissible values satisfy; NOT_SATISFIED iff all fail; otherwise INDETERMINATE. Source insufficiency remains a separate failed/unresolved obligation; it is not excused merely by alleging INDETERMINATE.",
+  "W05": "Criterion independently expects soil nitrate-N in the declared sample/context/method, with a nonnegative domain and exclusive upper LOQ 2 mg/kg. [0,2) against <=1 mg/kg is INDETERMINATE. Sample time May 6 is permitted for as-of May 7 under this fictional use; later resultTime does not rewrite subjectTime or allege analysis at sample time.",
+  "qualificationRules": "A measured/uncertain sourceQuality claim or method-required qualification requires explicit measuredQualification {sourceBinding,sourcePointer,methodUseBinding,interpretation} on its exact atom under the new definition. This field is outside the three existing QUALIFIED wrapper keys; the wrapper never changes atom values. Missing required qualifier cannot be concealed by removing both qualifier and its citation. Only the selected owner use determines when required.",
+  "analogousOwnerEvaluations": "C02 measured applicability, C07 measured accounting inputs, C10 policy-qualified evidence and C16 calculated operands remain governed by the exact rule/model/profile evaluation owner. Resolve each required measured role inside the exact referenced evaluation and apply this source-tuple discipline, without inventing statutory formulas or converting owner summaries into measurements.",
+  "evidenceClosure": "measurementBinding/contextBinding/subjectRelationBinding/methodUseBinding and qualification source/method records are ASSERTION_EVIDENCE for these roles. Criterion/rule/unit profile definitions remain exact definition inputs. No source gets admission from list membership.",
+  "limits": [
+    "Only W05 source-semantic comparisons and a finite required-role corpus are executable here. No all-branch numerical engine or public verifier is implemented.",
+    "All 99 frozen inventory definitions, event/time cells and qualifiers remain obligations; no narrowed coverage or adoption is asserted."
+  ],
+  "sourceSchemaPins": [
+    {
+      "commit": "8e86208f96756b8f271f490696e6aa7cf23605fe",
+      "path": "03_machine_contracts/schemas/evidence/OFARM_MeasurementEvidence_schema_v0_1.json",
+      "sha256": "90c4cf2d1387633172e772c970d0c76889ceec0fca4682a5053914375bdc9280"
+    },
+    {
+      "commit": "8e86208f96756b8f271f490696e6aa7cf23605fe",
+      "path": "03_machine_contracts/schemas/agronomic/OFARM_AgronomicObservationContext_schema_v0_1.json",
+      "sha256": "9b7919083305f7fa3739580f9a8cd2b63ec7938c4cf5a75249ea32f991556ebe"
+    },
+    {
+      "commit": "8e86208f96756b8f271f490696e6aa7cf23605fe",
+      "path": "03_machine_contracts/schemas/event_ingress/OFARM_SemanticEventEnvelope_schema_v0_1.json",
+      "sha256": "75662a6c4952a62b7e8f8e9de99c23c98899c692914a98ba4b752873f48bd1a4"
+    }
+  ],
+  "ownerRecords": {
+    "file": "owner-records-v4.json",
+    "sha256": "69877b1f6a6b3ece0058718d5e45ab116138c77b0c1d60046d14873566333e96"
+  },
+  "v4Extension": {
+    "definition": "local-candidate:complete-claims:2026-10-21:amendment-03#C04",
+    "inherits": "local-candidate:complete-claims:2026-10-21:amendment-02#C04",
+    "requiredAdditions": [
+      "operand.limit.provenance",
+      "threshold.provenance"
+    ],
+    "meaning": "Qualifier belongs to the exact scalar reporting role; censoring qualifier belongs to the complete measured result. LAB_RESULT alone cannot imply MACHINE_REPORTED. W05 explicitly models human transcription of the LOQ and an independently human-authored fictional criterion.",
+    "lexical": "Read the LOQ scalar lexical from the resolved quantity record selected by the exact lexicalPointer; full measured result originalLexicalValue remains < 2 mg/kg. No constant 2 comparison or loss of censoring.",
+    "threshold": "The independently authored criterion owner record fixes operator, threshold, qualifier, lexical value, rule/policy and property; changing claim and expected mirror together cannot redefine it.",
+    "wrongOrUnknownProvenance": "Reject unknown tokens and tokens inconsistent with the resolved source reporting role, including UNKNOWN for this known reporting role. A broader carrier enum is not semantic permission.",
+    "traceClosure": "Bind the exact quantity-source and criterion-owner record digests, immutable bindings and selected value/lexical/qualifier pointers in the domain payload. Ordinary quantity evidence additionally requires exact root evidence membership; the criterion record remains a definition input.",
+    "typeChecks": "Require object shapes before any member or alias access. Required missing/null/empty/wrong types return structured {code,pointer,...}; closed bindings and absolute RFC6901 pointer strings are checked. This does not expand into the complete domain verifier."
+  },
+  "fix01SourceProfile": {
+    "id": "fictional-owner-profile:W05:amendment-03:fix01",
+    "status": "UNADOPTED_FINITE_OWNER_PROFILE_NOT_RUNTIME_AUTHORITY",
+    "file": "w05-owner-profile-fix01.json",
+    "sha256": "121888545efeb28fd2e8f6be8d099c93727edb7a42e57d00eed3b74c1bcb1dc4",
+    "requiredResultKind": "CENSORED_NUMERIC",
+    "requiredScalarProvenance": [
+      "/operand/limit/provenance",
+      "/threshold/provenance"
+    ],
+    "rule": "The selected finite owner profile fixes required W05 source roles before dependent access. Claimant discriminator changes cannot remove them. Exact immutable source bytes are checked against independent approved pins, not only self-reported contentDigest.",
+    "separateApprovedFixtures": [
+      {
+        "file": "owner-approved-lexical-r2-fix01.json",
+        "sha256": "9b4d64a0cf434c110ccc2949643615f582841e0f53a4b2d260210a1cee748c06"
+      },
+      {
+        "file": "owner-approved-h03-fix01.json",
+        "sha256": "49882dbea62e61d75e4798d62621564224e6676e3c1cda8d7a9a8b48f5aba955"
+      }
+    ],
+    "limits": "Fictional non-adopted design fixtures only; no runtime source authority, producer, or general numeric branch engine."
+  }
+}

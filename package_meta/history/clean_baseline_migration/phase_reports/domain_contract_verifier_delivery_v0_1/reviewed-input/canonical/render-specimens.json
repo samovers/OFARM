@@ -1,0 +1,483 @@
+{
+  "revision": "canonical-claim-inventory-02.1-proposed",
+  "scope": "Exact rendering and preservation only; not end-to-end positives",
+  "specimens": [
+    {
+      "id": "V04-spray-event",
+      "inventoryRow": "V04-spray",
+      "status": "FICTIONAL_RENDER_ONLY_NOT_SCHEMA_VALIDATED_NOT_ADMITTED",
+      "bindingLimit": "The local witness is only a hashable render specimen. It is not actual measurement, event, rule, proof or policy evidence; repeated binding positions deliberately make no semantic validity claim.",
+      "boundWitnessBytesUtf8": "{\"admitted\":false,\"claims\":{\"acceptedExecution\":false,\"activity\":\"spray\",\"actualRate\":{\"state\":\"UNKNOWN\"},\"extent\":\"partial west edge\",\"reporting\":\"late\"},\"inventoryRow\":\"V04-spray\",\"kind\":\"LOCAL_FICTIONAL_MEANING_WITNESS\"}",
+      "projectionP": {
+        "action": "ASSERT_OPERATION_CLAIM",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:17"
+        },
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-05-07T17:10:00Z",
+          "end": "2026-05-07T18:25:00Z"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:17"
+          }
+        ],
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "vocabularyRevision": "canonical-claim-inventory-02.1-proposed",
+          "proposition": {
+            "activity": "spray",
+            "extent": "partial west edge",
+            "reporting": "late",
+            "actualRate": {
+              "state": "UNKNOWN"
+            },
+            "acceptedExecution": false
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "fictional:inventory-02:V04-spray",
+            "digest": "sha256:2f77bea4b1ac504a50c7e7ac28d73529a2271cda90740b9d8568d84b5429e36d"
+          }
+        ],
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:sampler"
+        },
+        "associatedSemanticEventBinding": {
+          "ref": "fictional:inventory-02:V04-spray",
+          "digest": "sha256:2f77bea4b1ac504a50c7e7ac28d73529a2271cda90740b9d8568d84b5429e36d"
+        }
+      },
+      "claimText": "Pending claim: {\"action\":\"ASSERT_OPERATION_CLAIM\",\"anchorScopes\":[{\"scopeRef\":\"field:fictional:17\",\"scopeType\":\"FIELD\"}],\"assertionBody\":{\"assertionPosture\":\"INITIAL\",\"proposition\":{\"acceptedExecution\":false,\"activity\":\"spray\",\"actualRate\":{\"state\":\"UNKNOWN\"},\"extent\":\"partial west edge\",\"reporting\":\"late\"},\"vocabularyRevision\":\"canonical-claim-inventory-02.1-proposed\"},\"associatedSemanticEventBinding\":{\"digest\":\"sha256:2f77bea4b1ac504a50c7e7ac28d73529a2271cda90740b9d8568d84b5429e36d\",\"ref\":\"fictional:inventory-02:V04-spray\"},\"evidenceBindings\":[{\"digest\":\"sha256:2f77bea4b1ac504a50c7e7ac28d73529a2271cda90740b9d8568d84b5429e36d\",\"ref\":\"fictional:inventory-02:V04-spray\"}],\"operationClaimContext\":{\"claimPosture\":\"PERFORMED\",\"performedByPartyRef\":\"party:fictional:sampler\"},\"subject\":{\"subjectRef\":\"field:fictional:17\",\"subjectType\":\"FIELD\"},\"subjectTime\":{\"end\":\"2026-05-07T18:25:00Z\",\"profile\":\"PERFORMED_INTERVAL\",\"start\":\"2026-05-07T17:10:00Z\"}}.",
+      "expectedRoundTrip": {
+        "action": "ASSERT_OPERATION_CLAIM",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:17"
+        },
+        "subjectTime": {
+          "profile": "PERFORMED_INTERVAL",
+          "start": "2026-05-07T17:10:00Z",
+          "end": "2026-05-07T18:25:00Z"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:17"
+          }
+        ],
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "vocabularyRevision": "canonical-claim-inventory-02.1-proposed",
+          "proposition": {
+            "activity": "spray",
+            "extent": "partial west edge",
+            "reporting": "late",
+            "actualRate": {
+              "state": "UNKNOWN"
+            },
+            "acceptedExecution": false
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "fictional:inventory-02:V04-spray",
+            "digest": "sha256:2f77bea4b1ac504a50c7e7ac28d73529a2271cda90740b9d8568d84b5429e36d"
+          }
+        ],
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:sampler"
+        },
+        "associatedSemanticEventBinding": {
+          "ref": "fictional:inventory-02:V04-spray",
+          "digest": "sha256:2f77bea4b1ac504a50c7e7ac28d73529a2271cda90740b9d8568d84b5429e36d"
+        }
+      },
+      "exactTextPredicate": "claimText equals Pending claim: + JCS(P) + period; P excludes only claimText. Preserve material meaning fields and original evidence elsewhere by immutable binding."
+    },
+    {
+      "id": "V05-time-sample-no-event",
+      "inventoryRow": "V05-time-sample",
+      "status": "FICTIONAL_RENDER_ONLY_NOT_SCHEMA_VALIDATED_NOT_ADMITTED",
+      "bindingLimit": "The local witness is only a hashable render specimen. It is not actual measurement, event, rule, proof or policy evidence; repeated binding positions deliberately make no semantic validity claim.",
+      "boundWitnessBytesUtf8": "{\"admitted\":false,\"claims\":{\"activity\":\"collect-sample\",\"analysisResult\":{\"resultKind\":\"ABSENT_PENDING\"},\"spatialSupport\":\"composite sampled support\",\"specimen\":\"sample:fictional:composite-a\",\"timeBasis\":\"SAMPLE_TIME\"},\"inventoryRow\":\"V05-time-sample\",\"kind\":\"LOCAL_FICTIONAL_MEANING_WITNESS\"}",
+      "projectionP": {
+        "action": "ASSERT_OPERATION_CLAIM",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:17"
+        },
+        "subjectTime": {
+          "profile": "PERFORMED_INSTANT",
+          "at": "2026-05-06T10:05:00Z"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:17"
+          }
+        ],
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "vocabularyRevision": "canonical-claim-inventory-02.1-proposed",
+          "proposition": {
+            "activity": "collect-sample",
+            "specimen": "sample:fictional:composite-a",
+            "timeBasis": "SAMPLE_TIME",
+            "spatialSupport": "composite sampled support",
+            "analysisResult": {
+              "resultKind": "ABSENT_PENDING"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "fictional:inventory-02:V05-time-sample",
+            "digest": "sha256:adb6d7b7baa538dc23216c533c60fa5f9b8da4d14ef29a463294574467bfa474"
+          }
+        ],
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:sampler"
+        }
+      },
+      "claimText": "Pending claim: {\"action\":\"ASSERT_OPERATION_CLAIM\",\"anchorScopes\":[{\"scopeRef\":\"field:fictional:17\",\"scopeType\":\"FIELD\"}],\"assertionBody\":{\"assertionPosture\":\"INITIAL\",\"proposition\":{\"activity\":\"collect-sample\",\"analysisResult\":{\"resultKind\":\"ABSENT_PENDING\"},\"spatialSupport\":\"composite sampled support\",\"specimen\":\"sample:fictional:composite-a\",\"timeBasis\":\"SAMPLE_TIME\"},\"vocabularyRevision\":\"canonical-claim-inventory-02.1-proposed\"},\"evidenceBindings\":[{\"digest\":\"sha256:adb6d7b7baa538dc23216c533c60fa5f9b8da4d14ef29a463294574467bfa474\",\"ref\":\"fictional:inventory-02:V05-time-sample\"}],\"operationClaimContext\":{\"claimPosture\":\"PERFORMED\",\"performedByPartyRef\":\"party:fictional:sampler\"},\"subject\":{\"subjectRef\":\"field:fictional:17\",\"subjectType\":\"FIELD\"},\"subjectTime\":{\"at\":\"2026-05-06T10:05:00Z\",\"profile\":\"PERFORMED_INSTANT\"}}.",
+      "expectedRoundTrip": {
+        "action": "ASSERT_OPERATION_CLAIM",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:17"
+        },
+        "subjectTime": {
+          "profile": "PERFORMED_INSTANT",
+          "at": "2026-05-06T10:05:00Z"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:17"
+          }
+        ],
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "vocabularyRevision": "canonical-claim-inventory-02.1-proposed",
+          "proposition": {
+            "activity": "collect-sample",
+            "specimen": "sample:fictional:composite-a",
+            "timeBasis": "SAMPLE_TIME",
+            "spatialSupport": "composite sampled support",
+            "analysisResult": {
+              "resultKind": "ABSENT_PENDING"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "fictional:inventory-02:V05-time-sample",
+            "digest": "sha256:adb6d7b7baa538dc23216c533c60fa5f9b8da4d14ef29a463294574467bfa474"
+          }
+        ],
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:sampler"
+        }
+      },
+      "exactTextPredicate": "claimText equals Pending claim: + JCS(P) + period; P excludes only claimText. Preserve material meaning fields and original evidence elsewhere by immutable binding."
+    },
+    {
+      "id": "V05-time-sample-event",
+      "inventoryRow": "V05-time-sample",
+      "status": "FICTIONAL_RENDER_ONLY_NOT_SCHEMA_VALIDATED_NOT_ADMITTED",
+      "bindingLimit": "The local witness is only a hashable render specimen. It is not actual measurement, event, rule, proof or policy evidence; repeated binding positions deliberately make no semantic validity claim.",
+      "boundWitnessBytesUtf8": "{\"admitted\":false,\"claims\":{\"activity\":\"collect-sample\",\"analysisResult\":{\"resultKind\":\"ABSENT_PENDING\"},\"spatialSupport\":\"composite sampled support\",\"specimen\":\"sample:fictional:composite-a\",\"timeBasis\":\"SAMPLE_TIME\"},\"inventoryRow\":\"V05-time-sample\",\"kind\":\"LOCAL_FICTIONAL_MEANING_WITNESS\"}",
+      "projectionP": {
+        "action": "ASSERT_OPERATION_CLAIM",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:17"
+        },
+        "subjectTime": {
+          "profile": "PERFORMED_INSTANT",
+          "at": "2026-05-06T10:05:00Z"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:17"
+          }
+        ],
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "vocabularyRevision": "canonical-claim-inventory-02.1-proposed",
+          "proposition": {
+            "activity": "collect-sample",
+            "specimen": "sample:fictional:composite-a",
+            "timeBasis": "SAMPLE_TIME",
+            "spatialSupport": "composite sampled support",
+            "analysisResult": {
+              "resultKind": "ABSENT_PENDING"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "fictional:inventory-02:V05-time-sample",
+            "digest": "sha256:adb6d7b7baa538dc23216c533c60fa5f9b8da4d14ef29a463294574467bfa474"
+          }
+        ],
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:sampler"
+        },
+        "associatedSemanticEventBinding": {
+          "ref": "fictional:inventory-02:V05-time-sample",
+          "digest": "sha256:adb6d7b7baa538dc23216c533c60fa5f9b8da4d14ef29a463294574467bfa474"
+        }
+      },
+      "claimText": "Pending claim: {\"action\":\"ASSERT_OPERATION_CLAIM\",\"anchorScopes\":[{\"scopeRef\":\"field:fictional:17\",\"scopeType\":\"FIELD\"}],\"assertionBody\":{\"assertionPosture\":\"INITIAL\",\"proposition\":{\"activity\":\"collect-sample\",\"analysisResult\":{\"resultKind\":\"ABSENT_PENDING\"},\"spatialSupport\":\"composite sampled support\",\"specimen\":\"sample:fictional:composite-a\",\"timeBasis\":\"SAMPLE_TIME\"},\"vocabularyRevision\":\"canonical-claim-inventory-02.1-proposed\"},\"associatedSemanticEventBinding\":{\"digest\":\"sha256:adb6d7b7baa538dc23216c533c60fa5f9b8da4d14ef29a463294574467bfa474\",\"ref\":\"fictional:inventory-02:V05-time-sample\"},\"evidenceBindings\":[{\"digest\":\"sha256:adb6d7b7baa538dc23216c533c60fa5f9b8da4d14ef29a463294574467bfa474\",\"ref\":\"fictional:inventory-02:V05-time-sample\"}],\"operationClaimContext\":{\"claimPosture\":\"PERFORMED\",\"performedByPartyRef\":\"party:fictional:sampler\"},\"subject\":{\"subjectRef\":\"field:fictional:17\",\"subjectType\":\"FIELD\"},\"subjectTime\":{\"at\":\"2026-05-06T10:05:00Z\",\"profile\":\"PERFORMED_INSTANT\"}}.",
+      "expectedRoundTrip": {
+        "action": "ASSERT_OPERATION_CLAIM",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:17"
+        },
+        "subjectTime": {
+          "profile": "PERFORMED_INSTANT",
+          "at": "2026-05-06T10:05:00Z"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:17"
+          }
+        ],
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "vocabularyRevision": "canonical-claim-inventory-02.1-proposed",
+          "proposition": {
+            "activity": "collect-sample",
+            "specimen": "sample:fictional:composite-a",
+            "timeBasis": "SAMPLE_TIME",
+            "spatialSupport": "composite sampled support",
+            "analysisResult": {
+              "resultKind": "ABSENT_PENDING"
+            }
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "fictional:inventory-02:V05-time-sample",
+            "digest": "sha256:adb6d7b7baa538dc23216c533c60fa5f9b8da4d14ef29a463294574467bfa474"
+          }
+        ],
+        "operationClaimContext": {
+          "claimPosture": "PERFORMED",
+          "performedByPartyRef": "party:fictional:sampler"
+        },
+        "associatedSemanticEventBinding": {
+          "ref": "fictional:inventory-02:V05-time-sample",
+          "digest": "sha256:adb6d7b7baa538dc23216c533c60fa5f9b8da4d14ef29a463294574467bfa474"
+        }
+      },
+      "exactTextPredicate": "claimText equals Pending claim: + JCS(P) + period; P excludes only claimText. Preserve material meaning fields and original evidence elsewhere by immutable binding."
+    },
+    {
+      "id": "V05-result-censored_numeric-no-event",
+      "inventoryRow": "V05-result-censored_numeric",
+      "status": "FICTIONAL_RENDER_ONLY_NOT_SCHEMA_VALIDATED_NOT_ADMITTED",
+      "bindingLimit": "The local witness is only a hashable render specimen. It is not actual measurement, event, rule, proof or policy evidence; repeated binding positions deliberately make no semantic validity claim.",
+      "boundWitnessBytesUtf8": "{\"admitted\":false,\"claims\":{\"allegedOutcome\":\"UNDETERMINED\",\"comparison\":\"LESS_THAN\",\"criterion\":\"candidate:nitrate-limit\",\"result\":{\"censoringQualifier\":\"BELOW_LOQ\",\"kind\":\"CENSORED_NUMERIC\",\"limit\":2,\"originalLexicalValue\":\"< 2 mg/kg\",\"unit\":\"ucum:mg.kg-1\"}},\"inventoryRow\":\"V05-result-censored_numeric\",\"kind\":\"LOCAL_FICTIONAL_MEANING_WITNESS\"}",
+      "projectionP": {
+        "action": "ASSERT_COMPLIANCE",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:17"
+        },
+        "subjectTime": {
+          "profile": "COMPLIANCE_AS_OF",
+          "at": "2026-05-06T10:05:00Z"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:17"
+          }
+        ],
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "vocabularyRevision": "canonical-claim-inventory-02.1-proposed",
+          "proposition": {
+            "criterion": "candidate:nitrate-limit",
+            "comparison": "LESS_THAN",
+            "result": {
+              "kind": "CENSORED_NUMERIC",
+              "censoringQualifier": "BELOW_LOQ",
+              "limit": 2,
+              "unit": "ucum:mg.kg-1",
+              "originalLexicalValue": "< 2 mg/kg"
+            },
+            "allegedOutcome": "UNDETERMINED"
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "fictional:inventory-02:V05-result-censored_numeric",
+            "digest": "sha256:a4ade0d74026d0ad61c007751f65dc61a3f80a3a0a9e61d3e15e428c49c0bef5"
+          }
+        ],
+        "complianceBasis": {
+          "ruleRevisionBindings": [
+            {
+              "ref": "fictional:inventory-02:V05-result-censored_numeric",
+              "digest": "sha256:a4ade0d74026d0ad61c007751f65dc61a3f80a3a0a9e61d3e15e428c49c0bef5"
+            }
+          ],
+          "evidencePolicyRevisionBindings": [
+            {
+              "ref": "fictional:inventory-02:V05-result-censored_numeric",
+              "digest": "sha256:a4ade0d74026d0ad61c007751f65dc61a3f80a3a0a9e61d3e15e428c49c0bef5"
+            }
+          ]
+        }
+      },
+      "claimText": "Pending claim: {\"action\":\"ASSERT_COMPLIANCE\",\"anchorScopes\":[{\"scopeRef\":\"field:fictional:17\",\"scopeType\":\"FIELD\"}],\"assertionBody\":{\"assertionPosture\":\"INITIAL\",\"proposition\":{\"allegedOutcome\":\"UNDETERMINED\",\"comparison\":\"LESS_THAN\",\"criterion\":\"candidate:nitrate-limit\",\"result\":{\"censoringQualifier\":\"BELOW_LOQ\",\"kind\":\"CENSORED_NUMERIC\",\"limit\":2,\"originalLexicalValue\":\"< 2 mg/kg\",\"unit\":\"ucum:mg.kg-1\"}},\"vocabularyRevision\":\"canonical-claim-inventory-02.1-proposed\"},\"complianceBasis\":{\"evidencePolicyRevisionBindings\":[{\"digest\":\"sha256:a4ade0d74026d0ad61c007751f65dc61a3f80a3a0a9e61d3e15e428c49c0bef5\",\"ref\":\"fictional:inventory-02:V05-result-censored_numeric\"}],\"ruleRevisionBindings\":[{\"digest\":\"sha256:a4ade0d74026d0ad61c007751f65dc61a3f80a3a0a9e61d3e15e428c49c0bef5\",\"ref\":\"fictional:inventory-02:V05-result-censored_numeric\"}]},\"evidenceBindings\":[{\"digest\":\"sha256:a4ade0d74026d0ad61c007751f65dc61a3f80a3a0a9e61d3e15e428c49c0bef5\",\"ref\":\"fictional:inventory-02:V05-result-censored_numeric\"}],\"subject\":{\"subjectRef\":\"field:fictional:17\",\"subjectType\":\"FIELD\"},\"subjectTime\":{\"at\":\"2026-05-06T10:05:00Z\",\"profile\":\"COMPLIANCE_AS_OF\"}}.",
+      "expectedRoundTrip": {
+        "action": "ASSERT_COMPLIANCE",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:17"
+        },
+        "subjectTime": {
+          "profile": "COMPLIANCE_AS_OF",
+          "at": "2026-05-06T10:05:00Z"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:17"
+          }
+        ],
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "vocabularyRevision": "canonical-claim-inventory-02.1-proposed",
+          "proposition": {
+            "criterion": "candidate:nitrate-limit",
+            "comparison": "LESS_THAN",
+            "result": {
+              "kind": "CENSORED_NUMERIC",
+              "censoringQualifier": "BELOW_LOQ",
+              "limit": 2,
+              "unit": "ucum:mg.kg-1",
+              "originalLexicalValue": "< 2 mg/kg"
+            },
+            "allegedOutcome": "UNDETERMINED"
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "fictional:inventory-02:V05-result-censored_numeric",
+            "digest": "sha256:a4ade0d74026d0ad61c007751f65dc61a3f80a3a0a9e61d3e15e428c49c0bef5"
+          }
+        ],
+        "complianceBasis": {
+          "ruleRevisionBindings": [
+            {
+              "ref": "fictional:inventory-02:V05-result-censored_numeric",
+              "digest": "sha256:a4ade0d74026d0ad61c007751f65dc61a3f80a3a0a9e61d3e15e428c49c0bef5"
+            }
+          ],
+          "evidencePolicyRevisionBindings": [
+            {
+              "ref": "fictional:inventory-02:V05-result-censored_numeric",
+              "digest": "sha256:a4ade0d74026d0ad61c007751f65dc61a3f80a3a0a9e61d3e15e428c49c0bef5"
+            }
+          ]
+        }
+      },
+      "exactTextPredicate": "claimText equals Pending claim: + JCS(P) + period; P excludes only claimText. Preserve material meaning fields and original evidence elsewhere by immutable binding."
+    },
+    {
+      "id": "V06-occupancy-no-event",
+      "inventoryRow": "V06-occupancy",
+      "status": "FICTIONAL_RENDER_ONLY_NOT_SCHEMA_VALIDATED_NOT_ADMITTED",
+      "bindingLimit": "The local witness is only a hashable render specimen. It is not actual measurement, event, rule, proof or policy evidence; repeated binding positions deliberately make no semantic validity claim.",
+      "boundWitnessBytesUtf8": "{\"admitted\":false,\"claims\":{\"container\":\"container:fictional:1\",\"identityPosture\":\"same container, bounded occupancy\",\"material\":\"lot:fictional:a\",\"relation\":\"MATERIAL_OCCUPIES_CONTAINER_OR_LOCATION\"},\"inventoryRow\":\"V06-occupancy\",\"kind\":\"LOCAL_FICTIONAL_MEANING_WITNESS\"}",
+      "projectionP": {
+        "action": "ASSERT_STRUCTURE",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:17"
+        },
+        "subjectTime": {
+          "profile": "STRUCTURE_EFFECTIVE_INTERVAL",
+          "start": "2026-05-01T00:00:00Z",
+          "end": "2026-05-02T00:00:00Z"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:17"
+          }
+        ],
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "vocabularyRevision": "canonical-claim-inventory-02.1-proposed",
+          "proposition": {
+            "relation": "MATERIAL_OCCUPIES_CONTAINER_OR_LOCATION",
+            "material": "lot:fictional:a",
+            "container": "container:fictional:1",
+            "identityPosture": "same container, bounded occupancy"
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "fictional:inventory-02:V06-occupancy",
+            "digest": "sha256:2fcb1ff2aba2efad2f4e465b09dc2fa85b598359af05f103de3027d1f2c5a38b"
+          }
+        ]
+      },
+      "claimText": "Pending claim: {\"action\":\"ASSERT_STRUCTURE\",\"anchorScopes\":[{\"scopeRef\":\"field:fictional:17\",\"scopeType\":\"FIELD\"}],\"assertionBody\":{\"assertionPosture\":\"INITIAL\",\"proposition\":{\"container\":\"container:fictional:1\",\"identityPosture\":\"same container, bounded occupancy\",\"material\":\"lot:fictional:a\",\"relation\":\"MATERIAL_OCCUPIES_CONTAINER_OR_LOCATION\"},\"vocabularyRevision\":\"canonical-claim-inventory-02.1-proposed\"},\"evidenceBindings\":[{\"digest\":\"sha256:2fcb1ff2aba2efad2f4e465b09dc2fa85b598359af05f103de3027d1f2c5a38b\",\"ref\":\"fictional:inventory-02:V06-occupancy\"}],\"subject\":{\"subjectRef\":\"field:fictional:17\",\"subjectType\":\"FIELD\"},\"subjectTime\":{\"end\":\"2026-05-02T00:00:00Z\",\"profile\":\"STRUCTURE_EFFECTIVE_INTERVAL\",\"start\":\"2026-05-01T00:00:00Z\"}}.",
+      "expectedRoundTrip": {
+        "action": "ASSERT_STRUCTURE",
+        "subject": {
+          "subjectType": "FIELD",
+          "subjectRef": "field:fictional:17"
+        },
+        "subjectTime": {
+          "profile": "STRUCTURE_EFFECTIVE_INTERVAL",
+          "start": "2026-05-01T00:00:00Z",
+          "end": "2026-05-02T00:00:00Z"
+        },
+        "anchorScopes": [
+          {
+            "scopeType": "FIELD",
+            "scopeRef": "field:fictional:17"
+          }
+        ],
+        "assertionBody": {
+          "assertionPosture": "INITIAL",
+          "vocabularyRevision": "canonical-claim-inventory-02.1-proposed",
+          "proposition": {
+            "relation": "MATERIAL_OCCUPIES_CONTAINER_OR_LOCATION",
+            "material": "lot:fictional:a",
+            "container": "container:fictional:1",
+            "identityPosture": "same container, bounded occupancy"
+          }
+        },
+        "evidenceBindings": [
+          {
+            "ref": "fictional:inventory-02:V06-occupancy",
+            "digest": "sha256:2fcb1ff2aba2efad2f4e465b09dc2fa85b598359af05f103de3027d1f2c5a38b"
+          }
+        ]
+      },
+      "exactTextPredicate": "claimText equals Pending claim: + JCS(P) + period; P excludes only claimText. Preserve material meaning fields and original evidence elsewhere by immutable binding."
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "python": "3.14.5 (main, May 10 2026, 10:21:34) [Clang 17.0.0 (clang-1700.6.4.2)]",
+  "packages": {
+    "jsonschema": "4.26.0",
+    "referencing": "0.37.0"
+  },
+  "rfc8785": "0.1.4 via isolated existing dependency path",
+  "results": [
+    {
+      "pr": 41,
+      "label": "assertion",
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "source-checkout:plans/domain-contract-verifier-20261021/amendment-01/dependency-review/snapshots/41/04_implementation_and_conformance/conformance_runners/ofarm_assertion_record_submission_v0_2.py"
+      ],
+      "exitCode": 0,
+      "summary": {
+        "result": "PASS",
+        "positiveCases": 75,
+        "negativeCases": 452,
+        "failures": []
+      },
+      "stdout": "logs/pr41-assertion.stdout",
+      "stderr": "logs/pr41-assertion.stderr"
+    },
+    {
+      "pr": 42,
+      "label": "inputs",
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "source-checkout:plans/domain-contract-verifier-20261021/amendment-01/dependency-review/snapshots/42/04_implementation_and_conformance/conformance_runners/ofarm_authorization_effect_intents_v0_2.py"
+      ],
+      "exitCode": 0,
+      "summary": {
+        "result": "PASS",
+        "positiveCases": 123,
+        "negativeCases": 497,
+        "readKindFormPairs": 60,
+        "failures": []
+      },
+      "stdout": "logs/pr42-inputs.stdout",
+      "stderr": "logs/pr42-inputs.stderr"
+    },
+    {
+      "pr": 43,
+      "label": "trace",
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "source-checkout:plans/domain-contract-verifier-20261021/amendment-01/dependency-review/snapshots/43/04_implementation_and_conformance/conformance_runners/ofarm_protected_effect_validation_trace_envelope_v0_1.py"
+      ],
+      "exitCode": 0,
+      "summary": {
+        "result": "PASS",
+        "positiveCases": 24,
+        "negativeCases": 283,
+        "failures": []
+      },
+      "stdout": "logs/pr43-trace.stdout",
+      "stderr": "logs/pr43-trace.stderr"
+    },
+    {
+      "pr": 44,
+      "label": "operation-read",
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "source-checkout:plans/domain-contract-verifier-20261021/amendment-01/dependency-review/snapshots/44/04_implementation_and_conformance/conformance_runners/ofarm_authorization_effect_intents_v0_2.py"
+      ],
+      "exitCode": 0,
+      "summary": {
+        "result": "PASS",
+        "positiveCases": 123,
+        "negativeCases": 497,
+        "readKindFormPairs": 60,
+        "failures": []
+      },
+      "stdout": "logs/pr44-operation-read.stdout",
+      "stderr": "logs/pr44-operation-read.stderr"
+    },
+    {
+      "pr": 44,
+      "label": "inactive-inputs",
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "source-checkout:plans/domain-contract-verifier-20261021/amendment-01/dependency-review/snapshots/44/04_implementation_and_conformance/conformance_runners/ofarm_authorization_effect_intents_v0_2.py",
+        "--cases",
+        "source-checkout:plans/domain-contract-verifier-20261021/amendment-01/dependency-review/snapshots/44/04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/OFARM_StructureComplianceEffectIntent_cases_v0_2.json"
+      ],
+      "exitCode": 0,
+      "summary": {
+        "result": "PASS",
+        "positiveCases": 59,
+        "negativeCases": 348,
+        "readKindFormPairs": 0,
+        "failures": []
+      },
+      "stdout": "logs/pr44-inactive-inputs.stdout",
+      "stderr": "logs/pr44-inactive-inputs.stderr"
+    },
+    {
+      "pr": 45,
+      "label": "mapping",
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "source-checkout:plans/domain-contract-verifier-20261021/amendment-01/dependency-review/snapshots/45/04_implementation_and_conformance/conformance_runners/ofarm_assertion_record_domain_mappings_v0_1.py"
+      ],
+      "exitCode": 0,
+      "summary": {
+        "result": "PASS",
+        "cases": 147,
+        "outcomes": {
+          "MATCH": 22,
+          "MISMATCH": 26,
+          "UNAVAILABLE": 99
+        },
+        "failures": []
+      },
+      "stdout": "logs/pr45-mapping.stdout",
+      "stderr": "logs/pr45-mapping.stderr"
+    }
+  ]
+}

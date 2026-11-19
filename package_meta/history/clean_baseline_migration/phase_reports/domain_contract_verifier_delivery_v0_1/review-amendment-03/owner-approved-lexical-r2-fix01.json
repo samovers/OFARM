@@ -1,0 +1,40 @@
+{
+  "status": "FICTIONAL_OWNER_APPROVED_TEST_REVISION_NOT_RUNTIME_ADMISSION",
+  "sourceHead": "37d680d598af0cd321c6d06e91af6aba60a73c8d",
+  "decision": "The separate r2 human transcription preserves scalar spelling 2.00. Its immutable binding and exact record digest are independently selected in w05-owner-profile-fix01.json. This approval is confined to the existing fictional lexical variation test; r1 remains unchanged.",
+  "quantityProvenance": {
+    "binding": {
+      "fixtureLogicalRef": "quantity-source:W05-lab-transcription-fictional",
+      "fixtureRevision": "r2",
+      "admittedRuntimeBinding": false
+    },
+    "record": {
+      "fixtureRecordType": "UNADOPTED_QUANTITY_SOURCE_EXAMPLE",
+      "reportingMethod": "HUMAN_TRANSCRIPTION_OF_LAB_REPORT",
+      "reportedByPartyRef": "party:fictional-lab-report-transcriber",
+      "measurementBinding": {
+        "fixtureLogicalRef": "nitrate-measurement:fictional",
+        "fixtureRevision": "r1",
+        "admittedRuntimeBinding": false
+      },
+      "measurementSourceRef": "lab-report:W05-fictional",
+      "selectedMeasurementPointer": "/result/detectionLimit",
+      "loq": {
+        "quantityKind": "qudt:MassFraction",
+        "unit": "ucum:mg.kg-1",
+        "decimal": "2",
+        "qualifier": "HUMAN_REPORTED",
+        "originalLexicalValue": "2.00",
+        "unitProfile": {
+          "fixtureLogicalRef": "unit-profile:example",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        }
+      },
+      "scope": "This record explicitly models a person transcribing the reported LOQ scalar. LAB_RESULT alone establishes neither human nor machine reporting. It does not change the laboratory method, censoring qualifier or result meaning.",
+      "status": "FICTIONAL_UNADMITTED"
+    },
+    "contentDigest": "sha256:234b6a8264f04fa7fbfaa34fa1aa0f76d582ec52a4373edbd3409642fafff1de"
+  },
+  "next": "Use only this approved r2 binding and pinned record in the lexical positive."
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ofarm.dev/schema/drafts/non-default/assertion-domain/event-extension-definition/v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "ofarm.assertionDomainEventExtensionDefinition.v0.1"
+    },
+    "definitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "caseKind": {
+      "enum": [
+        "PRUNING_COMPLETION",
+        "ANALYSIS_WORK_IN_PROGRESS_PENDING_OUTPUT"
+      ]
+    },
+    "subtypePresence": {
+      "enum": [
+        "PRESENT",
+        "ABSENT"
+      ]
+    },
+    "eventSubtypeId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "dominantSemanticConsequence": {
+      "type": "string",
+      "minLength": 1
+    },
+    "primaryFamily": {
+      "enum": [
+        "StructureEvent",
+        "ObservationEvent",
+        "OccurrenceEvent",
+        "InterventionEvent",
+        "MaterialEvent",
+        "EvidenceEvent",
+        "GovernanceEvent"
+      ]
+    },
+    "vocabularyRevision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourcePackRef": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "definitionId",
+    "caseKind",
+    "subtypePresence",
+    "eventSubtypeId",
+    "dominantSemanticConsequence",
+    "primaryFamily",
+    "vocabularyRevision",
+    "sourcePackRef"
+  ],
+  "$comment": "New domain-owned normative input. Exact independent selection and protected original bytes are required. No source admission, authority, runtime producer or statutory applicability is asserted."
+}

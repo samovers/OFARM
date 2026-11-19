@@ -1,0 +1,1172 @@
+{
+  "status": "PROPOSED_TYPED_CITATION_CLOSURE",
+  "repairedExamples": [
+    {
+      "id": "W01_EQUIPMENT",
+      "addedBindings": [
+        {
+          "fixtureLogicalRef": "configuration:sprayer-C",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        }
+      ],
+      "repairedCitationOccurrences": [
+        {
+          "pointer": "/proposition/body/configuration",
+          "binding": {
+            "fixtureLogicalRef": "configuration:sprayer-C",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#S12",
+          "selector": "/configuration"
+        }
+      ],
+      "selectedCitations": [
+        {
+          "pointer": "/proposition/body/configuration",
+          "binding": {
+            "fixtureLogicalRef": "configuration:sprayer-C",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#S12",
+          "selector": "/configuration"
+        },
+        {
+          "pointer": "/proposition/body/inspectionEvidence/0",
+          "binding": {
+            "fixtureLogicalRef": "inspection:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#S12",
+          "selector": "/inspectionEvidence/*"
+        }
+      ]
+    },
+    {
+      "id": "W02_SI_QUALIFIED_PARTIAL_USE",
+      "addedBindings": [
+        {
+          "fixtureLogicalRef": "SI-product-authorisation:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "parcel-snapshot:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "use-context:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "training:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "inspection:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "source:fictional:treatedArea",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "plan:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        }
+      ],
+      "repairedCitationOccurrences": [
+        {
+          "pointer": "/proposition/child/body/parameters/officialIdentity",
+          "binding": {
+            "fixtureLogicalRef": "SI-product-authorisation:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/officialIdentity"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/parcel/snapshot",
+          "binding": {
+            "fixtureLogicalRef": "parcel-snapshot:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/parcel/snapshot"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/stage/basis",
+          "binding": {
+            "fixtureLogicalRef": "use-context:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/stage/basis"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/trainingEvidence",
+          "binding": {
+            "fixtureLogicalRef": "training:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/trainingEvidence"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/equipment/inspection",
+          "binding": {
+            "fixtureLogicalRef": "inspection:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/equipment/inspection"
+        },
+        {
+          "pointer": "/proposition/child/body/quantityParameters/1/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:treatedArea",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/child/body/quantityParameters/2/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "plan:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ],
+      "selectedCitations": [
+        {
+          "pointer": "/proposition/child/body/parameters/officialIdentity",
+          "binding": {
+            "fixtureLogicalRef": "SI-product-authorisation:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/officialIdentity"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/parcel/snapshot",
+          "binding": {
+            "fixtureLogicalRef": "parcel-snapshot:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/parcel/snapshot"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/stage/basis",
+          "binding": {
+            "fixtureLogicalRef": "use-context:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/stage/basis"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/trainingEvidence",
+          "binding": {
+            "fixtureLogicalRef": "training:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/trainingEvidence"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/equipment/inspection",
+          "binding": {
+            "fixtureLogicalRef": "inspection:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/equipment/inspection"
+        },
+        {
+          "pointer": "/proposition/child/body/quantityParameters/1/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:treatedArea",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/child/body/quantityParameters/2/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "plan:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ]
+    },
+    {
+      "id": "W07_NL_ROUTE_QUALIFIED",
+      "addedBindings": [
+        {
+          "fixtureLogicalRef": "history-claim:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "soil-source:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "rustgewas-history:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "Skal-or-RVO-route:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "profile-evaluation:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        }
+      ],
+      "repairedCitationOccurrences": [
+        {
+          "pointer": "/proposition/body/historyClaim",
+          "binding": {
+            "fixtureLogicalRef": "history-claim:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#C16",
+          "selector": "/historyClaim"
+        },
+        {
+          "pointer": "/proposition/body/soilEvidence",
+          "binding": {
+            "fixtureLogicalRef": "soil-source:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#C16",
+          "selector": "/soilEvidence"
+        },
+        {
+          "pointer": "/proposition/body/rustgewasEvidence",
+          "binding": {
+            "fixtureLogicalRef": "rustgewas-history:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#C16",
+          "selector": "/rustgewasEvidence"
+        },
+        {
+          "pointer": "/proposition/body/routeEvidence",
+          "binding": {
+            "fixtureLogicalRef": "Skal-or-RVO-route:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#C16",
+          "selector": "/routeEvidence"
+        },
+        {
+          "pointer": "/proposition/body/evaluationBasis/binding",
+          "binding": {
+            "fixtureLogicalRef": "profile-evaluation:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#C16",
+          "selector": "/evaluationBasis/binding"
+        }
+      ],
+      "selectedCitations": [
+        {
+          "pointer": "/proposition/body/historyClaim",
+          "binding": {
+            "fixtureLogicalRef": "history-claim:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#C16",
+          "selector": "/historyClaim"
+        },
+        {
+          "pointer": "/proposition/body/soilEvidence",
+          "binding": {
+            "fixtureLogicalRef": "soil-source:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#C16",
+          "selector": "/soilEvidence"
+        },
+        {
+          "pointer": "/proposition/body/rustgewasEvidence",
+          "binding": {
+            "fixtureLogicalRef": "rustgewas-history:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#C16",
+          "selector": "/rustgewasEvidence"
+        },
+        {
+          "pointer": "/proposition/body/routeEvidence",
+          "binding": {
+            "fixtureLogicalRef": "Skal-or-RVO-route:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#C16",
+          "selector": "/routeEvidence"
+        },
+        {
+          "pointer": "/proposition/body/evaluationBasis/binding",
+          "binding": {
+            "fixtureLogicalRef": "profile-evaluation:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#C16",
+          "selector": "/evaluationBasis/binding"
+        }
+      ]
+    },
+    {
+      "id": "W08_SI_COMPLETE_TYPED_USE",
+      "addedBindings": [
+        {
+          "fixtureLogicalRef": "SI-product-authorisation:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "parcel-snapshot:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "use-context:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "training:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "inspection:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "source:fictional:dose",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "source:fictional:treatedArea",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        }
+      ],
+      "repairedCitationOccurrences": [
+        {
+          "pointer": "/proposition/child/body/parameters/officialIdentity",
+          "binding": {
+            "fixtureLogicalRef": "SI-product-authorisation:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/officialIdentity"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/parcel/snapshot",
+          "binding": {
+            "fixtureLogicalRef": "parcel-snapshot:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/parcel/snapshot"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/stage/basis",
+          "binding": {
+            "fixtureLogicalRef": "use-context:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/stage/basis"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/trainingEvidence",
+          "binding": {
+            "fixtureLogicalRef": "training:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/trainingEvidence"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/equipment/inspection",
+          "binding": {
+            "fixtureLogicalRef": "inspection:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/equipment/inspection"
+        },
+        {
+          "pointer": "/proposition/child/body/quantityParameters/0/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:dose",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/child/body/quantityParameters/1/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:treatedArea",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ],
+      "selectedCitations": [
+        {
+          "pointer": "/proposition/child/body/parameters/officialIdentity",
+          "binding": {
+            "fixtureLogicalRef": "SI-product-authorisation:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/officialIdentity"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/parcel/snapshot",
+          "binding": {
+            "fixtureLogicalRef": "parcel-snapshot:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/parcel/snapshot"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/stage/basis",
+          "binding": {
+            "fixtureLogicalRef": "use-context:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/stage/basis"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/trainingEvidence",
+          "binding": {
+            "fixtureLogicalRef": "training:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/trainingEvidence"
+        },
+        {
+          "pointer": "/proposition/child/body/parameters/equipment/inspection",
+          "binding": {
+            "fixtureLogicalRef": "inspection:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/parameters/equipment/inspection"
+        },
+        {
+          "pointer": "/proposition/child/body/quantityParameters/0/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:dose",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/child/body/quantityParameters/1/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:treatedArea",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O19",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ]
+    },
+    {
+      "id": "W10_RECEIVE",
+      "addedBindings": [
+        {
+          "fixtureLogicalRef": "delivery:receipt",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "source:fictional:handledQuantity",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        }
+      ],
+      "repairedCitationOccurrences": [
+        {
+          "pointer": "/proposition/body/parameters/deliveryReference",
+          "binding": {
+            "fixtureLogicalRef": "delivery:receipt",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O24",
+          "selector": "/parameters/deliveryReference"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/0/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:handledQuantity",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O24",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ],
+      "selectedCitations": [
+        {
+          "pointer": "/proposition/body/parameters/deliveryReference",
+          "binding": {
+            "fixtureLogicalRef": "delivery:receipt",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O24",
+          "selector": "/parameters/deliveryReference"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/0/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:handledQuantity",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O24",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ]
+    },
+    {
+      "id": "W11_RECLASSIFY",
+      "addedBindings": [
+        {
+          "fixtureLogicalRef": "classification-evidence:inspection",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "source:fictional:handledQuantity",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        }
+      ],
+      "repairedCitationOccurrences": [
+        {
+          "pointer": "/proposition/body/parameters/classificationBasis",
+          "binding": {
+            "fixtureLogicalRef": "classification-evidence:inspection",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O25",
+          "selector": "/parameters/classificationBasis"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/0/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:handledQuantity",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O25",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ],
+      "selectedCitations": [
+        {
+          "pointer": "/proposition/body/parameters/classificationBasis",
+          "binding": {
+            "fixtureLogicalRef": "classification-evidence:inspection",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O25",
+          "selector": "/parameters/classificationBasis"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/0/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:handledQuantity",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O25",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ]
+    },
+    {
+      "id": "W12_DISPOSE",
+      "addedBindings": [
+        {
+          "fixtureLogicalRef": "disposal-record:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "source:fictional:handledQuantity",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        }
+      ],
+      "repairedCitationOccurrences": [
+        {
+          "pointer": "/proposition/body/parameters/disposalRecord",
+          "binding": {
+            "fixtureLogicalRef": "disposal-record:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O26",
+          "selector": "/parameters/disposalRecord"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/0/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:handledQuantity",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O26",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ],
+      "selectedCitations": [
+        {
+          "pointer": "/proposition/body/parameters/disposalRecord",
+          "binding": {
+            "fixtureLogicalRef": "disposal-record:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O26",
+          "selector": "/parameters/disposalRecord"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/0/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:handledQuantity",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O26",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ]
+    },
+    {
+      "id": "W13_CREATE_LOT_ALLEGATION",
+      "addedBindings": [
+        {
+          "fixtureLogicalRef": "source:fictional:handledQuantity",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        }
+      ],
+      "repairedCitationOccurrences": [
+        {
+          "pointer": "/proposition/body/quantityParameters/0/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:handledQuantity",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O27",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ],
+      "selectedCitations": [
+        {
+          "pointer": "/proposition/body/quantityParameters/0/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:handledQuantity",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O27",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ]
+    },
+    {
+      "id": "W14_MULTI_ROLE_APPLICATION",
+      "addedBindings": [
+        {
+          "fixtureLogicalRef": "source:fictional:rate",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "source:fictional:applicationVolume",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        }
+      ],
+      "repairedCitationOccurrences": [
+        {
+          "pointer": "/proposition/body/quantityParameters/0/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/1/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:applicationVolume",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/2/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/3/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/4/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/5/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/6/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/7/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/8/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ],
+      "selectedCitations": [
+        {
+          "pointer": "/proposition/body/quantityParameters/0/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/1/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:applicationVolume",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/2/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/3/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/4/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/5/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/6/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/7/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/8/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O01",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ]
+    },
+    {
+      "id": "W15_IRRIGATION_VOLUME_AND_FLOW",
+      "addedBindings": [
+        {
+          "fixtureLogicalRef": "source:fictional:waterVolume",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        },
+        {
+          "fixtureLogicalRef": "source:fictional:rate",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        }
+      ],
+      "repairedCitationOccurrences": [
+        {
+          "pointer": "/proposition/body/quantityParameters/0/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:waterVolume",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O04",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/1/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O04",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ],
+      "selectedCitations": [
+        {
+          "pointer": "/proposition/body/quantityParameters/0/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:waterVolume",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O04",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        },
+        {
+          "pointer": "/proposition/body/quantityParameters/1/value/original/sourceBinding",
+          "binding": {
+            "fixtureLogicalRef": "source:fictional:rate",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O04",
+          "selector": "/quantityParameters/*/value/original/sourceBinding"
+        }
+      ]
+    },
+    {
+      "id": "W17_O22_PERFORMED_INTERVAL",
+      "addedBindings": [
+        {
+          "fixtureLogicalRef": "analysis-result:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        }
+      ],
+      "repairedCitationOccurrences": [
+        {
+          "pointer": "/proposition/body/parameters/producedResult/binding",
+          "binding": {
+            "fixtureLogicalRef": "analysis-result:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O22",
+          "selector": "/parameters/producedResult/binding"
+        }
+      ],
+      "selectedCitations": [
+        {
+          "pointer": "/proposition/body/parameters/producedResult/binding",
+          "binding": {
+            "fixtureLogicalRef": "analysis-result:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O22",
+          "selector": "/parameters/producedResult/binding"
+        }
+      ]
+    },
+    {
+      "id": "W19_O23_PERFORMED_INTERVAL",
+      "addedBindings": [
+        {
+          "fixtureLogicalRef": "report:fictional",
+          "fixtureRevision": "r1",
+          "admittedRuntimeBinding": false
+        }
+      ],
+      "repairedCitationOccurrences": [
+        {
+          "pointer": "/proposition/body/parameters/report/binding",
+          "binding": {
+            "fixtureLogicalRef": "report:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O23",
+          "selector": "/parameters/report/binding"
+        }
+      ],
+      "selectedCitations": [
+        {
+          "pointer": "/proposition/body/parameters/report/binding",
+          "binding": {
+            "fixtureLogicalRef": "report:fictional",
+            "fixtureRevision": "r1",
+            "admittedRuntimeBinding": false
+          },
+          "role": "ASSERTION_EVIDENCE",
+          "definition": "local-candidate:complete-claims:2026-10-20:r4#O23",
+          "selector": "/parameters/report/binding"
+        }
+      ]
+    }
+  ],
+  "missingCitationOccurrences": 40,
+  "addedBindings": 33,
+  "noOriginalBindingRemovedOrReinterpreted": true
+}

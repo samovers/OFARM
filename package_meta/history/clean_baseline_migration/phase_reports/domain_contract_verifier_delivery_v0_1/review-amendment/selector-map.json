@@ -1,0 +1,167 @@
+{
+  "id": "local-candidate:source-to-claim-selector-map:2026-10-21:v2",
+  "status": "DESIGN_MAPPING_NOT_RELEASED_SCHEMA_OR_RUNTIME_ADAPTER",
+  "base": "PR45 2110f6d78451b50712264dba87d0b8989f134907; reviewed PR47 e93cad876645799789956311ea091e82064cf981",
+  "existingMappings": [
+    {
+      "candidate": "/selectedAction",
+      "intent": "Selected action/rule and exact intent schema, not a new actionClass field",
+      "result": "/assertionType under PR23 section 7.2",
+      "rule": "Keep action, effect-subject and subtype tokens distinct."
+    },
+    {
+      "candidate": "/subject/kind",
+      "intent": "/subject/subjectType",
+      "result": "/subject/subjectType",
+      "rule": "Nine existing kinds; EQUIPMENT/TOOL/STORAGE_LOCATION/CONTAINER still require the new owned interfaces."
+    },
+    {
+      "candidate": "/subject/binding",
+      "intent": "/subject/subjectRef; subjectPosture; revisionRef XOR digest",
+      "result": "Same /subject object",
+      "rule": "All examples hypothetically describe EXISTING_SUBJECT. Fixture naming is not an immutable resolver."
+    },
+    {
+      "candidate": "/soleAuthorityAnchor",
+      "intent": "/resources/0/scope {scopeType,scopeRef,revisionRef XOR digest}",
+      "result": "/anchorScopes/0",
+      "rule": "Exactly one authority scope; tenant/resource proofs remain separately owned."
+    },
+    {
+      "candidate": "/assertionPosture",
+      "intent": "/assertionBody/assertionPosture",
+      "result": "Same body selector",
+      "rule": "INITIAL/CORRECTION remains rendered."
+    },
+    {
+      "candidate": "/subjectTime",
+      "intent": "/subjectTime",
+      "result": "/subjectTime",
+      "rule": "Exact profile/at/start/end keys already match. Structure/compliance also uses /assertionBody/applicability."
+    },
+    {
+      "candidate": "exactRenderedText",
+      "intent": "/assertionBody/claimText",
+      "result": "/assertionBody/claimText",
+      "rule": "Exact author-prepared text; verification cannot repair it after submission."
+    },
+    {
+      "candidate": "/evidenceBindings/*",
+      "intent": "/evidenceBindings/*",
+      "result": "/evidenceBindings/*",
+      "rule": "Fixture bindings map illustratively to {ref,revisionRef XOR digest}; no admittedRuntimeBinding flag is a wire proof."
+    },
+    {
+      "candidate": "/subjectScopeProofBindings/*",
+      "intent": "/subjectScopeProofBindings/*",
+      "result": "/subjectScopeProofBindings/*",
+      "rule": "Separate relation-proof role, not automatically assertion evidence."
+    },
+    {
+      "candidate": "/claimPosture",
+      "intent": "/claimPosture",
+      "result": "/operationClaimContext/claimPosture",
+      "rule": "Exact INTENDED/PERFORMED allegation."
+    },
+    {
+      "candidate": "/performedBy",
+      "intent": "/performedByPartyRef",
+      "result": "/operationClaimContext/performedByPartyRef",
+      "rule": "Existing wire value is the alleged performer's logical ref. Additional candidate immutable detail stays in the proposed typed body; never substitute reporter."
+    },
+    {
+      "candidate": "/allegesSoftwareAgentPerformance",
+      "intent": "/assertionBody/allegesSoftwareAgentPerformance",
+      "result": "Same body selector",
+      "rule": "Agent/performer-authority arrays keep their existing conditional destinations."
+    },
+    {
+      "candidate": "/temporalBasis kind BODY_TIME",
+      "intent": "/assertionBody/temporalBasis {sourceKind:BODY_TIME,time:<subjectTime>}",
+      "result": "Same body selector",
+      "rule": "kind/start/end are candidate names; existing wire uses sourceKind/time."
+    },
+    {
+      "candidate": "/temporalBasis kind MEASUREMENT_EVIDENCE",
+      "intent": "/assertionBody/temporalBasis {sourceKind:MEASUREMENT_EVIDENCE,evidenceBinding,atPointer}",
+      "result": "Same body selector",
+      "rule": "Map binding/pointer to evidenceBinding/atPointer. Specialized binding additionally requires pinned schemaRef/schemaVersion/schemaDigest. Preserve extra meaning/provenance qualifiers in new typed-body fields, not forbidden old-schema extras."
+    },
+    {
+      "candidate": "/association/envelope when PRESENT",
+      "intent": "/associatedSemanticEventBinding",
+      "result": "No AssertionRecord destination; separate trace",
+      "rule": "ABSENT means absence, not null. Case, ingress evidence and time selectors remain typed domain/owner context; the body does not classify the event."
+    },
+    {
+      "candidate": "/ruleRevisionBindings; /evidencePolicyRevisionBindings",
+      "intent": "Corresponding top-level arrays",
+      "result": "/complianceBasis/ruleRevisionBindings; /complianceBasis/evidencePolicyRevisionBindings",
+      "rule": "Exact complete arrays."
+    },
+    {
+      "candidate": "/claimState",
+      "intent": "No caller-selectable claimState",
+      "result": "/claimState",
+      "rule": "PENDING_REVIEW constant."
+    },
+    {
+      "candidate": "/supersedesAssertionRecordBinding",
+      "intent": "/supersedesAssertionRecordBinding",
+      "result": "Same selector",
+      "rule": "CORRECTION only; preserves complete prior-context/visibility checks."
+    }
+  ],
+  "excludedGovernedMappings": [
+    {
+      "candidate": "governedContextExample/assertedAt",
+      "intent": "/assertedAt",
+      "result": "/assertedAt",
+      "source": "Trusted online observation or resolved/admitted offline act evidence; never caller-rendered time."
+    },
+    {
+      "candidate": "governedContextExample/authoritySubjectPartyRef",
+      "intent": "No reporter field",
+      "result": "/assertedByPartyRef",
+      "source": "Canonical authorization path; independently compare offline Party/basis."
+    },
+    {
+      "candidate": "governedContextExample/assertionActPosture",
+      "intent": "/assertionActPosture",
+      "result": "Same selector",
+      "source": "Two existing governed postures."
+    },
+    {
+      "candidate": "governedContextExample/assertionActEvidenceBinding",
+      "intent": "/assertionActEvidenceBinding",
+      "result": "Same selector",
+      "source": "Offline-only; excluded from rendering, included in complete intent/result verification."
+    }
+  ],
+  "newTypedBodyRequirements": [
+    {
+      "candidate": "candidateGrammar",
+      "proposedSelector": "/assertionBody/claimLanguageRevision",
+      "rule": "New explicitly identified selected body schema; not a property of pinned old schema."
+    },
+    {
+      "candidate": "proposition",
+      "proposedSelector": "/assertionBody/proposition",
+      "rule": "Complete unchanged ATOM/composition tree, definition revision, scope, quantity/material/qualification/work/output content. Do not replace with tags or treat parsing old claimText as the authoritative typed source."
+    },
+    {
+      "candidate": "temporalBasis extra qualifications",
+      "proposedSelector": "/assertionBody/temporalQualifications",
+      "rule": "Exact requiredMeaning/sourceTimeBasis/collectionProvenance when supplied, alongside existing temporal selection. No fallback time."
+    },
+    {
+      "candidate": "association case/context",
+      "proposedSelector": "/assertionBody/eventAssociationContext",
+      "rule": "Exact caseDefinition/timeRole/timeSelector(s)/ingress input alongside the canonical intent envelope binding. ABSENT/PRESENT remains explicit in the candidate projection."
+    }
+  ],
+  "remainingClosure": "Complete context/payload/performer immutable detail and new subject types need closed fields and exact bindings in the newly identified body/intent schemas. This mapping neither supplies missing owner admission nor permits silently changing old schema identities.",
+  "bindingEquality": "Match complete immutable binding {ref,revisionRef XOR digest}. Specialized measurement schema metadata is additionally checked against actual pinned schema bytes and trace-bound; it is not inserted into the generic immutableBinding object, which rejects those members.",
+  "carrierIllustrationLimit": "W24/W25 real-v0.2-shaped carrier examples validate against base schemas and bind exact rendered text. Old bodies have no proposition field: this proves placement and act/body digest consistency only, not future typed-language materialization or full domain evaluation.",
+  "next": "Integrate this selector mapping; materialize the new typed-body schemas only under the existing source process."
+}
