@@ -179,7 +179,7 @@ def main():
  pkg=out/'disposable-package';pkg.mkdir(exist_ok=True)
  for d in ['schemas','source-contracts','sources']:shutil.copytree((S if d=='sources' else C)/d,pkg/d,dirs_exist_ok=True)
  shutil.copy2(C/'contract.json',pkg/'contract.json')
- def package_case(name,path,payload,code,*,repin=False,expected='DEPENDENCY_UNAVAILABLE'):
+ def package_case(name,path,payload,code,*,repin=False,repin_inputs=False,expected='DEPENDENCY_UNAVAILABLE'):
   original=(pkg/path).read_bytes();original_contract=(pkg/'contract.json').read_bytes();s=copy.deepcopy(base)
   (pkg/path).write_bytes(payload)
   if repin:
@@ -189,8 +189,17 @@ def main():
      if item['path']==path:item['sha256']=sha(payload)
    else:c=json.loads(payload)
    c.pop('contractDigest',None);c['contractDigest']=dg(c);(pkg/'contract.json').write_bytes(raw(c));s['pins']['contractSha256']=sha((pkg/'contract.json').read_bytes())
+   if repin_inputs:
+    for key in ['profile','context','proof']:
+     mutate(s,key,lambda v:v.update(contractBinding={'ref':c['contractId'],'digest':c['contractDigest']}))
+    rebind(s,profile=True)
   run(name,s,expected,code,package=pkg,persist=False)
   (pkg/path).write_bytes(original);(pkg/'contract.json').write_bytes(original_contract)
+ # A coherently repinned contract cannot select a different report wire schema.
+ sch=get('schemas/report.schema.json');sch['properties']['newRequiredField']={'type':'string'};sch['required'].append('newRequiredField')
+ package_case('pinned-report-schema-added-required-field','schemas/report.schema.json',raw(sch),'REPORT_SCHEMA_MISMATCH',repin=True,repin_inputs=True)
+ sch=get('schemas/report.schema.json');sch['properties']['status']['enum'].append('UNREVIEWED_SUCCESS')
+ package_case('pinned-report-schema-weakened-status','schemas/report.schema.json',raw(sch),'REPORT_SCHEMA_MISMATCH',repin=True,repin_inputs=True)
  sch=get('schemas/proof.schema.json');sch['type']=23
  package_case('invalid-pinned-schema','schemas/proof.schema.json',raw(sch),'PACKAGE_UNAVAILABLE_OR_INVALID',repin=True)
  sch=get('schemas/proof.schema.json');sch['$ref']='https://untrusted.invalid/schema'

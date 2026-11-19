@@ -121,6 +121,8 @@ def _verify(proof_bytes, envelope_bytes, request_bytes, context_bytes, profile_b
             if not isinstance(schema,dict) or schema.get('$id')!=binding.get('schemaId') or not refs_are_local(schema):
                 error('SCHEMA_ID_OR_REFERENCE_MISMATCH',key);return report
             Draft202012Validator.check_schema(schema);schemas[key]=schema
+        if schemas['report']!=REPORT_SCHEMA:
+            report['status']='DEPENDENCY_UNAVAILABLE';error('REPORT_SCHEMA_MISMATCH','report');return report
         source_paths=['sources/event-grammar.md','sources/event-ingress-rfc.md','sources/platform.md','sources/constitution.md']
         sources=contract.get('semanticSources')
         if not isinstance(sources,list) or len(sources)!=len(source_paths) or any(not isinstance(v,dict) for v in sources) or sorted(v.get('path','') for v in sources)!=sorted(source_paths):

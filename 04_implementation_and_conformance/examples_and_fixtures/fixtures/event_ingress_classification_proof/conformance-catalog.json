@@ -1,7 +1,7 @@
 {
-  "revision": "review-repair-03",
+  "revision": "review-repair-04",
   "purpose": "Compact authored expectation index; the runner does not read saved reports as an oracle.",
-  "checks": 468,
+  "checks": 470,
   "rows": [
     {
       "id": "pruning-preexisting",
@@ -2167,6 +2167,16 @@
       "id": "owner-authority-GovernanceEvent",
       "expectedStatus": "FAIL",
       "requiredErrorCode": "FAMILY_MISMATCH"
+    },
+    {
+      "id": "pinned-report-schema-added-required-field",
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "REPORT_SCHEMA_MISMATCH"
+    },
+    {
+      "id": "pinned-report-schema-weakened-status",
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "REPORT_SCHEMA_MISMATCH"
     },
     {
       "id": "invalid-pinned-schema",

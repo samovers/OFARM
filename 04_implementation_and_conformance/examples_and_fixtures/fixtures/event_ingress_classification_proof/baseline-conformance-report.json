@@ -1,7 +1,7 @@
 {
   "status": "PASS",
-  "checks": 468,
-  "passed": 468,
+  "checks": 470,
+  "passed": 470,
   "failed": [],
   "familyCount": 7,
   "commitClassCount": 9,
@@ -5394,6 +5394,32 @@
       "errorCodes": [
         "CLASSIFICATION_MISMATCH",
         "FAMILY_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "pinned-report-schema-added-required-field",
+      "pass": true,
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "actualStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "REPORT_SCHEMA_MISMATCH",
+      "errorCodes": [
+        "REPORT_SCHEMA_MISMATCH"
+      ],
+      "reportSchemaValid": true,
+      "deterministic": true,
+      "runtimeAdmission": "NOT_ESTABLISHED"
+    },
+    {
+      "id": "pinned-report-schema-weakened-status",
+      "pass": true,
+      "expectedStatus": "DEPENDENCY_UNAVAILABLE",
+      "actualStatus": "DEPENDENCY_UNAVAILABLE",
+      "requiredErrorCode": "REPORT_SCHEMA_MISMATCH",
+      "errorCodes": [
+        "REPORT_SCHEMA_MISMATCH"
       ],
       "reportSchemaValid": true,
       "deterministic": true,
