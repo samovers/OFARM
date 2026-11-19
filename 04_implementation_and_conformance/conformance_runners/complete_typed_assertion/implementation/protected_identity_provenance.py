@@ -1,7 +1,7 @@
 """Bounded domain provenance for a proposed #51 identity comparison.
 
 The caller supplies the independently selected #47 action, exact public result
-bytes, the actual guarded v0.4 original-inventory report, and the C3 partial
+bytes, the guarded original-inventory report for the selected schema, and the C3 partial
 requirement graph. This module does not call a storage owner or infer its
 transaction facts from an offered #51 context. Its result is always partial.
 """
@@ -11,10 +11,9 @@ from pathlib import Path
 
 from strict_inputs import InputError, digest, parse, sha
 from original_inputs import selected_index
+from owner_calls import EVALUATION_SELECTION_VERSIONS
 
 
-SELECTION_VERSION = 'ofarm.assertionDomainEvaluationSelection.v0.4'
-SELECTION_SCHEMA_SHA256 = 'b0f5ffdc4e97ab745c6e666dcbbeef8ee4485efdb265251904f5447e966b03d9'
 GRAPH_VERSION = 'candidate.partialOriginalRequirementGraph.v0.1'
 ACTIONS = {'ASSERT_STRUCTURE', 'ASSERT_OPERATION_CLAIM', 'ASSERT_COMPLIANCE'}
 IDENTITY_FIELDS = ('actionClass', 'storageOwnerRef', 'transactionAttemptId',
@@ -119,16 +118,16 @@ def _proposed_id(raw, selection_bytes, independent_sha, inventory, graph):
         return _failed('INDEPENDENT_SELECTION_PIN_INVALID')
     if sha(selection_bytes) != independent_sha:
         return _failed('INDEPENDENT_SELECTION_RAW_PIN_MISMATCH')
-    if (not isinstance(inventory, dict)
-            or inventory.get('selectionShapeValidated') != 'EXACT_REVIEWED_V0_4_SCHEMA_AND_UNIQUENESS'
-            or inventory.get('selectionSchemaRawSha256') != SELECTION_SCHEMA_SHA256):
-        return _failed('GUARDED_V0_4_INVENTORY_INVALID')
     try:
         selection, by_id, _, results, admitted = selected_index(selection_bytes, inventory)
     except (InputError, AttributeError, TypeError, KeyError, ValueError):
         return _failed('GUARDED_INVENTORY_SELECTION_CONFLICT')
-    if selection.get('schemaVersion') != SELECTION_VERSION:
+    version = selection.get('schemaVersion')
+    if not isinstance(version, str) or version not in EVALUATION_SELECTION_VERSIONS:
         return _failed('SELECTED_SCHEMA_VERSION_MISMATCH')
+    _, schema_hash, label = EVALUATION_SELECTION_VERSIONS[version]
+    if inventory.get('selectionShapeValidated') != label or inventory.get('selectionSchemaRawSha256') != schema_hash:
+        return _failed('GUARDED_SELECTION_SCHEMA_OR_VERSION_MISMATCH')
     if inventory.get('selectionBinding', {}).get('wholeJcsDigest') != digest(selection):
         return _failed('GUARDED_SELECTION_VALUE_BINDING_CONFLICT')
     if not isinstance(graph, dict) or graph.get('schemaVersion') != GRAPH_VERSION:

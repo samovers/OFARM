@@ -435,6 +435,7 @@ def derive_available_fields(intent, result, action, selection, report, contract)
 
 
 def build(intent, result, action, selection, report):
+    from closure_graph import COPY_FACT_ATTRIBUTION, bind_copy_operands
     contract = parse((HERE / 'domain-contract.json').read_bytes())
     if digest({k: v for k, v in contract.items() if k != 'contractDigest'}) != contract['contractDigest']:
         raise InputError('Domain contract whole-value digest is inconsistent.')
@@ -452,6 +453,8 @@ def build(intent, result, action, selection, report):
     def comparisons(finding, atom_pointer=None):
         out = []
         for c in finding['comparisons']:
+            if c['predicateId'] in COPY_FACT_ATTRIBUTION and 'source' not in c and 'sourcePresent' in c:
+                c = bind_copy_operands(c, action)
             if all(k in c for k in ['source', 'destination', 'disposition']):
                 entry={k: c[k] for k in ['predicateId', 'source', 'destination', 'disposition']}
                 if atom_pointer is not None:
@@ -493,7 +496,11 @@ def build(intent, result, action, selection, report):
         identity_ids = report.get('identitySourceComparisons', {}).get(identity_gate, {}).get('sourceInputIds', [])
         authorization_ids = report.get('authorizationSourceComparisons', {}).get('sourceInputIds', []) if value['id'] in ['AR_ACTION_PROFILE', 'AR_ASSERTOR'] else []
         event_ids = report.get('eventSourceComparisons', {}).get('sourceInputIds', []) if value['id'] == 'AR_EVENT_ASSOCIATION' else []
-        temporal_ids = report.get('temporalSources', {}).get('sourceInputIds', []) if value['id'] == 'AR_SUBJECT_TIME' else []
+        temporal_ids = (report.get('temporalSources', {}).get('sourceInputIds', [])
+                        if value['id'] in ('AR_SUBJECT_TIME', 'PC_SUBJECT_TIME') else [])
+        if value['id'] == 'AR_OPERATION_PAYLOADS':
+            temporal_ids = [c['source']['inputRole'] for c in value['comparisons']
+                            if c['predicateId'] == 'PAYLOAD_TIME_BASIS_MISMATCH']
         evidence_ids = report.get('evidenceSourceComparisons', {}).get('sourceInputIds', []) if value['id'] == 'AR_EVIDENCE' else []
         compliance_gate = {'AR_COMPLIANCE_RULES': 'COMPLIANCE_RULE_SELECTION',
                            'AR_COMPLIANCE_EVIDENCE_POLICY': 'EVIDENCE_POLICY_SELECTION'}.get(value['id'])

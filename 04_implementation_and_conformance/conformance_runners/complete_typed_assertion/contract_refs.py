@@ -1,15 +1,29 @@
 """Reproduce the domain-owned contract and schema references offline."""
 from hashlib import sha256
 import json
+from typing import NamedTuple
 from urllib.parse import urldefrag
 
 import rfc8785
 
 
+class Branch(NamedTuple):
+    profile: str
+    body: str
+    effect_kind: str
+    assertion_type: str
+    commit_label: str
+    commit_token: str
+
+
+# The three action rows in the submission contract (#23, section 7.2).
 BRANCHES = {
-    "ASSERT_STRUCTURE": ("structure", "structureAssertionBody"),
-    "ASSERT_OPERATION_CLAIM": ("operation", "operationClaimBody"),
-    "ASSERT_COMPLIANCE": ("compliance", "complianceAssertionBody"),
+    "ASSERT_STRUCTURE": Branch("structure", "structureAssertionBody", "STRUCTURE_ASSERTION",
+                               "STRUCTURE_ASSERTION", "structure assertion", "STRUCTURE_ASSERTION"),
+    "ASSERT_OPERATION_CLAIM": Branch("operation", "operationClaimBody", "OPERATION_ASSERTION",
+                                     "OPERATION_CLAIM_ASSERTION", "operation claim", "OPERATION_CLAIM"),
+    "ASSERT_COMPLIANCE": Branch("compliance", "complianceAssertionBody", "COMPLIANCE_ASSERTION",
+                                "COMPLIANCE_ASSERTION", "compliance assertion", "COMPLIANCE_ASSERTION"),
 }
 RESULT = "outer/carriers/result.schema.json"
 PAYLOAD = "schemas/payload.schema.json"
@@ -24,7 +38,7 @@ SCHEMA_MEMBERS = (
     LEGACY_RESULT, LEGACY_INTENT,
     OLD_SOURCES + "schemas/evidence/OFARM_MeasurementEvidence_schema_v0_1.json",
     OLD_SOURCES + "schemas/event_ingress/OFARM_SemanticEventEnvelope_schema_v0_1.json",
-    *("outer/carriers/" + branch + "-intent.schema.json" for branch, _ in BRANCHES.values()),
+    *("outer/carriers/" + branch.profile + "-intent.schema.json" for branch in BRANCHES.values()),
 )
 
 
@@ -93,18 +107,39 @@ def verify_references(read):
         key = "claimLanguageRevision" if actual else "schemaVersion"
         if target["properties"][key]["const"] != binding["schemaVersion"]:
             raise ValueError("Mismatched schema version: " + binding["schemaRef"])
+        return target
 
-    check_binding(contract["resultSchemaBinding"], RESULT)
+    result_schema = check_binding(contract["resultSchemaBinding"], RESULT)
     check_binding(contract["payloadSchemaBinding"], PAYLOAD)
     if set(contract["actions"]) != set(BRANCHES):
         raise ValueError("Incomplete action set")
-    for action, (branch, body) in BRANCHES.items():
+    for action, branch in BRANCHES.items():
         row = contract["actions"][action]
-        check_binding(row["intentSchemaBinding"], "outer/carriers/" + branch + "-intent.schema.json")
-        check_binding(row["bodySchemaBinding"], RESULT, "/$defs/" + body)
-        intent_uri = row["intentSchemaBinding"]["schemaRef"]
-        if schemas[intent_uri]["properties"]["assertionBody"]["$ref"] != row["bodySchemaBinding"]["schemaRef"]:
+        intent_schema = check_binding(row["intentSchemaBinding"], "outer/carriers/" + branch.profile + "-intent.schema.json")
+        check_binding(row["bodySchemaBinding"], RESULT, "/$defs/" + branch.body)
+        intent_properties = intent_schema["properties"]
+        if intent_properties["assertionBody"]["$ref"] != row["bodySchemaBinding"]["schemaRef"]:
             raise ValueError("Intent selects a different body: " + action)
+        result_bodies = [rule["then"]["properties"]["assertionBody"]["$ref"]
+                         for rule in result_schema["allOf"]
+                         if rule["if"]["properties"].get("assertionType") == {"const": branch.assertion_type}]
+        if result_bodies != ["#/$defs/" + branch.body]:
+            raise ValueError("Result selects a different body: " + action)
+        subject = intent_properties["effectSubject"]["properties"]
+        constants = {
+            "intent.schemaVersion": intent_properties["schemaVersion"]["const"],
+            "result.schemaVersion": result_schema["properties"]["schemaVersion"]["const"],
+            "intent.effectKind": subject["subjectKind"]["const"],
+            "intent.effectPosture": subject["existencePosture"]["const"],
+            "result.assertionType": branch.assertion_type,
+            "result.pending": result_schema["properties"]["claimState"]["const"],
+        }
+        if (constants != row["predicateConstants"] or constants["intent.effectKind"] != branch.effect_kind
+                or constants["intent.effectPosture"] != "PROSPECTIVE_TARGET_ALLOWED"
+                or constants["result.pending"] != "PENDING_REVIEW"):
+            raise ValueError("Mismatched action predicates: " + action)
+        if row["recordCommitClass"] != {"constitutionalLabel": branch.commit_label, "serializationToken": branch.commit_token}:
+            raise ValueError("Mismatched record commit class: " + action)
     trace_uri = next(uri for uri, member in members.items() if member == TRACE)
     return {
         "status": "DRAFT_REFERENCES_REPRODUCED",

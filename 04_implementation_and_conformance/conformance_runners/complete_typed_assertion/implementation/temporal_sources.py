@@ -6,7 +6,7 @@ from time_validation import foreign_instant, foreign_seconds
 from domain_reader_occurrences import reader, selection as observe_selection, guard as observe_guard, origin as read_origin, observed_shape, branch as observed_branch, observe_comparisons
 
 
-@reader('temporal_sources.py', ['AR_SUBJECT_TIME'])
+@reader('temporal_sources.py', ['AR_SUBJECT_TIME', 'PC_SUBJECT_TIME'])
 def evaluate(intent, sources, schemas):
     from runtime_support import Values
     values = Values(schemas)
@@ -27,7 +27,9 @@ def evaluate(intent, sources, schemas):
                             'source': {'inputRole': source_role, 'pointer': source_path, 'valueDigest': digest(left)},
                             'destination': {'inputRole': 'EFFECT_INTENT', 'pointer': destination_path, 'valueDigest': digest(right)},
                             'disposition': 'PASS' if okay else 'FAIL'})
-        observe_comparisons([comparisons[-1]], depends_on=depends_on)
+        findings = (['AR_SUBJECT_TIME', 'PC_SUBJECT_TIME', 'AR_OPERATION_PAYLOADS']
+                    if code == 'PAYLOAD_TIME_BASIS_MISMATCH' else None)
+        observe_comparisons([comparisons[-1]], findings=findings, depends_on=depends_on)
         if not okay:
             errors.append({'code': code, 'pointer': destination_path})
     def time_equal(code, left, right, source_path, destination_path, source_role, *, depends_on=()):

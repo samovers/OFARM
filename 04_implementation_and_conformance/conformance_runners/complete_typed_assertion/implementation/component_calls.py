@@ -20,10 +20,7 @@ def evaluate_components(request, *, independent_read_trace=False):
     sys.path.insert(0, str(HERE / 'components/revision-02'))
     sys.path.insert(0, str(HERE / 'outer'))
     from domain_api import evaluate
-    from runtime_support import Schemas
-    from runtime_support import exact, error
-    from intrinsics import time_bounds
-    from referencing import Registry, Resource
+    from runtime_support import Values
     import domain_mapping
     schemas = _schemas()
     role_errors = audit_schema_roles(schemas.schemas, 'https://ofarm.dev/schema/drafts/non-default/assertion-domain/proposition/v0.1')
@@ -36,6 +33,34 @@ def evaluate_components(request, *, independent_read_trace=False):
               'resultErrors': schemas.errors(prefix + 'result/v0.1', request['result']),
               'copyFacts': domain_mapping.copy_facts(request['intent'], request['result'], request['action']),
               'componentReports': []}
+    values = Values(schemas)
+    report['subjectTimeErrors'] = {}
+    report['assertedAtErrors'] = {}
+    result_uri = prefix + 'result/v0.1'
+    time_definition = branch + 'Time'
+    profiles = {option['$ref'].rsplit('/', 1)[1]
+                for option in schemas.schemas[result_uri]['$defs'][time_definition]['oneOf']}
+    for role in ('intent', 'result'):
+        report['assertedAtErrors'][role] = schemas.errors(result_uri, request[role].get('assertedAt'), 'canonicalTimestamp')
+        time = request[role].get('subjectTime')
+        profile = time.get('profile') if isinstance(time, dict) else None
+        definition = profile if isinstance(profile, str) and profile in profiles else time_definition
+        errors = schemas.errors(result_uri, time, definition)
+        errors = [dict(error, code='INVALID_CALENDAR_TIME') if error.get('keyword') == 'format' else error
+                  for error in errors]
+        if not errors:
+            errors = values.time_errors(time)
+        report['subjectTimeErrors'][role] = errors
+    if branch == 'operation':
+        report['operationPayloadErrors'] = {'intent': {}, 'result': {}}
+        for role in ('intent', 'result'):
+            body = request[role].get('assertionBody')
+            if not isinstance(body, dict):
+                continue
+            for field in ('interventionIntentPayloadBindings', 'executionRecordPayloadBindings'):
+                if field in body:
+                    definition = 'operationClaimBody/properties/' + field
+                    report['operationPayloadErrors'][role][field] = schemas.errors(result_uri, body[field], definition)
     if not report['intentErrors']:
         report['referenceInventory'] = collect(request['intent'])
     if request.get('prior') is not None:

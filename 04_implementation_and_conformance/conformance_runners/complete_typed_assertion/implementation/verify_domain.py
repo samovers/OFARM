@@ -799,7 +799,7 @@ def verify_domain(original_intent_bytes, original_result_bytes, *, package, owne
         elif dependencies['RESOLVED_INPUT_CLOSURE']['disposition'] == 'PASS':
             dependency('RESOLVED_INPUT_CLOSURE', 'NOT_EVALUATED',
                        'The owner input manifest is bounded; no independently pinned evaluation selection or fixed-point requirement/use graph is available.')
-        facts = {f['predicateId']: f for f in components['copyFacts']}
+        facts = {f['predicateId']: closure_graph.bind_copy_operands(f, action) for f in components['copyFacts']}
         local = {name: {'comparisons': [], 'diagnostics': []} for name in ordered}
         if partial_graph is not None:
             for row in partial_graph['requirements']:
@@ -872,14 +872,27 @@ def verify_domain(original_intent_bytes, original_result_bytes, *, package, owne
         def compare(duty, code, source, sp, destination, dp, optional=False):
             a, av = _present(source, sp); b, bv = _present(destination, dp)
             okay = a == b and (not a or same(av, bv)) and (optional or a)
-            local[duty]['comparisons'].append({'predicateId': code, 'sourcePointer': sp,
-                                              'destinationPointer': dp, 'sourcePresent': a,
-                                              'destinationPresent': b, 'equal': okay,
-                                              **({'sourceValueDigest': digest(av)} if a else {}),
-                                              **({'destinationValueDigest': digest(bv)} if b else {})})
+            roles = {id(intent): 'EFFECT_INTENT', id(result): 'PROPOSED_RESULT'}
+            comparison = {'predicateId': code, 'sourcePointer': sp, 'destinationPointer': dp,
+                          'sourcePresent': a, 'destinationPresent': b, 'equal': okay,
+                          'disposition': 'PASS' if okay else 'FAIL'}
+            for side, document, path, present, value in [('source', source, sp, a, av),
+                                                        ('destination', destination, dp, b, bv)]:
+                if present:
+                    value_digest = digest(value)
+                    comparison[side + 'ValueDigest'] = value_digest
+                    comparison[side] = {'inputRole': roles[id(document)], 'pointer': path, 'valueDigest': value_digest}
+            local[duty]['comparisons'].append(comparison)
             roots = {id(intent): 'effectIntent', id(result): 'proposedAssertion'}
             check(duty, code, okay, dp, fields=[(roots[id(source)], sp), (roots[id(destination)], dp)],
                   controls={'optional': optional})
+        def record_field_errors(duties, predicate, errors, root, path, code=None):
+            for duty in duties:
+                observe_local(duty, predicate, not errors, [(root, path)],
+                              controls={'errors': errors}, edge_class='SOURCE_SHAPE')
+                for error in errors:
+                    local[duty]['diagnostics'].append(
+                        diagnostic(code or error['code'], root, path + error['pointer'].rstrip('/')))
         if partial_graph is not None:
             boundary_links = closure_graph.materialize_local_observations(
                 partial_graph, bound, owner_boundary_observations, selected_action=action)
@@ -924,6 +937,9 @@ def verify_domain(original_intent_bytes, original_result_bytes, *, package, owne
         add_copy('AR_ACTION_PROFILE', 'intent.schemaVersion')
         add_copy('AR_EFFECT_SUBJECT', 'intent.effectKind', 'intent.effectPosture', 'mapping.id')
         add_copy('AR_ID', 'mapping.id'); add_copy('AR_TYPE', 'result.assertionType')
+        add_copy('PC_ACTION_TYPE', 'intent.schemaVersion', 'result.schemaVersion',
+                 'intent.effectKind', 'intent.effectPosture', 'result.assertionType')
+        add_copy('PC_PENDING_REVIEW', 'result.pending')
         add_copy('AR_SUBJECT', 'mapping.subject'); add_copy('AR_SCOPE', 'mapping.scope')
         check('AR_SCOPE', 'EXACT_ONE_ANCHOR', isinstance(result.get('anchorScopes'), list) and len(result['anchorScopes']) == 1,
               fields=[('proposedAssertion', '/anchorScopes')])
@@ -952,12 +968,24 @@ def verify_domain(original_intent_bytes, original_result_bytes, *, package, owne
                       controls={'kind': 'RECOMPUTED_OWNER_RESULT', 'owner': 'act', 'valueDigest': digest(expected)},
                       dependencies=owner_argument_dependencies('act'))
         add_copy('AR_SUBJECT_TIME', 'mapping.subjectTime'); add_copy('AR_BODY', 'mapping.assertionBody')
+        for role, root in [('intent', 'effectIntent'), ('result', 'proposedAssertion')]:
+            record_field_errors(('AR_ASSERTED_AT', 'PC_ASSERTION_ACT'), 'CANONICAL_ASSERTED_AT',
+                                components['assertedAtErrors'][role], root, '/assertedAt', 'INVALID_ASSERTED_AT')
+            record_field_errors(('AR_SUBJECT_TIME', 'PC_SUBJECT_TIME'), 'SUBJECT_TIME_SHAPE_AND_ORDER',
+                                components['subjectTimeErrors'][role], root, '/subjectTime')
         local['AR_BODY']['comparisons'].extend(report.get('contextSourceComparisons', {}).get('comparisons', []))
         local['AR_BODY']['diagnostics'].extend(report.get('contextSourceComparisons', {}).get('errors', []))
         if action != 'ASSERT_OPERATION_CLAIM':
             add_copy('AR_SUBJECT_TIME', 'body.applicability')
-        local['AR_SUBJECT_TIME']['diagnostics'].extend(report.get('temporalSources', {}).get('errors', []))
-        local['AR_SUBJECT_TIME']['comparisons'].extend(report.get('temporalSources', {}).get('comparisons', []))
+        temporal = report.get('temporalSources', {})
+        for duty in ('AR_SUBJECT_TIME', 'PC_SUBJECT_TIME'):
+            local[duty]['diagnostics'].extend(temporal.get('errors', []))
+            local[duty]['comparisons'].extend(temporal.get('comparisons', []))
+        if action == 'ASSERT_OPERATION_CLAIM':
+            local['AR_OPERATION_PAYLOADS']['diagnostics'].extend(
+                e for e in temporal.get('errors', []) if e['code'] == 'PAYLOAD_TIME_BASIS_MISMATCH')
+            local['AR_OPERATION_PAYLOADS']['comparisons'].extend(
+                c for c in temporal.get('comparisons', []) if c['predicateId'] == 'PAYLOAD_TIME_BASIS_MISMATCH')
         check('AR_BODY', 'EXACT_RENDERED_TEXT', body.get('claimText') == components.get('renderedText') and 'renderedText' in components,
               '/assertionBody/claimText', components.get('renderingError', 'Claim text must equal the exact complete rendering.'),
               fields=[('effectIntent', '/assertionBody/claimText')],
@@ -990,6 +1018,22 @@ def verify_domain(original_intent_bytes, original_result_bytes, *, package, owne
                   fields=[('effectIntent', '/associatedSemanticEventBinding'), ('effectIntent', '/claimPosture')])
         if action == 'ASSERT_OPERATION_CLAIM':
             add_copy('AR_OPERATION_POSTURE', 'mapping.claimPosture')
+            for document, root, posture_path in [(intent, 'effectIntent', '/claimPosture'),
+                                                 (result, 'proposedAssertion', '/operationClaimContext/claimPosture')]:
+                _, claim_posture = _present(document, posture_path)
+                _, profile = _present(document, '/subjectTime/profile')
+                matches = ((claim_posture == 'INTENDED' and profile == 'INTENDED_WINDOW') or
+                           (claim_posture == 'PERFORMED' and profile in ('PERFORMED_INSTANT', 'PERFORMED_INTERVAL')))
+                for duty in ('AR_OPERATION_POSTURE', 'AR_SUBJECT_TIME', 'PC_SUBJECT_TIME'):
+                    check(duty, 'OPERATION_POSTURE_TIME_PROFILE', matches, '/subjectTime/profile', root,
+                          fields=[(root, posture_path), (root, '/subjectTime/profile')])
+            body_time_compared = any(c['predicateId'] == 'BODY_TIME_BASIS_MISMATCH' for c in temporal.get('comparisons', []))
+            for document in (intent, result):
+                _, kind = _present(document, '/assertionBody/temporalBasis/sourceKind')
+                if kind == 'BODY_TIME' and (document is result or not body_time_compared):
+                    for duty in ('AR_SUBJECT_TIME', 'PC_SUBJECT_TIME'):
+                        compare(duty, 'BODY_TIME_BASIS_MISMATCH', document, '/subjectTime',
+                                document, '/assertionBody/temporalBasis/time')
             add_copy('AR_OPERATION_PERFORMER', 'mapping.performedByPartyRef', 'body.performerRef')
             add_copy('AR_OPERATION_AGENT_ACTORSHIP', 'mapping.softwareAgentActorshipBindings')
             add_copy('AR_OPERATION_PERFORMER_AUTHORITY', 'mapping.performerAuthorityEvidenceBindings')
@@ -1008,6 +1052,11 @@ def verify_domain(original_intent_bytes, original_result_bytes, *, package, owne
             for field in ['interventionIntentPayloadBindings', 'executionRecordPayloadBindings']:
                 compare('AR_OPERATION_PAYLOADS', 'body.' + field, intent, '/assertionBody/' + field,
                         result, '/assertionBody/' + field, True)
+                for role, root in [('intent', 'effectIntent'), ('result', 'proposedAssertion')]:
+                    errors = components['operationPayloadErrors'][role].get(field)
+                    if errors is not None:
+                        record_field_errors(('AR_OPERATION_PAYLOADS',), 'TYPED_PAYLOAD_BINDINGS', errors,
+                                            root, '/assertionBody/' + field, 'INVALID_PAYLOAD_BINDING')
         if action == 'ASSERT_COMPLIANCE':
             add_copy('AR_COMPLIANCE_RULES', 'mapping.ruleRevisionBindings')
             add_copy('AR_COMPLIANCE_EVIDENCE_POLICY', 'mapping.evidencePolicyRevisionBindings')
@@ -1091,13 +1140,14 @@ def verify_domain(original_intent_bytes, original_result_bytes, *, package, owne
                     check(duty, 'INAPPLICABLE_BRANCH_MEMBER', field not in result, '/' + field,
                           fields=[('proposedAssertion', '/' + field)])
         legacy = ['benefitingPartyRef', 'supersedesAssertionRecordRef', 'supersededByReviewDecisionRef', 'notes',
-                  'eventTime', 'effectiveFrom', 'effectiveUntil', 'performedAt', 'provenanceRefs', 'payloadRefs']
+                  'eventTime', 'occurrenceTime', 'effectiveFrom', 'effectiveUntil', 'performedAt', 'provenanceRefs', 'payloadRefs']
         for field in legacy:
             check('AR_LEGACY_ABSENCE', 'LEGACY_MEMBER', field not in result, '/' + field,
                   fields=[('proposedAssertion', '/' + field)])
         compare('PC_TEMPORAL_SEPARATION', 'temporal.assertedAt', intent, '/assertedAt', result, '/assertedAt')
         compare('PC_TEMPORAL_SEPARATION', 'temporal.subjectTime', intent, '/subjectTime', result, '/subjectTime')
-        for field in ['writeAuthorizationCheckedAt', 'effectCommittedAt', 'humanActedAt', 'checkpoint', 'consumedAt']:
+        for field in ['writeAuthorizationCheckedAt', 'effectCommittedAt', 'humanActedAt', 'authorizationEvaluatedAt',
+                      'capturedAt', 'checkpoint', 'consumedAt']:
             check('PC_TEMPORAL_SEPARATION', 'LATER_TRANSACTION_FIELD', field not in result, '/' + field,
                   fields=[('proposedAssertion', '/' + field)])
 

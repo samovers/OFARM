@@ -10,7 +10,7 @@ import tempfile
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
-MANIFEST_SHA256 = "60bf26f6c4d29b406d0919ad464c286d43138aa982bf2f969b03bc3c31ea5973"
+MANIFEST_SHA256 = "49c57b9c593510400afa393c9a9a75dd73a15b5ec152ad3ffa973d9f5c6e1d78"
 
 
 def file_hash(raw):

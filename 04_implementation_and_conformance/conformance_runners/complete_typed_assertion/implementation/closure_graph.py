@@ -62,12 +62,12 @@ TYPED_ROLE_FINDINGS = {
 # by a prefix guess. A finding slot can receive both a copy fact and distinct
 # typed source-use occurrences.
 COPY_FACT_ATTRIBUTION = {
-    'intent.schemaVersion': (('AR_ACTION_PROFILE',), None, 'effectIntent'),
-    'result.schemaVersion': (('AR_SCHEMA',), None, 'proposedAssertion'),
-    'intent.effectKind': (('AR_EFFECT_SUBJECT',), None, 'effectIntent'),
-    'intent.effectPosture': (('AR_EFFECT_SUBJECT',), None, 'effectIntent'),
-    'result.assertionType': (('AR_TYPE',), None, 'proposedAssertion'),
-    'result.pending': (('AR_CLAIM_STATE',), None, 'proposedAssertion'),
+    'intent.schemaVersion': (('AR_ACTION_PROFILE', 'PC_ACTION_TYPE'), None, 'effectIntent'),
+    'result.schemaVersion': (('AR_SCHEMA', 'PC_ACTION_TYPE'), None, 'proposedAssertion'),
+    'intent.effectKind': (('AR_EFFECT_SUBJECT', 'PC_ACTION_TYPE'), None, 'effectIntent'),
+    'intent.effectPosture': (('AR_EFFECT_SUBJECT', 'PC_ACTION_TYPE'), None, 'effectIntent'),
+    'result.assertionType': (('AR_TYPE', 'PC_ACTION_TYPE'), None, 'proposedAssertion'),
+    'result.pending': (('AR_CLAIM_STATE', 'PC_PENDING_REVIEW'), None, 'proposedAssertion'),
     'mapping.id': (('AR_EFFECT_SUBJECT', 'AR_ID'), 'effectIntent', 'proposedAssertion'),
     'mapping.scope': (('AR_SCOPE',), 'effectIntent', 'proposedAssertion'),
     'mapping.subject': (('AR_SUBJECT',), 'effectIntent', 'proposedAssertion'),
@@ -88,6 +88,19 @@ COPY_FACT_ATTRIBUTION = {
     'mapping.evidencePolicyRevisionBindings': (('AR_COMPLIANCE_EVIDENCE_POLICY',), 'effectIntent', 'proposedAssertion'),
     'body.applicability': (('AR_SUBJECT_TIME',), 'effectIntent', 'effectIntent'),
 }
+
+def bind_copy_operands(fact, action):
+    """Locate both value digests in the original documents used by copy_facts."""
+    _, source, destination = COPY_FACT_ATTRIBUTION[fact['predicateId']]
+    roles = {'effectIntent': 'EFFECT_INTENT', 'proposedAssertion': 'PROPOSED_RESULT', None: 'DOMAIN_CONTRACT'}
+    result = dict(fact, disposition='PASS' if fact['equal'] else 'FAIL')
+    for side, root in (('source', source), ('destination', destination)):
+        if fact[side + 'Present']:
+            path = (fact[side + 'Pointer'] if root is not None else
+                    '/actions/' + action + '/predicateConstants/' + fact['predicateId'])
+            result[side] = {'inputRole': roles[root], 'pointer': path, 'valueDigest': fact[side + 'ValueDigest']}
+    return result
+
 
 COPY_COMMON_PREDICATES = (
     'intent.schemaVersion', 'result.schemaVersion', 'intent.effectKind',
