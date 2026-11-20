@@ -1,0 +1,876 @@
+{
+  "status": "PASS",
+  "checks": 96,
+  "passed": 96,
+  "author": "Independent coordinator replay; expectations derived from Gregorian calendar and RFC3339 component bounds",
+  "primaryTrustBoundary": "Event Ingress classification and evidence admission",
+  "scopeStayedInsideBoundary": true,
+  "contractRawSha256": "65fe148b6422f2ebeaa2b41b88b1ad51fa57e92c8c278d48b5a27f7afc62949b",
+  "checkerRawSha256": "61540612e7063fbe7ab179da9b2168a8f24c8092008fc94c8f8854efee7ac407",
+  "rows": [
+    {
+      "document": "request",
+      "field": "ingestedAt",
+      "timestamp": "2026-05-08T08:20:00Z",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "request",
+      "field": "ingestedAt",
+      "timestamp": "2026-05-08T08:20:00+02:30",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "request",
+      "field": "ingestedAt",
+      "timestamp": "2026-05-08T08:20:00-03:45",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "request",
+      "field": "ingestedAt",
+      "timestamp": "2024-02-29T12:59:59.001+00:00",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "request",
+      "field": "ingestedAt",
+      "timestamp": "2026-05-08T08:20:00+01:99",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "request",
+      "field": "ingestedAt",
+      "timestamp": "2026-05-08T08:20:00-01:60",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "request",
+      "field": "ingestedAt",
+      "timestamp": "2026-05-08T08:20:00+24:00",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "request",
+      "field": "ingestedAt",
+      "timestamp": "2026-05-08T08:20:00-99:10",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "request",
+      "field": "ingestedAt",
+      "timestamp": "2026-02-29T08:20:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "request",
+      "field": "ingestedAt",
+      "timestamp": "2026-05-08T24:00:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "request",
+      "field": "ingestedAt",
+      "timestamp": "2026-05-08T08:60:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "request",
+      "field": "ingestedAt",
+      "timestamp": "2026-05-08T08:20:60+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "observationTime",
+      "timestamp": "2026-05-08T08:20:00Z",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "observationTime",
+      "timestamp": "2026-05-08T08:20:00+02:30",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "observationTime",
+      "timestamp": "2026-05-08T08:20:00-03:45",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "observationTime",
+      "timestamp": "2024-02-29T12:59:59.001+00:00",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "observationTime",
+      "timestamp": "2026-05-08T08:20:00+01:99",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "observationTime",
+      "timestamp": "2026-05-08T08:20:00-01:60",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "observationTime",
+      "timestamp": "2026-05-08T08:20:00+24:00",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "observationTime",
+      "timestamp": "2026-05-08T08:20:00-99:10",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "observationTime",
+      "timestamp": "2026-02-29T08:20:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "observationTime",
+      "timestamp": "2026-05-08T24:00:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "observationTime",
+      "timestamp": "2026-05-08T08:60:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "observationTime",
+      "timestamp": "2026-05-08T08:20:60+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "eventTime",
+      "timestamp": "2026-05-08T08:20:00Z",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "eventTime",
+      "timestamp": "2026-05-08T08:20:00+02:30",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "eventTime",
+      "timestamp": "2026-05-08T08:20:00-03:45",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "eventTime",
+      "timestamp": "2024-02-29T12:59:59.001+00:00",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "eventTime",
+      "timestamp": "2026-05-08T08:20:00+01:99",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "eventTime",
+      "timestamp": "2026-05-08T08:20:00-01:60",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "eventTime",
+      "timestamp": "2026-05-08T08:20:00+24:00",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "eventTime",
+      "timestamp": "2026-05-08T08:20:00-99:10",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "eventTime",
+      "timestamp": "2026-02-29T08:20:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "eventTime",
+      "timestamp": "2026-05-08T24:00:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "eventTime",
+      "timestamp": "2026-05-08T08:60:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "eventTime",
+      "timestamp": "2026-05-08T08:20:60+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "assertionTime",
+      "timestamp": "2026-05-08T08:20:00Z",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "assertionTime",
+      "timestamp": "2026-05-08T08:20:00+02:30",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "assertionTime",
+      "timestamp": "2026-05-08T08:20:00-03:45",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "assertionTime",
+      "timestamp": "2024-02-29T12:59:59.001+00:00",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "assertionTime",
+      "timestamp": "2026-05-08T08:20:00+01:99",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "assertionTime",
+      "timestamp": "2026-05-08T08:20:00-01:60",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "assertionTime",
+      "timestamp": "2026-05-08T08:20:00+24:00",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "assertionTime",
+      "timestamp": "2026-05-08T08:20:00-99:10",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "assertionTime",
+      "timestamp": "2026-02-29T08:20:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "assertionTime",
+      "timestamp": "2026-05-08T24:00:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "assertionTime",
+      "timestamp": "2026-05-08T08:60:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "assertionTime",
+      "timestamp": "2026-05-08T08:20:60+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "recordTime",
+      "timestamp": "2026-05-08T08:20:00Z",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "recordTime",
+      "timestamp": "2026-05-08T08:20:00+02:30",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "recordTime",
+      "timestamp": "2026-05-08T08:20:00-03:45",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "recordTime",
+      "timestamp": "2024-02-29T12:59:59.001+00:00",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "recordTime",
+      "timestamp": "2026-05-08T08:20:00+01:99",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "recordTime",
+      "timestamp": "2026-05-08T08:20:00-01:60",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "recordTime",
+      "timestamp": "2026-05-08T08:20:00+24:00",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "recordTime",
+      "timestamp": "2026-05-08T08:20:00-99:10",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "recordTime",
+      "timestamp": "2026-02-29T08:20:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "recordTime",
+      "timestamp": "2026-05-08T24:00:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "recordTime",
+      "timestamp": "2026-05-08T08:60:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "recordTime",
+      "timestamp": "2026-05-08T08:20:60+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveFrom",
+      "timestamp": "2026-05-08T08:20:00Z",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveFrom",
+      "timestamp": "2026-05-08T08:20:00+02:30",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveFrom",
+      "timestamp": "2026-05-08T08:20:00-03:45",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveFrom",
+      "timestamp": "2024-02-29T12:59:59.001+00:00",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveFrom",
+      "timestamp": "2026-05-08T08:20:00+01:99",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveFrom",
+      "timestamp": "2026-05-08T08:20:00-01:60",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveFrom",
+      "timestamp": "2026-05-08T08:20:00+24:00",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveFrom",
+      "timestamp": "2026-05-08T08:20:00-99:10",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveFrom",
+      "timestamp": "2026-02-29T08:20:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveFrom",
+      "timestamp": "2026-05-08T24:00:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveFrom",
+      "timestamp": "2026-05-08T08:60:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveFrom",
+      "timestamp": "2026-05-08T08:20:60+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveUntil",
+      "timestamp": "2026-05-08T08:20:00Z",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveUntil",
+      "timestamp": "2026-05-08T08:20:00+02:30",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveUntil",
+      "timestamp": "2026-05-08T08:20:00-03:45",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveUntil",
+      "timestamp": "2024-02-29T12:59:59.001+00:00",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveUntil",
+      "timestamp": "2026-05-08T08:20:00+01:99",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveUntil",
+      "timestamp": "2026-05-08T08:20:00-01:60",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveUntil",
+      "timestamp": "2026-05-08T08:20:00+24:00",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveUntil",
+      "timestamp": "2026-05-08T08:20:00-99:10",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveUntil",
+      "timestamp": "2026-02-29T08:20:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveUntil",
+      "timestamp": "2026-05-08T24:00:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveUntil",
+      "timestamp": "2026-05-08T08:60:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "effectiveUntil",
+      "timestamp": "2026-05-08T08:20:60+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "decisionTime",
+      "timestamp": "2026-05-08T08:20:00Z",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "decisionTime",
+      "timestamp": "2026-05-08T08:20:00+02:30",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "decisionTime",
+      "timestamp": "2026-05-08T08:20:00-03:45",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "decisionTime",
+      "timestamp": "2024-02-29T12:59:59.001+00:00",
+      "expected": "CONDITIONAL_CONFORMANCE_PASS",
+      "actual": "CONDITIONAL_CONFORMANCE_PASS",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "decisionTime",
+      "timestamp": "2026-05-08T08:20:00+01:99",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "decisionTime",
+      "timestamp": "2026-05-08T08:20:00-01:60",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "decisionTime",
+      "timestamp": "2026-05-08T08:20:00+24:00",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "decisionTime",
+      "timestamp": "2026-05-08T08:20:00-99:10",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "decisionTime",
+      "timestamp": "2026-02-29T08:20:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "decisionTime",
+      "timestamp": "2026-05-08T24:00:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "decisionTime",
+      "timestamp": "2026-05-08T08:60:00+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "document": "envelope",
+      "field": "decisionTime",
+      "timestamp": "2026-05-08T08:20:60+01:30",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true,
+      "errors": []
+    }
+  ]
+}

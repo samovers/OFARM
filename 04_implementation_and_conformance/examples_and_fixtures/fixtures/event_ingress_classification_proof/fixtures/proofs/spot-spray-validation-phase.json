@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "ofarm.preVerdictEventClassificationProof.v0.1",
+  "proofId": "fixture:classification-proof:spot-spray-validation-phase",
+  "ownerRole": "EVENT_INGRESS_CLASSIFICATION",
+  "contractBinding": {
+    "ref": "ofarm.event-ingress.pre-verdict-classification.v0.1",
+    "digest": "sha256:3f17e7aff4379f671a989d5e7aeb88c1a0bedea45861f453396179de62e7f4c1"
+  },
+  "ownerContextBinding": {
+    "ref": "fixture:owner-context:spot-spray-validation-phase",
+    "digest": "sha256:db9fd1a400c6e2635d2ac2c2a7fd12660ade4486eb7685712a19618da89ae5d8"
+  },
+  "classificationProfileBinding": {
+    "ref": "profile:event-ingress:agronomic-examples",
+    "digest": "sha256:56e72ae12d330bca2f2e18f7b980ba129a5db3d6bf40f00249c682e99bbb9699"
+  },
+  "envelopeBinding": {
+    "ref": "semantic-event:field-17:spot-spray:late-sync:2026-05-08",
+    "digest": "sha256:74d635b5e80e273d4def4200782057798a6c3b4228f8abf246b7f5fab20a198f"
+  },
+  "ingressRequestBinding": {
+    "ref": "fixture:ingress:spot-spray:request",
+    "digest": "sha256:86896a2d8a412abb67e25d3aeb28a7d827ce8b5ff5063a8d4d6479453da0766e"
+  },
+  "envelopeBytesSha256": "bfb02b92b2e3d642c715bb9865b6f39131b9a383848b52bbdf1add790b8f6ec8",
+  "ingressRequestBytesSha256": "12dd24d0d56db40b3c0e754c7730f6f736bf337dd7d2a918eb2881e2c0024b58",
+  "classification": {
+    "caseId": "case:spot-spray-late-sync",
+    "authoritativePrimaryFamily": "InterventionEvent",
+    "commitClass": "OPERATION_CLAIM",
+    "dominantSemanticConsequence": "operation claim and retained as-applied evidence; accepted execution requires review",
+    "subtype": {
+      "presence": "PRESENT",
+      "value": "crop-protection/spot-spray/late-sync"
+    }
+  },
+  "productionMode": "VALIDATION_PHASE_PROOF",
+  "completionMilestone": "CLASSIFICATION_COMPLETE_BEFORE_DEPENDENT_VERDICT",
+  "reuseRule": "EXACT_ENVELOPE_REQUEST_PROFILE_CONTEXT_AND_PROOF"
+}

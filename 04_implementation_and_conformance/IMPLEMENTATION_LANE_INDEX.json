@@ -1,6 +1,6 @@
 {
   "schemaVersion": "ofarm.implementationLaneIndex.v0.2.cleanBaseline",
-  "generatedAt": "2026-09-24T00:00:00Z",
+  "generatedAt": "2026-11-19T20:30:55.562982+00:00",
   "currentPackageIdentity": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "package": "OFARM2_2026-05-30_cp15_agentic_software_delivery_model_deployment_governance_merged_v0_2_final_currentness_normalized",
   "latestControlledAmendment": "CP15",
@@ -11,12 +11,12 @@
     "04_implementation_and_conformance/IMPLEMENTATION_LANE_INDEX.json",
     "04_implementation_and_conformance/IMPLEMENTATION_LANE_INDEX.md"
   ],
-  "fileCountExcludingSelf": 3226,
+  "fileCountExcludingSelf": 3264,
   "records": [
     {
       "path": "04_implementation_and_conformance/IMPLEMENTATION_SUBFOLDER_INDEX.json",
-      "bytes": 3233,
-      "sha256": "8de8919e0766136a9d24d604465c3511f57780bcba246ec0856a98688df5c88d",
+      "bytes": 3245,
+      "sha256": "c150e520822279d6d2f8375557e30903944edbbdece9ba4773b1fdf1cb994d92",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -31,8 +31,8 @@
     },
     {
       "path": "04_implementation_and_conformance/NON_ACTIVE_SCHEMA_COPY_INDEX.json",
-      "bytes": 48290,
-      "sha256": "3f67b8d6c0aef3dd289859b35e97f1567e91ccb851eca177ca695b73b56abc4a",
+      "bytes": 48751,
+      "sha256": "92101b0ddd5040d0c81baf8a0552d242a2da44aa388f66ad3044178df1101d84",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -3446,6 +3446,30 @@
       "doesNotOverrideActiveBaseline": true
     },
     {
+      "path": "04_implementation_and_conformance/conformance_runners/event_ingress_classification_proof/report_contract.py",
+      "bytes": 4325,
+      "sha256": "4b216922c7d47193e45a3cabb36981f97da6dea52278896eebc0c08f3879ac13",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/conformance_runners/event_ingress_classification_proof/run_conformance.py",
+      "bytes": 26927,
+      "sha256": "38c05e389bd6cbc88df4f8837bd7e8eeb40ea53edb03d4136fcb4e8d92fe49c6",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/conformance_runners/event_ingress_classification_proof/verify_event_proof.py",
+      "bytes": 20953,
+      "sha256": "c78528f3374d9aa4a4dac5f5dfbb88d22320b7c38391cff7fa99ccd1cd83efb8",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
       "path": "04_implementation_and_conformance/conformance_runners/evidence_sufficiency_conformance/OFARM_Evidence_Sufficiency_v0_2_Promotion_Fixtures_v0_1.md",
       "bytes": 1135,
       "sha256": "138abf6f8e8e6b561c1fcd9500641251b2020f87dea4f85453f4c91b97502eb9",
@@ -5473,6 +5497,14 @@
       "path": "04_implementation_and_conformance/conformance_runners/learning_experimentation_farm_memory_conformance/ofarm_cp13_phase7_conformance_runner.py",
       "bytes": 135,
       "sha256": "82549620ce94dab9a2cc269839ae5d2af353a07845a0dd48c0a4cc62d83a41b0",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/conformance_runners/ofarm_event_ingress_classification_proof_v0_1.py",
+      "bytes": 954,
+      "sha256": "fbb2c18217970e3df9bd3f60a9b8f7e9a69a63ba170fe9cadc49741d61890b4e",
       "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -12887,24 +12919,24 @@
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/examples/EXAMPLE_INDEX.json",
-      "bytes": 275712,
-      "sha256": "b8ff690d6acc3602063f8643b2fb4fe2297a0220d157f483587ac826e2333474",
+      "bytes": 276236,
+      "sha256": "f197923311d388c50556ad8b272600a3d570e5436bfb0bb1bef4b17a0836e0f1",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/examples/EXAMPLE_INDEX.md",
-      "bytes": 150,
-      "sha256": "e9ff96ba054e6361ef7a77591bb85cf7dfa5084c71bbd9ec722fa29a6f84e907",
+      "bytes": 160,
+      "sha256": "d8ff8388e31bba6d4f9c2d9acda390b8a2f8933a1760a06360a16acc8c82194b",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/examples/README.md",
-      "bytes": 1304,
-      "sha256": "998f08e1b2cb8ef8bfb9a1ca0832b122a58204e7a7575c9cfd16a66e6c325081",
+      "bytes": 1362,
+      "sha256": "37e6ddcb74fe23c1265814c936dab928cd3b61cc377360fe4c565a23aa493e6f",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -12919,8 +12951,8 @@
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/README.md",
-      "bytes": 3289,
-      "sha256": "18c4c858c75c6e51281b99dac97b5d1971f34cdb3878eeb7c0205b7644cdd32a",
+      "bytes": 3347,
+      "sha256": "9c15528cf08c0aa48bc956ef4380c50e6de6fe7ef08332e6e67d8cd1df55f440",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -13423,8 +13455,8 @@
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/examples/machine_contracts/agentic_software_delivery_model_deployment/README.md",
-      "bytes": 274,
-      "sha256": "98cc3c950090ea5700593f389eba53dc8e15d02af8882770bb9f220878eab616",
+      "bytes": 284,
+      "sha256": "49c298b1397846614472d6eb862374913d3c4d9993cb0fc86dc68cce8c61ff10",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -17967,8 +17999,8 @@
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/FIXTURE_INDEX.json",
-      "bytes": 11242,
-      "sha256": "d41205b99a3ae91ada88eefcbd1c7791972203fb7ff9dbdc91d9800d964e34dc",
+      "bytes": 20507,
+      "sha256": "a13f242072423f062ee9b66b5be105fb81a24cd9c508acdaad88d0569cebc03b",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
@@ -17976,16 +18008,288 @@
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/FIXTURE_INDEX.md",
       "bytes": 159,
-      "sha256": "6c2f4de7e1a58e0489449776932540790a88faed857324ae1c0bce9d499695d7",
+      "sha256": "b880d9dcd54c5505f7e67f48cc9c8669a01513648f00e7a6e9839e649a19e25b",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/README.md",
-      "bytes": 1134,
-      "sha256": "0723dc80009d9b3dcc1c1ea317433b8bb01f4595a1cb6a2c0650802597c17651",
+      "bytes": 1192,
+      "sha256": "350a6b13c0b2afbdaccddfcaab35ea5023c4617e20c2ad627ee6000c7ef813ba",
       "status": "PACKAGE_METADATA",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/baseline-conformance-report.json",
+      "bytes": 163194,
+      "sha256": "b39f2a372b4a6924e6699c556a7c5aaceb711a876c76cd456ab7cf950bccb88d",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/classification-profile.json",
+      "bytes": 2734,
+      "sha256": "1f53fe9da16b5917ba7afc3aaea00953be5e4ffc0ce15c1b679e6b3790941b6b",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/conformance-catalog.json",
+      "bytes": 65752,
+      "sha256": "1cd4b244a68e6c223f066ad387670439b2dba938592483125f62de134087acb2",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixture-transform-ledger.json",
+      "bytes": 2127,
+      "sha256": "e717f4d403f5ed69fe0a04e79873c47ec7fe38b8f15ccce2ccabc2678acfea00",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/contexts/pruning-no-reuse.json",
+      "bytes": 1778,
+      "sha256": "82d83403dbb1985a89569ac7bca67069e55c452be2492026f540f5386109d5ab",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/contexts/pruning-no-subtype.json",
+      "bytes": 1824,
+      "sha256": "ad090f3b74b8cbcc87a46bcc261eee0c83f4ee2487f1fbb4bb2339e657d4d8e2",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/contexts/pruning-preexisting.json",
+      "bytes": 1805,
+      "sha256": "a6f31436df46b285b80df0c44f6670bd6b7bfa3b73a0039091ec78c58c6a16df",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/contexts/pruning-validation-phase.json",
+      "bytes": 1820,
+      "sha256": "0b706589f936fe769341e2401c12b08a9c34cfd24e11d85c68f7bda5d6d5bf3f",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/contexts/spot-spray-validation-phase.json",
+      "bytes": 1816,
+      "sha256": "96dc192d9e2420923ce3897c8933ad7c8b688d9c72b9afc49041aa98ba8a5d90",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/envelopes/pruning-no-subtype.json",
+      "bytes": 867,
+      "sha256": "b24f21a83e1e0a73a774c704c4feab61e49a4ce91632d7d521d231714a358008",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/envelopes/pruning.json",
+      "bytes": 918,
+      "sha256": "bdbe24bfb7d602b65ef5b517c21b54f134b1539f12c35c428530d20f49971ac9",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/envelopes/spot-spray.json",
+      "bytes": 1608,
+      "sha256": "bfb02b92b2e3d642c715bb9865b6f39131b9a383848b52bbdf1add790b8f6ec8",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/positive-cases.json",
+      "bytes": 5433,
+      "sha256": "9f3c86812569e061b886cbbf814ea0cfdaf80afcc630aaf9b052f8d890c5bfbe",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/proofs/pruning-no-reuse.json",
+      "bytes": 1851,
+      "sha256": "bd9f72ce6dd9db7f59c59a849f66168e650384274cb00c1733cbc719fbbac87b",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/proofs/pruning-no-subtype.json",
+      "bytes": 1824,
+      "sha256": "4deb027f756d44125bc1a509dc78a8139872628e8d90e7504afd6ac33d119072",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/proofs/pruning-preexisting.json",
+      "bytes": 1852,
+      "sha256": "98cdc84df70859e3d8b6f837db51c344c95a47be259239070d71307b613546e4",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/proofs/pruning-validation-phase.json",
+      "bytes": 1867,
+      "sha256": "613acf085df488dc31d238751afa4e8c5ccd1c132a6a46ec123e0a8b90b16332",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/proofs/spot-spray-validation-phase.json",
+      "bytes": 1872,
+      "sha256": "6af979e5a6ffc238804a1f3693b8f55ebc5301013a81b080e818146d88375444",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/requests/pruning-no-subtype.json",
+      "bytes": 1006,
+      "sha256": "e0d62ec92b25c6ece1e2f9eb4b1a1d6d8cc106a029edb3cd544eab0b8af1c3ad",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/requests/pruning.json",
+      "bytes": 1006,
+      "sha256": "e0d62ec92b25c6ece1e2f9eb4b1a1d6d8cc106a029edb3cd544eab0b8af1c3ad",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/fixtures/requests/spot-spray.json",
+      "bytes": 516,
+      "sha256": "12dd24d0d56db40b3c0e754c7730f6f736bf337dd7d2a918eb2881e2c0024b58",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/independent-review-03/changed-source-bytes.json",
+      "bytes": 1835,
+      "sha256": "aa8dfc128d1a84f4c04e8d39cd72191a62e6567c16c8094460a499403e466828",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/independent-review-03/missing-source-root.json",
+      "bytes": 1884,
+      "sha256": "e62abdd0c80d912f199813e62f57256d87fcc249f5c2b34b994b86a3029332d2",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/independent-review-03/portable-default.json",
+      "bytes": 3064,
+      "sha256": "dd895573686c32e8f8cdd090b52d8fa8d68100511e067521be0672c6ba8e9869",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/independent-review-03/proof-cannot-select-source-root.json",
+      "bytes": 2375,
+      "sha256": "e87c946bc62526e4e48552ea0dabd9655fa02bd5d9143079b519515ac382a995",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/independent-review-03/publication-selection.json",
+      "bytes": 2479,
+      "sha256": "9d294877f80424f404aee4e826ace6186aa43460d28abbe3eb22fcc6b5b25c8b",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/independent-review-03/review.json",
+      "bytes": 2526,
+      "sha256": "d9fab409570da0c6a9b499943b629bac26969d0b14cfba50f4835b5243edbcf8",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/independent-review-03/review.md",
+      "bytes": 1394,
+      "sha256": "3b46df311f0b4963cd10c4742d4389b52f0feecdb05fc2b6ce38cc98bbe004b7",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/independent-review-03/separate-source-root.json",
+      "bytes": 3064,
+      "sha256": "dd895573686c32e8f8cdd090b52d8fa8d68100511e067521be0672c6ba8e9869",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/independent-timestamp-review.json",
+      "bytes": 22263,
+      "sha256": "900c86c84273e7f42c7449aa865cfb8d610a6de5d1a31875f958f71a294beb28",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/sources/constitution.md",
+      "bytes": 169774,
+      "sha256": "7079e66ab160e2f79bc1a2a6f2c37726c0bea2af921312fcd93b434b9f9c4e3d",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/sources/event-grammar.md",
+      "bytes": 8326,
+      "sha256": "47784169916b66fec510a7a95c86b19b5c222ef987c6d29c26f9a250632a61b3",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/sources/event-ingress-rfc.md",
+      "bytes": 6189,
+      "sha256": "2f07429f553e8593a149eb2f2dfc8a6baff8c681545787eeaff5ad04f48ca8db",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
+      "activeLaw": false,
+      "doesNotOverrideActiveBaseline": true
+    },
+    {
+      "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/event_ingress_classification_proof/sources/platform.md",
+      "bytes": 96406,
+      "sha256": "76357c6c7c184893f80219720f6343a682a859098f3703eb84c282fba0c02256",
+      "status": "IMPLEMENTATION_CONFORMANCE_SUPPORT",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true
     },
@@ -18007,8 +18311,8 @@
     },
     {
       "path": "04_implementation_and_conformance/examples_and_fixtures/fixtures/machine_contracts/README.md",
-      "bytes": 1826,
-      "sha256": "2671c87cdac3d78b2ed3dbb8cf301bd22a4beb9042fa40d5a60bff16ad5746e3",
+      "bytes": 1884,
+      "sha256": "47e4b2b1126e9359d863335278b340d12a52ecf7de8ffcd941200d09e23ced3f",
       "status": "PACKAGE_METADATA",
       "activeLaw": false,
       "doesNotOverrideActiveBaseline": true

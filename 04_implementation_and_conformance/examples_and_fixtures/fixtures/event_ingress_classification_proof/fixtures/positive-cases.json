@@ -1,0 +1,105 @@
+{
+  "status": "INDEPENDENTLY_AUTHORED_EXPECTATIONS_NOT_RUNTIME_PROOF",
+  "cases": [
+    {
+      "id": "pruning-preexisting",
+      "proof": "fixtures/proofs/pruning-preexisting.json",
+      "context": "fixtures/contexts/pruning-preexisting.json",
+      "envelope": "fixtures/envelopes/pruning.json",
+      "request": "fixtures/requests/pruning.json",
+      "profile": "classification-profile.json",
+      "expectedProofBinding": {
+        "ref": "fixture:classification-proof:pruning-preexisting",
+        "digest": "sha256:4537c1f5a8232979df70a15b7273ab6c9bb82a7fdf3c27f9e494b289918b9c15"
+      },
+      "trustedPins": {
+        "contractSha256": "ee79119ebf0b9a42ff790e9302d7b58afad478c74f9b484719007a3c0a162382",
+        "profileSha256": "1f53fe9da16b5917ba7afc3aaea00953be5e4ffc0ce15c1b679e6b3790941b6b",
+        "contextSha256": "a6f31436df46b285b80df0c44f6670bd6b7bfa3b73a0039091ec78c58c6a16df"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedFamily": "InterventionEvent",
+      "assumption": "Fictional independent owner source selection; no actual admission or production timing established."
+    },
+    {
+      "id": "pruning-validation-phase",
+      "proof": "fixtures/proofs/pruning-validation-phase.json",
+      "context": "fixtures/contexts/pruning-validation-phase.json",
+      "envelope": "fixtures/envelopes/pruning.json",
+      "request": "fixtures/requests/pruning.json",
+      "profile": "classification-profile.json",
+      "expectedProofBinding": {
+        "ref": "fixture:classification-proof:pruning-validation-phase",
+        "digest": "sha256:014a802a5720868a226b2d3d8744740dbcd4aad75b911f7503b0a200849e89ad"
+      },
+      "trustedPins": {
+        "contractSha256": "ee79119ebf0b9a42ff790e9302d7b58afad478c74f9b484719007a3c0a162382",
+        "profileSha256": "1f53fe9da16b5917ba7afc3aaea00953be5e4ffc0ce15c1b679e6b3790941b6b",
+        "contextSha256": "0b706589f936fe769341e2401c12b08a9c34cfd24e11d85c68f7bda5d6d5bf3f"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedFamily": "InterventionEvent",
+      "assumption": "Fictional independent owner source selection; no actual admission or production timing established."
+    },
+    {
+      "id": "spot-spray-validation-phase",
+      "proof": "fixtures/proofs/spot-spray-validation-phase.json",
+      "context": "fixtures/contexts/spot-spray-validation-phase.json",
+      "envelope": "fixtures/envelopes/spot-spray.json",
+      "request": "fixtures/requests/spot-spray.json",
+      "profile": "classification-profile.json",
+      "expectedProofBinding": {
+        "ref": "fixture:classification-proof:spot-spray-validation-phase",
+        "digest": "sha256:79f734f7ac03b2ed622698392eb62c48826ec872eb64aed76cc7a5ecb07fa517"
+      },
+      "trustedPins": {
+        "contractSha256": "ee79119ebf0b9a42ff790e9302d7b58afad478c74f9b484719007a3c0a162382",
+        "profileSha256": "1f53fe9da16b5917ba7afc3aaea00953be5e4ffc0ce15c1b679e6b3790941b6b",
+        "contextSha256": "96dc192d9e2420923ce3897c8933ad7c8b688d9c72b9afc49041aa98ba8a5d90"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedFamily": "InterventionEvent",
+      "assumption": "Fictional independent owner source selection; no actual admission or production timing established."
+    },
+    {
+      "id": "pruning-no-subtype",
+      "proof": "fixtures/proofs/pruning-no-subtype.json",
+      "context": "fixtures/contexts/pruning-no-subtype.json",
+      "envelope": "fixtures/envelopes/pruning-no-subtype.json",
+      "request": "fixtures/requests/pruning-no-subtype.json",
+      "profile": "classification-profile.json",
+      "expectedProofBinding": {
+        "ref": "fixture:classification-proof:pruning-no-subtype",
+        "digest": "sha256:f7f8040414a3802e618c0581141a7720861cbc85c3a09ba9df7fb7cc123bd3be"
+      },
+      "trustedPins": {
+        "contractSha256": "ee79119ebf0b9a42ff790e9302d7b58afad478c74f9b484719007a3c0a162382",
+        "profileSha256": "1f53fe9da16b5917ba7afc3aaea00953be5e4ffc0ce15c1b679e6b3790941b6b",
+        "contextSha256": "ad090f3b74b8cbcc87a46bcc261eee0c83f4ee2487f1fbb4bb2339e657d4d8e2"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedFamily": "InterventionEvent",
+      "assumption": "Fictional independent owner source selection; no actual admission or production timing established."
+    },
+    {
+      "id": "pruning-no-reuse",
+      "proof": "fixtures/proofs/pruning-no-reuse.json",
+      "context": "fixtures/contexts/pruning-no-reuse.json",
+      "envelope": "fixtures/envelopes/pruning.json",
+      "request": "fixtures/requests/pruning.json",
+      "profile": "classification-profile.json",
+      "expectedProofBinding": {
+        "ref": "fixture:classification-proof:pruning-no-reuse",
+        "digest": "sha256:eca19ff1dd2d0c2b9b9242cfd1792a53731f516d73e753ec2845a4b323b5bc09"
+      },
+      "trustedPins": {
+        "contractSha256": "ee79119ebf0b9a42ff790e9302d7b58afad478c74f9b484719007a3c0a162382",
+        "profileSha256": "1f53fe9da16b5917ba7afc3aaea00953be5e4ffc0ce15c1b679e6b3790941b6b",
+        "contextSha256": "82d83403dbb1985a89569ac7bca67069e55c452be2492026f540f5386109d5ab"
+      },
+      "expectedStatus": "CONDITIONAL_CONFORMANCE_PASS",
+      "expectedFamily": "InterventionEvent",
+      "assumption": "Fictional independent owner source selection; no actual admission or production timing established."
+    }
+  ]
+}

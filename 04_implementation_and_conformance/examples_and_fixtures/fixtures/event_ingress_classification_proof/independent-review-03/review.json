@@ -1,0 +1,108 @@
+{
+  "status": "PASS",
+  "checks": 18,
+  "passed": 18,
+  "findings": [],
+  "reviewedManifestSha256": "b0f1a3b9432d24c642fa9078ede1442a5f0b885372116f65e8f18101feee69e6",
+  "reviewedCheckerSha256": "61540612e7063fbe7ab179da9b2168a8f24c8092008fc94c8f8854efee7ac407",
+  "primaryTrustBoundary": "Event Ingress classification and evidence admission",
+  "scopeStayedInsideBoundary": true,
+  "scope": "Mechanical R3 source-root change and unchanged R2 semantics; not a new full original-owner conformance review.",
+  "results": [
+    {
+      "id": "sealed-members",
+      "pass": true,
+      "members": 2640
+    },
+    {
+      "id": "integration-file-pins",
+      "pass": true,
+      "files": 43
+    },
+    {
+      "id": "unchanged-semantic-source:event-grammar.md",
+      "pass": true
+    },
+    {
+      "id": "unchanged-semantic-source:event-ingress-rfc.md",
+      "pass": true
+    },
+    {
+      "id": "unchanged-semantic-source:platform.md",
+      "pass": true
+    },
+    {
+      "id": "unchanged-semantic-source:constitution.md",
+      "pass": true
+    },
+    {
+      "id": "only-code-pin-and-self-digest-contract-change",
+      "pass": true,
+      "changedKeys": [
+        "verificationCode",
+        "contractDigest"
+      ]
+    },
+    {
+      "id": "source-destinations-in-implementation-lane",
+      "pass": true
+    },
+    {
+      "id": "unchanged-function:strict",
+      "pass": true
+    },
+    {
+      "id": "unchanged-function:refs_are_local",
+      "pass": true
+    },
+    {
+      "id": "unchanged-function:_report_matches",
+      "pass": true
+    },
+    {
+      "id": "portable-default",
+      "pass": true,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "errorCodes": []
+    },
+    {
+      "id": "separate-source-root",
+      "pass": true,
+      "status": "CONDITIONAL_CONFORMANCE_PASS",
+      "errorCodes": []
+    },
+    {
+      "id": "missing-source-root",
+      "pass": true,
+      "status": "DEPENDENCY_UNAVAILABLE",
+      "errorCodes": [
+        "PACKAGE_UNAVAILABLE_OR_INVALID"
+      ]
+    },
+    {
+      "id": "changed-source-bytes",
+      "pass": true,
+      "status": "INPUT_ERROR",
+      "errorCodes": [
+        "SEMANTIC_SOURCE_PIN_MISMATCH"
+      ]
+    },
+    {
+      "id": "proof-cannot-select-source-root",
+      "pass": true,
+      "status": "FAIL",
+      "errorCodes": [
+        "SCHEMA_INVALID"
+      ]
+    },
+    {
+      "id": "not-added-to-default-validation-suite",
+      "pass": true,
+      "matchingLines": ""
+    },
+    {
+      "id": "manifest-still-exact",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "revision": "review-repair-01",
+  "finding": "P2: invalid RFC3339 numeric offsets can be normalized by datetime.fromisoformat and accepted.",
+  "primaryTrustBoundary": "Event Ingress classification and evidence admission",
+  "scopeStayedInsideBoundary": true,
+  "originalPacket": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/event-ingress-proof-20261021/owner-contract",
+  "originalSealSha256": "9c7d17b998dd826618d0ea978dac644ac56643b51c2c0d2d2e1f88bfc8351ac8",
+  "originalMembersVerified": 1054,
+  "reproduction": [
+    {
+      "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/event-ingress-proof-20261021/integration-review/offset-regression/context.json",
+      "copy": "review-evidence/original-reproduction/context.json",
+      "sha256": "28bd73555777895cc4989215ca0e41ef558b856cd4d79c23070f4b135a4cfc9d"
+    },
+    {
+      "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/event-ingress-proof-20261021/integration-review/offset-regression/envelope.json",
+      "copy": "review-evidence/original-reproduction/envelope.json",
+      "sha256": "bdbe24bfb7d602b65ef5b517c21b54f134b1539f12c35c428530d20f49971ac9"
+    },
+    {
+      "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/event-ingress-proof-20261021/integration-review/offset-regression/profile.json",
+      "copy": "review-evidence/original-reproduction/profile.json",
+      "sha256": "4b7f82f5e7cd0945cec6e928dd9afe356d8b94f4d1c1571503051d5aacb877ae"
+    },
+    {
+      "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/event-ingress-proof-20261021/integration-review/offset-regression/proof.json",
+      "copy": "review-evidence/original-reproduction/proof.json",
+      "sha256": "eeea48de8f9dc2d68a64e9c192cf13650341436c2574a171461d4b2ed953f50c"
+    },
+    {
+      "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/event-ingress-proof-20261021/integration-review/offset-regression/report.json",
+      "copy": "review-evidence/original-reproduction/report.json",
+      "sha256": "fa2fbde6a509f83300d12e403a100f76c15662474a55cc88583961dbe149ae9c"
+    },
+    {
+      "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/event-ingress-proof-20261021/integration-review/offset-regression/request.json",
+      "copy": "review-evidence/original-reproduction/request.json",
+      "sha256": "be50f234fc6042945598858230327c09fb1205e81232ed4f9f1ec8c9b3063f13"
+    },
+    {
+      "source": "/Users/einstein/Documents/Codex/OFARM2-implementation/plans/event-ingress-proof-20261021/integration-review/offset-regression/selection.json",
+      "copy": "review-evidence/original-reproduction/selection.json",
+      "sha256": "058579bf235fea477c511b4443381f42c29becef655ab809cda42629f3c73363"
+    }
+  ],
+  "repair": "Constrain numeric offset hours to 00\u201323 and minutes to 00\u201359 before datetime.fromisoformat, for all source date-time paths.",
+  "validation": "Add six valid offsets and eight invalid offsets on request ingestedAt and all seven envelope timeSemantics fields, with independently selected and recomputed exact input bindings. Existing leap-second limitation is unchanged.",
+  "integrationPolicy": "Full replacement integration map; no in-place edits to sealed original. All affected code, contract, profile and fixture pins are regenerated.",
+  "conformanceChecksPassed": 316,
+  "conformanceChecksTotal": 316,
+  "addedOffsetCases": 112,
+  "conformanceReportSha256": "3cec1fc8c73e1f0c6d76f7a242b2001ce7555f04dc54a1e82b83194b794659ff",
+  "originalIntegrationMapSha256": "51c84fa198f3bcf5cc67d5de49f3322cfbd520821d67c1dab01fcae08ee237e3"
+}

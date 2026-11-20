@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "ofarm.eventClassificationVerificationReport.v0.1",
+  "status": "FAIL",
+  "contractId": "ofarm.event-ingress.pre-verdict-classification.v0.1",
+  "verificationMode": "OFFLINE_CANDIDATE_CONFORMANCE",
+  "runtimeAdmission": "NOT_ESTABLISHED",
+  "useMode": "INITIAL_EVALUATION",
+  "proofBinding": null,
+  "inputDigests": {
+    "proof": "sha256:6a2b634713398aa2df3255f73c573823419755ad1b671f87be62a58c668874ea",
+    "envelope": "sha256:c841f61f6b4ba5c6d641ddd770dbd5458185e98a9e83fa0714cdfb1fc08269ec",
+    "request": "sha256:7619ce325865c90289678a2dcd9d9dbff6a73421778df5a83bd53589c4e4ff34",
+    "context": "sha256:50ef94a4bc0517a5b9bb8d4681c3961472ad666959c728d9b61ce70f3f088be5",
+    "profile": "sha256:d835fac4497da6b3efde05291081f1d225f2f7a30fe74349d184b60e63f3c9f5"
+  },
+  "rawInputSha256": {
+    "proof": "927ffc95ae1f43776f5ab189beea39ca7425908e3a1e738e4bb6d6ad21fec1d9",
+    "envelope": "bdbe24bfb7d602b65ef5b517c21b54f134b1539f12c35c428530d20f49971ac9",
+    "request": "e0d62ec92b25c6ece1e2f9eb4b1a1d6d8cc106a029edb3cd544eab0b8af1c3ad",
+    "context": "cc83b5dbf82edf3b831ea92fce03752ae52d8cd6d8b88a2693f8e74765678497",
+    "profile": "a51fe44dc594d184407f16e4b8ff17d06ad1b11a1f1378a84ae4fa8ccbf2468a"
+  },
+  "checkedRules": [
+    "PACKAGE_PINS",
+    "STRICT_JSON",
+    "INDEPENDENT_CONTEXT_PIN",
+    "INDEPENDENT_PROFILE_PIN",
+    "EXACT_SCHEMA_CLOSURE"
+  ],
+  "errors": [
+    {
+      "code": "SCHEMA_INVALID",
+      "document": "proof",
+      "pointer": "",
+      "detail": "Additional properties are not allowed ('source_root' was unexpected)"
+    }
+  ],
+  "classification": null,
+  "qualifications": [
+    "Only conditional offline conformance is established. Trusted pins and immutable proof selection are independent caller configuration, not fields authenticated by this proof.",
+    "Profile cases classify exact described consequence/subtype combinations. No general natural-language classifier, event occurrence, acceptance or authorization is established.",
+    "Availability is checked against the independently selected owner context and closed input order. Actual producer execution, clock trust, owner identity and runtime admission are not established.",
+    "The proof never requires a dependent verdict, its trace, a final assertion effect or this attempt receipt. Exact reevaluation does not authorize commit/result replay."
+  ]
+}

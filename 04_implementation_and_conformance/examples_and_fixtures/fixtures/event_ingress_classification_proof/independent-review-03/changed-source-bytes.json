@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "ofarm.eventClassificationVerificationReport.v0.1",
+  "status": "INPUT_ERROR",
+  "contractId": "ofarm.event-ingress.pre-verdict-classification.v0.1",
+  "verificationMode": "OFFLINE_CANDIDATE_CONFORMANCE",
+  "runtimeAdmission": "NOT_ESTABLISHED",
+  "useMode": "INITIAL_EVALUATION",
+  "proofBinding": null,
+  "inputDigests": {
+    "proof": null,
+    "envelope": null,
+    "request": null,
+    "context": null,
+    "profile": null
+  },
+  "rawInputSha256": {
+    "proof": "daf64b999c116d6bf9c8f4dcce8c20913b8c033ddcf81b63efc8f5eabf465dc8",
+    "envelope": "bdbe24bfb7d602b65ef5b517c21b54f134b1539f12c35c428530d20f49971ac9",
+    "request": "e0d62ec92b25c6ece1e2f9eb4b1a1d6d8cc106a029edb3cd544eab0b8af1c3ad",
+    "context": "cc83b5dbf82edf3b831ea92fce03752ae52d8cd6d8b88a2693f8e74765678497",
+    "profile": "a51fe44dc594d184407f16e4b8ff17d06ad1b11a1f1378a84ae4fa8ccbf2468a"
+  },
+  "checkedRules": [],
+  "errors": [
+    {
+      "code": "SEMANTIC_SOURCE_PIN_MISMATCH",
+      "document": "contract",
+      "pointer": ""
+    }
+  ],
+  "classification": null,
+  "qualifications": [
+    "Only conditional offline conformance is established. Trusted pins and immutable proof selection are independent caller configuration, not fields authenticated by this proof.",
+    "Profile cases classify exact described consequence/subtype combinations. No general natural-language classifier, event occurrence, acceptance or authorization is established.",
+    "Availability is checked against the independently selected owner context and closed input order. Actual producer execution, clock trust, owner identity and runtime admission are not established.",
+    "The proof never requires a dependent verdict, its trace, a final assertion effect or this attempt receipt. Exact reevaluation does not authorize commit/result replay."
+  ]
+}
